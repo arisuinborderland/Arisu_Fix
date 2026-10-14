@@ -60,6 +60,12 @@ main{max-width:1000px;padding:40px 20px 64px}
 .proof-album-open:focus-visible{outline:3px solid rgba(49,95,225,.28);outline-offset:3px}
 @media(max-width:600px){.proof-album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.proof-album-cover{aspect-ratio:4/3}.proof-album-copy{padding:11px}.proof-album-copy h2{font-size:15px;margin:6px 0}.proof-album-copy p{min-height:0;margin-bottom:10px;font-size:11px;line-height:1.45}.proof-album-eyebrow{font-size:8px;letter-spacing:1px}.proof-album-open{min-height:38px;font-size:11px}.proof-album-count{right:7px;bottom:7px;padding:5px 8px;font-size:10px}}
 
+
+/* More visible Back to site button on the Recovery Proofs page */
+.topbar > a.button.secondary{background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;border:1px solid #315fe1;border-radius:13px;min-height:48px;padding:13px 20px;font-size:14px;font-weight:800;box-shadow:0 7px 18px rgba(49,95,225,.22);white-space:nowrap;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.topbar > a.button.secondary:hover{background:linear-gradient(120deg,#2854d3,#466ced);border-color:#2854d3;box-shadow:0 9px 22px rgba(49,95,225,.28);transform:translateY(-1px)}
+.topbar > a.button.secondary:focus-visible{outline:3px solid rgba(49,95,225,.3);outline-offset:3px}
+@media(max-width:600px){.topbar > a.button.secondary{min-height:44px;padding:10px 13px;font-size:12px;border-radius:11px}}
 </style></head>
 <body>
 <header class="topbar"><a class="brand" href="index.html"><span class="logo profile-logo"><img src="arisu-profile.png" alt="Arisu profile picture"></span><span><b>Arisu</b><small>Recovery Contact</small></span></a><a href="index.html" class="button secondary">← Back to site</a></header>
