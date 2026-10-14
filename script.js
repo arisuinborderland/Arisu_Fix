@@ -71,7 +71,7 @@ const recoveryProofs = [
   }
 ];
 
-const PROOFS_PER_PAGE = 6;
+const PROOFS_PER_PAGE = 6; // gallery back-button layout v24
 let activeProofCategory = "all";
 let activeProofPage = 1;
 let proofSearchTerm = "";
@@ -118,7 +118,10 @@ function renderRecoveryProofs() {
     });
     const browser = document.querySelector(".proof-browser");
     const resultsLine = document.getElementById("proofResultsText")?.closest(".proof-results-line");
-    if (browser && resultsLine) browser.insertBefore(albumBackButton, resultsLine);
+    if (browser) {
+      if (resultsLine) browser.insertBefore(albumBackButton, resultsLine);
+      else browser.prepend(albumBackButton);
+    }
   }
   albumBackButton.hidden = showAlbumOverview || Boolean(normalizedSearch);
   if (showAlbumOverview) {
@@ -284,7 +287,25 @@ function renderRecoveryProofs() {
       date.textContent = proof.date;
       copy.appendChild(date);
     }
-    card.append(copy, imageFrame);
+    const backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.className = "proof-album-back proof-album-back-inline";
+    backButton.textContent = "← Back to albums";
+    backButton.addEventListener("click", () => {
+      activeProofCategory = "all";
+      activeProofPage = 1;
+      proofSearchTerm = "";
+      const searchInput = document.getElementById("proofSearch");
+      if (searchInput) searchInput.value = "";
+      document.querySelectorAll("[data-proof-filter]").forEach((other) => {
+        const active = other.dataset.proofFilter === "all";
+        other.classList.toggle("is-active", active);
+        other.setAttribute("aria-pressed", String(active));
+      });
+      renderRecoveryProofs();
+      document.querySelector(".proof-browser")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    card.append(copy, imageFrame, backButton);
     gallery.appendChild(card);
   });
 
