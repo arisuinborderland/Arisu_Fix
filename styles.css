@@ -846,3 +846,43 @@ main{padding-top:0}
 /* Consistent icons in all three header buttons */
 .header-meta .header-icon{width:18px;height:18px;flex:0 0 18px;display:inline-block;}
 @media(max-width:600px){.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
+
+
+/* Version 44: brand left, header buttons in a horizontal row on the right */
+@media (min-width: 1px) {
+  body .topbar {
+    display:flex !important; flex-direction:row !important; flex-wrap:nowrap !important;
+    justify-content:space-between !important; align-items:center !important;
+    gap:12px !important; padding:10px clamp(10px, 2.2vw, 24px) !important;
+    min-height:76px !important; height:auto !important;
+  }
+  body .topbar > .brand {
+    flex:0 1 auto !important; width:auto !important; min-width:0 !important;
+    margin:0 auto 0 0 !important; justify-content:flex-start !important;
+    gap:10px !important; white-space:nowrap !important;
+  }
+  body .topbar > .brand .logo { width:48px !important; height:48px !important; flex:0 0 48px !important; }
+  body .topbar > .brand b { font-size:19px !important; }
+  body .topbar > .brand small { font-size:12px !important; margin-top:3px !important; }
+  body .topbar > .header-meta {
+    display:flex !important; flex:0 0 auto !important; width:auto !important;
+    flex-direction:row !important; flex-wrap:nowrap !important; justify-content:flex-end !important;
+    align-items:center !important; gap:7px !important; min-width:0 !important;
+  }
+  body .topbar > .header-meta > a {
+    display:inline-flex !important; flex:0 0 auto !important; grid-column:auto !important;
+    min-height:42px !important; padding:0 10px !important; gap:5px !important;
+    font-size:11px !important; border-radius:11px !important; white-space:nowrap !important;
+  }
+  body .topbar .header-icon { width:15px !important; height:15px !important; flex:0 0 15px !important; }
+}
+@media (max-width: 560px) {
+  body .topbar { gap:5px !important; padding:8px 6px !important; min-height:64px !important; }
+  body .topbar > .brand { gap:5px !important; }
+  body .topbar > .brand .logo { width:31px !important; height:31px !important; flex-basis:31px !important; border-radius:9px !important; }
+  body .topbar > .brand b { font-size:12px !important; letter-spacing:-.2px !important; }
+  body .topbar > .brand small { font-size:8px !important; margin-top:2px !important; }
+  body .topbar > .header-meta { gap:3px !important; }
+  body .topbar > .header-meta > a { min-height:35px !important; padding:0 5px !important; gap:3px !important; font-size:8px !important; border-radius:8px !important; }
+  body .topbar .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
+}
