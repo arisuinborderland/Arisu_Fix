@@ -793,3 +793,24 @@ main{padding-top:0}
 @media (max-width: 420px) {
   .how-section .step-card p { font-size: 14.5px !important; line-height: 1.55 !important; }
 }
+
+
+/* Version 37: improve readability of About This Website and account-safety text */
+.about-card .section-kicker { font-size: 12px; line-height: 1.4; letter-spacing: 1.5px; }
+.about-card h2 { font-size: clamp(25px, 3.8vw, 32px); line-height: 1.25; }
+.about-card p { font-size: 16px; line-height: 1.75; }
+.about-card .independent-note { font-size: 15.5px; line-height: 1.7; padding: 13px 14px; }
+.safety-panel p { font-size: 16px; line-height: 1.75; }
+.safety-panel p:last-child { font-weight: 800; font-size: 17px; color: #234fc5; margin-top: 2px; }
+@media (max-width: 760px) {
+ .about-card .section-kicker { font-size: 12px !important; }
+ .about-card h2 { font-size: 23px !important; }
+ .about-card p, .about-card .independent-note { font-size: 15px !important; line-height: 1.7 !important; }
+ .safety-panel p { font-size: 15.5px !important; line-height: 1.7 !important; }
+ .safety-panel p:last-child { font-size: 16.5px !important; }
+}
+@media (max-width: 420px) {
+ .about-card p, .about-card .independent-note { font-size: 14.5px !important; line-height: 1.65 !important; }
+ .safety-panel p { font-size: 14.5px !important; line-height: 1.65 !important; }
+ .safety-panel p:last-child { font-size: 16px !important; }
+}
