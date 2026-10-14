@@ -1,0 +1,1 @@
+Recovery proof images folder.
