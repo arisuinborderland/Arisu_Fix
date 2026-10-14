@@ -559,3 +559,77 @@ main{padding-top:0}
   /* Keep the main headline readable because the page background remains light. */
   .compact-intro h1 { color: #192437 !important; -webkit-text-fill-color: #192437; }
 }
+
+
+/* Compact title-to-description spacing across content cards */
+.step-card h3,
+.transparency-card h3,
+.tiktok-showcase h3,
+.facebook-showcase h3,
+.proof-card h3,
+.about-card h2,
+.terms-card h2,
+.safety-panel h2 {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(133, 148, 173, 0.28);
+}
+.step-card,
+.transparency-card,
+.proof-card-copy,
+.about-card,
+.terms-card,
+.safety-panel {
+  row-gap: 10px;
+}
+.step-card h3,
+.transparency-card h3,
+.tiktok-showcase h3,
+.facebook-showcase h3,
+.proof-card h3 {
+  margin-top: 0;
+}
+@media (max-width: 760px) {
+  .step-card { padding-top: 15px; padding-bottom: 15px; }
+  .step-card h3 { margin-top: 0; margin-bottom: 7px; padding-bottom: 7px; }
+  .step-card p { line-height: 1.7; }
+  .transparency-card { padding-top: 16px; padding-bottom: 16px; }
+  .proof-card-copy { padding: 12px 14px 14px; }
+  .about-card, .terms-card, .safety-panel { padding-top: 17px; padding-bottom: 17px; }
+}
+
+
+/* Final compact layout: only two process steps remain. */
+.steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.step-card { min-height: 0; padding: 16px 17px; }
+.step-card h3 { margin-top: 0; margin-bottom: 5px; padding-bottom: 5px; line-height: 1.3; }
+.step-card p { margin-top: 0; line-height: 1.65; }
+@media (max-width: 760px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 9px; }
+  .step-card { padding: 14px 15px; }
+  .step-card h3 { margin-bottom: 4px; padding-bottom: 4px; }
+  .step-card p { line-height: 1.6; }
+}
+
+
+/* Version 2: clearer account-safety heading and tighter spacing. */
+.safety-reminder {
+  display: block;
+  color: #52627a;
+  font: 700 12px/1.25 'DM Sans', sans-serif;
+  margin: 0 0 3px;
+}
+.safety-panel .safety-kicker {
+  display: block;
+  color: #214bb8;
+  font: 900 15px/1.3 Manrope, sans-serif;
+  letter-spacing: 1px;
+  margin: 0 0 3px;
+}
+.safety-panel h2 {
+  margin-top: 4px;
+}
+@media (max-width: 600px) {
+  .safety-panel .safety-kicker { font-size: 14px; letter-spacing: .7px; }
+  .safety-reminder { font-size: 11px; }
+}
