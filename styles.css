@@ -796,3 +796,12 @@ main{padding-top:0}
   .about-card { padding: 13px 11px !important; }
   .terms-card { padding: 14px 12px !important; }
 }
+
+
+/* Version 33: improve readability of the three process descriptions */
+@media (max-width: 760px) {
+  .how-section .step-card p { font-size: 14px !important; line-height: 1.6 !important; }
+}
+@media (max-width: 420px) {
+  .how-section .step-card p { font-size: 13.5px !important; line-height: 1.55 !important; }
+}
