@@ -830,3 +830,19 @@ main{padding-top:0}
  .footer-brand small{font-size:13px !important}
  .footer-note{font-size:14px !important;line-height:1.7 !important}
 }
+
+
+/* Version 42: add a distinct Free Web Tools link to the top navigation */
+.header-meta .webtools-header-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:54px;padding:0 20px;border:1px solid #0f766e;border-radius:16px;background:linear-gradient(135deg,#0f766e 0%,#159b8c 100%);color:#fff;text-decoration:none;font-size:15px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px rgba(15,118,110,.18);transition:transform .16s,filter .16s,box-shadow .16s}
+.header-meta .webtools-header-link:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 7px 17px rgba(15,118,110,.22)}
+.header-meta .webtools-header-link:focus-visible{outline:3px solid #72d9cd;outline-offset:3px}
+@media(max-width:600px){
+ .header-meta{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;width:100%;}
+ .header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{min-height:42px;padding:0 8px;font-size:11px;border-radius:11px;gap:5px;}
+ .header-meta .webtools-header-link{grid-column:1 / -1;min-height:40px;}
+}
+@media(max-width:380px){.header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{font-size:10px;padding:0 6px;gap:4px}}
+
+/* Consistent icons in all three header buttons */
+.header-meta .header-icon{width:18px;height:18px;flex:0 0 18px;display:inline-block;}
+@media(max-width:600px){.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
