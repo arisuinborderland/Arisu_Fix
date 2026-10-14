@@ -963,3 +963,81 @@ main{padding-top:0}
  .header-meta .proofs-header-link,.header-meta .webtools-header-link{font-size:10px;padding:0 5px;gap:4px}
  .header-meta .header-icon{width:15px;height:15px}
 }
+
+
+/* Version 49: Privacy Policy on the left under the brand; two equal-width shortcuts side-by-side below. */
+@media (max-width: 600px) {
+  body .topbar {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 12px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 12px 14px 14px !important;
+  }
+  body .topbar > .brand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  body .topbar > .header-meta {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: auto auto !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    gap: 9px 10px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+  }
+  body .topbar > .header-meta > .privacy-link {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 40px !important;
+    padding: 0 12px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  body .topbar > .header-meta > .proofs-header-link {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    padding: 0 8px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+  }
+  body .topbar > .header-meta > .webtools-header-link {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    padding: 0 8px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+  }
+  body .topbar .header-icon {
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
+  }
+}
+@media (max-width: 380px) {
+  body .topbar > .header-meta { gap: 8px 7px !important; }
+  body .topbar > .header-meta > .proofs-header-link,
+  body .topbar > .header-meta > .webtools-header-link { font-size: 10px !important; padding: 0 5px !important; gap: 4px !important; }
+  body .topbar > .header-meta > .privacy-link { font-size: 10px !important; }
+  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex-basis: 14px !important; }
+}
