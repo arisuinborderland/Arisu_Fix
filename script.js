@@ -98,6 +98,29 @@ function renderRecoveryProofs() {
 
   // Album landing view: keep the page compact as more proof images are added.
   const showAlbumOverview = activeProofCategory === "all" && !normalizedSearch;
+  let albumBackButton = document.getElementById("proofAlbumBack");
+  if (!albumBackButton) {
+    albumBackButton = document.createElement("button");
+    albumBackButton.id = "proofAlbumBack";
+    albumBackButton.type = "button";
+    albumBackButton.className = "proof-album-back";
+    albumBackButton.textContent = "← Back to albums";
+    albumBackButton.addEventListener("click", () => {
+      activeProofCategory = "all";
+      activeProofPage = 1;
+      document.querySelectorAll("[data-proof-filter]").forEach((other) => {
+        const active = other.dataset.proofFilter === "all";
+        other.classList.toggle("is-active", active);
+        other.setAttribute("aria-pressed", String(active));
+      });
+      renderRecoveryProofs();
+      document.querySelector(".proof-browser")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    const browser = document.querySelector(".proof-browser");
+    const resultsLine = document.getElementById("proofResultsText")?.closest(".proof-results-line");
+    if (browser && resultsLine) browser.insertBefore(albumBackButton, resultsLine);
+  }
+  albumBackButton.hidden = showAlbumOverview || Boolean(normalizedSearch);
   if (showAlbumOverview) {
     gallery.classList.remove("is-single", "is-two");
     gallery.classList.add("proof-album-grid");

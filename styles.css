@@ -634,3 +634,9 @@ main{padding-top:0}
   .safety-panel .safety-kicker { font-size: 14px; letter-spacing: .7px; }
   .safety-reminder { font-size: 11px; }
 }
+
+/* Back-to-albums control shown while browsing an individual proof album */
+.proof-album-back{display:block;margin:0 0 14px;padding:10px 15px;border:1px solid #dce3ef;border-radius:12px;background:#fff;color:#344054;font:700 14px/1.2 inherit;cursor:pointer;box-shadow:0 2px 7px rgba(20,35,65,.04)}
+.proof-album-back:hover{border-color:#9db5f8;background:#f7f9ff}
+.proof-album-back:focus-visible{outline:3px solid rgba(49,95,225,.25);outline-offset:2px}
+.proof-album-back[hidden]{display:none}
