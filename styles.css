@@ -814,3 +814,19 @@ main{padding-top:0}
  .safety-panel p { font-size: 14.5px !important; line-height: 1.65 !important; }
  .safety-panel p:last-child { font-size: 16px !important; }
 }
+
+/* Version 39: improve readability of Terms and footer text */
+.terms-card .section-kicker{font-size:14px !important;line-height:1.5 !important;letter-spacing:1.7px !important;font-weight:800 !important}
+.terms-card h2{font-size:clamp(24px,3vw,29px) !important;line-height:1.25 !important;margin:8px 0 10px !important}
+.terms-card p{font-size:clamp(16px,2vw,18px) !important;line-height:1.75 !important}
+.footer-brand b{font-size:18px !important;line-height:1.35 !important}
+.footer-brand small{font-size:14px !important;line-height:1.5 !important}
+.footer-note{font-size:15px !important;line-height:1.75 !important}
+@media(max-width:600px){
+ .terms-card .section-kicker{font-size:13px !important}
+ .terms-card h2{font-size:24px !important}
+ .terms-card p{font-size:16px !important;line-height:1.75 !important}
+ .footer-brand b{font-size:17px !important}
+ .footer-brand small{font-size:13px !important}
+ .footer-note{font-size:14px !important;line-height:1.7 !important}
+}
