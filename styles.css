@@ -641,6 +641,13 @@ main{padding-top:0}
 .proof-album-back:focus-visible{outline:3px solid rgba(49,95,225,.25);outline-offset:2px}
 .proof-album-back[hidden]{display:none}
 
+/* Version 29: enforce a clear mobile proof order: status, proof image, then Back to albums. */
+.proof-card{display:flex;flex-direction:column}
+.proof-card .proof-card-copy{order:1}
+.proof-card .proof-image-link{order:2}
+.proof-card .proof-album-back-inline{order:3;position:relative;z-index:1}
+@media(max-width:600px){.proof-card .proof-album-back-inline{min-height:48px;margin:12px auto 16px;font-size:14px}}
+
 /* Version 24: album back button directly beneath the proof image */
 .proof-album-back-inline{display:block;width:calc(100% - 24px);min-height:43px;margin:12px auto 14px;padding:10px 16px;border:1px solid #315fe1;border-radius:12px;background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(49,95,225,.18)}
 .proof-album-back-inline:hover{filter:brightness(1.04)}

@@ -71,7 +71,7 @@ const recoveryProofs = [
   }
 ];
 
-const PROOFS_PER_PAGE = 6; // gallery back-button layout v24
+const PROOFS_PER_PAGE = 6; // Version 29: mobile back button follows the proof image
 let activeProofCategory = "all";
 let activeProofPage = 1;
 let proofSearchTerm = "";
