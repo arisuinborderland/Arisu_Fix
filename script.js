@@ -38,7 +38,6 @@ if (facebookCard) {
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-
 // Keep the FAQ tidy on mobile: opening one answer closes the others.
 const faqItems = Array.from(document.querySelectorAll(".faq-list details"));
 faqItems.forEach((item) => {
@@ -50,7 +49,6 @@ faqItems.forEach((item) => {
 
 // Give keyboard users a visible focus state and prevent accidental duplicate setup.
 document.documentElement.classList.add("js-ready");
-
 
 // Recovery proof gallery. Add only real examples that you have permission to publish.
 // Use category: "suspended" or category: "disabled" for each item.
@@ -335,7 +333,6 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   media.addEventListener("contextmenu", (event) => event.preventDefault());
   media.addEventListener("dragstart", (event) => event.preventDefault());
 });
-
 
 // Daily Bible Verse: calculated locally from the calendar date; no API, account, or tracking required.
 (function setupDailyBibleVerse() {

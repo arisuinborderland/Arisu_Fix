@@ -109,7 +109,6 @@ main{padding-top:18px}
   .safety-note{margin-top:12px}
 }
 
-
 /* Compact hero: keeps the requested headline without pushing contact options too far down */
 .compact-intro{text-align:center;max-width:700px;margin:0 auto 16px;padding:0 6px}
 .compact-intro .eyebrow{font-size:10px;letter-spacing:1.25px;font-weight:800;color:var(--blue);display:inline-flex;align-items:center;gap:8px}
@@ -129,7 +128,6 @@ main{padding-top:18px}
 /* Privacy Policy link: improve visibility and tap target on mobile */
 footer .privacy-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;color:var(--blue);font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;position:relative;z-index:2;cursor:pointer;pointer-events:auto}footer .privacy-link:hover,footer .privacy-link:focus-visible{background:var(--pale);color:var(--blue-dark);outline:2px solid #b9caff;outline-offset:2px}
 
-
 /* Header layout update: Privacy Policy and copyright beside the brand; no bottom footer */
 .topbar{min-height:96px;height:auto;padding:18px max(22px,calc((100% - 1080px)/2));gap:24px}
 .topbar .logo{width:66px;height:66px;border-radius:18px}
@@ -142,7 +140,6 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .copyright{font-size:15px;color:#7d899c;white-space:nowrap}
 @media(max-width:600px){.topbar{min-height:74px;height:auto;padding:10px 12px;gap:8px}.topbar .logo{width:43px;height:43px;border-radius:12px}.topbar .brand{gap:8px;min-width:0}.topbar .brand b{font-size:16px}.topbar .brand small{font-size:10px;margin-top:3px}.header-meta{gap:8px}.header-meta .privacy-link{min-height:38px;padding:0 10px;border-radius:10px;font-size:10px;white-space:nowrap}.copyright{font-size:9px;white-space:nowrap}}
 @media(max-width:380px){.topbar{padding-left:9px;padding-right:9px}.topbar .brand{gap:6px}.topbar .logo{width:37px;height:37px}.topbar .brand b{font-size:14px}.topbar .brand small{font-size:9px}.header-meta{gap:6px}.header-meta .privacy-link{padding:0 7px;font-size:9px}.copyright{font-size:8px}}
-
 
 /* Enhanced TikTok showcase: clear profile destination, no fabricated video previews */
 .tiktok-showcase{margin-top:13px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f8faff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
@@ -162,7 +159,6 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .tiktok-content-tags span{display:inline-flex;align-items:center;padding:5px 9px;border:1px solid #e1e6ef;border-radius:20px;background:#fff;color:#68758a;font-size:10px;font-weight:700}
 .tiktok-notice{margin-top:11px}
 @media(max-width:600px){.tiktok-showcase{padding:14px;margin-top:11px;border-radius:13px}.tiktok-brand-icon{width:44px;height:44px;flex-basis:44px}.tiktok-showcase h3{font-size:16px}.tiktok-showcase-desc{font-size:11px;margin:11px 0}.tiktok-profile-button{min-height:45px}.tiktok-content-tags span{font-size:9px}}
-
 
 /* Facebook page card: placed directly below TikTok */
 .facebook-showcase{margin-top:12px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f6f9ff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
@@ -342,7 +338,6 @@ main{padding-top:36px}
 }
 @media(hover:none){.tiktok-showcase:hover,.facebook-showcase:hover,.step-card:hover{transform:none}}
 
-
 /* Recovery proof gallery */
 .proof-section{position:relative}
 .proof-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
@@ -367,7 +362,6 @@ main{padding-top:36px}
 @media(max-width:460px){.proof-gallery{grid-template-columns:1fr}.proof-image-link{aspect-ratio:16/10}.proof-empty{padding:24px 16px}.proof-privacy-note{font-size:12px}}
 @media(hover:none){.proof-card:hover{transform:none;box-shadow:0 8px 24px rgba(26,48,86,.055)}}
 
-
 /* Header shortcut to the Recovery Proofs gallery */
 .header-meta{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .header-meta .proofs-header-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 13px;border:1px solid #d8e2fb;border-radius:12px;background:linear-gradient(135deg,#f4f7ff 0%,#fff 100%);color:#315eea;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap;box-shadow:0 2px 7px rgba(49,94,234,.06);transition:background .18s,border-color .18s,transform .18s}
@@ -375,7 +369,6 @@ main{padding-top:36px}
 .header-meta .proofs-header-link:focus-visible,.header-meta .privacy-link:focus-visible{outline:3px solid #9bb5ff;outline-offset:2px}
 @media(max-width:600px){.header-meta{gap:6px}.header-meta .proofs-header-link{min-height:38px;padding:0 9px;font-size:10px;border-radius:10px}.header-meta .privacy-link{min-height:38px;padding:0 9px;font-size:10px}}
 @media(max-width:380px){.header-meta{gap:4px}.header-meta .proofs-header-link{padding:0 6px;font-size:9px;gap:3px}.header-meta .privacy-link{padding:0 6px;font-size:9px}.copyright{display:none}}
-
 
 /* Header refinement: distinct, visible action buttons; copyright removed from header */
 .header-meta{gap:12px}
@@ -398,18 +391,15 @@ main{padding-top:36px}
  .header-meta .proofs-header-link,.header-meta .privacy-link{padding:0 10px;font-size:11px;min-height:41px}
 }
 
-
 /* Proof image display: show the entire uploaded screenshot without cropping. */
 .proof-image-protected{position:relative;aspect-ratio:auto;overflow:hidden;background:#edf2fa;user-select:none;-webkit-user-select:none}
 .proof-image-protected img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;pointer-events:none;user-select:none;-webkit-user-drag:none}
 .proof-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;color:rgba(255,255,255,.78);font-size:clamp(10px,1.8vw,17px);font-weight:900;letter-spacing:.12em;text-align:center;text-shadow:0 2px 5px rgba(0,0,0,.78);transform:rotate(-22deg);pointer-events:none;user-select:none;-webkit-user-select:none}
 
-
 /* Case metadata sits above the proof image for clearer context. */
 .proof-card-copy{padding:16px 16px 13px}
 .proof-card-violation{margin:0 0 7px!important;color:#40557b!important;font-weight:750}
 .proof-card .proof-image-link{border-top:1px solid #e8edf6}
-
 
 /* Premium case-status rows with inline SVG icons (HTML UI, not baked into proof image). */
 .proof-card-copy{padding:15px 15px 13px}
@@ -430,7 +420,6 @@ main{padding-top:36px}
 @media(max-width:460px){.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
 
 .whatsapp-fallback{margin:10px 0 0;text-align:center;font-size:11px;line-height:1.6;color:var(--muted)}.whatsapp-fallback a{color:var(--blue);font-weight:700;text-underline-offset:3px}
-
 
 /* Compact Daily Bible Verse strip placed directly under the header */
 .daily-verse-card{position:relative;max-width:900px;margin:14px auto 8px;padding:13px 16px 12px;overflow:hidden;text-align:center;background:linear-gradient(145deg,#fff 0%,#f8faff 100%);border:1px solid #dfe7f7;border-radius:16px;box-shadow:var(--soft-shadow,0 8px 24px rgba(30,52,95,.045))}
@@ -503,7 +492,6 @@ main{padding-top:0}
   .site-section{margin-top:28px}
 }
 
-
 /* Adaptive Daily Bible Verse card: match the user's system/browser theme. */
 @media (prefers-color-scheme: light) {
   .daily-verse-card {
@@ -550,7 +538,6 @@ main{padding-top:0}
   .daily-verse-footnote { color: #c2ccdd; }
 }
 
-
 /* Stronger contrast for the main headline accent, distinct from the Bible verse card. */
 @media (prefers-color-scheme: light) {
   .compact-intro h1 em { color: #dc2626; }
@@ -560,7 +547,6 @@ main{padding-top:0}
   /* Keep the main headline readable because the page background remains light. */
   .compact-intro h1 { color: #192437 !important; -webkit-text-fill-color: #192437; }
 }
-
 
 /* Compact title-to-description spacing across content cards */
 .step-card h3,
@@ -599,7 +585,6 @@ main{padding-top:0}
   .about-card, .terms-card, .safety-panel { padding-top: 17px; padding-bottom: 17px; }
 }
 
-
 /* Final compact layout: only two process steps remain. */
 .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .step-card { min-height: 0; padding: 16px 17px; }
@@ -611,7 +596,6 @@ main{padding-top:0}
   .step-card h3 { margin-bottom: 4px; padding-bottom: 4px; }
   .step-card p { line-height: 1.6; }
 }
-
 
 /* Version 2: clearer account-safety heading and tighter spacing. */
 .safety-reminder {
@@ -653,7 +637,6 @@ main{padding-top:0}
 .proof-album-back-inline:hover{filter:brightness(1.04)}
 .proof-album-back-inline:focus-visible{outline:3px solid rgba(49,95,225,.28);outline-offset:3px}
 
-
 /* Dedicated Recovery Proofs shortcut below the Facebook Page card */
 .recovery-proofs-showcase{display:block;position:relative;overflow:hidden;margin-top:13px;padding:18px;border:1px solid #d8e2ff;border-radius:18px;background:linear-gradient(135deg,#f7f9ff 0%,#edf2ff 55%,#fff 100%);box-shadow:0 8px 22px rgba(49,94,234,.08);color:inherit;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .recovery-proofs-showcase:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#315eea,#7c9cff,#315eea)}
@@ -670,7 +653,6 @@ main{padding-top:0}
 .recovery-proofs-button{min-height:49px;display:flex;align-items:center;justify-content:center;gap:9px;padding:11px 14px;border-radius:12px;background:linear-gradient(100deg,#315eea,#4e72f0);color:#fff;font-size:13px;font-weight:800;box-shadow:0 7px 15px rgba(49,94,234,.18);transition:transform .15s,box-shadow .15s}
 .recovery-proofs-button:hover{box-shadow:0 9px 18px rgba(49,94,234,.24)}
 @media(max-width:600px){.recovery-proofs-showcase{padding:15px;margin-top:11px;border-radius:15px}.recovery-proofs-icon{width:44px;height:44px;flex-basis:44px}.recovery-proofs-showcase h3{font-size:16px}.recovery-proofs-desc{font-size:12px;margin:11px 0}.recovery-proofs-button{min-height:47px;font-size:12px}}
-
 
 /* Version 31: bring the process section closer to Recovery Proofs and reduce mobile vertical waste. */
 @media (max-width: 600px) {
@@ -756,7 +738,6 @@ main{padding-top:0}
   }
 }
 
-
 /* Version 32: compact Remember, FAQ, About, Terms and footer spacing on mobile */
 @media (max-width: 600px) {
   .site-section.safety-section { margin-top: 12px !important; }
@@ -797,7 +778,6 @@ main{padding-top:0}
   .terms-card { padding: 14px 12px !important; }
 }
 
-
 /* Version 33: improve readability of the three process descriptions */
 @media (max-width: 760px) {
   .how-section .step-card p { font-size: 14px !important; line-height: 1.6 !important; }
@@ -805,7 +785,6 @@ main{padding-top:0}
 @media (max-width: 420px) {
   .how-section .step-card p { font-size: 13.5px !important; line-height: 1.55 !important; }
 }
-
 
 /* Version 34: make the three process descriptions below their headings easier to read. */
 @media (max-width: 600px) {
