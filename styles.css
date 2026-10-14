@@ -922,3 +922,27 @@ main{padding-top:0}
   body .topbar { padding-left: 11px !important; padding-right: 11px !important; }
   body .topbar > .header-meta > a { font-size: 11px !important; gap: 5px !important; }
 }
+
+
+/* Version 46: make the three mobile header shortcuts more compact */
+@media (max-width: 600px) {
+  body .topbar > .header-meta {
+    gap: 6px !important;
+  }
+  body .topbar > .header-meta > a {
+    min-height: 39px !important;
+    padding: 6px 7px !important;
+    gap: 5px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    border-radius: 10px !important;
+  }
+  body .topbar > .header-meta > .webtools-header-link {
+    min-height: 38px !important;
+  }
+  body .topbar .header-icon {
+    width: 15px !important;
+    height: 15px !important;
+    flex-basis: 15px !important;
+  }
+}
