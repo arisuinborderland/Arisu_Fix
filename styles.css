@@ -805,3 +805,12 @@ main{padding-top:0}
 @media (max-width: 420px) {
   .how-section .step-card p { font-size: 13.5px !important; line-height: 1.55 !important; }
 }
+
+
+/* Version 34: make the three process descriptions below their headings easier to read. */
+@media (max-width: 600px) {
+  .how-section .step-card p { font-size: 15px !important; line-height: 1.58 !important; }
+}
+@media (max-width: 420px) {
+  .how-section .step-card p { font-size: 14.5px !important; line-height: 1.55 !important; }
+}
