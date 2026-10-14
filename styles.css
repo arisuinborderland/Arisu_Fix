@@ -946,3 +946,20 @@ main{padding-top:0}
     flex-basis: 15px !important;
   }
 }
+
+
+/* Version 48: Keep Privacy Policy firmly left-aligned; two wide shortcuts side-by-side below on mobile. */
+@media(max-width:600px){
+ .header-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;justify-content:stretch;width:100%;gap:9px;margin-top:1px}
+ .header-meta .privacy-link{order:0;grid-column:1;grid-row:1;justify-self:start;align-self:start;width:100%;min-width:0;min-height:39px;padding:0 9px;font-size:11px;border-radius:11px;white-space:nowrap}
+ .header-meta .proofs-header-link{order:1;grid-column:1;grid-row:2;width:100%;min-width:0;min-height:45px;padding:0 7px;gap:5px;font-size:11px;border-radius:12px}
+ .header-meta .webtools-header-link{order:2;grid-column:2;grid-row:2;width:100%;min-width:0;min-height:45px;padding:0 7px;gap:5px;font-size:11px;border-radius:12px}
+ .header-meta .header-icon{width:17px;height:17px;flex-shrink:0}
+ .header-meta .proofs-header-link span[aria-hidden="true"],.header-meta .webtools-header-link span[aria-hidden="true"]{font-size:14px}
+}
+@media(max-width:360px){
+ .header-meta{gap:7px}
+ .header-meta .privacy-link{font-size:10px;padding:0 6px}
+ .header-meta .proofs-header-link,.header-meta .webtools-header-link{font-size:10px;padding:0 5px;gap:4px}
+ .header-meta .header-icon{width:15px;height:15px}
+}
