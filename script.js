@@ -96,6 +96,9 @@ function renderRecoveryProofs() {
 
   // Album landing view: keep the page compact as more proof images are added.
   const showAlbumOverview = activeProofCategory === "all" && !normalizedSearch;
+  // Keep Back to site on the album landing view only, not beneath an open proof.
+  const backToSiteLink = document.querySelector(".proofs-back-to-site");
+  if (backToSiteLink) backToSiteLink.hidden = !showAlbumOverview;
   if (showAlbumOverview) {
     gallery.classList.remove("is-single", "is-two");
     gallery.classList.add("proof-album-grid");
