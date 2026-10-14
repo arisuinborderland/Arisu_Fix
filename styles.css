@@ -755,3 +755,44 @@ main{padding-top:0}
     line-height: 1.48;
   }
 }
+
+
+/* Version 32: compact Remember, FAQ, About, Terms and footer spacing on mobile */
+@media (max-width: 600px) {
+  .site-section.safety-section { margin-top: 12px !important; }
+  .safety-panel { padding: 16px 14px !important; gap: 10px !important; border-radius: 20px; }
+  .safety-panel h2 { margin: 0 0 8px !important; font-size: clamp(20px, 5.4vw, 24px) !important; line-height: 1.18 !important; }
+  .safety-panel p { margin: 7px 0 0 !important; font-size: 13px !important; line-height: 1.48 !important; }
+  .safety-panel-icon { width: 42px !important; height: 42px !important; }
+  .site-section.faq-section { margin-top: 17px !important; }
+  .faq-section .section-heading { margin-bottom: 12px !important; }
+  .faq-section .section-kicker { line-height: 1.15 !important; }
+  .faq-section .section-heading h2 { margin: 5px 0 5px !important; font-size: clamp(21px, 5.6vw, 25px) !important; line-height: 1.18 !important; }
+  .faq-section .section-heading p { margin: 5px 0 0 !important; font-size: 13px !important; line-height: 1.45 !important; }
+  .faq-list { gap: 8px !important; }
+  .faq-list details { padding: 0 13px !important; border-radius: 15px !important; }
+  .faq-list summary { padding: 13px 32px 13px 0 !important; min-height: 48px !important; font-size: 13px !important; line-height: 1.4 !important; }
+  .faq-list summary:after { width: 25px !important; height: 25px !important; }
+  .faq-list details p { padding: 0 26px 13px 0 !important; font-size: 12.5px !important; line-height: 1.55 !important; }
+  .site-section.about-section, .site-section.terms-section { margin-top: 16px !important; }
+  .about-card { padding: 15px 13px !important; gap: 10px !important; border-radius: 18px !important; }
+  .about-card h2 { margin: 4px 0 6px !important; font-size: 19px !important; line-height: 1.2 !important; }
+  .about-card p, .terms-card p { margin: 6px 0 0 !important; font-size: 12.5px !important; line-height: 1.5 !important; }
+  .terms-card { padding: 16px 14px !important; border-radius: 18px !important; }
+  .terms-card h2 { margin: 5px 0 6px !important; font-size: 19px !important; line-height: 1.2 !important; }
+  .site-footer { padding: 15px 14px !important; gap: 10px !important; }
+  .footer-brand img { width: 42px !important; height: 42px !important; }
+  .footer-note { margin: 0 !important; font-size: 11px !important; line-height: 1.45 !important; }
+  .footer-links { gap: 8px !important; }
+}
+@media (max-width: 420px) {
+  .site-section.safety-section { margin-top: 9px !important; }
+  .safety-panel { padding: 14px 12px !important; }
+  .safety-panel h2 { font-size: 20px !important; }
+  .safety-panel p { font-size: 12.5px !important; }
+  .site-section.faq-section { margin-top: 14px !important; }
+  .faq-section .section-heading h2 { font-size: 21px !important; }
+  .faq-list summary { font-size: 12.5px !important; }
+  .about-card { padding: 13px 11px !important; }
+  .terms-card { padding: 14px 12px !important; }
+}
