@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Public recovery examples and case updates from Arisu Recovery Contact. Results vary and are not guaranteed.">
+<title>Recovery Proofs — Arisu Recovery Contact</title>
+<link rel="stylesheet" href="styles.css?v=proof-gallery-v2-1">
+<style>
+body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transparent 38rem),linear-gradient(180deg,#f9fbff,#f5f7fb 75%,#fff)}
+main{max-width:1000px;padding:40px 20px 64px}
+.proofs-page-card{max-width:960px;margin:0 auto;padding:clamp(22px,4vw,40px);border-radius:25px;background:rgba(255,255,255,.97);border:1px solid rgba(220,228,241,.95);box-shadow:0 18px 48px rgba(35,54,94,.075)}
+.proofs-page-title{text-align:center;max-width:760px;margin:0 auto 28px}
+.proofs-page-title .section-kicker{display:block;margin-bottom:12px}
+.proofs-page-title h1{margin:0 0 12px;font:800 clamp(29px,5vw,42px)/1.15 Manrope,sans-serif;letter-spacing:-1.4px;color:#19243a}
+.proofs-page-title p{margin:0;color:#6b7890;font-size:clamp(14px,2vw,17px);line-height:1.75}
+.proofs-updated{display:table;margin:18px auto 0;padding:7px 12px;border:1px solid #e1e8f4;background:#f8faff;border-radius:999px;color:#63718a;font-size:11px}
+.proof-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.proof-empty{max-width:none;margin:26px 0 0}
+.proof-privacy-note{margin-top:24px}
+.proofs-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.proofs-footer .footer-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.proofs-footer .footer-links a{font-size:12px;color:#68758a;text-decoration:none}
+.proofs-footer .footer-links a:hover{color:var(--blue)}
+@media(max-width:760px){main{padding:20px 12px 40px}.proofs-page-card{padding:22px 16px;border-radius:20px}.proof-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proofs-footer{padding:20px 16px}.proofs-footer .footer-links{gap:14px}}
+@media(max-width:460px){.proof-gallery{grid-template-columns:1fr}.proofs-page-title h1{letter-spacing:-.9px}.proofs-page-title p{font-size:14px}.proof-empty{padding:25px 16px}.proofs-footer .footer-links{width:100%}}
+
+.proof-category-section{margin-top:34px;padding-top:28px;border-top:1px solid #e7ecf5}
+.proof-category-section:first-of-type{margin-top:0;padding-top:0;border-top:0}
+.proof-category-heading{display:flex;align-items:center;gap:14px;margin:0 0 18px;text-align:left}
+.proof-category-heading>div{min-width:0}
+.proof-category-heading h2{margin:3px 0 5px;font:800 clamp(20px,3.3vw,27px)/1.2 Manrope,sans-serif;letter-spacing:-.6px;color:#19243a}
+.proof-category-heading p{margin:0;color:#6b7890;font-size:13px;line-height:1.55}
+.proof-category-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:15px}
+.proof-category-icon svg{width:24px;height:24px}
+.proof-category-icon-suspended{color:#c9364b;background:linear-gradient(145deg,#fff0f2,#ffe2e7);border:1px solid #f7ccd4}
+.proof-category-icon-disabled{color:#5b55d9;background:linear-gradient(145deg,#eef0ff,#e1e7ff);border:1px solid #d4dcff}
+.proof-category-eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:800;color:#6b7890}
+.proof-category-section .proof-empty{margin-top:0}
+@media(max-width:460px){.proof-category-heading{gap:11px}.proof-category-icon{flex-basis:42px;width:42px;height:42px;border-radius:13px}.proof-category-heading p{font-size:12px}}
+
+
+.proof-browser{margin-top:30px}.proof-search{display:flex;align-items:center;gap:11px;max-width:620px;margin:0 auto 18px;padding:0 15px;height:50px;border:1px solid #dfe6f2;border-radius:15px;background:#fbfcff;box-shadow:0 5px 18px rgba(35,54,94,.035)}.proof-search svg{width:20px;height:20px;flex:0 0 20px;color:#64748b}.proof-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#19243a;font-family:inherit;font-size:14px;font-weight:500}.proof-search input::placeholder{color:#8b96a8}.proof-filters{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:0 auto 20px}.proof-filter{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:9px 13px;border:1px solid #dfe6f2;border-radius:12px;background:#fff;color:#58657b;font-family:inherit;font-size:12px;font-weight:750;cursor:pointer;transition:background .18s,border-color .18s,color .18s,box-shadow .18s}.proof-filter span{display:inline-grid;place-items:center;min-width:21px;height:21px;padding:0 5px;border-radius:7px;background:#eef2f9;color:#64748b;font-size:10px}.proof-filter:hover{border-color:#aabcf1}.proof-filter.is-active{background:linear-gradient(120deg,#315fe1,#5479f3);border-color:#315fe1;color:#fff;box-shadow:0 7px 16px rgba(49,95,225,.18)}.proof-filter.is-active span{background:rgba(255,255,255,.2);color:#fff}.proof-results-line{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;color:#69768b;font-size:12px}.proof-results-note{color:#8a95a6}.proof-gallery-v2{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}.proof-gallery-v2.is-single{grid-template-columns:minmax(0,560px);justify-content:center}.proof-gallery-v2.is-two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin-inline:auto}.proof-gallery-v2 .proof-card{display:flex;flex-direction:column}.proof-gallery-v2 .proof-card .proof-image-link{order:2;aspect-ratio:4/3}.proof-gallery-v2 .proof-image-link img{object-fit:contain;background:#f5f7fb}.proof-gallery-v2 .proof-card .proof-card-copy{order:1;padding:15px}.proof-gallery-v2 .proof-card .proof-status-list{margin-bottom:0}.proof-pagination{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:24px}.proof-page-button{display:inline-grid;place-items:center;min-width:38px;height:38px;padding:0 11px;border:1px solid #dfe6f2;border-radius:11px;background:#fff;color:#59677d;font-family:inherit;font-size:12px;font-weight:750;cursor:pointer}.proof-page-button:disabled{opacity:.38;cursor:not-allowed}.proof-page-button.is-current{background:#315fe1;border-color:#315fe1;color:#fff;box-shadow:0 5px 13px rgba(49,95,225,.18)}.proof-page-button:focus-visible,.proof-filter:focus-visible,.proof-search input:focus-visible{outline:3px solid rgba(49,95,225,.25);outline-offset:2px}.proof-pagination[hidden]{display:none!important}
+@media(max-width:900px){.proof-gallery-v2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.proof-filters{display:grid;grid-template-columns:1fr;gap:8px}.proof-filter{justify-content:space-between;width:100%;padding:9px 12px}.proof-gallery-v2,.proof-gallery-v2.is-single,.proof-gallery-v2.is-two{grid-template-columns:1fr;max-width:none;gap:13px}.proof-results-line{align-items:flex-start;font-size:11px}.proof-gallery-v2 .proof-card .proof-image-link{aspect-ratio:4/3}}
+.proof-album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:820px;margin-inline:auto}
+.proof-album-card{overflow:hidden;min-width:0;border:1px solid #dfe6f2;border-radius:22px;background:#fff;box-shadow:0 12px 30px rgba(35,54,94,.07);transition:transform .18s,box-shadow .18s}
+.proof-album-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(35,54,94,.12)}
+.proof-album-cover{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#e9efff,#f8faff)}
+.proof-album-cover img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(.9)}
+.proof-album-cover-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,34,63,.03),rgba(20,34,63,.55))}
+.proof-album-suspended .proof-album-cover-shade{background:linear-gradient(180deg,rgba(129,30,52,.04),rgba(129,30,52,.58))}
+.proof-album-disabled .proof-album-cover-shade{background:linear-gradient(180deg,rgba(54,63,150,.04),rgba(54,63,150,.58))}
+.proof-album-count{position:absolute;right:13px;bottom:12px;padding:6px 10px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(255,255,255,.94);color:#263550;font-size:11px;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.proof-album-copy{padding:19px}
+.proof-album-eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:850;color:#61718d}
+.proof-album-copy h2{margin:7px 0 8px;color:#19243a;font:800 clamp(17px,2.4vw,22px)/1.25 Manrope,sans-serif;letter-spacing:-.5px}
+.proof-album-copy p{min-height:42px;margin:0 0 16px;color:#6b7890;font-size:13px;line-height:1.65}
+.proof-album-open{width:100%;min-height:43px;border:1px solid #d9e3fa;border-radius:12px;background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(49,95,225,.16)}
+.proof-album-open:disabled{opacity:.45;cursor:not-allowed}
+.proof-album-open:focus-visible{outline:3px solid rgba(49,95,225,.28);outline-offset:3px}
+@media(max-width:600px){.proof-album-grid{grid-template-columns:1fr;gap:14px}.proof-album-cover{aspect-ratio:16/9}.proof-album-copy{padding:16px}.proof-album-copy p{min-height:0;margin-bottom:14px}}
+
+</style></head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="logo profile-logo"><img src="arisu-profile.png" alt="Arisu profile picture"></span><span><b>Arisu</b><small>Recovery Contact</small></span></a><a href="index.html" class="button secondary">← Back to site</a></header>
+<main><section class="proofs-page-card" aria-labelledby="proofsTitle">
+<div class="proofs-page-title"><span class="section-kicker">PUBLIC EXAMPLES</span><h1 id="proofsTitle">Recovery proofs &amp; case updates</h1><p>Browse selected examples and updates. Every case is different, and past outcomes do not guarantee future results.</p><span class="proofs-updated">Public examples · Results vary by case</span></div>
+<section class="proof-browser" aria-label="Browse recovery proofs">
+  <label class="proof-search" for="proofSearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><path d="m16.5 16.5 4 4"/></svg><input id="proofSearch" type="search" placeholder="Search case examples…" autocomplete="off"></label>
+  <div class="proof-filters" role="group" aria-label="Filter proofs by category">
+    <button class="proof-filter is-active" type="button" data-proof-filter="all" aria-pressed="true">All Proofs <span id="allProofCount">0</span></button>
+    <button class="proof-filter" type="button" data-proof-filter="suspended" aria-pressed="false">Suspended Accounts <span id="suspendedProofCount">0</span></button>
+    <button class="proof-filter" type="button" data-proof-filter="disabled" aria-pressed="false">Disabled Accounts <span id="disabledProofCount">0</span></button>
+  </div>
+  <div class="proof-results-line"><span id="proofResultsText">Showing public examples</span><span class="proof-results-note">Results vary by case</span></div>
+  <div class="proof-gallery proof-gallery-v2" id="proofGallery" aria-live="polite"></div>
+  <div class="proof-empty" id="proofEmpty" hidden><span class="proof-empty-icon" aria-hidden="true">⌕</span><h3>No matching proofs found</h3><p>Try another search term or choose a different category.</p></div>
+  <nav class="proof-pagination" id="proofPagination" aria-label="Proof pages"></nav>
+</section>
+</section></main>
+<footer class="proofs-footer"><a class="brand" href="index.html"><span class="logo profile-logo"><img src="arisu-profile.png" alt="Arisu profile picture"></span><span><b>Arisu</b><small>Recovery Contact</small></span></a><nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="index.html#terms">Terms</a><a href="index.html#contact">Contact</a></nav><span>© <span id="year"></span> Arisu</span></footer>
+<script src="script.js?v=proof-gallery-v2-1"></script>
+</body></html>
