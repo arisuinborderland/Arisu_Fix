@@ -1,8 +1,9 @@
-/* V_113: self-contained one-time scroll reveal; no CDN dependency. */
+/* V_116: local scroll reveal. Daily Bible Verse replays whenever it re-enters view. */
 (() => {
   "use strict";
   const start = () => {
     const selectors = [
+      "#daily-bible-verse",
       ".whatsapp-button",
       "#floatingWhatsApp",
       ".whatsapp-notice",
@@ -29,12 +30,14 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // Reveal once when the element enters view. Do not hide it again when
-        // it leaves the viewport: this prevents flicker/blank sections while
-        // the user scrolls quickly or reverses direction.
-        if (entry.isIntersecting) {
-          entry.target.classList.add("arc-scroll-reveal-visible");
-          observer.unobserve(entry.target);
+        const el = entry.target;
+        if (el.id === "daily-bible-verse") {
+          // Replay the fade-up every time the verse card leaves and re-enters view.
+          el.classList.toggle("arc-scroll-reveal-visible", entry.isIntersecting);
+        } else if (entry.isIntersecting) {
+          // Keep other page sections stable after their first reveal.
+          el.classList.add("arc-scroll-reveal-visible");
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.05, rootMargin: "0px 0px -5% 0px" });
