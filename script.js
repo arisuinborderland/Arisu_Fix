@@ -38,7 +38,6 @@ if (facebookCard) {
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-
 // Keep the FAQ tidy on mobile: opening one answer closes the others.
 const faqItems = Array.from(document.querySelectorAll(".faq-list details"));
 faqItems.forEach((item) => {
@@ -50,7 +49,6 @@ faqItems.forEach((item) => {
 
 // Give keyboard users a visible focus state and prevent accidental duplicate setup.
 document.documentElement.classList.add("js-ready");
-
 
 // Recovery proof gallery. Add only real examples that you have permission to publish.
 // Use category: "suspended" or category: "disabled" for each item.
@@ -71,7 +69,7 @@ const recoveryProofs = [
   }
 ];
 
-const PROOFS_PER_PAGE = 6;
+const PROOFS_PER_PAGE = 6; // Version 29: mobile back button follows the proof image
 let activeProofCategory = "all";
 let activeProofPage = 1;
 let proofSearchTerm = "";
@@ -98,6 +96,9 @@ function renderRecoveryProofs() {
 
   // Album landing view: keep the page compact as more proof images are added.
   const showAlbumOverview = activeProofCategory === "all" && !normalizedSearch;
+  // Keep Back to site on the album landing view only, not beneath an open proof.
+  const backToSiteLink = document.querySelector(".proofs-back-to-site");
+  if (backToSiteLink) backToSiteLink.hidden = !showAlbumOverview;
   if (showAlbumOverview) {
     gallery.classList.remove("is-single", "is-two");
     gallery.classList.add("proof-album-grid");
@@ -261,7 +262,25 @@ function renderRecoveryProofs() {
       date.textContent = proof.date;
       copy.appendChild(date);
     }
-    card.append(copy, imageFrame);
+    const backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.className = "proof-album-back proof-album-back-inline";
+    backButton.textContent = "← Back to albums";
+    backButton.addEventListener("click", () => {
+      activeProofCategory = "all";
+      activeProofPage = 1;
+      proofSearchTerm = "";
+      const searchInput = document.getElementById("proofSearch");
+      if (searchInput) searchInput.value = "";
+      document.querySelectorAll("[data-proof-filter]").forEach((other) => {
+        const active = other.dataset.proofFilter === "all";
+        other.classList.toggle("is-active", active);
+        other.setAttribute("aria-pressed", String(active));
+      });
+      renderRecoveryProofs();
+      document.querySelector(".proof-browser")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    card.append(copy, imageFrame, backButton);
     gallery.appendChild(card);
   });
 
@@ -317,3 +336,98 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   media.addEventListener("contextmenu", (event) => event.preventDefault());
   media.addEventListener("dragstart", (event) => event.preventDefault());
 });
+
+// Daily Bible Verse: calculated locally from the calendar date; no API, account, or tracking required.
+(function setupDailyBibleVerse() {
+  const card = document.getElementById("daily-bible-verse");
+  if (!card) return;
+
+  // English quotations are from the public-domain King James Version (KJV).
+  // Tagalog entries are simple Filipino renderings, not quotations from a specific published translation.
+  const verses = [
+    { ref: "Psalm 23:1", en: "The LORD is my shepherd; I shall not want.", tl: "Ang Panginoon ang aking pastol; hindi ako magkukulang." },
+    { ref: "Proverbs 3:5", en: "Trust in the LORD with all thine heart; and lean not unto thine own understanding.", tl: "Magtiwala ka sa Panginoon nang buong puso, at huwag umasa lamang sa sariling pagkaunawa." },
+    { ref: "Philippians 4:13", en: "I can do all things through Christ which strengtheneth me.", tl: "Magagawa ko ang mga bagay sa pamamagitan ni Cristo na nagbibigay sa akin ng lakas." },
+    { ref: "Psalm 46:1", en: "God is our refuge and strength, a very present help in trouble.", tl: "Ang Diyos ang ating kanlungan at lakas, laging handang tumulong sa panahon ng kaguluhan." },
+    { ref: "Matthew 11:28", en: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.", tl: "Lumapit kayo sa akin, kayong napapagal at nabibigatan, at bibigyan ko kayo ng kapahingahan." },
+    { ref: "Joshua 1:9", en: "Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.", tl: "Magpakatatag at magpakatapang; huwag matakot, sapagkat kasama mo ang Panginoon saan ka man pumunta." },
+    { ref: "Psalm 119:105", en: "Thy word is a lamp unto my feet, and a light unto my path.", tl: "Ang salita ng Diyos ay ilawan sa aking mga paa at liwanag sa aking landas." },
+    { ref: "Romans 8:28", en: "And we know that all things work together for good to them that love God.", tl: "Alam natin na gumagawa ang Diyos sa lahat ng bagay para sa ikabubuti ng mga umiibig sa Kanya." },
+    { ref: "Isaiah 41:10", en: "Fear thou not; for I am with thee: be not dismayed; for I am thy God.", tl: "Huwag kang matakot, sapagkat kasama mo ako; huwag manghina, sapagkat ako ang iyong Diyos." },
+    { ref: "John 14:27", en: "Peace I leave with you, my peace I give unto you: let not your heart be troubled, neither let it be afraid.", tl: "Iniiwan ko sa inyo ang kapayapaan; ibinibigay ko ang aking kapayapaan. Huwag mabalisa o matakot ang inyong puso." },
+    { ref: "Psalm 34:8", en: "O taste and see that the LORD is good: blessed is the man that trusteth in him.", tl: "Tikman at tingnan ninyo kung gaano kabuti ang Panginoon; mapalad ang nagtitiwala sa Kanya." },
+    { ref: "1 Corinthians 16:14", en: "Let all your things be done with charity.", tl: "Gawin ninyo ang lahat ng bagay nang may pag-ibig." },
+    { ref: "Psalm 37:4", en: "Delight thyself also in the LORD; and he shall give thee the desires of thine heart.", tl: "Magalak ka sa Panginoon, at bibigyan Niya ang mga hangarin ng iyong puso ayon sa Kanyang kalooban." },
+    { ref: "Micah 6:8", en: "What doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?", tl: "Nais ng Panginoon na gumawa ka ng makatarungan, magmahal ng awa, at lumakad nang mapagpakumbaba kasama ng iyong Diyos." },
+    { ref: "1 Peter 5:7", en: "Casting all your care upon him; for he careth for you.", tl: "Ipagkatiwala ninyo sa Kanya ang lahat ng inyong alalahanin, sapagkat nagmamalasakit Siya sa inyo." },
+    { ref: "Psalm 27:1", en: "The LORD is my light and my salvation; whom shall I fear?", tl: "Ang Panginoon ang aking liwanag at kaligtasan; sino ang aking katatakutan?" },
+    { ref: "Romans 12:12", en: "Rejoicing in hope; patient in tribulation; continuing instant in prayer.", tl: "Magalak sa pag-asa, magtiis sa paghihirap, at magpatuloy sa pananalangin." },
+    { ref: "John 16:33", en: "Be of good cheer; I have overcome the world.", tl: "Lakasan ninyo ang inyong loob; nagtagumpay na ako laban sa sanlibutan." },
+    { ref: "Psalm 56:3", en: "What time I am afraid, I will trust in thee.", tl: "Kapag ako ay natatakot, magtitiwala ako sa Iyo." },
+    { ref: "Colossians 3:23", en: "And whatsoever ye do, do it heartily, as to the Lord, and not unto men.", tl: "Anuman ang inyong gawin, gawin ito nang buong puso na para sa Panginoon at hindi lamang para sa tao." }
+  ];
+
+  const dateEl = document.getElementById("dailyVerseDate");
+  const textEl = document.getElementById("dailyVerseText");
+  const referenceEl = document.getElementById("dailyVerseReference");
+  const translationEl = document.getElementById("dailyVerseTranslation");
+
+  const dateKey = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  const dayNumber = (date) => {
+    const start = new Date(date.getFullYear(), 0, 0);
+    return Math.floor((new Date(date.getFullYear(), date.getMonth(), date.getDate()) - start) / 86400000);
+  };
+  const dailyIndex = () => dayNumber(new Date()) % verses.length;
+  const renderDailyVerse = () => {
+    const verse = verses[dailyIndex()];
+    textEl.textContent = verse.en;
+    referenceEl.textContent = `${verse.ref} · KJV`;
+    translationEl.textContent = verse.tl;
+    dateEl.textContent = `VERSE OF THE DAY · ${dateKey(new Date())}`;
+  };
+
+  // Refresh the daily selection if the page remains open across local midnight.
+  let lastDate = dateKey(new Date());
+  window.setInterval(() => {
+    const currentDate = dateKey(new Date());
+    if (currentDate !== lastDate) {
+      lastDate = currentDate;
+      renderDailyVerse();
+    }
+  }, 60000);
+
+  renderDailyVerse();
+
+  // Full-size image viewer for real screenshots added to the review slots.
+  const reviewLightbox = document.getElementById("reviewLightbox");
+  const reviewLightboxImage = document.getElementById("reviewLightboxImage");
+  const reviewLightboxClose = document.getElementById("reviewLightboxClose");
+  const closeReviewLightbox = () => {
+    if (!reviewLightbox || reviewLightbox.hidden) return;
+    reviewLightbox.hidden = true;
+    if (reviewLightboxImage) {
+      reviewLightboxImage.src = "";
+      reviewLightboxImage.alt = "Enlarged customer review screenshot";
+    }
+    document.body.classList.remove("review-lightbox-open");
+  };
+  document.querySelectorAll(".review-proof-image:not(.is-placeholder) img").forEach((image) => {
+    const button = image.closest(".review-proof-image");
+    if (!button) return;
+    button.addEventListener("click", () => {
+      if (!reviewLightbox || !reviewLightboxImage) return;
+      reviewLightboxImage.src = image.currentSrc || image.src;
+      reviewLightboxImage.alt = image.alt || "Customer review screenshot";
+      reviewLightbox.hidden = false;
+      document.body.classList.add("review-lightbox-open");
+      if (reviewLightboxClose) reviewLightboxClose.focus();
+    });
+  });
+  if (reviewLightboxClose) reviewLightboxClose.addEventListener("click", closeReviewLightbox);
+  if (reviewLightbox) reviewLightbox.addEventListener("click", (event) => {
+    if (event.target === reviewLightbox) closeReviewLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeReviewLightbox();
+  });
+})();
