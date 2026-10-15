@@ -2834,3 +2834,64 @@ summary:focus-visible {
 @keyframes status-check-pop{0%,72%,100%{transform:scale(1);filter:brightness(1)}78%{transform:scale(1.2);filter:brightness(1.18)}84%{transform:scale(.96);filter:brightness(1.05)}90%{transform:scale(1.06);filter:brightness(1.1)}}
 @media(max-width:480px){.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}.compact-intro .eyebrow.premium-status > .status-check{width:17px;height:17px;min-width:17px;min-height:17px;flex-basis:17px}.compact-intro .eyebrow.premium-status > .status-check svg{width:12px;height:12px;min-width:12px;min-height:12px}}
 @media(prefers-reduced-motion:reduce){.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after,.compact-intro .eyebrow .status-check{animation:none!important}}
+
+
+/* V_125 — custom blue verified-style badge with repeating check-draw animation.
+   Decorative branding only; it does not indicate official Meta verification. */
+.compact-intro .eyebrow.premium-status > .status-check {
+  display: inline-grid !important;
+  place-items: center !important;
+  box-sizing: border-box;
+  width: 23px !important;
+  height: 23px !important;
+  min-width: 23px !important;
+  min-height: 23px !important;
+  flex: 0 0 23px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(145deg, #3294ff 0%, #1877f2 58%, #0b5fd7 100%) !important;
+  box-shadow: 0 2px 7px rgba(24,119,242,.28), 0 0 0 2px rgba(24,119,242,.10) !important;
+  animation: arisu-blue-badge-pop 2s ease-in-out infinite !important;
+  transform-origin: center;
+  position: relative;
+  z-index: 1;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.compact-intro .eyebrow.premium-status > .status-check svg {
+  display: block !important;
+  width: 15px !important;
+  height: 15px !important;
+  min-width: 15px !important;
+  min-height: 15px !important;
+  overflow: visible;
+  fill: none !important;
+  stroke: #fff !important;
+  stroke-width: 3 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+.compact-intro .eyebrow.premium-status > .status-check svg path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: arisu-blue-check-draw 2s ease-in-out infinite;
+}
+@keyframes arisu-blue-check-draw {
+  0%, 8% { stroke-dashoffset: 24; opacity: .75; }
+  24%, 38% { stroke-dashoffset: 0; opacity: 1; }
+  48%, 100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes arisu-blue-badge-pop {
+  0%, 45%, 100% { transform: scale(1); filter: brightness(1); box-shadow: 0 2px 7px rgba(24,119,242,.28), 0 0 0 2px rgba(24,119,242,.10); }
+  10% { transform: scale(.92); filter: brightness(1.02); }
+  20% { transform: scale(1.16); filter: brightness(1.14); box-shadow: 0 3px 10px rgba(24,119,242,.40), 0 0 0 4px rgba(24,119,242,.13); }
+  30% { transform: scale(1); filter: brightness(1.04); }
+}
+@media (max-width: 480px) {
+  .compact-intro .eyebrow.premium-status > .status-check { width: 20px !important; height: 20px !important; min-width: 20px !important; min-height: 20px !important; flex-basis: 20px !important; }
+  .compact-intro .eyebrow.premium-status > .status-check svg { width: 13px !important; height: 13px !important; min-width: 13px !important; min-height: 13px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .compact-intro .eyebrow.premium-status > .status-check,
+  .compact-intro .eyebrow.premium-status > .status-check svg path { animation: none !important; }
+  .compact-intro .eyebrow.premium-status > .status-check svg path { stroke-dashoffset: 0 !important; }
+}
