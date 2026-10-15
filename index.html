@@ -113,26 +113,32 @@
  </section>
 
  <section class="site-section reviews-section" id="customer-reviews" aria-labelledby="reviewsTitle">
-  <div class="section-heading">
-   <span class="section-kicker">CUSTOMER FEEDBACK</span>
-   <h2 id="reviewsTitle">Customer Reviews</h2>
-   <p>Read feedback shared by customers about their experience.</p>
+  <div class="review-summary">
+   <div class="review-summary-copy">
+    <span class="section-kicker">CUSTOMER FEEDBACK</span>
+    <h2 id="reviewsTitle">Customer Reviews</h2>
+    <p>Real customer feedback will be added here.</p>
+   </div>
+   <div class="review-summary-action">
+    <div class="review-summary-stars" aria-label="Customer ratings will appear here">★★★★★</div>
+    <button class="view-reviews-button" id="viewReviewsButton" type="button" aria-expanded="false" aria-controls="reviewsGrid">View Reviews <span aria-hidden="true">⌄</span></button>
+   </div>
   </div>
-  <div class="reviews-grid">
-   <!-- Add genuine customer reviews below. Replace the placeholder text and stars only with feedback you have permission to publish. -->
+  <div class="reviews-grid" id="reviewsGrid" hidden>
+   <!-- Owner-editable placeholders. Replace with genuine customer feedback and only publish with permission. -->
    <article class="review-card review-placeholder">
     <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
-    <p class="review-text">Your customer review will appear here.</p>
+    <p class="review-text">Add the customer's genuine review here.</p>
     <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
    </article>
    <article class="review-card review-placeholder">
     <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
-    <p class="review-text">Add another genuine review here when available.</p>
+    <p class="review-text">Add another genuine customer review here.</p>
     <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
    </article>
    <article class="review-card review-placeholder">
     <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
-    <p class="review-text">You can edit this card or remove it if not needed.</p>
+    <p class="review-text">Add a third genuine customer review here.</p>
     <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
    </article>
   </div>

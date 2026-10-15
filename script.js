@@ -397,4 +397,16 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   }, 60000);
 
   renderDailyVerse();
+
+  // Expand/collapse the owner-managed customer review placeholders.
+  const viewReviewsButton = document.getElementById("viewReviewsButton");
+  const reviewsGrid = document.getElementById("reviewsGrid");
+  if (viewReviewsButton && reviewsGrid) {
+    viewReviewsButton.addEventListener("click", () => {
+      const isExpanded = viewReviewsButton.getAttribute("aria-expanded") === "true";
+      viewReviewsButton.setAttribute("aria-expanded", String(!isExpanded));
+      reviewsGrid.hidden = isExpanded;
+      viewReviewsButton.firstChild.textContent = isExpanded ? "View Reviews " : "Hide Reviews ";
+    });
+  }
 })();
