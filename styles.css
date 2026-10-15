@@ -3014,3 +3014,67 @@ summary:focus-visible {
   .recovery-animated-check, .recovery-animated-check path, .promise-check svg path { animation: none !important; }
   .recovery-animated-check path, .promise-check svg path { stroke-dashoffset: 0; }
 }
+
+
+/* V_128 — matching contact availability card and static handshake icon. */
+.how-section .recovery-first-card .recovery-handshake-symbol {
+  display: grid;
+  place-items: center;
+  color: #087c49;
+  background: linear-gradient(145deg, #dcfbea, #c9f6df);
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(25, 178, 103, .10);
+}
+.recovery-handshake-symbol svg { width: 27px; height: 27px; display: block; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; animation: none !important; }
+.contact-availability-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0,1fr);
+  gap: 16px;
+  align-items: start;
+  margin-top: 13px;
+  padding: 20px;
+  border: 1.5px solid #a9ccff;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f8ff 100%);
+  box-shadow: 0 8px 24px rgba(36, 99, 212, .07);
+}
+.availability-clock-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 17px; background: #e3efff; color: #1765ee; }
+.availability-clock-icon svg { width: 35px; height: 35px; }
+.availability-content { min-width: 0; }
+.availability-heading-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+.availability-kicker { color: #1765ee; font-size: 11px; line-height: 1.4; font-weight: 850; letter-spacing: 1.7px; }
+.availability-daily { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border: 1px solid #b5f1d0; border-radius: 999px; background: #e7fff1; color: #087542; font-size: 10px; font-weight: 850; white-space: nowrap; }
+.availability-daily span { width: 9px; height: 9px; border-radius: 50%; background: #16ad61; box-shadow: 0 0 0 3px rgba(22,173,97,.12); }
+.availability-content h2 { margin: 6px 0 9px; color: #14234a; font: 800 25px/1.18 Manrope, sans-serif; letter-spacing: -.65px; }
+.availability-details { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); gap: 12px; align-items: center; padding: 12px; border: 1px solid #d2e3ff; border-radius: 14px; background: linear-gradient(120deg, #eaf3ff, #e1edff); }
+.availability-time { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.availability-time svg { flex: 0 0 28px; width: 28px; height: 28px; color: #1765ee; }
+.availability-time div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.availability-time strong { color: #0755db; font-size: clamp(13px,1.5vw,17px); line-height: 1.35; white-space: nowrap; }
+.availability-time span { color: #5b6c91; font-size: 9px; font-weight: 850; letter-spacing: 1.7px; }
+.availability-reply { display: flex; align-items: center; gap: 9px; min-width: 0; padding-left: 12px; border-left: 1px solid #a9caff; }
+.availability-reply svg { flex: 0 0 28px; width: 28px; height: 28px; color: #1765ee; }
+.availability-reply p { margin: 0; color: #5b6c91; font-size: 12px; line-height: 1.5; }
+.availability-reply p strong { color: #435477; font-weight: 800; }
+@media (max-width: 600px) {
+ .contact-availability-card { grid-template-columns: 44px minmax(0,1fr); gap: 11px; margin-top: 11px; padding: 14px; border-radius: 17px; }
+ .availability-clock-icon { width: 44px; height: 44px; border-radius: 13px; }
+ .availability-clock-icon svg { width: 28px; height: 28px; }
+ .availability-heading-row { align-items: flex-start; }
+ .availability-kicker { font-size: 9px; letter-spacing: 1.1px; padding-top: 5px; }
+ .availability-daily { font-size: 8px; padding: 6px 8px; gap: 5px; }
+ .availability-content h2 { font-size: 21px; margin: 5px 0 8px; }
+ .availability-details { grid-template-columns: 1fr; gap: 10px; padding: 10px; }
+ .availability-time strong { font-size: 14px; }
+ .availability-time span { font-size: 8px; }
+ .availability-reply { border-left: 0; border-top: 1px solid #c1d8ff; padding: 9px 0 0; }
+ .availability-reply p { font-size: 12px; }
+}
+@media (max-width: 360px) {
+ .contact-availability-card { grid-template-columns: 36px minmax(0,1fr); gap: 8px; padding: 11px; }
+ .availability-clock-icon { width: 36px; height: 36px; border-radius: 11px; }
+ .availability-clock-icon svg { width: 23px; height: 23px; }
+ .availability-heading-row { flex-direction: column; gap: 6px; }
+ .availability-content h2 { font-size: 19px; }
+ .availability-time strong { font-size: 12px; }
+}
