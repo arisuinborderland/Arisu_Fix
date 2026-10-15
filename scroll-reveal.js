@@ -1,11 +1,9 @@
-/* V_117: reliable repeat-on-scroll reveal, including the Daily Bible Verse below the sticky header. */
+/* V_115: self-contained one-time scroll reveal; no CDN dependency. */
 (() => {
   "use strict";
-
   const start = () => {
-    const verse = document.querySelector("#daily-bible-verse");
-    const header = document.querySelector(".topbar");
     const selectors = [
+      "#daily-bible-verse",
       ".whatsapp-button",
       "#floatingWhatsApp",
       ".whatsapp-notice",
@@ -21,75 +19,28 @@
       ".terms-card",
       ".site-footer > *"
     ];
-
     const targets = [...document.querySelectorAll(selectors.join(","))];
-    if (!targets.length && !verse) return;
+    if (!targets.length || !("IntersectionObserver" in window)) return;
 
     targets.forEach((el, i) => {
       el.classList.add("arc-scroll-reveal");
       el.style.setProperty("--arc-reveal-delay", `${(i % 3) * 85}ms`);
     });
-    if (verse) {
-      verse.classList.add("arc-scroll-reveal");
-      verse.style.setProperty("--arc-reveal-delay", "0ms");
-    }
     document.documentElement.classList.add("arc-scroll-reveal-enabled");
 
-    // General content is revealed once, so other sections don't repeatedly flicker.
-    if (targets.length && "IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // Reveal once when the element enters view. Do not hide it again when
+        // it leaves the viewport: this prevents flicker/blank sections while
+        // the user scrolls quickly or reverses direction.
+        if (entry.isIntersecting) {
           entry.target.classList.add("arc-scroll-reveal-visible");
           observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.05, rootMargin: "0px 0px -5% 0px" });
-      targets.forEach((el) => observer.observe(el));
-    } else {
-      targets.forEach((el) => el.classList.add("arc-scroll-reveal-visible"));
-    }
-
-    if (!verse) return;
-    if (!("IntersectionObserver" in window)) {
-      verse.classList.add("arc-scroll-reveal-visible");
-      return;
-    }
-
-    // The verse is immediately below a sticky header. Exclude the header area
-    // from the observer's viewport so its animation starts when it is actually
-    // visible below the header, not while it is hidden behind it during scroll.
-    let verseObserver = null;
-    let lastHeaderHeight = -1;
-    const observeVerse = () => {
-      const currentHeaderHeight = header
-        ? Math.ceil(header.getBoundingClientRect().height)
-        : 0;
-      if (verseObserver && currentHeaderHeight === lastHeaderHeight) return;
-      if (verseObserver) verseObserver.disconnect();
-      lastHeaderHeight = currentHeaderHeight;
-
-      verseObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.target !== verse) return;
-          // Toggle on every entry/exit, so both fade-up and fade-out replay.
-          verse.classList.toggle("arc-scroll-reveal-visible", entry.isIntersecting);
-        });
-      }, {
-        threshold: 0.05,
-        rootMargin: `-${currentHeaderHeight}px 0px -4% 0px`
+        }
       });
-      verseObserver.observe(verse);
-    };
-
-    observeVerse();
-    // Header height can change across mobile breakpoints or device rotation.
-    window.addEventListener("resize", observeVerse, { passive: true });
-    if (header && "ResizeObserver" in window) {
-      const headerResizeObserver = new ResizeObserver(observeVerse);
-      headerResizeObserver.observe(header);
-    }
+    }, { threshold: 0.05, rootMargin: "0px 0px -5% 0px" });
+    targets.forEach((el) => observer.observe(el));
   };
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", start, { once: true });
   } else {
