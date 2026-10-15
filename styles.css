@@ -3181,3 +3181,44 @@ body:has(.compact-intro) .social-collage {
     margin-bottom: 17px;
   }
 }
+
+
+/* V_132 — tighten contact-section vertical rhythm without changing steps 1–4. */
+.compact-intro {
+  margin-bottom: 8px !important;
+  padding-bottom: 0 !important;
+}
+.wizard-card.contact-only {
+  margin-top: 0 !important;
+  padding-top: 16px !important;
+}
+.whatsapp-feature-card {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.contact-availability-card {
+  margin-top: 12px !important;
+}
+/* Keep the divider and all following content closer to the contact cards. */
+.contact-only .social-links,
+.contact-only .social-media-links,
+.contact-only .other-social-links {
+  margin-top: 16px !important;
+  padding-top: 10px !important;
+}
+.site-section {
+  margin-top: 16px !important;
+}
+@media (min-width: 761px) {
+  .compact-intro { margin-bottom: 12px !important; }
+  .wizard-card.contact-only { padding-top: 22px !important; }
+  .contact-availability-card { margin-top: 16px !important; }
+  .site-section { margin-top: 22px !important; }
+}
+@media (max-width: 600px) {
+  .compact-intro { margin-bottom: 6px !important; }
+  .wizard-card.contact-only { padding-top: 12px !important; }
+  .whatsapp-feature-card { margin-top: 0 !important; }
+  .contact-availability-card { margin-top: 10px !important; }
+  .site-section { margin-top: 13px !important; }
+}
