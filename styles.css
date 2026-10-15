@@ -1537,31 +1537,64 @@ main{padding-top:0}
 }
 
 
-/* Version 68: compact Facebook and Recovery Proofs cards without stretching to match taller cards. */
-@media (max-width: 600px) {
-  .social-collage > .facebook-showcase,
-  .social-collage > .recovery-proofs-showcase {
-    align-self: start;
-    height: auto;
-    min-height: 0;
-  }
-  .social-collage > .facebook-showcase .facebook-showcase-desc,
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-desc {
-    margin: 9px 0 12px;
-  }
-  .social-collage > .facebook-showcase .facebook-profile-button,
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
-    margin-top: 0;
-  }
+/* Version 69: equal-height collage cards per row; place View All Reviews below the screenshots. */
+.social-collage {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
-@media (max-width: 360px) {
+.social-collage > .tiktok-showcase,
+.social-collage > .facebook-showcase,
+.social-collage > .recovery-proofs-showcase,
+.social-collage > .social-feedback-card {
+  height: 100%;
+  min-height: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.social-collage > .facebook-showcase,
+.social-collage > .recovery-proofs-showcase {
+  display: flex;
+  flex-direction: column;
+}
+.social-collage > .facebook-showcase .facebook-profile-button,
+.social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+  margin-top: auto;
+}
+.social-feedback-card {
+  display: flex;
+  flex-direction: column;
+}
+.social-feedback-card .windows-feedback-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.social-feedback-card .review-summary-action {
+  width: 100%;
+}
+.social-feedback-card .reviews-grid {
+  flex: 0 0 auto;
+}
+.social-feedback-card .social-feedback-view-all {
+  display: flex;
+  width: 100%;
+  min-height: 36px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .social-collage { align-items: stretch; grid-auto-rows: 1fr; }
+  .social-collage > .tiktok-showcase,
   .social-collage > .facebook-showcase,
-  .social-collage > .recovery-proofs-showcase {
-    padding: 9px;
-  }
-  .social-collage > .facebook-showcase .facebook-showcase-desc,
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-desc {
-    font-size: 10px;
-    line-height: 1.4;
-  }
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card { height: 100%; align-self: stretch; }
+  .social-feedback-card .social-feedback-view-all { min-height: 34px; font-size: 10px; padding: 7px 8px; }
 }
