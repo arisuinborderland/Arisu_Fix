@@ -122,3 +122,11 @@ WhatsApp in TikTok's in-app browser
 - Main WhatsApp buttons now try the consumer WhatsApp app using the whatsapp://send scheme.
 - If the in-app browser blocks that scheme, use the visible HTTPS fallback link.
 - A website cannot guarantee that Android opens WhatsApp Messenger instead of WhatsApp Business when the phone has Business set as the default handler. Check Android Settings > Apps > WhatsApp Business > Open by default / Set as default, clear supported-link defaults if available, and then set WhatsApp Messenger to open supported links. Menu names vary by phone.
+
+
+CUSTOMER REVIEWS (Version 63)
+-----------------------------
+- Homepage shows three compact screenshot previews and a View All Reviews link.
+- View All Reviews opens reviews.html, a separate full gallery page.
+- Review screenshots are stored in the reviews/ folder.
+- Replace placeholders only with genuine customer feedback shared with permission.
