@@ -400,13 +400,13 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 
   // Expand/collapse the owner-managed customer review placeholders.
   const viewReviewsButton = document.getElementById("viewReviewsButton");
-  const reviewsGrid = document.getElementById("reviewsGrid");
-  if (viewReviewsButton && reviewsGrid) {
+  const moreReviewsGrid = document.getElementById("moreReviewsGrid");
+  if (viewReviewsButton && moreReviewsGrid) {
     viewReviewsButton.addEventListener("click", () => {
       const isExpanded = viewReviewsButton.getAttribute("aria-expanded") === "true";
       viewReviewsButton.setAttribute("aria-expanded", String(!isExpanded));
-      reviewsGrid.hidden = isExpanded;
-      viewReviewsButton.firstChild.textContent = isExpanded ? "View Reviews " : "Hide Reviews ";
+      moreReviewsGrid.hidden = isExpanded;
+      viewReviewsButton.firstChild.textContent = isExpanded ? "View More Reviews " : "Hide Extra Reviews ";
     });
   }
 })();

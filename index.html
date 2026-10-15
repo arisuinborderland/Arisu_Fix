@@ -121,11 +121,11 @@
    </div>
    <div class="review-summary-action">
     <div class="review-summary-stars" aria-label="Customer ratings will appear here">★★★★★</div>
-    <button class="view-reviews-button" id="viewReviewsButton" type="button" aria-expanded="false" aria-controls="reviewsGrid">View Reviews <span aria-hidden="true">⌄</span></button>
+    <button class="view-reviews-button" id="viewReviewsButton" type="button" aria-expanded="false" aria-controls="moreReviewsGrid">View More Reviews <span aria-hidden="true">⌄</span></button>
    </div>
   </div>
-  <div class="reviews-grid" id="reviewsGrid" hidden>
-   <!-- Owner-editable placeholders. Replace with genuine customer feedback and only publish with permission. -->
+  <!-- Keep the first three owner-editable reviews visible. Replace placeholders with genuine feedback before publishing. -->
+  <div class="reviews-grid reviews-grid-featured" id="reviewsGrid">
    <article class="review-card review-placeholder">
     <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
     <p class="review-text">Add the customer's genuine review here.</p>
@@ -139,6 +139,23 @@
    <article class="review-card review-placeholder">
     <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
     <p class="review-text">Add a third genuine customer review here.</p>
+    <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
+   </article>
+  </div>
+  <div class="reviews-grid reviews-grid-more" id="moreReviewsGrid" hidden>
+   <article class="review-card review-placeholder">
+    <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
+    <p class="review-text">Add another genuine customer review here.</p>
+    <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
+   </article>
+   <article class="review-card review-placeholder">
+    <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
+    <p class="review-text">Add another genuine customer review here.</p>
+    <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
+   </article>
+   <article class="review-card review-placeholder">
+    <div class="review-stars" aria-label="Rating to be added">☆☆☆☆☆</div>
+    <p class="review-text">Add another genuine customer review here.</p>
     <div class="review-author"><span class="review-avatar">R</span><div><strong>Reviewer name</strong><small>Customer feedback</small></div></div>
    </article>
   </div>
