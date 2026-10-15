@@ -1773,8 +1773,8 @@ main{padding-top:0}
     padding: 4px;
   }
   .social-feedback-card .review-proof-image {
-    height: 112px;
-    min-height: 112px;
+    height: 145px;
+    min-height: 145px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -1792,7 +1792,7 @@ main{padding-top:0}
 }
 @media (max-width: 360px) {
   .social-feedback-card .review-proof-image {
-    height: 100px;
-    min-height: 100px;
+    height: 125px;
+    min-height: 125px;
   }
 }
