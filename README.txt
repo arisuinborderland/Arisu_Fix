@@ -153,3 +153,5 @@ V_92 CODE MAINTENANCE NOTES
 - Added responsive media defaults, visible keyboard focus styles, hidden-state consistency, and reduced-motion support.
 - JavaScript syntax checked with Node.js; HTML IDs and local asset references audited.
 - Existing layout, copy, recovery flows, links, proof assets, and gradient theme were preserved.
+
+V_94 hotfix: restored intact V_92 homepage markup and removed only the exact duplicate review disclaimer element. Avoided broad regex replacements across nested HTML. Verified key sections remain present.
