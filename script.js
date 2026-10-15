@@ -398,19 +398,6 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 
   renderDailyVerse();
 
-  // Expand/collapse the customer review screenshot gallery.
-  const viewReviewsButton = document.getElementById("viewReviewsButton");
-  const moreReviewsGrid = document.getElementById("moreReviewsGrid");
-  if (viewReviewsButton && moreReviewsGrid) {
-    const viewButtonLabel = viewReviewsButton.querySelector(".view-button-label");
-    viewReviewsButton.addEventListener("click", () => {
-      const isExpanded = viewReviewsButton.getAttribute("aria-expanded") === "true";
-      viewReviewsButton.setAttribute("aria-expanded", String(!isExpanded));
-      moreReviewsGrid.hidden = isExpanded;
-      if (viewButtonLabel) viewButtonLabel.textContent = isExpanded ? "View All Reviews" : "Show Fewer Reviews";
-    });
-  }
-
   // Full-size image viewer for real screenshots added to the review slots.
   const reviewLightbox = document.getElementById("reviewLightbox");
   const reviewLightboxImage = document.getElementById("reviewLightboxImage");
