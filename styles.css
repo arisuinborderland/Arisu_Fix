@@ -1297,3 +1297,124 @@ main{padding-top:0}
   .review-summary-action { align-items: center; }
   .view-reviews-button { min-height: 42px; padding: 10px 12px; font-size: 13px; }
 }
+
+/* Version 66: Windows-style mini app windows for social links, proofs, and feedback. */
+.windows-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 35px;
+  box-sizing: border-box;
+  margin: -18px -18px 16px;
+  padding: 0 6px 0 10px;
+  color: #344158;
+  background: linear-gradient(180deg, #fbfcfe 0%, #edf1f7 100%);
+  border-bottom: 1px solid #d6deea;
+  font: 600 11px/1.2 "Segoe UI", Arial, sans-serif;
+  letter-spacing: .1px;
+}
+.windows-mini-app {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 5px;
+  font: 800 13px/1 "Segoe UI", Arial, sans-serif;
+  box-shadow: 0 1px 2px rgba(31, 46, 73, .12);
+}
+.windows-mini-tiktok { background: #11131b; color: #fff; text-shadow: -1px 0 #25f4ee, 1px 0 #fe2c55; }
+.windows-mini-facebook { background: #1877f2; color: #fff; font-size: 15px; }
+.windows-mini-proofs { background: #315eea; color: #fff; }
+.windows-mini-feedback { background: #e7edfb; color: #315eea; }
+.windows-title-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.windows-controls { display: flex; align-items: stretch; align-self: stretch; margin: 0 -6px 0 auto; pointer-events: none; }
+.windows-controls span { display: grid; place-items: center; width: 28px; color: #526078; font: 400 12px/1 "Segoe UI", Arial, sans-serif; }
+.windows-controls span:last-child { width: 34px; font-size: 14px; }
+.tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase {
+  padding: 18px;
+  border: 1px solid #cfd8e6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 5px 17px rgba(31, 48, 79, .07);
+}
+.tiktok-showcase::before, .facebook-showcase::before, .recovery-proofs-showcase::before { display: none; }
+.tiktok-showcase > .windows-titlebar,
+.facebook-showcase > .windows-titlebar,
+.recovery-proofs-showcase > .windows-titlebar { position: relative; }
+.recovery-proofs-showcase { background: #fff; border-color: #cfd8e6; }
+.recovery-proofs-showcase:hover { border-color: #aebbd2; box-shadow: 0 10px 22px rgba(31, 48, 79, .1); }
+.recovery-proofs-button { border-radius: 7px; box-shadow: none; }
+.tiktok-profile-button, .facebook-profile-button { border-radius: 7px; }
+.windows-feedback-section.site-section {
+  max-width: 760px;
+  margin: 14px auto 0;
+  padding-top: 0;
+  scroll-margin-top: 96px;
+}
+.windows-feedback-window {
+  overflow: hidden;
+  border: 1px solid #cfd8e6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgba(31, 48, 79, .075);
+}
+.windows-feedback-window > .windows-titlebar { margin: 0; border-radius: 11px 11px 0 0; }
+.windows-feedback-content { padding: 12px 14px 14px; }
+.windows-feedback-content .review-summary {
+  padding: 8px 3px 13px;
+  gap: 12px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.windows-feedback-content .review-summary-copy h2 {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.2;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.windows-feedback-content .review-summary-action { gap: 7px; }
+.windows-feedback-content .review-proof-label { font-size: 11px; }
+.windows-feedback-content .view-reviews-button {
+  min-height: 42px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  border-color: #cbd5e3;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.windows-feedback-content .reviews-grid { margin-top: 2px; }
+.windows-feedback-content .review-proof-card { border-radius: 10px; box-shadow: 0 2px 7px rgba(31,48,79,.045); }
+@media (max-width: 760px) {
+  .windows-titlebar { min-height: 33px; margin: -15px -15px 13px; padding-left: 8px; gap: 7px; }
+  .windows-controls span { width: 24px; }
+  .windows-controls span:last-child { width: 30px; }
+  .tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase { padding: 14px; border-radius: 11px; }
+  .tiktok-showcase > .windows-titlebar,
+  .facebook-showcase > .windows-titlebar,
+  .recovery-proofs-showcase > .windows-titlebar { margin: -14px -14px 13px; }
+  .windows-feedback-section.site-section { margin-top: 12px; }
+  .windows-feedback-window { border-radius: 11px; }
+  .windows-feedback-window > .windows-titlebar { margin: 0; border-radius: 10px 10px 0 0; }
+  .windows-feedback-content { padding: 8px 10px 11px; }
+  .windows-feedback-content .review-summary { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 8px 1px 12px; gap: 10px; }
+  .windows-feedback-content .review-summary-copy { width: auto; flex: 1 1 auto; min-width: 0; }
+  .windows-feedback-content .review-summary-copy .section-kicker { margin-bottom: 5px; font-size: 9px; }
+  .windows-feedback-content .review-summary-copy h2 { font-size: clamp(19px, 5.1vw, 24px); line-height: 1.18; }
+  .windows-feedback-content .review-summary-action { width: auto; flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .windows-feedback-content .review-proof-label { font-size: 9px; }
+  .windows-feedback-content .view-reviews-button { min-height: 38px; padding: 8px 9px; gap: 5px; font-size: 11px; }
+  .windows-feedback-content .reviews-grid { grid-auto-columns: 62%; gap: 9px; padding-bottom: 8px; }
+  .windows-feedback-content .review-proof-card { padding: 6px; }
+  .windows-feedback-content .review-proof-image { height: 175px; }
+}
+@media (max-width: 390px) {
+  .windows-feedback-content .review-summary { align-items: flex-start; flex-direction: column; }
+  .windows-feedback-content .review-summary-copy h2 { font-size: 23px; }
+  .windows-feedback-content .review-summary-action { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+  .windows-feedback-content .view-reviews-button { font-size: 12px; }
+  .windows-feedback-content .reviews-grid { grid-auto-columns: 70%; }
+}
