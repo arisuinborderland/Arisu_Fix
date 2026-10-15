@@ -1535,3 +1535,33 @@ main{padding-top:0}
   .social-collage .facebook-showcase h3,
   .social-collage .recovery-proofs-showcase h3 { font-size: 12px; }
 }
+
+
+/* Version 68: compact Facebook and Recovery Proofs cards without stretching to match taller cards. */
+@media (max-width: 600px) {
+  .social-collage > .facebook-showcase,
+  .social-collage > .recovery-proofs-showcase {
+    align-self: start;
+    height: auto;
+    min-height: 0;
+  }
+  .social-collage > .facebook-showcase .facebook-showcase-desc,
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-desc {
+    margin: 9px 0 12px;
+  }
+  .social-collage > .facebook-showcase .facebook-profile-button,
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    margin-top: 0;
+  }
+}
+@media (max-width: 360px) {
+  .social-collage > .facebook-showcase,
+  .social-collage > .recovery-proofs-showcase {
+    padding: 9px;
+  }
+  .social-collage > .facebook-showcase .facebook-showcase-desc,
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-desc {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
