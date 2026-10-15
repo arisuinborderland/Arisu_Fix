@@ -1273,3 +1273,27 @@ main{padding-top:0}
   .review-proof-image { height: 200px; }
   .view-reviews-button { padding: 8px 10px; font-size: 12px; }
 }
+
+
+/* Version 65: clearer Customer Feedback heading and balanced View All Reviews action */
+.review-summary { align-items: center; }
+.review-summary-copy { flex: 1 1 auto; }
+.review-summary-copy .section-kicker { color: #4969b5; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.review-summary-copy h2 { color: var(--text, #202b40); font-size: clamp(25px, 3.2vw, 32px); font-weight: 800; line-height: 1.15; }
+.review-summary-action { flex: 0 0 auto; }
+.view-reviews-button { min-height: 48px; padding: 12px 18px; font-size: 15px; line-height: 1.2; text-decoration: none; border-radius: 13px; }
+.view-reviews-button .view-button-label { font-size: inherit; }
+@media (max-width: 760px) {
+  .review-summary { display: flex; flex-direction: column; align-items: stretch; gap: 14px; padding: 18px; }
+  .review-summary-copy { width: 100%; }
+  .review-summary-copy .section-kicker { margin-bottom: 7px; font-size: 10px; }
+  .review-summary-copy h2 { font-size: clamp(25px, 6.4vw, 30px); line-height: 1.15; }
+  .review-summary-action { width: 100%; flex-direction: row; justify-content: space-between; align-items: center; gap: 10px; }
+  .review-proof-label { font-size: 11px; }
+  .view-reviews-button { min-height: 44px; padding: 11px 14px; font-size: 14px; gap: 7px; }
+}
+@media (max-width: 390px) {
+  .review-summary { flex-direction: column; align-items: stretch; }
+  .review-summary-action { align-items: center; }
+  .view-reviews-button { min-height: 42px; padding: 10px 12px; font-size: 13px; }
+}
