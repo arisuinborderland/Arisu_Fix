@@ -2270,3 +2270,14 @@ main{padding-top:0}
   .safety-panel h2 { font-size: 16px !important; }
   .terms-card { padding: 11px !important; }
 }
+
+/* Version 88: remove duplicated mini title bars from the Recovery Proofs and Customer Feedback tiles. */
+.social-collage > .recovery-proofs-showcase > .windows-titlebar,
+.social-collage > .social-feedback-card > .windows-titlebar { display: none !important; }
+.social-collage > .social-feedback-card .windows-feedback-content { padding-top: 14px; }
+@media (max-width: 600px) {
+  .social-collage > .social-feedback-card .windows-feedback-content { padding: 12px 10px 11px; }
+  .social-collage > .social-feedback-card .reviews-grid { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: minmax(0, 1fr); overflow: visible; gap: 7px; }
+  .social-collage > .social-feedback-card .review-proof-image { height: clamp(86px, 25vw, 112px); }
+  .social-collage > .social-feedback-card .review-image-hint { font-size: 9px; }
+}
