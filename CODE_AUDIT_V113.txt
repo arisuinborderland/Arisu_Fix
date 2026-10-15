@@ -1,0 +1,8 @@
+V_113 targeted fix
+
+- Fixed scroll reveal behavior: elements are revealed once and remain visible when leaving the viewport.
+- This prevents sections/cards fading back to opacity 0 during reverse/fast scrolling, which caused flicker and made the animation feel inconsistent.
+- Floating WhatsApp keeps its gentle float animation after reveal. Main WhatsApp CTA retains the same reveal/press effects.
+- No layout, copy, link, or section changes intended.
+- No external animation CDN added.
+- JavaScript syntax and ZIP integrity checked; not visually browser-tested in this environment.

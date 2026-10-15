@@ -1,4 +1,4 @@
-/* V_111: self-contained scroll reveal; no CDN dependency. */
+/* V_113: self-contained one-time scroll reveal; no CDN dependency. */
 (() => {
   "use strict";
   const start = () => {
@@ -29,10 +29,12 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        // Reveal once when the element enters view. Do not hide it again when
+        // it leaves the viewport: this prevents flicker/blank sections while
+        // the user scrolls quickly or reverses direction.
         if (entry.isIntersecting) {
           entry.target.classList.add("arc-scroll-reveal-visible");
-        } else {
-          entry.target.classList.remove("arc-scroll-reveal-visible");
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.05, rootMargin: "0px 0px -5% 0px" });

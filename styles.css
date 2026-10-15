@@ -2730,7 +2730,7 @@ summary:focus-visible {
 }
 
 
-/* V_112: animate both WhatsApp contact buttons without changing layout or links. */
+/* V_113: animate WhatsApp buttons; reveal stays visible after first entry. */
 .arc-scroll-reveal-enabled #floatingWhatsApp.arc-scroll-reveal-visible {
   animation: arc-wa-float-v112 3.2s ease-in-out 650ms infinite;
 }
@@ -2747,5 +2747,64 @@ summary:focus-visible {
   }
   #floatingWhatsApp:active, .whatsapp-button:active {
     transform: none;
+  }
+}
+
+
+/* V_114: desktop-width refinement for the home page.
+   Preserve existing mobile breakpoints and visual styling. */
+@media (min-width: 900px) {
+  body:has(.compact-intro) main {
+    width: 100%;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px clamp(28px, 4vw, 52px) 64px;
+  }
+  body:has(.compact-intro) .compact-intro {
+    max-width: 900px;
+    margin-bottom: 26px;
+  }
+  body:has(.compact-intro) .compact-intro h1 {
+    font-size: clamp(42px, 4.1vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -1.8px;
+  }
+  body:has(.compact-intro) .compact-intro p {
+    max-width: 720px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  body:has(.compact-intro) .wizard-card.contact-only {
+    padding: clamp(30px, 3vw, 42px);
+    border-radius: 26px;
+  }
+  body:has(.compact-intro) .contact-desc {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  body:has(.compact-intro) .whatsapp-button {
+    min-height: 64px;
+    font-size: 16px;
+    border-radius: 14px;
+  }
+  body:has(.compact-intro) .notice-highlight {
+    padding: 22px 24px;
+    gap: 18px;
+  }
+  body:has(.compact-intro) .notice-highlight p {
+    font-size: 16px;
+  }
+  body:has(.compact-intro) .social-collage {
+    gap: clamp(16px, 2vw, 24px);
+    margin-top: 22px;
+  }
+  body:has(.compact-intro) .site-section {
+    max-width: 1000px;
+    margin-top: 36px;
+  }
+  body:has(.compact-intro) .site-footer {
+    padding-left: max(32px, calc((100% - 1040px) / 2));
+    padding-right: max(32px, calc((100% - 1040px) / 2));
   }
 }
