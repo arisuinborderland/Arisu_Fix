@@ -145,3 +145,11 @@ CUSTOMER FEEDBACK PREVIEWS (VERSION 76)
 - Homepage thumbnails keep the same portrait aspect ratio as the source images, so they are not stretched or forced into an overly tall fixed box.
 - Slot 01 is a reference image mentioning Pinoy Cyber Tech, not an Arisu testimonial. Slots 02 and 03 are placeholders until genuine, permission-approved customer screenshots are available.
 - `reviews.html` contains the same three slots in the full review gallery.
+
+
+V_92 CODE MAINTENANCE NOTES
+- Synchronized CSS and JavaScript cache-busting tokens across pages.
+- Added safe noopener/noreferrer attributes to external links opened in new tabs where needed.
+- Added responsive media defaults, visible keyboard focus styles, hidden-state consistency, and reduced-motion support.
+- JavaScript syntax checked with Node.js; HTML IDs and local asset references audited.
+- Existing layout, copy, recovery flows, links, proof assets, and gradient theme were preserved.

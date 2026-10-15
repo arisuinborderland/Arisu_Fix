@@ -2436,3 +2436,34 @@ a, button {
     background: rgba(255,255,255,.86) !important;
   }
 }
+
+
+/* V_92 maintenance: safe defaults, responsive media, and accessible focus/reduced motion. */
+img, video, canvas, svg {
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(49, 95, 244, .72);
+  outline-offset: 3px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
