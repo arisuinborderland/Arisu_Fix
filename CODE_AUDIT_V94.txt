@@ -1,7 +1,0 @@
-ARISU RECOVERY CONTACT — V_94 HOTFIX
-
-- Rebuilt from V_92 intact homepage markup because V_93's broad text-removal edit damaged nested HTML.
-- Removed only the exact review disclaimer element.
-- Preserved customer feedback card, one review image, View All Reviews button, social cards, and How account assistance works section.
-- Synchronized stylesheet/script cache tokens to repair-v94.
-- Archive and structural checks run; browser/live deployment should still be tested after publishing.
