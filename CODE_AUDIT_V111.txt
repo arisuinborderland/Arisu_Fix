@@ -1,0 +1,8 @@
+Arisu Recovery Contact — V_111 scroll animation fix
+
+- Removed AOS 2.3.1 external CDN dependencies and the AOS setup script.
+- Replaced scroll-reveal.js with a self-contained IntersectionObserver implementation.
+- Targets real elements from the WhatsApp notice/social cards through Reviews, How It Works, About, Safety, Terms, and footer content.
+- Animation repeats when elements leave and re-enter the viewport.
+- Added versioned local script/style URLs to help avoid browser cache issues.
+- JavaScript syntax and ZIP integrity checked. Visual browser testing was not available in this environment.

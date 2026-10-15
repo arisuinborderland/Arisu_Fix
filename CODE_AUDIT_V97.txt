@@ -1,0 +1,12 @@
+V_97 CHANGE SUMMARY
+
+Base: V_96.zip
+Scope: Small typography/readability refinement only.
+- Increased description readability for TikTok, Facebook Page, and Recovery Proofs.
+- Slightly increased TikTok account warning text and the three card action labels.
+- Slightly strengthened heading size on mobile.
+- Preserved card structure, existing links, review preview, scripts, and unrelated sections.
+- Updated CSS cache query to code-audit-v97.
+
+Verification performed: ZIP integrity, HTML parser, CSS parser, JavaScript syntax, local relative asset/link existence, and changed-file review.
+Limitations: Actual mobile/desktop browser screenshot testing was not available in this run.

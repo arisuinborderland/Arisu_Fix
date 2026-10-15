@@ -430,4 +430,6 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeReviewLightbox();
   });
+
+
 })();

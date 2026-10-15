@@ -2585,3 +2585,146 @@ summary:focus-visible {
   .social-collage > .social-feedback-card { height: auto; }
   .social-collage > .social-feedback-card .review-proof-image { min-height: 120px; }
 }
+
+
+/* V_97: slight readability boost for the three social/proof cards.
+   Preserve layout, content, colors, destinations, and existing behavior. */
+.social-collage .tiktok-showcase-desc,
+.social-collage .facebook-showcase-desc,
+.social-collage .recovery-proofs-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #465671;
+}
+.social-collage .tiktok-authenticity-note {
+  font-size: 12px;
+  line-height: 1.48;
+}
+.social-collage .tiktok-profile-button,
+.social-collage .facebook-profile-button,
+.social-collage .recovery-proofs-button {
+  font-size: 12px;
+  line-height: 1.35;
+}
+@media (max-width: 600px) {
+  .social-collage .tiktok-showcase-desc,
+  .social-collage .facebook-showcase-desc,
+  .social-collage .recovery-proofs-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  .social-collage .tiktok-authenticity-note {
+    font-size: 10.5px;
+    line-height: 1.45;
+    padding: 7px 8px;
+  }
+  .social-collage .tiktok-profile-button,
+  .social-collage .facebook-profile-button,
+  .social-collage .recovery-proofs-button {
+    font-size: 10.5px;
+    line-height: 1.3;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .social-collage .tiktok-showcase h3,
+  .social-collage .facebook-showcase h3,
+  .social-collage .recovery-proofs-showcase h3 {
+    font-size: 14px;
+    line-height: 1.28;
+  }
+}
+@media (max-width: 359px) {
+  .social-collage .tiktok-showcase-desc,
+  .social-collage .facebook-showcase-desc,
+  .social-collage .recovery-proofs-desc {
+    font-size: 13px;
+  }
+}
+
+/* V101: slow, clearly visible green soft-glow pulse for the account-recovery badge */
+.compact-intro .eyebrow {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(34, 197, 94, .92);
+  color: #166534;
+  background: linear-gradient(180deg, rgba(240, 253, 244, .98), rgba(255, 255, 255, .98));
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, .10),
+              0 0 14px rgba(34, 197, 94, .24),
+              0 0 28px rgba(34, 197, 94, .13);
+  animation: eyebrow-fade-in-v101 1s ease-out both,
+             eyebrow-green-glow-v101 3.6s ease-in-out 1s infinite;
+}
+.compact-intro .eyebrow > span {
+  background: #22c55e;
+  box-shadow: 0 0 7px rgba(34, 197, 94, .75), 0 0 14px rgba(34, 197, 94, .48);
+}
+@keyframes eyebrow-fade-in-v101 {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes eyebrow-green-glow-v101 {
+  0%, 100% {
+    border-color: rgba(34, 197, 94, .72);
+    box-shadow: 0 0 0 1px rgba(34, 197, 94, .08),
+                0 0 10px rgba(34, 197, 94, .20),
+                0 0 20px rgba(34, 197, 94, .11);
+  }
+  50% {
+    border-color: rgba(22, 163, 74, 1);
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, .14),
+                0 0 20px rgba(34, 197, 94, .48),
+                0 0 38px rgba(34, 197, 94, .28),
+                0 0 52px rgba(34, 197, 94, .12);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .compact-intro .eyebrow {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    box-shadow: 0 0 10px rgba(34, 197, 94, .25), 0 0 20px rgba(34, 197, 94, .12);
+  }
+}
+
+
+/* V109: visible, independent fade-up reveal for units from WhatsApp to footer. */
+.scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+.scroll-reveal-ready .scroll-reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+.scroll-reveal-ready .scroll-reveal {
+  transition: opacity 680ms ease, transform 680ms cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
+}
+.scroll-reveal-ready .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready .scroll-reveal,
+  .scroll-reveal-ready .scroll-reveal:not(.is-visible),
+  .scroll-reveal-ready .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* V_111: local, CDN-free scroll reveal for the contact-to-footer content. */
+.arc-scroll-reveal { opacity: 1; transform: none; }
+.arc-scroll-reveal-enabled .arc-scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 650ms ease var(--arc-reveal-delay, 0ms), transform 650ms cubic-bezier(.2,.7,.2,1) var(--arc-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}

@@ -1,0 +1,9 @@
+V_110 CHANGE AUDIT — AOS scroll animations
+
+Base: V_109.
+Added official AOS 2.3.1 CSS and JavaScript CDN references to index.html.
+Added aos-setup.js which applies fade-up to the WhatsApp notice, social cards, feedback/reviews/proofs, How It Works cards, About, Safety, Terms, and footer.
+Configured 700ms duration, ease-out-cubic, offset 55, staggered delays for card groups, and mirror/repeat behavior on scroll.
+Updated CSS cache-busting query to aos-v110.
+No intentional edits to page text, links, colors, layout, or existing contact functionality.
+Note: AOS is loaded from unpkg CDN, so the page needs internet access for the library to load. Static HTML previewers may not run external JavaScript; test in Chrome or the deployed website.
