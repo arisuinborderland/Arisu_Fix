@@ -2911,3 +2911,106 @@ summary:focus-visible {
 @media(max-width:600px){.brand-name-row{gap:5px}.arisu-verified-badge{width:18px;height:18px;flex-basis:18px}.arisu-verified-badge svg{width:12px;height:12px}}
 @media(max-width:380px){.arisu-verified-badge{width:16px;height:16px;flex-basis:16px}.arisu-verified-badge svg{width:10px;height:10px}}
 @media(prefers-reduced-motion:reduce){.arisu-verified-badge,.arisu-verified-badge:after,.arisu-verified-badge svg path{animation:none!important}.arisu-verified-badge svg path{stroke-dashoffset:0!important}}
+
+
+/* V_127 — Recovery-first step; only the checkmarks animate. */
+.how-section .recovery-first-card {
+  border: 2px solid #45d5a1;
+  background: linear-gradient(145deg, #ffffff 0%, #f0fff7 100%);
+  box-shadow: 0 9px 24px rgba(27, 180, 119, .08);
+}
+.how-section .recovery-first-card .recovery-check-symbol {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #ddffed, #c5f8dc);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(25, 178, 103, .13);
+}
+.recovery-animated-check {
+  display: block;
+  width: 29px;
+  height: 29px;
+  overflow: visible;
+}
+.recovery-animated-check path,
+.promise-check svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: recovery-check-draw 2s ease-in-out infinite;
+}
+.recovery-first-card .recovery-animated-check path {
+  color: #fff;
+  stroke-width: 3.4;
+  filter: drop-shadow(0 1px 1px rgba(0, 105, 58, .12));
+}
+.recovery-first-card .recovery-check-symbol {
+  background: linear-gradient(145deg, #27d979, #119956);
+}
+.recovery-first-card .recovery-animated-check {
+  animation: recovery-check-pop 2s ease-in-out infinite;
+}
+.recovery-payment-promise {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(69, 213, 161, .48);
+  border-radius: 10px;
+  background: rgba(222, 255, 237, .7);
+  color: #13864e;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.recovery-payment-promise strong { font-weight: 800; }
+.promise-check {
+  display: grid;
+  place-items: center;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1dc875;
+  color: #fff;
+}
+.promise-check svg { display: block; width: 15px; height: 15px; }
+.promise-check svg path { stroke-dasharray: 24; stroke-dashoffset: 24; animation-delay: .12s; stroke-width: 3.5; }
+@keyframes recovery-check-draw {
+  0%, 8% { stroke-dashoffset: 24; }
+  28%, 68% { stroke-dashoffset: 0; }
+  82%, 100% { stroke-dashoffset: 24; }
+}
+@keyframes recovery-check-pop {
+  0%, 8%, 76%, 100% { transform: scale(1); }
+  18% { transform: scale(1.13); }
+  30% { transform: scale(.98); }
+  40% { transform: scale(1); }
+}
+@media (min-width: 761px) {
+  .how-section .recovery-first-card { grid-column: 1 / -1; min-height: 0; }
+  .how-section .recovery-first-card h3 { max-width: calc(100% - 38px); }
+  .how-section .recovery-first-card p { max-width: 900px; }
+}
+@media (max-width: 760px) {
+  .how-section .recovery-first-card { padding: 14px 13px; }
+  .how-section .recovery-first-card .recovery-check-symbol { grid-row: 1 / span 3; }
+  .how-section .recovery-first-card h3 { margin-right: 24px; }
+  .recovery-payment-promise { grid-column: 2; margin-bottom: 7px; font-size: 12px; }
+  .recovery-animated-check { width: 27px; height: 27px; }
+}
+@media (max-width: 360px) {
+  .recovery-payment-promise { align-items: flex-start; font-size: 11px; gap: 7px; padding: 7px; }
+  .how-section .recovery-first-card h3 { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .recovery-animated-check, .recovery-animated-check path, .promise-check svg path { animation: none !important; }
+  .recovery-animated-check path, .promise-check svg path { stroke-dashoffset: 0; }
+}
