@@ -2043,3 +2043,230 @@ main{padding-top:0}
   .social-feedback-card .reviews-grid { gap: 5px; }
   .social-feedback-card .review-proof-card { padding: 2px; }
 }
+
+/* Version 82: green WhatsApp-inspired outer cards for the three process steps.
+   Keep the existing step icon tiles, text, numbering, and WhatsApp floating button unchanged. */
+.how-section .step-card {
+  background: linear-gradient(135deg, #fbfffd 0%, #effff7 100%);
+  border: 2px solid #25d995;
+  box-shadow: 0 12px 30px rgba(22, 190, 105, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.how-section .step-card:hover {
+  border-color: #18c982;
+  box-shadow: 0 15px 34px rgba(22, 190, 105, 0.17), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* V_84: compact vertical spacing from the process section through Terms.
+   Keep all information and the existing desktop/mobile card designs. */
+.site-section {
+  margin-top: 30px;
+}
+.how-section {
+  margin-top: 26px;
+}
+.how-section .section-heading {
+  margin-bottom: 15px;
+}
+.how-section .section-heading h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.how-section .steps-grid {
+  gap: 10px;
+}
+.how-section .step-card {
+  min-height: 0;
+  padding: 16px 16px;
+}
+.how-section .step-card h3 {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.how-section .step-card p {
+  line-height: 1.6;
+}
+.faq-section .section-heading {
+  margin-bottom: 14px;
+}
+.faq-section .faq-list {
+  gap: 8px;
+}
+.faq-section .faq-list details {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.faq-section .faq-list summary {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+.faq-section .faq-list details p {
+  padding-bottom: 13px;
+}
+.site-section.about-section,
+.site-section.safety-section,
+.site-section.terms-section {
+  margin-top: 18px;
+}
+.about-card {
+  padding: 21px;
+  gap: 16px;
+}
+.about-card > img {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+}
+.about-card h2 {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.about-card p,
+.terms-card p {
+  margin-bottom: 7px;
+  line-height: 1.6;
+}
+.about-card .independent-note {
+  margin-top: 6px;
+  padding: 9px 11px;
+}
+.safety-panel {
+  padding: 20px;
+  gap: 14px;
+}
+.safety-panel h2 {
+  margin-top: 3px;
+  margin-bottom: 6px;
+}
+.safety-panel p {
+  margin-bottom: 7px;
+  line-height: 1.6;
+}
+.safety-panel p:last-child {
+  margin-top: 1px;
+  margin-bottom: 0;
+}
+.terms-card {
+  padding: 19px 21px;
+}
+.terms-card h2 {
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+.terms-card p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .site-section { margin-top: 22px !important; }
+  .how-section { margin-top: 8px !important; }
+  .how-section .section-heading { margin-bottom: 11px !important; }
+  .how-section .section-kicker { line-height: 1.1 !important; }
+  .how-section .section-heading h2 {
+    margin: 4px 0 4px !important;
+    line-height: 1.16 !important;
+  }
+  .how-section .section-heading p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+  .how-section .steps-grid { gap: 8px !important; }
+  .how-section .step-card {
+    padding: 12px 13px !important;
+    column-gap: 10px !important;
+    border-radius: 15px !important;
+  }
+  .how-section .step-card h3 {
+    margin: 0 23px 4px 0 !important;
+    padding-bottom: 4px !important;
+    line-height: 1.25 !important;
+  }
+  .how-section .step-card p {
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+  }
+  .how-section .step-symbol {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+  }
+  .how-section .step-index { top: 9px !important; right: 11px !important; }
+
+  .faq-section { margin-top: 14px !important; }
+  .faq-section .section-heading { margin-bottom: 9px !important; }
+  .faq-section .section-heading h2 {
+    margin: 4px 0 !important;
+    font-size: clamp(21px, 5.6vw, 25px) !important;
+    line-height: 1.16 !important;
+  }
+  .faq-section .section-heading p { font-size: 12.5px !important; line-height: 1.4 !important; }
+  .faq-section .faq-list { gap: 7px !important; }
+  .faq-section .faq-list details { border-radius: 13px !important; }
+  .faq-section .faq-list summary {
+    min-height: 0 !important;
+    padding: 11px 30px 11px 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.38 !important;
+  }
+  .faq-section .faq-list summary:after { top: 50% !important; transform: translateY(-50%); }
+  .faq-section .faq-list details p {
+    padding: 0 24px 11px 0 !important;
+    font-size: 12px !important;
+    line-height: 1.48 !important;
+  }
+
+  .site-section.about-section,
+  .site-section.safety-section,
+  .site-section.terms-section { margin-top: 12px !important; }
+  .about-card {
+    grid-template-columns: 43px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 13px 12px !important;
+    border-radius: 16px !important;
+  }
+  .about-card > img { width: 43px !important; height: 43px !important; border-radius: 12px !important; }
+  .about-card .section-kicker { font-size: 10px !important; line-height: 1.2 !important; }
+  .about-card h2 { font-size: 18px !important; margin: 2px 0 5px !important; line-height: 1.18 !important; }
+  .about-card p,
+  .about-card .independent-note {
+    margin: 5px 0 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+  .about-card .independent-note { background: transparent !important; }
+  .safety-panel {
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+    gap: 9px !important;
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+  .safety-panel-icon { width: 36px !important; height: 36px !important; border-radius: 10px !important; font-size: 19px !important; }
+  .safety-panel h2 { font-size: 17px !important; line-height: 1.2 !important; margin: 0 0 5px !important; padding-bottom: 5px !important; }
+  .safety-panel p { margin: 5px 0 0 !important; font-size: 12px !important; line-height: 1.45 !important; }
+  .safety-panel p:last-child { font-size: 13px !important; margin-top: 5px !important; }
+  .terms-card { padding: 12px 13px !important; border-radius: 15px !important; }
+  .terms-card .section-kicker { font-size: 11px !important; letter-spacing: 1.2px !important; line-height: 1.3 !important; }
+  .terms-card h2 { font-size: 19px !important; line-height: 1.16 !important; margin: 4px 0 5px !important; }
+  .terms-card p { font-size: 12px !important; line-height: 1.45 !important; margin: 0 !important; }
+}
+@media (max-width: 420px) {
+  .site-section { margin-top: 18px !important; }
+  .how-section { margin-top: 6px !important; }
+  .how-section .step-card { padding: 11px 11px !important; column-gap: 9px !important; }
+  .how-section .step-symbol { width: 32px !important; height: 32px !important; }
+  .how-section .step-card h3 { font-size: 13.5px !important; }
+  .how-section .step-card p { font-size: 12.5px !important; }
+  .site-section.about-section,
+  .site-section.safety-section,
+  .site-section.terms-section { margin-top: 10px !important; }
+  .about-card { grid-template-columns: 38px minmax(0, 1fr) !important; gap: 8px !important; padding: 11px 10px !important; }
+  .about-card > img { width: 38px !important; height: 38px !important; border-radius: 10px !important; }
+  .about-card h2 { font-size: 17px !important; }
+  .about-card p,
+  .about-card .independent-note,
+  .terms-card p { font-size: 11.5px !important; line-height: 1.42 !important; }
+  .safety-panel { grid-template-columns: 32px minmax(0, 1fr) !important; padding: 10px !important; gap: 8px !important; }
+  .safety-panel-icon { width: 32px !important; height: 32px !important; }
+  .safety-panel h2 { font-size: 16px !important; }
+  .terms-card { padding: 11px !important; }
+}
