@@ -1,4 +1,4 @@
-/* V_119: repeat-on-scroll reveals on desktop and mobile, including reduced-motion desktop configurations. */
+/* V_120: responsive repeat-on-scroll reveals for desktop and mobile. */
 (() => {
   "use strict";
 
@@ -6,6 +6,8 @@
     const header = document.querySelector(".topbar");
     const selectors = [
       "#daily-bible-verse",
+      ".compact-intro",
+      ".contact-desc",
       ".whatsapp-button",
       "#floatingWhatsApp",
       ".whatsapp-notice",
@@ -13,7 +15,6 @@
       ".social-collage > .social-card-link",
       ".social-collage > .social-feedback-card",
       ".social-collage > .recovery-proofs-showcase",
-      "#reviewsGrid",
       ".how-section .section-heading",
       ".how-section .step-card",
       ".about-card",
@@ -26,7 +27,8 @@
 
     targets.forEach((el, i) => {
       el.classList.add("arc-scroll-reveal");
-      el.style.setProperty("--arc-reveal-delay", `${(i % 3) * 70}ms`);
+      // Short, restrained stagger keeps desktop and mobile motion in sync.
+      el.style.setProperty("--arc-reveal-delay", `${(i % 3) * 45}ms`);
       // Start hidden so first entry gets the same fade-up as later entries.
       el.classList.remove("arc-scroll-reveal-visible");
     });
@@ -58,8 +60,8 @@
         });
       }, {
         threshold: [0, 0.06],
-        // The topbar is sticky on small screens and can overlay content.
-        rootMargin: `-${headerHeight}px 0px -4% 0px`
+        // The topbar is sticky at all viewport sizes and can overlay content.
+        rootMargin: `-${headerHeight}px 0px -1% 0px`
       });
       targets.forEach((el) => observer.observe(el));
     };

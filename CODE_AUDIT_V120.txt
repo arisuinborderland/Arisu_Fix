@@ -1,0 +1,21 @@
+V_120 CHANGE SUMMARY
+
+Goal:
+- Improve Scroll Reveal Pro behavior consistently across desktop and mobile while preserving the existing page design and features.
+
+Changes:
+- Added the compact hero intro and contact description to the shared reveal target list so the opening content uses the same scroll animation.
+- Removed the nested reviews-grid reveal target; its parent review card already animates, preventing stacked opacity/transform effects within the same review section.
+- Kept repeat-on-scroll behavior in both directions, with observer bounds accounting for the sticky header on desktop and mobile. The smaller lower observer margin also prevents footer content at the bottom of the page from remaining hidden.
+- Shortened the fade/translate transition to 540 ms and reduced the stagger interval to 45 ms for a smoother, less delayed feel.
+- Removed persistent will-change hints from every animated element to limit unnecessary compositor memory use.
+- Updated stylesheet and scroll-reveal cache tags to arc-v120.
+- Removed historical CODE_AUDIT text files from this package and retained this latest audit summary to reduce clutter. They are not required for the website to run.
+- Preserved existing page sections, content, links, assets, and non-animation JavaScript.
+
+Validation:
+- Node syntax checks passed for script.js and scroll-reveal.js.
+- Browser check used the actual index.html and styles.css with scroll-reveal.js in a local Chromium harness; the external Google Fonts import was omitted from that harness because the environment blocks remote navigation.
+- Desktop (1440x900) and mobile (390x844): reveal states toggled off on scroll-down and back on when returning up; no horizontal overflow or JavaScript page errors were detected. Footer items remained visible at the page bottom. The reduced-motion browser setting was also checked against the site's explicit 540 ms reveal override.
+- Direct browser navigation to local file/localhost URLs is blocked by the test environment, so final visual confirmation in the user's actual browser is still recommended before deployment.
+- ZIP integrity and local asset references are checked after packaging.
