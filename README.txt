@@ -35,9 +35,8 @@ README.txt       This guide
 RUN LOCALLY
 -----------
 1. Extract this ZIP.
-2. Open the single `Arisu Recovery Contact` folder. The website files are directly
-   inside it; there is no second nested project folder.
-3. Double-click index.html to open it in a browser, or serve this folder using any
+2. Open the Arisu_Recovery_Contact_Simple folder.
+3. Double-click index.html to open it in a browser, or serve the folder using any
    static local server (for example, VS Code Live Server).
 4. Test the WhatsApp, TikTok, Facebook, and Privacy Policy links on the device where
 you will publish/use the site. App opening may depend on Android, browser, and installed
@@ -46,8 +45,8 @@ app settings; regular web links remain the fallback destinations.
 DEPLOY TO NETLIFY
 -----------------
 1. Extract this ZIP.
-2. Deploy the single `Arisu Recovery Contact` folder through your connected Git repository
-   or upload the folder to your static host.
+2. Drag the extracted Arisu_Recovery_Contact_Simple folder into https://app.netlify.com/drop,
+   or deploy it through your connected Git repository.
 3. Open the published URL on desktop and mobile and manually test each external destination.
 
 SAFETY AND LIMITATIONS
@@ -123,25 +122,3 @@ WhatsApp in TikTok's in-app browser
 - Main WhatsApp buttons now try the consumer WhatsApp app using the whatsapp://send scheme.
 - If the in-app browser blocks that scheme, use the visible HTTPS fallback link.
 - A website cannot guarantee that Android opens WhatsApp Messenger instead of WhatsApp Business when the phone has Business set as the default handler. Check Android Settings > Apps > WhatsApp Business > Open by default / Set as default, clear supported-link defaults if available, and then set WhatsApp Messenger to open supported links. Menu names vary by phone.
-
-
-CUSTOMER REVIEWS (Version 63)
------------------------------
-- Homepage shows three compact screenshot previews and a View All Reviews link.
-- View All Reviews opens reviews.html, a separate full gallery page.
-- Review screenshots are stored in the reviews/ folder.
-- Replace placeholders only with genuine customer feedback shared with permission.
-
-
-Version 73 update: Slightly increased the mobile card icons, headings, descriptions, buttons, and review thumbnails while keeping the four-card 2x2 collage and aligned bottom actions.
-
-
-Version 74 update: Enlarged the three Customer Feedback screenshot previews on mobile so more of each screenshot is visible, while keeping View All Reviews below them and preserving the four-card collage layout.
-
-
-CUSTOMER FEEDBACK PREVIEWS (VERSION 76)
---------------------------------------
-- The homepage currently shows three review slots only; slots 04, 05, and 06 have been removed.
-- Homepage thumbnails keep the same portrait aspect ratio as the source images, so they are not stretched or forced into an overly tall fixed box.
-- Slot 01 is a reference image mentioning Pinoy Cyber Tech, not an Arisu testimonial. Slots 02 and 03 are placeholders until genuine, permission-approved customer screenshots are available.
-- `reviews.html` contains the same three slots in the full review gallery.
