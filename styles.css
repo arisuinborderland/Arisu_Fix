@@ -1041,3 +1041,78 @@ main{padding-top:0}
   body .topbar > .header-meta > .privacy-link { font-size: 10px !important; }
   body .topbar .header-icon { width: 14px !important; height: 14px !important; flex-basis: 14px !important; }
 }
+
+/* Version 50: privacy left, Arisu profile/name right; two wide buttons below */
+@media(max-width:600px){
+  .topbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding:12px 12px 13px;}
+  .topbar .brand{order:2;flex:0 1 auto;min-width:0;justify-content:flex-end;text-align:left;margin-left:auto;}
+  .header-meta{display:contents;}
+  .header-meta .privacy-link{order:1;flex:0 1 auto;min-height:42px;padding:0 12px;font-size:11px;white-space:nowrap;}
+  .header-meta .webtools-header-link{order:3;flex:1 1 calc(50% - 5px);min-width:0;}
+  .header-meta .proofs-header-link{order:4;flex:1 1 calc(50% - 5px);min-width:0;}
+  .header-meta .webtools-header-link,.header-meta .proofs-header-link{min-height:44px;justify-content:center;padding:0 8px;font-size:11px;gap:5px;}
+}
+@media(max-width:380px){
+  .topbar .brand{gap:6px;}
+  .topbar .logo{width:36px;height:36px;}
+  .topbar .brand b{font-size:14px;}
+  .topbar .brand small{font-size:9px;}
+  .header-meta .privacy-link{padding:0 8px;font-size:10px;}
+  .header-meta .webtools-header-link,.header-meta .proofs-header-link{font-size:10px;}
+}
+
+
+/* Version 52: Profile/name far left, Privacy Policy far right, two buttons below. */
+@media (max-width: 600px) {
+  body .topbar {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    gap: 10px 8px !important;
+    padding: 12px 12px 13px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  body .topbar > .brand {
+    grid-column: 1 !important; grid-row: 1 !important;
+    justify-self: start !important; width: auto !important; max-width: 100% !important;
+    min-width: 0 !important; margin: 0 !important;
+    flex: initial !important; justify-content: flex-end !important;
+  }
+  body .topbar > .header-meta {
+    display: contents !important;
+  }
+  body .topbar > .header-meta > .privacy-link {
+    grid-column: 2 !important; grid-row: 1 !important;
+    justify-self: end !important; align-self: center !important;
+    width: auto !important; max-width: 100% !important; min-width: 0 !important;
+    min-height: 40px !important; padding: 0 9px !important;
+    font-size: 11px !important; white-space: nowrap !important;
+    flex: initial !important;
+  }
+  body .topbar > .header-meta > .webtools-header-link {
+    grid-column: 1 !important; grid-row: 2 !important;
+  }
+  body .topbar > .header-meta > .proofs-header-link {
+    grid-column: 2 !important; grid-row: 2 !important;
+  }
+  body .topbar > .header-meta > .webtools-header-link,
+  body .topbar > .header-meta > .proofs-header-link {
+    width: 100% !important; min-width: 0 !important; min-height: 45px !important;
+    margin: 0 !important; padding: 0 6px !important; gap: 4px !important;
+    justify-content: center !important; font-size: 11px !important;
+    white-space: nowrap !important; flex: initial !important;
+  }
+  body .topbar .header-icon { width: 15px !important; height: 15px !important; flex: 0 0 15px !important; }
+}
+@media (max-width: 380px) {
+  body .topbar > .brand { gap: 5px !important; }
+  body .topbar > .brand .logo { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
+  body .topbar > .brand b { font-size: 13px !important; }
+  body .topbar > .brand small { font-size: 9px !important; }
+  body .topbar > .header-meta > .privacy-link { font-size: 10px !important; padding: 0 6px !important; }
+  body .topbar > .header-meta > .webtools-header-link,
+  body .topbar > .header-meta > .proofs-header-link { font-size: 10px !important; padding: 0 4px !important; gap: 3px !important; }
+}
