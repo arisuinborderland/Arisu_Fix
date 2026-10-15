@@ -1,0 +1,10 @@
+V_112 CHANGE AUDIT
+
+Scope: WhatsApp button animation only.
+- Added the main .whatsapp-button and fixed #floatingWhatsApp to the existing local IntersectionObserver reveal list.
+- Added a gentle 4px vertical float animation to the fixed WhatsApp button after it is revealed.
+- Added subtle press feedback for both WhatsApp buttons.
+- Preserved existing hrefs, button text, dimensions, colors, positioning, and all other sections.
+- No external CDN added.
+
+Checks performed: JavaScript syntax check and ZIP integrity check. Visual browser testing was not performed in this environment.

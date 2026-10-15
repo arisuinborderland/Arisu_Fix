@@ -3,6 +3,8 @@
   "use strict";
   const start = () => {
     const selectors = [
+      ".whatsapp-button",
+      "#floatingWhatsApp",
       ".whatsapp-notice",
       ".contact-divider",
       ".social-collage > .social-card-link",
