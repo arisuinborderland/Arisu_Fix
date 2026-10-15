@@ -4205,3 +4205,14 @@ body:has(.compact-intro) .availability-details { grid-column: 1 / -1 !important;
     border-top: 1px solid #bdd4f8 !important;
   }
 }
+
+
+/* V_138 — pull the main title lines closer to their blue kicker labels, matching the user's red markers. */
+@media (max-width: 600px) {
+  body:has(.compact-intro) .whatsapp-feature-content h2 {
+    margin-top: -4px !important;
+  }
+  body:has(.compact-intro) .availability-content h2 {
+    margin-top: -3px !important;
+  }
+}
