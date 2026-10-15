@@ -1,9 +1,8 @@
-/* V_115: self-contained one-time scroll reveal; no CDN dependency. */
+/* V_113: self-contained one-time scroll reveal; no CDN dependency. */
 (() => {
   "use strict";
   const start = () => {
     const selectors = [
-      "#daily-bible-verse",
       ".whatsapp-button",
       "#floatingWhatsApp",
       ".whatsapp-notice",
