@@ -398,15 +398,49 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 
   renderDailyVerse();
 
-  // Expand/collapse the owner-managed customer review placeholders.
+  // Expand/collapse the customer review screenshot gallery.
   const viewReviewsButton = document.getElementById("viewReviewsButton");
   const moreReviewsGrid = document.getElementById("moreReviewsGrid");
   if (viewReviewsButton && moreReviewsGrid) {
+    const viewButtonLabel = viewReviewsButton.querySelector(".view-button-label");
     viewReviewsButton.addEventListener("click", () => {
       const isExpanded = viewReviewsButton.getAttribute("aria-expanded") === "true";
       viewReviewsButton.setAttribute("aria-expanded", String(!isExpanded));
       moreReviewsGrid.hidden = isExpanded;
-      viewReviewsButton.firstChild.textContent = isExpanded ? "View More Reviews " : "Hide Extra Reviews ";
+      if (viewButtonLabel) viewButtonLabel.textContent = isExpanded ? "View All Reviews" : "Show Fewer Reviews";
     });
   }
+
+  // Full-size image viewer for real screenshots added to the review slots.
+  const reviewLightbox = document.getElementById("reviewLightbox");
+  const reviewLightboxImage = document.getElementById("reviewLightboxImage");
+  const reviewLightboxClose = document.getElementById("reviewLightboxClose");
+  const closeReviewLightbox = () => {
+    if (!reviewLightbox || reviewLightbox.hidden) return;
+    reviewLightbox.hidden = true;
+    if (reviewLightboxImage) {
+      reviewLightboxImage.src = "";
+      reviewLightboxImage.alt = "Enlarged customer review screenshot";
+    }
+    document.body.classList.remove("review-lightbox-open");
+  };
+  document.querySelectorAll(".review-proof-image:not(.is-placeholder) img").forEach((image) => {
+    const button = image.closest(".review-proof-image");
+    if (!button) return;
+    button.addEventListener("click", () => {
+      if (!reviewLightbox || !reviewLightboxImage) return;
+      reviewLightboxImage.src = image.currentSrc || image.src;
+      reviewLightboxImage.alt = image.alt || "Customer review screenshot";
+      reviewLightbox.hidden = false;
+      document.body.classList.add("review-lightbox-open");
+      if (reviewLightboxClose) reviewLightboxClose.focus();
+    });
+  });
+  if (reviewLightboxClose) reviewLightboxClose.addEventListener("click", closeReviewLightbox);
+  if (reviewLightbox) reviewLightbox.addEventListener("click", (event) => {
+    if (event.target === reviewLightbox) closeReviewLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeReviewLightbox();
+  });
 })();
