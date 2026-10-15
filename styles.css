@@ -3383,3 +3383,134 @@ body:has(.compact-intro) .social-collage { margin-top: 12px; gap: 12px; }
   body:has(.compact-intro) .availability-reply { border-left: 0; border-top: 1px solid #c1d8ff; padding: 8px 0 0; }
   body:has(.compact-intro) .availability-time strong { font-size: 11px; }
 }
+
+
+/* V_134: compact mobile first-screen layout so WhatsApp and Available Hours both show early.
+   The Bible verse remains in the page, but follows the two contact cards on phones. */
+@media (max-width: 600px) {
+  main:has(.compact-intro) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px 22px !important;
+  }
+  main:has(.compact-intro) > .compact-intro {
+    order: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto !important;
+    padding: 0 2px !important;
+  }
+  main:has(.compact-intro) > .compact-intro h1 {
+    margin: 4px 0 4px !important;
+    font-size: clamp(24px, 6vw, 29px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.85px !important;
+  }
+  main:has(.compact-intro) > .compact-intro p {
+    font-size: 11px !important;
+    line-height: 1.32 !important;
+    margin: 0 auto !important;
+  }
+  main:has(.compact-intro) > .wizard-card.contact-only {
+    display: contents !important;
+  }
+  main:has(.compact-intro) .whatsapp-feature-card {
+    order: 2;
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px 11px !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+    row-gap: 7px !important;
+    border-radius: 16px !important;
+  }
+  main:has(.compact-intro) .whatsapp-feature-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 13px !important;
+    margin: 2px 0 0 !important;
+  }
+  main:has(.compact-intro) .whatsapp-feature-icon:before { inset: 4px !important; border-radius: 10px !important; }
+  main:has(.compact-intro) .whatsapp-feature-icon:after { border-radius: 15px !important; }
+  main:has(.compact-intro) .whatsapp-feature-icon svg { width: 25px !important; height: 25px !important; }
+  main:has(.compact-intro) .whatsapp-feature-kicker {
+    max-width: calc(100% - 104px) !important;
+    font-size: 8px !important;
+    letter-spacing: .75px !important;
+    line-height: 1.25 !important;
+    min-height: 18px !important;
+    padding-top: 2px !important;
+  }
+  main:has(.compact-intro) .whatsapp-recommended { font-size: 7px !important; padding: 5px 6px !important; gap: 4px !important; }
+  main:has(.compact-intro) .whatsapp-recommended span { font-size: 13px !important; }
+  main:has(.compact-intro) .whatsapp-feature-content h2 {
+    margin: 5px 0 4px !important;
+    font-size: clamp(17px, 4.6vw, 20px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.45px !important;
+  }
+  main:has(.compact-intro) .whatsapp-feature-content p { font-size: 10.5px !important; line-height: 1.35 !important; }
+  main:has(.compact-intro) .whatsapp-feature-card .whatsapp-button {
+    min-height: 42px !important;
+    padding: 8px 9px !important;
+    border-radius: 11px !important;
+    font-size: clamp(11px, 3.1vw, 13px) !important;
+    gap: 7px !important;
+  }
+  main:has(.compact-intro) .whatsapp-feature-card .whatsapp-button .wa-icon,
+  main:has(.compact-intro) .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 22px !important; height: 22px !important; flex-basis: 22px !important; }
+  main:has(.compact-intro) .contact-availability-card {
+    order: 3;
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px 11px !important;
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+    row-gap: 7px !important;
+    border-radius: 16px !important;
+  }
+  main:has(.compact-intro) .availability-clock-icon { width: 36px !important; height: 36px !important; border-radius: 11px !important; }
+  main:has(.compact-intro) .availability-clock-icon svg { width: 23px !important; height: 23px !important; }
+  main:has(.compact-intro) .availability-heading-row { gap: 5px !important; align-items: center !important; }
+  main:has(.compact-intro) .availability-kicker { font-size: 8px !important; letter-spacing: .65px !important; padding-top: 0 !important; }
+  main:has(.compact-intro) .availability-daily { font-size: 7px !important; padding: 5px 6px !important; gap: 4px !important; }
+  main:has(.compact-intro) .availability-daily span { width: 7px !important; height: 7px !important; }
+  main:has(.compact-intro) .availability-content h2 { font-size: clamp(17px, 4.5vw, 20px) !important; line-height: 1.12 !important; margin: 3px 0 6px !important; }
+  main:has(.compact-intro) .availability-details {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 7px !important;
+    padding: 8px 7px !important;
+    border-radius: 11px !important;
+  }
+  main:has(.compact-intro) .availability-time { gap: 5px !important; }
+  main:has(.compact-intro) .availability-time svg,
+  main:has(.compact-intro) .availability-reply svg { width: 19px !important; height: 19px !important; flex-basis: 19px !important; }
+  main:has(.compact-intro) .availability-time strong { font-size: clamp(9px, 2.65vw, 11px) !important; line-height: 1.25 !important; white-space: normal !important; }
+  main:has(.compact-intro) .availability-time span { font-size: 7px !important; letter-spacing: .35px !important; line-height: 1.2 !important; }
+  main:has(.compact-intro) .availability-reply { gap: 5px !important; padding-left: 7px !important; }
+  main:has(.compact-intro) .availability-reply p { font-size: 9px !important; line-height: 1.28 !important; }
+  main:has(.compact-intro) > .daily-verse-card {
+    order: 4;
+    margin: 8px 0 0 !important;
+    padding: 10px 9px !important;
+  }
+  main:has(.compact-intro) .contact-divider { order: 5; margin: 12px 0 6px !important; }
+  main:has(.compact-intro) .social-collage { order: 6; margin-top: 8px !important; gap: 10px !important; }
+  main:has(.compact-intro) .windows-feedback-window { order: 7; }
+  main:has(.compact-intro) .review-lightbox[hidden] { display: none !important; }
+  main:has(.compact-intro) > .site-section { order: 8; margin-top: 22px !important; }
+}
+@media (max-width: 380px) {
+  main:has(.compact-intro) { padding-left: 9px !important; padding-right: 9px !important; gap: 7px !important; }
+  main:has(.compact-intro) .whatsapp-feature-card,
+  main:has(.compact-intro) .contact-availability-card { padding: 9px !important; }
+  main:has(.compact-intro) .availability-details { grid-template-columns: minmax(0,1fr) !important; gap: 7px !important; }
+  main:has(.compact-intro) .availability-reply { border-left: 0 !important; border-top: 1px solid #c1d8ff !important; padding: 7px 0 0 !important; }
+  main:has(.compact-intro) .availability-time strong { font-size: 11px !important; }
+  main:has(.compact-intro) .availability-reply p { font-size: 10px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  main:has(.compact-intro) .whatsapp-feature-icon:after,
+  main:has(.compact-intro) .availability-daily span { animation: none !important; }
+}
