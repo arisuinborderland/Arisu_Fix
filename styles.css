@@ -3801,3 +3801,407 @@ body:has(.compact-intro) .availability-reply p { font-size: clamp(10px, 1.35vw, 
   body:has(.compact-intro) .whatsapp-feature-icon:after,
   body:has(.compact-intro) .availability-daily span { animation: none !important; }
 }
+
+/* V_137 — place availability title rows beside the icon and let the hours panel span the full card. */
+body:has(.compact-intro) .contact-availability-card {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto auto auto !important;
+  row-gap: 6px !important;
+  align-items: start !important;
+}
+body:has(.compact-intro) .availability-content { display: contents !important; }
+body:has(.compact-intro) .availability-clock-icon { grid-column: 1 !important; grid-row: 1 / span 3 !important; }
+body:has(.compact-intro) .availability-heading-row { grid-column: 2 !important; grid-row: 1 !important; }
+body:has(.compact-intro) .availability-content h2 { grid-column: 2 !important; grid-row: 2 !important; }
+body:has(.compact-intro) .availability-intro { grid-column: 2 !important; grid-row: 3 !important; }
+body:has(.compact-intro) .availability-details { grid-column: 1 / -1 !important; grid-row: 4 !important; }
+
+/* V_137 — compact first-screen contact layout based on the approved reference.
+   Keep the Bible verse, recovery-status badge, heading and copy in their existing order. */
+@media (max-width: 600px) {
+  body:has(.compact-intro) main {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+    padding: 0 12px 22px !important;
+  }
+
+  body:has(.compact-intro) main > .daily-verse-card {
+    order: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 8px 0 4px !important;
+    padding: 10px 10px 9px !important;
+    border-radius: 16px !important;
+  }
+  body:has(.compact-intro) .daily-verse-topline {
+    gap: 5px !important;
+    margin-bottom: 4px !important;
+  }
+  body:has(.compact-intro) .daily-verse-cross {
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px !important;
+    font-size: 13px !important;
+  }
+  body:has(.compact-intro) .daily-verse-label {
+    font-size: 7.5px !important;
+    letter-spacing: .65px !important;
+  }
+  body:has(.compact-intro) .daily-verse-date {
+    padding: 3px 6px !important;
+    font-size: 7px !important;
+    letter-spacing: .2px !important;
+  }
+  body:has(.compact-intro) .daily-verse-card h2 {
+    margin: 0 0 3px !important;
+    font-size: 15px !important;
+    line-height: 1.18 !important;
+  }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-text {
+    margin: 0 auto 2px !important;
+    font-size: 12px !important;
+    line-height: 1.32 !important;
+  }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-reference {
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+  }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-translation {
+    margin-top: 3px !important;
+    font-size: 9.5px !important;
+    line-height: 1.3 !important;
+  }
+  body:has(.compact-intro) .daily-verse-controls,
+  body:has(.compact-intro) .daily-verse-footnote {
+    margin-top: 5px !important;
+  }
+
+  body:has(.compact-intro) main > .compact-intro {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto 2px !important;
+    padding: 0 2px !important;
+    text-align: center !important;
+  }
+  body:has(.compact-intro) .compact-intro .eyebrow.premium-status {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 6px 8px !important;
+    font-size: 8px !important;
+    line-height: 1.1 !important;
+    letter-spacing: .4px !important;
+  }
+  body:has(.compact-intro) .compact-intro .eyebrow .status-pulse {
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    flex-basis: 8px !important;
+  }
+  body:has(.compact-intro) .compact-intro .eyebrow .status-label {
+    font-size: 8px !important;
+    letter-spacing: .35px !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .compact-intro .eyebrow > .status-check {
+    width: 19px !important;
+    height: 19px !important;
+    min-width: 19px !important;
+    min-height: 19px !important;
+    flex-basis: 19px !important;
+  }
+  body:has(.compact-intro) .compact-intro h1 {
+    margin: 5px 0 3px !important;
+    font-size: clamp(24px, 6.4vw, 27px) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -.75px !important;
+  }
+  body:has(.compact-intro) .compact-intro p {
+    margin: 0 auto !important;
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  body:has(.compact-intro) main > .wizard-card.contact-only {
+    display: contents !important;
+  }
+  body:has(.compact-intro) .wizard-card.contact-only .whatsapp-feature-card {
+    order: 2 !important;
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+    row-gap: 7px !important;
+    align-items: start !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    border: 1.5px solid #b7d2ff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 7px 18px rgba(36, 99, 212, .06) !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-icon {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 !important;
+    border-radius: 13px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-icon:before {
+    inset: 4px !important;
+    border-radius: 10px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-icon:after { border-radius: 15px !important; }
+  body:has(.compact-intro) .whatsapp-feature-icon svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-content {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    position: static !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-top {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 5px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-kicker {
+    display: block !important;
+    max-width: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .55px !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .whatsapp-recommended {
+    position: static !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    margin: 0 !important;
+    padding: 4px 5px !important;
+    font-size: 6.5px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .whatsapp-recommended span {
+    font-size: 12px !important;
+    line-height: .8 !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-content h2 {
+    margin: 4px 0 3px !important;
+    font-size: clamp(16px, 4.35vw, 19px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.3px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-content p {
+    margin: 0 !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-card .whatsapp-button {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-height: 43px !important;
+    margin: 0 !important;
+    padding: 8px 9px !important;
+    border-radius: 12px !important;
+    font-size: 11.5px !important;
+    line-height: 1.1 !important;
+    gap: 7px !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-card .whatsapp-button .wa-icon,
+  body:has(.compact-intro) .whatsapp-feature-card .whatsapp-button .wa-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+    flex-basis: 22px !important;
+  }
+
+  body:has(.compact-intro) .wizard-card.contact-only .contact-availability-card {
+    order: 3 !important;
+    display: grid !important;
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto auto !important;
+    column-gap: 8px !important;
+    row-gap: 3px !important;
+    align-items: start !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 9px 10px !important;
+    border: 1.5px solid #b7d2ff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 7px 18px rgba(36, 99, 212, .06) !important;
+  }
+  body:has(.compact-intro) .availability-clock-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 3 !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+  }
+  body:has(.compact-intro) .availability-clock-icon svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  body:has(.compact-intro) .availability-content { display: contents !important; }
+  body:has(.compact-intro) .availability-heading-row {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body:has(.compact-intro) .availability-kicker {
+    display: block !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .45px !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .availability-daily {
+    position: static !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 4px 5px !important;
+    font-size: 6.5px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .availability-daily span {
+    width: 7px !important;
+    height: 7px !important;
+    flex: 0 0 7px !important;
+  }
+  body:has(.compact-intro) .availability-content h2 {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    margin: 2px 0 0 !important;
+    font-size: 18px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.4px !important;
+  }
+  body:has(.compact-intro) .availability-intro {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    margin: 0 !important;
+    font-size: 9.5px !important;
+    line-height: 1.2 !important;
+  }
+  body:has(.compact-intro) .availability-details {
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 3px 0 0 !important;
+    padding: 7px 6px !important;
+    border: 1px solid #d2e3ff !important;
+    border-radius: 12px !important;
+    background: linear-gradient(120deg, #eaf3ff, #e1edff) !important;
+  }
+  body:has(.compact-intro) .availability-time,
+  body:has(.compact-intro) .availability-reply {
+    display: flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    gap: 5px !important;
+  }
+  body:has(.compact-intro) .availability-time svg,
+  body:has(.compact-intro) .availability-reply svg {
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px !important;
+  }
+  body:has(.compact-intro) .availability-time div { gap: 2px !important; min-width: 0 !important; }
+  body:has(.compact-intro) .availability-time strong {
+    font-size: 10px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .availability-time span {
+    font-size: 6.5px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .3px !important;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .availability-reply {
+    padding: 0 0 0 6px !important;
+    border-left: 1px solid #bdd4f8 !important;
+    border-top: 0 !important;
+  }
+  body:has(.compact-intro) .availability-reply p {
+    margin: 0 !important;
+    font-size: 8.5px !important;
+    line-height: 1.22 !important;
+  }
+
+  /* Keep the same sections and text order; tighten only the vertical gaps. */
+  body:has(.compact-intro) .contact-divider { margin: 12px 0 8px !important; }
+  body:has(.compact-intro) .social-collage { margin-top: 8px !important; gap: 10px !important; }
+}
+
+@media (max-width: 370px) {
+  body:has(.compact-intro) .whatsapp-feature-card,
+  body:has(.compact-intro) .contact-availability-card {
+    padding: 8px !important;
+    column-gap: 7px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-icon,
+  body:has(.compact-intro) .availability-clock-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-card { grid-template-columns: 36px minmax(0, 1fr) !important; }
+  body:has(.compact-intro) .contact-availability-card { grid-template-columns: 36px minmax(0, 1fr) !important; }
+  body:has(.compact-intro) .whatsapp-feature-kicker,
+  body:has(.compact-intro) .availability-kicker { font-size: 7px !important; letter-spacing: .25px !important; }
+  body:has(.compact-intro) .whatsapp-recommended,
+  body:has(.compact-intro) .availability-daily { font-size: 5.8px !important; padding: 4px !important; }
+  body:has(.compact-intro) .availability-details { grid-template-columns: 1fr !important; }
+  body:has(.compact-intro) .availability-reply {
+    padding: 6px 0 0 !important;
+    border-left: 0 !important;
+    border-top: 1px solid #bdd4f8 !important;
+  }
+}
