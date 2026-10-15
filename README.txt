@@ -130,3 +130,6 @@ CUSTOMER REVIEWS (Version 63)
 - View All Reviews opens reviews.html, a separate full gallery page.
 - Review screenshots are stored in the reviews/ folder.
 - Replace placeholders only with genuine customer feedback shared with permission.
+
+
+Version 73 update: Slightly increased the mobile card icons, headings, descriptions, buttons, and review thumbnails while keeping the four-card 2x2 collage and aligned bottom actions.

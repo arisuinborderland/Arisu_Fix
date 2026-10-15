@@ -1710,3 +1710,54 @@ main{padding-top:0}
   .social-collage > .social-feedback-card .windows-feedback-content { flex: 1 1 auto; }
   .social-collage > .social-feedback-card .social-feedback-view-all { margin-top: auto !important; }
 }
+
+
+/* Version 73: slightly enlarge card content on mobile while preserving the balanced 2x2 layout. */
+@media (max-width: 600px) {
+  .social-collage { gap: 10px; }
+  .social-collage .windows-titlebar { min-height: 31px; }
+  .social-collage .windows-title-text { font-size: 11px; }
+  .social-collage .windows-mini-app { width: 19px; height: 19px; flex-basis: 19px; font-size: 11px; }
+  .social-collage .tiktok-brand-icon,
+  .social-collage .facebook-brand-icon,
+  .social-collage .recovery-proofs-icon { width: 35px; height: 35px; flex-basis: 35px; }
+  .social-collage .tiktok-brand-icon svg,
+  .social-collage .facebook-brand-icon svg,
+  .social-collage .recovery-proofs-icon svg { width: 21px; height: 21px; }
+  .social-collage .tiktok-showcase h3,
+  .social-collage .facebook-showcase h3,
+  .social-collage .recovery-proofs-showcase h3 { font-size: 14px; line-height: 1.22; }
+  .social-collage .tiktok-profile-arrow,
+  .social-collage .facebook-profile-arrow,
+  .social-collage .recovery-proofs-arrow { font-size: 17px; }
+  .social-collage .tiktok-showcase-desc,
+  .social-collage .facebook-showcase-desc,
+  .social-collage .recovery-proofs-desc { font-size: 11.25px; line-height: 1.45; margin: 9px 0; }
+  .social-collage .tiktok-authenticity-note { font-size: 10px; line-height: 1.4; padding: 7px; margin-bottom: 9px; }
+  .social-collage .tiktok-profile-button,
+  .social-collage .facebook-profile-button,
+  .social-collage .recovery-proofs-button { min-height: 36px; padding: 7px 6px; font-size: 10px; line-height: 1.25; }
+  .social-feedback-card .windows-feedback-content { padding: 9px; }
+  .social-feedback-card .review-summary-copy .section-kicker { font-size: 8.5px; margin-bottom: 4px; }
+  .social-feedback-card .review-summary-copy h2 { font-size: 15px; line-height: 1.2; }
+  .social-feedback-card .review-proof-label { font-size: 9.5px; }
+  .social-feedback-card .reviews-grid { gap: 5px; }
+  .social-feedback-card .review-proof-card { padding: 3px; }
+  .social-feedback-card .review-proof-image { height: 68px; }
+  .social-feedback-card .social-feedback-view-all { min-height: 34px; font-size: 10.5px; padding: 7px 6px; }
+}
+@media (max-width: 360px) {
+  .social-collage > .tiktok-showcase,
+  .social-collage > .facebook-showcase,
+  .social-collage > .recovery-proofs-showcase { padding: 8px; }
+  .social-collage .windows-titlebar { margin: -8px -8px 8px; }
+  .social-collage .tiktok-showcase h3,
+  .social-collage .facebook-showcase h3,
+  .social-collage .recovery-proofs-showcase h3 { font-size: 13px; }
+  .social-collage .tiktok-showcase-desc,
+  .social-collage .facebook-showcase-desc,
+  .social-collage .recovery-proofs-desc { font-size: 10.75px; }
+  .social-feedback-card .windows-feedback-content { padding: 7px; }
+  .social-feedback-card .review-proof-image { height: 60px; }
+  .social-feedback-card .social-feedback-view-all { font-size: 10px; }
+}
