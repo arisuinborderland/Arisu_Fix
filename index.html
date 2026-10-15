@@ -7,7 +7,21 @@
  <meta name="description" content="Contact Arisu for account-recovery assistance through WhatsApp, TikTok, or Facebook.">
  <title>Arisu Recovery Contact</title>
  <link rel="stylesheet" href="styles.css?v=arc-v120">
- </head>
+ <!-- V_121: on explicit reload, start at the top; normal in-page navigation remains unchanged. -->
+<script>
+(() => {
+  try {
+    const navigation = performance.getEntriesByType("navigation")[0];
+    if (navigation && navigation.type === "reload") {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      const returnToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      window.addEventListener("load", returnToTop, { once: true });
+      window.addEventListener("pageshow", returnToTop, { once: true });
+    }
+  } catch (_) { /* Keep the site usable if Navigation Timing is unavailable. */ }
+})();
+</script>
+</head>
 <body>
 <header class="topbar">
  <a class="brand" href="index.html"><span class="logo profile-logo"><img src="arisu-profile.png" alt="Arisu profile picture"></span><span><b>Arisu</b><small>Recovery Contact</small></span></a>

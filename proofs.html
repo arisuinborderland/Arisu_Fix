@@ -65,7 +65,21 @@ main{max-width:1000px;padding:40px 20px 64px}
 .proofs-back-to-site:focus-visible{outline:3px solid rgba(20,184,166,.32);outline-offset:3px}
 .proofs-back-to-site[hidden]{display:none!important}
 @media(max-width:600px){.proofs-back-to-site{min-height:46px;margin-top:20px;padding:12px 19px;font-size:13px;border-radius:12px}}
-</style></head>
+</style><!-- V_121: on explicit reload, start at the top; normal in-page navigation remains unchanged. -->
+<script>
+(() => {
+  try {
+    const navigation = performance.getEntriesByType("navigation")[0];
+    if (navigation && navigation.type === "reload") {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      const returnToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      window.addEventListener("load", returnToTop, { once: true });
+      window.addEventListener("pageshow", returnToTop, { once: true });
+    }
+  } catch (_) { /* Keep the site usable if Navigation Timing is unavailable. */ }
+})();
+</script>
+</head>
 <body>
 <header class="topbar"><a class="brand" href="index.html"><span class="logo profile-logo"><img src="arisu-profile.png" alt="Arisu profile picture"></span><span><b>Arisu</b><small>Recovery Contact</small></span></a></header>
 <main><section class="proofs-page-card" aria-labelledby="proofsTitle">

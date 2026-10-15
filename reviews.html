@@ -5,7 +5,21 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 /* Prevent the homepage review intro from squeezing into narrow columns on phones. */
 .reviews-section .review-summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px}.reviews-section .review-summary-copy{min-width:0}.reviews-section .review-summary-copy h2{overflow-wrap:normal;word-break:normal}.reviews-section .review-summary-action{min-width:0;align-items:flex-end}.reviews-section .view-reviews-button{text-decoration:none;min-height:48px;box-sizing:border-box}.reviews-section .reviews-grid-featured{margin-top:18px}
 @media(max-width:600px){.reviews-section .review-summary{grid-template-columns:minmax(0,1fr);gap:14px;padding:20px}.reviews-section .review-summary-copy h2{font-size:clamp(24px,6vw,30px);line-height:1.2}.reviews-section .review-summary-copy p{max-width:none;font-size:14px;line-height:1.55}.reviews-section .review-summary-action{width:100%;align-items:flex-start;gap:10px}.reviews-section .view-reviews-button{width:100%;justify-content:space-between;padding:12px 14px}.reviews-section .review-proof-label{white-space:normal}.reviews-section .reviews-grid-featured{grid-auto-columns:88%;margin-top:14px}}
-</style></head><body>
+</style><!-- V_121: on explicit reload, start at the top; normal in-page navigation remains unchanged. -->
+<script>
+(() => {
+  try {
+    const navigation = performance.getEntriesByType("navigation")[0];
+    if (navigation && navigation.type === "reload") {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      const returnToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      window.addEventListener("load", returnToTop, { once: true });
+      window.addEventListener("pageshow", returnToTop, { once: true });
+    }
+  } catch (_) { /* Keep the site usable if Navigation Timing is unavailable. */ }
+})();
+</script>
+</head><body>
 <header class="topbar"><a class="brand" href="index.html"><span class="logo profile-logo"><img src="arisu-profile.png" alt="Arisu profile picture"></span><span><b>Arisu</b><small>Recovery Service</small></span></a><div class="header-meta"><a class="proofs-header-link" href="proofs.html"><span class="proofs-button-label">Recovery Proofs</span><span aria-hidden="true">↗</span></a><a class="privacy-link" href="privacy.html">Privacy Policy</a></div></header>
 <main class="reviews-page-main"><section class="reviews-page-card"><div class="reviews-page-heading"><span class="section-kicker">CUSTOMER FEEDBACK</span><h1>Customer Reviews</h1><p>Browse review screenshots below. Only publish genuine feedback with the customer's permission. Results vary and are not guaranteed.</p></div><div class="reviews-page-grid reviews-grid"><article class="review-card review-proof-card review-placeholder"><button class="review-proof-image" type="button" aria-label="Open reference review screenshot one"><img src="reviews/review-slot-1.jpg" alt="Reference testimonial screenshot mentioning Pinoy Cyber Tech, not Arisu Recovery Service" loading="lazy"><span class="review-image-hint">Screenshot 01</span></button><div class="review-proof-caption"><span class="review-proof-status">REFERENCE IMAGE</span><strong>Sample testimonial screenshot</strong><p>This screenshot mentions Pinoy Cyber Tech; it is not a testimonial for Arisu Recovery Service.</p></div></article>
 <article class="review-card review-proof-card review-placeholder"><button class="review-proof-image" type="button" aria-label="Open reference review screenshot two"><img src="reviews/review-slot-2.jpg" alt="Reference testimonial screenshot recommending Pinoy Cyber Tech, not Arisu Recovery Service" loading="lazy"><span class="review-image-hint">Screenshot 02</span></button><div class="review-proof-caption"><span class="review-proof-status">REFERENCE IMAGE</span><strong>Sample testimonial screenshot</strong><p>This screenshot recommends Pinoy Cyber Tech; it is not a testimonial for Arisu Recovery Service.</p></div></article>
