@@ -3118,3 +3118,22 @@ summary:focus-visible {
 }
 @media(max-width:360px){.whatsapp-feature-card{grid-template-columns:42px minmax(0,1fr);gap:11px;padding:12px 10px}.whatsapp-feature-icon{width:42px;height:42px}.whatsapp-feature-kicker{font-size:8px;letter-spacing:.7px}.whatsapp-recommended{font-size:7px;padding:5px 6px}.whatsapp-feature-content h2{font-size:18px}.whatsapp-feature-content p{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.whatsapp-feature-icon:after,.availability-daily span{animation:none!important}}
+
+
+/* V_130: pin the RECOMMENDED pill to the upper-right of the WhatsApp card. */
+.whatsapp-feature-card{position:relative}
+.whatsapp-feature-top{display:block;position:relative;padding-right:0}
+.whatsapp-recommended{position:absolute;top:0;right:0;z-index:2}
+.whatsapp-feature-kicker{display:block;max-width:calc(100% - 128px);min-height:20px}
+.whatsapp-feature-content h2{margin-top:14px}
+@media(max-width:600px){
+ .whatsapp-feature-card{position:relative}
+ .whatsapp-feature-top{display:block;padding-right:0}
+ .whatsapp-recommended{position:absolute;top:0;right:0;font-size:8px;padding:6px 8px;gap:4px}
+ .whatsapp-feature-kicker{max-width:calc(100% - 112px);font-size:9px;letter-spacing:1px;line-height:1.35;padding-top:4px}
+ .whatsapp-feature-content h2{margin-top:10px}
+}
+@media(max-width:360px){
+ .whatsapp-recommended{font-size:7px;padding:5px 6px}
+ .whatsapp-feature-kicker{max-width:calc(100% - 104px);font-size:8px;letter-spacing:.6px}
+}
