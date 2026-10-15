@@ -2281,3 +2281,158 @@ main{padding-top:0}
   .social-collage > .social-feedback-card .review-proof-image { height: clamp(86px, 25vw, 112px); }
   .social-collage > .social-feedback-card .review-image-hint { font-size: 9px; }
 }
+
+
+/* V_90: single, mobile-friendly featured customer review image. */
+.social-feedback-card .reviews-grid-featured {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-auto-flow: row !important;
+  grid-auto-columns: auto !important;
+  gap: 8px !important;
+  overflow: visible !important;
+}
+.social-feedback-card .reviews-grid-featured .review-proof-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 4px !important;
+  height: auto !important;
+}
+.social-feedback-card .reviews-grid-featured .review-proof-image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+.social-feedback-card .reviews-grid-featured .review-proof-image img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 440px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+.social-feedback-card .reviews-grid-featured .review-image-hint {
+  left: 8px !important;
+  bottom: 8px !important;
+  font-size: 10px !important;
+  padding: 5px 7px !important;
+}
+@media (max-width: 600px) {
+  .social-feedback-card .reviews-grid-featured .review-proof-image img {
+    max-height: none !important;
+    width: 100% !important;
+  }
+}
+
+
+/* V_91: site-wide blue–purple–pink gradient theme.
+   Preserve text contrast, existing functional colors, and the green WhatsApp CTA. */
+:root {
+  --ink: #172554;
+  --muted: #526581;
+  --blue: #315ff4;
+  --blue-dark: #2448cb;
+  --line: rgba(115, 139, 211, .24);
+  --bg: #eaf4ff;
+  --pale: #edf0ff;
+}
+html {
+  background: linear-gradient(135deg, #dff7ff 0%, #e9e8ff 38%, #fce2fb 72%, #dff4ff 100%);
+  min-height: 100%;
+}
+body {
+  background: linear-gradient(135deg, #dff7ff 0%, #e9e8ff 38%, #fce2fb 72%, #dff4ff 100%) fixed !important;
+  color: var(--ink);
+}
+.topbar,
+footer {
+  background: rgba(255, 255, 255, .78) !important;
+  border-color: rgba(126, 149, 218, .22) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.wizard-card,
+.about-card,
+.safety-panel,
+.terms-card,
+.step-card,
+.faq-item,
+.review-card,
+.windows-feedback-window,
+.social-card,
+.proof-card,
+.policy-card,
+.content-card,
+.upload-panel {
+  background: linear-gradient(135deg, rgba(255,255,255,.91) 0%, rgba(239,246,255,.86) 52%, rgba(255,239,252,.82) 100%);
+  border-color: rgba(129, 150, 221, .30);
+  box-shadow: 0 14px 34px rgba(72, 95, 171, .09);
+}
+.platform-option,
+.problem-option,
+.secondary,
+.upload-box {
+  background: rgba(255,255,255,.84);
+  border-color: rgba(128, 148, 208, .32);
+}
+.platform-option:hover,
+.problem-option:hover,
+.secondary:hover {
+  background: linear-gradient(120deg, #edfaff, #f3edff, #fff0fb);
+}
+.platform-option.selected,
+.problem-option.selected {
+  background: linear-gradient(120deg, #e5f8ff, #ecebff);
+  border-color: #6d86f7;
+}
+.step-number,
+.step-symbol,
+.safety-icon,
+.upload-symbol {
+  background: linear-gradient(135deg, #dff7ff, #e7eaff 58%, #f8e5ff);
+}
+.safety-note {
+  background: linear-gradient(120deg, rgba(225,247,255,.94), rgba(239,235,255,.92), rgba(255,239,251,.90));
+  border-color: rgba(119, 146, 232, .24);
+}
+.final-summary {
+  background: linear-gradient(120deg, rgba(244,250,255,.96), rgba(249,244,255,.96));
+  border-color: rgba(126, 149, 218, .25);
+}
+.button.secondary,
+.view-reviews-button {
+  background: linear-gradient(120deg, rgba(255,255,255,.96), rgba(241,247,255,.95), rgba(255,239,252,.95));
+  border-color: rgba(116, 143, 232, .35);
+}
+.intro h1 em,
+.eyebrow,
+.section-kicker,
+.review-summary .section-kicker {
+  color: #315ff4;
+}
+.progress-track {
+  background: rgba(255,255,255,.78);
+}
+.progress-track span {
+  background: linear-gradient(90deg, #2cddca, #4677ff 52%, #c45df5);
+}
+.brand .logo:not(.profile-logo) {
+  background: linear-gradient(135deg, #273b9c, #5579ff 55%, #cc55db);
+}
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 600px) {
+  body {
+    background: linear-gradient(160deg, #ddf7ff 0%, #e8eaff 45%, #fbe5fa 76%, #e0f4ff 100%) fixed !important;
+  }
+  .topbar,
+  footer {
+    background: rgba(255,255,255,.86) !important;
+  }
+}
