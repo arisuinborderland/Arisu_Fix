@@ -3514,3 +3514,92 @@ body:has(.compact-intro) .social-collage { margin-top: 12px; gap: 12px; }
   main:has(.compact-intro) .whatsapp-feature-icon:after,
   main:has(.compact-intro) .availability-daily span { animation: none !important; }
 }
+
+
+/* V_135: approved contact-card hierarchy and restore the Bible verse to its original top position. */
+body:has(.compact-intro) .whatsapp-feature-card,
+body:has(.compact-intro) .contact-availability-card { position: relative !important; }
+body:has(.compact-intro) .whatsapp-feature-content { position: static !important; min-width: 0; }
+body:has(.compact-intro) .whatsapp-feature-top { display: block !important; }
+body:has(.compact-intro) .whatsapp-feature-kicker {
+  display: block !important;
+  width: fit-content;
+  max-width: calc(100% - 116px) !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 2px 0 0 !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  letter-spacing: 1px !important;
+}
+body:has(.compact-intro) .whatsapp-recommended {
+  position: absolute !important;
+  top: 13px !important;
+  right: 13px !important;
+  z-index: 2;
+  margin: 0 !important;
+  white-space: nowrap;
+}
+body:has(.compact-intro) .whatsapp-feature-content h2 {
+  margin: 7px 0 5px !important;
+  max-width: 100%;
+}
+body:has(.compact-intro) .whatsapp-feature-content p { margin-top: 0 !important; }
+body:has(.compact-intro) .availability-content { position: static !important; min-width: 0; }
+body:has(.compact-intro) .availability-heading-row {
+  display: block !important;
+  min-height: 0 !important;
+  margin: 2px 0 0 !important;
+  padding: 0 !important;
+}
+body:has(.compact-intro) .availability-kicker {
+  display: block !important;
+  width: fit-content;
+  max-width: calc(100% - 112px);
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  letter-spacing: 1px !important;
+}
+body:has(.compact-intro) .availability-daily {
+  position: absolute !important;
+  top: 13px !important;
+  right: 13px !important;
+  z-index: 2;
+  margin: 0 !important;
+  white-space: nowrap;
+}
+body:has(.compact-intro) .availability-content h2 {
+  margin: 7px 0 4px !important;
+}
+body:has(.compact-intro) .availability-intro {
+  margin: 0 0 10px !important;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+@media (max-width: 600px) {
+  main:has(.compact-intro) > .daily-verse-card {
+    order: 0 !important;
+    display: block !important;
+    margin: 0 0 7px !important;
+    padding: 12px 10px !important;
+  }
+  main:has(.compact-intro) > .compact-intro { order: 1 !important; }
+  main:has(.compact-intro) .whatsapp-feature-card { order: 2 !important; }
+  main:has(.compact-intro) .contact-availability-card { order: 3 !important; }
+  body:has(.compact-intro) .whatsapp-feature-card,
+  body:has(.compact-intro) .contact-availability-card { padding: 12px 11px !important; }
+  body:has(.compact-intro) .whatsapp-feature-kicker { font-size: 9px !important; letter-spacing: .8px !important; max-width: calc(100% - 104px) !important; }
+  body:has(.compact-intro) .whatsapp-recommended { top: 11px !important; right: 11px !important; font-size: 7px !important; padding: 5px 6px !important; }
+  body:has(.compact-intro) .whatsapp-feature-content h2 { margin: 6px 0 4px !important; }
+  body:has(.compact-intro) .availability-kicker { font-size: 9px !important; letter-spacing: .7px !important; max-width: calc(100% - 100px); }
+  body:has(.compact-intro) .availability-daily { top: 11px !important; right: 11px !important; font-size: 7px !important; padding: 5px 6px !important; }
+  body:has(.compact-intro) .availability-content h2 { margin: 6px 0 3px !important; }
+  body:has(.compact-intro) .availability-intro { font-size: 10px; margin-bottom: 8px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(.compact-intro) .whatsapp-feature-icon:after,
+  body:has(.compact-intro) .availability-daily span { animation: none !important; }
+}
