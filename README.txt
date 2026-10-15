@@ -155,3 +155,9 @@ V_92 CODE MAINTENANCE NOTES
 - Existing layout, copy, recovery flows, links, proof assets, and gradient theme were preserved.
 
 V_94 hotfix: restored intact V_92 homepage markup and removed only the exact duplicate review disclaimer element. Avoided broad regex replacements across nested HTML. Verified key sections remain present.
+
+
+V_95 SAFE MAINTENANCE NOTES
+- Standardized external styles.css and script.js cache tokens across pages to prevent stale assets after deployment.
+- Preserved existing page content, CSS rules, JavaScript logic, media assets, and links; no feature or layout was intentionally removed.
+- See CODE_AUDIT_V95.txt for the checks run and remaining recommendations.
