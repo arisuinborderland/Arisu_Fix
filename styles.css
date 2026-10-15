@@ -1841,3 +1841,41 @@ main{padding-top:0}
   .social-feedback-card .reviews-grid { gap: 4px; }
   .social-feedback-card .review-proof-card { padding: 2px; }
 }
+
+/* Version 77: mobile-only natural image sizing for Customer Feedback previews.
+   Use each screenshot's intrinsic ratio instead of forcing every image into
+   the first screenshot's ratio, which caused empty space/letterboxing on phones. */
+@media (max-width: 600px) {
+  .social-feedback-card .reviews-grid {
+    align-items: start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .social-feedback-card .review-proof-card {
+    min-width: 0;
+    height: auto;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+  }
+  .social-feedback-card .review-proof-image {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    overflow: hidden;
+    padding: 0;
+  }
+  .social-feedback-card .review-proof-image img {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    max-height: none;
+    object-fit: initial;
+    object-position: initial;
+  }
+}
+@media (max-width: 360px) {
+  .social-feedback-card .reviews-grid { gap: 4px; }
+}
