@@ -1,9 +1,0 @@
-V_114 desktop responsiveness refinement
-
-- Added desktop-only styling for the home page at viewport widths >= 900px.
-- Increased home main content max-width to 1120px, with centered margins and responsive desktop padding.
-- Improved desktop heading scale, contact card spacing, primary WhatsApp button sizing, notice spacing, social-card gap, and lower section width.
-- Existing mobile and tablet CSS breakpoints remain unchanged.
-- Cache-busted index stylesheet and scripts to avoid stale browser assets.
-- Uses CSS :has() to scope the desktop layout to the home page's compact intro; supported in current Chrome, Edge, Safari, and Firefox.
-- Not visually browser-tested in this environment; test at desktop widths and mobile before deployment.
