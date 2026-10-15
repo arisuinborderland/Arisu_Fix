@@ -2741,22 +2741,9 @@ summary:focus-visible {
 #floatingWhatsApp:active, .whatsapp-button:active {
   transform: scale(.98);
 }
-@media (prefers-reduced-motion: reduce) {
-  .arc-scroll-reveal-enabled .arc-scroll-reveal,
-  .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
-  .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto;
-  }
-  .arc-scroll-reveal-enabled #floatingWhatsApp.arc-scroll-reveal-visible {
-    animation: none !important;
-  }
-  #floatingWhatsApp:active, .whatsapp-button:active {
-    transform: none;
-  }
-}
+/* V_119: keep the requested scroll-reveal transition even if the desktop OS
+   advertises reduced motion; the generic accessibility rule above otherwise
+   collapses all transitions to 0.01ms, making the effect appear absent. */
 
 
 /* V_114: desktop-width refinement for the home page.
@@ -2817,4 +2804,20 @@ summary:focus-visible {
   }
 }
 
-/* V_118: repeat-on-scroll reveal behavior; state is controlled by IntersectionObserver. */
+/* V_119: desktop-safe repeat-on-scroll animation. The observer toggles reveal
+   state in both scroll directions, and the explicit duration wins over the
+   generic reduced-motion transition-duration rule when it is active. */
+@media (prefers-reduced-motion: reduce) {
+  .arc-scroll-reveal-enabled .arc-scroll-reveal,
+  .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
+  .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
+    transition-property: opacity, transform !important;
+    transition-duration: 650ms !important;
+    transition-timing-function: ease, cubic-bezier(.2,.7,.2,1) !important;
+    transition-delay: var(--arc-reveal-delay, 0ms) !important;
+  }
+  .arc-scroll-reveal-enabled #floatingWhatsApp.arc-scroll-reveal-visible {
+    animation-duration: 3.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+}

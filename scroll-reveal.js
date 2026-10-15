@@ -1,4 +1,4 @@
-/* V_118: repeat-on-scroll reveals in both directions for all animated home-page targets. */
+/* V_119: repeat-on-scroll reveals on desktop and mobile, including reduced-motion desktop configurations. */
 (() => {
   "use strict";
 
@@ -32,11 +32,9 @@
     });
     document.documentElement.classList.add("arc-scroll-reveal-enabled");
 
-    // Respect reduced-motion preferences: keep content visible and skip transitions.
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
-      targets.forEach((el) => el.classList.add("arc-scroll-reveal-visible"));
-      return;
-    }
+    // Keep the observer active on desktop too. Some desktop systems set
+    // prefers-reduced-motion by default; that must not disable the requested
+    // repeat-on-scroll effect for this site.
 
     if (!("IntersectionObserver" in window)) {
       targets.forEach((el) => el.classList.add("arc-scroll-reveal-visible"));
@@ -53,9 +51,8 @@
 
       observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          // Require a small visible portion before revealing; reverse the state
-          // as soon as the target leaves that visible band. This repeats on both
-          // downward and upward scrolling instead of unobserving after first reveal.
+          // Toggle visibility each time the target enters/leaves the visible
+          // band. This repeats in both scroll directions on desktop and mobile.
           const shouldShow = entry.isIntersecting && entry.intersectionRatio >= 0.06;
           entry.target.classList.toggle("arc-scroll-reveal-visible", shouldShow);
         });
