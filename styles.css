@@ -1761,3 +1761,38 @@ main{padding-top:0}
   .social-feedback-card .review-proof-image { height: 60px; }
   .social-feedback-card .social-feedback-view-all { font-size: 10px; }
 }
+
+
+/* Version 74: enlarge the three Customer Feedback previews so more of each screenshot is visible above View All Reviews. */
+@media (max-width: 600px) {
+  .social-feedback-card .reviews-grid {
+    gap: 6px;
+    margin-bottom: 0;
+  }
+  .social-feedback-card .review-proof-card {
+    padding: 4px;
+  }
+  .social-feedback-card .review-proof-image {
+    height: 112px;
+    min-height: 112px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .social-feedback-card .review-proof-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+  }
+  .social-feedback-card .social-feedback-view-all {
+    margin-top: auto !important;
+  }
+}
+@media (max-width: 360px) {
+  .social-feedback-card .review-proof-image {
+    height: 100px;
+    min-height: 100px;
+  }
+}

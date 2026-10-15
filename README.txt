@@ -133,3 +133,6 @@ CUSTOMER REVIEWS (Version 63)
 
 
 Version 73 update: Slightly increased the mobile card icons, headings, descriptions, buttons, and review thumbnails while keeping the four-card 2x2 collage and aligned bottom actions.
+
+
+Version 74 update: Enlarged the three Customer Feedback screenshot previews on mobile so more of each screenshot is visible, while keeping View All Reviews below them and preserving the four-card collage layout.
