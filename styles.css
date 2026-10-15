@@ -2742,6 +2742,14 @@ summary:focus-visible {
   transform: scale(.98);
 }
 @media (prefers-reduced-motion: reduce) {
+  .arc-scroll-reveal-enabled .arc-scroll-reveal,
+  .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
+  .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
   .arc-scroll-reveal-enabled #floatingWhatsApp.arc-scroll-reveal-visible {
     animation: none !important;
   }
@@ -2808,3 +2816,5 @@ summary:focus-visible {
     padding-right: max(32px, calc((100% - 1040px) / 2));
   }
 }
+
+/* V_118: repeat-on-scroll reveal behavior; state is controlled by IntersectionObserver. */
