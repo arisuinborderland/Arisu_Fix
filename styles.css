@@ -1116,3 +1116,7 @@ main{padding-top:0}
   body .topbar > .header-meta > .webtools-header-link,
   body .topbar > .header-meta > .proofs-header-link { font-size: 10px !important; padding: 0 4px !important; gap: 3px !important; }
 }
+
+
+/* Version 55: make the About section brand title more noticeable */
+.about-card h2.about-brand-title { color: #d62828 !important; text-shadow: 0 1px 0 rgba(120, 0, 0, 0.08); }
