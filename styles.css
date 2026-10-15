@@ -1684,3 +1684,29 @@ main{padding-top:0}
   .social-feedback-card .windows-feedback-content { padding: 7px; }
   .social-feedback-card .review-proof-image { height: 54px; }
 }
+
+/* Version 71: align the View All Reviews button with the Recovery Proofs action. */
+.social-feedback-card .windows-feedback-content {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.social-feedback-card .social-feedback-view-all {
+  margin-top: auto;
+  flex: 0 0 auto;
+}
+
+
+/* Version 72: force the Customer Feedback action to the same bottom baseline as Recovery Proofs. */
+.social-collage { align-items: stretch; }
+.social-collage > .recovery-proofs-showcase,
+.social-collage > .social-feedback-card { height: 100%; min-height: 0; align-self: stretch; }
+.social-collage > .recovery-proofs-showcase { display: flex; flex-direction: column; }
+.social-collage > .recovery-proofs-showcase .recovery-proofs-button { margin-top: auto; }
+.social-collage > .social-feedback-card { display: flex; flex-direction: column; }
+.social-collage > .social-feedback-card > .windows-feedback-content { display: flex; flex: 1 1 auto; flex-direction: column; min-height: 0; height: 100%; box-sizing: border-box; }
+.social-collage > .social-feedback-card .reviews-grid { flex: 0 0 auto; }
+.social-collage > .social-feedback-card .social-feedback-view-all { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 100%; box-sizing: border-box; margin-top: auto !important; }
+@media (max-width: 600px) {
+  .social-collage > .social-feedback-card .windows-feedback-content { flex: 1 1 auto; }
+  .social-collage > .social-feedback-card .social-feedback-view-all { margin-top: auto !important; }
+}
