@@ -3137,3 +3137,47 @@ summary:focus-visible {
  .whatsapp-recommended{font-size:7px;padding:5px 6px}
  .whatsapp-feature-kicker{max-width:calc(100% - 104px);font-size:8px;letter-spacing:.6px}
 }
+
+/* V_131: add balanced breathing room at the marked intro-to-contact transition
+   and keep the WhatsApp, availability, and social blocks evenly separated. */
+body:has(.compact-intro) .compact-intro {
+  margin-bottom: 26px;
+  padding-bottom: 8px;
+}
+body:has(.compact-intro) .wizard-card.contact-only {
+  margin-top: 0;
+}
+body:has(.compact-intro) .whatsapp-feature-card {
+  margin-top: 0;
+}
+body:has(.compact-intro) .contact-availability-card {
+  margin-top: 18px;
+}
+body:has(.compact-intro) .contact-divider {
+  margin-top: 25px;
+}
+body:has(.compact-intro) .social-collage {
+  margin-top: 18px;
+  gap: 18px;
+}
+@media (max-width: 600px) {
+  body:has(.compact-intro) .compact-intro {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+  }
+  body:has(.compact-intro) .contact-availability-card {
+    margin-top: 15px;
+  }
+  body:has(.compact-intro) .contact-divider {
+    margin-top: 22px;
+  }
+  body:has(.compact-intro) .social-collage {
+    margin-top: 15px;
+    gap: 14px;
+  }
+}
+@media (max-width: 360px) {
+  body:has(.compact-intro) .compact-intro {
+    margin-bottom: 17px;
+  }
+}
