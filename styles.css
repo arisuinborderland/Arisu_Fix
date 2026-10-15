@@ -1119,7 +1119,7 @@ main{padding-top:0}
 
 
 /* Version 55: make the About section brand title more noticeable */
-.about-card h2.about-brand-title { color: #d62828 !important; text-shadow: 0 1px 0 rgba(120, 0, 0, 0.08); }
+.about-card h2.about-brand-title { color: #315eea !important; text-shadow: 0 1px 0 rgba(49, 94, 234, 0.08); }
 
 
 /* Version 57: compact review summary with owner-editable reviews behind a button */
