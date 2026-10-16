@@ -4288,3 +4288,22 @@ body:has(.compact-intro) .whatsapp-feature-content h2 {
 
 
 /* V_142: use the WhatsApp brand glyph while preserving the floating button animation. */
+#floatingWhatsApp.arc-scroll-reveal-visible { animation: arc-wa-float-v112 3.2s ease-in-out 650ms infinite; }
+@keyframes arc-wa-float-v112 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -4px, 0); }
+}
+
+
+/* V_143: icon-only round floating WhatsApp button; retain the float animation. */
+#floatingWhatsApp {
+  width: 58px; height: 58px; min-height: 58px; padding: 0;
+  aspect-ratio: 1 / 1; justify-content: center; gap: 0;
+  border-radius: 50%; font-size: 0;
+  box-shadow: 0 10px 25px rgba(20,156,85,.26);
+}
+#floatingWhatsApp .floating-whatsapp-icon { width: 30px; height: 30px; flex: 0 0 30px; }
+#floatingWhatsApp:hover { transform: translateY(-2px); }
+#floatingWhatsApp:active { transform: scale(.96); }
+@media (max-width: 760px) { #floatingWhatsApp { width: 54px; height: 54px; min-height: 54px; padding: 0; } }
+@media (max-width: 420px) { #floatingWhatsApp { width: 52px; height: 52px; min-height: 52px; } }
