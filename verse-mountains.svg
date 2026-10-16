@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#0877d8"/><stop offset=".48" stop-color="#1768b8"/><stop offset="1" stop-color="#062d65"/></linearGradient>
+ <radialGradient id="sun"><stop stop-color="#fff8d6" stop-opacity=".95"/><stop offset=".28" stop-color="#ffdf9b" stop-opacity=".6"/><stop offset="1" stop-color="#ffcf82" stop-opacity="0"/></radialGradient>
+ <linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6eb8ed"/><stop offset="1" stop-color="#245b9d"/></linearGradient>
+ <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2468ad"/><stop offset="1" stop-color="#123e78"/></linearGradient>
+ <linearGradient id="near" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#123e78"/><stop offset="1" stop-color="#061d45"/></linearGradient>
+ <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#04285a" stop-opacity=".12"/><stop offset=".48" stop-color="#04285a" stop-opacity=".08"/><stop offset="1" stop-color="#04285a" stop-opacity=".22"/></linearGradient>
+</defs>
+<rect width="1600" height="420" fill="url(#sky)"/>
+<circle cx="1350" cy="130" r="260" fill="url(#sun)"/>
+<path d="M0 245 130 170 230 225 365 130 495 223 610 158 755 244 890 155 1025 235 1170 145 1300 226 1430 120 1600 225V420H0Z" fill="url(#far)" opacity=".92"/>
+<path d="M0 290 145 215 270 272 420 180 550 270 705 198 845 280 1000 185 1140 270 1280 192 1410 260 1530 175 1600 215V420H0Z" fill="url(#mid)"/>
+<path d="M0 325 145 250 250 305 395 238 520 330 670 250 810 325 955 240 1100 330 1240 245 1395 318 1510 245 1600 290V420H0Z" fill="url(#near)"/>
+<path d="M0 365 190 305 330 350 480 290 650 375 800 310 960 365 1120 295 1280 365 1450 305 1600 350V420H0Z" fill="#041b3e" opacity=".8"/>
+<rect width="1600" height="420" fill="url(#shade)"/>
+<g stroke="#fff7df" stroke-width="12" stroke-linecap="round" opacity=".96"><path d="M1418 73V170"/><path d="M1380 104H1456"/></g>
+<path d="M0 0H1600V420H0Z" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>
+</svg>

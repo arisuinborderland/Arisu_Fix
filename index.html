@@ -6,7 +6,7 @@
  <meta name="theme-color" content="#f7f9fc">
  <meta name="description" content="Contact Arisu for account-recovery assistance through WhatsApp, TikTok, or Facebook.">
  <title>Arisu Recovery Contact</title>
- <link rel="stylesheet" href="styles.css?v=arc-v149">
+ <link rel="stylesheet" href="styles.css?v=arc-v173">
  <!-- V_121: on explicit reload, start at the top; normal in-page navigation remains unchanged. -->
 <script>
 (() => {
@@ -131,6 +131,7 @@
    <article class="step-card"><span class="step-index">02</span><span class="step-symbol green-symbol" aria-hidden="true">✓</span><h3>Account Review</h3><p>Your account issue will be reviewed to determine whether recovery assistance is possible. If suitable, we can proceed with the recovery process.</p></article>
    <article class="step-card"><span class="step-index">03</span><span class="step-symbol violet-symbol peso-symbol" aria-hidden="true">₱</span><h3>Fees are Discussed First</h3><p>If your account is eligible for recovery assistance, a service fee applies. The service is not free, and it is your decision whether to proceed with the recovery process.</p></article>
    <article class="step-card recovery-first-card"><span class="step-index">04</span><span class="step-symbol recovery-handshake-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m8.5 12.5 2.1 2.1a2 2 0 0 0 2.8 0l4.1-4.1"/><path d="m3 8 4-4 4 2-2 2-2 3-2 1-2-4Z"/><path d="m21 8-4-4-4 2 2 2 2 3 2 1 2-4Z"/><path d="m7 12 3.5 3.5M9 16l1.5 1.5M17 12l-3 3"/></svg></span><h3>RECOVERY FIRST, PAYMENT LATER</h3><div class="recovery-payment-promise"><span class="promise-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m5 12.5 4.3 4.2L19.5 6.8"/></svg></span><strong>Pay Only Upon Successful Recovery</strong></div><p>We prioritize service and recovery first. If your account is not successfully recovered, you won’t pay a single peso. No recovery, no payment.</p></article>
+   <article class="step-card warranty-step-card"><span class="step-index">05</span><span class="step-symbol warranty-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 19 6v5.2c0 4.2-2.9 7.5-7 9.8-4.1-2.3-7-5.6-7-9.8V6l7-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><h3>7-Day Recovery Warranty</h3><div class="warranty-promise"><span class="warranty-promise-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m5 12.5 4.3 4.2L19.5 6.8"/></svg></span><strong>7-Day Warranty for All Recovered Accounts</strong></div><p>All successfully recovered accounts are covered by a 7-day recovery warranty. If the same recovery-related issue occurs within the warranty period, follow-up assistance will be provided according to the warranty terms.</p></article>
   </div>
  </section>
 
@@ -139,7 +140,7 @@
  <section class="site-section about-section" id="about" aria-labelledby="aboutTitle">
   <div class="about-card">
    <img src="arisu-profile.png" alt="Arisu profile picture" loading="lazy">
-   <div><span class="section-kicker">ABOUT THIS WEBSITE</span><h2 id="aboutTitle" class="about-brand-title">Arisu Recovery Service</h2><p>Arisu Recovery Contact provides independent Facebook and Instagram account recovery assistance based on self-research and personal knowledge developed since 2018.</p><p class="independent-note">This website is not an official Meta, Facebook, or Instagram website. Recovery results vary and are not guaranteed.</p></div>
+   <div><span class="section-kicker">ABOUT THIS WEBSITE</span><h2 id="aboutTitle" class="about-brand-title">Arisu Recovery Service <span class="arisu-verified-badge about-verified-badge" role="img" aria-label="Animated blue check badge, decorative branding"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.5 12.5 9.5 16.2 18.5 7.8"/></svg></span></h2><p>Arisu Recovery Contact provides independent Facebook and Instagram account recovery assistance based on self-research and personal knowledge developed since 2018.</p><p class="independent-note">This website is not an official Meta, Facebook, or Instagram website. Recovery results vary and are not guaranteed.</p></div>
   </div>
  </section>
 
@@ -155,6 +156,8 @@
   <div class="terms-card"><span class="section-kicker">PLEASE READ</span><h2 id="termsTitle">Terms &amp; limitations</h2><p>Account recovery is not guaranteed and depends on each case. Previous successful recoveries do not guarantee the same results for other cases.</p></div>
  </section>
 
+ <!-- Destination for the existing social/proof collage, placed after the main process section on desktop and mobile. -->
+ <div class="desktop-social-destination" id="desktopSocialDestination" aria-label="Social media, recovery proofs, and customer feedback"></div>
 
 </main>
 
@@ -165,7 +168,24 @@
  <nav class="footer-links" aria-label="Footer navigation"><a href="proofs.html">Recovery proofs</a><a href="#about">About</a><a href="privacy.html">Privacy Policy</a><a href="#terms">Terms</a><a href="#contact">Contact</a></nav>
  <span class="footer-copyright">© <span id="year">2026</span> Arisu</span>
 </footer>
-<script src="script.js?v=arc-v149"></script>
-<script src="scroll-reveal.js?v=arc-v149"></script>
+<script src="script.js?v=arc-v173"></script>
+<script src="scroll-reveal.js?v=arc-v173"></script>
+<script>
+(() => {
+  "use strict";
+  const contactCard = document.querySelector(".wizard-card.contact-only");
+  const divider = document.querySelector(".contact-divider");
+  const collage = document.querySelector(".social-collage");
+  const destination = document.getElementById("desktopSocialDestination");
+  if (!contactCard || !divider || !collage || !destination) return;
+
+  // Keep the approved Bible verse and contact cards unchanged.
+  // Restore the original social/proof layout directly below Contact Availability.
+  if (divider.parentElement !== destination || collage.parentElement !== destination) {
+    destination.append(divider, collage);
+  }
+  contactCard.after(destination);
+})();
+</script>
 </body>
 </html>

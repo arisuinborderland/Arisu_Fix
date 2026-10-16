@@ -1,3 +1,8 @@
+V_168 UPDATE
+- Desktop opening layout now prioritizes the Daily Bible Verse, account-recovery intro, WhatsApp contact card, and contact availability.
+- Social links, recovery proofs, and feedback collage are placed lower on desktop; mobile keeps its previous section order.
+- Preserved the existing animated blue badge and 7-day recovery warranty section.
+
 ARISU RECOVERY CONTACT — PREMIUM RESPONSIVE WEBSITE
 ===================================================
 A static, mobile-responsive contact page with premium gradients, contact links,
@@ -13,7 +18,7 @@ review and send the message themselves.
 - Direct Facebook Page card: https://www.facebook.com/share/19gap1qLBf/
 - The TikTok and Facebook cards are clickable across their full surface.
 - Floating WhatsApp contact shortcut.
-- Three-step explanation of the assistance process.
+- Five-step explanation of the assistance process, including a 7-day recovery warranty for successfully recovered accounts.
 - Clear notes about service fees, case-by-case timelines, and non-guaranteed results.
 - Account-safety reminder: never share passwords, one-time codes, 2FA codes, backup
 codes, or recovery codes.
@@ -160,4 +165,28 @@ V_94 hotfix: restored intact V_92 homepage markup and removed only the exact dup
 V_95 SAFE MAINTENANCE NOTES
 - Standardized external styles.css and script.js cache tokens across pages to prevent stale assets after deployment.
 - Preserved existing page content, CSS rules, JavaScript logic, media assets, and links; no feature or layout was intentionally removed.
-- See CODE_AUDIT_V95.txt for the checks run and remaining recommendations.
+- Historical per-version audit text files are intentionally omitted from the release ZIP to keep the project package tidy.
+
+
+V_166 DESKTOP FIRST-SCREEN UPDATE
+--------------------------------
+- Updated the desktop home page to match the approved reference: Daily Bible Verse banner, account-recovery badge, centered heading, WhatsApp contact card, then Contact Availability.
+- The TikTok, Facebook, Recovery Proofs, and feedback content remains in the page below the initial contact area; it was not deleted or permanently hidden.
+- Desktop-only rules are scoped to viewports 761px and wider. The existing mobile layout and scripts were not intentionally changed.
+- Updated shared stylesheet cache-busting tokens to arc-v166 so browsers can load the new styling.
+- Removed accumulated CODE_AUDIT*.txt snapshots because they are not needed to run the site.
+
+
+VERSION 167 UPDATE (OCTOBER 2026)
+---------------------------------
+- Added Step 05: 7-Day Recovery Warranty for all successfully recovered accounts.
+- Preserved the approved V_166 desktop first-screen composition and kept the mobile layout in its existing responsive flow.
+- Updated the main stylesheet cache version so browsers load the new warranty styling.
+
+VERSION 169 UPDATE (OCTOBER 2026)
+---------------------------------
+- Implemented the newly approved desktop layout proportions for the WhatsApp and Contact Availability cards: larger icon tiles, clearer typography, taller CTA button, and more comfortable spacing.
+- Increased desktop Bible verse typography and card padding to improve readability while retaining the agreed first-screen order.
+- All new layout rules are scoped to desktop widths (900px and above); mobile styling remains unchanged.
+- TikTok, Facebook, and other social/proof content remain available below the contact section and are not removed.
+- Updated the home-page stylesheet cache token to arc-v169.
