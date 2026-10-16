@@ -1,0 +1,14 @@
+ARISU RECOVERY CONTACT — V_146 CODE AUDIT
+
+Changes:
+- Corrected desktop-only WhatsApp feature header layout so the RECOMMENDED badge stays aligned in the top row without overlapping the kicker/title.
+- Standardized desktop Contact Availability grid and icon alignment.
+- Added restrained motion for WhatsApp, availability clock, daily availability dot, and recommendation lightning icon when the user has not requested reduced motion.
+- Preserved the existing repeat-on-scroll reveal code and existing mobile breakpoints.
+- Preserved the Daily Bible Verse section and its existing content/controls.
+- Updated HTML cache-busting query strings to arc-v146.
+
+Validation:
+- Verify ZIP integrity and JavaScript syntax.
+- Check HTML for duplicate IDs and missing local assets/scripts/stylesheets.
+- Visual browser testing is not available in this execution environment; please verify on desktop and mobile before deployment.

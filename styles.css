@@ -4306,3 +4306,90 @@ body:has(.compact-intro) .whatsapp-feature-content h2 {
 #floatingWhatsApp:active { transform: scale(.96); }
 @media (max-width: 760px) { #floatingWhatsApp { width: 54px; height: 54px; min-height: 54px; padding: 0; } }
 @media (max-width: 420px) { #floatingWhatsApp { width: 52px; height: 52px; min-height: 52px; } }
+
+/* V_146 — desktop contact-card alignment and restrained icon motion.
+   Keep the established scroll-reveal system and mobile sizing intact. */
+@media (min-width: 761px) {
+  body:has(.compact-intro) .whatsapp-feature-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 18px;
+    align-items: start;
+  }
+  body:has(.compact-intro) .whatsapp-feature-content { min-width: 0; }
+  body:has(.compact-intro) .whatsapp-feature-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 10px 16px !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-kicker {
+    flex: 1 1 240px;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    line-height: 1.4 !important;
+  }
+  body:has(.compact-intro) .whatsapp-recommended {
+    position: static !important;
+    flex: 0 0 auto;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 10px !important;
+    line-height: 1.2;
+    white-space: nowrap !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-content h2 {
+    margin: 10px 0 7px !important;
+    clear: none !important;
+    line-height: 1.18;
+    overflow-wrap: normal;
+  }
+  body:has(.compact-intro) .contact-availability-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+  }
+  body:has(.compact-intro) .availability-clock-icon {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    align-self: start;
+  }
+  body:has(.compact-intro) .availability-content { min-width: 0; }
+  body:has(.compact-intro) .availability-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  body:has(.compact-intro) .availability-details {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+    align-items: center;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .whatsapp-feature-icon:after { animation: waIconRipple 2.2s ease-out infinite !important; }
+  .availability-daily span { animation: availabilityDotPulse 1.7s ease-in-out infinite !important; }
+  .availability-clock-icon svg { transform-origin: 50% 50%; animation: availabilityClockNudge 4s ease-in-out infinite; }
+  .whatsapp-recommended span { display: inline-block; transform-origin: 50% 65%; animation: recommendedBoltPulse 2.4s ease-in-out infinite; }
+  .whatsapp-feature-icon svg { transform-origin: 50% 50%; animation: whatsappIconBreathe 3.2s ease-in-out infinite; }
+}
+@keyframes availabilityClockNudge {
+  0%, 84%, 100% { transform: rotate(0deg); }
+  88% { transform: rotate(-8deg); }
+  92% { transform: rotate(7deg); }
+  96% { transform: rotate(-3deg); }
+}
+@keyframes recommendedBoltPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+@keyframes whatsappIconBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.045); }
+}
