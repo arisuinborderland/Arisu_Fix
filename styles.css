@@ -7042,3 +7042,76 @@ body:has(.compact-intro) main > .daily-verse-card::before {
     font-size: 14px !important;
   }
 }
+
+/* V_183: compact vertical rhythm below Contact Availability only.
+   Keep the Bible verse, intro, WhatsApp and availability card styling untouched. */
+body:has(.compact-intro) .contact-divider {
+  margin-top: 10px !important;
+  margin-bottom: 8px !important;
+  line-height: 1.25 !important;
+}
+body:has(.compact-intro) .social-collage {
+  margin-top: 8px !important;
+  gap: 12px !important;
+}
+body:has(.compact-intro) .site-section {
+  margin-top: 24px !important;
+}
+body:has(.compact-intro) .site-section .section-heading {
+  margin-bottom: 12px !important;
+}
+body:has(.compact-intro) .site-section .steps-grid,
+body:has(.compact-intro) .site-section .transparency-grid {
+  gap: 10px !important;
+}
+body:has(.compact-intro) .site-section .step-card,
+body:has(.compact-intro) .site-section .transparency-card {
+  margin-bottom: 0 !important;
+}
+body:has(.compact-intro) .desktop-social-destination {
+  margin-top: 12px !important;
+}
+body:has(.compact-intro) .desktop-social-destination .contact-divider {
+  margin: 0 auto 8px !important;
+}
+body:has(.compact-intro) .desktop-social-destination .social-collage {
+  margin-top: 0 !important;
+}
+body:has(.compact-intro) .about-card,
+body:has(.compact-intro) .safety-panel,
+body:has(.compact-intro) .terms-card {
+  margin-top: 0 !important;
+}
+body:has(.compact-intro) .site-footer {
+  margin-top: 18px !important;
+}
+@media (min-width: 601px) {
+  body:has(.compact-intro) .site-section { margin-top: 28px !important; }
+  body:has(.compact-intro) .social-collage { gap: 12px !important; }
+}
+@media (max-width: 600px) {
+  body:has(.compact-intro) .contact-divider {
+    margin: 8px 0 6px !important;
+    gap: 8px !important;
+    font-size: 8px !important;
+    letter-spacing: .7px !important;
+  }
+  body:has(.compact-intro) .social-collage {
+    margin-top: 6px !important;
+    gap: 8px !important;
+  }
+  body:has(.compact-intro) .site-section { margin-top: 18px !important; }
+  body:has(.compact-intro) .site-section .section-heading { margin-bottom: 9px !important; }
+  body:has(.compact-intro) .site-section .steps-grid,
+  body:has(.compact-intro) .site-section .transparency-grid { gap: 8px !important; }
+  body:has(.compact-intro) .site-section .step-card { padding-top: 13px !important; padding-bottom: 13px !important; }
+  body:has(.compact-intro) .about-card,
+  body:has(.compact-intro) .safety-panel,
+  body:has(.compact-intro) .terms-card { padding-top: 14px !important; padding-bottom: 14px !important; }
+  body:has(.compact-intro) .desktop-social-destination { margin-top: 8px !important; }
+  body:has(.compact-intro) .site-footer { margin-top: 12px !important; }
+}
+@media (max-width: 380px) {
+  body:has(.compact-intro) .social-collage { gap: 7px !important; }
+  body:has(.compact-intro) .site-section { margin-top: 15px !important; }
+}
