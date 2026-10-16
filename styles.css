@@ -416,7 +416,6 @@ main{padding-top:36px}
 .proof-status-violation{background:linear-gradient(110deg,#fff7e9,#fffdf8);border-color:#ffe0ad}
 .proof-status-violation .proof-status-icon{background:#ffebc7;color:#c8790a}
 .proof-status-violation .proof-status-label{color:#ad690b}
-.proof-card .proof-image-link{border-top:1px solid #e8edf6}
 @media(max-width:460px){.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
 
 .whatsapp-fallback{margin:10px 0 0;text-align:center;font-size:11px;line-height:1.6;color:var(--muted)}.whatsapp-fallback a{color:var(--blue);font-weight:700;text-underline-offset:3px}
