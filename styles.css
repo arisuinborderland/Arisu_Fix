@@ -7709,3 +7709,28 @@ html body #daily-bible-verse.daily-verse-card {
   }
   .social-profile-preview img { max-height: 360px; }
 }
+
+
+/* V_152: reduce only the Customer Feedback screenshot height.
+   Keep the surrounding cards/grid and Recovery Proofs images untouched. */
+.social-feedback-card .reviews-grid-featured .review-proof-image {
+  height: clamp(220px, 27vw, 300px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+  background: #171b24 !important;
+}
+.social-feedback-card .reviews-grid-featured .review-proof-image img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+@media (max-width: 600px) {
+  .social-feedback-card .reviews-grid-featured .review-proof-image {
+    height: clamp(240px, 78vw, 300px) !important;
+  }
+}
