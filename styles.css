@@ -1122,7 +1122,6 @@ main{padding-top:0}
 
 
 /* Version 57: compact review summary with owner-editable reviews behind a button */
-.reviews-section { padding-top: 10px; }
 .review-summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 22px; border: 1px solid var(--border, #dce2ed); border-radius: 20px; background: var(--card, #fff); box-shadow: 0 10px 28px rgba(26, 44, 82, .045); }
 .review-summary-copy { min-width: 0; }
 .review-summary-copy .section-kicker { display: block; margin-bottom: 6px; }
@@ -1478,12 +1477,10 @@ main{padding-top:0}
 .social-feedback-card .review-summary-copy .section-kicker { font-size: 9px; margin-bottom: 5px; }
 .social-feedback-card .review-summary-copy h2 { font-size: clamp(18px,2vw,23px); line-height: 1.15; }
 .social-feedback-card .review-summary-action { width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 6px; }
-.social-feedback-card .review-proof-label { font-size: 9px; }
 .social-feedback-card .view-reviews-button { min-height: 36px; padding: 7px 9px; font-size: 11px; border-radius: 9px; white-space: nowrap; }
 .social-feedback-card .reviews-grid { display: grid; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; gap: 8px; padding: 0 0 6px; margin: 0; }
 .social-feedback-card .review-proof-card { min-width: 0; padding: 5px; border-radius: 10px; }
 .social-feedback-card .review-proof-image { height: 125px; border-radius: 7px; }
-.social-feedback-card .review-proof-caption { display: none; }
 .social-feedback-card .review-image-hint { font-size: 9px; }
 @media (max-width: 600px) {
   .social-collage { gap: 10px; margin-top: 13px; }
@@ -7192,7 +7189,7 @@ body:has(.compact-intro) .site-footer {
    Desktop rule is kept visually unchanged. The older V_179 mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=arc195") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=arc197") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -7202,7 +7199,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector from V_179. */
   html body:has(.compact-intro) main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=arc196") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=arc197") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
