@@ -7188,3 +7188,21 @@ body:has(.compact-intro) .site-footer {
  .service-disclaimer { grid-template-columns:24px minmax(0,1fr); gap:8px; padding:10px; }
  .service-disclaimer > span { width:23px; height:23px; }
 }
+
+
+/* V_189 — crop the artwork's built-in outer frame and fit it flush to the existing verse card.
+   Only the background artwork is adjusted; keep the responsive card dimensions and text layout unchanged. */
+html body:has(.compact-intro) #daily-bible-verse.daily-verse-card {
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=arc189") !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-origin: border-box !important;
+  background-clip: border-box !important;
+}
+@media (max-width: 600px) {
+  html body:has(.compact-intro) #daily-bible-verse.daily-verse-card {
+    background-size: auto 100% !important;
+    background-position: 72% center !important;
+  }
+}
