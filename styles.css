@@ -7673,3 +7673,37 @@ html body #daily-bible-verse.daily-verse-card {
     max-height: 25px !important;
   }
 }
+
+
+/* V_144: compact real-profile previews for TikTok and Facebook; keep social cards short on mobile. */
+.social-profile-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.9 / 1;
+  min-width: 0;
+  margin: 0 0 12px;
+  overflow: hidden;
+  border: 1px solid rgba(110, 139, 190, .42);
+  border-radius: 12px;
+  background: #111827;
+  box-shadow: 0 5px 16px rgba(13, 25, 48, .12);
+}
+.social-profile-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.tiktok-profile-preview { border-color: rgba(254, 44, 85, .38); }
+.facebook-page-preview { border-color: rgba(24, 119, 242, .42); }
+@media (max-width: 600px) {
+  .social-profile-preview {
+    aspect-ratio: 1.75 / 1;
+    margin-bottom: 9px;
+    border-radius: 9px;
+  }
+}
+@media (max-width: 360px) {
+  .social-profile-preview { aspect-ratio: 1.55 / 1; }
+}
