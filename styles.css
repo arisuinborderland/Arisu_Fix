@@ -4440,3 +4440,61 @@ body:has(.compact-intro) .whatsapp-feature-content h2 {
   }
 }
 
+
+/* V_148 — desktop contact-card spacing fix. Keep animation rules unchanged. */
+@media (min-width: 761px) {
+  body:has(.compact-intro) .wizard-card.contact-only {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    row-gap: 18px;
+  }
+  body:has(.compact-intro) .whatsapp-feature-card,
+  body:has(.compact-intro) .contact-availability-card {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+  }
+  body:has(.compact-intro) .contact-availability-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 18px;
+    padding: 24px;
+  }
+  body:has(.compact-intro) .availability-clock-icon {
+    width: 58px;
+    height: 58px;
+    align-self: start;
+  }
+  body:has(.compact-intro) .availability-clock-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+  body:has(.compact-intro) .availability-heading-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+  body:has(.compact-intro) .availability-content h2 {
+    margin: 8px 0 10px;
+    font-size: clamp(24px, 2.2vw, 30px);
+    line-height: 1.2;
+  }
+  body:has(.compact-intro) .availability-intro {
+    margin-bottom: 16px;
+  }
+  body:has(.compact-intro) .availability-details {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+    gap: 18px;
+    padding: 16px;
+  }
+  body:has(.compact-intro) .availability-time strong {
+    white-space: normal;
+    font-size: 17px;
+  }
+  body:has(.compact-intro) .availability-time span {
+    letter-spacing: 1.4px;
+  }
+}
