@@ -4498,3 +4498,13 @@ body:has(.compact-intro) .whatsapp-feature-content h2 {
     letter-spacing: 1.4px;
   }
 }
+
+
+/* V_149 — final desktop-only alignment correction for the Contact Availability clock tile.
+   The tile spans the kicker, title, and intro grid rows; center it in that full area.
+   Do not alter icon animations, scroll reveals, or mobile breakpoints. */
+@media (min-width: 761px) {
+  body:has(.compact-intro) .availability-clock-icon {
+    align-self: center !important;
+  }
+}
