@@ -6121,3 +6121,99 @@ body:has(.compact-intro) .desktop-social-destination { order: 5 !important; }
   .how-section .step-card .recovery-payment-promise,
   .how-section .step-card .warranty-promise { font-size: 11px !important; }
 }
+
+/* V_174 — closer scenic Bible verse banner styling for desktop and mobile. */
+body:has(.compact-intro) main > .daily-verse-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: clamp(175px, 15.2vw, 220px) !important;
+  padding: clamp(18px, 1.65vw, 26px) clamp(18px, 3vw, 46px) !important;
+  margin: 0 auto clamp(14px, 1.5vw, 22px) !important;
+  border: 1px solid rgba(202, 230, 255, .5) !important;
+  border-radius: clamp(16px, 1.5vw, 24px) !important;
+  background-color: #14549b !important;
+  background-image: linear-gradient(90deg, rgba(4, 44, 98, .16), rgba(4, 44, 98, .08) 52%, rgba(4, 44, 98, .13)), url("./verse-mountains.svg") !important;
+  background-position: center 52% !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 10px 28px rgba(16, 66, 128, .17) !important;
+}
+body:has(.compact-intro) .daily-verse-topline { gap: 8px !important; margin-bottom: 6px !important; }
+body:has(.compact-intro) .daily-verse-cross { width: auto !important; height: auto !important; padding: 0 2px !important; background: transparent !important; color: #fff !important; font-size: 15px !important; }
+body:has(.compact-intro) .daily-verse-label,
+body:has(.compact-intro) .daily-verse-date { color: #f5f9ff !important; font-size: clamp(8px, .68vw, 11px) !important; letter-spacing: 1.15px !important; }
+body:has(.compact-intro) .daily-verse-date { background: transparent !important; padding: 0 !important; }
+body:has(.compact-intro) .daily-verse-card h2 { margin: 0 0 7px !important; font-size: clamp(23px, 2vw, 32px) !important; line-height: 1.18 !important; color: #fff !important; text-shadow: 0 2px 7px rgba(5, 34, 72, .28) !important; }
+body:has(.compact-intro) .daily-verse-card .daily-verse-text { max-width: 1180px !important; margin: 0 auto 2px !important; color: #fff !important; font-size: clamp(14px, 1.2vw, 19px) !important; line-height: 1.38 !important; font-weight: 750 !important; text-shadow: 0 1px 6px rgba(4, 30, 66, .4) !important; }
+body:has(.compact-intro) .daily-verse-card .daily-verse-reference { margin-top: 2px !important; color: #eaf4ff !important; font-size: clamp(10px, .82vw, 13px) !important; font-style: italic !important; }
+body:has(.compact-intro) .daily-verse-card .daily-verse-translation { max-width: 1180px !important; margin: 5px auto 0 !important; color: #edf6ff !important; font-size: clamp(10px, .86vw, 14px) !important; line-height: 1.38 !important; }
+@media (max-width: 899px) {
+  body:has(.compact-intro) main > .daily-verse-card { min-height: 0 !important; padding: 22px 14px 18px !important; margin: 0 auto 12px !important; border-radius: 17px !important; background-position: 67% center !important; }
+  body:has(.compact-intro) .daily-verse-topline { gap: 5px !important; margin-bottom: 8px !important; }
+  body:has(.compact-intro) .daily-verse-cross { font-size: 13px !important; }
+  body:has(.compact-intro) .daily-verse-label,
+  body:has(.compact-intro) .daily-verse-date { font-size: clamp(7px, 2.1vw, 9px) !important; letter-spacing: .75px !important; }
+  body:has(.compact-intro) .daily-verse-card h2 { font-size: clamp(19px, 5.6vw, 26px) !important; margin-bottom: 8px !important; }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-text { font-size: clamp(13px, 3.7vw, 16px) !important; line-height: 1.43 !important; }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-reference { font-size: 11px !important; margin-top: 4px !important; }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-translation { font-size: clamp(10px, 3vw, 12px) !important; line-height: 1.42 !important; margin-top: 6px !important; }
+}
+@media (max-width: 380px) {
+  body:has(.compact-intro) main > .daily-verse-card { padding: 19px 10px 16px !important; }
+  body:has(.compact-intro) .daily-verse-topline { gap: 4px !important; }
+  body:has(.compact-intro) .daily-verse-label,
+  body:has(.compact-intro) .daily-verse-date { font-size: 7px !important; letter-spacing: .45px !important; }
+}
+
+
+/* V_175 mobile fix: force the scenic Bible banner asset to load and remove excess height. */
+body:has(.compact-intro) main > .daily-verse-card {
+  background-color: #14549b !important;
+  background-image:
+    linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
+    url("./verse-mountains.svg?v=arc175") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center 52% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+}
+body:has(.compact-intro) main > .daily-verse-card::before {
+  content: none !important;
+  display: none !important;
+}
+@media (max-width: 899px) {
+  body:has(.compact-intro) main > .daily-verse-card {
+    padding: 18px 12px 15px !important;
+    margin: 0 auto 12px !important;
+    background-position: 68% center !important;
+    border-radius: 17px !important;
+  }
+  body:has(.compact-intro) .daily-verse-topline {
+    flex-wrap: wrap !important;
+    row-gap: 5px !important;
+    margin-bottom: 7px !important;
+  }
+  body:has(.compact-intro) .daily-verse-card .daily-verse-translation {
+    margin-bottom: 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  body:has(.compact-intro) main > .daily-verse-card {
+    padding: 16px 9px 13px !important;
+  }
+}
+/* Keep the floating WhatsApp shortcut from crowding the contact cards on mobile. */
+@media (max-width: 600px) {
+  .floating-whatsapp, .whatsapp-float, #whatsappFloat, .floating-whatsapp-button {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+    right: 12px !important;
+    bottom: 82px !important;
+  }
+}
