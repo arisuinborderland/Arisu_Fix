@@ -33,7 +33,7 @@ index.html       Main contact page and information sections
 privacy.html     Privacy Policy page
 styles.css       Responsive design and premium visual styling
 script.js        WhatsApp and social destination logic; current-year update
-arisu-profile.png Arisu profile image used in header/footer/About
+arisu-profile.jpg Arisu profile image used in header/footer/About
 proofs/          Put proof screenshots/images here (see proofs/README.txt)
 README.txt       This guide
 
@@ -193,5 +193,14 @@ VERSION 169 UPDATE (OCTOBER 2026)
 
 SOCIAL LINK PREVIEW
 - The public Open Graph/Twitter preview image is social-preview.jpg (1200 x 630 px).
-- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=arc198.
+- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=arc199.
 - Keep social-preview.jpg at the project root when deploying so link preview crawlers can fetch it.
+
+
+V_199 SAFE MAINTENANCE
+----------------------
+- Corrected the Arisu profile image filename to .jpg to match its actual JPEG content.
+- Standardized page stylesheet/script cache identifiers and social preview image cache identifiers to arc199.
+- Added vercel.json with baseline security response headers: nosniff, strict-origin-when-cross-origin, SAMEORIGIN framing, and disabled camera/microphone/geolocation permissions.
+- No layout rules, copy, animations, or interaction logic were intentionally changed.
+- A strict Content-Security-Policy was not added because the current site has inline scripts/styles; it needs a separate compatibility-reviewed refactor first.
