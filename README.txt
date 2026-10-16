@@ -190,3 +190,8 @@ VERSION 169 UPDATE (OCTOBER 2026)
 - All new layout rules are scoped to desktop widths (900px and above); mobile styling remains unchanged.
 - TikTok, Facebook, and other social/proof content remain available below the contact section and are not removed.
 - Updated the home-page stylesheet cache token to arc-v169.
+
+SOCIAL LINK PREVIEW
+- The public Open Graph/Twitter preview image is social-preview.jpg (1200 x 630 px).
+- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=arc198.
+- Keep social-preview.jpg at the project root when deploying so link preview crawlers can fetch it.
