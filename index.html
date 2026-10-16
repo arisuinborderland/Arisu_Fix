@@ -25,7 +25,7 @@
 <meta name="twitter:image:alt" content="Arisu Recovery Contact account assistance banner">
 
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
- <link rel="stylesheet" href="styles.css?v=arc199">
+ <link rel="stylesheet" href="styles.css?v=arc133">
  <!-- V_121: on explicit reload, start at the top; normal in-page navigation remains unchanged. -->
 <script>
 (() => {
@@ -70,18 +70,29 @@
    </div>
    <a class="button primary full whatsapp-button" id="whatsappLink" href="whatsapp://send?phone=639423212281"><span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path fill="currentColor" d="M16 2.7A13 13 0 0 0 4.8 22.3L3.1 29l6.9-1.8A13 13 0 1 0 16 2.7Zm0 23.7a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A10.6 10.6 0 1 1 16 26.4Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-2.6-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4a13 13 0 0 0 5 4.4c.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.2-.2-.5-.4Z"/></svg></span> Message Us on WhatsApp <span class="wa-arrow" aria-hidden="true">↗</span></a>
   </section>
-  <section class="contact-availability-card" aria-labelledby="contactAvailabilityTitle">
-   <div class="availability-clock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
-   <div class="availability-content">
-    <div class="availability-heading-row"><span class="availability-kicker">CONTACT AVAILABILITY</span><span class="availability-daily"><span aria-hidden="true"></span> AVAILABLE DAILY</span></div>
-    <h2 id="contactAvailabilityTitle">Available Hours</h2>
-    <p class="availability-intro">We reply during the hours below.</p>
-    <div class="availability-details">
-     <div class="availability-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><strong>7:00 AM – 10:00 PM</strong><span>MONDAY – SUNDAY</span></div></div>
-     <div class="availability-reply"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13v-2a9 9 0 0 1 18 0v2"/><rect x="2" y="12" width="4" height="7" rx="2"/><rect x="18" y="12" width="4" height="7" rx="2"/><path d="M18 19a6 6 0 0 1-6 3h-2"/></svg><p><strong>Message anytime.</strong><br>Replies will be sent during our available hours.</p></div>
+  <section class="service-status-panel" id="serviceStatus" aria-labelledby="serviceStatusTitle">
+   <div class="service-status-main">
+    <div class="service-status-label"><span class="service-status-dot" aria-hidden="true"></span><span>SERVICE STATUS</span><span class="service-status-pill" id="serviceStatusPill">Checking hours…</span></div>
+    <h2 id="serviceStatusTitle">Currently <span id="serviceStatusHeadline">Accepting Inquiries</span></h2>
+    <p id="serviceStatusDescription">You can message us on WhatsApp for account recovery assistance.</p>
+   </div>
+   <div class="service-status-details">
+    <div class="service-status-detail">
+     <span class="service-status-detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+     <div><span class="service-status-detail-label">Contact Available</span><strong>7:00 AM – 10:00 PM</strong><small>Monday – Sunday · Philippine Time</small></div>
+    </div>
+    <div class="service-status-detail service-status-date">
+     <span class="service-status-detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+     <div><span class="service-status-detail-label">Philippine Standard Time</span><strong id="serviceStatusClock">Updating…</strong><small id="serviceStatusUpdated">GMT+8 · Asia/Manila · Auto-updated</small></div>
     </div>
    </div>
+   <div class="service-benefit-row" aria-label="Service highlights">
+    <div class="service-benefit"><span class="service-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span><span><strong>Fast Response</strong><small>Within available hours</small></span></div>
+    <div class="service-benefit"><span class="service-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><strong>Secure &amp; Private</strong><small>Keep your details private</small></span></div>
+    <div class="service-benefit"><span class="service-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6m3-3h-6"/></svg></span><span><strong>One-on-One Assistance</strong><small>Directly with Arisu</small></span></div>
+   </div>
   </section>
+
   <div class="contact-divider"><span>OR VISIT MY OTHER SOCIAL MEDIA ACCOUNTS</span></div>
   <div class="social-collage" aria-label="Arisu social links and customer feedback">
   <a class="tiktok-showcase social-card-link" href="https://www.tiktok.com/@arisuryohei2020" target="_blank" rel="noopener noreferrer" aria-label="Open Arisu on TikTok">
@@ -217,8 +228,8 @@
  <nav class="footer-links" aria-label="Footer navigation"><a href="proofs.html">Recovery proofs</a><a href="#about">About</a><a href="privacy.html">Privacy Policy</a><a href="#terms">Terms</a><a href="#contact">Contact</a></nav>
  <span class="footer-copyright">© <span id="year">2026</span> Arisu</span>
 </footer>
-<script src="script.js?v=arc199"></script>
-<script src="scroll-reveal.js?v=arc199"></script>
+<script src="script.js?v=arc130"></script>
+<script src="scroll-reveal.js?v=arc130"></script>
 <script>
 (() => {
   "use strict";
