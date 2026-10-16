@@ -4264,3 +4264,24 @@ body:has(.compact-intro) .whatsapp-feature-content p {
     padding: 4px 5px !important;
   }
 }
+
+/* V_140 — raise the WhatsApp title closer to its kicker while keeping RECOMMENDED clear above/right. */
+body:has(.compact-intro) .whatsapp-feature-top {
+  min-height: 22px !important;
+  padding-right: 108px !important;
+  margin: 0 !important;
+}
+body:has(.compact-intro) .whatsapp-feature-content h2 {
+  margin-top: 1px !important;
+  margin-bottom: 4px !important;
+  clear: both !important;
+}
+@media (max-width: 370px) {
+  body:has(.compact-intro) .whatsapp-feature-top {
+    min-height: 21px !important;
+    padding-right: 92px !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-content h2 {
+    margin-top: 1px !important;
+  }
+}
