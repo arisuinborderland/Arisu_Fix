@@ -8,6 +8,7 @@
       "#daily-bible-verse",
       ".compact-intro",
       ".contact-desc",
+      ".contact-availability-card",
       ".whatsapp-button",
       "#floatingWhatsApp",
       ".whatsapp-notice",

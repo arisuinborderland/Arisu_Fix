@@ -2731,14 +2731,8 @@ summary:focus-visible {
 }
 
 
-/* V_113: animate WhatsApp buttons; reveal stays visible after first entry. */
-.arc-scroll-reveal-enabled #floatingWhatsApp.arc-scroll-reveal-visible {
-  animation: arc-wa-float-v112 3.2s ease-in-out 650ms infinite;
-}
-@keyframes arc-wa-float-v112 {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -4px, 0); }
-}
+/* V_141: floating WhatsApp stays still; scroll reveal and tap feedback remain. */
+#floatingWhatsApp { animation: none !important; }
 #floatingWhatsApp:active, .whatsapp-button:active {
   transform: scale(.98);
 }
@@ -2815,10 +2809,6 @@ summary:focus-visible {
     transition-duration: 540ms !important;
     transition-timing-function: ease, cubic-bezier(.2,.7,.2,1) !important;
     transition-delay: var(--arc-reveal-delay, 0ms) !important;
-  }
-  .arc-scroll-reveal-enabled #floatingWhatsApp.arc-scroll-reveal-visible {
-    animation-duration: 3.2s !important;
-    animation-iteration-count: infinite !important;
   }
 }
 
