@@ -4393,3 +4393,50 @@ body:has(.compact-intro) .whatsapp-feature-content h2 {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.045); }
 }
+
+/* V_147 — restore subtle decorative icon motion when the OS requests reduced motion.
+   The site's large scroll/reveal behavior is handled separately and remains unchanged.
+   Motion here is limited to small badges, status dots and contact icons. */
+@media (prefers-reduced-motion: reduce) {
+  .compact-intro .eyebrow {
+    animation: eyebrow-green-glow-v101 3.6s ease-in-out 1s infinite !important;
+  }
+  .compact-intro .eyebrow .status-pulse {
+    animation: status-heartbeat 1.15s ease-in-out infinite !important;
+  }
+  .compact-intro .eyebrow .status-pulse:after {
+    animation: status-ripple 1.5s ease-out infinite !important;
+  }
+  .compact-intro .eyebrow.premium-status > .status-check {
+    animation: arisu-blue-badge-pop 2.4s ease-in-out infinite !important;
+  }
+  .arisu-verified-badge {
+    animation: arisu-brand-badge-pop 2.8s ease-in-out infinite !important;
+  }
+  .arisu-verified-badge:after {
+    animation: arisu-brand-badge-glow 2.8s ease-out infinite !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-icon:after {
+    animation: waIconRipple 2.8s ease-out infinite !important;
+  }
+  body:has(.compact-intro) .whatsapp-feature-icon svg {
+    transform-origin: 50% 50%;
+    animation: whatsappIconBreathe 3.8s ease-in-out infinite !important;
+  }
+  body:has(.compact-intro) .availability-daily span {
+    animation: availabilityDotPulse 2s ease-in-out infinite !important;
+  }
+  body:has(.compact-intro) .availability-clock-icon svg {
+    transform-origin: 50% 50%;
+    animation: availabilityClockNudge 5s ease-in-out infinite !important;
+  }
+  body:has(.compact-intro) .whatsapp-recommended span {
+    display: inline-block;
+    transform-origin: 50% 65%;
+    animation: recommendedBoltPulse 2.8s ease-in-out infinite !important;
+  }
+  .how-section .recovery-first-card .recovery-animated-check {
+    animation: recovery-check-pop 2.8s ease-in-out infinite !important;
+  }
+}
+

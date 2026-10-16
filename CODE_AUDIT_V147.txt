@@ -1,0 +1,18 @@
+ARISU RECOVERY CONTACT — V_147 CODE AUDIT
+
+Findings from V_146:
+- Several reduced-motion media rules explicitly disabled decorative status, verification, WhatsApp, availability, and recovery-check animations.
+- The scroll-reveal animations had separate rules and were preserved; this matches the reported behavior where scrolling animates but many icons remain static.
+- The new contact-card motion was also limited to prefers-reduced-motion: no-preference.
+
+Changes in V_147:
+- Restored subtle motion for small decorative status dots, custom badges, the WhatsApp logo/ripple, availability clock/status dot, recommended lightning mark, and recovery-first check icon even when the environment reports reduced motion.
+- Kept scroll-reveal JavaScript, selectors, thresholds, and current layout breakpoints untouched.
+- Preserved Daily Bible Verse markup and local date-based verse logic.
+- Bumped CSS/JS cache-busting query strings to arc-v147.
+
+Validation performed:
+- ZIP integrity check.
+- JavaScript syntax check.
+- HTML duplicate-ID scan and local asset/script/style references checked.
+- Browser-render tests should still be done in desktop and mobile browsers before deployment; a static screenshot cannot prove motion over time.
