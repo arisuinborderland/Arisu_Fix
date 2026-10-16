@@ -7651,3 +7651,25 @@ html body #daily-bible-verse.daily-verse-card {
     font-size: 15px !important;
   }
 }
+
+
+/* V_143 — keep the smaller WhatsApp mark centered inside its existing green tile on mobile. */
+@media (max-width: 600px) {
+  html body:has(.compact-intro) #contact .whatsapp-feature-icon {
+    display: grid !important;
+    place-items: center !important;
+    position: relative !important;
+  }
+  html body:has(.compact-intro) #contact .whatsapp-feature-icon > svg {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    place-self: center !important;
+    margin: 0 !important;
+    transform: none !important;
+    width: 25px !important;
+    height: 25px !important;
+    max-width: 25px !important;
+    max-height: 25px !important;
+  }
+}

@@ -9,6 +9,8 @@
       ".compact-intro",
       ".contact-desc",
       ".contact-availability-card",
+      ".service-status-panel",
+      ".service-benefit",
       ".whatsapp-button",
       "#floatingWhatsApp",
       ".whatsapp-notice",
