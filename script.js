@@ -475,8 +475,8 @@ renderRecoveryProofs();
       headline.classList.toggle("is-offline", !isOpen);
       pill.textContent = isOpen ? "Online" : "Offline";
       description.textContent = isOpen
-        ? "You can message us on WhatsApp for account recovery assistance. Replies are sent during available hours."
-        : "You can still send a WhatsApp message. Replies resume at 7:00 AM Philippine Time.";
+        ? "You can message me on WhatsApp for account recovery assistance. I reply during my available hours."
+        : "You can still send me a WhatsApp message. I resume replies at 7:00 AM Philippine Time.";
       pill.classList.toggle("service-status-pill-closed", !isOpen);
       if (statusDot) statusDot.classList.toggle("is-offline", !isOpen);
       lastAvailability = isOpen;
