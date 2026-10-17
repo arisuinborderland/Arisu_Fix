@@ -7234,3 +7234,198 @@ body.home-page .about-card .independent-note {
 .why-history-page-title{font-size:clamp(1.2rem,2.5vw,1.65rem)}.why-history-page-title span{display:inline-block;margin-left:4px;color:#78b7ff;font-size:.78em}
 .why-history-footnote{margin:20px 0 0;color:#c0cee2;font-size:.95rem;line-height:1.65}
 @media(max-width:640px){.why-history-card{padding:20px 16px;margin-bottom:18px;border-radius:17px}.why-history-row{gap:13px;align-items:flex-start}.why-history-icon{width:50px;height:50px;flex-basis:50px;border-radius:14px}.why-history-icon svg{width:25px;height:25px}.why-history-kicker{font-size:.7rem}.why-history-title{font-size:1.65rem}.why-history-copy p{font-size:.93rem;line-height:1.5}.why-history-divider{margin:20px 0}.why-history-page-title{font-size:1.25rem}.why-history-footnote{margin-top:17px;font-size:.9rem;line-height:1.55}}
+
+
+/* ArisuV84 — Option 6: Premium Light Gradient for Why Choose Arisu */
+.why-arisu-section .why-arisu-card{
+  isolation:isolate;
+  color:#142344;
+  border:1px solid rgba(107,174,255,.42);
+  background:
+    radial-gradient(ellipse at 4% 3%,rgba(91,215,255,.22),transparent 34%),
+    radial-gradient(ellipse at 96% 15%,rgba(171,151,255,.22),transparent 36%),
+    linear-gradient(135deg,#f9fdff 0%,#edf7ff 48%,#f7f3ff 100%);
+  box-shadow:0 14px 38px rgba(47,112,190,.13),inset 0 1px 0 rgba(255,255,255,.95);
+}
+.why-arisu-section .why-arisu-card::before,
+.why-arisu-section .why-arisu-card::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(1px);
+}
+.why-arisu-section .why-arisu-card::before{
+  width:340px;height:210px;right:-115px;top:-110px;
+  background:linear-gradient(135deg,rgba(57,201,255,.2),rgba(104,110,255,.1),rgba(205,155,255,.13));
+  transform:rotate(-22deg);
+}
+.why-arisu-section .why-arisu-card::after{
+  width:280px;height:170px;left:-135px;bottom:-95px;
+  background:linear-gradient(135deg,rgba(0,207,224,.15),rgba(82,154,255,.12),rgba(181,143,255,.12));
+}
+.why-arisu-section .why-arisu-heading .section-kicker{color:#1768db}
+.why-arisu-section .why-arisu-heading h2{color:#101a3b}
+.why-arisu-section .why-arisu-heading h2 span{color:#0879f9}
+.why-arisu-section .why-arisu-heading p{color:#435778}
+.why-arisu-section .why-history-card{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,.96);
+  background:linear-gradient(135deg,rgba(255,255,255,.91) 0%,rgba(239,248,255,.94) 52%,rgba(247,241,255,.93) 100%);
+  box-shadow:0 9px 26px rgba(52,118,196,.10),inset 0 1px 0 rgba(255,255,255,.98);
+}
+.why-arisu-section .why-history-card::before{
+  content:"";position:absolute;pointer-events:none;right:-42px;bottom:-82px;width:260px;height:150px;
+  border-radius:50%;transform:rotate(-15deg);
+  background:linear-gradient(135deg,rgba(0,205,232,.17),rgba(48,142,255,.13),rgba(173,133,255,.18));
+}
+.why-arisu-section .why-history-row,
+.why-arisu-section .why-history-footnote{position:relative;z-index:1}
+.why-arisu-section .why-history-icon{
+  background:linear-gradient(145deg,#29d8f4 0%,#087cff 62%,#6258f5 100%);
+  color:#fff;box-shadow:0 8px 20px rgba(28,126,244,.19);
+}
+.why-arisu-section .why-history-kicker{color:#1768c8}
+.why-arisu-section .why-history-title{color:#111b3b}
+.why-arisu-section .why-history-copy p,
+.why-arisu-section .why-history-footnote{color:#435879}
+.why-arisu-section .why-history-divider{background:linear-gradient(90deg,rgba(70,155,239,.22),rgba(155,137,238,.2))}
+.why-arisu-section .why-history-page-link:hover,
+.why-arisu-section .why-history-page-link:focus-visible{background:rgba(68,151,255,.07);outline-color:rgba(54,137,244,.42)}
+.why-arisu-section .why-arisu-item{
+  border:1px solid rgba(255,255,255,.96);
+  background:linear-gradient(110deg,rgba(255,255,255,.9),rgba(244,249,255,.93) 62%,rgba(250,246,255,.92));
+  box-shadow:0 7px 20px rgba(48,107,174,.075),inset 0 1px 0 rgba(255,255,255,.98);
+}
+.why-arisu-section .why-arisu-item strong{color:#111b3b}
+.why-arisu-section .why-arisu-item small{color:#465a7b}
+.why-arisu-section .why-arisu-icon{
+  color:#fff;background:linear-gradient(145deg,#28d7f1,#087dff 68%,#6257f3);
+  box-shadow:0 7px 18px rgba(44,127,236,.17);
+}
+@media(max-width:640px){
+  .why-arisu-section .why-arisu-card{background:radial-gradient(ellipse at 3% 0%,rgba(91,215,255,.18),transparent 34%),radial-gradient(ellipse at 100% 18%,rgba(171,151,255,.17),transparent 34%),linear-gradient(135deg,#f9fdff 0%,#edf7ff 52%,#f7f3ff 100%)}
+  .why-arisu-section .why-history-card::before{right:-85px;bottom:-70px;width:210px;height:120px}
+}
+@media(prefers-reduced-motion:reduce){.why-arisu-section .why-history-page-link{transition:none}}
+
+
+/* V85: make the Facebook Page action explicit and prevent accidental taps on the whole history row. */
+.why-arisu-section .why-history-page-link{cursor:default;pointer-events:none;background:transparent!important;outline:none!important}
+.why-arisu-section .why-history-facebook-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin:18px 0 0;padding:13px 18px;border:1px solid rgba(24,119,242,.22);border-radius:14px;background:linear-gradient(110deg,#1877f2 0%,#2865f6 58%,#6658f5 100%);color:#fff;text-decoration:none;font:800 15px/1.25 Manrope,Arial,sans-serif;box-shadow:0 8px 18px rgba(24,105,238,.2);transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.why-arisu-section .why-history-facebook-cta svg{width:21px;height:21px;flex:0 0 21px}
+.why-arisu-section .why-history-cta-arrow{font-size:20px;line-height:1;margin-left:2px}
+.why-arisu-section .why-history-facebook-cta:hover{transform:translateY(-1px);box-shadow:0 11px 23px rgba(24,105,238,.26);filter:saturate(1.08)}
+.why-arisu-section .why-history-facebook-cta:focus-visible{outline:3px solid #8bc7ff;outline-offset:3px}
+@media(max-width:640px){.why-arisu-section .why-history-facebook-cta{min-height:50px;margin-top:15px;font-size:14px;border-radius:13px}}
+@media(prefers-reduced-motion:reduce){.why-arisu-section .why-history-facebook-cta{transition:none}}
+
+
+/* ArisuV86 — Soft Glass purpose card, placed directly below About This Website. */
+.purpose-section {
+  margin-top: 15px !important;
+  max-width: 960px;
+}
+.purpose-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(21px, 3.1vw, 31px);
+  border: 1px solid rgba(125, 163, 229, .34);
+  border-radius: 22px;
+  color: #243452;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(89, 211, 244, .15), transparent 37%),
+    radial-gradient(ellipse at 100% 4%, rgba(177, 153, 255, .17), transparent 39%),
+    linear-gradient(135deg, #ffffff 0%, #f2f8ff 53%, #faf6ff 100%);
+  box-shadow: 0 10px 28px rgba(58, 102, 170, .105), inset 0 1px 0 rgba(255, 255, 255, .98);
+}
+.purpose-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 210px;
+  height: 130px;
+  right: -98px;
+  bottom: -76px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(72, 190, 241, .13), rgba(146, 133, 255, .12));
+  transform: rotate(-18deg);
+}
+.purpose-kicker {
+  display: inline-block;
+  margin: 0 0 8px;
+  color: #2469cf;
+  font: 800 10px/1.4 Manrope, Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.purpose-card h2 {
+  max-width: 720px;
+  margin: 0 0 13px;
+  color: #172749;
+  font: 800 clamp(23px, 3vw, 31px)/1.18 Manrope, Arial, sans-serif;
+  letter-spacing: -.75px;
+  text-wrap: balance;
+}
+.purpose-card > p {
+  max-width: 790px;
+  margin: 0 0 11px;
+  color: #4b5e7c;
+  font: 500 14.5px/1.72 Manrope, Arial, sans-serif;
+}
+.purpose-card > .purpose-mantra {
+  margin-top: 14px;
+  margin-bottom: 0;
+  color: #2456a7;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: .005em;
+}
+.purpose-signoff {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(115, 151, 212, .27);
+}
+.purpose-signoff-label {
+  color: #687b98;
+  font: 600 11px/1.5 Manrope, Arial, sans-serif;
+  letter-spacing: .02em;
+}
+.purpose-creator-name {
+  margin: 0;
+  color: #264f9d;
+  font: italic 800 clamp(20px, 2.5vw, 25px)/1.25 Georgia, "Times New Roman", serif;
+  letter-spacing: -.35px;
+}
+.purpose-creator-role {
+  color: #74839b;
+  font: 600 10.5px/1.5 Manrope, Arial, sans-serif;
+}
+@media (max-width: 760px) {
+  .purpose-section { margin-top: 13px !important; }
+  .purpose-card {
+    padding: 19px 16px 18px;
+    border-radius: 19px;
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(89, 211, 244, .13), transparent 39%),
+      radial-gradient(ellipse at 100% 3%, rgba(177, 153, 255, .14), transparent 38%),
+      linear-gradient(135deg, #ffffff 0%, #f3f8ff 56%, #faf7ff 100%);
+  }
+  .purpose-kicker { margin-bottom: 7px; font-size: 9px; letter-spacing: .14em; }
+  .purpose-card h2 { margin-bottom: 10px; font-size: clamp(21px, 5.5vw, 25px); line-height: 1.2; letter-spacing: -.45px; }
+  .purpose-card > p { margin-bottom: 9px; font-size: 13px; line-height: 1.62; }
+  .purpose-card > .purpose-mantra { margin-top: 11px; margin-bottom: 0; font-size: 12.5px; line-height: 1.55; }
+  .purpose-signoff { margin-top: 16px; padding-top: 13px; gap: 2px; }
+  .purpose-signoff-label { font-size: 10px; }
+  .purpose-creator-name { font-size: 21px; }
+  .purpose-creator-role { font-size: 9.5px; }
+  .purpose-card::after { width: 155px; height: 100px; right: -83px; bottom: -62px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .purpose-card { scroll-behavior: auto; }
+}

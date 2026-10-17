@@ -27,6 +27,7 @@
       ".how-section > .section-heading",
       ".how-section .steps-grid > .step-card",
       ".about-section > .about-card",
+      ".purpose-section > .purpose-card",
       ".safety-section > .safety-panel",
       ".terms-section > .terms-card",
       ".site-footer > *"
