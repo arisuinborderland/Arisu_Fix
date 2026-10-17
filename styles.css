@@ -4849,7 +4849,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-mountains.svg?v=ArisuV94") !important;
+    url("./verse-mountains.svg?v=ArisuV147") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5511,7 +5511,7 @@ body.home-page .site-footer {
    Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV94") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV147") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5521,7 +5521,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV94") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV147") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -8182,3 +8182,874 @@ body.home-page .terms-card .terms-security-copy p {
     flex-basis: 25px !important;
   }
 }
+
+
+/* ArisuV109: lift the ENTIRE contents of the Why Choose Arisu outer card.
+   The outer border, radius, background, and horizontal padding are preserved.
+   Reducing only the top padding moves the kicker, title, description, history card,
+   feature cards, and note upward together instead of moving the description alone. */
+.why-arisu-section .why-arisu-card {
+  padding-top: clamp(12px, 1.8vw, 22px) !important;
+}
+.why-arisu-section .why-arisu-heading p {
+  position: static !important;
+  top: auto !important;
+}
+@media (max-width: 640px) {
+  .why-arisu-section .why-arisu-card {
+    padding-top: 5px !important;
+  }
+  .why-arisu-section .why-arisu-heading {
+    margin-bottom: 10px !important;
+  }
+}
+
+
+/* ArisuV109: targeted compact spacing for the Why Choose Arisu section only.
+   Keep outer border, radius, background, and horizontal padding unchanged. */
+body.home-page .why-arisu-section .why-arisu-card {
+  padding-top: 2px !important;
+}
+body.home-page .why-arisu-section .why-arisu-heading {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+body.home-page .why-arisu-section .why-arisu-heading h2 {
+  margin-top: 4px !important;
+  margin-bottom: 5px !important;
+}
+body.home-page .why-arisu-section .why-arisu-heading p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  position: static !important;
+  top: auto !important;
+}
+body.home-page .why-arisu-section .why-history-card {
+  padding: 15px 13px !important;
+  margin-bottom: 12px !important;
+}
+body.home-page .why-arisu-section .why-history-divider {
+  margin: 12px 0 !important;
+}
+body.home-page .why-arisu-section .why-history-footnote {
+  margin-top: 11px !important;
+}
+body.home-page .why-arisu-section .why-arisu-grid {
+  gap: 8px !important;
+}
+body.home-page .why-arisu-section .why-arisu-item {
+  padding: 11px !important;
+}
+body.home-page .why-arisu-section .why-arisu-note {
+  margin-top: 9px !important;
+  padding: 10px 12px !important;
+}
+@media (max-width: 640px) {
+  body.home-page .why-arisu-section .why-arisu-card { padding-top: 2px !important; }
+  body.home-page .why-arisu-section .why-arisu-heading { margin-bottom: 12px !important; }
+  body.home-page .why-arisu-section .why-history-card { padding: 13px 11px !important; margin-bottom: 11px !important; }
+  body.home-page .why-arisu-section .why-history-divider { margin: 10px 0 !important; }
+  body.home-page .why-arisu-section .why-history-footnote { margin-top: 9px !important; }
+  body.home-page .why-arisu-section .why-arisu-item { padding: 11px !important; }
+}
+
+
+/* ArisuV110: compact the Why Choose Arisu section to match the tighter spacing reference.
+   Only interior spacing changes; outer border, radius, background, and horizontal inset stay intact. */
+body.home-page .why-arisu-section .why-arisu-card { padding-top: 0 !important; }
+body.home-page .why-arisu-section .why-arisu-heading { margin-top: 0 !important; margin-bottom: 8px !important; }
+body.home-page .why-arisu-section .why-arisu-heading .eyebrow,
+body.home-page .why-arisu-section .why-arisu-heading .section-kicker { margin-bottom: 2px !important; }
+body.home-page .why-arisu-section .why-arisu-heading h2 { margin-top: 2px !important; margin-bottom: 3px !important; }
+body.home-page .why-arisu-section .why-arisu-heading p { margin-top: 0 !important; margin-bottom: 0 !important; }
+body.home-page .why-arisu-section .why-history-card { padding: 11px 11px !important; margin-bottom: 9px !important; }
+body.home-page .why-arisu-section .why-history-divider { margin: 8px 0 !important; }
+body.home-page .why-arisu-section .why-history-footnote { margin-top: 7px !important; }
+body.home-page .why-arisu-section .why-arisu-grid { gap: 7px !important; }
+body.home-page .why-arisu-section .why-arisu-item { padding: 9px 10px !important; }
+body.home-page .why-arisu-section .why-arisu-note { margin-top: 7px !important; padding: 8px 10px !important; }
+@media (max-width: 640px) {
+  body.home-page .why-arisu-section .why-arisu-card { padding-top: 0 !important; }
+  body.home-page .why-arisu-section .why-arisu-heading { margin-bottom: 8px !important; }
+  body.home-page .why-arisu-section .why-history-card { padding: 10px 10px !important; margin-bottom: 8px !important; }
+  body.home-page .why-arisu-section .why-history-divider { margin: 8px 0 !important; }
+  body.home-page .why-arisu-section .why-history-footnote { margin-top: 7px !important; }
+  body.home-page .why-arisu-section .why-arisu-item { padding: 9px !important; }
+}
+
+
+/* ArisuV111: tighter mobile spacing and subtler inner card outlines for Why Choose Arisu.
+   The outer section border/background and typography/icon sizes remain unchanged. */
+body.home-page .why-arisu-section .why-history-card,
+body.home-page .why-arisu-section .why-arisu-item {
+  border-width: 1px !important;
+  border-color: rgba(104, 157, 221, .16) !important;
+  box-shadow: none !important;
+}
+body.home-page .why-arisu-section .why-history-card {
+  padding: 9px 10px !important;
+  margin-bottom: 6px !important;
+  border-radius: 13px !important;
+}
+body.home-page .why-arisu-section .why-history-divider {
+  margin: 6px 0 !important;
+}
+body.home-page .why-arisu-section .why-history-footnote {
+  margin-top: 5px !important;
+}
+body.home-page .why-arisu-section .why-arisu-grid {
+  gap: 5px !important;
+}
+body.home-page .why-arisu-section .why-arisu-item {
+  padding: 7px 8px !important;
+  gap: 10px !important;
+  border-radius: 12px !important;
+}
+body.home-page .why-arisu-section .why-arisu-item strong {
+  margin-top: 0 !important;
+  margin-bottom: 3px !important;
+}
+body.home-page .why-arisu-section .why-arisu-note {
+  margin-top: 5px !important;
+  padding: 7px 9px !important;
+}
+@media (max-width: 640px) {
+  body.home-page .why-arisu-section .why-arisu-card { padding-top: 0 !important; }
+  body.home-page .why-arisu-section .why-arisu-heading { margin-bottom: 6px !important; }
+  body.home-page .why-arisu-section .why-arisu-heading h2 { margin-bottom: 2px !important; }
+  body.home-page .why-arisu-section .why-history-card {
+    padding: 8px 8px !important;
+    margin-bottom: 6px !important;
+    border-radius: 12px !important;
+  }
+  body.home-page .why-arisu-section .why-history-divider { margin: 6px 0 !important; }
+  body.home-page .why-arisu-section .why-history-footnote { margin-top: 5px !important; }
+  body.home-page .why-arisu-section .why-arisu-grid { gap: 5px !important; }
+  body.home-page .why-arisu-section .why-arisu-item {
+    padding: 7px 8px !important;
+    gap: 9px !important;
+    border-radius: 11px !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-item strong { margin-bottom: 2px !important; }
+  body.home-page .why-arisu-section .why-arisu-item small { line-height: 1.4 !important; }
+  body.home-page .why-arisu-section .why-arisu-note { margin-top: 5px !important; padding: 7px 8px !important; }
+}
+
+/* ArisuV112: match the compact mobile card spacing used in Why Choose Arisu.
+   Scoped only to Account Recovery and Account Deletion service cards. */
+@media (max-width: 700px) {
+  body.home-page .desktop-social-destination .services-section .service-card {
+    padding: 12px 10px !important;
+    border-width: 1px !important;
+    border-color: rgba(104, 157, 221, .20) !important;
+    border-radius: 15px !important;
+    box-shadow: none !important;
+  }
+  body.home-page .desktop-social-destination .services-section .deletion-service-card {
+    border-color: rgba(224, 128, 177, .22) !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-card-heading {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 13px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-icon svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-card h3 {
+    margin-bottom: 3px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-card-heading p {
+    line-height: 1.4 !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-issue-list {
+    gap: 4px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-issue-list li {
+    min-height: 29px !important;
+    padding: 4px 8px !important;
+    gap: 7px !important;
+    border-radius: 10px !important;
+    line-height: 1.3 !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-issue-list li::before {
+    flex-basis: 19px !important;
+    width: 19px !important;
+    height: 19px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-platforms {
+    margin-top: 8px !important;
+    padding: 8px !important;
+    border-width: 1px !important;
+    border-color: rgba(104, 157, 221, .20) !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-platforms h4 {
+    margin-bottom: 7px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-platform-list {
+    gap: 5px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-platform {
+    gap: 6px !important;
+    padding: 6px !important;
+    border-radius: 10px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-platform-logo {
+    width: 29px !important;
+    height: 29px !important;
+    flex-basis: 29px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .deletion-option {
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 7px !important;
+    padding: 7px !important;
+    border-radius: 11px !important;
+    border: 1px solid rgba(224, 128, 177, .12) !important;
+  }
+  body.home-page .desktop-social-destination .services-section .deletion-option-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    font-size: 22px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .deletion-option h4 {
+    margin-bottom: 2px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-disclaimer {
+    grid-template-columns: 21px minmax(0, 1fr) !important;
+    gap: 7px !important;
+    margin-top: 8px !important;
+    padding: 8px !important;
+    border: 1px solid rgba(224, 128, 177, .14) !important;
+    border-radius: 11px !important;
+  }
+  body.home-page .desktop-social-destination .services-section .service-disclaimer > span {
+    width: 21px !important;
+    height: 21px !important;
+  }
+}
+
+
+
+/* ArisuV113: lift and compact the complete MY SERVICES heading on mobile.
+   Keeps this adjustment scoped to the Services section; outer section styling remains intact. */
+@media (max-width: 700px) {
+  html body.home-page .desktop-social-destination .services-section {
+    margin-top: 9px !important;
+    padding-top: 0 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .services-heading {
+    margin: 0 auto 12px !important;
+    padding: 0 4px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .services-heading .section-kicker {
+    display: block;
+    margin: 0 0 3px !important;
+    line-height: 1.25 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .services-heading h2 {
+    margin: 3px 0 5px !important;
+    line-height: 1.12 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .services-heading > p:first-of-type {
+    margin: 0 !important;
+    line-height: 1.35 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .services-heading .services-intro {
+    margin: 4px 0 0 !important;
+    line-height: 1.45 !important;
+  }
+}
+
+
+/* ArisuV114: compact Account Deletion card on mobile and vertically align the warning copy.
+   Scoped to the deletion card; no outer section border or other service card is changed. */
+@media (max-width: 700px) {
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card > .service-card-heading {
+    margin-bottom: 0 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-option {
+    margin-top: 6px !important;
+    padding: 6px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .service-disclaimer {
+    align-items: center !important;
+    gap: 6px !important;
+    margin-top: 6px !important;
+    padding: 7px 8px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .service-disclaimer > span {
+    align-self: center !important;
+    margin: 0 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .service-disclaimer p {
+    margin: 0 !important;
+    line-height: 1.35 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .service-disclaimer strong {
+    display: inline !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-service-platforms {
+    margin-top: 6px !important;
+    padding: 7px !important;
+  }
+}
+
+
+/* ArisuV120: tighter mobile spacing across both service cards.
+   Preserve outer section styling, icon sizes, and readable type. */
+@media (max-width: 700px) {
+  html body.home-page .desktop-social-destination .services-section .services-grid {
+    gap: 8px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-card {
+    padding: 8px 10px !important;
+    border-radius: 17px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-card-heading {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    gap: 9px !important;
+    margin-bottom: 8px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-card-heading .service-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 13px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-card-heading p {
+    margin-top: 2px !important;
+    line-height: 1.38 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-issue-list {
+    gap: 4px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-issue-list li {
+    min-height: 39px !important;
+    padding: 5px 8px !important;
+    gap: 7px !important;
+    border-radius: 10px !important;
+    line-height: 1.28 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-issue-list li::before {
+    width: 22px !important;
+    height: 22px !important;
+    flex-basis: 22px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-platforms {
+    margin-top: 7px !important;
+    padding: 7px !important;
+    border-radius: 12px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-platforms h4 {
+    margin-bottom: 5px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-platform-list {
+    gap: 5px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .service-platform {
+    gap: 6px !important;
+    padding: 6px !important;
+    border-radius: 10px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-option {
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 5px !important;
+    padding: 5px !important;
+    border-radius: 11px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-option-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-option h4 {
+    margin-bottom: 1px !important;
+    line-height: 1.3 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-option p {
+    line-height: 1.35 !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .service-disclaimer {
+    grid-template-columns: 21px minmax(0, 1fr) !important;
+    gap: 6px !important;
+    margin-top: 5px !important;
+    padding: 6px 7px !important;
+    border-radius: 10px !important;
+  }
+  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-service-platforms {
+    margin-top: 5px !important;
+    padding: 6px !important;
+  }
+}
+
+
+/* ArisuV120: extra-compact mobile spacing for Why Choose Arisu.
+   Preserve the outer card border, radius, background, horizontal inset, and type/icon sizes. */
+@media (max-width: 640px) {
+  body.home-page .why-arisu-section .why-arisu-card {
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-heading {
+    margin-bottom: 4px !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-heading .section-kicker {
+    margin-bottom: 0 !important;
+    line-height: 1.2 !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-heading h2 {
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+    line-height: 1.12 !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-heading p {
+    margin: 0 !important;
+    line-height: 1.38 !important;
+  }
+  body.home-page .why-arisu-section .why-history-card {
+    padding: 6px 7px !important;
+    margin-bottom: 4px !important;
+    border-radius: 11px !important;
+  }
+  body.home-page .why-arisu-section .why-history-row {
+    gap: 7px !important;
+  }
+  body.home-page .why-arisu-section .why-history-kicker {
+    margin-bottom: 1px !important;
+    line-height: 1.25 !important;
+  }
+  body.home-page .why-arisu-section .why-history-title {
+    line-height: 1.12 !important;
+  }
+  body.home-page .why-arisu-section .why-history-copy p {
+    margin-top: 3px !important;
+    line-height: 1.35 !important;
+  }
+  body.home-page .why-arisu-section .why-history-divider {
+    margin: 5px 0 !important;
+  }
+  body.home-page .why-arisu-section .why-history-footnote {
+    margin-top: 4px !important;
+    line-height: 1.38 !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-grid {
+    gap: 4px !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-item {
+    padding: 6px 7px !important;
+    gap: 8px !important;
+    border-radius: 10px !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-item strong {
+    margin: 0 0 1px !important;
+    line-height: 1.25 !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-item small {
+    line-height: 1.32 !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-note {
+    margin-top: 4px !important;
+    padding: 6px 7px !important;
+    gap: 6px !important;
+  }
+  body.home-page .why-arisu-section .why-arisu-note p {
+    margin: 0 !important;
+    line-height: 1.32 !important;
+  }
+}
+
+
+/* ArisuV122: tighten the gap slightly above the Why Choose Arisu outer section on mobile.
+   Keep the section's own padding, border, and inner card spacing unchanged. */
+@media (max-width: 640px) {
+  html body.home-page main > .why-arisu-section {
+    margin-top: 8px !important;
+  }
+}
+
+/* ArisuV120: restore a little breathing room above the mobile process section.
+   Only the section's outside spacing changes; card internals and desktop layout stay untouched. */
+@media (max-width: 640px) {
+  html body.home-page main > .site-section.how-section {
+    margin-top: 6px !important;
+  }
+}
+
+
+
+
+/* ArisuV147: apply the compact mobile gap to the actual moved sections.
+   desktop-layout.js moves #services and #why-choose-arisu inside #desktopSocialDestination,
+   so target them there rather than as direct children of main. */
+@media (max-width: 640px) {
+  html body.home-page #desktopSocialDestination > #services {
+    margin-bottom: 0 !important;
+  }
+  html body.home-page #desktopSocialDestination > #why-choose-arisu {
+    margin-top: 8px !important;
+  }
+}
+
+
+/* ArisuV147: enforce the requested mobile text-size increases after legacy overrides.
+   Higher-specificity selectors ensure the values actually win without changing layout. */
+@media (max-width: 600px) {
+  html body.home-page main > .compact-intro > p {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+  html body.home-page #contact .whatsapp-feature-kicker {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+  }
+  html body.home-page #contact .whatsapp-feature-content p {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+}
+@media (max-width: 370px) {
+  html body.home-page main > .compact-intro > p {
+    font-size: 13px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-kicker {
+    font-size: 9px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-content p {
+    font-size: 11.5px !important;
+  }
+}
+
+
+/* ArisuV147: slightly enlarge the social-media divider label.
+   Final override intentionally follows older rules that set a smaller mobile size. */
+body.home-page .contact-divider {
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+}
+@media (max-width: 600px) {
+  body.home-page .contact-divider {
+    font-size: 9px !important;
+    letter-spacing: .7px !important;
+  }
+}
+@media (max-width: 370px) {
+  body.home-page .contact-divider {
+    font-size: 8.5px !important;
+    letter-spacing: .45px !important;
+  }
+}
+
+
+/* ArisuV147: make the social-media divider label more visible without changing layout. */
+body.home-page .contact-divider {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+}
+@media (max-width: 600px) {
+  body.home-page .contact-divider {
+    font-size: 10px !important;
+    letter-spacing: .75px !important;
+  }
+}
+@media (max-width: 370px) {
+  body.home-page .contact-divider {
+    font-size: 9px !important;
+    letter-spacing: .5px !important;
+  }
+}
+
+
+/* ArisuV147: force the mobile Recovery Proofs and View All Reviews buttons to match exactly.
+   This final, high-specificity override supersedes earlier conflicting size rules.
+   Desktop styles and card layouts remain unchanged. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    flex: 0 0 48px !important;
+    margin-top: 0 !important;
+    padding: 6px 8px !important;
+    gap: 7px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    border-radius: 10px !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button > span:last-child,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all > span:last-child {
+    flex: 0 0 auto !important;
+    line-height: 1 !important;
+  }
+}
+
+
+/* ArisuV147: final mobile alignment correction. Both buttons remain exactly 48px tall;
+   move the Recovery Proofs button down 9px so its visible baseline matches View All Reviews.
+   Mobile only; desktop layout is unchanged. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    transform: translateY(9px) !important;
+  }
+}
+
+
+/* ArisuV147: authoritative equal-height outer cards for Recovery Proofs and Customer Feedback.
+   Both cards stretch to the same grid-row height; the Customer Feedback card is the visual reference.
+   This final override supersedes earlier conflicting fixed-height and mobile height rules. */
+.social-collage {
+  align-items: stretch !important;
+}
+.social-collage > .recovery-proofs-showcase,
+.social-collage > .social-feedback-card {
+  align-self: stretch !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 601px) and (max-width: 1199px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: 545.34px !important;
+    min-height: 545.34px !important;
+    max-height: 545.34px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: 543.33px !important;
+    min-height: 543.33px !important;
+    max-height: 543.33px !important;
+  }
+}
+@media (max-width: 600px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    align-self: stretch !important;
+  }
+}
+
+
+/* ArisuV147: final exact-height match for the Recovery Proofs and Customer Feedback outer cards.
+   Customer Feedback is the reference. Internal previews flex to fit without changing card width. */
+.social-collage {
+  align-items: stretch !important;
+}
+.social-collage > .recovery-proofs-showcase,
+.social-collage > .social-feedback-card {
+  align-self: stretch !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+.social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+  margin-top: auto !important;
+  flex: 0 0 48px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+}
+.social-collage > .social-feedback-card > .windows-feedback-content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+.social-collage > .social-feedback-card .reviews-grid-featured {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+.social-collage > .social-feedback-card .social-feedback-view-all {
+  flex: 0 0 48px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  margin-top: auto !important;
+}
+.social-collage > .recovery-proofs-showcase .recovery-proofs-preview {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+.social-collage > .recovery-proofs-showcase .recovery-proof-preview-item {
+  flex: 1 1 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+.social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+}
+@media (max-width: 600px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: clamp(360px, 96.5vw, 390px) !important;
+    min-height: clamp(360px, 96.5vw, 390px) !important;
+    max-height: clamp(360px, 96.5vw, 390px) !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card,
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+@media (min-width: 601px) and (max-width: 1199px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: 545.34px !important;
+    min-height: 545.34px !important;
+    max-height: 545.34px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: 543.33px !important;
+    min-height: 543.33px !important;
+    max-height: 543.33px !important;
+  }
+}
+
+
+/* ArisuV147: match the Reviews button's outer-card side spacing to Recovery Proofs.
+   The buttons sit in different parent boxes: the proof button is inside a padded anchor,
+   while Reviews is inside .windows-feedback-content. Do not give them the same raw width.
+   Keep the proof button's proven inset and compensate for the Reviews wrapper padding. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    box-sizing: border-box !important;
+    width: calc(100% + 16px) !important;
+    max-width: none !important;
+    margin-left: -8px !important;
+    margin-right: 0 !important;
+    align-self: flex-start !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    flex: 0 0 48px !important;
+    transform: translateY(9px) !important;
+  }
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+    box-sizing: border-box !important;
+    /* Compensate for the feedback content wrapper's padding so its visible side
+       insets match the Recovery Proofs button instead of appearing narrower. */
+    width: calc(100% + 11px) !important;
+    max-width: none !important;
+    margin-left: -5.5px !important;
+    margin-right: -5.5px !important;
+    align-self: flex-start !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    flex: 0 0 48px !important;
+    margin-top: auto !important;
+    transform: translateY(2px) !important;
+  }
+}
+
+
+/* ArisuV147: subtle mobile proof-preview refinement. Lift the Suspended preview slightly,
+   and make the Disabled preview just a touch shorter so its visual weight better matches
+   the Customer Feedback preview without changing the outer cards or button alignment. */
+@media (max-width: 600px) {
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-preview {
+    margin-top: 8px !important;
+    gap: 8px !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item:first-child {
+    flex: 1 1 0 !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(2) {
+    flex: 0.97 1 0 !important;
+  }
+}
+
+
+/* ArisuV147: restore the established content inset. The requested 4px reduction
+   applies to the review preview image itself, not to the card content padding. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
+    box-sizing: border-box !important;
+    padding-bottom: 8px !important;
+  }
+}
+
+
+/* ArisuV147: exact requested adjustment — shorten the Customer Feedback preview image
+   by 4px at its bottom on mobile only. Do not move or resize the View All Reviews button,
+   and do not alter the outer card dimensions. This final rule overrides older preview sizing. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card {
+    min-height: 0 !important;
+  }
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    height: calc(100% - 4px) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 0 0 calc(100% - 4px) !important;
+    box-sizing: border-box !important;
+  }
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+  }
+}
+
+
+/* ArisuV147: expandable floating quick-access menu + repeating toast reminder (4s visible, 15s hidden). */
+.floating-menu{position:fixed;z-index:80;right:max(18px,calc((100vw - 1080px)/2));bottom:18px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;isolation:isolate}
+.floating-menu-items{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:2px}
+.floating-menu-items[hidden]{display:none!important}
+.floating-menu-item{display:flex;align-items:center;gap:10px;min-height:43px;padding:5px 12px 5px 6px;border:1px solid rgba(255,255,255,.76);border-radius:999px;background:rgba(255,255,255,.97);color:#102344;text-decoration:none;font-size:12px;font-weight:800;box-shadow:0 8px 22px rgba(0,20,60,.22);white-space:nowrap;opacity:0;transform:translateY(8px) scale(.97);transition:opacity .2s ease,transform .24s ease,box-shadow .2s ease;pointer-events:none}
+.floating-menu[data-state="open"] .floating-menu-item{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.floating-menu[data-state="open"] .floating-menu-item:nth-child(1){transition-delay:.02s}.floating-menu[data-state="open"] .floating-menu-item:nth-child(2){transition-delay:.05s}.floating-menu[data-state="open"] .floating-menu-item:nth-child(3){transition-delay:.08s}.floating-menu[data-state="open"] .floating-menu-item:nth-child(4){transition-delay:.11s}.floating-menu[data-state="open"] .floating-menu-item:nth-child(5){transition-delay:.14s}
+.floating-menu-item:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 11px 25px rgba(0,20,60,.28)}
+.floating-menu-item:focus-visible,.floating-whatsapp:focus-visible{outline:3px solid #8ddcad;outline-offset:3px}
+.floating-menu-item-icon{width:31px;height:31px;flex:0 0 31px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:22px;font-weight:900;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.floating-menu-item-icon svg{width:20px;height:20px;display:block}.wa-shortcut{background:#16c765}.wa-shortcut svg{fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.fb-shortcut{background:#1877f2;font-family:Arial,sans-serif;font-size:27px;padding-top:4px}.tt-shortcut{background:#111;font-size:25px;text-shadow:-1px 1px #25f4ee,1px -1px #fe2c55}.proofs-shortcut{background:#7957f5}.proofs-shortcut svg{fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.faq-shortcut{background:#f5a623;font-size:21px}
+.floating-whatsapp{position:relative;right:auto;bottom:auto;display:flex;align-items:center;justify-content:center;gap:0;width:60px;height:60px;min-height:60px;padding:0;border-radius:50%;border:2px solid rgba(255,255,255,.82);background:linear-gradient(145deg,#21d66b,#00a94f);color:#fff;box-shadow:0 8px 24px rgba(20,156,85,.32);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.floating-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(20,156,85,.4)}.floating-whatsapp-icon{width:29px;height:29px;flex:0 0 29px;display:block;transition:opacity .18s ease,transform .18s ease}.floating-menu-close-icon{position:absolute;inset:0;display:grid;place-items:center;font-size:36px;font-weight:300;line-height:1;opacity:0;transform:rotate(-90deg) scale(.7);transition:opacity .18s ease,transform .18s ease}.floating-menu[data-state="open"] .floating-whatsapp-icon{opacity:0;transform:rotate(90deg) scale(.6)}.floating-menu[data-state="open"] .floating-menu-close-icon{opacity:1;transform:rotate(0) scale(1)}
+.floating-menu-reminder{position:absolute;right:70px;bottom:2px;display:flex;align-items:center;gap:10px;width:max-content;max-width:min(290px,calc(100vw - 108px));padding:11px 14px;border:1px solid rgba(255,255,255,.9);border-radius:17px;background:rgba(255,255,255,.97);color:#123052;box-shadow:0 8px 28px rgba(0,20,60,.22),0 0 22px rgba(40,220,130,.18);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease,visibility .22s;white-space:normal}.floating-reminder-bulb{display:flex;align-items:center;justify-content:center;flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:linear-gradient(145deg,#e5ffed,#c4f8d7);color:#0eaa50;font-size:23px;font-weight:900;box-shadow:0 0 0 5px rgba(25,190,90,.08)}.floating-reminder-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.floating-reminder-copy strong{font-size:12px;line-height:1.25;white-space:nowrap}.floating-reminder-copy small{font-size:11px;line-height:1.3;font-weight:500;color:#334965;white-space:nowrap}
+.floating-menu-reminder.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.floating-menu:not([data-state="open"]) .floating-whatsapp::before{content:"";position:absolute;inset:-5px;border:2px solid rgba(34,211,110,.65);border-radius:50%;animation:arisuFloatingPulse 2s ease-out infinite;pointer-events:none}.floating-menu:not([data-state="open"]) .floating-whatsapp{animation:arisuFloatingGlow 2s ease-in-out infinite}
+@keyframes arisuFloatingPulse{0%{transform:scale(.88);opacity:.85}100%{transform:scale(1.48);opacity:0}}@keyframes arisuFloatingGlow{0%,100%{box-shadow:0 8px 24px rgba(20,156,85,.28)}50%{box-shadow:0 8px 31px rgba(20,220,105,.52)}}
+@media(max-width:600px){.floating-menu{right:14px;bottom:max(14px,env(safe-area-inset-bottom));gap:8px}.floating-whatsapp{width:56px;height:56px;min-height:56px}.floating-whatsapp-icon{width:27px;height:27px;flex-basis:27px}.floating-menu-item{min-height:41px;font-size:11.5px;padding-right:11px}.floating-menu-item-icon{width:30px;height:30px;flex-basis:30px}.floating-menu-reminder{right:65px;bottom:2px;padding:9px 11px;gap:8px;max-width:calc(100vw - 96px)}.floating-reminder-bulb{flex-basis:31px;width:31px;height:31px;font-size:20px}.floating-reminder-copy strong{font-size:11px}.floating-reminder-copy small{font-size:10px}.floating-menu-items{gap:7px}}
+@media(max-width:360px){.floating-menu-reminder{font-size:10px;padding:8px 9px;right:62px}.floating-whatsapp{width:52px;height:52px;min-height:52px}.floating-menu-item{min-height:39px}}
+@media(prefers-reduced-motion:reduce){.floating-menu *, .floating-menu *::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
