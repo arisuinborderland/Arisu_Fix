@@ -6,6 +6,7 @@
     const selectors = [
       "main > #daily-bible-verse",
       "main > .compact-intro",
+      ".scam-awareness-card",
       "#contact > .whatsapp-feature-card",
       "#serviceStatus > .service-status-main",
       "#serviceStatus > .service-status-details",

@@ -215,10 +215,7 @@ function renderRecoveryProofs() {
       media.controlsList = "nodownload noplaybackrate";
       media.disablePictureInPicture = true;
       media.setAttribute("aria-label", proof.alt || proof.title);
-      media.style.width = "100%";
-      media.style.height = "100%";
-      media.style.objectFit = "contain";
-      media.style.display = "block";
+      media.classList.add("proof-video-media");
     } else {
       media = document.createElement("img");
       media.src = proof.image;

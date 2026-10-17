@@ -45,10 +45,7 @@ replace testing in an actual browser.
 
 DEPLOYMENT
 ----------
-Deploy the contents of this folder as the site root on Vercel or another
-static host. Do not deploy a nested parent folder. After a code change, keep
-cache-busting values aligned across the HTML pages and referenced CSS/JS
-assets. Current cache-busting token: ArisuV72.
+On Vercel, run the configured build command (`npm run build`) and publish the `dist` output directory. `build.js` copies only public site assets and excludes every file named README.txt, including the copies under proofs/ and reviews/. README.txt remains tracked in GitHub source but is not copied into the public output. `.vercelignore` is only defense-in-depth; the build output exclusion is the primary protection. After each automatic deployment, verify that `/README.txt`, `/proofs/README.txt`, and `/reviews/README.txt` return 404, while `/`, `/proofs.html`, and `/reviews.html` still load. Current cache-busting token: ArisuV75.
 
 UPDATE RECOVERY PROOFS
 ----------------------
@@ -79,5 +76,8 @@ MAINTENANCE RECORD
 ------------------
 V72: Updated the project documentation to reflect the current V72 package and
 removed outdated historical notes from the README files. Updated cache-busting
-references from ArisuV70 to ArisuV72. No layout, styling rules, page content,
+references from ArisuV70 to ArisuV75. No layout, styling rules, page content,
 or application logic were intentionally changed in this documentation update.
+
+
+V75: Added a deterministic Vercel build step that publishes a `dist` folder with README.txt files excluded from public output while retaining source documentation in GitHub.
