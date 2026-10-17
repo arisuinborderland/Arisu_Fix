@@ -406,8 +406,8 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
     if (!reviewLightbox || reviewLightbox.hidden) return;
     reviewLightbox.hidden = true;
     if (reviewLightboxImage) {
-      reviewLightboxImage.src = "";
-      reviewLightboxImage.alt = "Enlarged customer review screenshot";
+      reviewLightboxImage.style.backgroundImage = "none";
+      reviewLightboxImage.setAttribute("aria-label", "Enlarged customer review screenshot");
     }
     document.body.classList.remove("review-lightbox-open");
   };
@@ -416,8 +416,11 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
     if (!button) return;
     button.addEventListener("click", () => {
       if (!reviewLightbox || !reviewLightboxImage) return;
-      reviewLightboxImage.src = image.currentSrc || image.src;
-      reviewLightboxImage.alt = image.alt || "Customer review screenshot";
+      // Render the enlarged image as a CSS background rather than an <img> element,
+      // so mobile browsers are less likely to expose their native image save menu.
+      const imageUrl = image.currentSrc || image.src;
+      reviewLightboxImage.style.backgroundImage = `url("${imageUrl.replace(/["\\]/g, "\\$&")}")`;
+      reviewLightboxImage.setAttribute("aria-label", image.alt || "Customer review screenshot");
       reviewLightbox.hidden = false;
       document.body.classList.add("review-lightbox-open");
       if (reviewLightboxClose) reviewLightboxClose.focus();
@@ -467,7 +470,7 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 })();
 
 
-// ArisuV10: discourage casual saving/dragging of proof and feedback preview images.
+// ArisuV12: discourage casual saving/dragging of proof and feedback preview images.
 // This is a deterrent only; browser-visible images can still be copied by other means.
 (() => {
   const protectedImageSelector = [
@@ -507,4 +510,44 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", disableImageDragging, { once: true });
   } else { disableImageDragging(); }
+})();
+
+
+// ArisuV12: protect full-size preview viewer and future dynamically added preview images.
+(() => {
+  const protectedSelector = [
+    ".social-profile-preview", ".tiktok-profile-preview", ".facebook-page-preview",
+    ".recovery-proofs-preview", ".recovery-proof-preview-item", ".reviews-grid-featured",
+    ".review-proof-image", ".proof-gallery", ".proof-image-link", ".proof-card",
+    ".reviews-gallery", ".review-card", ".review-image-link", ".review-proof-card",
+    ".review-lightbox-image", ".review-lightbox"
+  ].join(", ");
+  const inProtectedArea = (target) => target instanceof Element && Boolean(target.closest(protectedSelector));
+  document.addEventListener("contextmenu", (event) => {
+    if (inProtectedArea(event.target)) event.preventDefault();
+  }, true);
+  document.addEventListener("dragstart", (event) => {
+    if (inProtectedArea(event.target)) event.preventDefault();
+  }, true);
+  document.addEventListener("touchstart", (event) => {
+    if (inProtectedArea(event.target)) {
+      const el = event.target.closest("img, .review-lightbox-image");
+      if (el) el.style.webkitTouchCallout = "none";
+    }
+  }, { passive: true, capture: true });
+  const protectImages = (root = document) => {
+    root.querySelectorAll?.(`${protectedSelector} img`).forEach((img) => {
+      img.draggable = false;
+      img.style.webkitUserDrag = "none";
+      img.style.webkitTouchCallout = "none";
+      img.style.userSelect = "none";
+      img.style.webkitUserSelect = "none";
+    });
+  };
+  protectImages();
+  new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => mutation.addedNodes.forEach((node) => {
+      if (node instanceof Element) protectImages(node);
+    }));
+  }).observe(document.documentElement, { childList: true, subtree: true });
 })();
