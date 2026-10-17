@@ -8267,3 +8267,24 @@ html body #daily-bible-verse.daily-verse-card {
     transform: translateY(8px) !important;
   }
 }
+
+
+/* V_183: desktop-only preview assets are cropped at the source to remove leftover blur along both sides and top; transparent upper corners reveal the matching gradient frame. Mobile continues to use the original images. */
+.preview-desktop-clean { display: none !important; }
+@media (min-width: 601px) {
+  .social-collage > .tiktok-showcase .social-profile-preview .preview-original,
+  .social-collage > .facebook-showcase .social-profile-preview .preview-original { display: none !important; }
+  .social-collage > .tiktok-showcase .social-profile-preview .preview-desktop-clean,
+  .social-collage > .facebook-showcase .social-profile-preview .preview-desktop-clean {
+    display: block !important; position: relative !important; z-index: 1 !important;
+    width: 100% !important; height: 100% !important; max-height: none !important;
+    object-fit: contain !important; object-position: center center !important;
+    background: transparent !important;
+  }
+}
+@media (max-width: 600px) {
+  .social-collage > .tiktok-showcase .social-profile-preview .preview-original,
+  .social-collage > .facebook-showcase .social-profile-preview .preview-original { display: block !important; }
+  .social-collage > .tiktok-showcase .social-profile-preview .preview-desktop-clean,
+  .social-collage > .facebook-showcase .social-profile-preview .preview-desktop-clean { display: none !important; }
+}
