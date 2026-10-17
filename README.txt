@@ -1,4 +1,4 @@
-ARISU RECOVERY CONTACT — V35
+ARISU RECOVERY CONTACT — V62
 ============================
 
 STATIC WEBSITE FILES
@@ -38,7 +38,7 @@ DEPLOYMENT
 Deploy this folder as the site root on Vercel or Netlify. The root folder
 contains the HTML pages and their assets; do not deploy a nested parent folder.
 After changes, keep cache-busting values in the HTML pages aligned (currently
-ArisuV35) so browsers fetch the latest CSS and JavaScript files.
+ArisuV69) so browsers fetch the latest CSS and JavaScript files.
 
 UPDATE RECOVERY PROOFS
 ----------------------
@@ -64,3 +64,19 @@ to provide passwords, one-time codes, 2FA codes, backup codes, or recovery
 codes. Obtain permission and redact personal information before publishing
 proof screenshots. Image interaction deterrents cannot prevent screenshots or
 all forms of copying.
+
+
+MAINTENANCE NOTE
+----------------
+CSS and JavaScript comments describe current component intent and responsive behavior. Historical version-specific comparisons were replaced with current maintenance descriptions where practical. No CSS declarations or JavaScript behavior were changed in this documentation cleanup.
+
+
+V63 maintenance: removed only five repeated global :root custom-property declarations whose values were identical to earlier declarations. Responsive rules and component-specific CSS were left unchanged.
+
+
+Version 68 maintenance note: gently tightened and lifted the service-status panel on mobile only; desktop styling and existing responsive overrides were preserved.
+
+Version 68: tightened mobile Service Status vertical spacing; desktop rules preserved.
+
+
+V69 maintenance: tightened mobile Scam Awareness Reminder card spacing and moved it slightly upward; desktop rules and content remain unchanged. Cache-busting references updated to ArisuV69.

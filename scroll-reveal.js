@@ -1,4 +1,4 @@
-/* ArisuV34 — lightweight, responsive reveal animation for opening and both scroll directions. */
+/* Lightweight, responsive reveal animation for opening and both scroll directions. */
 (() => {
   "use strict";
 
