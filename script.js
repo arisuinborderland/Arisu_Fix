@@ -139,8 +139,6 @@ function renderRecoveryProofs() {
         img.alt = "";
         img.loading = "lazy";
         img.draggable = false;
-        img.addEventListener("contextmenu", (event) => event.preventDefault());
-        img.addEventListener("dragstart", (event) => event.preventDefault());
         cover.appendChild(img);
       }
       const coverShade = document.createElement("span");
@@ -206,8 +204,6 @@ function renderRecoveryProofs() {
     imageFrame.className = "proof-image-link proof-image-protected";
     imageFrame.setAttribute("role", proof.video ? "group" : "img");
     imageFrame.setAttribute("aria-label", proof.alt || proof.title);
-    imageFrame.addEventListener("contextmenu", (event) => event.preventDefault());
-    imageFrame.addEventListener("dragstart", (event) => event.preventDefault());
 
     let media;
     if (proof.video) {
@@ -231,8 +227,6 @@ function renderRecoveryProofs() {
       media.loading = "lazy";
       media.decoding = "async";
     }
-    media.addEventListener("contextmenu", (event) => event.preventDefault());
-    media.addEventListener("dragstart", (event) => event.preventDefault());
     media.addEventListener("error", () => { card.hidden = true; });
 
     const watermark = document.createElement("span");
@@ -342,14 +336,6 @@ document.querySelectorAll("[data-proof-filter]").forEach((button) => {
   });
 });
 renderRecoveryProofs();
-
-// Basic deterrents for gallery media. These cannot prevent screenshots,
-// screen recording, developer-tools access, or photos taken with another device.
-document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((media) => {
-  if (media.tagName === "IMG") media.draggable = false;
-  media.addEventListener("contextmenu", (event) => event.preventDefault());
-  media.addEventListener("dragstart", (event) => event.preventDefault());
-});
 
 // Daily Bible Verse: calculated locally from the calendar date; no API, account, or tracking required.
 (function setupDailyBibleVerse() {
@@ -514,50 +500,7 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 })();
 
 
-// ArisuV32: discourage casual saving/dragging of proof and feedback preview images.
-// This is a deterrent only; browser-visible images can still be copied by other means.
-(() => {
-  const protectedImageSelector = [
-    ".social-profile-preview img",
-    ".tiktok-profile-preview img",
-    ".facebook-page-preview img",
-    ".recovery-proofs-preview img",
-    ".recovery-proof-preview-item img",
-    ".reviews-grid-featured img",
-    ".review-proof-image img",
-    ".proof-gallery img",
-    ".proof-image-link img",
-    ".proof-card img",
-    ".reviews-gallery img",
-    ".review-card img",
-    ".review-image-link img",
-    ".review-proof-card img"
-  ].join(", ");
-  const isProtectedImage = (target) =>
-    target instanceof Element && Boolean(target.closest(protectedImageSelector));
-  document.addEventListener("contextmenu", (event) => {
-    if (isProtectedImage(event.target)) event.preventDefault();
-  });
-  document.addEventListener("dragstart", (event) => {
-    if (isProtectedImage(event.target)) event.preventDefault();
-  });
-  const disableImageDragging = () => {
-    document.querySelectorAll(protectedImageSelector).forEach((img) => {
-      img.setAttribute("draggable", "false");
-      img.setAttribute("oncontextmenu", "return false");
-      img.style.webkitUserDrag = "none";
-      img.style.userSelect = "none";
-      img.style.webkitTouchCallout = "none";
-      img.style.webkitUserSelect = "none";
-    });
-  };
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", disableImageDragging, { once: true });
-  } else { disableImageDragging(); }
-})();
-
-
-// ArisuV32: protect full-size preview viewer and future dynamically added preview images.
+// Keep preview and proof images consistent for both static and dynamically added content.
 (() => {
   const protectedSelector = [
     ".social-profile-preview", ".tiktok-profile-preview", ".facebook-page-preview",
