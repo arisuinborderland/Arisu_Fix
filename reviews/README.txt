@@ -8,3 +8,9 @@ Both supplied screenshots mention/recommend Pinoy Cyber Tech, not Arisu Recovery
 
 To update an image later, replace the relevant JPG while keeping the same filename, or update its image path in index.html and reviews.html.
 review-slot-3.svg remains as an editable placeholder in the full review gallery for future use.
+
+
+V63 maintenance: removed only five repeated global :root custom-property declarations whose values were identical to earlier declarations. Responsive rules and component-specific CSS were left unchanged.
+
+
+V65 maintenance note: Updated cache-busting version tokens across HTML/CSS asset references to ArisuV65. No styling rules or application logic were intentionally changed.
