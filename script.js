@@ -442,6 +442,7 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   const description = document.getElementById("serviceStatusDescription");
   const clock = document.getElementById("serviceStatusClock");
   const updated = document.getElementById("serviceStatusUpdated");
+  const statusDot = document.querySelector(".service-status-dot");
   if (!headline || !pill || !description || !clock || !updated) return;
   const refreshStatus = () => {
     const now = new Date();
@@ -450,14 +451,16 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
     const minute = Number(parts.find(part => part.type === "minute")?.value ?? 0);
     const totalMinutes = hour * 60 + minute;
     const isOpen = totalMinutes >= 420 && totalMinutes < 1320;
-    headline.textContent = isOpen ? "Accepting Inquiries" : "Away";
-    pill.textContent = isOpen ? "Open for Inquiries" : "Away";
+    headline.textContent = isOpen ? "Available" : "Offline";
+    headline.classList.toggle("is-offline", !isOpen);
+    pill.textContent = isOpen ? "Online" : "Offline";
     description.textContent = isOpen
       ? "You can message us on WhatsApp for account recovery assistance. Replies are sent during available hours."
       : "You can still send a WhatsApp message. Replies resume at 7:00 AM Philippine Time.";
     clock.textContent = new Intl.DateTimeFormat("en-PH", { timeZone: "Asia/Manila", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true }).format(now);
     updated.textContent = new Intl.DateTimeFormat("en-PH", { timeZone: "Asia/Manila", weekday: "short", month: "short", day: "numeric", year: "numeric" }).format(now) + " · GMT+8 · Auto-updated";
     pill.classList.toggle("service-status-pill-closed", !isOpen);
+    if (statusDot) statusDot.classList.toggle("is-offline", !isOpen);
   };
   refreshStatus();
   window.setInterval(refreshStatus, 1000);

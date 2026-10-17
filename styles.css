@@ -7853,3 +7853,417 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   .deletion-service-platforms { margin-top: 12px; }
 }
+
+
+/* V_161: make only the “Offline” word red when outside published hours. */
+.service-status-main h2 #serviceStatusHeadline.is-offline{color:#dc2626!important;}
+.service-status-dot.is-offline{background:#f59e0b!important;box-shadow:0 0 0 4px rgba(245,158,11,.16)!important;}
+
+/* V_162: align Recovery Proofs and Customer Feedback actions, and clarify preview spacing. */
+.social-collage .recovery-proofs-showcase .recovery-proofs-button,
+.social-collage > .social-feedback-card .social-feedback-view-all {
+  width: 100% !important;
+  min-height: 52px !important;
+  height: 52px !important;
+  flex: 0 0 52px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: auto !important;
+  padding: 8px 12px !important;
+  border-radius: 12px !important;
+  line-height: 1.2 !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proofs-button {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proofs-button > span:first-child {
+  display: inline !important;
+  white-space: nowrap !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proofs-button > span:last-child {
+  display: inline !important;
+  flex: 0 0 auto !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proofs-preview {
+  gap: 16px !important;
+  margin: 16px 0 18px !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
+  border-radius: 18px !important;
+}
+@media (max-width: 600px) {
+  .social-collage .recovery-proofs-showcase .recovery-proofs-button,
+  .social-collage > .social-feedback-card .social-feedback-view-all {
+    min-height: 52px !important;
+    height: 52px !important;
+    flex-basis: 52px !important;
+    font-size: 12px !important;
+  }
+  .social-collage .recovery-proofs-showcase .recovery-proofs-preview {
+    gap: 16px !important;
+    margin: 16px 0 18px !important;
+  }
+}
+
+/* V_163: compact the Recovery Proofs / Customer Feedback buttons to match the social-link buttons, and let proof images fill the freed space. */
+.social-collage .recovery-proofs-showcase .recovery-proofs-button,
+.social-collage > .social-feedback-card .social-feedback-view-all {
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  flex: 0 0 44px !important;
+  padding: 7px 10px !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+  line-height: 1.2 !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proofs-preview {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin: 12px 0 12px !important;
+}
+.social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+}
+@media (max-width: 600px) {
+  .social-collage .recovery-proofs-showcase .recovery-proofs-button,
+  .social-collage > .social-feedback-card .social-feedback-view-all {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    flex-basis: 44px !important;
+    font-size: 11px !important;
+    padding: 6px 8px !important;
+  }
+  .social-collage .recovery-proofs-showcase .recovery-proofs-preview {
+    gap: 10px !important;
+    margin: 10px 0 10px !important;
+  }
+  .social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+  }
+}
+
+
+/* V_164: match the Customer Feedback heading/icon to the other social cards. */
+.social-collage > .social-feedback-card {
+  background: linear-gradient(145deg, #fbfaff 0%, #f1efff 100%) !important;
+  border-color: #e1dcff !important;
+}
+.social-collage > .social-feedback-card .windows-feedback-content {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+.social-collage > .social-feedback-card .feedback-showcase-head {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 4px 0 10px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.social-collage > .social-feedback-card .feedback-showcase-icon {
+  width: 46px !important; height: 46px !important; flex: 0 0 46px !important;
+  border-radius: 13px !important;
+}
+.social-collage > .social-feedback-card .feedback-showcase-icon svg {
+  width: 26px !important; height: 26px !important; display: block !important;
+}
+.social-collage > .social-feedback-card .feedback-showcase-head h3 {
+  margin: 0 !important; font-size: clamp(15px, 1.8vw, 20px) !important;
+  line-height: 1.22 !important; font-weight: 800 !important; color: var(--text, #202b40) !important;
+}
+.social-collage > .social-feedback-card .feedback-showcase-head > div { min-width: 0 !important; flex: 1 1 auto !important; }
+.social-collage > .social-feedback-card .feedback-showcase-head .recovery-proofs-arrow {
+  flex: 0 0 auto !important; margin-left: auto !important; font-size: 23px !important;
+}
+/* Keep the last agreed fine-tuning: review preview 2px shorter at each edge (4px total), title 2px lower. */
+.social-collage > .social-feedback-card .feedback-showcase-head h3 { transform: translateY(2px) !important; }
+.social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+  height: calc(clamp(220px, 27vw, 300px) - 4px) !important;
+}
+@media (max-width: 600px) {
+  .social-collage > .social-feedback-card .feedback-showcase-head { gap: 8px !important; padding: 4px 0 10px !important; }
+  .social-collage > .social-feedback-card .feedback-showcase-icon { width: 36px !important; height: 36px !important; flex-basis: 36px !important; border-radius: 10px !important; }
+  .social-collage > .social-feedback-card .feedback-showcase-icon svg { width: 22px !important; height: 22px !important; }
+  .social-collage > .social-feedback-card .feedback-showcase-head h3 { font-size: 14px !important; }
+  .social-collage > .social-feedback-card .feedback-showcase-head .recovery-proofs-arrow { font-size: 17px !important; }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image { height: calc(clamp(240px, 78vw, 300px) - 4px) !important; }
+}
+
+
+/* V_166: shorten the Customer Feedback image by another 2px at the top and 2px at the bottom; leave Recovery Proofs images and buttons unchanged. */
+.social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+  height: calc(clamp(220px, 27vw, 300px) - 24px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 0 0 auto !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 600px) {
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    /* V_168: trim the Customer Feedback image frame by 2px at the top and 2px at the bottom versus V_167. */
+    height: calc(clamp(240px, 78vw, 300px) - 38px) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+
+/* V_171: shorten only the mobile Customer Feedback image frame by 6px
+   at the top and 6px at the bottom compared with V_170. Keep card,
+   image width, Recovery Proofs previews, and buttons unchanged. */
+@media (max-width: 600px) {
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    height: calc(clamp(240px, 78vw, 300px) - 53px) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* V_172: restore the desktop Recovery Proofs and Customer Feedback cards to the agreed 613.3 × 545.34px layout. Keep the mobile image-height adjustment from V_171 unchanged. */
+@media (min-width: 601px) {
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    height: 545.34px !important;
+    min-height: 545.34px !important;
+    max-height: 545.34px !important;
+    align-self: start !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .social-feedback-card > .windows-feedback-content {
+    height: 100% !important;
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* V_173: reduce the Customer Feedback icon tile on desktop only; preserve mobile sizing. */
+@media (min-width: 601px) {
+  .social-collage > .social-feedback-card .feedback-showcase-icon {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+    border-radius: 9px !important;
+  }
+  .social-collage > .social-feedback-card .feedback-showcase-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+
+/* V_174: slightly raise the Customer Feedback star tile and heading on desktop only. */
+@media (min-width: 601px) {
+  .social-collage > .social-feedback-card .feedback-showcase-icon {
+    transform: translateY(-2px) !important;
+  }
+  .social-collage > .social-feedback-card .feedback-showcase-head h3 {
+    transform: translateY(-2px) !important;
+  }
+}
+
+
+/* V_175: desktop-only Customer Feedback image fit and button separation.
+   Keep the card dimensions and mobile layout unchanged. */
+@media (min-width: 601px) {
+  .social-collage > .social-feedback-card .reviews-grid-featured {
+    margin-bottom: 8px !important;
+    min-height: 0 !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card {
+    height: 100% !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    box-sizing: border-box !important;
+    background: #f4f6fb !important;
+    overflow: hidden !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+  .social-collage > .social-feedback-card .social-feedback-view-all {
+    margin-top: 8px !important;
+    flex: 0 0 44px !important;
+  }
+}
+
+
+/* V_176: desktop showcase images use clean matching gradients instead of blurred/white side fills.
+   Keep the original screenshots crisp and centered; mobile styling remains unchanged. */
+@media (min-width: 601px) {
+  .social-collage > .tiktok-showcase,
+  .social-collage > .facebook-showcase {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+  .social-collage > .tiktok-showcase .social-profile-preview,
+  .social-collage > .facebook-showcase .social-profile-preview {
+    position: relative !important;
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: clamp(360px, 34vw, 455px) !important;
+    min-height: 360px !important;
+    max-height: 455px !important;
+    box-sizing: border-box !important;
+    margin: 0 0 12px !important;
+    overflow: hidden !important;
+    border-radius: 13px !important;
+    isolation: isolate !important;
+    box-shadow: 0 5px 16px rgba(13, 25, 48, .10) !important;
+  }
+  .social-collage > .tiktok-showcase .social-profile-preview {
+    background: linear-gradient(135deg, #fbe2ff 0%, #e9baff 30%, #b99aff 66%, #f5d7ff 100%) !important;
+    border-color: rgba(220, 123, 255, .42) !important;
+  }
+  .social-collage > .facebook-showcase .social-profile-preview {
+    background: linear-gradient(135deg, #d8f1ff 0%, #a8dcff 35%, #75bfff 68%, #d7f1ff 100%) !important;
+    border-color: rgba(57, 151, 255, .42) !important;
+  }
+  .social-collage > .tiktok-showcase .social-profile-preview img,
+  .social-collage > .facebook-showcase .social-profile-preview img {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+  }
+}
+
+/* V_177: include the Customer Feedback portrait preview in the clean gradient treatment.
+   Replace the plain pale side fill with a soft lavender-to-blue gradient; keep the
+   original review screenshot sharp, centered, and at its natural portrait ratio. */
+@media (min-width: 601px) {
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    background: linear-gradient(135deg,
+      #fce7ff 0%,
+      #f2e8ff 24%,
+      #e4edff 55%,
+      #e4f5ff 78%,
+      #f8eaff 100%) !important;
+    border: 1px solid rgba(151, 143, 255, .32) !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+    background: transparent !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+/* V_178: match the requested desktop card dimensions exactly.
+   Only applies on wide desktop layouts; tablet/mobile layout stays fluid. */
+@media (min-width: 1200px) {
+  .social-collage {
+    grid-template-columns: repeat(2, 611.3px) !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    justify-content: start !important;
+  }
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    width: 611.3px !important;
+    min-width: 611.3px !important;
+    max-width: 611.3px !important;
+    height: 543.33px !important;
+    min-height: 543.33px !important;
+    max-height: 543.33px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* V_179: align Recovery Proofs and Customer Feedback bottom controls on desktop.
+   Keep the existing 611.3 x 543.33 card dimensions and mobile styles unchanged. */
+@media (min-width: 1200px) {
+  .social-collage {
+    align-items: stretch !important;
+  }
+  .social-collage > .recovery-proofs-showcase,
+  .social-collage > .social-feedback-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-self: stretch !important;
+    height: 543.33px !important;
+    min-height: 543.33px !important;
+    max-height: 543.33px !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    margin-top: auto !important;
+    flex: 0 0 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .social-feedback-card > .windows-feedback-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    padding-bottom: 16px !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  .social-collage > .social-feedback-card .social-feedback-view-all {
+    margin-top: auto !important;
+    flex: 0 0 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* V_181: add another 2px to the desktop-only Recovery Proofs bottom-button adjustment. */
+@media (min-width: 1200px) {
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    transform: translateY(8px) !important;
+  }
+}
