@@ -538,7 +538,7 @@ renderRecoveryProofs();
 })();
 
 
-// ArisuV147: expandable floating menu and one-time attention reminder.
+// ArisuV150: floating quick-access menu with an automatic chat-style reminder.
 (function initArisuFloatingMenu(){
  const menu=document.getElementById('floatingMenu');
  const toggle=document.getElementById('floatingWhatsApp');
@@ -547,31 +547,49 @@ renderRecoveryProofs();
  if(!menu||!toggle||!items||!reminder)return;
  let reminderTimer=null;
  let nextReminderTimer=null;
- function hideReminder(){
-  reminder.classList.remove('is-visible');
-  reminderTimer=null;
-  nextReminderTimer=setTimeout(showReminder,15000);
- }
- function showReminder(){
-  if(menu.dataset.state==='open'){
-   nextReminderTimer=setTimeout(showReminder,15000);
-   return;
-  }
-  reminder.classList.add('is-visible');
-  reminderTimer=setTimeout(hideReminder,4000);
- }
- function stopReminderCycle(){
+ const VISIBLE_MS=3000;
+ const HIDDEN_MS=10000;
+ function clearTimers(){
   if(reminderTimer){clearTimeout(reminderTimer);reminderTimer=null;}
   if(nextReminderTimer){clearTimeout(nextReminderTimer);nextReminderTimer=null;}
+ }
+ function hideReminder(scheduleNext=true){
+  reminder.classList.remove('is-visible');
+  reminderTimer=null;
+  if(scheduleNext && menu.dataset.state!=='open') nextReminderTimer=setTimeout(showReminder,HIDDEN_MS);
+ }
+ function showReminder(){
+  nextReminderTimer=null;
+  if(menu.dataset.state==='open')return;
+  reminder.classList.add('is-visible');
+  reminderTimer=setTimeout(()=>hideReminder(true),VISIBLE_MS);
+ }
+ function stopReminderCycle(){
+  clearTimers();
   reminder.classList.remove('is-visible');
  }
- function closeMenu(){menu.dataset.state='closed';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open quick access menu');items.hidden=true;}
- function openMenu(){stopReminderCycle();menu.dataset.state='open';toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label','Close quick access menu');items.hidden=false;}
- // The reminder cycle restarts on every page visit: show for 4 seconds, hide for 15 seconds.
+ function closeMenu(){
+  menu.dataset.state='closed';
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','Open quick access menu');
+  items.hidden=true;
+  // Do not show a reminder because of a click; resume the normal cycle after 10 seconds.
+  clearTimers();
+  reminder.classList.remove('is-visible');
+  nextReminderTimer=setTimeout(showReminder,HIDDEN_MS);
+ }
+ function openMenu(){
+  stopReminderCycle();
+  menu.dataset.state='open';
+  toggle.setAttribute('aria-expanded','true');
+  toggle.setAttribute('aria-label','Close quick access menu');
+  items.hidden=false;
+ }
+ // Show on every page visit; hide after 3 seconds, then return 10 seconds later.
  menu.classList.add('is-pulsing');
  showReminder();
- toggle.addEventListener('click',()=>{if(menu.dataset.state==='open'){closeMenu();showReminder();}else openMenu();});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.dataset.state==='open'){closeMenu();showReminder();toggle.focus();}});
+ toggle.addEventListener('click',()=>{if(menu.dataset.state==='open'){closeMenu();}else openMenu();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.dataset.state==='open'){closeMenu();toggle.focus();}});
  document.addEventListener('click',e=>{if(menu.dataset.state==='open'&&!menu.contains(e.target))closeMenu();});
  items.querySelectorAll('a').forEach(a=>a.addEventListener('click',stopReminderCycle));
 })();

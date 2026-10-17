@@ -4849,7 +4849,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-mountains.svg?v=ArisuV147") !important;
+    url("./verse-mountains.svg?v=ArisuV148") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5511,7 +5511,7 @@ body.home-page .site-footer {
    Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV147") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV148") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5521,7 +5521,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV147") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV148") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -8694,7 +8694,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 
 
-/* ArisuV147: apply the compact mobile gap to the actual moved sections.
+/* ArisuV148: apply the compact mobile gap to the actual moved sections.
    desktop-layout.js moves #services and #why-choose-arisu inside #desktopSocialDestination,
    so target them there rather than as direct children of main. */
 @media (max-width: 640px) {
@@ -8707,7 +8707,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 }
 
 
-/* ArisuV147: enforce the requested mobile text-size increases after legacy overrides.
+/* ArisuV148: enforce the requested mobile text-size increases after legacy overrides.
    Higher-specificity selectors ensure the values actually win without changing layout. */
 @media (max-width: 600px) {
   html body.home-page main > .compact-intro > p {
@@ -8736,7 +8736,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 }
 
 
-/* ArisuV147: slightly enlarge the social-media divider label.
+/* ArisuV148: slightly enlarge the social-media divider label.
    Final override intentionally follows older rules that set a smaller mobile size. */
 body.home-page .contact-divider {
   font-size: 10px !important;
@@ -8756,7 +8756,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: make the social-media divider label more visible without changing layout. */
+/* ArisuV148: make the social-media divider label more visible without changing layout. */
 body.home-page .contact-divider {
   font-size: 11px !important;
   line-height: 1.4 !important;
@@ -8776,7 +8776,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: force the mobile Recovery Proofs and View All Reviews buttons to match exactly.
+/* ArisuV148: force the mobile Recovery Proofs and View All Reviews buttons to match exactly.
    This final, high-specificity override supersedes earlier conflicting size rules.
    Desktop styles and card layouts remain unchanged. */
 @media (max-width: 600px) {
@@ -8808,7 +8808,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: final mobile alignment correction. Both buttons remain exactly 48px tall;
+/* ArisuV148: final mobile alignment correction. Both buttons remain exactly 48px tall;
    move the Recovery Proofs button down 9px so its visible baseline matches View All Reviews.
    Mobile only; desktop layout is unchanged. */
 @media (max-width: 600px) {
@@ -8818,7 +8818,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: authoritative equal-height outer cards for Recovery Proofs and Customer Feedback.
+/* ArisuV148: authoritative equal-height outer cards for Recovery Proofs and Customer Feedback.
    Both cards stretch to the same grid-row height; the Customer Feedback card is the visual reference.
    This final override supersedes earlier conflicting fixed-height and mobile height rules. */
 .social-collage {
@@ -8859,7 +8859,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: final exact-height match for the Recovery Proofs and Customer Feedback outer cards.
+/* ArisuV148: final exact-height match for the Recovery Proofs and Customer Feedback outer cards.
    Customer Feedback is the reference. Internal previews flex to fit without changing card width. */
 .social-collage {
   align-items: stretch !important;
@@ -8947,7 +8947,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: match the Reviews button's outer-card side spacing to Recovery Proofs.
+/* ArisuV148: match the Reviews button's outer-card side spacing to Recovery Proofs.
    The buttons sit in different parent boxes: the proof button is inside a padded anchor,
    while Reviews is inside .windows-feedback-content. Do not give them the same raw width.
    Keep the proof button's proven inset and compensate for the Reviews wrapper padding. */
@@ -8984,7 +8984,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: subtle mobile proof-preview refinement. Lift the Suspended preview slightly,
+/* ArisuV148: subtle mobile proof-preview refinement. Lift the Suspended preview slightly,
    and make the Disabled preview just a touch shorter so its visual weight better matches
    the Customer Feedback preview without changing the outer cards or button alignment. */
 @media (max-width: 600px) {
@@ -9001,7 +9001,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: restore the established content inset. The requested 4px reduction
+/* ArisuV148: restore the established content inset. The requested 4px reduction
    applies to the review preview image itself, not to the card content padding. */
 @media (max-width: 600px) {
   html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
@@ -9011,7 +9011,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: exact requested adjustment — shorten the Customer Feedback preview image
+/* ArisuV148: exact requested adjustment — shorten the Customer Feedback preview image
    by 4px at its bottom on mobile only. Do not move or resize the View All Reviews button,
    and do not alter the outer card dimensions. This final rule overrides older preview sizing. */
 @media (max-width: 600px) {
@@ -9033,7 +9033,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV147: expandable floating quick-access menu + repeating toast reminder (4s visible, 15s hidden). */
+/* ArisuV150: floating quick-access menu with chat bubble anchored to the button. */
 .floating-menu{position:fixed;z-index:80;right:max(18px,calc((100vw - 1080px)/2));bottom:18px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;isolation:isolate}
 .floating-menu-items{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:2px}
 .floating-menu-items[hidden]{display:none!important}
@@ -9053,3 +9053,64 @@ body.home-page .contact-divider {
 @media(max-width:600px){.floating-menu{right:14px;bottom:max(14px,env(safe-area-inset-bottom));gap:8px}.floating-whatsapp{width:56px;height:56px;min-height:56px}.floating-whatsapp-icon{width:27px;height:27px;flex-basis:27px}.floating-menu-item{min-height:41px;font-size:11.5px;padding-right:11px}.floating-menu-item-icon{width:30px;height:30px;flex-basis:30px}.floating-menu-reminder{right:65px;bottom:2px;padding:9px 11px;gap:8px;max-width:calc(100vw - 96px)}.floating-reminder-bulb{flex-basis:31px;width:31px;height:31px;font-size:20px}.floating-reminder-copy strong{font-size:11px}.floating-reminder-copy small{font-size:10px}.floating-menu-items{gap:7px}}
 @media(max-width:360px){.floating-menu-reminder{font-size:10px;padding:8px 9px;right:62px}.floating-whatsapp{width:52px;height:52px;min-height:52px}.floating-menu-item{min-height:39px}}
 @media(prefers-reduced-motion:reduce){.floating-menu *, .floating-menu *::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* ArisuV150 final positioning fix: keep the reminder bubble anchored to the actual floating button. */
+html body .floating-menu { position: fixed !important; z-index: 9999 !important; right: max(14px, calc((100vw - 1080px)/2)) !important; bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important; }
+html body .floating-menu .floating-whatsapp,
+html body #floatingWhatsApp { position: relative !important; right: auto !important; bottom: auto !important; width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; padding: 0 !important; border-radius: 50% !important; }
+html body .floating-menu .floating-menu-reminder { z-index: 2 !important; right: 70px !important; bottom: 2px !important; pointer-events: none !important; }
+html body .floating-menu .floating-menu-reminder::after { content: ""; position: absolute; right: -6px; bottom: 18px; width: 11px; height: 11px; background: rgba(255,255,255,.97); border-top: 1px solid rgba(255,255,255,.9); border-right: 1px solid rgba(255,255,255,.9); transform: rotate(45deg); border-radius: 2px; }
+@media (max-width: 600px) {
+ html body .floating-menu { right: 14px !important; bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important; }
+ html body .floating-menu .floating-whatsapp,
+ html body #floatingWhatsApp { width: 54px !important; height: 54px !important; min-width: 54px !important; min-height: 54px !important; }
+ html body .floating-menu .floating-menu-reminder { right: 64px !important; bottom: 1px !important; max-width: calc(100vw - 96px) !important; }
+ html body .floating-menu .floating-menu-reminder::after { bottom: 16px; }
+}
+@media (max-width: 360px) {
+ html body .floating-menu .floating-whatsapp,
+ html body #floatingWhatsApp { width: 50px !important; height: 50px !important; min-width: 50px !important; min-height: 50px !important; }
+ html body .floating-menu .floating-menu-reminder { right: 59px !important; max-width: calc(100vw - 88px) !important; }
+}
+
+
+/* ArisuV150: anchor the reminder directly beside the actual floating icon.
+   Legacy home-page rules previously raised the icon independently, leaving the
+   toast far below it. Position the menu as one fixed unit and neutralize those
+   old button offsets only inside the new floating-menu component. */
+html body .floating-menu {
+  position: fixed !important;
+  right: max(14px, calc((100vw - 1080px)/2)) !important;
+  bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+}
+html body .floating-menu #floatingWhatsApp {
+  position: relative !important; right: auto !important; bottom: auto !important;
+  margin: 0 !important; transform-origin: center !important;
+}
+html body .floating-menu #floatingMenuReminder {
+  position: absolute !important;
+  right: calc(100% + 10px) !important;
+  bottom: 6px !important;
+  top: auto !important;
+  left: auto !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+}
+html body .floating-menu #floatingMenuReminder::after {
+  right: -6px !important; bottom: 16px !important;
+  top: auto !important; left: auto !important;
+}
+@media (max-width: 600px) {
+  html body .floating-menu { right: 14px !important; bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important; }
+  html body .floating-menu #floatingWhatsApp { width: 54px !important; height: 54px !important; min-width: 54px !important; min-height: 54px !important; }
+  html body .floating-menu #floatingMenuReminder { right: calc(100% + 8px) !important; bottom: 5px !important; max-width: calc(100vw - 100px) !important; }
+}
+@media (max-width: 360px) {
+  html body .floating-menu #floatingWhatsApp { width: 50px !important; height: 50px !important; min-width: 50px !important; min-height: 50px !important; }
+  html body .floating-menu #floatingMenuReminder { max-width: calc(100vw - 92px) !important; }
+}
