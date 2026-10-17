@@ -1,23 +1,25 @@
 RECOVERY PROOFS FOLDER
 ======================
 
-Place image files for your proof gallery in this folder (for example: account-restored.jpg).
+Put authorized proof screenshots/images in this folder, then edit the
+recoveryProofs array in ../script.js. Supported fields are:
+- category: "suspended" or "disabled"
+- title: the displayed account status/title
+- image: relative path such as "proofs/example.jpg"
+- alt: accessible description of the image
+- violation: displayed violation label
+- date: optional date label
 
-Then open ../script.js and find the recoveryProofs array near the bottom. Add an entry for each image, for example:
-
+Example:
   {
-    title: "Account access restored",
-    image: "proofs/account-restored.jpg",
-    caption: "Example shared with permission. Results vary by case.",
+    category: "suspended",
+    title: "Suspended Account",
+    image: "proofs/example.jpg",
+    alt: "Account status example with personal details redacted",
+    violation: "Account Integrity",
     date: "October 2026"
   }
 
-Separate multiple entries with commas. Use the exact image filename and extension.
-
-PRIVACY CHECK BEFORE PUBLISHING
-- Get permission from the person whose messages or account details appear.
-- Blur/hide passwords, login codes, email addresses, phone numbers, case IDs, usernames, and private messages.
-- Never claim that one example guarantees a similar result for another person.
-- Do not upload fake, edited-to-mislead, or unverified proofs.
-
-The static website does not have a server upload form. Add images to this folder and redeploy the website to publish them.
+The website is static and has no upload backend; redeploy after adding or
+changing files. Obtain permission, redact sensitive account/person details,
+and never imply that an example guarantees a similar recovery outcome.
