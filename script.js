@@ -470,7 +470,7 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 })();
 
 
-// ArisuV12: discourage casual saving/dragging of proof and feedback preview images.
+// ArisuV31: discourage casual saving/dragging of proof and feedback preview images.
 // This is a deterrent only; browser-visible images can still be copied by other means.
 (() => {
   const protectedImageSelector = [
@@ -513,7 +513,7 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 })();
 
 
-// ArisuV12: protect full-size preview viewer and future dynamically added preview images.
+// ArisuV31: protect full-size preview viewer and future dynamically added preview images.
 (() => {
   const protectedSelector = [
     ".social-profile-preview", ".tiktok-profile-preview", ".facebook-page-preview",
