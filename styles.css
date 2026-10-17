@@ -152,6 +152,8 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .tiktok-showcase-head p{font-size:11px;color:var(--muted);margin:0}
 .tiktok-profile-arrow{font-size:22px;color:var(--blue);font-weight:700}
 .tiktok-showcase-desc{font-size:12px;line-height:1.6;color:#5f6d82;margin:13px 0}
+.facebook-authenticity-note{font-size:11px;line-height:1.55;color:#8b3030;background:#fff4f4;border:1px solid #f2cccc;border-radius:9px;padding:9px 10px;margin:9px 0 13px;overflow-wrap:anywhere}
+@media(max-width:600px){.facebook-authenticity-note{font-size:10px;line-height:1.5;padding:8px 9px;margin:8px 0 11px}}
 .tiktok-authenticity-note{font-size:11px;line-height:1.55;color:#9b2c2c;background:#fff4f4;border:1px solid #f2cccc;border-radius:9px;padding:9px 10px;margin:-3px 0 13px}
 .tiktok-profile-button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 14px;border-radius:10px;background:#11131b;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .tiktok-profile-button:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(17,19,27,.18)}
@@ -6172,7 +6174,7 @@ body:has(.compact-intro) main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-mountains.svg?v=arc175") !important;
+    url("./verse-mountains.svg?v=ArisuV10") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -7193,7 +7195,7 @@ body:has(.compact-intro) .site-footer {
    Desktop rule is kept visually unchanged. The older V_179 mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=arc199") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV10") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -7203,7 +7205,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector from V_179. */
   html body:has(.compact-intro) main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=arc199") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV10") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -8295,4 +8297,163 @@ html body #daily-bible-verse.daily-verse-card {
   .social-collage > .social-feedback-card .reviews-grid-featured {
     margin-bottom: 6px !important;
   }
+}
+
+/* V_187: lower the mobile View Recovery Proofs button by 4px from V_186, restoring its baseline position to align with View All Reviews. Desktop remains unchanged. */
+@media (max-width: 600px) {
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    transform: translateY(0) !important;
+  }
+}
+
+
+/* ArisuV3: authoritative mobile alignment override.
+   Keep both preview-to-button gaps exactly 6px, regardless of older CSS rules. */
+@media (max-width: 600px) {
+  .social-collage > .recovery-proofs-showcase {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-preview {
+    margin: 0 0 6px !important;
+    flex: 0 0 auto !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    margin-top: 0 !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+  }
+  .social-collage > .social-feedback-card > .windows-feedback-content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .social-collage > .social-feedback-card .reviews-grid-featured {
+    margin: 0 0 6px !important;
+    flex: 0 0 auto !important;
+  }
+  .social-collage > .social-feedback-card .social-feedback-view-all {
+    margin-top: 0 !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+/* ArisuV10: restore mobile Recovery Proofs thumbnails.
+   Earlier flex rules allowed the preview items to collapse to zero height while the
+   images had height:100%. Give the preview area the available card space, let both
+   images share it, and keep exactly 6px between the final preview and its button. */
+@media (max-width: 600px) {
+  .social-collage > .recovery-proofs-showcase {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-preview {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 160px !important;
+    width: 100% !important;
+    gap: 8px !important;
+    margin: 12px 0 6px !important;
+    overflow: visible !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item {
+    display: block !important;
+    position: relative !important;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    border: 1px solid #d8e2ff !important;
+    border-radius: 12px !important;
+    background: #f5f7ff !important;
+    box-sizing: border-box !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item > span {
+    position: absolute !important;
+    inset: auto 0 0 !important;
+    padding: 20px 8px 7px !important;
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    background: linear-gradient(transparent, rgba(18,31,58,.84)) !important;
+    text-align: left !important;
+  }
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+    flex: 0 0 auto !important;
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+}
+
+
+/* ArisuV10: align the Facebook warning box with the TikTok warning box. */
+.social-collage .tiktok-authenticity-note,
+.social-collage .facebook-authenticity-note {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.48;
+  padding: 8px 9px;
+  margin: 0 0 12px;
+}
+@media (max-width: 600px) {
+  .social-collage .tiktok-authenticity-note,
+  .social-collage .facebook-authenticity-note {
+    font-size: 10px;
+    line-height: 1.4;
+    padding: 7px;
+    margin: 0 0 9px;
+  }
+}
+
+
+/* ArisuV10: discourage casual image dragging in proof/review previews. */
+.recovery-proofs-preview img, .reviews-grid-featured img, .proof-gallery img, .reviews-gallery img, .review-card img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+
+/* ArisuV10: deter casual saving of proof/review preview images on desktop and mobile. */
+.recovery-proofs-preview img,
+.recovery-proof-preview-item img,
+.reviews-grid-featured img,
+.review-proof-image img,
+.proof-gallery img,
+.proof-image-link img,
+.proof-card img,
+.reviews-gallery img,
+.review-card img,
+.review-image-link img,
+.review-proof-card img {
+  -webkit-user-drag: none !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+/* ArisuV10: discourage casual saving/dragging of TikTok and Facebook profile previews. */
+.social-profile-preview img,
+.tiktok-profile-preview img,
+.facebook-page-preview img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }

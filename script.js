@@ -465,3 +465,46 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   refreshStatus();
   window.setInterval(refreshStatus, 1000);
 })();
+
+
+// ArisuV10: discourage casual saving/dragging of proof and feedback preview images.
+// This is a deterrent only; browser-visible images can still be copied by other means.
+(() => {
+  const protectedImageSelector = [
+    ".social-profile-preview img",
+    ".tiktok-profile-preview img",
+    ".facebook-page-preview img",
+    ".recovery-proofs-preview img",
+    ".recovery-proof-preview-item img",
+    ".reviews-grid-featured img",
+    ".review-proof-image img",
+    ".proof-gallery img",
+    ".proof-image-link img",
+    ".proof-card img",
+    ".reviews-gallery img",
+    ".review-card img",
+    ".review-image-link img",
+    ".review-proof-card img"
+  ].join(", ");
+  const isProtectedImage = (target) =>
+    target instanceof Element && Boolean(target.closest(protectedImageSelector));
+  document.addEventListener("contextmenu", (event) => {
+    if (isProtectedImage(event.target)) event.preventDefault();
+  });
+  document.addEventListener("dragstart", (event) => {
+    if (isProtectedImage(event.target)) event.preventDefault();
+  });
+  const disableImageDragging = () => {
+    document.querySelectorAll(protectedImageSelector).forEach((img) => {
+      img.setAttribute("draggable", "false");
+      img.setAttribute("oncontextmenu", "return false");
+      img.style.webkitUserDrag = "none";
+      img.style.userSelect = "none";
+      img.style.webkitTouchCallout = "none";
+      img.style.webkitUserSelect = "none";
+    });
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", disableImageDragging, { once: true });
+  } else { disableImageDragging(); }
+})();

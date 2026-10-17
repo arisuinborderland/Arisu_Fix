@@ -193,7 +193,7 @@ VERSION 169 UPDATE (OCTOBER 2026)
 
 SOCIAL LINK PREVIEW
 - The public Open Graph/Twitter preview image is social-preview.jpg (1200 x 630 px).
-- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=arc199.
+- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=ArisuV3.
 - Keep social-preview.jpg at the project root when deploying so link preview crawlers can fetch it.
 
 
