@@ -1,98 +1,89 @@
-/* ArisuV31 — reliable opening + repeat-on-scroll reveals for desktop and mobile.
-   Uses the original V13 .arc-scroll-reveal CSS contract, with corrected targets.
-   The global reduced-motion CSS rule is explicitly overridden for this requested effect. */
+/* ArisuV33 — lightweight, responsive reveal animation for opening and both scroll directions. */
 (() => {
   "use strict";
 
-  const header = document.querySelector(".topbar");
-  const selectors = [
-    "main > #daily-bible-verse",
-    "main > .compact-intro",
-    "#contact > .whatsapp-feature-card",
-    "#serviceStatus > .service-status-main",
-    "#serviceStatus > .service-status-details",
-    "#serviceStatus > .service-benefit-row > .service-benefit",
-    "#contact > .contact-divider",
-    ".social-collage > .social-card-link",
-    ".social-collage > .social-feedback-card",
-    ".social-collage > .recovery-proofs-showcase",
-    ".services-section > .services-heading",
-    ".services-section > .services-grid > *",
-    ".how-section > .section-heading",
-    ".how-section .steps-grid > .step-card",
-    ".about-section > .about-card",
-    ".safety-section > .safety-panel",
-    ".terms-section > .terms-card",
-    ".site-footer > *"
-  ];
-  const selectorText = selectors.join(",");
-  const targets = new Set();
-  let observer = null;
-  let headerHeight = -1;
+  const start = () => {
+    const selectors = [
+      "main > #daily-bible-verse",
+      "main > .compact-intro",
+      "#contact > .whatsapp-feature-card",
+      "#serviceStatus > .service-status-main",
+      "#serviceStatus > .service-status-details",
+      "#serviceStatus > .service-benefit-row > .service-benefit",
+      "#contact > .contact-divider",
+      ".social-collage > .social-card-link",
+      ".social-collage > .social-feedback-card",
+      ".social-collage > .recovery-proofs-showcase",
+      ".services-section > .services-heading",
+      ".services-section > .services-grid > *",
+      ".services-section .service-platform",
+      ".services-section .deletion-option",
+      ".services-section .service-disclaimer",
+      ".how-section > .section-heading",
+      ".how-section .steps-grid > .step-card",
+      ".about-section > .about-card",
+      ".safety-section > .safety-panel",
+      ".terms-section > .terms-card",
+      ".site-footer > *"
+    ];
+    const selectorText = selectors.join(",");
+    const uniqueTargets = [...new Set(document.querySelectorAll(selectorText))];
+    if (!uniqueTargets.length) return;
 
-  // Keep the page naturally visible if the browser lacks IntersectionObserver.
-  if (!("IntersectionObserver" in window)) return;
+    // If observers are unavailable, leave everything visible rather than hiding page content.
+    if (!("IntersectionObserver" in window)) return;
 
-  const registerTargets = (scope = document) => {
-    const found = [];
-    if (scope.nodeType === 1 && scope.matches?.(selectorText)) found.push(scope);
-    if (scope.querySelectorAll) found.push(...scope.querySelectorAll(selectorText));
-
-    found.forEach((el) => {
-      if (targets.has(el)) return;
-      targets.add(el);
+    uniqueTargets.forEach((el, index) => {
       el.classList.add("arc-scroll-reveal");
-      // Brief, bounded stagger: no long cascading delay on desktop or mobile.
-      el.style.setProperty("--arc-reveal-delay", `${((targets.size - 1) % 3) * 42}ms`);
-      if (observer) observer.observe(el);
+      el.classList.remove("arc-scroll-reveal-visible");
+      // Very short stagger: enough depth without a slow cascade on desktop.
+      el.style.setProperty("--arc-reveal-delay", `${(index % 3) * 28}ms`);
     });
-  };
 
-  const rebuildObserverIfNeeded = () => {
-    const measuredHeight = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
-    if (observer && measuredHeight === headerHeight) return;
-    observer?.disconnect();
-    headerHeight = measuredHeight;
-    observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        // Reversible reveal state: entering the viewport reveals; leaving hides;
-        // returning from either scroll direction triggers the same transition.
-        const visibleEnough = entry.isIntersecting && entry.intersectionRatio >= 0.035;
-        entry.target.classList.toggle("arc-scroll-reveal-visible", visibleEnough);
+    // The opening animation uses the same observer: anything in the first viewport
+    // reveals immediately after initialization; later targets reveal on either scroll direction.
+    requestAnimationFrame(() => {
+      document.documentElement.classList.add("arc-scroll-reveal-enabled");
+      const header = document.querySelector(".topbar");
+      const headerHeight = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          // Threshold zero avoids missed triggers for tall desktop cards/sections.
+          // Toggling on every enter/exit intentionally repeats for scroll-up and scroll-down.
+          const visible = entry.isIntersecting && entry.intersectionRatio > 0;
+          entry.target.classList.toggle("arc-scroll-reveal-visible", visible);
+        });
+      }, {
+        threshold: 0,
+        rootMargin: `-${Math.min(headerHeight, 90)}px 0px -4% 0px`
       });
-    }, {
-      threshold: [0, 0.035],
-      rootMargin: `-${headerHeight}px 0px -4% 0px`
-    });
-    targets.forEach((el) => observer.observe(el));
-  };
 
-  // Add the reveal-enabled state only after the targets are known, so no content
-  // is left hidden if initialization is interrupted.
-  registerTargets(document);
-  if (!targets.size) return;
-  document.documentElement.classList.add("arc-scroll-reveal-enabled");
-  rebuildObserverIfNeeded();
+      uniqueTargets.forEach((el) => observer.observe(el));
 
-  window.addEventListener("resize", rebuildObserverIfNeeded, { passive: true });
-  if (header && "ResizeObserver" in window) {
-    const headerObserver = new ResizeObserver(rebuildObserverIfNeeded);
-    headerObserver.observe(header);
-  }
-
-  // Handle sections/cards inserted or moved after initial load without needing
-  // a reload (e.g. the desktop social/proofs layout and dynamically added cards).
-  const mutations = new MutationObserver((records) => {
-    let discovered = false;
-    records.forEach((record) => {
-      record.addedNodes.forEach((node) => {
-        if (node.nodeType === 1 && (node.matches?.(selectorText) || node.querySelector?.(selectorText))) {
-          registerTargets(node);
-          discovered = true;
+      // Observe only content insertions, not attribute/style changes, to keep this lightweight.
+      const mutationObserver = new MutationObserver((records) => {
+        for (const record of records) {
+          for (const node of record.addedNodes) {
+            if (node.nodeType !== 1) continue;
+            const newlyFound = [];
+            if (node.matches?.(selectorText)) newlyFound.push(node);
+            if (node.querySelectorAll) newlyFound.push(...node.querySelectorAll(selectorText));
+            for (const el of newlyFound) {
+              if (el.classList.contains("arc-scroll-reveal")) continue;
+              el.classList.add("arc-scroll-reveal");
+              el.style.setProperty("--arc-reveal-delay", `${(uniqueTargets.length % 3) * 28}ms`);
+              observer.observe(el);
+            }
+          }
         }
       });
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
     });
-    if (discovered && observer) rebuildObserverIfNeeded();
-  });
-  mutations.observe(document.body, { childList: true, subtree: true });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
 })();

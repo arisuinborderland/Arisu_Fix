@@ -50,6 +50,20 @@ faqItems.forEach((item) => {
 // Give keyboard users a visible focus state and prevent accidental duplicate setup.
 document.documentElement.classList.add("js-ready");
 
+// Mobile scroll performance: pause decorative infinite animations while the page is moving.
+// Scroll-reveal transitions are CSS transitions, so the requested up/down reveal still works.
+(() => {
+  const root = document.documentElement;
+  let resumeTimer = 0;
+  window.addEventListener("scroll", () => {
+    root.classList.add("arc-is-scrolling");
+    window.clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(() => {
+      root.classList.remove("arc-is-scrolling");
+    }, 150);
+  }, { passive: true });
+})();
+
 // Recovery proof gallery. Add only real examples that you have permission to publish.
 // Use category: "suspended" or category: "disabled" for each item.
 const recoveryProofs = [
@@ -439,6 +453,8 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 
 
 // V_135: show a live Philippine Standard Time clock and inquiry status based on published hours.
+// Formatters are created once. Only the seconds clock changes every second; availability and date
+// labels are updated only when their displayed value changes, reducing mobile DOM work.
 (() => {
   const headline = document.getElementById("serviceStatusHeadline");
   const pill = document.getElementById("serviceStatusPill");
@@ -447,30 +463,58 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
   const updated = document.getElementById("serviceStatusUpdated");
   const statusDot = document.querySelector(".service-status-dot");
   if (!headline || !pill || !description || !clock || !updated) return;
+
+  const statusTimeFormatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Manila", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+  });
+  const clockFormatter = new Intl.DateTimeFormat("en-PH", {
+    timeZone: "Asia/Manila", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
+  });
+  const dateFormatter = new Intl.DateTimeFormat("en-PH", {
+    timeZone: "Asia/Manila", weekday: "short", month: "short", day: "numeric", year: "numeric"
+  });
+
+  let lastAvailability = null;
+  let lastDateLabel = "";
+  let lastClockLabel = "";
+
   const refreshStatus = () => {
     const now = new Date();
-    const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Manila", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now);
-    const hour = Number(parts.find(part => part.type === "hour")?.value ?? 0);
-    const minute = Number(parts.find(part => part.type === "minute")?.value ?? 0);
-    const totalMinutes = hour * 60 + minute;
+    const [hourText = "0", minuteText = "0"] = statusTimeFormatter.format(now).split(":");
+    const totalMinutes = Number(hourText) * 60 + Number(minuteText);
     const isOpen = totalMinutes >= 420 && totalMinutes < 1320;
-    headline.textContent = isOpen ? "Available" : "Offline";
-    headline.classList.toggle("is-offline", !isOpen);
-    pill.textContent = isOpen ? "Online" : "Offline";
-    description.textContent = isOpen
-      ? "You can message us on WhatsApp for account recovery assistance. Replies are sent during available hours."
-      : "You can still send a WhatsApp message. Replies resume at 7:00 AM Philippine Time.";
-    clock.textContent = new Intl.DateTimeFormat("en-PH", { timeZone: "Asia/Manila", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true }).format(now);
-    updated.textContent = new Intl.DateTimeFormat("en-PH", { timeZone: "Asia/Manila", weekday: "short", month: "short", day: "numeric", year: "numeric" }).format(now) + " · GMT+8 · Auto-updated";
-    pill.classList.toggle("service-status-pill-closed", !isOpen);
-    if (statusDot) statusDot.classList.toggle("is-offline", !isOpen);
+
+    if (lastAvailability !== isOpen) {
+      headline.textContent = isOpen ? "Available" : "Offline";
+      headline.classList.toggle("is-offline", !isOpen);
+      pill.textContent = isOpen ? "Online" : "Offline";
+      description.textContent = isOpen
+        ? "You can message us on WhatsApp for account recovery assistance. Replies are sent during available hours."
+        : "You can still send a WhatsApp message. Replies resume at 7:00 AM Philippine Time.";
+      pill.classList.toggle("service-status-pill-closed", !isOpen);
+      if (statusDot) statusDot.classList.toggle("is-offline", !isOpen);
+      lastAvailability = isOpen;
+    }
+
+    const clockLabel = clockFormatter.format(now);
+    if (clockLabel !== lastClockLabel) {
+      clock.textContent = clockLabel;
+      lastClockLabel = clockLabel;
+    }
+
+    const dateLabel = `${dateFormatter.format(now)} · GMT+8 · Auto-updated`;
+    if (dateLabel !== lastDateLabel) {
+      updated.textContent = dateLabel;
+      lastDateLabel = dateLabel;
+    }
   };
+
   refreshStatus();
   window.setInterval(refreshStatus, 1000);
 })();
 
 
-// ArisuV31: discourage casual saving/dragging of proof and feedback preview images.
+// ArisuV32: discourage casual saving/dragging of proof and feedback preview images.
 // This is a deterrent only; browser-visible images can still be copied by other means.
 (() => {
   const protectedImageSelector = [
@@ -513,7 +557,7 @@ document.querySelectorAll("#proofGallery img, #proofGallery video").forEach((med
 })();
 
 
-// ArisuV31: protect full-size preview viewer and future dynamically added preview images.
+// ArisuV32: protect full-size preview viewer and future dynamically added preview images.
 (() => {
   const protectedSelector = [
     ".social-profile-preview", ".tiktok-profile-preview", ".facebook-page-preview",

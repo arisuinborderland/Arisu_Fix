@@ -1,3 +1,10 @@
+ARISUV33 MOBILE SCROLL PERFORMANCE
+---------------------------------
+- Pauses decorative infinite CSS animations briefly while a mobile viewport is scrolling; reveal transitions still animate on scroll-up and scroll-down.
+- Optimized the Philippine service-status clock so its formatter objects are reused and the status/date text is only rewritten when its value changes.
+- Updated HTML cache-busting tokens to ArisuV33.
+- Changes are designed to reduce unnecessary work during scrolling; actual smoothness still varies by device and browser.
+
 V_168 UPDATE
 - Desktop opening layout now prioritizes the Daily Bible Verse, account-recovery intro, WhatsApp contact card, and contact availability.
 - Social links, recovery proofs, and feedback collage are placed lower on desktop; mobile keeps its previous section order.
@@ -193,7 +200,7 @@ VERSION 169 UPDATE (OCTOBER 2026)
 
 SOCIAL LINK PREVIEW
 - The public Open Graph/Twitter preview image is social-preview.jpg (1200 x 630 px).
-- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=ArisuV31
+- The HTML pages reference https://arisufix.vercel.app/social-preview.jpg?v=ArisuV32
 - Keep social-preview.jpg at the project root when deploying so link preview crawlers can fetch it.
 
 
@@ -204,3 +211,10 @@ V_199 SAFE MAINTENANCE
 - Added vercel.json with baseline security response headers: nosniff, strict-origin-when-cross-origin, SAMEORIGIN framing, and disabled camera/microphone/geolocation permissions.
 - No layout rules, copy, animations, or interaction logic were intentionally changed.
 - A strict Content-Security-Policy was not added because the current site has inline scripts/styles; it needs a separate compatibility-reviewed refactor first.
+
+
+ARISUV32 ANIMATION PERFORMANCE UPDATE
+- Kept the top header and navigation out of the reveal sequence.
+- Optimized content-only reveal transitions for desktop responsiveness and scroll in both directions.
+- Removed persistent will-change/scale layers from revealed cards to reduce desktop compositing cost.
+- Kept opening reveals, short stagger, responsive timing, and explicit reduced-motion preference override for this requested animation.

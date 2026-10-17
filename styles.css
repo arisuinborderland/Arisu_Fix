@@ -6174,7 +6174,7 @@ body:has(.compact-intro) main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-mountains.svg?v=ArisuV31") !important;
+    url("./verse-mountains.svg?v=ArisuV32") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -7195,7 +7195,7 @@ body:has(.compact-intro) .site-footer {
    Desktop rule is kept visually unchanged. The older V_179 mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV31") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV32") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -7205,7 +7205,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector from V_179. */
   html body:has(.compact-intro) main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV31") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV32") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -8338,7 +8338,7 @@ html body #daily-bible-verse.daily-verse-card {
   }
 }
 
-/* ArisuV31: restore mobile Recovery Proofs thumbnails.
+/* ArisuV32: restore mobile Recovery Proofs thumbnails.
    Earlier flex rules allowed the preview items to collapse to zero height while the
    images had height:100%. Give the preview area the available card space, let both
    images share it, and keep exactly 6px between the final preview and its button. */
@@ -8401,7 +8401,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 
-/* ArisuV31: align the Facebook warning box with the TikTok warning box. */
+/* ArisuV32: align the Facebook warning box with the TikTok warning box. */
 .social-collage .tiktok-authenticity-note,
 .social-collage .facebook-authenticity-note {
   box-sizing: border-box;
@@ -8422,14 +8422,14 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 
-/* ArisuV31: discourage casual image dragging in proof/review previews. */
+/* ArisuV32: discourage casual image dragging in proof/review previews. */
 .recovery-proofs-preview img, .reviews-grid-featured img, .proof-gallery img, .reviews-gallery img, .review-card img {
   -webkit-user-drag: none;
   user-select: none;
 }
 
 
-/* ArisuV31: deter casual saving of proof/review preview images on desktop and mobile. */
+/* ArisuV32: deter casual saving of proof/review preview images on desktop and mobile. */
 .recovery-proofs-preview img,
 .recovery-proof-preview-item img,
 .reviews-grid-featured img,
@@ -8448,7 +8448,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 
-/* ArisuV31: discourage casual saving/dragging of TikTok and Facebook profile previews. */
+/* ArisuV32: discourage casual saving/dragging of TikTok and Facebook profile previews. */
 .social-profile-preview img,
 .tiktok-profile-preview img,
 .facebook-page-preview img {
@@ -8459,7 +8459,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 
-/* ArisuV31: no native image drag/callout in full-size viewer or protected previews. */
+/* ArisuV32: no native image drag/callout in full-size viewer or protected previews. */
 .review-lightbox, .review-lightbox-image,
 .social-profile-preview img, .tiktok-profile-preview img, .facebook-page-preview img,
 .recovery-proofs-preview img, .recovery-proof-preview-item img, .reviews-grid-featured img,
@@ -8487,7 +8487,7 @@ html body #daily-bible-verse.daily-verse-card {
 .review-lightbox-image { position: relative; overflow: hidden; }
 
 
-/* ArisuV31: gently improve small-text readability on mobile without changing layout dimensions. */
+/* ArisuV32: gently improve small-text readability on mobile without changing layout dimensions. */
 @media (max-width: 600px) {
   .service-status-label { font-size: 11px; }
   .service-status-pill { font-size: 11px; }
@@ -8503,7 +8503,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 
-/* ArisuV31: authoritative reveal timing.
+/* ArisuV32: authoritative reveal timing.
    A legacy global prefers-reduced-motion rule sets every transition to 0.01ms !important.
    This class-specific override keeps the requested site reveal animation intact on desktop
    and mobile without changing the rest of the site's decorative-motion preferences. */
@@ -8543,5 +8543,59 @@ html body #daily-bible-verse.daily-verse-card {
   .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
   .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
     transition-duration: 480ms !important;
+  }
+}
+
+
+/* ArisuV32: reduce desktop scroll hitching without removing reveal motion.
+   Keep only opacity + a small Y translation; avoid a permanent compositing layer for every card. */
+.arc-scroll-reveal { opacity: 1; transform: none; }
+.arc-scroll-reveal-enabled .arc-scroll-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition-property: opacity, transform !important;
+  transition-duration: 420ms !important;
+  transition-timing-function: cubic-bezier(.2, .7, .2, 1) !important;
+  transition-delay: var(--arc-reveal-delay, 0ms) !important;
+  will-change: auto;
+  backface-visibility: visible;
+}
+.arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 600px) {
+  .arc-scroll-reveal-enabled .arc-scroll-reveal {
+    transform: translateY(11px);
+    transition-duration: 460ms !important;
+  }
+}
+/* Explicitly preserve the requested reveal even when the OS prefers reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .arc-scroll-reveal-enabled .arc-scroll-reveal,
+  .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
+  .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
+    transition-property: opacity, transform !important;
+    transition-duration: 420ms !important;
+    transition-timing-function: cubic-bezier(.2, .7, .2, 1) !important;
+    transition-delay: var(--arc-reveal-delay, 0ms) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 600px) {
+  .arc-scroll-reveal-enabled .arc-scroll-reveal,
+  .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
+  .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
+    transition-duration: 460ms !important;
+  }
+}
+
+
+/* ArisuV33 mobile scroll optimization: pause decorative animations only while scrolling.
+   Scroll-reveal uses transitions, so reveal-on-enter/exit continues in both directions. */
+@media (max-width: 760px) {
+  html.arc-is-scrolling *,
+  html.arc-is-scrolling *::before,
+  html.arc-is-scrolling *::after {
+    animation-play-state: paused !important;
   }
 }
