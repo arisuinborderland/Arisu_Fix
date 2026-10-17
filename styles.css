@@ -4849,7 +4849,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-mountains.svg?v=ArisuV75") !important;
+    url("./verse-mountains.svg?v=ArisuV94") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5511,7 +5511,7 @@ body.home-page .site-footer {
    Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV75") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV94") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5521,7 +5521,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV75") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV94") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -7428,4 +7428,627 @@ body.home-page .about-card .independent-note {
 }
 @media (prefers-reduced-motion: reduce) {
   .purpose-card { scroll-behavior: auto; }
+}
+
+
+/* ArisuV94: compact ONLY the inner Account Recovery Experience / Pinoy Cyber Tech card on mobile.
+   The outer Why Choose Arisu card, heading, Honest & Transparent card, and desktop styles remain unchanged. */
+@media (max-width: 640px) {
+  .why-arisu-section .why-history-card {
+    padding: 9px 8px !important;
+    margin-bottom: 11px !important;
+    border-radius: 16px !important;
+  }
+  .why-arisu-section .why-history-row { gap: 8px !important; }
+  .why-arisu-section .why-history-icon {
+    width: 38px !important;
+    height: 38px !important;
+    flex-basis: 38px !important;
+    border-radius: 11px !important;
+  }
+  .why-arisu-section .why-history-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+  .why-arisu-section .why-history-kicker {
+    margin-bottom: 2px !important;
+    font-size: .62rem !important;
+    line-height: 1.28 !important;
+    letter-spacing: .04em !important;
+  }
+  .why-arisu-section .why-history-title {
+    font-size: 1.22rem !important;
+    line-height: 1.14 !important;
+  }
+  .why-arisu-section .why-history-page-title { font-size: 1.02rem !important; }
+  .why-arisu-section .why-history-copy p {
+    margin-top: 3px !important;
+    font-size: .78rem !important;
+    line-height: 1.34 !important;
+  }
+  .why-arisu-section .why-history-divider { margin: 8px 0 !important; }
+  .why-arisu-section .why-history-footnote {
+    margin-top: 7px !important;
+    font-size: .76rem !important;
+    line-height: 1.36 !important;
+  }
+}
+
+/* Version 90: compact legitimate-recovery notice inside Terms & Limitations. */
+.terms-card .terms-intro { margin-bottom: 14px; }
+.terms-security { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: start; gap: 16px; padding: 16px; border: 1px solid rgba(111, 161, 255, .28); border-radius: 20px; background: linear-gradient(135deg, rgba(238, 249, 255, .88), rgba(241, 244, 255, .82) 58%, rgba(255, 242, 253, .74)); }
+.terms-security-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; color: #fff; background: linear-gradient(145deg, #08bfe9 0%, #2468f5 72%, #6254f5 100%); box-shadow: 0 7px 16px rgba(45, 104, 226, .16); }
+.terms-security-icon svg { display: block; width: 34px; height: 34px; }
+.terms-security-copy h3 { margin: 0 0 6px; color: #172650; font-size: 18px; line-height: 1.25; font-weight: 750; letter-spacing: -.35px; }
+.terms-security-copy p { margin: 0; color: #64718a; font-size: 14px; line-height: 1.55; }
+@media (max-width: 600px) {
+ .terms-card .terms-intro { margin-bottom: 11px; }
+ .terms-security { grid-template-columns: 36px minmax(0, 1fr); gap: 10px; padding: 11px; border-radius: 13px; }
+ .terms-security-icon { width: 36px; height: 36px; border-radius: 11px; }
+ .terms-security-icon svg { width: 21px; height: 21px; }
+ .terms-security-copy h3 { margin-bottom: 4px; font-size: 14px; line-height: 1.3; letter-spacing: -.2px; }
+ .terms-security-copy p { font-size: 11.5px; line-height: 1.45; }
+}
+
+
+/* ArisuV94: final Terms & Limitations security panel sizing and visual consistency. */
+body.home-page .terms-card .terms-security {
+  display: grid !important;
+  grid-template-columns: 52px minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 13px !important;
+  margin-top: 14px !important;
+  padding: 13px !important;
+  border: 1px solid rgba(111, 161, 255, .32) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, rgba(238,249,255,.94), rgba(241,244,255,.90) 58%, rgba(255,242,253,.86)) !important;
+  box-shadow: 0 5px 16px rgba(55, 90, 170, .055) !important;
+}
+body.home-page .terms-card .terms-security-icon {
+  display: grid !important; place-items: center !important; width: 52px !important; height: 52px !important;
+  border-radius: 14px !important; color: #fff !important;
+  background: linear-gradient(145deg, #08bfe9 0%, #2468f5 72%, #6254f5 100%) !important;
+}
+body.home-page .terms-card .terms-security-icon svg { width: 28px !important; height: 28px !important; }
+body.home-page .terms-card .terms-security-copy h3 {
+  margin: 0 0 5px !important; color: #172650 !important; font-size: 16px !important; line-height: 1.3 !important; font-weight: 750 !important; letter-spacing: -.25px !important;
+}
+body.home-page .terms-card .terms-security-copy p {
+  margin: 0 !important; color: #64718a !important; font-size: 13px !important; line-height: 1.5 !important;
+}
+@media (max-width: 600px) {
+  body.home-page .terms-card .terms-intro { margin-bottom: 11px !important; }
+  body.home-page .terms-card .terms-security { grid-template-columns: 36px minmax(0, 1fr) !important; gap: 10px !important; padding: 11px !important; border-radius: 13px !important; }
+  body.home-page .terms-card .terms-security-icon { width: 36px !important; height: 36px !important; border-radius: 10px !important; }
+  body.home-page .terms-card .terms-security-icon svg { width: 21px !important; height: 21px !important; }
+  body.home-page .terms-card .terms-security-copy h3 { margin-bottom: 4px !important; font-size: 14px !important; line-height: 1.3 !important; letter-spacing: -.15px !important; }
+  body.home-page .terms-card .terms-security-copy p { font-size: 12px !important; line-height: 1.48 !important; }
+}
+@media (max-width: 360px) {
+  body.home-page .terms-card .terms-security { grid-template-columns: 30px minmax(0, 1fr) !important; gap: 8px !important; padding: 9px !important; }
+  body.home-page .terms-card .terms-security-icon { width: 30px !important; height: 30px !important; border-radius: 9px !important; }
+  body.home-page .terms-card .terms-security-icon svg { width: 18px !important; height: 18px !important; }
+  body.home-page .terms-card .terms-security-copy h3 { font-size: 13px !important; }
+  body.home-page .terms-card .terms-security-copy p { font-size: 11.5px !important; }
+}
+
+
+/* V94: tighter mobile spacing for the account-assistance process cards.
+   Keep desktop layout unchanged; remove excess grid-row height caused by the icon spanning three rows. */
+@media (max-width: 760px) {
+  .how-section .steps-grid {
+    gap: 9px !important;
+  }
+  .how-section .step-card {
+    grid-template-rows: auto auto !important;
+    column-gap: 9px !important;
+    row-gap: 4px !important;
+    padding: 11px 11px !important;
+  }
+  .how-section .step-card .step-symbol {
+    grid-row: 1 / span 2 !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 11px !important;
+    font-size: 18px !important;
+  }
+  .how-section .step-card .step-index {
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+  }
+  .how-section .step-card h3 {
+    margin: 0 17px 0 0 !important;
+    padding: 0 !important;
+    line-height: 1.28 !important;
+  }
+  .how-section .step-card > p {
+    margin: 0 !important;
+    line-height: 1.48 !important;
+    font-size: 12.5px !important;
+  }
+  .how-section .step-card .recovery-payment-promise,
+  .how-section .step-card .warranty-promise {
+    margin-top: 2px !important;
+    padding: 7px 8px !important;
+  }
+  .how-section .recovery-first-card > p,
+  .how-section .warranty-step-card > p {
+    margin-top: 2px !important;
+  }
+}
+@media (max-width: 380px) {
+  .how-section .step-card {
+    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
+    column-gap: 7px !important;
+    row-gap: 4px !important;
+    padding: 10px 9px !important;
+  }
+  .how-section .step-card .step-symbol {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+  }
+  .how-section .step-card .step-index {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 11px !important;
+  }
+  .how-section .step-card h3 { font-size: 13px !important; }
+  .how-section .step-card > p { font-size: 12px !important; }
+}
+
+
+/* ArisuV95: lift process-card titles and descriptions on mobile only.
+   Keep outer card layout, icons, badges, and desktop presentation unchanged. */
+@media (max-width: 760px) {
+  .how-section .step-card h3 {
+    transform: translateY(-4px) !important;
+  }
+  .how-section .step-card > p {
+    transform: translateY(-4px) !important;
+  }
+  .how-section .step-card .recovery-payment-promise,
+  .how-section .step-card .warranty-promise {
+    transform: translateY(-3px) !important;
+  }
+}
+@media (max-width: 380px) {
+  .how-section .step-card h3,
+  .how-section .step-card > p {
+    transform: translateY(-3px) !important;
+  }
+  .how-section .step-card .recovery-payment-promise,
+  .how-section .step-card .warranty-promise {
+    transform: translateY(-2px) !important;
+  }
+}
+
+
+/* ArisuV103: approved tighter mobile spacing inside the five process cards.
+   Reduce the inner top/bottom padding and the title-to-description row gap.
+   Desktop styling and the outer section layout remain unchanged. */
+@media (max-width: 760px) {
+  .how-section .steps-grid {
+    gap: 7px !important;
+  }
+  .how-section .step-card {
+    padding: 8px 9px 9px !important;
+    row-gap: 1px !important;
+  }
+  .how-section .step-card h3 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    transform: translateY(-2px) !important;
+  }
+  .how-section .step-card > p {
+    margin-top: 0 !important;
+    line-height: 1.44 !important;
+    transform: translateY(-2px) !important;
+  }
+  .how-section .step-card .recovery-payment-promise,
+  .how-section .step-card .warranty-promise {
+    margin-top: 0 !important;
+    padding: 6px 8px !important;
+    transform: translateY(-1px) !important;
+  }
+  .how-section .recovery-first-card > p,
+  .how-section .warranty-step-card > p {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  .how-section .step-card {
+    padding: 7px 8px 8px !important;
+    row-gap: 1px !important;
+  }
+}
+
+
+/* ArisuV103: authoritative mobile compact spacing for account-assistance steps.
+   Higher specificity intentionally overrides legacy home-page rules. */
+@media (max-width: 760px) {
+  body.home-page .site-section.how-section .steps-grid {
+    gap: 7px !important;
+  }
+  body.home-page .site-section.how-section .step-card {
+    padding: 8px 9px !important;
+    row-gap: 1px !important;
+    column-gap: 8px !important;
+  }
+  body.home-page .site-section.how-section .step-card h3 {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.28 !important;
+    transform: translateY(-2px) !important;
+  }
+  body.home-page .site-section.how-section .step-card > p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.42 !important;
+    transform: translateY(-2px) !important;
+  }
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .warranty-promise {
+    margin-top: 0 !important;
+    padding: 5px 7px !important;
+    transform: translateY(-1px) !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card > p,
+  body.home-page .site-section.how-section .warranty-step-card > p {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  body.home-page .site-section.how-section .step-card {
+    padding: 7px 8px !important;
+    row-gap: 1px !important;
+    column-gap: 7px !important;
+  }
+  body.home-page .site-section.how-section .step-card h3 {
+    line-height: 1.25 !important;
+  }
+  body.home-page .site-section.how-section .step-card > p {
+    line-height: 1.4 !important;
+  }
+}
+
+
+/* ArisuV103: compact, aligned mobile process cards.
+   Tightens inner vertical rhythm and lets long headings wrap cleanly.
+   Desktop layout and outer section/container dimensions are untouched. */
+@media (max-width: 760px) {
+  body.home-page .site-section.how-section .section-heading {
+    margin-bottom: 8px !important;
+  }
+  body.home-page .site-section.how-section .steps-grid {
+    gap: 7px !important;
+  }
+  body.home-page .site-section.how-section .step-card {
+    grid-template-columns: 36px 34px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-items: start !important;
+    column-gap: 7px !important;
+    row-gap: 3px !important;
+    padding: 8px 9px !important;
+    min-height: 0 !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-symbol {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: start !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    margin: 0 !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-symbol svg {
+    width: 21px !important;
+    height: 21px !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-index {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+  body.home-page .site-section.how-section .step-card h3 {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    margin: 1px 0 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.24 !important;
+    letter-spacing: -.25px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    transform: none !important;
+  }
+  body.home-page .site-section.how-section .step-card > p {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    transform: none !important;
+  }
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .warranty-promise {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    justify-self: stretch !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 5px 6px !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    transform: none !important;
+  }
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise strong,
+  body.home-page .site-section.how-section .step-card .warranty-promise strong {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card,
+  body.home-page .site-section.how-section .warranty-step-card {
+    grid-template-rows: auto auto auto !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card h3,
+  body.home-page .site-section.how-section .warranty-step-card h3 {
+    grid-row: 1 !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .warranty-step-card .warranty-promise {
+    grid-row: 2 !important;
+    margin: 0 !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card > p,
+  body.home-page .site-section.how-section .warranty-step-card > p {
+    grid-column: 3 !important;
+    grid-row: 3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  body.home-page .site-section.how-section .step-card {
+    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
+    column-gap: 6px !important;
+    row-gap: 2px !important;
+    padding: 7px 8px !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-symbol {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-index {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 11px !important;
+  }
+  body.home-page .site-section.how-section .step-card h3 {
+    font-size: 13px !important;
+    line-height: 1.22 !important;
+  }
+  body.home-page .site-section.how-section .step-card > p {
+    font-size: 11.5px !important;
+    line-height: 1.38 !important;
+  }
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .warranty-promise {
+    font-size: 10.5px !important;
+    line-height: 1.32 !important;
+    padding: 5px !important;
+  }
+}
+
+
+/* ArisuV103: align process descriptions directly beneath their headings on mobile. */
+@media (max-width: 760px) {
+  body.home-page .site-section.how-section .step-card {
+    grid-template-columns: 36px 34px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    column-gap: 7px !important;
+    row-gap: 0 !important;
+    align-items: start !important;
+  }
+  body.home-page .site-section.how-section .step-card h3 {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    margin: 1px 0 0 !important;
+    align-self: start !important;
+  }
+  body.home-page .site-section.how-section .step-card > p {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
+    align-self: start !important;
+  }
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .warranty-promise {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    margin: 4px 0 0 !important;
+    align-self: start !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card,
+  body.home-page .site-section.how-section .warranty-step-card {
+    grid-template-rows: auto auto auto !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card h3,
+  body.home-page .site-section.how-section .warranty-step-card h3 {
+    grid-row: 1 !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .warranty-step-card .warranty-promise {
+    grid-row: 2 !important;
+    margin-top: 4px !important;
+  }
+  body.home-page .site-section.how-section .recovery-first-card > p,
+  body.home-page .site-section.how-section .warranty-step-card > p {
+    grid-column: 3 !important;
+    grid-row: 3 !important;
+    margin-top: 4px !important;
+  }
+}
+@media (max-width: 380px) {
+  body.home-page .site-section.how-section .step-card {
+    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
+    column-gap: 6px !important;
+  }
+}
+
+
+/* ArisuV103: remove excess gap between process-card titles and descriptions on mobile.
+   Override legacy grid placement explicitly so descriptions follow titles immediately. */
+@media (max-width: 760px) {
+  body.home-page .site-section.how-section .step-card {
+    grid-template-columns: 36px 34px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    align-content: start !important;
+    align-items: start !important;
+    column-gap: 7px !important;
+    row-gap: 0 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card h3 {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.24 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card > p {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.38 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .warranty-promise {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    margin: 0 0 4px !important;
+  }
+
+  body.home-page .site-section.how-section .recovery-first-card,
+  body.home-page .site-section.how-section .warranty-step-card {
+    grid-template-rows: auto auto auto !important;
+  }
+
+  body.home-page .site-section.how-section .recovery-first-card h3,
+  body.home-page .site-section.how-section .warranty-step-card h3 {
+    grid-row: 1 !important;
+  }
+
+  body.home-page .site-section.how-section .recovery-first-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .warranty-step-card .warranty-promise {
+    grid-row: 2 !important;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.home-page .site-section.how-section .recovery-first-card > p,
+  body.home-page .site-section.how-section .warranty-step-card > p {
+    grid-column: 3 !important;
+    grid-row: 3 !important;
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body.home-page .site-section.how-section .step-card {
+    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
+    column-gap: 6px !important;
+  }
+}
+
+/* ArisuV103: refined mobile title-to-description spacing across all five process cards. */
+@media (max-width: 760px) {
+  body.home-page .site-section.how-section .step-card h3 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card > p {
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .warranty-promise {
+    margin: 4px 0 0 !important;
+  }
+
+  body.home-page .site-section.how-section .recovery-first-card > p,
+  body.home-page .site-section.how-section .warranty-step-card > p {
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
+  }
+}
+
+
+/* ArisuV103: reliable mobile spacing using a real text wrapper.
+   Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
+   Desktop keeps the existing grid placement via display: contents. */
+.step-card .step-copy { display: contents; }
+@media (max-width: 760px) {
+  body.home-page .site-section.how-section .step-card .step-copy {
+    grid-column: 3 !important;
+    grid-row: 1 / span 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    align-self: start !important;
+    min-width: 0 !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-copy h3,
+  body.home-page .site-section.how-section .step-card .step-copy > p,
+  body.home-page .site-section.how-section .step-card .step-copy .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .step-copy .warranty-promise {
+    position: static !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    align-self: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-copy h3 {
+    line-height: 1.24 !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-copy > p {
+    line-height: 1.38 !important;
+  }
+  body.home-page .site-section.how-section .step-card .step-copy .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .step-copy .warranty-promise {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }
