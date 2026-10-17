@@ -23,3 +23,9 @@ Example:
 The website is static and has no upload backend; redeploy after adding or
 changing files. Obtain permission, redact sensitive account/person details,
 and never imply that an example guarantees a similar recovery outcome.
+
+
+V63 maintenance: removed only five repeated global :root custom-property declarations whose values were identical to earlier declarations. Responsive rules and component-specific CSS were left unchanged.
+
+
+V65 maintenance note: Updated cache-busting version tokens across HTML/CSS asset references to ArisuV65. No styling rules or application logic were intentionally changed.
