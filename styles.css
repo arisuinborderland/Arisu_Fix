@@ -7626,7 +7626,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 
-/* ArisuV103: approved tighter mobile spacing inside the five process cards.
+/* ArisuV104: approved tighter mobile spacing inside the five process cards.
    Reduce the inner top/bottom padding and the title-to-description row gap.
    Desktop styling and the outer section layout remain unchanged. */
 @media (max-width: 760px) {
@@ -7666,7 +7666,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 
-/* ArisuV103: authoritative mobile compact spacing for account-assistance steps.
+/* ArisuV104: authoritative mobile compact spacing for account-assistance steps.
    Higher specificity intentionally overrides legacy home-page rules. */
 @media (max-width: 760px) {
   body.home-page .site-section.how-section .steps-grid {
@@ -7715,7 +7715,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 
-/* ArisuV103: compact, aligned mobile process cards.
+/* ArisuV104: compact, aligned mobile process cards.
    Tightens inner vertical rhythm and lets long headings wrap cleanly.
    Desktop layout and outer section/container dimensions are untouched. */
 @media (max-width: 760px) {
@@ -7859,7 +7859,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 
-/* ArisuV103: align process descriptions directly beneath their headings on mobile. */
+/* ArisuV104: align process descriptions directly beneath their headings on mobile. */
 @media (max-width: 760px) {
   body.home-page .site-section.how-section .step-card {
     grid-template-columns: 36px 34px minmax(0, 1fr) !important;
@@ -7916,7 +7916,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 
-/* ArisuV103: remove excess gap between process-card titles and descriptions on mobile.
+/* ArisuV104: remove excess gap between process-card titles and descriptions on mobile.
    Override legacy grid placement explicitly so descriptions follow titles immediately. */
 @media (max-width: 760px) {
   body.home-page .site-section.how-section .step-card {
@@ -7987,7 +7987,7 @@ body.home-page .terms-card .terms-security-copy p {
   }
 }
 
-/* ArisuV103: refined mobile title-to-description spacing across all five process cards. */
+/* ArisuV104: refined mobile title-to-description spacing across all five process cards. */
 @media (max-width: 760px) {
   body.home-page .site-section.how-section .step-card h3 {
     margin: 0 !important;
@@ -8012,7 +8012,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 
-/* ArisuV103: reliable mobile spacing using a real text wrapper.
+/* ArisuV104: reliable mobile spacing using a real text wrapper.
    Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
    Desktop keeps the existing grid placement via display: contents. */
 .step-card .step-copy { display: contents; }
@@ -8050,5 +8050,56 @@ body.home-page .terms-card .terms-security-copy p {
   body.home-page .site-section.how-section .step-card .step-copy .warranty-promise {
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+}
+
+
+/* ArisuV104: restore the desktop process-card text wrapper layout.
+   Keep icon + number columns unchanged; let the copy occupy the full third column. */
+@media (min-width: 761px) {
+  body.home-page .site-section.how-section .step-card .step-copy {
+    grid-column: 3 !important;
+    grid-row: 1 / span 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    align-self: start !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    gap: 7px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card .step-copy h3,
+  body.home-page .site-section.how-section .step-card .step-copy > p,
+  body.home-page .site-section.how-section .step-card .step-copy .recovery-payment-promise,
+  body.home-page .site-section.how-section .step-card .step-copy .warranty-promise {
+    position: static !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  body.home-page .site-section.how-section .step-card .step-copy h3 {
+    line-height: 1.25 !important;
+  }
+
+  body.home-page .site-section.how-section .step-card .step-copy > p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    color: #53627f !important;
   }
 }
