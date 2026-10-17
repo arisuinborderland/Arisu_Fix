@@ -1,16 +1,24 @@
-ARISU RECOVERY CONTACT — V62
+ARISU RECOVERY CONTACT — V72
 ============================
 
-STATIC WEBSITE FILES
+PROJECT OVERVIEW
+----------------
+A static, front-end website for Arisu Recovery Contact. It provides contact
+information, recovery-proof examples, customer-feedback imagery, a privacy
+policy, a Bible verse section, service-status information, and scroll-reveal
+animations. The website is independent and is not an official Meta, Facebook,
+or Instagram service. Recovery is not guaranteed.
+
+CORE PAGES AND FILES
 --------------------
-index.html       Main contact page
-proofs.html      Recovery Proofs page (albums, search and filters)
-reviews.html     Full Customer Reviews gallery
-privacy.html     Privacy Policy
-styles.css       Shared responsive styling
-script.js        Page interactions, proof gallery, Bible verse and service status
-scroll-reveal.js Scroll-up/down reveal animations for the homepage
-vercel.json      Security headers for Vercel deployment
+index.html        Main contact page
+proofs.html       Recovery Proofs gallery
+reviews.html      Customer Feedback / review gallery
+privacy.html      Privacy Policy
+styles.css        Shared styling and responsive layouts
+script.js         Page interactions and dynamic content
+scroll-reveal.js  Homepage scroll-reveal behavior
+vercel.json       Vercel response-header configuration
 
 IMAGES AND ICONS
 ----------------
@@ -18,65 +26,58 @@ arisu-profile.jpg                         Header/footer profile image
 bible-verse-hill.png                       Desktop Bible verse artwork
 bible-verse-hill-mobile.jpg                Mobile Bible verse artwork
 verse-mountains.svg                        Bible verse illustration
-social-preview.jpg                         Link-sharing preview used by Open Graph/Twitter metadata
+social-preview.jpg                         Social sharing preview
 facebook-page-preview.jpg                  Facebook preview image
 facebook-page-preview-desktop-clean.png    Desktop Facebook preview
-tiktok-profile-preview.jpg                TikTok preview image
-tiktok-profile-preview-desktop-clean.png  Desktop TikTok preview
-proofs/                                    Proof images and instructions
-reviews/                                   Review images and instructions
-favicon.ico, favicon-16.png, favicon-32.png, favicon-48.png, apple-touch-icon.png
+tiktok-profile-preview.jpg                 TikTok preview image
+tiktok-profile-preview-desktop-clean.png   Desktop TikTok preview
+proofs/                                    Proof images and folder guidance
+reviews/                                   Review images and folder guidance
+favicon files and apple-touch-icon.png     Browser and home-screen icons
 
 LOCAL TESTING
 -------------
-Open index.html in a browser or run a static local server from this folder.
-Test all four pages at phone and desktop widths. The project has no backend,
-package installation, or build step.
+Open index.html directly or serve this folder using a static local server.
+Check all four HTML pages at mobile and desktop widths. Verify links, contact
+actions, image loading, scroll-reveal behavior in both scroll directions, and
+that no horizontal overflow appears. A static source audit alone does not
+replace testing in an actual browser.
 
 DEPLOYMENT
 ----------
-Deploy this folder as the site root on Vercel or Netlify. The root folder
-contains the HTML pages and their assets; do not deploy a nested parent folder.
-After changes, keep cache-busting values in the HTML pages aligned (currently
-ArisuV69) so browsers fetch the latest CSS and JavaScript files.
+Deploy the contents of this folder as the site root on Vercel or another
+static host. Do not deploy a nested parent folder. After a code change, keep
+cache-busting values aligned across the HTML pages and referenced CSS/JS
+assets. Current cache-busting token: ArisuV72.
 
 UPDATE RECOVERY PROOFS
 ----------------------
-Place authorized proof images in proofs/ and update the recoveryProofs array
-near the top of the gallery logic in script.js. Use category "suspended" or
-"disabled", and provide title, image path, alt text, violation, and optional
-date. The gallery is static: redeploy after adding/changing an image.
+Only add proof images that you have permission to publish. Edit the
+recoveryProofs array in script.js and provide the category, title, image path,
+alt text, violation label, and optional date. Supported categories include
+"suspended" and "disabled". This is a static gallery; redeploy after changing
+images or content. Redact personal details that are not necessary to show.
 
-UPDATE CUSTOMER REVIEW IMAGES
------------------------------
-Replace reviews/review-slot-1.jpg or reviews/review-slot-2.jpg while keeping
-the same filename, or update the corresponding paths in index.html and
-reviews.html. review-slot-3.svg is the remaining editable placeholder.
-Reference images currently mention Pinoy Cyber Tech, not Arisu Recovery
-Service, and must not be described as Arisu testimonials. Only publish genuine
-customer feedback with permission.
+UPDATE CUSTOMER FEEDBACK IMAGES
+-------------------------------
+The gallery uses review-slot-1.jpg, review-slot-2.jpg, and review-slot-3.svg.
+Keep filenames unchanged when replacing images, or update their references in
+index.html and reviews.html. The supplied JPG reference screenshots mention
+Pinoy Cyber Tech rather than Arisu Recovery Service. Do not represent them as
+Arisu testimonials. Publish genuine customer feedback only with permission.
 
-SAFETY AND LIMITATIONS
-----------------------
-This is an independent information/contact website, not an official Meta,
-Facebook, or Instagram service. Recovery is not guaranteed. Never ask visitors
-to provide passwords, one-time codes, 2FA codes, backup codes, or recovery
-codes. Obtain permission and redact personal information before publishing
-proof screenshots. Image interaction deterrents cannot prevent screenshots or
-all forms of copying.
+SAFETY AND PRIVACY
+------------------
+Never ask visitors for passwords, one-time passwords, 2FA codes, backup codes,
+or recovery codes. Proof/review images may reveal profile names, photos,
+handles, email addresses, phone numbers, or other personal information. Obtain
+permission and redact/crop unnecessary identifying information before
+publication. Image interaction deterrents cannot prevent screenshots or all
+forms of copying.
 
-
-MAINTENANCE NOTE
-----------------
-CSS and JavaScript comments describe current component intent and responsive behavior. Historical version-specific comparisons were replaced with current maintenance descriptions where practical. No CSS declarations or JavaScript behavior were changed in this documentation cleanup.
-
-
-V63 maintenance: removed only five repeated global :root custom-property declarations whose values were identical to earlier declarations. Responsive rules and component-specific CSS were left unchanged.
-
-
-Version 68 maintenance note: gently tightened and lifted the service-status panel on mobile only; desktop styling and existing responsive overrides were preserved.
-
-Version 68: tightened mobile Service Status vertical spacing; desktop rules preserved.
-
-
-V69 maintenance: tightened mobile Scam Awareness Reminder card spacing and moved it slightly upward; desktop rules and content remain unchanged. Cache-busting references updated to ArisuV69.
+MAINTENANCE RECORD
+------------------
+V72: Updated the project documentation to reflect the current V72 package and
+removed outdated historical notes from the README files. Updated cache-busting
+references from ArisuV70 to ArisuV72. No layout, styling rules, page content,
+or application logic were intentionally changed in this documentation update.
