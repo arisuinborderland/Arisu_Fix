@@ -8288,3 +8288,11 @@ html body #daily-bible-verse.daily-verse-card {
   .social-collage > .tiktok-showcase .social-profile-preview .preview-desktop-clean,
   .social-collage > .facebook-showcase .social-profile-preview .preview-desktop-clean { display: none !important; }
 }
+
+/* V_185: increase the mobile Customer Feedback preview gap to 6px.
+   Desktop spacing, image height, and the View All Reviews button stay unchanged. */
+@media (max-width: 600px) {
+  .social-collage > .social-feedback-card .reviews-grid-featured {
+    margin-bottom: 6px !important;
+  }
+}
