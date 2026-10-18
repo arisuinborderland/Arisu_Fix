@@ -91,7 +91,7 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .header-meta .privacy-link{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;border:1px solid var(--line);border-radius:16px;background:#fff;color:#65738a;text-decoration:none;font-size:15px;font-weight:700;transition:background .15s,border-color .15s}
 .header-meta .privacy-link:hover{background:#f8faff;border-color:#c8d4e8;color:var(--blue)}
 
-@media(max-width:600px){.topbar{min-height:74px;height:auto;padding:10px 12px;gap:8px}.topbar .logo{width:43px;height:43px;border-radius:12px}.topbar .brand{gap:8px;min-width:0}.topbar .brand b{font-size:16px}.topbar .brand small{font-size:10px;margin-top:3px}.header-meta{gap:8px}.header-meta .privacy-link{min-height:38px;padding:0 10px;border-radius:10px;font-size:10px;white-space:nowrap}}
+@media(max-width:600px){.topbar{min-height:74px;height:auto;padding:10px 12px;gap:8px}.topbar .logo{width:43px;height:43px;border-radius:12px}.topbar .brand{gap:8px;min-width:0}.topbar .brand small{font-size:10px;margin-top:3px}.header-meta{gap:8px}.header-meta .privacy-link{min-height:38px;padding:0 10px;border-radius:10px;font-size:10px;white-space:nowrap}}
 @media(max-width:380px){.topbar{padding-left:9px;padding-right:9px}.topbar .brand{gap:6px}.topbar .logo{width:37px;height:37px}.topbar .brand b{font-size:14px}.topbar .brand small{font-size:9px}.header-meta{gap:6px}.header-meta .privacy-link{padding:0 7px;font-size:9px}}
 
 /* Enhanced TikTok showcase: clear profile destination, no fabricated video previews */
@@ -187,7 +187,7 @@ main{max-width:1040px;padding:30px 22px 72px}
 .about-card .independent-note{color:#31507e;background:#f0f4ff;border-radius:10px;padding:10px 12px;margin:8px 0 0}
 .terms-card{padding:25px 27px;border:1px solid #e0e7f1;border-radius:20px;background:#fff;box-shadow:0 8px 24px rgba(35,54,94,.04)}
 .terms-card h2{font-size:24px;margin:7px 0 11px}
-.terms-card p:last-child{margin-bottom:0}
+
 .floating-whatsapp{position:fixed;z-index:25;right:max(18px,calc((100vw - 1080px)/2));bottom:18px;display:flex;align-items:center;gap:9px;min-height:48px;padding:0 17px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:linear-gradient(135deg,#27d96b,#16a85b);color:#fff;text-decoration:none;font-size:12px;font-weight:800;box-shadow:0 10px 25px rgba(20,156,85,.26);transition:transform .16s ease,box-shadow .16s ease}
 .floating-whatsapp-icon{width:21px;height:21px;flex:0 0 21px;display:block}.floating-whatsapp>span:first-child{font-size:19px}.floating-whatsapp:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,156,85,.32)}.floating-whatsapp:focus-visible{outline:3px solid #8ddcad;outline-offset:3px}
 .site-footer{max-width:none;display:grid;grid-template-columns:auto minmax(150px,1fr) auto;align-items:center;gap:14px 25px;padding:25px max(22px,calc((100% - 1040px)/2));background:rgba(255,255,255,.96);border-top:1px solid #e3e9f2}
@@ -196,9 +196,9 @@ main{max-width:1040px;padding:30px 22px 72px}
 .footer-links{display:flex;gap:16px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.footer-links a{font-size:11px;font-weight:700;text-decoration:none;color:#65738a}.footer-links a:hover{color:var(--blue)}
 .footer-copyright{grid-column:1/-1;border-top:1px solid #edf0f5;padding-top:13px;font-size:10px;color:#8a95a6}
 @media(max-width:760px){
- html{scroll-padding-top:85px}main{padding:23px 15px 60px}.compact-intro h1{font-size:clamp(30px,7vw,42px)}.wizard-card.contact-only{padding:21px 17px;border-radius:20px}.steps-grid{grid-template-columns:1fr;gap:11px}.step-card{min-height:0;padding:19px 18px;display:grid;grid-template-columns:42px minmax(0,1fr);column-gap:14px;align-items:start}.step-symbol{grid-column:1;grid-row:1/3;margin:0}.step-card h3{grid-column:2;grid-row:1;margin:2px 25px 6px 0}.step-card p{grid-column:2;grid-row:2}.step-index{right:15px;top:13px}.site-section{margin-top:38px}.section-heading{margin-bottom:18px}.safety-panel{grid-template-columns:43px minmax(0,1fr);gap:13px;padding:20px 17px;border-radius:19px}.safety-panel-icon{width:42px;height:42px;border-radius:13px;font-size:22px}.about-card{grid-template-columns:60px minmax(0,1fr);gap:15px;padding:21px 17px;border-radius:20px}.about-card>img{width:60px;height:60px;border-radius:17px}.about-card h2{font-size:22px}.terms-card{padding:21px 18px}.site-footer{grid-template-columns:minmax(0,1fr) auto;gap:14px 10px;padding:22px 17px 20px}.footer-note{grid-column:1/-1;grid-row:2}.footer-links{grid-column:1/-1;grid-row:3;justify-content:flex-start;gap:17px}.footer-copyright{grid-row:4}.floating-whatsapp{bottom:12px;right:12px;min-height:45px;padding:0 14px}.site-section{scroll-margin-top:94px}
+ html{scroll-padding-top:85px}main{padding:23px 15px 60px}.compact-intro h1{font-size:clamp(30px,7vw,42px)}.wizard-card.contact-only{padding:21px 17px;border-radius:20px}.steps-grid{grid-template-columns:1fr;gap:11px}.step-card{min-height:0;padding:19px 18px;display:grid;grid-template-columns:42px minmax(0,1fr);column-gap:14px;align-items:start}.step-symbol{grid-column:1;grid-row:1/3;margin:0}.step-card h3{grid-column:2;grid-row:1;margin:2px 25px 6px 0}.step-card p{grid-column:2;grid-row:2}.step-index{right:15px;top:13px}.site-section{margin-top:38px}.section-heading{margin-bottom:18px}.safety-panel{grid-template-columns:43px minmax(0,1fr);gap:13px;padding:20px 17px;border-radius:19px}.safety-panel-icon{width:42px;height:42px;border-radius:13px;font-size:22px}.about-card{grid-template-columns:60px minmax(0,1fr);gap:15px;padding:21px 17px;border-radius:20px}.about-card>img{width:60px;height:60px;border-radius:17px}.about-card h2{font-size:22px}.site-footer{grid-template-columns:minmax(0,1fr) auto;gap:14px 10px;padding:22px 17px 20px}.footer-note{grid-column:1/-1;grid-row:2}.footer-links{grid-column:1/-1;grid-row:3;justify-content:flex-start;gap:17px}.footer-copyright{grid-row:4}.floating-whatsapp{bottom:12px;right:12px;min-height:45px;padding:0 14px}.site-section{scroll-margin-top:94px}
 }
-@media(max-width:420px){.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.topbar .logo{width:39px;height:39px}.topbar .brand b{font-size:14px}.topbar .brand small{font-size:9px}.header-meta{gap:6px}.header-meta .privacy-link{padding:0 8px;font-size:9px}.compact-intro .eyebrow{font-size:8px;letter-spacing:.65px;padding:7px 9px}.compact-intro h1{font-size:27px;letter-spacing:-1.1px}.compact-intro p{font-size:11px}.wizard-card.contact-only{padding:17px 13px}.tiktok-showcase,.facebook-showcase{padding:14px}.site-section{margin-top:31px}.section-heading h2{font-size:25px}.faq-list details{padding:0 14px}.faq-list summary{font-size:12px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{right:10px;bottom:10px;font-size:11px}.footer-links{gap:12px}.footer-links a{font-size:10px}}
+@media(max-width:420px){.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.topbar .logo{width:39px;height:39px}.topbar .brand small{font-size:9px}.header-meta{gap:6px}.header-meta .privacy-link{padding:0 8px;font-size:9px}.compact-intro .eyebrow{font-size:8px;letter-spacing:.65px;padding:7px 9px}.compact-intro h1{font-size:27px;letter-spacing:-1.1px}.compact-intro p{font-size:11px}.wizard-card.contact-only{padding:17px 13px}.tiktok-showcase,.facebook-showcase{padding:14px}.site-section{margin-top:31px}.section-heading h2{font-size:25px}.faq-list details{padding:0 14px}.faq-list summary{font-size:12px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{right:10px;bottom:10px;font-size:11px}.footer-links{gap:12px}.footer-links a{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 /* Premium Mobile Polish v2: readability, touch targets and calmer spacing */
@@ -1073,17 +1073,15 @@ main{padding-top:0}
   .social-collage .tiktok-showcase h3,
   .social-collage .facebook-showcase h3,
   .social-collage .recovery-proofs-showcase h3 { font-size: 14px; }
-  .social-collage .tiktok-profile-arrow,
-  .social-collage .facebook-profile-arrow,
-  .social-collage .recovery-proofs-arrow { font-size: 17px; }
+  
 
-  .social-collage .tiktok-authenticity-note { font-size: 10px; line-height: 1.4; padding: 7px; margin-bottom: 9px; }
+  
   .social-collage .tiktok-profile-button,
   .social-collage .facebook-profile-button,
   .social-collage .recovery-proofs-button { min-height: 37px; padding: 7px 6px; gap: 5px; font-size: 10px; line-height: 1.2; text-align: center; }
   .social-feedback-card { border-radius: 13px; }
 
-  .social-feedback-card .windows-feedback-content { padding: 9px; }
+  
 
   .social-feedback-card .view-reviews-button { min-height: 34px; font-size: 10px; padding: 6px 8px; }
   .social-feedback-card .reviews-grid { grid-auto-columns: 94%; gap: 7px; }
@@ -1095,9 +1093,7 @@ main{padding-top:0}
   .social-collage > .facebook-showcase,
   .social-collage > .recovery-proofs-showcase { padding: 9px; }
 
-  .social-collage .tiktok-showcase h3,
-  .social-collage .facebook-showcase h3,
-  .social-collage .recovery-proofs-showcase h3 { font-size: 12px; }
+  
 }
 
 /* Version 69: equal-height collage cards per row; place View All Reviews below the screenshots. */
@@ -1223,14 +1219,12 @@ main{padding-top:0}
 }
 @media (max-width: 360px) {
   .social-collage { gap: 7px; }
-  .social-collage > .tiktok-showcase,
-  .social-collage > .facebook-showcase,
-  .social-collage > .recovery-proofs-showcase { padding: 8px; }
+  
 
   .social-collage .tiktok-showcase h3,
   .social-collage .facebook-showcase h3,
   .social-collage .recovery-proofs-showcase h3 { font-size: 12px; }
-  .social-feedback-card .windows-feedback-content { padding: 7px; }
+  
   .social-feedback-card .review-proof-image { height: 54px; }
 }
 
@@ -1263,9 +1257,7 @@ main{padding-top:0}
 @media (max-width: 600px) {
   .social-collage { gap: 10px; }
 
-  .social-collage .tiktok-brand-icon,
-  .social-collage .facebook-brand-icon,
-  .social-collage .recovery-proofs-icon { width: 35px; height: 35px; flex-basis: 35px; }
+  
   .social-collage .tiktok-brand-icon svg,
   .social-collage .facebook-brand-icon svg,
   .social-collage .recovery-proofs-icon svg { width: 21px; height: 21px; }
@@ -1375,8 +1367,8 @@ main{padding-top:0}
 .social-feedback-card .review-proof-caption { display: none; }
 .social-feedback-card .social-feedback-view-all { margin-top: auto !important; }
 @media (max-width: 360px) {
-  .social-feedback-card .reviews-grid { gap: 4px; }
-  .social-feedback-card .review-proof-card { padding: 2px; }
+  
+  
 }
 
 /* Version 77: mobile-only natural image sizing for Customer Feedback previews.
@@ -2384,7 +2376,7 @@ summary:focus-visible {
  .whatsapp-feature-card .whatsapp-button{min-height:54px;padding:12px 10px;border-radius:13px;font-size:clamp(12px,3.4vw,15px);gap:8px}
  .whatsapp-feature-card .whatsapp-button .wa-icon,.whatsapp-feature-card .whatsapp-button .wa-icon svg{width:26px;height:26px;flex-basis:26px}
 }
-@media(max-width:360px){.whatsapp-feature-card{grid-template-columns:42px minmax(0,1fr);gap:11px;padding:12px 10px}.whatsapp-feature-icon{width:42px;height:42px}.whatsapp-feature-kicker{font-size:8px;letter-spacing:.7px}.whatsapp-recommended{font-size:7px;padding:5px 6px}.whatsapp-feature-content h2{font-size:18px}.whatsapp-feature-content p{font-size:11px}}
+@media(max-width:360px){.whatsapp-feature-card{grid-template-columns:42px minmax(0,1fr);gap:11px;padding:12px 10px}.whatsapp-feature-icon{width:42px;height:42px}.whatsapp-feature-kicker{font-size:8px;letter-spacing:.7px}.whatsapp-feature-content h2{font-size:18px}.whatsapp-feature-content p{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.whatsapp-feature-icon:after{animation:none!important}}
 
 /* pin the RECOMMENDED pill to the upper-right of the WhatsApp card. */
@@ -2511,7 +2503,7 @@ body.home-page .social-collage { grid-column: 1 / -1; }
   body.home-page .whatsapp-feature-content p { font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body.home-page .whatsapp-feature-icon:after { animation: none !important; }
+  
 }
 
 /* compact vertically stacked contact panels, matching the approved slim-card reference. */
@@ -2722,7 +2714,7 @@ body.home-page .whatsapp-feature-content p { margin-top: 0 !important; }
 
 }
 @media (prefers-reduced-motion: reduce) {
-  body.home-page .whatsapp-feature-icon:after { animation: none !important; }
+  
 }
 
 /* match the user's second reference image — icon beside content,
@@ -4447,7 +4439,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
   .how-section .step-card .step-symbol { width: 34px !important; height: 34px !important; border-radius: 10px !important; }
   .how-section .step-card .step-index { width: 32px !important; height: 32px !important; font-size: 11px !important; }
   .how-section .step-card h3 { font-size: 13.5px !important; }
-  .how-section .step-card > p { font-size: 12px !important; }
+  
   .how-section .step-card .recovery-payment-promise,
   .how-section .step-card .warranty-promise { font-size: 11px !important; }
 }
@@ -4500,7 +4492,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV224") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV228") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5121,7 +5113,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV224") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5131,7 +5123,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV224") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -7226,9 +7218,7 @@ body.home-page .terms-card .terms-security-copy p {
 /* authoritative mobile compact spacing for account-assistance steps.
  Higher specificity intentionally overrides legacy home-page rules. */
 @media (max-width: 760px) {
-  body.home-page .site-section.how-section .steps-grid {
-    gap: 7px !important;
-  }
+  
   body.home-page .site-section.how-section .step-card {
     padding: 8px 9px !important;
     row-gap: 1px !important;
@@ -7360,14 +7350,8 @@ body.home-page .terms-card .terms-security-copy p {
     white-space: normal !important;
     overflow-wrap: break-word !important;
   }
-  body.home-page .site-section.how-section .recovery-first-card,
-  body.home-page .site-section.how-section .warranty-step-card {
-    grid-template-rows: auto auto auto !important;
-  }
-  body.home-page .site-section.how-section .recovery-first-card h3,
-  body.home-page .site-section.how-section .warranty-step-card h3 {
-    grid-row: 1 !important;
-  }
+  
+  
   body.home-page .site-section.how-section .recovery-first-card .recovery-payment-promise,
   body.home-page .site-section.how-section .warranty-step-card .warranty-promise {
     grid-row: 2 !important;
@@ -7443,14 +7427,8 @@ body.home-page .terms-card .terms-security-copy p {
     margin: 4px 0 0 !important;
     align-self: start !important;
   }
-  body.home-page .site-section.how-section .recovery-first-card,
-  body.home-page .site-section.how-section .warranty-step-card {
-    grid-template-rows: auto auto auto !important;
-  }
-  body.home-page .site-section.how-section .recovery-first-card h3,
-  body.home-page .site-section.how-section .warranty-step-card h3 {
-    grid-row: 1 !important;
-  }
+  
+  
   body.home-page .site-section.how-section .recovery-first-card .recovery-payment-promise,
   body.home-page .site-section.how-section .warranty-step-card .warranty-promise {
     grid-row: 2 !important;
@@ -7464,10 +7442,7 @@ body.home-page .terms-card .terms-security-copy p {
   }
 }
 @media (max-width: 380px) {
-  body.home-page .site-section.how-section .step-card {
-    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
-    column-gap: 6px !important;
-  }
+  
 }
 
 /* remove excess gap between process-card titles and descriptions on mobile.
@@ -7817,7 +7792,7 @@ body.home-page .why-arisu-section .why-arisu-grid { gap: 7px !important; }
 body.home-page .why-arisu-section .why-arisu-item { padding: 9px 10px !important; }
 body.home-page .why-arisu-section .why-arisu-note { margin-top: 7px !important; padding: 8px 10px !important; }
 @media (max-width: 640px) {
-  body.home-page .why-arisu-section .why-arisu-card { padding-top: 0 !important; }
+  
   body.home-page .why-arisu-section .why-arisu-heading { margin-bottom: 8px !important; }
   body.home-page .why-arisu-section .why-history-card { padding: 10px 10px !important; margin-bottom: 8px !important; }
   body.home-page .why-arisu-section .why-history-divider { margin: 8px 0 !important; }
@@ -8365,20 +8340,10 @@ body.home-page .contact-divider {
   box-sizing: border-box !important;
 }
 @media (min-width: 601px) and (max-width: 1199px) {
-  .social-collage > .recovery-proofs-showcase,
-  .social-collage > .social-feedback-card {
-    height: 545.34px !important;
-    min-height: 545.34px !important;
-    max-height: 545.34px !important;
-  }
+  
 }
 @media (min-width: 1200px) {
-  .social-collage > .recovery-proofs-showcase,
-  .social-collage > .social-feedback-card {
-    height: 543.33px !important;
-    min-height: 543.33px !important;
-    max-height: 543.33px !important;
-  }
+  
 }
 @media (max-width: 600px) {
   .social-collage > .recovery-proofs-showcase,
@@ -8392,9 +8357,6 @@ body.home-page .contact-divider {
 
 /* final exact-height match for the Recovery Proofs and Customer Feedback outer cards.
  Customer Feedback is the reference. Internal previews flex to fit without changing card width. */
-.social-collage {
-  align-items: stretch !important;
-}
 .social-collage > .recovery-proofs-showcase,
 .social-collage > .social-feedback-card {
   align-self: stretch !important;
@@ -8570,7 +8532,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV224") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -8602,7 +8564,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV224") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
