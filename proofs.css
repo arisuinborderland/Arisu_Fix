@@ -44,11 +44,9 @@ main{max-width:1000px;padding:40px 20px 64px}
 .proof-album-suspended .proof-album-cover-shade{background:linear-gradient(180deg,rgba(129,30,52,.04),rgba(129,30,52,.58))}
 .proof-album-disabled .proof-album-cover-shade{background:linear-gradient(180deg,rgba(54,63,150,.04),rgba(54,63,150,.58))}
 .proof-album-count{position:absolute;right:13px;bottom:12px;padding:6px 10px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(255,255,255,.94);color:#263550;font-size:11px;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.proof-album-copy{display:flex;flex:1;flex-direction:column;padding:19px}.proof-album-copy p{flex:1}.proof-album-open{margin-top:auto}
+.proof-album-copy{display:flex;flex:1;flex-direction:column;padding:19px}.proof-album-copy p{flex:1;min-height:42px;margin:0 0 16px;color:#6b7890;font-size:13px;line-height:1.65}.proof-album-open{margin-top:auto;width:100%;min-height:43px;border:1px solid #d9e3fa;border-radius:12px;background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(49,95,225,.16)}
 .proof-album-eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:850;color:#61718d}
 .proof-album-copy h2{margin:7px 0 8px;color:#19243a;font:800 clamp(17px,2.4vw,22px)/1.25 Manrope,sans-serif;letter-spacing:-.5px}
-.proof-album-copy p{min-height:42px;margin:0 0 16px;color:#6b7890;font-size:13px;line-height:1.65}
-.proof-album-open{width:100%;min-height:43px;border:1px solid #d9e3fa;border-radius:12px;background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(49,95,225,.16)}
 .proof-album-open:disabled{opacity:.45;cursor:not-allowed}
 .proof-album-open:focus-visible{outline:3px solid rgba(49,95,225,.28);outline-offset:3px}
 @media(max-width:600px){.proof-album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.proof-album-cover{aspect-ratio:4/3}.proof-album-copy{padding:11px}.proof-album-copy h2{font-size:15px;margin:6px 0}.proof-album-copy p{min-height:0;margin-bottom:10px;font-size:11px;line-height:1.45}.proof-album-eyebrow{font-size:8px;letter-spacing:1px}.proof-album-open{min-height:38px;font-size:11px}.proof-album-count{right:7px;bottom:7px;padding:5px 8px;font-size:10px}}

@@ -4492,7 +4492,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV228") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV293") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5113,7 +5113,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV293") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5123,7 +5123,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV293") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -6909,7 +6909,7 @@ body.home-page .about-card .independent-note {
   display: inline-block;
   margin: 0 0 8px;
   color: #2469cf;
-  font: 800 10px/1.4 Manrope, Arial, sans-serif;
+  font: 800 13px/1.4 Manrope, Arial, sans-serif;
   letter-spacing: .16em;
   text-transform: uppercase;
 }
@@ -6971,7 +6971,7 @@ body.home-page .about-card .independent-note {
       radial-gradient(ellipse at 100% 3%, rgba(177, 153, 255, .14), transparent 38%),
       linear-gradient(135deg, #ffffff 0%, #f3f8ff 56%, #faf7ff 100%);
   }
-  .purpose-kicker { margin-bottom: 7px; font-size: 9px; letter-spacing: .14em; }
+  .purpose-kicker { margin-bottom: 7px; font-size: 12px; letter-spacing: .14em; }
   .purpose-card h2 { margin-bottom: 10px; font-size: clamp(21px, 5.5vw, 25px); line-height: 1.2; letter-spacing: -.45px; }
   .purpose-card > p { margin-bottom: 9px; font-size: 13px; line-height: 1.62; }
   .purpose-card > .purpose-mantra { margin-top: 11px; margin-bottom: 0; font-size: 12.5px; line-height: 1.55; }
@@ -8532,7 +8532,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV293") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -8564,7 +8564,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV228") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV293") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8667,9 +8667,7 @@ html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { 
  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation:none !important; }
 }
 
-/* restore the floating shortcut menu styling and hidden-state behavior.
- The previous build styled the orb/reminder but omitted the menu item rules,
- causing shortcut links/icons to render unstyled over page content. */
+/* Floating shortcut menu: single source of truth for panel spacing and card sizing. */
 html body.home-page .floating-menu {
   position: fixed !important;
   right: max(14px, env(safe-area-inset-right, 0px)) !important;
@@ -8689,13 +8687,14 @@ html body.home-page #floatingMenuItems[hidden] {
   pointer-events: none !important;
 }
 html body.home-page .floating-menu-items:not([hidden]) {
+  box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-end !important;
-  gap: 9px !important;
+  align-items: stretch !important;
+  gap: 5px !important;
   width: min(250px, calc(100vw - 32px)) !important;
   max-width: calc(100vw - 32px) !important;
-  padding: 12px !important;
+  padding: 4px !important;
   margin: 0 0 2px !important;
   border: 1px solid rgba(255,255,255,.86) !important;
   border-radius: 20px !important;
@@ -8709,10 +8708,12 @@ html body.home-page .floating-menu-item {
   box-sizing: border-box !important;
   display: flex !important;
   align-items: center !important;
-  gap: 11px !important;
-  width: 100% !important;
-  min-height: 46px !important;
-  padding: 8px 11px !important;
+  align-self: flex-start !important;
+  flex: 0 0 auto !important;
+  gap: 9px !important;
+  width: calc(100% - 50px) !important;
+  min-height: 40px !important;
+  padding: 5px 9px !important;
   border: 1px solid rgba(107,139,190,.14) !important;
   border-radius: 13px !important;
   background: rgba(255,255,255,.92) !important;
@@ -8761,12 +8762,239 @@ html body.home-page .floating-menu-item-icon.faq-shortcut { background: #e9efff 
 html body.home-page .floating-menu-reminder { font-size: 0 !important; line-height: 0 !important; }
 @media (max-width: 600px) {
   html body.home-page .floating-menu { right: max(12px, env(safe-area-inset-right, 0px)) !important; bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
-  html body.home-page .floating-menu-items:not([hidden]) { width: min(236px, calc(100vw - 28px)) !important; padding: 10px !important; border-radius: 17px !important; }
-  html body.home-page .floating-menu-item { min-height: 43px !important; font-size: 13px !important; }
+  html body.home-page .floating-menu-items:not([hidden]) { width: min(186px, calc(100vw - 78px)) !important; max-width: calc(100vw - 78px) !important; border-radius: 17px !important; }
+  html body.home-page .floating-menu-item { width: 100% !important; align-self: stretch !important; min-height: 38px !important; padding: 5px 9px !important; gap: 9px !important; font-size: 13px !important; }
 }
 
 
-/* V186: lift the WhatsApp card modestly while preserving a thin gap after the intro. */
+/* ArisuV237: add breathing room below the Terms & Limitations content on mobile. */
+@media (max-width: 760px) {
+  body.home-page main .terms-card {
+    padding-bottom: 24px !important;
+  }
+}
+
+/* ArisuV262: keep footer content in a single, readable mobile flow. */
+@media (max-width: 600px) {
+  body.home-page .site-footer {
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+  }
+  body.home-page .site-footer > .footer-brand { grid-column: 1 !important; grid-row: 1 !important; }
+  body.home-page .site-footer > .footer-note { grid-column: 1 !important; grid-row: 2 !important; }
+  body.home-page .site-footer > .footer-location { grid-column: 1 !important; grid-row: 3 !important; min-width: 0; }
+  body.home-page .site-footer > .footer-links { grid-column: 1 !important; grid-row: 4 !important; }
+  body.home-page .site-footer > .footer-copyright { grid-column: 1 !important; grid-row: 5 !important; }
+  body.home-page .footer-location-item { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+  body.home-page .footer-location-item svg { width: 16px; height: 16px; flex: 0 0 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+  body.home-page .footer-location { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+}
+
+/* ArisuV276 cleanup: removed obsolete mobile spacing declarations superseded below. */
+
+/* ArisuV276: soften outer-card outlines from About This Website through the final content cards. */
+@media (max-width: 600px) {
+  body.home-page .about-card,
+  body.home-page .why-arisu-section .why-arisu-card,
+  body.home-page .why-arisu-section .why-history-card,
+  body.home-page .why-arisu-section .why-arisu-item,
+  body.home-page .safety-panel,
+  body.home-page .terms-card {
+    border-width: 0.75px !important;
+    border-color: rgba(104, 132, 177, 0.22) !important;
+  }
+}
+
+
+/* ArisuV276: restore V228-style spacing rhythm below the How It Works section.
+   Spacing only: preserve current floating WhatsApp control and social-card sizing/layout. */
+html body.home-page main > section.site-section.about-section,
+html body.home-page main > section.site-section.purpose-section,
+html body.home-page main > section.site-section.safety-section,
+html body.home-page main > section.site-section.terms-section {
+  margin-block-start: 6px !important;
+  margin-block-end: 0 !important;
+}
+html body.home-page main > section.site-section.about-section + section.site-section.purpose-section,
+html body.home-page main > section.site-section.purpose-section + section.site-section.safety-section,
+html body.home-page main > section.site-section.safety-section + section.site-section.terms-section {
+  margin-block-start: 6px !important;
+}
+html body.home-page main .about-card {
+  padding-top: 8px !important;
+  padding-bottom: 2px !important;
+  row-gap: 8px !important;
+}
+html body.home-page main .purpose-card {
+  padding-top: 3px !important;
+  padding-bottom: 12px !important;
+  gap: 9px !important;
+}
+@media (max-width: 600px) {
+  html body.home-page main > section.site-section.about-section,
+  html body.home-page main > section.site-section.purpose-section,
+  html body.home-page main > section.site-section.safety-section,
+  html body.home-page main > section.site-section.terms-section {
+    margin-block-start: 4px !important;
+    margin-block-end: 0 !important;
+  }
+  html body.home-page main > section.site-section.about-section + section.site-section.purpose-section,
+  html body.home-page main > section.site-section.purpose-section + section.site-section.safety-section,
+  html body.home-page main > section.site-section.safety-section + section.site-section.terms-section {
+    margin-block-start: 4px !important;
+  }
+  html body.home-page main .about-card {
+    padding: 6px 15px 2px !important;
+    column-gap: 12px !important;
+  }
+  html body.home-page main .purpose-card {
+    padding: 2px 15px 12px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page main .about-card {
+    padding: 5px 13px 2px !important;
+    column-gap: 10px !important;
+  }
+  html body.home-page main .purpose-card {
+    padding: 1px 13px 12px !important;
+  }
+}
+
+
+/* ArisuV276: show a simple straight divider only, without a rounded panel effect. */
+.about-card p.about-description + p.independent-note {
+  margin-top: 12px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.about-card p.about-description + p.independent-note::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 0 0 10px;
+  background: rgba(49, 80, 126, 0.22);
+}
+
+
+/* ArisuV276: visible compact highlights for the About and Purpose section labels. */
+body.home-page .about-card .section-kicker,
+body.home-page .purpose-card .purpose-kicker {
+  display: inline-block !important;
+  width: fit-content !important;
+  padding: 5px 9px !important;
+  border-radius: 6px !important;
+  background: #e7efff !important;
+  color: #315cc5 !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 1.15px !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+body.home-page .about-card .section-kicker {
+  margin-bottom: 8px !important;
+}
+body.home-page .purpose-card .purpose-kicker {
+  margin-bottom: 10px !important;
+}
+
+
+/* ArisuV276: move the purpose text and creator divider slightly higher on mobile.
+   This final, high-specificity block intentionally overrides only the matching mobile margins. */
+@media (max-width: 600px) {
+  html body.home-page main .purpose-card h2 { margin-bottom: 6px !important; }
+  html body.home-page main .purpose-card > p:not(.purpose-mantra) { margin-bottom: 5px !important; }
+  html body.home-page main .purpose-card > .purpose-mantra { margin-top: 7px !important; }
+  html body.home-page main .purpose-card .purpose-signoff {
+    margin-top: 10px !important;
+    padding-top: 7px !important;
+  }
+}
+
+
+
+
+/* ArisuV281: definitive mobile card padding override. Keep this as the final CSS block
+   so earlier broad !important rules cannot restore the old 14px padding. */
+@media (max-width: 600px) {
+  html body.home-page main > section.site-section.safety-section .safety-panel {
+    padding-block: 8px !important;
+  }
+  html body.home-page main > section.site-section.terms-section .terms-card {
+    padding-block: 8px !important;
+  }
+}
+
+
+/* ArisuV281: bring the footer closer to the Legitimate Account Recovery card on mobile.
+   Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
+@media (max-width: 600px) {
+  html body.home-page main { padding-bottom: 8px !important; }
+  html body.home-page .site-footer { margin-top: 4px !important; }
+}
+
+
+/* ArisuV281: tighten the gap above the WhatsApp card and raise its inner kicker slightly. */
+@media (max-width: 600px) {
+  html body.home-page #contact .whatsapp-feature-card {
+    margin-top: 7px !important;
+    padding-top: 7px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-top {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  html body.home-page #contact .whatsapp-feature-kicker {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+
+/* ArisuV281: tighten the gap between the contact intro and WhatsApp card.
+   Keep the change mobile-only and override earlier spacing declarations. */
+@media (max-width: 600px) {
+  html body.home-page main > #contact.wizard-card.contact-only {
+    margin-top: 4px !important;
+    gap: 4px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card {
+    margin-top: 0 !important;
+    padding-top: 5px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-top,
+  html body.home-page #contact .whatsapp-feature-kicker {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+
+/* ArisuV283: preserve a thin visible gap after the intro and between the two cards.
+   Correct the previous negative margin that caused the WhatsApp card to overlap the subtitle. */
+@media (max-width: 600px) {
+  html body.home-page main > .compact-intro {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  html body.home-page main > #contact.wizard-card.contact-only {
+    margin-top: 4px !important;
+    gap: 4px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card {
+    margin-top: 0 !important;
+  }
+  html body.home-page #contact .service-status-panel {
+    margin-top: 4px !important;
+  }
+}
+
+
+/* ArisuV286: raise Service Status 4px closer to the WhatsApp card on mobile. */
 @media (max-width: 600px) {
   html body.home-page main > .compact-intro {
     margin-bottom: 0 !important;
@@ -8774,613 +9002,234 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
   }
   html body.home-page main > #contact.wizard-card.contact-only {
     margin-top: -4px !important;
+    gap: 4px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card {
+    margin-top: 0 !important;
+  }
+  html body.home-page #contact .service-status-panel {
+    margin-top: 0 !important;
   }
 }
 
 
-/* V187 — Clean & compact location card (no map; city/province only). */
-
-
-/* V188 — reduce excess space between the location card and footer.
-   Keep the location card itself and all preceding sections unchanged. */
-body.home-page .site-footer { margin-top: 6px !important; }
+/* ArisuV291: raise the full Please Read card content by another 2px on mobile. */
 @media (max-width: 600px) {
-  html body.home-page main { padding-bottom: 22px !important; }
-  body.home-page .site-footer { margin-top: 4px !important; }
+  html body.home-page main > section.site-section.terms-section > .terms-card {
+    padding-top: 2px !important;
+    padding-bottom: 8px !important;
+  }
 }
 
 
-/* V195: tighten About This Website copy and reduce the gap above its card. */
-@media (max-width: 600px) {
-  body.home-page .site-section.about-section {
-    margin-top: 8px !important;
-  }
-  body.home-page .about-card {
-    padding-top: 13px !important;
-    padding-bottom: 13px !important;
-  }
-  body.home-page .about-card h2.about-brand-title {
-    margin-top: 3px !important;
-    margin-bottom: 4px !important;
-    line-height: 1.22 !important;
-  }
-  body.home-page .about-card p {
-    margin: 4px 0 0 !important;
-    font-size: 14.5px !important;
-    line-height: 1.43 !important;
-  }
-  body.home-page .about-card .independent-note {
-    margin-top: 5px !important;
-    padding: 0 !important;
-    font-size: 14.5px !important;
-    line-height: 1.43 !important;
-  }
-}
+/* ArisuV291: repair desktop footer location icons and alignment.
+   The SVGs previously had no desktop size/stroke rules, so their paths rendered as huge black shapes. */
 @media (min-width: 601px) {
-  body.home-page .site-section.about-section { margin-top: 14px !important; }
-  body.home-page .about-card p { line-height: 1.5 !important; margin-bottom: 5px !important; }
-  body.home-page .about-card .independent-note { line-height: 1.48 !important; margin-top: 4px !important; }
+  body.home-page .site-footer > .footer-location {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px 8px !important;
+    min-width: 0 !important;
+    align-self: center !important;
+  }
+  body.home-page .site-footer .footer-location-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    white-space: nowrap;
+  }
+  body.home-page .site-footer .footer-location-item svg {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    max-width: 16px !important;
+    flex: 0 0 16px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.7 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  body.home-page .site-footer .footer-location-separator {
+    display: inline-block !important;
+    color: #7d899c !important;
+    line-height: 1 !important;
+  }
 }
 
 
-/* V196 — compact, raised content rhythm for all lower homepage cards.
-   Preserve card visuals, content, icons, and responsive layouts. */
-body.home-page .site-section.about-section,
-body.home-page .site-section.purpose-section,
-body.home-page .site-section.safety-section,
-body.home-page .site-section.terms-section { margin-top: 12px !important; }
-body.home-page .about-card,
-body.home-page .purpose-card,
-body.home-page .safety-panel,
-body.home-page .terms-card { padding-top: 13px !important; padding-bottom: 13px !important; }
-body.home-page .purpose-card .purpose-kicker { margin-bottom: 5px !important; }
-body.home-page .purpose-card h2 { margin-top: 3px !important; margin-bottom: 6px !important; line-height: 1.2 !important; }
-body.home-page .purpose-card > p { margin-top: 4px !important; margin-bottom: 6px !important; line-height: 1.48 !important; }
-body.home-page .purpose-card > .purpose-mantra { margin-top: 7px !important; margin-bottom: 0 !important; line-height: 1.45 !important; }
-body.home-page .purpose-signoff { margin-top: 10px !important; padding-top: 9px !important; }
-body.home-page .safety-panel { gap: 10px !important; }
-body.home-page .safety-panel h2 { margin-top: 0 !important; margin-bottom: 4px !important; padding-bottom: 4px !important; line-height: 1.22 !important; }
-body.home-page .safety-panel p { margin-top: 4px !important; margin-bottom: 0 !important; line-height: 1.48 !important; }
-body.home-page .safety-panel p:last-child { margin-top: 5px !important; }
-body.home-page .terms-card .section-kicker { line-height: 1.2 !important; }
-body.home-page .terms-card h2 { margin-top: 3px !important; margin-bottom: 5px !important; line-height: 1.2 !important; }
-body.home-page .terms-card .terms-intro { margin-top: 0 !important; margin-bottom: 8px !important; line-height: 1.48 !important; }
-body.home-page .terms-card .terms-security { margin-top: 0 !important; }
-body.home-page .terms-security-copy h3 { margin-top: 0 !important; margin-bottom: 4px !important; line-height: 1.25 !important; }
-body.home-page .terms-security-copy p { line-height: 1.45 !important; }
-@media (max-width: 600px) {
-  body.home-page .site-section.about-section,
-  body.home-page .site-section.purpose-section,
-  body.home-page .site-section.safety-section,
-  body.home-page .site-section.terms-section { margin-top: 9px !important; }
-  body.home-page .about-card,
-  body.home-page .purpose-card,
-  body.home-page .safety-panel,
-  body.home-page .terms-card { padding-top: 11px !important; padding-bottom: 11px !important; }
-  body.home-page .about-card h2.about-brand-title { margin-top: 2px !important; margin-bottom: 3px !important; }
-  body.home-page .purpose-card h2 { margin-bottom: 5px !important; }
-  body.home-page .purpose-card > p { margin-top: 3px !important; margin-bottom: 5px !important; line-height: 1.43 !important; }
-  body.home-page .purpose-card > .purpose-mantra { margin-top: 6px !important; }
-  body.home-page .purpose-signoff { margin-top: 8px !important; padding-top: 7px !important; }
-  body.home-page .safety-panel { gap: 8px !important; }
-  body.home-page .safety-panel h2 { margin-bottom: 3px !important; padding-bottom: 3px !important; font-size: clamp(16px, 4.3vw, 19px) !important; }
-  body.home-page .safety-panel p { margin-top: 3px !important; font-size: 13px !important; line-height: 1.43 !important; }
-  body.home-page .safety-panel p:last-child { margin-top: 4px !important; }
-  body.home-page .terms-card h2 { margin-top: 3px !important; margin-bottom: 4px !important; }
-  body.home-page .terms-card .terms-intro { margin-bottom: 7px !important; }
-  body.home-page .terms-security-copy h3 { font-size: 13px !important; line-height: 1.25 !important; }
-  body.home-page .terms-security-copy p { font-size: 11.5px !important; line-height: 1.42 !important; }
-}
+/* ArisuV293: desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
+   Desktop-only refinements preserve the mobile card stack and spacing. */
+@media (min-width: 900px) {
+  html body.home-page main {
+    max-width: 1320px !important;
+    padding-left: clamp(32px, 3.7vw, 48px) !important;
+    padding-right: clamp(32px, 3.7vw, 48px) !important;
+  }
 
-/* V198 — stronger compact spacing pass after visual review of V196.
-   Keep card borders, colors, typography scale, content, icons, and responsive structure intact. */
-body.home-page .site-section.about-section,
-body.home-page .site-section.purpose-section,
-body.home-page .site-section.safety-section,
-body.home-page .site-section.terms-section { margin-top: 8px !important; }
-body.home-page .about-card,
-body.home-page .purpose-card,
-body.home-page .safety-panel,
-body.home-page .terms-card { padding-top: 10px !important; padding-bottom: 10px !important; }
-body.home-page .about-card h2.about-brand-title { margin-top: 1px !important; margin-bottom: 3px !important; line-height: 1.18 !important; }
-body.home-page .about-card p { margin-top: 3px !important; margin-bottom: 3px !important; line-height: 1.38 !important; }
-body.home-page .about-card .independent-note { margin-top: 4px !important; line-height: 1.38 !important; }
-body.home-page .purpose-card .purpose-kicker { margin-bottom: 3px !important; }
-body.home-page .purpose-card h2 { margin-top: 1px !important; margin-bottom: 4px !important; line-height: 1.17 !important; }
-body.home-page .purpose-card > p { margin-top: 3px !important; margin-bottom: 4px !important; line-height: 1.4 !important; }
-body.home-page .purpose-card > .purpose-mantra { margin-top: 5px !important; line-height: 1.38 !important; }
-body.home-page .purpose-signoff { margin-top: 7px !important; padding-top: 6px !important; }
-body.home-page .safety-panel { gap: 7px !important; }
-body.home-page .safety-panel h2 { margin-bottom: 2px !important; padding-bottom: 3px !important; line-height: 1.18 !important; }
-body.home-page .safety-panel p { margin-top: 2px !important; line-height: 1.38 !important; }
-body.home-page .safety-panel p:last-child { margin-top: 3px !important; }
-body.home-page .terms-card h2 { margin-top: 2px !important; margin-bottom: 3px !important; line-height: 1.18 !important; }
-body.home-page .terms-card .terms-intro { margin-bottom: 5px !important; line-height: 1.4 !important; }
-body.home-page .terms-security-copy h3 { margin-bottom: 3px !important; line-height: 1.2 !important; }
-body.home-page .terms-security-copy p { line-height: 1.38 !important; }
-@media (max-width: 600px) {
-  body.home-page .site-section.about-section,
-  body.home-page .site-section.purpose-section,
-  body.home-page .site-section.safety-section,
-  body.home-page .site-section.terms-section { margin-top: 6px !important; }
-  body.home-page .about-card,
-  body.home-page .purpose-card,
-  body.home-page .safety-panel,
-  body.home-page .terms-card { padding-top: 8px !important; padding-bottom: 8px !important; }
-  body.home-page .about-card h2.about-brand-title { margin-top: 0 !important; margin-bottom: 2px !important; }
-  body.home-page .about-card p { margin-top: 2px !important; margin-bottom: 2px !important; font-size: 14.5px !important; line-height: 1.34 !important; }
-  body.home-page .about-card .independent-note { margin-top: 3px !important; font-size: 14.5px !important; line-height: 1.34 !important; }
-  body.home-page .purpose-card h2 { margin-bottom: 3px !important; }
-  body.home-page .purpose-card > p { margin-top: 2px !important; margin-bottom: 3px !important; line-height: 1.35 !important; }
-  body.home-page .purpose-card > .purpose-mantra { margin-top: 4px !important; }
-  body.home-page .purpose-signoff { margin-top: 6px !important; padding-top: 5px !important; }
-  body.home-page .safety-panel { gap: 6px !important; }
-  body.home-page .safety-panel h2 { margin-bottom: 2px !important; padding-bottom: 2px !important; }
-  body.home-page .safety-panel p { margin-top: 2px !important; font-size: 13px !important; line-height: 1.35 !important; }
-  body.home-page .safety-panel p:last-child { margin-top: 3px !important; }
-  body.home-page .terms-card h2 { margin-bottom: 3px !important; }
-  body.home-page .terms-card .terms-intro { margin-bottom: 5px !important; line-height: 1.35 !important; }
-  body.home-page .terms-security-copy h3 { font-size: 13px !important; line-height: 1.2 !important; }
-  body.home-page .terms-security-copy p { font-size: 11.5px !important; line-height: 1.34 !important; }
-}
+  /* The reference shows the availability panel spanning the full main content width. */
+  html body.home-page main > #contact.wizard-card.contact-only {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
 
+  html body.home-page #contact .whatsapp-feature-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
 
-/* V198 — tighter, consistent vertical rhythm based on the approved compact mobile reference.
-   Applies from the process cards through every lower homepage card; preserves content, color,
-   borders, icon sizing, and responsive layout. */
-body.home-page .site-section.how-section,
-body.home-page .site-section.about-section,
-body.home-page .site-section.purpose-section,
-body.home-page .site-section.safety-section,
-body.home-page .site-section.terms-section {
-  margin-top: 5px !important;
-  margin-bottom: 5px !important;
-}
-body.home-page .site-section.how-section .steps-grid { gap: 6px !important; }
-body.home-page .site-section.how-section .step-card {
-  padding-top: 7px !important;
-  padding-bottom: 7px !important;
-}
-body.home-page .site-section.how-section .step-copy { gap: 4px !important; }
-body.home-page .site-section.how-section .step-copy h3 {
-  margin-top: 0 !important;
-  margin-bottom: 2px !important;
-  line-height: 1.18 !important;
-}
-body.home-page .site-section.how-section .step-copy > p {
-  margin-top: 2px !important;
-  margin-bottom: 0 !important;
-  line-height: 1.32 !important;
-}
-body.home-page .site-section.how-section .recovery-payment-promise,
-body.home-page .site-section.how-section .warranty-promise {
-  margin-top: 2px !important;
-  margin-bottom: 2px !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-}
-body.home-page .about-card,
-body.home-page .purpose-card,
-body.home-page .safety-panel,
-body.home-page .terms-card {
-  padding-top: 7px !important;
-  padding-bottom: 7px !important;
-}
-body.home-page .about-card { gap: 8px !important; }
-body.home-page .about-card .section-kicker { margin-bottom: 2px !important; line-height: 1.15 !important; }
-body.home-page .about-card h2.about-brand-title {
-  margin-top: 0 !important;
-  margin-bottom: 3px !important;
-  padding-bottom: 3px !important;
-  line-height: 1.14 !important;
-}
-body.home-page .about-card p,
-body.home-page .about-card .independent-note {
-  margin-top: 2px !important;
-  margin-bottom: 2px !important;
-  line-height: 1.29 !important;
-}
-body.home-page .purpose-card { gap: 3px !important; }
-body.home-page .purpose-card .purpose-kicker { margin-bottom: 1px !important; line-height: 1.15 !important; }
-body.home-page .purpose-card h2 {
-  margin-top: 0 !important;
-  margin-bottom: 3px !important;
-  padding-bottom: 3px !important;
-  line-height: 1.14 !important;
-}
-body.home-page .purpose-card > p {
-  margin-top: 2px !important;
-  margin-bottom: 3px !important;
-  line-height: 1.3 !important;
-}
-body.home-page .purpose-card > .purpose-mantra { margin-top: 3px !important; line-height: 1.28 !important; }
-body.home-page .purpose-signoff { margin-top: 4px !important; padding-top: 4px !important; }
-body.home-page .purpose-signoff-label,
-body.home-page .purpose-creator-role { line-height: 1.2 !important; }
-body.home-page .purpose-creator-name { margin-top: 1px !important; margin-bottom: 1px !important; line-height: 1.1 !important; }
-body.home-page .safety-panel { gap: 5px !important; }
-body.home-page .safety-panel h2 {
-  margin-top: 0 !important;
-  margin-bottom: 2px !important;
-  padding-bottom: 3px !important;
-  line-height: 1.15 !important;
-}
-body.home-page .safety-panel p { margin-top: 2px !important; margin-bottom: 0 !important; line-height: 1.3 !important; }
-body.home-page .safety-panel p:last-child { margin-top: 2px !important; }
-body.home-page .terms-card .section-kicker { margin-bottom: 1px !important; line-height: 1.15 !important; }
-body.home-page .terms-card h2 {
-  margin-top: 1px !important;
-  margin-bottom: 3px !important;
-  padding-bottom: 3px !important;
-  line-height: 1.15 !important;
-}
-body.home-page .terms-card .terms-intro { margin-top: 2px !important; margin-bottom: 4px !important; line-height: 1.3 !important; }
-body.home-page .terms-security { gap: 7px !important; padding-top: 6px !important; padding-bottom: 6px !important; }
-body.home-page .terms-security-copy h3 { margin-top: 0 !important; margin-bottom: 2px !important; line-height: 1.16 !important; }
-body.home-page .terms-security-copy p { margin-top: 1px !important; margin-bottom: 0 !important; line-height: 1.28 !important; }
-@media (max-width: 600px) {
-  body.home-page .site-section.how-section,
-  body.home-page .site-section.about-section,
-  body.home-page .site-section.purpose-section,
-  body.home-page .site-section.safety-section,
-  body.home-page .site-section.terms-section { margin-top: 4px !important; margin-bottom: 4px !important; }
-  body.home-page .site-section.how-section .steps-grid { gap: 5px !important; }
-  body.home-page .site-section.how-section .step-card { padding-top: 6px !important; padding-bottom: 6px !important; }
-  body.home-page .site-section.how-section .step-copy > p { line-height: 1.28 !important; }
-  body.home-page .site-section.how-section .recovery-payment-promise,
-  body.home-page .site-section.how-section .warranty-promise { padding-top: 4px !important; padding-bottom: 4px !important; }
-  body.home-page .about-card,
-  body.home-page .purpose-card,
-  body.home-page .safety-panel,
-  body.home-page .terms-card { padding-top: 6px !important; padding-bottom: 6px !important; }
-  body.home-page .about-card p,
-  body.home-page .about-card .independent-note { line-height: 1.27 !important; }
-  body.home-page .purpose-card > p { line-height: 1.27 !important; }
-  body.home-page .safety-panel p { line-height: 1.26 !important; }
-  body.home-page .terms-card .terms-intro,
-  body.home-page .terms-security-copy p { line-height: 1.26 !important; }
-  body.home-page .terms-security { padding-top: 5px !important; padding-bottom: 5px !important; }
-}
+  html body.home-page #contact .service-status-panel {
+    /* Match the WhatsApp card's exact desktop content width. */
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr) !important;
+    gap: 14px !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
 
+  html body.home-page #contact .service-status-main {
+    min-width: 0 !important;
+    padding: 3px 7px !important;
+  }
 
-/* V199 FINAL OVERRIDE — verified last in stylesheet to defeat older spacing rules.
-   Compact vertical rhythm for all homepage sections below the main process cards. */
-body.home-page main > .site-section.about-section,
-body.home-page main > .site-section.purpose-section,
-body.home-page main > .site-section.safety-section,
-body.home-page main > .site-section.terms-section,
-body.home-page main > .site-section.how-section {
-  margin-top: 3px !important;
-  margin-bottom: 3px !important;
-}
-body.home-page main .about-card,
-body.home-page main .purpose-card,
-body.home-page main .safety-panel,
-body.home-page main .terms-card {
-  padding-top: 3px !important;
-  padding-bottom: 3px !important;
-}
-body.home-page main .about-card { row-gap: 4px !important; }
-body.home-page main .about-card .section-kicker,
-body.home-page main .purpose-card .purpose-kicker,
-body.home-page main .terms-card .section-kicker {
-  margin-top: 0 !important;
-  margin-bottom: 1px !important;
-  line-height: 1.1 !important;
-}
-body.home-page main .about-card h2.about-brand-title,
-body.home-page main .purpose-card h2,
-body.home-page main .terms-card h2,
-body.home-page main .safety-panel h2 {
-  margin-top: 0 !important;
-  margin-bottom: 2px !important;
-  padding-bottom: 2px !important;
-  line-height: 1.12 !important;
-}
-body.home-page main .about-card p,
-body.home-page main .about-card .independent-note,
-body.home-page main .purpose-card > p,
-body.home-page main .safety-panel p,
-body.home-page main .terms-card .terms-intro,
-body.home-page main .terms-security-copy p {
-  margin-top: 1px !important;
-  margin-bottom: 2px !important;
-  line-height: 1.23 !important;
-}
-body.home-page main .purpose-card { gap: 2px !important; }
-body.home-page main .purpose-card > .purpose-mantra { margin-top: 2px !important; }
-body.home-page main .purpose-signoff { margin-top: 3px !important; padding-top: 3px !important; }
-body.home-page main .safety-panel { gap: 4px !important; }
-body.home-page main .safety-panel p:last-child { margin-top: 1px !important; }
-body.home-page main .terms-security { gap: 5px !important; padding-top: 4px !important; padding-bottom: 4px !important; }
-body.home-page main .terms-security-copy h3 { margin-top: 0 !important; margin-bottom: 1px !important; line-height: 1.12 !important; }
-body.home-page main .site-section.how-section .steps-grid { gap: 4px !important; }
-body.home-page main .site-section.how-section .step-card { padding-top: 4px !important; padding-bottom: 4px !important; }
-body.home-page main .site-section.how-section .step-copy { gap: 2px !important; }
-body.home-page main .site-section.how-section .step-copy h3 { margin-top: 0 !important; margin-bottom: 1px !important; line-height: 1.12 !important; }
-body.home-page main .site-section.how-section .step-copy > p { margin-top: 1px !important; margin-bottom: 0 !important; line-height: 1.23 !important; }
-body.home-page main .site-section.how-section .recovery-payment-promise,
-body.home-page main .site-section.how-section .warranty-promise { margin-top: 1px !important; margin-bottom: 1px !important; padding-top: 3px !important; padding-bottom: 3px !important; }
-@media (max-width: 600px) {
-  body.home-page main > .site-section.about-section,
-  body.home-page main > .site-section.purpose-section,
-  body.home-page main > .site-section.safety-section,
-  body.home-page main > .site-section.terms-section,
-  body.home-page main > .site-section.how-section { margin-top: 2px !important; margin-bottom: 2px !important; }
-  body.home-page main .about-card,
-  body.home-page main .purpose-card,
-  body.home-page main .safety-panel,
-  body.home-page main .terms-card { padding-top: 2px !important; padding-bottom: 2px !important; }
-  body.home-page main .about-card p,
-  body.home-page main .about-card .independent-note,
-  body.home-page main .purpose-card > p,
-  body.home-page main .safety-panel p,
-  body.home-page main .terms-card .terms-intro,
-  body.home-page main .terms-security-copy p { line-height: 1.2 !important; }
-  body.home-page main .terms-security { padding-top: 3px !important; padding-bottom: 3px !important; }
-}
+  html body.home-page #contact .service-status-details {
+    min-width: 0 !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
 
+  html body.home-page .desktop-social-destination {
+    /* Keep the social/reminder section aligned to the same content rails as WhatsApp. */
+    width: 100% !important;
+    max-width: none !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 
-/* Previous spacing pass — restore balanced spacing and fine divider lines in the two story cards.
-   Scoped only to About This Website and Why I Built This Site; all other layouts remain unchanged. */
-body.home-page main > .site-section.about-section { margin-top: 10px !important; margin-bottom: 10px !important; }
-body.home-page main > .site-section.purpose-section { margin-top: 10px !important; margin-bottom: 10px !important; }
-body.home-page main .about-card {
-  padding: 17px 16px 17px !important;
-  column-gap: 13px !important;
-  row-gap: 8px !important;
-  align-items: start !important;
-}
-body.home-page main .about-card > div { min-width: 0; }
-body.home-page main .about-card .section-kicker {
-  display: inline-block; margin: 0 0 5px !important; line-height: 1.3 !important;
-}
-body.home-page main .about-card h2.about-brand-title {
-  margin: 0 0 8px !important; padding: 0 0 7px !important;
-  border-bottom: 1px solid rgba(105, 133, 183, .30) !important;
-  line-height: 1.2 !important;
-}
-body.home-page main .about-card p,
-body.home-page main .about-card .independent-note {
-  margin: 0 0 8px !important; line-height: 1.48 !important;
-}
-body.home-page main .about-card .independent-note { margin-bottom: 0 !important; }
-body.home-page main .purpose-card {
-  padding: 18px 16px 17px !important; gap: 7px !important;
-}
-body.home-page main .purpose-card .purpose-kicker {
-  display: inline-block; margin: 0 0 3px !important; line-height: 1.35 !important;
-}
-body.home-page main .purpose-card h2 {
-  margin: 0 0 7px !important; padding: 0 0 8px !important;
-  border-bottom: 1px solid rgba(105, 133, 183, .30) !important;
-  line-height: 1.2 !important;
-}
-body.home-page main .purpose-card > p {
-  margin: 0 0 8px !important; line-height: 1.48 !important;
-}
-body.home-page main .purpose-card > .purpose-mantra {
-  margin: 2px 0 0 !important; padding-bottom: 2px; line-height: 1.45 !important;
-}
-body.home-page main .purpose-signoff {
-  margin: 5px 0 0 !important; padding-top: 9px !important; gap: 3px !important;
-  border-top: 1px solid rgba(105, 133, 183, .30) !important;
-}
-@media (min-width: 761px) {
-  body.home-page main .about-card { padding: 22px 22px 20px !important; column-gap: 18px !important; }
-  body.home-page main .purpose-card { padding: 22px 22px 20px !important; }
-}
-@media (max-width: 380px) {
-  body.home-page main .about-card { padding: 14px 12px 15px !important; column-gap: 10px !important; }
-  body.home-page main .purpose-card { padding: 15px 13px 15px !important; }
-  body.home-page main .about-card p, body.home-page main .about-card .independent-note,
-  body.home-page main .purpose-card > p { line-height: 1.44 !important; }
-}
+  /* Center the reminder card at the reference width, with its thin content spacing. */
+  html body.home-page .desktop-social-destination > .scam-awareness-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 12px 0 8px !important;
+    padding: 15px 18px !important;
+    gap: 13px !important;
+    border-radius: 18px !important;
+  }
 
+  html body.home-page .desktop-social-destination > .contact-divider {
+    width: 100% !important;
+    margin: 0 auto 10px !important;
+  }
 
-/* V221 — consolidated About / Why I Built This Site styles.
-   Keeps V220's final computed spacing at desktop, mobile, and narrow-mobile widths
-   while removing the superseded V207/V219 override chain. */
-html body.home-page main > section.site-section.about-section,
-html body.home-page main > section.site-section.purpose-section {
-  margin-top: 6px !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-html body.home-page main .about-card {
-  padding: 8px 17px 2px !important;
-  column-gap: 14px !important;
-  row-gap: 8px !important;
-  align-items: start !important;
-}
-html body.home-page main .about-card > div {
-  min-width: 0;
-  transform: translateY(-7px) !important;
-}
-html body.home-page main .about-card .section-kicker {
-  display: inline-block !important;
-  margin: 0 0 6px !important;
-  line-height: 1.35 !important;
-}
-html body.home-page main .about-card h2.about-brand-title {
-  margin: 0 0 9px !important;
-  padding: 0 0 8px !important;
-  border-bottom: 1px solid rgba(105, 133, 183, .30) !important;
-  line-height: 1.22 !important;
-}
-html body.home-page main .about-card p.about-description {
-  margin: 0 0 12px !important;
-  padding: 0 0 12px !important;
-  border-bottom: 1px solid rgba(105, 133, 183, .30) !important;
-  line-height: 1.5 !important;
-}
-html body.home-page main .about-card .independent-note {
-  margin: 0 !important;
-  line-height: 1.5 !important;
-}
-html body.home-page main .purpose-card {
-  padding: 3px 17px 12px !important;
-  gap: 9px !important;
-}
-html body.home-page main .purpose-card .purpose-kicker {
-  margin: 0 0 4px !important;
-  line-height: 1.4 !important;
-  font-size: 1.04em !important;
-}
-html body.home-page main .purpose-card h2 {
-  margin: 0 0 9px !important;
-  padding: 0 0 9px !important;
-  border-bottom: 1px solid rgba(105, 133, 183, .30) !important;
-  line-height: 1.23 !important;
-}
-html body.home-page main .purpose-card > p {
-  margin: 0 0 11px !important;
-  line-height: 1.5 !important;
-}
-html body.home-page main .purpose-card > .purpose-mantra {
-  margin: 2px 0 0 !important;
-  padding-bottom: 3px !important;
-  line-height: 1.48 !important;
-}
-html body.home-page main .purpose-card .purpose-signoff {
-  margin: 5px 0 0 !important;
-  padding-top: 10px !important;
-  gap: 4px !important;
-  border-top: 1px solid rgba(105, 133, 183, .30) !important;
-}
-html body.home-page main > section.site-section.how-section {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-html body.home-page main > section.site-section.how-section > .steps-grid {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-@media (min-width: 761px) {
-  html body.home-page main .about-card { padding-left: 23px !important; padding-right: 23px !important; column-gap: 18px !important; }
-  html body.home-page main .purpose-card { padding-left: 23px !important; padding-right: 23px !important; }
-}
-@media (max-width: 600px) {
-  html body.home-page main > section.site-section.about-section,
-  html body.home-page main > section.site-section.purpose-section { margin-top: 4px !important; }
-  html body.home-page main .about-card { padding: 6px 15px 2px !important; column-gap: 12px !important; }
-  html body.home-page main .about-card > div { transform: translateY(-7px) !important; }
-  html body.home-page main .purpose-card { padding: 2px 15px 12px !important; }
-  html body.home-page main .about-card p.about-description,
-  html body.home-page main .about-card .independent-note,
-  html body.home-page main .purpose-card > p { line-height: 1.48 !important; }
-}
-@media (max-width: 380px) {
-  html body.home-page main .about-card { padding: 5px 13px 2px !important; column-gap: 10px !important; }
-  html body.home-page main .about-card > div { transform: translateY(-8px) !important; }
-  html body.home-page main .purpose-card { padding: 1px 13px 12px !important; }
-}
-
-
-/* V220 — consolidated footer location and responsive footer layout.
-   Replaces the old standalone Location card styles, which no longer have matching HTML. */
-html body.home-page .site-footer .footer-location {
-  position: relative;
-  display: flex;
-  grid-column: 1 / -1;
-  width: 100%;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 8px 13px;
-  margin: 2px 0 5px;
-  padding: 8px 10px;
-  border-left: 3px solid #3478ed;
-  border-radius: 0 9px 9px 0;
-  background: linear-gradient(90deg, rgba(52,120,237,.09), rgba(52,120,237,.025));
-  color: #34445f;
-  font-size: 14px;
-  font-weight: 650;
-  line-height: 1.45;
-}
-html body.home-page .site-footer .footer-location-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-  color: #34445f;
-  font-weight: 650;
-}
-html body.home-page .site-footer .footer-location-item svg {
-  display: block;
-  flex: 0 0 17px;
-  width: 17px;
-  height: 17px;
-  fill: none;
-  stroke: #2168dc;
-  stroke-width: 2.1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-html body.home-page .site-footer .footer-location-separator {
-  color: #6d91d2;
-  font-weight: 800;
-}
-@media (max-width: 600px) {
+  /* Match the compact three-column desktop footer reference; links/copyright use lower rows. */
   html body.home-page .site-footer {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: start;
-    row-gap: 10px;
+    width: 100% !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: minmax(180px, 0.9fr) minmax(260px, 1.1fr) minmax(280px, 1.4fr) !important;
+    grid-template-rows: auto auto auto !important;
+    align-items: center !important;
+    column-gap: 25px !important;
+    row-gap: 14px !important;
+    padding: 28px clamp(32px, 4.4vw, 52px) 22px !important;
   }
-  html body.home-page .site-footer .footer-brand { grid-column: 1; grid-row: 1; min-width: 0; }
-  html body.home-page .site-footer .footer-location {
-    grid-column: 1;
-    grid-row: 2;
-    min-width: 0;
-    gap: 7px 11px;
-    margin: 2px 0 5px;
-    padding: 9px 10px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  html body.home-page .site-footer .footer-location-item { gap: 5px; }
-  html body.home-page .site-footer .footer-location-item svg { flex-basis: 17px; width: 17px; height: 17px; }
-  html body.home-page .site-footer .footer-note { grid-column: 1; grid-row: 3; min-width: 0; margin: 0; }
-  html body.home-page .site-footer .footer-links { grid-column: 1; grid-row: 4; min-width: 0; }
-  html body.home-page .site-footer .footer-copyright { grid-column: 1; grid-row: 5; }
-}
 
+  html body.home-page .site-footer > .footer-brand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+  }
 
-/* ArisuV223 — reduce the floating quick-access footprint on narrow screens.
-   Keep desktop placement unchanged; on phones use a compact circular control so
-   the Service Status benefit row remains readable behind less of the viewport. */
-@media (max-width: 600px) {
-  html body.home-page #floatingWhatsApp {
-    box-sizing: border-box;
-    width: 46px;
-    min-width: 46px;
-    height: 46px;
-    min-height: 46px;
-    padding: 0;
-    gap: 0;
-    justify-content: center;
-    right: max(10px, env(safe-area-inset-right));
-    bottom: max(10px, env(safe-area-inset-bottom));
-    border-radius: 50%;
+  html body.home-page .site-footer > .footer-note {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-self: center !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
   }
-  html body.home-page #floatingWhatsApp .floating-whatsapp-icon {
-    width: 35px;
-    height: 35px;
-    flex: 0 0 35px;
+
+  html body.home-page .site-footer > .footer-location {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px 8px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-self: center !important;
   }
-  html body.home-page #floatingWhatsApp .floating-menu-close-icon {
-    display: none;
+
+  html body.home-page .site-footer .footer-location-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
   }
-  html body.home-page #floatingMenu[data-state="open"] #floatingWhatsApp .floating-whatsapp-icon {
-    opacity: .18;
+
+  html body.home-page .site-footer .footer-location-item svg {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    max-width: 16px !important;
+    flex: 0 0 16px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.7 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
   }
-  html body.home-page #floatingMenu[data-state="open"] #floatingWhatsApp .floating-menu-close-icon {
-    display: block;
-    position: absolute;
-    font-size: 25px;
-    line-height: 1;
+
+  html body.home-page .site-footer .footer-location-separator {
+    display: inline-block !important;
+    line-height: 1 !important;
+    color: #7d899c !important;
+  }
+
+  html body.home-page .site-footer > .footer-links {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page .site-footer > .footer-copyright {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: min(100%, 1040px) !important;
+    margin: 0 !important;
+    padding-top: 13px !important;
+    border-top: 1px solid #edf0f5 !important;
   }
 }
