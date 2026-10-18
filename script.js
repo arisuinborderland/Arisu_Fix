@@ -561,7 +561,7 @@ renderRecoveryProofs();
 })();
 
 
-// ArisuV176: CSS-driven continuous expanding ring; no JS class/timer dependency.
+// ArisuV222: CSS-driven continuous expanding ring; no JS class/timer dependency.
 (function initArisuFloatingMenu(){
  const menu=document.getElementById('floatingMenu');
  const toggle=document.getElementById('floatingWhatsApp');
