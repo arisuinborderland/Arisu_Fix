@@ -1,3 +1,5 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV294
+Version: ArisuV302
 Updated: 2026-10-18
+
+

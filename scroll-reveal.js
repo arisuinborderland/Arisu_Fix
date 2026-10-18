@@ -24,7 +24,7 @@
       ".why-arisu-section .why-history-card",
       ".why-arisu-section .why-arisu-grid > .why-arisu-item",
       ".why-arisu-section .why-arisu-note",
-      ".how-section > .section-heading",
+      ".why-arisu-section > .why-arisu-card > .process-heading-band",
       ".how-section .steps-grid > .step-card",
       ".about-section > .about-card",
       ".purpose-section > .purpose-card",
