@@ -1,9 +1,10 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV311
+Version: ArisuV320
 Updated: 2026-10-18
 
-V311: Strengthened Service Status pulse visibility with an expanding ring; the ring follows green Online and red Offline states and respects reduced-motion settings.
-Updated: 2026-10-18
+V319: Raised the header Privacy Policy button by 2px using a scoped transform; other header elements are unchanged.
+
+V318: Increased the “A CLEAR PROCESS” heading font size by 2px on mobile only; desktop sizing unchanged.
 
 PROJECT OVERVIEW
 Arisu Recovery Contact (branded on the site as Arisu Fix | Recovery Contact & Assistance) is a static, responsive website that presents account-recovery assistance information, official contact routes, safety guidance, customer feedback, and supporting site pages.
@@ -40,7 +41,7 @@ IMPORTANT PROJECT FILES
 
 BUILD AND DEPLOYMENT
 Requirements: Node.js 18 or newer.
-1. Extract the ZIP and open a terminal in the ArisuV311 project folder.
+1. Extract the ZIP and open a terminal in the ArisuV320 project folder.
 2. Run: npm run build
 3. The build output is generated in dist/.
 4. Deploy the contents of dist/ to the static hosting target, or configure Vercel so the project build output directory is dist/.
@@ -57,7 +58,7 @@ MAINTENANCE RULES
 RELEASE NOTES — ARISUV305
 - Restored the missing README project descriptions, feature inventory, file map, build/deployment notes, and maintenance checklist.
 - Preserved the V304 website implementation and the mobile-only two-column account-recovery issue-list styling; this documentation correction does not intentionally change page layout or site behavior.
-- Aligned project version/cache-busting references to ArisuV311.
+- Aligned project version/cache-busting references to ArisuV320.
 
 
 LATEST CHANGE — ARISUV306
@@ -70,3 +71,9 @@ ARISUV307 RELEASE NOTES
 - Replaced the separate desktop/mobile wording with one shared message: “Clear guidance. Honest expectations. Every case is handled individually.”
 - Desktop styling now uses the same light blue-white-violet gradient, blue accent icon, refined border, and subtle shadow. Mobile keeps compact spacing.
 - No other sections were intentionally changed.
+
+
+ArisuV320 release note: Added the same thin blue-to-cyan gradient divider with a centered accent dot above the ARISU RECOVERY CONTACT kicker in the Why Choose Arisu section. No other section layout intentionally changed.
+
+
+ArisuV320 release note: Increased contrast and thickness of both horizontal divider lines around “OR VISIT MY OTHER SOCIAL MEDIA ACCOUNTS” and made its label font more prominent on desktop and mobile. No other section layout intentionally changed.

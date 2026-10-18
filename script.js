@@ -492,7 +492,7 @@ renderRecoveryProofs();
     const isOpen = totalMinutes >= 420 && totalMinutes < 1320;
 
     if (lastAvailability !== isOpen) {
-      headline.textContent = isOpen ? "Available" : "Offline";
+      headline.textContent = isOpen ? "Available" : "Unavailable";
       headline.classList.toggle("is-offline", !isOpen);
       pill.textContent = isOpen ? "Online" : "Offline";
       description.textContent = isOpen
