@@ -8802,3 +8802,60 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
   html body.home-page .floating-menu-items:not([hidden]) { width: min(236px, calc(100vw - 28px)) !important; padding: 10px !important; border-radius: 17px !important; }
   html body.home-page .floating-menu-item { min-height: 43px !important; font-size: 13px !important; }
 }
+
+
+/* V186: lift the WhatsApp card modestly while preserving a thin gap after the intro. */
+@media (max-width: 600px) {
+  html body.home-page main > .compact-intro {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  html body.home-page main > #contact.wizard-card.contact-only {
+    margin-top: -4px !important;
+  }
+}
+
+
+/* V187 — Clean & compact location card (no map; city/province only). */
+body.home-page .location-section { max-width: 1120px; margin: 24px auto 0; padding: 0; }
+body.home-page .location-card { position: relative; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 24px; align-items: center; overflow: hidden; padding: clamp(22px,3.2vw,36px); border: 1px solid rgba(255,255,255,.88); border-radius: 24px; background: linear-gradient(118deg,rgba(255,255,255,.96) 0%,rgba(239,247,255,.94) 56%,rgba(231,237,255,.96) 100%); box-shadow: 0 14px 36px rgba(49,91,174,.09), inset 0 1px 0 rgba(255,255,255,.95); }
+body.home-page .location-card::before { content: ""; position: absolute; width: 230px; height: 230px; right: 29%; top: -150px; border-radius: 50%; border: 30px solid rgba(81,143,255,.055); pointer-events: none; }
+body.home-page .location-copy, body.home-page .location-details { position: relative; z-index: 1; min-width: 0; }
+body.home-page .location-kicker { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 9px; color: #3671df; font-size: 10px; font-weight: 800; letter-spacing: 1.25px; }
+body.home-page .location-kicker-dot { width: 7px; height: 7px; border-radius: 50%; background: #18b77a; box-shadow: 0 0 0 4px rgba(24,183,122,.12); }
+body.home-page .location-copy h2 { margin: 0 0 8px; color: #12233f; font-size: clamp(24px,3vw,34px); font-weight: 850; letter-spacing: -1.1px; line-height: 1.16; }
+body.home-page .location-copy h2 span { color: #2868f5; }
+body.home-page .location-copy p { max-width: 470px; margin: 0; color: #60718f; font-size: 13px; line-height: 1.75; }
+body.home-page .location-details { display: grid; gap: 10px; }
+body.home-page .location-detail { display: flex; align-items: center; gap: 13px; min-width: 0; padding: 13px 15px; border: 1px solid rgba(255,255,255,.94); border-radius: 16px; background: rgba(255,255,255,.76); box-shadow: 0 5px 15px rgba(51,92,165,.045); }
+body.home-page .location-detail-icon { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; color: #fff; border-radius: 13px; background: linear-gradient(145deg,#40b7ff,#2864f5); box-shadow: 0 5px 12px rgba(40,100,245,.16); }
+body.home-page .location-detail-icon svg { display: block; width: 22px; height: 22px; }
+body.home-page .location-globe { background: linear-gradient(145deg,#66c8ff,#4678ef); }
+body.home-page .location-detail-copy { display: grid; gap: 3px; min-width: 0; }
+body.home-page .location-detail-copy small { color: #6d7e9c; font-size: 10px; font-weight: 650; }
+body.home-page .location-detail-copy strong { color: #152947; font-size: 13px; font-weight: 800; line-height: 1.45; overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+ body.home-page .location-section { margin-top: 19px; }
+ body.home-page .location-card { grid-template-columns: minmax(0,1fr); gap: 18px; padding: 21px 17px; border-radius: 20px; }
+ body.home-page .location-copy h2 { font-size: 26px; letter-spacing: -.7px; }
+ body.home-page .location-copy p { font-size: 12px; line-height: 1.7; }
+ body.home-page .location-details { gap: 8px; }
+ body.home-page .location-detail { padding: 11px 12px; gap: 11px; border-radius: 14px; }
+ body.home-page .location-detail-icon { flex-basis: 38px; width: 38px; height: 38px; border-radius: 12px; }
+ body.home-page .location-detail-copy strong { font-size: 12px; }
+}
+@media (max-width: 380px) {
+ body.home-page .location-card { padding: 18px 13px; }
+ body.home-page .location-copy h2 { font-size: 24px; }
+ body.home-page .location-detail { padding: 10px; }
+}
+
+
+/* V188 — reduce excess space between the location card and footer.
+   Keep the location card itself and all preceding sections unchanged. */
+body.home-page .location-section { margin-bottom: 0 !important; }
+body.home-page .site-footer { margin-top: 6px !important; }
+@media (max-width: 600px) {
+  html body.home-page main { padding-bottom: 22px !important; }
+  body.home-page .site-footer { margin-top: 4px !important; }
+}

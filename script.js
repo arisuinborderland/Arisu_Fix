@@ -286,7 +286,29 @@ function renderRecoveryProofs() {
       renderRecoveryProofs();
       document.querySelector(".proof-browser")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-    card.append(copy, imageFrame, backButton);
+    const updatesCard = document.createElement("section");
+    updatesCard.className = "proof-updates-coming";
+    updatesCard.setAttribute("aria-labelledby", "proof-updates-coming-title");
+    const updatesIcon = document.createElement("span");
+    updatesIcon.className = "proof-updates-coming-icon";
+    updatesIcon.setAttribute("aria-hidden", "true");
+    updatesIcon.textContent = "✦";
+    const updatesCopy = document.createElement("div");
+    updatesCopy.className = "proof-updates-coming-copy";
+    const updatesEyebrow = document.createElement("span");
+    updatesEyebrow.className = "proof-updates-coming-eyebrow";
+    updatesEyebrow.textContent = "UPCOMING";
+    const updatesHeading = document.createElement("h2");
+    updatesHeading.id = "proof-updates-coming-title";
+    updatesHeading.textContent = "More Updates Coming Soon";
+    const updatesSubtitle = document.createElement("h3");
+    updatesSubtitle.textContent = "Recovery Proofs & Customer Reviews";
+    const updatesDescription = document.createElement("p");
+    updatesDescription.textContent = "New content and improvements are in progress. More recovery proofs and customer reviews will be added as they become available.";
+    updatesCopy.append(updatesEyebrow, updatesHeading, updatesSubtitle, updatesDescription);
+    updatesCard.append(updatesIcon, updatesCopy);
+
+    card.append(copy, imageFrame, updatesCard, backButton);
     gallery.appendChild(card);
   });
 
@@ -550,5 +572,17 @@ renderRecoveryProofs();
  // Pulse is CSS-driven from data-state="closed"; no class or timer is needed.
  toggle.addEventListener('click',()=>{if(menu.dataset.state==='open')closeMenu();else openMenu();});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.dataset.state==='open'){closeMenu();toggle.focus();}});
- document.addEventListener('click',e=>{if(menu.dataset.state==='open'&&!menu.contains(e.target))closeMenu();});
+ // Close on a tap outside the visible menu card, including its padding/border.
+ // The card itself lives inside #floatingMenu, so checking only menu.contains()
+ // incorrectly treats taps on the empty card surface as inside-item interactions.
+ function isShortcutOrToggle(target){
+  return !!(target && target.closest && (target.closest('.floating-menu-item') || target.closest('#floatingWhatsApp')));
+ }
+ function handleOutsideTap(e){
+  if(menu.dataset.state==='open' && !isShortcutOrToggle(e.target)) closeMenu();
+ }
+ // Capture phase avoids interference from page elements that stop event bubbling.
+ document.addEventListener('pointerdown',handleOutsideTap,true);
+ // Fallback for browsers/devices that do not dispatch Pointer Events.
+ if(!('PointerEvent' in window)) document.addEventListener('click',handleOutsideTap,true);
 })();
