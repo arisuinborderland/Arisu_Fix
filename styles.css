@@ -4849,7 +4849,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV161") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV162") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5511,7 +5511,7 @@ body.home-page .site-footer {
    Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV161") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV162") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5521,7 +5521,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV161") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV162") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -9033,7 +9033,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV161: floating quick-access menu with chat bubble anchored to the button. */
+/* ArisuV162: floating quick-access menu with chat bubble anchored to the button. */
 .floating-menu{position:fixed;z-index:80;right:max(18px,calc((100vw - 1080px)/2));bottom:18px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;isolation:isolate}
 .floating-menu-items{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:2px}
 .floating-menu-items[hidden]{display:none!important}
@@ -9055,7 +9055,7 @@ body.home-page .contact-divider {
 @media(prefers-reduced-motion:reduce){.floating-menu *, .floating-menu *::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 
-/* ArisuV161 final positioning fix: keep the reminder bubble anchored to the actual floating button. */
+/* ArisuV162 final positioning fix: keep the reminder bubble anchored to the actual floating button. */
 html body .floating-menu { position: fixed !important; z-index: 9999 !important; right: max(14px, calc((100vw - 1080px)/2)) !important; bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important; }
 html body .floating-menu .floating-whatsapp,
 html body #floatingWhatsApp { position: relative !important; right: auto !important; bottom: auto !important; width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; padding: 0 !important; border-radius: 50% !important; }
@@ -9075,7 +9075,7 @@ html body .floating-menu .floating-menu-reminder::after { content: ""; position:
 }
 
 
-/* ArisuV161: anchor the reminder directly beside the actual floating icon.
+/* ArisuV162: anchor the reminder directly beside the actual floating icon.
    Legacy home-page rules previously raised the icon independently, leaving the
    toast far below it. Position the menu as one fixed unit and neutralize those
    old button offsets only inside the new floating-menu component. */
@@ -9116,7 +9116,7 @@ html body .floating-menu #floatingMenuReminder::after {
 }
 
 
-/* ArisuV161 — one authoritative Daily Bible Verse layout/background rule.
+/* ArisuV162 — one authoritative Daily Bible Verse layout/background rule.
    Older base styles remain for the rest of the page, but this block controls the live card.
    Keep the existing horizontal padding; adjust only vertical spacing and mobile image crop. */
 html body.home-page main > #daily-bible-verse.daily-verse-card {
@@ -9127,7 +9127,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV161") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV162") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -9158,7 +9158,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV161") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV162") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -9189,3 +9189,32 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   html body.home-page #daily-bible-verse .daily-verse-text { font-size: 12.5px !important; }
   html body.home-page #daily-bible-verse .daily-verse-translation { font-size: 11px !important; }
 }
+
+
+/* ArisuV162 — compact premium glass combined-logo floating control. */
+html body .floating-menu #floatingWhatsApp {
+  width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important;
+  padding: 0 !important; display: grid !important; place-items: center !important; overflow: visible !important;
+  border: 1px solid rgba(224, 249, 255, .88) !important; border-radius: 50% !important;
+  color: #fff !important; background: linear-gradient(145deg, rgba(220,248,255,.42), rgba(54,110,226,.56) 48%, rgba(18,37,100,.86)) !important;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 18px rgba(80,203,255,.25) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.4) !important; backdrop-filter: blur(12px) saturate(1.4) !important;
+}
+html body .floating-menu #floatingWhatsApp::after {
+  content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; pointer-events: none;
+}
+html body .floating-menu #floatingWhatsApp .arisu-combined-icon {
+  width: 100% !important; height: 100% !important; flex: 0 0 100% !important; display: block !important; opacity: 1 !important; transform: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0,18,70,.3));
+}
+html body .floating-menu[data-state="open"] #floatingWhatsApp .arisu-combined-icon { opacity: 0 !important; transform: scale(.75) rotate(45deg) !important; }
+html body .floating-menu #floatingWhatsApp .floating-menu-close-icon { z-index: 2; color: #fff; text-shadow: 0 1px 8px rgba(0,15,60,.55); }
+html body .floating-menu:not([data-state="open"]) #floatingWhatsApp::before {
+  inset: -5px !important; border: 1.5px solid rgba(104,220,255,.68) !important; box-shadow: 0 0 14px rgba(63,173,255,.28); animation: arisuGlassRipple162 2.7s ease-out infinite !important;
+}
+html body .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation: arisuGlassFloat162 4s ease-in-out infinite !important; }
+@keyframes arisuGlassRipple162 { 0% { opacity: .72; transform: scale(.94); } 80%,100% { opacity: 0; transform: scale(1.24); } }
+@keyframes arisuGlassFloat162 { 0%,100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 18px rgba(80,203,255,.25); } 50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 9px 25px rgba(22,87,205,.4), 0 0 23px rgba(80,203,255,.34); } }
+@media(max-width:600px) { html body .floating-menu #floatingWhatsApp { width:56px !important;height:56px !important;min-width:56px !important;min-height:56px !important; } }
+@media(max-width:360px) { html body .floating-menu #floatingWhatsApp { width:52px !important;height:52px !important;min-width:52px !important;min-height:52px !important; } }
+@media(prefers-reduced-motion:reduce) { html body .floating-menu:not([data-state="open"]) #floatingWhatsApp, html body .floating-menu:not([data-state="open"]) #floatingWhatsApp::before { animation:none !important; } }
