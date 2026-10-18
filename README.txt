@@ -1,6 +1,11 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV162
+Version: ArisuV163
 Updated: 2026-10-18
+
+LATEST UPDATE — ArisuV163
+- Slightly reduced the Daily Bible Verse card's vertical padding on mobile (15px/13px to 12px/10px). Width, text sizes, image treatment, and rounded corners remain unchanged.
+- Updated cache-busting version references to ArisuV163.
+
 
 PROJECT CONTENTS
 - index.html: Main website, including the floating quick-access menu and combined glass-style Arisu/social logo button.
