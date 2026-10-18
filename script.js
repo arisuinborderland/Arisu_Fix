@@ -539,7 +539,7 @@ renderRecoveryProofs();
 })();
 
 
-// ArisuV150: floating quick-access menu with an automatic chat-style reminder.
+// ArisuV152: floating quick-access menu with an automatic chat-style reminder.
 (function initArisuFloatingMenu(){
  const menu=document.getElementById('floatingMenu');
  const toggle=document.getElementById('floatingWhatsApp');

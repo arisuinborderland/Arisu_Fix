@@ -4849,7 +4849,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-mountains.svg?v=ArisuV148") !important;
+    url("./verse-mountains.svg?v=ArisuV152") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -5511,7 +5511,7 @@ body.home-page .site-footer {
    Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
    because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV148") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./bible-verse-hill.png?v=ArisuV152") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5521,7 +5521,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV148") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./bible-verse-hill-mobile.jpg?v=ArisuV152") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -9033,7 +9033,7 @@ body.home-page .contact-divider {
 }
 
 
-/* ArisuV150: floating quick-access menu with chat bubble anchored to the button. */
+/* ArisuV152: floating quick-access menu with chat bubble anchored to the button. */
 .floating-menu{position:fixed;z-index:80;right:max(18px,calc((100vw - 1080px)/2));bottom:18px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;isolation:isolate}
 .floating-menu-items{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:2px}
 .floating-menu-items[hidden]{display:none!important}
@@ -9055,7 +9055,7 @@ body.home-page .contact-divider {
 @media(prefers-reduced-motion:reduce){.floating-menu *, .floating-menu *::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 
-/* ArisuV150 final positioning fix: keep the reminder bubble anchored to the actual floating button. */
+/* ArisuV152 final positioning fix: keep the reminder bubble anchored to the actual floating button. */
 html body .floating-menu { position: fixed !important; z-index: 9999 !important; right: max(14px, calc((100vw - 1080px)/2)) !important; bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important; }
 html body .floating-menu .floating-whatsapp,
 html body #floatingWhatsApp { position: relative !important; right: auto !important; bottom: auto !important; width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; padding: 0 !important; border-radius: 50% !important; }
@@ -9075,7 +9075,7 @@ html body .floating-menu .floating-menu-reminder::after { content: ""; position:
 }
 
 
-/* ArisuV150: anchor the reminder directly beside the actual floating icon.
+/* ArisuV152: anchor the reminder directly beside the actual floating icon.
    Legacy home-page rules previously raised the icon independently, leaving the
    toast far below it. Position the menu as one fixed unit and neutralize those
    old button offsets only inside the new floating-menu component. */
