@@ -340,29 +340,30 @@ renderRecoveryProofs();
   const card = document.getElementById("daily-bible-verse");
   if (!card) return;
 
-  // English quotations are from the public-domain King James Version (KJV).
-  // Tagalog entries are simple Filipino renderings, not quotations from a specific published translation.
+  // Daily verse text is from the public-domain World English Bible (WEB).
+  // This is a small local daily-verse collection (not the complete 66-book reader database).
+  // The Filipino lines below are informal renderings, not quotations from a published Filipino translation.
   const verses = [
-    { ref: "Psalm 23:1", en: "The LORD is my shepherd; I shall not want.", tl: "Ang Panginoon ang aking pastol; hindi ako magkukulang." },
-    { ref: "Proverbs 3:5", en: "Trust in the LORD with all thine heart; and lean not unto thine own understanding.", tl: "Magtiwala ka sa Panginoon nang buong puso, at huwag umasa lamang sa sariling pagkaunawa." },
-    { ref: "Philippians 4:13", en: "I can do all things through Christ which strengtheneth me.", tl: "Magagawa ko ang mga bagay sa pamamagitan ni Cristo na nagbibigay sa akin ng lakas." },
+    { ref: "Psalm 23:1", en: "The LORD is my shepherd; I shall lack nothing.", tl: "Ang Panginoon ang aking pastol; hindi ako magkukulang." },
+    { ref: "Proverbs 3:5", en: "Trust in the LORD with all your heart, and don't lean on your own understanding.", tl: "Magtiwala ka sa Panginoon nang buong puso, at huwag umasa lamang sa sariling pagkaunawa." },
+    { ref: "Philippians 4:13", en: "I can do all things through Christ, who strengthens me.", tl: "Magagawa ko ang mga bagay sa pamamagitan ni Cristo na nagbibigay sa akin ng lakas." },
     { ref: "Psalm 46:1", en: "God is our refuge and strength, a very present help in trouble.", tl: "Ang Diyos ang ating kanlungan at lakas, laging handang tumulong sa panahon ng kaguluhan." },
-    { ref: "Matthew 11:28", en: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.", tl: "Lumapit kayo sa akin, kayong napapagal at nabibigatan, at bibigyan ko kayo ng kapahingahan." },
-    { ref: "Joshua 1:9", en: "Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.", tl: "Magpakatatag at magpakatapang; huwag matakot, sapagkat kasama mo ang Panginoon saan ka man pumunta." },
-    { ref: "Psalm 119:105", en: "Thy word is a lamp unto my feet, and a light unto my path.", tl: "Ang salita ng Diyos ay ilawan sa aking mga paa at liwanag sa aking landas." },
-    { ref: "Romans 8:28", en: "And we know that all things work together for good to them that love God.", tl: "Alam natin na gumagawa ang Diyos sa lahat ng bagay para sa ikabubuti ng mga umiibig sa Kanya." },
-    { ref: "Isaiah 41:10", en: "Fear thou not; for I am with thee: be not dismayed; for I am thy God.", tl: "Huwag kang matakot, sapagkat kasama mo ako; huwag manghina, sapagkat ako ang iyong Diyos." },
-    { ref: "John 14:27", en: "Peace I leave with you, my peace I give unto you: let not your heart be troubled, neither let it be afraid.", tl: "Iniiwan ko sa inyo ang kapayapaan; ibinibigay ko ang aking kapayapaan. Huwag mabalisa o matakot ang inyong puso." },
-    { ref: "Psalm 34:8", en: "O taste and see that the LORD is good: blessed is the man that trusteth in him.", tl: "Tikman at tingnan ninyo kung gaano kabuti ang Panginoon; mapalad ang nagtitiwala sa Kanya." },
-    { ref: "1 Corinthians 16:14", en: "Let all your things be done with charity.", tl: "Gawin ninyo ang lahat ng bagay nang may pag-ibig." },
-    { ref: "Psalm 37:4", en: "Delight thyself also in the LORD; and he shall give thee the desires of thine heart.", tl: "Magalak ka sa Panginoon, at bibigyan Niya ang mga hangarin ng iyong puso ayon sa Kanyang kalooban." },
-    { ref: "Micah 6:8", en: "What doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?", tl: "Nais ng Panginoon na gumawa ka ng makatarungan, magmahal ng awa, at lumakad nang mapagpakumbaba kasama ng iyong Diyos." },
-    { ref: "1 Peter 5:7", en: "Casting all your care upon him; for he careth for you.", tl: "Ipagkatiwala ninyo sa Kanya ang lahat ng inyong alalahanin, sapagkat nagmamalasakit Siya sa inyo." },
-    { ref: "Psalm 27:1", en: "The LORD is my light and my salvation; whom shall I fear?", tl: "Ang Panginoon ang aking liwanag at kaligtasan; sino ang aking katatakutan?" },
-    { ref: "Romans 12:12", en: "Rejoicing in hope; patient in tribulation; continuing instant in prayer.", tl: "Magalak sa pag-asa, magtiis sa paghihirap, at magpatuloy sa pananalangin." },
-    { ref: "John 16:33", en: "Be of good cheer; I have overcome the world.", tl: "Lakasan ninyo ang inyong loob; nagtagumpay na ako laban sa sanlibutan." },
-    { ref: "Psalm 56:3", en: "What time I am afraid, I will trust in thee.", tl: "Kapag ako ay natatakot, magtitiwala ako sa Iyo." },
-    { ref: "Colossians 3:23", en: "And whatsoever ye do, do it heartily, as to the Lord, and not unto men.", tl: "Anuman ang inyong gawin, gawin ito nang buong puso na para sa Panginoon at hindi lamang para sa tao." }
+    { ref: "Matthew 11:28", en: "Come to me, all you who labor and are heavily burdened, and I will give you rest.", tl: "Lumapit kayo sa akin, kayong napapagal at nabibigatan, at bibigyan ko kayo ng kapahingahan." },
+    { ref: "Joshua 1:9", en: "Haven't I commanded you? Be strong and courageous. Don't be afraid, neither be dismayed, for the LORD your God is with you wherever you go.", tl: "Magpakatatag at magpakatapang; huwag matakot, sapagkat kasama mo ang Panginoon saan ka man pumunta." },
+    { ref: "Psalm 119:105", en: "Your word is a lamp to my feet, and a light for my path.", tl: "Ang salita ng Diyos ay ilawan sa aking mga paa at liwanag sa aking landas." },
+    { ref: "Romans 8:28", en: "We know that all things work together for good for those who love God, to those who are called according to his purpose.", tl: "Alam natin na gumagawa ang Diyos sa lahat ng bagay para sa ikabubuti ng mga umiibig sa Kanya." },
+    { ref: "Isaiah 41:10", en: "Don't you be afraid, for I am with you. Don't be dismayed, for I am your God. I will strengthen you. Yes, I will help you. Yes, I will uphold you with the right hand of my righteousness.", tl: "Huwag kang matakot, sapagkat kasama mo ako; huwag manghina, sapagkat ako ang iyong Diyos." },
+    { ref: "John 14:27", en: "Peace I leave with you. My peace I give to you; not as the world gives, I give to you. Don't let your heart be troubled, neither let it be fearful.", tl: "Iniiwan ko sa inyo ang kapayapaan; ibinibigay ko ang aking kapayapaan. Huwag mabalisa o matakot ang inyong puso." },
+    { ref: "Psalm 34:8", en: "Oh taste and see that the LORD is good. Blessed is the man who takes refuge in him.", tl: "Tikman at tingnan ninyo kung gaano kabuti ang Panginoon; mapalad ang nagtitiwala sa Kanya." },
+    { ref: "1 Corinthians 16:14", en: "Let all that you do be done in love.", tl: "Gawin ninyo ang lahat ng bagay nang may pag-ibig." },
+    { ref: "Psalm 37:4", en: "Also delight yourself in the LORD, and he will give you the desires of your heart.", tl: "Magalak ka sa Panginoon, at bibigyan Niya ang mga hangarin ng iyong puso ayon sa Kanyang kalooban." },
+    { ref: "Micah 6:8", en: "He has shown you, O man, what is good. What does the LORD require of you, but to act justly, to love mercy, and to walk humbly with your God?", tl: "Nais ng Panginoon na gumawa ka ng makatarungan, magmahal ng awa, at lumakad nang mapagpakumbaba kasama ng iyong Diyos." },
+    { ref: "1 Peter 5:7", en: "Casting all your worries on him, because he cares for you.", tl: "Ipagkatiwala ninyo sa Kanya ang lahat ng inyong alalahanin, sapagkat nagmamalasakit Siya sa inyo." },
+    { ref: "Psalm 27:1", en: "The LORD is my light and my salvation. Whom shall I fear? The LORD is the strength of my life. Of whom shall I be afraid?", tl: "Ang Panginoon ang aking liwanag at kaligtasan; sino ang aking katatakutan?" },
+    { ref: "Romans 12:12", en: "Rejoicing in hope; enduring in troubles; continuing steadfastly in prayer.", tl: "Magalak sa pag-asa, magtiis sa paghihirap, at magpatuloy sa pananalangin." },
+    { ref: "John 16:33", en: "In the world you have trouble; but cheer up! I have overcome the world.", tl: "Lakasan ninyo ang inyong loob; nagtagumpay na ako laban sa sanlibutan." },
+    { ref: "Psalm 56:3", en: "When I am afraid, I will put my trust in you.", tl: "Kapag ako ay natatakot, magtitiwala ako sa Iyo." },
+    { ref: "Colossians 3:23", en: "And whatever you do, work heartily, as for the LORD, and not for men.", tl: "Anuman ang inyong gawin, gawin ito nang buong puso na para sa Panginoon at hindi lamang para sa tao." }
   ];
 
   const dateEl = document.getElementById("dailyVerseDate");
@@ -379,7 +380,7 @@ renderRecoveryProofs();
   const renderDailyVerse = () => {
     const verse = verses[dailyIndex()];
     textEl.textContent = verse.en;
-    referenceEl.textContent = `${verse.ref} · KJV`;
+    referenceEl.textContent = `${verse.ref} · WEB`;
     translationEl.textContent = verse.tl;
     dateEl.textContent = `VERSE OF THE DAY · ${dateKey(new Date())}`;
   };
