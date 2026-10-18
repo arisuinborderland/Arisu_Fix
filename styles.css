@@ -4354,7 +4354,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV304") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV311") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -4975,7 +4975,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV304") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV311") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -4985,7 +4985,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV304") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV311") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -5623,7 +5623,10 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* make only the “Offline” word red when outside published hours. */
 .service-status-main h2 #serviceStatusHeadline.is-offline{color:#dc2626!important;}
-.service-status-dot.is-offline{background:#f59e0b!important;box-shadow:0 0 0 4px rgba(245,158,11,.16)!important;}
+.service-status-dot.is-offline{background:#dc2626!important;box-shadow:0 0 0 4px rgba(220,38,38,.16)!important;}
+.service-status-dot.is-offline{animation-name:serviceStatusPulseOffline!important;}
+@keyframes serviceStatusPulseOffline{0%,100%{box-shadow:0 0 0 3px rgba(220,38,38,.12)}50%{box-shadow:0 0 0 6px rgba(220,38,38,.05)}}
+.service-status-pill-closed{border-color:#fecaca!important;background:#fef2f2!important;color:#b91c1c!important;}
 
 /* align Recovery Proofs and Customer Feedback actions, and clarify preview spacing. */
 .social-collage .recovery-proofs-showcase .recovery-proofs-button,
@@ -8366,7 +8369,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV304") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV311") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -8398,7 +8401,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV304") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV311") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8601,14 +8604,14 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
 }
 
 
-/* ArisuV304: add breathing room below the Terms & Limitations content on mobile. */
+/* ArisuV311: add breathing room below the Terms & Limitations content on mobile. */
 @media (max-width: 760px) {
   body.home-page main .terms-card {
     padding-bottom: 24px !important;
   }
 }
 
-/* ArisuV304: keep footer content in a single, readable mobile flow. */
+/* ArisuV311: keep footer content in a single, readable mobile flow. */
 @media (max-width: 600px) {
   body.home-page .site-footer {
     grid-template-columns: minmax(0, 1fr) !important;
@@ -8624,9 +8627,9 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
   body.home-page .footer-location { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
 }
 
-/* ArisuV304 cleanup: removed obsolete mobile spacing declarations superseded below. */
+/* ArisuV311 cleanup: removed obsolete mobile spacing declarations superseded below. */
 
-/* ArisuV304: soften outer-card outlines from About This Website through the final content cards. */
+/* ArisuV311: soften outer-card outlines from About This Website through the final content cards. */
 @media (max-width: 600px) {
   body.home-page .about-card,
   body.home-page .why-arisu-section .why-arisu-card,
@@ -8640,7 +8643,7 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
 }
 
 
-/* ArisuV304: restore V228-style spacing rhythm below the How It Works section.
+/* ArisuV311: restore V228-style spacing rhythm below the How It Works section.
    Spacing only: preserve current floating WhatsApp control and social-card sizing/layout. */
 html body.home-page main > section.site-section.about-section,
 html body.home-page main > section.site-section.purpose-section,
@@ -8696,7 +8699,7 @@ html body.home-page main .purpose-card {
 }
 
 
-/* ArisuV304: show a simple straight divider only, without a rounded panel effect. */
+/* ArisuV311: show a simple straight divider only, without a rounded panel effect. */
 .about-card p.about-description + p.independent-note {
   margin-top: 12px !important;
   padding: 0 !important;
@@ -8714,7 +8717,7 @@ html body.home-page main .purpose-card {
 }
 
 
-/* ArisuV304: visible compact highlights for the About and Purpose section labels. */
+/* ArisuV311: visible compact highlights for the About and Purpose section labels. */
 body.home-page .about-card .section-kicker,
 body.home-page .purpose-card .purpose-kicker {
   display: inline-block !important;
@@ -8737,7 +8740,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: move the purpose text and creator divider slightly higher on mobile.
+/* ArisuV311: move the purpose text and creator divider slightly higher on mobile.
    This final, high-specificity block intentionally overrides only the matching mobile margins. */
 @media (max-width: 600px) {
   html body.home-page main .purpose-card h2 { margin-bottom: 6px !important; }
@@ -8752,7 +8755,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 
 
-/* ArisuV304: definitive mobile card padding override. Keep this as the final CSS block
+/* ArisuV311: definitive mobile card padding override. Keep this as the final CSS block
    so earlier broad !important rules cannot restore the old 14px padding. */
 @media (max-width: 600px) {
   html body.home-page main > section.site-section.safety-section .safety-panel {
@@ -8764,7 +8767,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: bring the footer closer to the Legitimate Account Recovery card on mobile.
+/* ArisuV311: bring the footer closer to the Legitimate Account Recovery card on mobile.
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media (max-width: 600px) {
   html body.home-page main { padding-bottom: 8px !important; }
@@ -8772,7 +8775,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: tighten the gap above the WhatsApp card and raise its inner kicker slightly. */
+/* ArisuV311: tighten the gap above the WhatsApp card and raise its inner kicker slightly. */
 @media (max-width: 600px) {
   html body.home-page #contact .whatsapp-feature-card {
     margin-top: 7px !important;
@@ -8789,7 +8792,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: tighten the gap between the contact intro and WhatsApp card.
+/* ArisuV311: tighten the gap between the contact intro and WhatsApp card.
    Keep the change mobile-only and override earlier spacing declarations. */
 @media (max-width: 600px) {
   html body.home-page main > #contact.wizard-card.contact-only {
@@ -8808,7 +8811,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: preserve a thin visible gap after the intro and between the two cards.
+/* ArisuV311: preserve a thin visible gap after the intro and between the two cards.
    Correct the previous negative margin that caused the WhatsApp card to overlap the subtitle. */
 @media (max-width: 600px) {
   html body.home-page main > .compact-intro {
@@ -8828,7 +8831,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: raise Service Status 4px closer to the WhatsApp card on mobile. */
+/* ArisuV311: raise Service Status 4px closer to the WhatsApp card on mobile. */
 @media (max-width: 600px) {
   html body.home-page main > .compact-intro {
     margin-bottom: 0 !important;
@@ -8847,7 +8850,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: raise the full Please Read card content by another 2px on mobile. */
+/* ArisuV311: raise the full Please Read card content by another 2px on mobile. */
 @media (max-width: 600px) {
   html body.home-page main > section.site-section.terms-section > .terms-card {
     padding-top: 2px !important;
@@ -8856,7 +8859,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: repair desktop footer location icons and alignment.
+/* ArisuV311: repair desktop footer location icons and alignment.
    The SVGs previously had no desktop size/stroke rules, so their paths rendered as huge black shapes. */
 @media (min-width: 601px) {
   body.home-page .site-footer > .footer-location {
@@ -8898,7 +8901,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
+/* ArisuV311: desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
    Desktop-only refinements preserve the mobile card stack and spacing. */
 @media (min-width: 900px) {
   html body.home-page main {
@@ -9069,7 +9072,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: true desktop centering for the content sections from How It Works through Please Read.
+/* ArisuV311: true desktop centering for the content sections from How It Works through Please Read.
    Keep one consistent width and equal viewport-side margins; mobile layout is untouched. */
 @media (min-width: 900px) {
   html body.home-page main > section.site-section.how-section,
@@ -9090,7 +9093,7 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-/* ArisuV304: place the process heading immediately after the history footnote as requested.
+/* ArisuV311: place the process heading immediately after the history footnote as requested.
    This unique selector replaces the previous rules that styled the heading in its old location. */
 html body.home-page .why-arisu-card > .process-heading-band {
   position: relative !important;
@@ -9156,7 +9159,7 @@ html body.home-page .why-arisu-card > .process-heading-band p {
 }
 
 
-/* ArisuV304: Step 05 is the Facebook & Instagram assistance card, not a warranty card. */
+/* ArisuV311: Step 05 is the Facebook & Instagram assistance card, not a warranty card. */
 .how-section .social-platforms-step-card {
   border-color: #8dbdff !important;
   background: linear-gradient(120deg, rgba(255,255,255,.98), rgba(245,249,255,.98)) !important;
@@ -9181,7 +9184,7 @@ html body.home-page .why-arisu-card > .process-heading-band p {
 }
 
 
-/* ArisuV304: place the account-safety reminder inside the Why Choose Arisu card,
+/* ArisuV311: place the account-safety reminder inside the Why Choose Arisu card,
    immediately below the account-choice note; the old standalone section is removed. */
 html body.home-page .why-arisu-card > .safety-section-inline {
   display: block !important;
@@ -9238,7 +9241,7 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
 }
 
 
-/* ArisuV304: mobile-only two-column account recovery issue list. Desktop layout intentionally unchanged. */
+/* ArisuV311: mobile-only two-column account recovery issue list. Desktop layout intentionally unchanged. */
 @media (max-width: 700px) {
   html body.home-page .desktop-social-destination .services-section .service-issue-list {
     display: grid !important;
@@ -9267,4 +9270,167 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
     width: 82% !important;
     justify-self: center !important;
   }
+}
+
+
+/* ArisuV311: mobile-only Soft Blue Glass treatment for the reassurance note. Desktop styling/content remains unchanged. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section .why-arisu-note {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 11px !important;
+    margin-top: 8px !important;
+    padding: 13px 12px !important;
+    border: 1px solid rgba(123, 190, 255, .68) !important;
+    border-radius: 15px !important;
+    background: linear-gradient(125deg, rgba(232, 247, 255, .98) 0%, rgba(235, 241, 255, .97) 56%, rgba(249, 241, 255, .96) 100%) !important;
+    box-shadow: 0 5px 16px rgba(48, 112, 190, .12), inset 0 1px 0 rgba(255,255,255,.95) !important;
+    text-align: left !important;
+  }
+  html body.home-page .why-arisu-section .why-arisu-note > span {
+    display: grid !important;
+    place-items: center !important;
+    flex: 0 0 29px !important;
+    width: 29px !important;
+    height: 29px !important;
+    border: 1px solid rgba(255,255,255,.78) !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+    background: linear-gradient(145deg, #17c8ed 0%, #2675f5 58%, #6557ed 100%) !important;
+    box-shadow: 0 3px 9px rgba(45, 104, 226, .22) !important;
+  }
+  html body.home-page .why-arisu-section .why-arisu-note p {
+    min-width: 0 !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+  }
+  html body.home-page .why-arisu-section .why-arisu-note strong {
+    color: #102b55 !important;
+    font-size: .86rem !important;
+    line-height: 1.35 !important;
+    font-weight: 800 !important;
+  }
+  html body.home-page .why-arisu-section .why-arisu-note small {
+    margin-top: 4px !important;
+    color: #3d5677 !important;
+    font-size: .75rem !important;
+    line-height: 1.4 !important;
+  }
+  html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-desktop { display: none !important; }
+  html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-mobile { display: block !important; }
+}
+@media (min-width: 641px) {
+  html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-desktop { display: block !important; }
+  html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-mobile { display: none !important; }
+}
+
+
+/* ArisuV311: Soft Blue Glass reassurance note on desktop and mobile. */
+html body.home-page .why-arisu-section .why-arisu-note {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  margin-top: 10px !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(123, 190, 255, .68) !important;
+  border-radius: 15px !important;
+  background: linear-gradient(125deg, rgba(232, 247, 255, .98) 0%, rgba(235, 241, 255, .97) 56%, rgba(249, 241, 255, .96) 100%) !important;
+  box-shadow: 0 5px 16px rgba(48, 112, 190, .12), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  text-align: left !important;
+}
+html body.home-page .why-arisu-section .why-arisu-note > span {
+  display: grid !important; place-items: center !important; flex: 0 0 30px !important;
+  width: 30px !important; height: 30px !important;
+  border: 1px solid rgba(255,255,255,.78) !important; border-radius: 10px !important;
+  color: #fff !important; background: linear-gradient(145deg, #17c8ed 0%, #2675f5 58%, #6557ed 100%) !important;
+  box-shadow: 0 3px 9px rgba(45, 104, 226, .22) !important;
+}
+html body.home-page .why-arisu-section .why-arisu-note-copy { min-width: 0 !important; margin: 0 !important; line-height: 1.4 !important; }
+html body.home-page .why-arisu-section .why-arisu-note-copy strong { display: block !important; color: #102b55 !important; font-size: .94rem !important; line-height: 1.35 !important; font-weight: 800 !important; }
+html body.home-page .why-arisu-section .why-arisu-note-copy small { display: block !important; margin-top: 4px !important; color: #3d5677 !important; font-size: .8rem !important; line-height: 1.45 !important; }
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section .why-arisu-note { gap: 11px !important; margin-top: 8px !important; padding: 13px 12px !important; }
+  html body.home-page .why-arisu-section .why-arisu-note-copy strong { font-size: .86rem !important; }
+  html body.home-page .why-arisu-section .why-arisu-note-copy small { font-size: .75rem !important; }
+}
+
+
+/* ArisuV311: lower only the ARISU RECOVERY CONTACT kicker by 2px on desktop and mobile. */
+html body.home-page .why-arisu-section .why-arisu-heading > .section-kicker {
+  transform: translateY(2px) !important;
+}
+
+
+/* ArisuV311: subtle gradient divider above MY SERVICES on desktop and mobile. */
+html body.home-page .services-section .services-heading-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 420px);
+  height: 12px;
+  margin: 0 auto 9px;
+  position: relative;
+}
+html body.home-page .services-section .services-heading-divider::before,
+html body.home-page .services-section .services-heading-divider::after {
+  content: "";
+  display: block;
+  flex: 1 1 auto;
+  height: 2px;
+  border-radius: 999px;
+}
+html body.home-page .services-section .services-heading-divider::before {
+  background: linear-gradient(90deg, rgba(93,151,255,0), #70a9ff 100%);
+}
+html body.home-page .services-section .services-heading-divider::after {
+  background: linear-gradient(90deg, #2dbcf3 0%, rgba(45,188,243,0));
+}
+html body.home-page .services-section .services-heading-divider span {
+  display: block;
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6dcfff, #3477f5);
+  box-shadow: 0 0 0 3px rgba(79,151,255,.10), 0 1px 5px rgba(44,117,236,.22);
+}
+@media (max-width: 700px) {
+  html body.home-page .services-section .services-heading-divider {
+    width: min(92%, 320px);
+    margin-bottom: 7px;
+  }
+}
+
+
+/* ArisuV311: make the offline status pulse visibly expand beyond the dot. */
+html body.home-page #serviceStatus .service-status-dot {
+  position: relative !important;
+  isolation: isolate;
+}
+html body.home-page #serviceStatus .service-status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1.5px solid rgba(19, 191, 112, .62);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: serviceStatusRingOnline 1.8s ease-out infinite;
+}
+html body.home-page #serviceStatus .service-status-dot.is-offline::after {
+  border-color: rgba(220, 38, 38, .78);
+  animation-name: serviceStatusRingOffline;
+}
+@keyframes serviceStatusRingOnline {
+  0% { transform: scale(.72); opacity: .9; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes serviceStatusRingOffline {
+  0% { transform: scale(.72); opacity: .95; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page #serviceStatus .service-status-dot::after { animation: none !important; }
 }
