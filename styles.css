@@ -1366,10 +1366,6 @@ main{padding-top:0}
 }
 .social-feedback-card .review-proof-caption { display: none; }
 .social-feedback-card .social-feedback-view-all { margin-top: auto !important; }
-@media (max-width: 360px) {
-  
-  
-}
 
 /* Version 77: mobile-only natural image sizing for Customer Feedback previews.
  Use each screenshot's intrinsic ratio instead of forcing every image into
@@ -2502,9 +2498,6 @@ body.home-page .social-collage { grid-column: 1 / -1; }
   body.home-page .whatsapp-feature-content h2 { font-size: 15px; }
   body.home-page .whatsapp-feature-content p { font-size: 9px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  
-}
 
 /* compact vertically stacked contact panels, matching the approved slim-card reference. */
 body.home-page .wizard-card.contact-only {
@@ -2712,9 +2705,6 @@ body.home-page .whatsapp-feature-content p { margin-top: 0 !important; }
   body.home-page .whatsapp-recommended { top: 11px !important; right: 11px !important; font-size: 7px !important; padding: 5px 6px !important; }
   body.home-page .whatsapp-feature-content h2 { margin: 6px 0 4px !important; }
 
-}
-@media (prefers-reduced-motion: reduce) {
-  
 }
 
 /* match the user's second reference image — icon beside content,
@@ -3963,10 +3953,6 @@ body.home-page .whatsapp-feature-content h2 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-@media (max-width: 760px) {
-}
-@media (max-width: 360px) {
-}
 
 /* keep the opening desktop view focused on Bible verse and contact methods.
  The existing social/proof collage is moved below the main information on desktop;
@@ -4354,7 +4340,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV320") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV328") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -4975,7 +4961,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV320") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV328") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -4985,7 +4971,7 @@ html body #daily-bible-verse.daily-verse-card {
 @media (max-width: 600px) {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV320") !important;
+    background-image: linear-gradient(90deg, rgba(4,44,98,.16), rgba(4,40,88,.08) 52%, rgba(4,35,80,.08)), url("./verse-lake-photo.jpg?v=ArisuV328") !important;
     background-size: auto 160% !important;
     background-position: right 35% !important;
     background-repeat: no-repeat !important;
@@ -7324,9 +7310,6 @@ body.home-page .terms-card .terms-security-copy p {
     margin-top: 4px !important;
   }
 }
-@media (max-width: 380px) {
-  
-}
 
 /* remove excess gap between process-card titles and descriptions on mobile.
  Override legacy grid placement explicitly so descriptions follow titles immediately. */
@@ -8210,12 +8193,6 @@ body.home-page .contact-divider {
   max-height: none !important;
   box-sizing: border-box !important;
 }
-@media (min-width: 601px) and (max-width: 1199px) {
-  
-}
-@media (min-width: 1200px) {
-  
-}
 @media (max-width: 600px) {
   .social-collage > .recovery-proofs-showcase,
   .social-collage > .social-feedback-card {
@@ -8403,7 +8380,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV320") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV328") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -8435,7 +8412,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV320") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV328") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8829,10 +8806,6 @@ body.home-page .purpose-card .purpose-kicker {
 /* ArisuV320: tighten the gap between the contact intro and WhatsApp card.
    Keep the change mobile-only and override earlier spacing declarations. */
 @media (max-width: 600px) {
-  html body.home-page main > #contact.wizard-card.contact-only {
-    margin-top: 4px !important;
-    gap: 4px !important;
-  }
   html body.home-page #contact .whatsapp-feature-card {
     margin-top: 0 !important;
     padding-top: 5px !important;
@@ -8848,16 +8821,9 @@ body.home-page .purpose-card .purpose-kicker {
 /* ArisuV320: preserve a thin visible gap after the intro and between the two cards.
    Correct the previous negative margin that caused the WhatsApp card to overlap the subtitle. */
 @media (max-width: 600px) {
-  html body.home-page main > .compact-intro {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
   html body.home-page main > #contact.wizard-card.contact-only {
     margin-top: 4px !important;
     gap: 4px !important;
-  }
-  html body.home-page #contact .whatsapp-feature-card {
-    margin-top: 0 !important;
   }
   html body.home-page #contact .service-status-panel {
     margin-top: 4px !important;
@@ -9543,4 +9509,80 @@ html body.home-page .contact-divider::after {
     font-size: 10px !important;
     letter-spacing: .4px !important;
   }
+}
+
+/* ArisuV327: Aurora Glass header treatment — color-only; preserve layout and button colors. */
+html body.home-page .topbar,
+html body:not(.home-page) .topbar {
+  background: linear-gradient(112deg,
+    rgba(234, 244, 255, .96) 0%,
+    rgba(237, 233, 254, .95) 52%,
+    rgba(252, 231, 243, .94) 100%) !important;
+  border-bottom: 1px solid rgba(151, 164, 220, .34) !important;
+  box-shadow: 0 5px 22px rgba(91, 111, 176, .075),
+              inset 0 1px 0 rgba(255, 255, 255, .88) !important;
+  -webkit-backdrop-filter: saturate(155%) blur(16px);
+  backdrop-filter: saturate(155%) blur(16px);
+}
+html body.home-page .topbar .brand,
+html body:not(.home-page) .topbar .brand {
+  color: var(--ink);
+}
+@media (prefers-reduced-transparency: reduce) {
+  html body.home-page .topbar,
+  html body:not(.home-page) .topbar {
+    background: linear-gradient(112deg, #EAF4FF 0%, #EDE9FE 52%, #FCE7F3 100%) !important;
+  }
+}
+
+
+
+/* ArisuV327: smart hide-on-scroll header; keeps layout flow stable. */
+.topbar.topbar-scroll-aware {
+  transition: transform 240ms cubic-bezier(.2, .7, .2, 1);
+  will-change: transform;
+}
+.topbar.topbar-scroll-aware.topbar-scroll-hidden {
+  transform: translateY(calc(-100% - 12px));
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar.topbar-scroll-aware { transition: none !important; }
+}
+
+
+/* ArisuV327: royal-blue primary header buttons with pearl-glass secondary action. */
+html body .topbar > .header-meta > .proofs-header-link,
+html body .topbar > .header-meta > .webtools-header-link {
+  background: linear-gradient(115deg, #2563EB 0%, #4F46E5 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(37, 67, 190, .32) !important;
+  box-shadow: 0 3px 10px rgba(67, 82, 201, .18), inset 0 1px 0 rgba(255,255,255,.20) !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+  transition: box-shadow .18s ease, filter .18s ease, transform .18s ease !important;
+}
+html body .topbar > .header-meta > .proofs-header-link:hover,
+html body .topbar > .header-meta > .webtools-header-link:hover {
+  filter: brightness(1.06) saturate(1.04);
+  box-shadow: 0 5px 14px rgba(67, 82, 201, .24), inset 0 1px 0 rgba(255,255,255,.24) !important;
+}
+html body .topbar > .header-meta > .privacy-link {
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(238,242,255,.94)) !important;
+  color: #334155 !important;
+  border: 1px solid #C7D2FE !important;
+  box-shadow: 0 2px 8px rgba(71,85,150,.08), inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+html body .topbar > .header-meta > .privacy-link:hover {
+  background: linear-gradient(135deg, #FFFFFF, #E0E7FF) !important;
+  border-color: #A5B4FC !important;
+  color: #1E3A8A !important;
+}
+html body .topbar > .header-meta > .proofs-header-link:focus-visible,
+html body .topbar > .header-meta > .webtools-header-link:focus-visible {
+  outline: 3px solid #A5B4FC !important; outline-offset: 3px !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .topbar > .header-meta > .proofs-header-link,
+  html body .topbar > .header-meta > .webtools-header-link { transition: none !important; }
 }

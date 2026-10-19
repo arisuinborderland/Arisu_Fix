@@ -1,6 +1,14 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV320
-Updated: 2026-10-18
+Version: ArisuV328
+Updated: 2026-10-19
+
+ArisuV328 CSS cascade cleanup (preserve-first): Removed three earlier exact duplicate mobile declarations from styles.css where the same selector, media context, and declarations appear again later. The later declarations remain in place, preserving the final cascade result. Other repeated selectors and !important rules were retained unless proven redundant. Browser visual regression testing remains pending.
+ArisuV327 CSS refactor (preserve-first): Removed eight empty media-query blocks from styles.css. No style declarations or selector order were intentionally changed. Repeated selectors and !important rules were retained where their cascade role has not yet been proven redundant. Browser visual regression testing remains pending.
+V325: Corrected the project folder name to match the release ZIP, refreshed active cache-busting tokens, and cleaned the build/deployment instructions. Audited the header CSS cascade and retained the existing scoped final overrides to avoid broad layout changes. CSP remains Report-Only pending compatibility testing.
+V322: Added smart hide-on-scroll header behavior across pages: the sticky header hides while scrolling down, reappears on upward scroll, stays visible at the top, and respects reduced-motion preferences. Added thresholding and requestAnimationFrame scheduling to reduce jitter; preserved page layout and other features.
+
+V321: Applied the Aurora Glass header gradient (soft blue → lavender → blush pink) with a subtle border and shadow; preserved header layout, buttons, and page sections. Updated active cache-busting tokens and package version.
+
 
 V319: Raised the header Privacy Policy button by 2px using a scoped transform; other header elements are unchanged.
 
@@ -41,7 +49,7 @@ IMPORTANT PROJECT FILES
 
 BUILD AND DEPLOYMENT
 Requirements: Node.js 18 or newer.
-1. Extract the ZIP and open a terminal in the ArisuV320 project folder.
+1. Extract the ZIP and open a terminal in the ArisuV328 project folder.
 2. Run: npm run build
 3. The build output is generated in dist/.
 4. Deploy the contents of dist/ to the static hosting target, or configure Vercel so the project build output directory is dist/.
@@ -49,9 +57,9 @@ Requirements: Node.js 18 or newer.
 
 MAINTENANCE RULES
 - Keep this README in the source project; do not publish it in the public website output.
-- For each release, update the version and date above and align cache-busting version tokens across HTML, CSS, JavaScript, and referenced background images.
+- For each release, update the version and date above and align active cache-busting version tokens across HTML, CSS, JavaScript, and referenced background images. Keep historical CSS comments when they document earlier changes; do not treat comments alone as active overrides.
 - Keep the ZIP structure clean: one top-level project folder only, with no generated dist/ folder included in the source ZIP.
-- Avoid broad CSS refactors unless separately reviewed. The shared stylesheet contains accumulated rules that may interact with later overrides.
+- The shared stylesheet contains accumulated rules that may interact with later overrides. Consolidate repeated selectors only after checking media-query context, specificity, source order, and visual regression risk.
 - After edits, run the build, check JavaScript syntax, verify ZIP integrity, and inspect the site at mobile and desktop widths. Static checks do not replace visual regression testing in a browser.
 - Keep security headers and CSP changes under compatibility review; Report-Only CSP does not block resources but can report potential violations.
 
