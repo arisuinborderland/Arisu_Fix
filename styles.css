@@ -1793,69 +1793,8 @@ summary:focus-visible {
 .compact-intro .eyebrow .status-label{display:inline-block;width:auto;height:auto;min-width:0;flex:0 1 auto;background:transparent;border-radius:0;color:inherit;white-space:normal}
 @keyframes  status-heartbeat {0%,100%{transform:scale(1);box-shadow:0 0 0 3px rgba(32,198,107,.12),0 0 7px rgba(32,198,107,.3)}15%{transform:scale(1.22);box-shadow:0 0 0 5px rgba(32,198,107,.17),0 0 12px rgba(32,198,107,.5)}30%{transform:scale(1)}}
 @keyframes  status-ripple {0%{transform:scale(.65);opacity:.85}75%,100%{transform:scale(1.55);opacity:0}}
-@keyframes  status-check-pop {0%,72%,100%{transform:scale(1);filter:brightness(1)}78%{transform:scale(1.2);filter:brightness(1.18)}84%{transform:scale(.96);filter:brightness(1.05)}90%{transform:scale(1.06);filter:brightness(1.1)}}
-@media (max-width:480px) {.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}.compact-intro .eyebrow.premium-status > .status-check{width:17px;height:17px;min-width:17px;min-height:17px;flex-basis:17px}.compact-intro .eyebrow.premium-status > .status-check svg{width:12px;height:12px;min-width:12px;min-height:12px}}
-@media (prefers-reduced-motion:reduce) {.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after,.compact-intro .eyebrow .status-check{animation:none!important}}
-
-/* custom blue verified-style badge with repeating check-draw animation.
- Decorative branding only; it does not indicate official Meta verification. */
-.compact-intro .eyebrow.premium-status > .status-check {
-  display: inline-grid !important;
-  place-items: center !important;
-  box-sizing: border-box;
-  width: 23px !important;
-  height: 23px !important;
-  min-width: 23px !important;
-  min-height: 23px !important;
-  flex: 0 0 23px !important;
-  border-radius: 50% !important;
-  background: linear-gradient(145deg, #3294ff 0%, #1877f2 58%, #0b5fd7 100%) !important;
-  box-shadow: 0 2px 7px rgba(24,119,242,.28), 0 0 0 2px rgba(24,119,242,.10) !important;
-  animation: arisu-blue-badge-pop 2s ease-in-out infinite !important;
-  transform-origin: center;
-  position: relative;
-  z-index: 1;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-.compact-intro .eyebrow.premium-status > .status-check svg {
-  display: block !important;
-  width: 15px !important;
-  height: 15px !important;
-  min-width: 15px !important;
-  min-height: 15px !important;
-  overflow: visible;
-  fill: none !important;
-  stroke: #fff !important;
-  stroke-width: 3 !important;
-  stroke-linecap: round !important;
-  stroke-linejoin: round !important;
-}
-.compact-intro .eyebrow.premium-status > .status-check svg path {
-  stroke-dasharray: 24;
-  stroke-dashoffset: 24;
-  animation: arisu-blue-check-draw 2s ease-in-out infinite;
-}
-@keyframes  arisu-blue-check-draw  {
-  0%, 8% { stroke-dashoffset: 24; opacity: .75; }
-  24%, 38% { stroke-dashoffset: 0; opacity: 1; }
-  48%, 100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes  arisu-blue-badge-pop  {
-  0%, 45%, 100% { transform: scale(1); filter: brightness(1); box-shadow: 0 2px 7px rgba(24,119,242,.28), 0 0 0 2px rgba(24,119,242,.10); }
-  10% { transform: scale(.92); filter: brightness(1.02); }
-  20% { transform: scale(1.16); filter: brightness(1.14); box-shadow: 0 3px 10px rgba(24,119,242,.40), 0 0 0 4px rgba(24,119,242,.13); }
-  30% { transform: scale(1); filter: brightness(1.04); }
-}
-@media  (max-width: 480px)  {
-  .compact-intro .eyebrow.premium-status > .status-check { width: 20px !important; height: 20px !important; min-width: 20px !important; min-height: 20px !important; flex-basis: 20px !important; }
-  .compact-intro .eyebrow.premium-status > .status-check svg { width: 13px !important; height: 13px !important; min-width: 13px !important; min-height: 13px !important; }
-}
-@media  (prefers-reduced-motion: reduce)  {
-  .compact-intro .eyebrow.premium-status > .status-check,
-  .compact-intro .eyebrow.premium-status > .status-check svg path { animation: none !important; }
-  .compact-intro .eyebrow.premium-status > .status-check svg path { stroke-dashoffset: 0 !important; }
-}
+@media (max-width:480px) {.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}}
+@media (prefers-reduced-motion:reduce) {.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after}
 
 /* animated blue custom check badge beside Arisu in header and footer. */
 .brand-copy{display:inline-flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1.25}
@@ -2367,13 +2306,6 @@ body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 28p
     letter-spacing: .35px !important;
     white-space: nowrap !important;
   }
-  body.home-page .compact-intro .eyebrow > .status-check {
-    width: 19px !important;
-    height: 19px !important;
-    min-width: 19px !important;
-    min-height: 19px !important;
-    flex-basis: 19px !important;
-  }
   body.home-page .compact-intro p {
     margin: 0 auto !important;
     font-size: 10px !important;
@@ -2608,7 +2540,6 @@ body.home-page .whatsapp-feature-content h2 {
 @media  (prefers-reduced-motion: no-preference)  {
   .whatsapp-feature-icon:after { animation: waIconRipple 2.2s ease-out infinite !important; }
 
-  .whatsapp-recommended span { display: inline-block; transform-origin: 50% 65%; animation: recommendedBoltPulse 2.4s ease-in-out infinite; }
   .whatsapp-feature-icon svg { transform-origin: 50% 50%; animation: whatsappIconBreathe 3.2s ease-in-out infinite; }
 }
 
@@ -2634,9 +2565,6 @@ body.home-page .whatsapp-feature-content h2 {
   .compact-intro .eyebrow .status-pulse:after {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
-  .compact-intro .eyebrow.premium-status > .status-check {
-    animation: arisu-blue-badge-pop 2.4s ease-in-out infinite !important;
-  }
   .arisu-verified-badge {
     animation: arisu-brand-badge-pop 2.8s ease-in-out infinite !important;
   }
@@ -2651,11 +2579,6 @@ body.home-page .whatsapp-feature-content h2 {
     animation: whatsappIconBreathe 3.8s ease-in-out infinite !important;
   }
 
-  body.home-page .whatsapp-recommended span {
-    display: inline-block;
-    transform-origin: 50% 65%;
-    animation: recommendedBoltPulse 2.8s ease-in-out infinite !important;
-  }
 
 }
 
@@ -3514,7 +3437,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV424") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV500") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3943,7 +3866,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV424") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV500") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -6832,7 +6755,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV424") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV500") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6864,7 +6787,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV424") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV500") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8942,4 +8865,130 @@ html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item:nth-c
     height: 14px !important;
     font-size: 10px !important;
   }
+}
+
+
+/* ArisuV495: restore the original static green lightning Recommended icon. */
+html body.home-page #contact .whatsapp-recommended {
+  gap: 6px;
+  background: #e6f7fc;
+  border-color: #b7e4ed;
+  color: #315c70;
+}
+html body.home-page #contact .whatsapp-recommended .recommended-bolt {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 13px;
+  height: 16px;
+  fill: #16a765;
+  stroke: #16a765;
+  stroke-width: .35;
+  filter: none;
+  animation: none !important;
+  transform: none !important;
+}
+html body.home-page #contact .whatsapp-recommended .recommended-bolt path {
+  animation: none !important;
+  transform: none !important;
+}
+
+
+/* ArisuV498: slightly soften the floating shortcut pulse while preserving its animation.
+   Scoped to the closed floating shortcut on the home page; no layout changes. */
+html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before {
+  inset: -4px !important;
+  border: 2px solid rgba(36, 220, 139, .88) !important;
+  box-shadow: 0 0 0 1px rgba(37, 211, 102, .16), 0 0 12px rgba(37, 211, 102, .34) !important;
+  animation: arisuWhatsAppRing497 1.8s cubic-bezier(.16,.62,.3,1) infinite !important;
+}
+html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp {
+  animation: arisuWhatsAppHalo497 1.8s ease-in-out infinite !important;
+}
+@keyframes arisuWhatsAppRing497 {
+  0% { opacity: .88; transform: scale(.94); border-width: 2px; }
+  65% { opacity: .38; }
+  100% { opacity: 0; transform: scale(1.55); border-width: 1px; }
+}
+@keyframes arisuWhatsAppHalo497 {
+  0%, 100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 12px rgba(37,211,102,.22); }
+  50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 8px 24px rgba(22,87,205,.4), 0 0 19px rgba(37,211,102,.46); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before,
+  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation: none !important; }
+}
+
+/* ArisuV495: match the floating shortcut's expanding-ring + halo pulse on the WhatsApp card icon.
+   Blue-cyan separates the pulse from the WhatsApp-green tile; icon and layout stay unchanged. */
+html body.home-page #contact .whatsapp-feature-icon:after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -2px !important;
+  box-sizing: border-box !important;
+  border: 2px solid rgba(77, 202, 255, .98) !important;
+  border-radius: inherit !important;
+  box-shadow: 0 0 0 2px rgba(64, 162, 255, .17), 0 0 15px rgba(65, 190, 255, .42) !important;
+  transform-origin: 50% 50% !important;
+  pointer-events: none !important;
+  animation: arisuWhatsAppCardRing494 1.8s cubic-bezier(.16,.62,.3,1) infinite !important;
+}
+html body.home-page #contact .whatsapp-feature-icon:before {
+  animation: arisuWhatsAppCardHalo494 1.8s ease-in-out infinite !important;
+}
+@keyframes arisuWhatsAppCardRing494 {
+  0% { opacity: .98; transform: scale(.92); border-color: rgba(98, 224, 255, .98); }
+  65% { opacity: .48; border-color: rgba(52, 164, 255, .88); }
+  100% { opacity: 0; transform: scale(1.32); border-color: rgba(77, 202, 255, .25); }
+}
+@keyframes arisuWhatsAppCardHalo494 {
+  0%, 100% { box-shadow: 0 5px 13px rgba(0,153,91,.2), 0 0 5px rgba(56,174,255,.20), 0 0 10px rgba(80,211,255,.10); }
+  50% { box-shadow: 0 5px 13px rgba(0,153,91,.2), 0 0 12px rgba(56,174,255,.46), 0 0 22px rgba(80,211,255,.27); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page #contact .whatsapp-feature-icon:after,
+  html body.home-page #contact .whatsapp-feature-icon:before {
+    animation: none !important;
+  }
+}
+
+
+
+/* ArisuV496: remove animation from the WhatsApp card icon only.
+   Keep the green tile, WhatsApp mark, static border, and card geometry unchanged. */
+html body.home-page #contact .whatsapp-feature-icon::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+html body.home-page #contact .whatsapp-feature-icon::before {
+  animation: none !important;
+}
+
+
+/* ArisuV499: mobile-only softer floating shortcut pulse. Desktop keeps the existing V498 animation. */
+@media (max-width: 767px) {
+  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before {
+    inset: -3px !important;
+    border-width: 1.5px !important;
+    border-color: rgba(54, 218, 145, .58) !important;
+    box-shadow: 0 0 0 1px rgba(37, 211, 102, .08), 0 0 7px rgba(37, 211, 102, .16) !important;
+    animation: arisuMobileSoftRing499 3s cubic-bezier(.16,.62,.3,1) infinite !important;
+  }
+  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp {
+    animation: arisuMobileSoftHalo499 3s ease-in-out infinite !important;
+  }
+}
+@keyframes arisuMobileSoftRing499 {
+  0% { opacity: .58; transform: scale(.96); }
+  70% { opacity: .22; }
+  100% { opacity: 0; transform: scale(1.38); }
+}
+@keyframes arisuMobileSoftHalo499 {
+  0%, 100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 8px rgba(37,211,102,.12); }
+  50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 8px 23px rgba(22,87,205,.38), 0 0 12px rgba(37,211,102,.22); }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before,
+  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation: none !important; }
 }

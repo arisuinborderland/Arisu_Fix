@@ -1,6 +1,12 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV489
+Version: ArisuV500
 Updated: 2026-10-19
+ArisuV500 audit fix (2026-10-19): Aligned CSS background-image cache-busting tokens and all active HTML asset cache tokens to ArisuV500; corrected the WhatsApp-card animation changelog entry to ArisuV496; removed the stale embedded V480 README header. ArisuV499 mobile-only floating pulse behavior is unchanged.
+ArisuV498 update (2026-10-19): Removed the blue check badge from the “ACCOUNT RECOVERY ASSISTANCE · EST. 2018” banner only. Preserved the green status indicator, header verification badge, layout, spacing, and animations.
+ArisuV497 update (2026-10-19): Slightly reduced the floating shortcut pulse intensity by softening the expanding ring, reducing its maximum scale, and lowering the green halo. The floating shortcut remains animated; other layout and animations are unchanged.
+ArisuV496 update (2026-10-19): Removed the pulse/ring and animated halo from the WhatsApp card icon only. Preserved the static green WhatsApp tile, icon, card layout, and separate floating WhatsApp animation.
+ArisuV495 update (2026-10-19): Restored the Recommended badge to the original static green lightning bolt on a light-cyan pill. Removed icon animation; preserved badge placement, card layout, and other animations.
+
 ArisuV489 update (2026-10-19): Reduced the Suspended Accounts and Disabled Accounts preview labels to compact, small-font highlighted badges with restrained blue/red accents. Preview image dimensions and card layout are unchanged.
 ArisuV487 update (2026-10-19): Corrected the MY SERVICES outer card on desktop only by resetting its negative top offset and negative top margin at min-width 701px, so it sits below rather than overlapping the preview cards. Mobile positioning is unchanged.
 ArisuV486 update (2026-10-19): Restored the desktop width values from the last known baseline (V482) after the broad width increases in V483–V485 caused the preview cards and services section to appear shifted/undersized relative to the content. No mobile CSS rules were changed in this correction. Updated shared HTML cache-busting references and package version.
@@ -248,10 +254,6 @@ ARISUV423 RELEASE SUMMARY — 2026-10-19
 - Updated active HTML/CSS cache-busting references and package version to ArisuV424.
 - ZIP integrity and static syntax checks performed; live browser visual regression was not available.
 
-
-ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV480
-Updated: 2026-10-19
 
 ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
 
