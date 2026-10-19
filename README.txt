@@ -1,12 +1,14 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV354
+Version: ArisuV356
 Updated: 2026-10-19
+
+ArisuV356 mobile adjustment: lifted the two-line contact heading and subtitle by 2px; lifted the WhatsApp feature card by 4px total.
 
 ArisuV348 mobile spacing adjustment: lifted the outer PLEASE READ / Terms & limitations card by 4px on screens up to 640px; internal padding and desktop layout are unchanged.
 ArisuV347 mobile spacing adjustment: reduced the bottom padding of the main Why Choose Arisu outer card by 8px (10px to 2px) on screens up to 640px; top and horizontal padding and desktop layout are unchanged.
 ArisuV343 mobile spacing adjustment: reduced the outer bottom spacing after the Remember safety card by 8px on screens up to 640px; internal card padding and top spacing are unchanged.
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV354
+Version: ArisuV356
 Updated: 2026-10-19
 ArisuV338 mobile spacing adjustment: reduced only the Remember: Keep Your Account Safe card top and bottom padding by 4px (12px to 8px) on screens up to 640px. Horizontal padding, desktop spacing, icon, typography, borders, and surrounding layout remain unchanged.
 ArisuV337 mobile spacing adjustment: reduced the Clear guidance / Honest expectations note card top and bottom padding by another 2px (9px to 7px) on screens up to 640px. Horizontal padding, desktop spacing, typography, icon, borders, and surrounding layout remain unchanged.

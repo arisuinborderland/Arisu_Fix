@@ -8226,7 +8226,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 
-/* ArisuV354: reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
+/* ArisuV356: reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
 @media (max-width: 600px) {
   html body.home-page #contact .whatsapp-feature-card {
     padding-bottom: 5px !important;
@@ -8234,7 +8234,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 
-/* ArisuV354: reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
+/* ArisuV356: reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
 @media (max-width: 600px) {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 10px !important;
@@ -8255,7 +8255,35 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 
-/* ArisuV354: lift the account-recovery intro sentence 2px further (4px total). */
+/* ArisuV356: lift the account-recovery intro sentence 2px further (4px total). */
 html body.home-page .compact-intro > p {
   transform: translateY(-4px);
+}
+
+
+/* ArisuV356: remove only the outer green glow from the account-recovery badge; retain its green border and the dot/check styling. */
+html body.home-page main > .compact-intro .eyebrow.premium-status {
+  box-shadow: none !important;
+  animation: eyebrow-fade-in-v101 1s ease-out both !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page main > .compact-intro .eyebrow.premium-status {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ArisuV356: lift the mobile intro heading and subtitle by 2px; lift the WhatsApp feature card 4px total. */
+@media (max-width: 600px) {
+  html body.home-page main > .compact-intro h1 {
+    transform: translateY(-2px) !important;
+  }
+  html body.home-page main > .compact-intro > p {
+    transform: translateY(-6px) !important; /* existing -4px plus another 2px */
+  }
+  html body.home-page #contact .whatsapp-feature-card {
+    transform: translateY(-4px) !important;
+  }
 }
