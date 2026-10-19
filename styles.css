@@ -8224,3 +8224,38 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
     transform: translateY(-8px) !important;
   }
 }
+
+
+/* ArisuV354: reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
+@media (max-width: 600px) {
+  html body.home-page #contact .whatsapp-feature-card {
+    padding-bottom: 5px !important;
+  }
+}
+
+
+/* ArisuV354: reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
+@media (max-width: 600px) {
+  html body.home-page main > #daily-bible-verse.daily-verse-card {
+    padding-top: 10px !important;
+    padding-bottom: 13px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page main > #daily-bible-verse.daily-verse-card {
+    padding-top: 12px !important;
+    padding-bottom: 11px !important;
+  }
+}
+@media (max-width: 600px) and (max-height: 780px) {
+  html body.home-page #daily-bible-verse.daily-verse-card {
+    padding-top: 2px !important;
+    padding-bottom: 3px !important;
+  }
+}
+
+
+/* ArisuV354: lift the account-recovery intro sentence 2px further (4px total). */
+html body.home-page .compact-intro > p {
+  transform: translateY(-4px);
+}
