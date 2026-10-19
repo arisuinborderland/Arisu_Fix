@@ -1,9 +1,11 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV328
+Version: ArisuV333
 Updated: 2026-10-19
+ArisuV331 maintenance audit: removed only CSS rules whose declarations were all superseded later by declarations for the exact same selector and media/support context, with equal or higher !important priority. This is a conservative cascade cleanup; final winning declarations were retained. CSS parser, JS syntax, build, and ZIP checks are required. Browser visual regression was not independently available.
 
-ArisuV328 CSS cascade cleanup (preserve-first): Removed three earlier exact duplicate mobile declarations from styles.css where the same selector, media context, and declarations appear again later. The later declarations remain in place, preserving the final cascade result. Other repeated selectors and !important rules were retained unless proven redundant. Browser visual regression testing remains pending.
-ArisuV327 CSS refactor (preserve-first): Removed eight empty media-query blocks from styles.css. No style declarations or selector order were intentionally changed. Repeated selectors and !important rules were retained where their cascade role has not yet been proven redundant. Browser visual regression testing remains pending.
+
+ArisuV328 CSS cascade cleanup (preserve-first): Removed three earlier exact duplicate mobile declarations from styles.css where the same selector, media context, and declarations appeared again later. The later declarations remain in place, preserving the final cascade result.
+ArisuV327 CSS refactor (preserve-first): Removed eight empty media-query blocks from styles.css. No style declarations or selector order were intentionally changed. Repeated selectors and !important rules were retained where their cascade role has not yet been proven redundant. Browser visual regression testing status was later reported by the user as passed; this was not independently reproduced during the V329 maintenance pass.
 V325: Corrected the project folder name to match the release ZIP, refreshed active cache-busting tokens, and cleaned the build/deployment instructions. Audited the header CSS cascade and retained the existing scoped final overrides to avoid broad layout changes. CSP remains Report-Only pending compatibility testing.
 V322: Added smart hide-on-scroll header behavior across pages: the sticky header hides while scrolling down, reappears on upward scroll, stays visible at the top, and respects reduced-motion preferences. Added thresholding and requestAnimationFrame scheduling to reduce jitter; preserved page layout and other features.
 
@@ -13,6 +15,10 @@ V321: Applied the Aurora Glass header gradient (soft blue → lavender → blush
 V319: Raised the header Privacy Policy button by 2px using a scoped transform; other header elements are unchanged.
 
 V318: Increased the “A CLEAR PROCESS” heading font size by 2px on mobile only; desktop sizing unchanged.
+
+ArisuV332 conservative maintenance: removed 19 empty CSS at-rule blocks and 564 earlier declarations superseded by later declarations for the same selector, property, and at-rule context with equal or higher !important priority. No selector order or surviving declaration values were intentionally changed. Bumped active cache-busting tokens and package version. Build, syntax, and archive checks required; browser visual regression is not independently available in this environment.
+
+ArisuV333 security/deployment review: retained Content-Security-Policy-Report-Only; do not switch to enforcing CSP until the deployed preview is tested in a browser. The current JavaScript updates CSS properties dynamically, so enforcement must be checked against scroll reveals, review lightbox, and image-interaction behavior. Confirm response headers on the deployed preview and run mobile/desktop visual regression before production. Active HTML cache-busting tokens and package version updated to ArisuV333. No visual CSS declarations or page content intentionally changed.
 
 PROJECT OVERVIEW
 Arisu Recovery Contact (branded on the site as Arisu Fix | Recovery Contact & Assistance) is a static, responsive website that presents account-recovery assistance information, official contact routes, safety guidance, customer feedback, and supporting site pages.
@@ -49,7 +55,7 @@ IMPORTANT PROJECT FILES
 
 BUILD AND DEPLOYMENT
 Requirements: Node.js 18 or newer.
-1. Extract the ZIP and open a terminal in the ArisuV328 project folder.
+1. Extract the ZIP and open a terminal in the ArisuV333 project folder.
 2. Run: npm run build
 3. The build output is generated in dist/.
 4. Deploy the contents of dist/ to the static hosting target, or configure Vercel so the project build output directory is dist/.
