@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 :root{--green:#119c6e}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'DM Sans',sans-serif}.topbar{border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.logo{height:38px;width:38px;display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:11px;font:800 19px Manrope,sans-serif;overflow:hidden;flex-shrink:0}.logo span{color:#8aa8ff}.profile-logo{background:#fff;padding:0}.profile-logo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}.brand b,.brand small{display:block;line-height:1.2}.brand b{font:800 15px Manrope,sans-serif}.brand small{font-size:10px;color:var(--muted);margin-top:4px}.eyebrow span{width:7px;height:7px;background:#17b67d;border-radius:50%}main{margin:auto}.eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:var(--blue);display:inline-flex;align-items:center;gap:8px}.wizard-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 15px 45px rgba(30,52,95,.06)}.button{font:700 12px 'DM Sans',sans-serif;border:1px solid transparent;border-radius:9px;padding:13px 16px;display:inline-flex;align-items:center;justify-content:center;gap:15px;cursor:pointer;text-decoration:none;transition:.15s}.primary{background:#25D366;color:#fff}.primary:hover:not(:disabled){background:#1fb85a}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{color:#344057}.secondary:hover{border-color:#b8c8ef}.full{width:100%}footer{border-top:1px solid var(--line);background:#fff;padding:22px max(22px,calc((100% - 1080px)/2));display:flex;align-items:center;gap:22px}footer>a:nth-child(2){margin-left:auto}footer>a:not(.brand),footer>span{font-size:10px;text-decoration:none}footer>a:not(.brand):hover{color:var(--blue)}
-@media(max-width:600px){.wizard-card{border-radius:16px}.button{padding:12px}footer{padding:20px 16px;gap:12px;flex-wrap:wrap}footer .brand{margin-right:auto}footer>a:nth-child(2){margin-left:0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif}.topbar{border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.logo{height:38px;width:38px;display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:11px;font:800 19px Manrope,sans-serif;overflow:hidden;flex-shrink:0}.logo span{color:#8aa8ff}.profile-logo{background:#fff;padding:0}.profile-logo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}.brand b,.brand small{display:block;line-height:1.2}.brand b{font:800 15px Manrope,sans-serif}.brand small{font-size:10px;color:var(--muted);margin-top:4px}.eyebrow span{width:7px;height:7px;background:#17b67d;border-radius:50%}main{margin:auto}.eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:var(--blue);display:inline-flex;align-items:center;gap:8px}.wizard-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 15px 45px rgba(30,52,95,.06)}.button{font:700 12px "DM Sans",sans-serif;border:1px solid transparent;border-radius:9px;padding:13px 16px;display:inline-flex;align-items:center;justify-content:center;gap:15px;cursor:pointer;text-decoration:none;transition:.15s}.primary{background:#25D366;color:#fff}.primary:hover:not(:disabled){background:#1fb85a}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{color:#344057}.secondary:hover{border-color:#b8c8ef}.full{width:100%}footer{border-top:1px solid var(--line);background:#fff;padding:22px max(22px,calc((100% - 1080px)/2));display:flex;align-items:center;gap:22px}footer>a:nth-child(2){margin-left:auto}footer>a:not(.brand),footer>span{font-size:10px;text-decoration:none}footer>a:not(.brand):hover{color:var(--blue)}
+@media (max-width:600px) {.wizard-card{border-radius:16px}.button{padding:12px}footer{padding:20px 16px;gap:12px;flex-wrap:wrap}footer .brand{margin-right:auto}footer>a:nth-child(2){margin-left:0}}
 
 /* Single-screen contact layout */
 .contact-only{max-width:760px;margin-left:auto;margin-right:auto;text-align:left}
@@ -10,7 +10,7 @@
 .contact-divider{display:flex;align-items:center;gap:12px;color:#8792a5;font-size:9px;font-weight:800;letter-spacing:1px;margin:28px 0 14px}
 .contact-divider:before,.contact-divider:after{content:"";height:1px;background:var(--line);flex:1}
 
-@media(max-width:600px){.contact-only{padding:20px 17px}.whatsapp-button{font-size:11px;gap:8px}}
+@media (max-width:600px) {.contact-only{padding:20px 17px}.whatsapp-button{font-size:11px;gap:8px}}
 
 /* WhatsApp-specific button styling */
 .whatsapp-button.primary{background:#25D366;color:#fff;border-color:#25D366}
@@ -20,7 +20,7 @@
 .whatsapp-button .wa-arrow{font-size:18px;line-height:1}
 
 /* Mobile-first first-screen layout */
-@media (max-width: 600px){
+@media  (max-width: 600px) {
   .topbar{height:58px;padding:0 16px;position:sticky;top:0;z-index:20}
 
   main{max-width:100%;padding:18px 14px 22px}
@@ -36,7 +36,7 @@
 
   footer{padding:14px 16px}
 }
-@media (max-width: 390px){
+@media  (max-width: 390px) {
   main{padding-left:11px;padding-right:11px}
 
   .wizard-card{padding:16px 13px}
@@ -48,7 +48,7 @@
 /* High-visibility information panels */
 
 /* Direct-to-contact layout: remove hero spacing and lift the contact card */
-@media (max-width:600px){
+@media  (max-width:600px) {
   main{padding:12px 12px 18px}
   .wizard-card{padding:17px 14px}
 
@@ -65,13 +65,13 @@
 .compact-intro h1{font:800 clamp(27px,5vw,40px)/1.08 Manrope,sans-serif}
 .compact-intro h1 em{font-style:normal;color:var(--blue)}
 .compact-intro p{margin:0 auto}
-@media(max-width:600px){
+@media (max-width:600px) {
  .compact-intro{margin:0 auto 12px;padding:0 2px}
  .compact-intro .eyebrow{font-size:9px;letter-spacing:.9px;gap:6px}
  .compact-intro h1{font-size:clamp(25px,6.5vw,32px);line-height:1.07;letter-spacing:-.9px;margin:7px 0 6px}
  .compact-intro p{font-size:11px;max-width:350px}
 }
-@media(max-width:390px){.compact-intro h1{font-size:25px}.compact-intro p{font-size:10.5px}}
+@media (max-width:390px) {.compact-intro h1{font-size:25px}.compact-intro p{font-size:10.5px}}
 
 /* Privacy Policy link: improve visibility and tap target on mobile */
 footer .privacy-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;color:var(--blue);font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;position:relative;z-index:2;cursor:pointer;pointer-events:auto}footer .privacy-link:hover,footer .privacy-link:focus-visible{background:var(--pale);color:var(--blue-dark);outline:2px solid #b9caff;outline-offset:2px}
@@ -83,8 +83,8 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .topbar .brand small{margin-top:5px}
 .header-meta .privacy-link{border-radius:16px;text-decoration:none;transition:background .15s,border-color .15s}
 
-@media(max-width:600px){.topbar .logo{border-radius:12px}.topbar .brand{min-width:0}.topbar .brand small{margin-top:3px}.header-meta .privacy-link{border-radius:10px;white-space:nowrap}}
-@media(max-width:380px){.topbar{padding-left:9px;padding-right:9px}.topbar .brand{gap:6px}.topbar .logo{width:37px;height:37px}.topbar .brand b{font-size:14px}.topbar .brand small{font-size:9px}}
+@media (max-width:600px) {.topbar .logo{border-radius:12px}.topbar .brand{min-width:0}.topbar .brand small{margin-top:3px}.header-meta .privacy-link{border-radius:10px;white-space:nowrap}}
+@media (max-width:380px) {.topbar{padding-left:9px;padding-right:9px}.topbar .brand{gap:6px}.topbar .logo{width:37px;height:37px}.topbar .brand b{font-size:14px}.topbar .brand small{font-size:9px}}
 
 /* Enhanced TikTok showcase: clear profile destination, no fabricated video previews */
 .tiktok-showcase{margin-top:13px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f8faff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
@@ -98,12 +98,12 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .tiktok-profile-arrow{font-size:22px;color:var(--blue);font-weight:700}
 
 .facebook-authenticity-note{font-size:11px;line-height:1.55;color:#8b3030;background:#fff4f4;border:1px solid #f2cccc;border-radius:9px;padding:9px 10px;margin:9px 0 13px;overflow-wrap:anywhere}
-@media(max-width:600px){.facebook-authenticity-note{font-size:10px;line-height:1.5;padding:8px 9px;margin:8px 0 11px}}
+@media (max-width:600px) {.facebook-authenticity-note{font-size:10px;line-height:1.5;padding:8px 9px;margin:8px 0 11px}}
 .tiktok-authenticity-note{font-size:11px;line-height:1.55;color:#9b2c2c;background:#fff4f4;border:1px solid #f2cccc;border-radius:9px;padding:9px 10px;margin:-3px 0 13px}
 .tiktok-profile-button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 14px;border-radius:10px;background:#11131b;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .tiktok-profile-button:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(17,19,27,.18)}
 
-@media(max-width:600px){.tiktok-showcase{padding:14px;margin-top:11px;border-radius:13px}.tiktok-brand-icon{width:44px;height:44px;flex-basis:44px}.tiktok-showcase h3{font-size:16px}.tiktok-profile-button{min-height:45px}}
+@media (max-width:600px) {.tiktok-showcase{padding:14px;margin-top:11px;border-radius:13px}.tiktok-brand-icon{width:44px;height:44px;flex-basis:44px}.tiktok-showcase h3{font-size:16px}.tiktok-profile-button{min-height:45px}}
 
 /* Facebook page card: placed directly below TikTok */
 .facebook-showcase{margin-top:12px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f6f9ff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
@@ -117,7 +117,7 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 
 .facebook-profile-button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 14px;border-radius:10px;background:#1877f2;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .facebook-profile-button:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(24,119,242,.2)}
-@media(max-width:600px){.facebook-showcase{padding:14px;margin-top:11px;border-radius:13px}.facebook-brand-icon{width:48px;height:48px;flex:0 0 48px;align-self:center}.facebook-showcase-head{align-items:center}.facebook-showcase h3{font-size:16px}.facebook-profile-button{min-height:45px}}
+@media (max-width:600px) {.facebook-showcase{padding:14px;margin-top:11px;border-radius:13px}.facebook-brand-icon{width:48px;height:48px;flex:0 0 48px;align-self:center}.facebook-showcase-head{align-items:center}.facebook-showcase h3{font-size:16px}.facebook-profile-button{min-height:45px}}
 
 /* Premium complete-site refresh — layered on top of the original visual identity */
 html{scroll-padding-top:96px}
@@ -182,11 +182,11 @@ main{max-width:1040px;padding:30px 22px 72px}
 .footer-note{color:#77839a;margin:0}
 .footer-links{display:flex;gap:16px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.footer-links a{font-weight:700;text-decoration:none;color:#65738a}.footer-links a:hover{color:var(--blue)}
 .footer-copyright{grid-column:1/-1;border-top:1px solid #edf0f5;padding-top:13px;color:#8a95a6}
-@media(max-width:760px){
+@media (max-width:760px) {
  html{scroll-padding-top:85px}.steps-grid{grid-template-columns:1fr;gap:11px}.step-card{min-height:0;display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start}.step-symbol{grid-column:1;grid-row:1/3;margin:0}.step-card h3{grid-column:2;grid-row:1;margin:2px 25px 6px 0}.step-card p{grid-column:2;grid-row:2}.step-index{right:15px;top:13px}.safety-panel{grid-template-columns:43px minmax(0,1fr);gap:13px;border-radius:19px}.safety-panel-icon{width:42px;height:42px;border-radius:13px;font-size:22px}.about-card{grid-template-columns:60px minmax(0,1fr);border-radius:20px}.about-card>img{width:60px;height:60px;border-radius:17px}.site-footer{grid-template-columns:minmax(0,1fr) auto;gap:14px 10px}.footer-note{grid-column:1/-1;grid-row:2}.footer-links{grid-column:1/-1;grid-row:3;justify-content:flex-start;gap:17px}.footer-copyright{grid-row:4}.site-section{scroll-margin-top:94px}
 }
-@media(max-width:420px){.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.topbar .logo{width:39px;height:39px}.header-meta{gap:6px}.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.faq-list details{padding:0 14px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}.footer-links{gap:12px}.footer-links a{font-size:10px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+@media (max-width:420px) {.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.topbar .logo{width:39px;height:39px}.header-meta{gap:6px}.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.faq-list details{padding:0 14px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}.footer-links{gap:12px}.footer-links a{font-size:10px}}
+@media (prefers-reduced-motion:reduce) {html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 /* Premium Mobile Polish v2: readability, touch targets and calmer spacing */
 :root{--body-size:16px;--body-leading:1.75}
@@ -219,7 +219,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .topbar .brand b{font-size:16px}
 .topbar .brand small{font-size:11px}
 .header-meta .privacy-link{display:inline-flex;align-items:center;justify-content:center}
-@media(max-width:760px){
+@media (max-width:760px) {
  main{padding:26px 15px 66px}
  .compact-intro{padding:9px 3px 14px;margin-bottom:20px}
  .compact-intro h1{font-size:clamp(32px,8.2vw,42px);letter-spacing:-1.2px;line-height:1.12;margin:15px 0 11px}
@@ -254,7 +254,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .floating-whatsapp{right:12px;bottom:12px;min-height:48px;padding:0 15px;font-size:13px}
  .site-footer{padding:22px 17px calc(26px + env(safe-area-inset-bottom))}
 }
-@media(max-width:420px){
+@media (max-width:420px) {
  .topbar .brand b{font-size:14px}.topbar .brand small{font-size:10px}
  .header-meta .privacy-link{font-size:11px;min-height:40px;padding:0 10px}
 
@@ -274,7 +274,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .faq-list details p{font-size:13.5px}
  .floating-whatsapp{right:10px;bottom:10px}
 }
-@media(hover:none){.tiktok-showcase:hover,.facebook-showcase:hover,.step-card:hover{transform:none}}
+@media (hover:none) {.tiktok-showcase:hover,.facebook-showcase:hover,.step-card:hover{transform:none}}
 
 /* Recovery proof gallery */
 
@@ -294,17 +294,17 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .proof-empty p{max-width:560px;margin:0;color:#68758a;font-size:13px;line-height:1.7}
 .proof-empty code{padding:2px 5px;border-radius:5px;background:#e9eef8;color:#2d4f9f;font-size:.92em}
 
-@media(max-width:760px){.proof-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proof-card{border-radius:16px}.proof-card-copy{padding:12px}.proof-card h3{font-size:14px}.proof-card p{font-size:12px}}
-@media(max-width:460px){.proof-gallery{grid-template-columns:1fr}.proof-image-link{aspect-ratio:16/10}.proof-empty{padding:24px 16px}}
-@media(hover:none){.proof-card:hover{transform:none;box-shadow:0 8px 24px rgba(26,48,86,.055)}}
+@media (max-width:760px) {.proof-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proof-card{border-radius:16px}.proof-card-copy{padding:12px}.proof-card h3{font-size:14px}.proof-card p{font-size:12px}}
+@media (max-width:460px) {.proof-gallery{grid-template-columns:1fr}.proof-image-link{aspect-ratio:16/10}.proof-empty{padding:24px 16px}}
+@media (hover:none) {.proof-card:hover{transform:none;box-shadow:0 8px 24px rgba(26,48,86,.055)}}
 
 /* Header shortcut to the Recovery Proofs gallery */
 .header-meta{display:flex;align-items:center;flex-shrink:0}
 .header-meta .proofs-header-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;text-decoration:none;white-space:nowrap;transition:background .18s,border-color .18s,transform .18s}
 .header-meta .proofs-header-link:hover{transform:translateY(-1px)}
 .header-meta .proofs-header-link:focus-visible,.header-meta .privacy-link:focus-visible{outline:3px solid #9bb5ff;outline-offset:2px}
-@media(max-width:600px){.header-meta .proofs-header-link{min-height:38px;padding:0 9px;font-size:10px;border-radius:10px}.header-meta .privacy-link{min-height:38px;padding:0 9px;font-size:10px}}
-@media(max-width:380px){.header-meta{gap:4px}.header-meta .proofs-header-link{padding:0 6px;font-size:9px;gap:3px}.header-meta .privacy-link{padding:0 6px;font-size:9px}}
+@media (max-width:600px) {.header-meta .proofs-header-link{min-height:38px;padding:0 9px;font-size:10px;border-radius:10px}.header-meta .privacy-link{min-height:38px;padding:0 9px;font-size:10px}}
+@media (max-width:380px) {.header-meta{gap:4px}.header-meta .proofs-header-link{padding:0 6px;font-size:9px;gap:3px}.header-meta .privacy-link{padding:0 6px;font-size:9px}}
 
 /* Header refinement: distinct, visible action buttons; copyright removed from header */
 .header-meta{gap:12px}
@@ -313,7 +313,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .header-meta .proofs-header-link span[aria-hidden="true"]{font-size:16px}
 .header-meta .privacy-link{min-height:48px;padding:0 17px;border:1px solid #cbd5e5;background:#fff;color:#34415a;font-size:13px;font-weight:800;box-shadow:0 3px 10px rgba(31,49,83,.07)}
 .header-meta .privacy-link:hover{background:#f6f8ff;border-color:#9fb4ec;color:#244fc7}
-@media(max-width:600px){
+@media (max-width:600px) {
  .topbar{min-height:unset;height:auto;padding:12px 12px 13px;gap:10px;flex-wrap:wrap;justify-content:center}
  .topbar .brand{flex:1 1 100%;justify-content:center;gap:9px}
  .topbar .brand b{font-size:16px}
@@ -322,7 +322,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .header-meta{justify-content:center}
  .header-meta .proofs-header-link,.header-meta .privacy-link{min-height:43px;padding:0 15px;font-size:12px;border-radius:12px}
 }
-@media(max-width:360px){
+@media (max-width:360px) {
  .header-meta{gap:7px}
  .header-meta .proofs-header-link,.header-meta .privacy-link{padding:0 10px;font-size:11px;min-height:41px}
 }
@@ -351,7 +351,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .proof-status-violation{background:linear-gradient(110deg,#fff7e9,#fffdf8);border-color:#ffe0ad}
 .proof-status-violation .proof-status-icon{background:#ffebc7;color:#c8790a}
 .proof-status-violation .proof-status-label{color:#ad690b}
-@media(max-width:460px){.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
+@media (max-width:460px) {.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
 
 /* Compact Daily Bible Verse strip placed directly under the header */
 .daily-verse-card:before{content:"";position:absolute;top:-45px;right:-20px;width:100px;height:100px;border-radius:50%;pointer-events:none}
@@ -360,12 +360,12 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .daily-verse-label{font-weight:800}
 .daily-verse-date{font-weight:800;letter-spacing:.4px;border-radius:999px;padding:4px 7px}
 .daily-verse-card h2{font:800 16px/1.25 Manrope,sans-serif;letter-spacing:-.3px}
-.daily-verse-text{position:relative;max-width:680px;margin:0 auto 3px;font:600 14px/1.5 'DM Sans',sans-serif}
+.daily-verse-text{position:relative;max-width:680px;margin:0 auto 3px;font:600 14px/1.5 "DM Sans",sans-serif}
 .daily-verse-reference{position:relative;margin:0;font-size:10px;font-weight:800;letter-spacing:.2px}
 .daily-verse-translation{position:relative;margin:4px auto 0;max-width:680px;font-size:11px;line-height:1.45}
 
 .daily-verse-card button:focus-visible{outline:3px solid #b9caff;outline-offset:2px}
-@media(max-width:600px){.daily-verse-card{margin:10px 0 5px;padding:11px 10px 10px;border-radius:13px}.daily-verse-topline{gap:5px}.daily-verse-label{font-size:8px;letter-spacing:.8px}.daily-verse-card h2{font-size:15px}.daily-verse-text{font-size:13px;line-height:1.45}.daily-verse-translation{font-size:10px}}
+@media (max-width:600px) {.daily-verse-card{margin:10px 0 5px;padding:11px 10px 10px;border-radius:13px}.daily-verse-topline{gap:5px}.daily-verse-label{font-size:8px;letter-spacing:.8px}.daily-verse-card h2{font-size:15px}.daily-verse-text{font-size:13px;line-height:1.45}.daily-verse-translation{font-size:10px}}
 
 /* Hybrid redesign: airy light page sections + readable deep-navy cards */
 :root{--soft-shadow:0 14px 36px rgba(19,35,66,.09)}
@@ -390,12 +390,12 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .daily-verse-translation{color:#d0d9e9}
 
 footer>a:not(.brand),footer>span{color:#596980}
-@media(max-width:600px){.daily-verse-card{box-shadow:0 8px 20px rgba(14,25,45,.16)}}
+@media (max-width:600px) {.daily-verse-card{box-shadow:0 8px 20px rgba(14,25,45,.16)}}
 
 /* Final spacing adjustment: place the Daily Bible Verse immediately below the header links. */
 main{padding-top:0}
 .daily-verse-card{margin-top:0}
-@media(max-width:600px){main{padding-top:0}.daily-verse-card{margin-top:0}}
+@media (max-width:600px) {main{padding-top:0}.daily-verse-card{margin-top:0}}
 
 /* Compact vertical rhythm: lift the WhatsApp contact panel and following content. */
 .compact-intro{margin-bottom:10px;padding-bottom:4px}
@@ -403,7 +403,7 @@ main{padding-top:0}
 .compact-intro p{margin-top:0}
 .wizard-card.contact-only{margin-top:0;padding-top:18px}
 
-@media(max-width:600px){
+@media (max-width:600px) {
   .compact-intro{margin-bottom:7px;padding-top:5px;padding-bottom:2px}
   .compact-intro h1{margin-top:10px;margin-bottom:5px}
   .compact-intro p{line-height:1.45}
@@ -413,7 +413,7 @@ main{padding-top:0}
 }
 
 /* Adaptive Daily Bible Verse card: match the user's system/browser theme. */
-@media (prefers-color-scheme: light) {
+@media  (prefers-color-scheme: light)  {
   .daily-verse-card {
     background: linear-gradient(145deg, #ffffff 0%, #f1f6ff 100%);
     border-color: #d8e2f3;
@@ -430,7 +430,7 @@ main{padding-top:0}
   .daily-verse-translation { color: #52627b; }
 
 }
-@media (prefers-color-scheme: dark) {
+@media  (prefers-color-scheme: dark)  {
   .daily-verse-card {
     background: radial-gradient(circle at 100% 0%, rgba(91,123,225,.18), transparent 34%), linear-gradient(145deg,#17243b 0%,#101a2c 100%);
     border-color: #34435e;
@@ -449,10 +449,10 @@ main{padding-top:0}
 }
 
 /* Stronger contrast for the main headline accent, distinct from the Bible verse card. */
-@media (prefers-color-scheme: light) {
+@media  (prefers-color-scheme: light)  {
   .compact-intro h1 em { color: #dc2626; }
 }
-@media (prefers-color-scheme: dark) {
+@media  (prefers-color-scheme: dark)  {
   .compact-intro h1 em { color: #f87171; }
   /* Keep the main headline readable because the page background remains light. */
   .compact-intro h1 { color: #192437 !important; -webkit-text-fill-color: #192437; }
@@ -483,7 +483,7 @@ main{padding-top:0}
 .proof-card h3 {
   margin-top: 0;
 }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .step-card { padding-top: 15px; padding-bottom: 15px; }
   .step-card h3 { margin-top: 0; }
 
@@ -496,7 +496,7 @@ main{padding-top:0}
 .step-card { min-height: 0; padding: 16px 17px; }
 .step-card h3 { margin-top: 0; margin-bottom: 5px; padding-bottom: 5px; line-height: 1.3; }
 .step-card p { margin-top: 0; line-height: 1.65; }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .steps-grid { grid-template-columns: 1fr; gap: 9px; }
   .step-card { padding: 14px 15px; }
   .step-card h3 { margin-bottom: 4px; padding-bottom: 4px; }
@@ -516,7 +516,7 @@ main{padding-top:0}
 .proof-card .proof-card-copy{order:1}
 .proof-card .proof-image-link{order:2}
 .proof-card .proof-album-back-inline{order:3;position:relative;z-index:1}
-@media(max-width:600px){.proof-card .proof-album-back-inline{min-height:48px;margin:12px auto 16px;font-size:14px}}
+@media (max-width:600px) {.proof-card .proof-album-back-inline{min-height:48px;margin:12px auto 16px;font-size:14px}}
 
 /* Version 24: album back button directly beneath the proof image */
 .proof-album-back-inline{display:block;width:calc(100% - 24px);min-height:43px;margin:12px auto 14px;padding:10px 16px;border:1px solid #315fe1;border-radius:12px;background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(49,95,225,.18)}
@@ -542,10 +542,10 @@ main{padding-top:0}
 .recovery-proof-preview-item>span{position:absolute;inset:auto 0 0;padding:20px 8px 8px;background:linear-gradient(transparent,rgba(18,31,58,.82));color:#fff;font-size:11px;font-weight:800;line-height:1.3}
 .recovery-proofs-button{min-height:49px;display:flex;align-items:center;justify-content:center;gap:9px;padding:11px 14px;background:linear-gradient(100deg,#315eea,#4e72f0);color:#fff;font-size:13px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .recovery-proofs-button:hover{box-shadow:0 9px 18px rgba(49,94,234,.24)}
-@media(max-width:600px){.recovery-proofs-showcase{padding:15px;margin-top:11px;border-radius:15px}.recovery-proofs-icon{width:44px;height:44px;flex-basis:44px}.recovery-proofs-showcase h3{font-size:16px}.recovery-proofs-preview{gap:7px;margin:12px 0}.recovery-proof-preview-item{border-radius:10px}.recovery-proof-preview-item>span{font-size:10px;padding:17px 6px 6px}.recovery-proofs-button{min-height:47px;font-size:12px}}
+@media (max-width:600px) {.recovery-proofs-showcase{padding:15px;margin-top:11px;border-radius:15px}.recovery-proofs-icon{width:44px;height:44px;flex-basis:44px}.recovery-proofs-showcase h3{font-size:16px}.recovery-proofs-preview{gap:7px;margin:12px 0}.recovery-proof-preview-item{border-radius:10px}.recovery-proof-preview-item>span{font-size:10px;padding:17px 6px 6px}.recovery-proofs-button{min-height:47px;font-size:12px}}
 
 /* Version 31: bring the process section closer to Recovery Proofs and reduce mobile vertical waste. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .wizard-card.contact-only {
     padding-bottom: 8px;
   }
@@ -597,7 +597,7 @@ main{padding-top:0}
     margin-top: 21px;
   }
 }
-@media (max-width: 420px) {
+@media  (max-width: 420px)  {
   .wizard-card.contact-only {
     padding-bottom: 7px;
   }
@@ -607,7 +607,7 @@ main{padding-top:0}
 }
 
 /* Version 32: compact Remember, FAQ, About, Terms and footer spacing on mobile */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .site-section.safety-section { margin-top: 12px !important; }
   .safety-panel { padding: 16px 14px !important; gap: 10px !important; border-radius: 20px; }
   .safety-panel h2 { margin: 0 0 8px !important; font-size: clamp(20px, 5.4vw, 24px) !important; line-height: 1.18 !important; }
@@ -631,7 +631,7 @@ main{padding-top:0}
   .footer-note { margin: 0 !important; font-size: 11px !important; line-height: 1.45 !important; }
   .footer-links { gap: 8px !important; }
 }
-@media (max-width: 420px) {
+@media  (max-width: 420px)  {
   .site-section.safety-section { margin-top: 9px !important; }
   .site-section.faq-section { margin-top: 14px !important; }
 
@@ -641,10 +641,10 @@ main{padding-top:0}
 /* Version 33: improve readability of the three process descriptions */
 
 /* Version 34: make the three process descriptions below their headings easier to read. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .how-section .step-card p { font-size: 15px !important; line-height: 1.58 !important; }
 }
-@media (max-width: 420px) {
+@media  (max-width: 420px)  {
   .how-section .step-card p { line-height: 1.55 !important; }
 }
 
@@ -655,10 +655,10 @@ main{padding-top:0}
 .about-card .independent-note { font-size: 15.5px; line-height: 1.7; }
 .safety-panel p { font-size: 16px; }
 .safety-panel p:last-child { font-weight: 800; font-size: 17px; color: #234fc5; }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
  .about-card p, .about-card .independent-note { font-size: 15px !important; line-height: 1.7 !important; }
 }
-@media (max-width: 420px) {
+@media  (max-width: 420px)  {
  .about-card p, .about-card .independent-note { font-size: 14.5px !important; line-height: 1.65 !important; }
  .safety-panel p { font-size: 14.5px !important; line-height: 1.65 !important; }
  .safety-panel p:last-child { font-size: 16px !important; }
@@ -671,7 +671,7 @@ main{padding-top:0}
 .footer-brand b{font-size:18px !important;line-height:1.35 !important}
 .footer-brand small{font-size:14px !important;line-height:1.5 !important}
 .footer-note{font-size:15px !important;line-height:1.75 !important}
-@media(max-width:600px){
+@media (max-width:600px) {
  .terms-card .section-kicker{font-size:13px !important}
  .terms-card h2{font-size:24px !important}
  .terms-card p{font-size:16px !important;line-height:1.75 !important}
@@ -684,19 +684,19 @@ main{padding-top:0}
 .header-meta .webtools-header-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:54px;padding:0 20px;border:1px solid #0f766e;border-radius:16px;background:linear-gradient(135deg,#0f766e 0%,#159b8c 100%);color:#fff;text-decoration:none;font-size:15px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px rgba(15,118,110,.18);transition:transform .16s,filter .16s,box-shadow .16s}
 .header-meta .webtools-header-link:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 7px 17px rgba(15,118,110,.22)}
 .header-meta .webtools-header-link:focus-visible{outline:3px solid #72d9cd;outline-offset:3px}
-@media(max-width:600px){
+@media (max-width:600px) {
  .header-meta{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;width:100%;}
  .header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{min-height:42px;padding:0 8px;font-size:11px;border-radius:11px;gap:5px;}
  .header-meta .webtools-header-link{grid-column:1 / -1;min-height:40px;}
 }
-@media(max-width:380px){.header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{font-size:10px;padding:0 6px;gap:4px}}
+@media (max-width:380px) {.header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{font-size:10px;padding:0 6px;gap:4px}}
 
 /* Consistent icons in all three header buttons */
 .header-meta .header-icon{width:18px;height:18px;flex:0 0 18px;display:inline-block;}
-@media(max-width:600px){.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
+@media (max-width:600px) {.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
 
 /* consolidated mobile header layout rule; desktop remains untouched. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body .topbar {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
@@ -746,7 +746,7 @@ main{padding-top:0}
   }
   body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   body .topbar > .brand { gap: 5px !important; }
   body .topbar > .brand .logo { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
   body .topbar > .brand b { font-size: 13px !important; }
@@ -769,10 +769,10 @@ main{padding-top:0}
 .reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
 .reviews-grid[hidden] { display: none; }
 .review-card { min-width: 0; padding: 18px; border: 1px solid var(--border, #dce2ed); border-radius: 18px; background: var(--card, #fff); box-shadow: 0 8px 22px rgba(26, 44, 82, .04); }
-@media (max-width: 760px) { .review-card { padding: 16px; border-radius: 16px; } }
+@media  (max-width: 760px)  { .review-card { padding: 16px; border-radius: 16px; } }
 
 /* Version 59: horizontal swipeable review cards on mobile */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .reviews-grid {
     display: grid;
     grid-auto-flow: column;
@@ -815,17 +815,17 @@ main{padding-top:0}
 .review-lightbox-image { display: block; width: min(100%, 1000px); height: min(72vh, 1000px); min-height: 220px; background-repeat: no-repeat; background-position: center; background-size: contain; border-radius: 10px; box-shadow: 0 20px 70px rgba(0,0,0,.3); -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
 .review-lightbox-close { position: absolute; top: 12px; right: 15px; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(255,255,255,.1); color: white; font-size: 30px; line-height: 1; cursor: pointer; }
 .review-lightbox-help { margin: 0; color: rgba(255,255,255,.78); text-align: center; font-size: 12px; }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
 
   .review-proof-card { border-radius: 15px; }
   .review-proof-image { aspect-ratio: auto; border-radius: 10px; }
   .review-proof-status { font-size: 9px; }
 }
 
-@media (prefers-reduced-motion: reduce) { .review-lightbox, .review-proof-image, .view-reviews-button span { transition: none !important; } }
+@media  (prefers-reduced-motion: reduce)  { .review-lightbox, .review-proof-image, .view-reviews-button span { transition: none !important; } }
 
 /* Version 64: compact mobile review header and smaller screenshot cards */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
 
   .view-reviews-button { flex: 0 0 auto; }
   .reviews-grid {
@@ -840,7 +840,7 @@ main{padding-top:0}
   .review-proof-caption strong { font-size: 12px; }
   .review-proof-caption p { font-size: 10px; line-height: 1.4; }
 }
-@media (max-width: 390px) {
+@media  (max-width: 390px)  {
 
   .reviews-grid { grid-auto-columns: 66%; }
   .review-proof-image { height: 200px; }
@@ -850,11 +850,11 @@ main{padding-top:0}
 
 .view-reviews-button { min-height: 48px; padding: 12px 18px; font-size: 15px; line-height: 1.2; text-decoration: none; border-radius: 13px; }
 .view-reviews-button .view-button-label { font-size: inherit; }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
 
   .view-reviews-button { min-height: 44px; padding: 11px 14px; font-size: 14px; gap: 7px; }
 }
-@media (max-width: 390px) {
+@media  (max-width: 390px)  {
 
   .view-reviews-button { min-height: 42px; padding: 10px 12px; font-size: 13px; }
 }
@@ -895,7 +895,7 @@ main{padding-top:0}
 }
 .windows-feedback-content .reviews-grid { margin-top: 2px; }
 .windows-feedback-content .review-proof-card { border-radius: 10px; box-shadow: 0 2px 7px rgba(31,48,79,.045); }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
 
   .tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase { padding: 14px; border-radius: 11px; }
 
@@ -908,7 +908,7 @@ main{padding-top:0}
   .windows-feedback-content .review-proof-card { padding: 6px; }
   .windows-feedback-content .review-proof-image { height: 175px; }
 }
-@media (max-width: 390px) {
+@media  (max-width: 390px)  {
 
   .windows-feedback-content .view-reviews-button { font-size: 12px; }
   .windows-feedback-content .reviews-grid { grid-auto-columns: 70%; }
@@ -948,7 +948,7 @@ main{padding-top:0}
 .social-feedback-card .view-reviews-button { min-height: 36px; padding: 7px 9px; font-size: 11px; border-radius: 9px; white-space: nowrap; }
 .social-feedback-card .reviews-grid { overflow-x: auto; }
 .social-feedback-card .review-image-hint { font-size: 9px; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
 
   .social-collage .tiktok-brand-icon,
   .social-collage .facebook-brand-icon,
@@ -956,9 +956,7 @@ main{padding-top:0}
   
 
   
-  .social-collage .tiktok-profile-button,
-  .social-collage .facebook-profile-button,
-  .social-collage .recovery-proofs-button { gap: 5px; text-align: center; }
+  
   .social-feedback-card { border-radius: 13px; }
 
   
@@ -1002,7 +1000,7 @@ main{padding-top:0}
   margin: 8px 0 0;
   white-space: nowrap;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage { grid-auto-rows: 1fr; }
   .social-collage > .tiktok-showcase,
   .social-collage > .facebook-showcase,
@@ -1053,7 +1051,7 @@ main{padding-top:0}
   border-radius: 8px;
   font-size: 10px;
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .social-collage { gap: 7px; }
 }
 
@@ -1070,12 +1068,12 @@ main{padding-top:0}
 .social-collage > .social-feedback-card { display: flex; flex-direction: column; }
 .social-collage > .social-feedback-card .reviews-grid { flex: 0 0 auto; }
 .social-collage > .social-feedback-card .social-feedback-view-all { display: flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .social-feedback-card .windows-feedback-content { flex: 1 1 auto; }
 }
 
 /* Version 73: slightly enlarge card content on mobile while preserving the balanced 2x2 layout. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
 
   
   .social-collage .tiktok-brand-icon svg,
@@ -1085,9 +1083,9 @@ main{padding-top:0}
   .social-collage .facebook-profile-arrow,
   .social-collage .recovery-proofs-arrow { font-size: 17px; }
   .social-feedback-card .windows-feedback-content { padding: 9px; }
-  .social-feedback-card .social-feedback-view-all { min-height: 34px; font-size: 10.5px; padding: 7px 6px; }
+  
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .social-collage > .tiktok-showcase,
   .social-collage > .facebook-showcase,
   .social-collage > .recovery-proofs-showcase { padding: 8px; }
@@ -1101,7 +1099,7 @@ main{padding-top:0}
 }
 
 /* Version 74: enlarge the three Customer Feedback previews so more of each screenshot is visible above View All Reviews. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-feedback-card .reviews-grid {
     margin-bottom: 0;
   }
@@ -1110,7 +1108,7 @@ main{padding-top:0}
     justify-content: center;
   }
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .social-feedback-card .review-proof-image {
     min-height: 125px;
   }
@@ -1129,14 +1127,14 @@ main{padding-top:0}
 /* Version 77: mobile-only natural image sizing for Customer Feedback previews.
  Use each screenshot's intrinsic ratio instead of forcing every image into
  the first screenshot's ratio, which caused empty space/letterboxing on phones. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-feedback-card .review-proof-card {
     flex-direction: column;
   }
 }
 
 /* Version 78: mobile-only taller review previews, filling the marked space above View All Reviews without distorting screenshots. */
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .social-feedback-card .review-proof-card { height: 166px; }
 }
 
@@ -1185,7 +1183,7 @@ main{padding-top:0}
   box-sizing: border-box;
   margin-top: auto !important;
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .social-feedback-card .review-proof-image {
     height: 150px !important;
   }
@@ -1194,7 +1192,7 @@ main{padding-top:0}
 /* Version 80: mobile-only landscape review previews.
  Keep the desktop appearance unchanged; on phones show the two review images
  side-by-side in landscape frames. Tapping a preview still opens the full image. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-feedback-card .reviews-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1247,13 +1245,10 @@ main{padding-top:0}
     border-radius: 5px;
   }
 
-  .social-feedback-card .social-feedback-view-all {
-    width: 100%;
-    margin-top: auto !important;
-  }
+  
 }
 
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .social-feedback-card .reviews-grid { gap: 5px; }
   .social-feedback-card .review-proof-card { padding: 2px; }
 }
@@ -1342,7 +1337,7 @@ main{padding-top:0}
   margin-bottom: 0;
 }
 
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .site-section { margin-top: 22px !important; }
   .how-section { margin-top: 8px !important; }
   .how-section .section-heading { margin-bottom: 11px !important; }
@@ -1404,7 +1399,7 @@ main{padding-top:0}
   .terms-card h2 { font-size: 19px !important; line-height: 1.16 !important; margin: 4px 0 5px !important; }
   .terms-card p { font-size: 12px !important; line-height: 1.45 !important; margin: 0 !important; }
 }
-@media (max-width: 420px) {
+@media  (max-width: 420px)  {
   .site-section { margin-top: 18px !important; }
   .how-section { margin-top: 6px !important; }
   .how-section .step-card { padding: 11px 11px !important; column-gap: 9px !important; }
@@ -1429,7 +1424,7 @@ main{padding-top:0}
 /* Version 88: remove duplicated mini title bars from the Recovery Proofs and Customer Feedback tiles. */
 
 .social-collage > .social-feedback-card .windows-feedback-content { padding-top: 14px; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .social-feedback-card .reviews-grid { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: minmax(0, 1fr); overflow: visible; gap: 7px; }
   .social-collage > .social-feedback-card .review-proof-image { height: clamp(86px, 25vw, 112px); }
   .social-collage > .social-feedback-card .review-image-hint { font-size: 9px; }
@@ -1460,7 +1455,7 @@ main{padding-top:0}
   font-size: 10px !important;
   padding: 5px 7px !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-feedback-card .reviews-grid-featured .review-proof-image img {
     max-height: none !important;
     width: 100% !important;
@@ -1533,7 +1528,7 @@ footer {
 a, button {
   -webkit-tap-highlight-color: transparent;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body {
     background: linear-gradient(160deg, #ddf7ff 0%, #e8eaff 45%, #fbe5fa 76%, #e0f4ff 100%) fixed !important;
   }
@@ -1562,7 +1557,7 @@ summary:focus-visible {
 [hidden] {
   display: none !important;
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   *,
   *::before,
   *::after {
@@ -1630,7 +1625,7 @@ summary:focus-visible {
   max-height: 250px;
   object-fit: contain;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage { gap: 9px; }
   .social-collage > .tiktok-showcase,
   .social-collage > .facebook-showcase,
@@ -1643,17 +1638,15 @@ summary:focus-visible {
   .social-collage .recovery-proofs-icon { width: 35px; height: 35px; flex-basis: 35px; }
 
   .social-collage .tiktok-authenticity-note { margin-bottom: 8px; }
-  .social-collage .tiktok-profile-button,
-  .social-collage .facebook-profile-button,
-  .social-collage .recovery-proofs-button { min-height: 35px; padding: 7px 5px; }
+  
   .social-collage > .social-feedback-card .windows-feedback-content { padding: 9px; }
 
   .social-collage > .social-feedback-card .reviews-grid-featured { min-height: 95px; }
   .social-collage > .social-feedback-card .review-proof-image { min-height: 95px; }
   .social-collage > .social-feedback-card .review-proof-image img { max-height: 180px; }
-  .social-collage > .social-feedback-card .social-feedback-view-all { min-height: 34px; font-size: 10px; padding: 7px 6px; }
+  
 }
-@media (max-width: 359px) {
+@media  (max-width: 359px)  {
   .social-collage { grid-template-columns: minmax(0, 1fr); }
   .social-collage > .tiktok-showcase,
   .social-collage > .facebook-showcase,
@@ -1675,21 +1668,14 @@ summary:focus-visible {
   font-size: 12px;
   line-height: 1.35;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
 
   .social-collage .tiktok-authenticity-note {
     font-size: 10.5px;
     line-height: 1.45;
     padding: 7px 8px;
   }
-  .social-collage .tiktok-profile-button,
-  .social-collage .facebook-profile-button,
-  .social-collage .recovery-proofs-button {
-    font-size: 10.5px;
-    line-height: 1.3;
-    padding-left: 6px;
-    padding-right: 6px;
-  }
+  
   .social-collage .tiktok-showcase h3,
   .social-collage .facebook-showcase h3,
   .social-collage .recovery-proofs-showcase h3 {
@@ -1715,11 +1701,11 @@ summary:focus-visible {
   background: #22c55e;
   box-shadow: 0 0 7px rgba(34, 197, 94, .75), 0 0 14px rgba(34, 197, 94, .48);
 }
-@keyframes eyebrow-fade-in-v101 {
+@keyframes  eyebrow-fade-in-v101  {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes eyebrow-green-glow-v101 {
+@keyframes  eyebrow-green-glow-v101  {
   0%, 100% {
     border-color: rgba(34, 197, 94, .72);
     box-shadow: 0 0 0 1px rgba(34, 197, 94, .08),
@@ -1734,7 +1720,7 @@ summary:focus-visible {
                 0 0 52px rgba(34, 197, 94, .12);
   }
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .compact-intro .eyebrow {
     opacity: 1;
     transform: none;
@@ -1758,7 +1744,7 @@ summary:focus-visible {
 
 /* desktop-width refinement for the home page.
  Preserve existing mobile breakpoints and visual styling. */
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   body.home-page main {
     width: 100%;
     margin-left: auto;
@@ -1805,11 +1791,11 @@ summary:focus-visible {
 .compact-intro .eyebrow .status-pulse{position:relative;display:inline-block;width:9px;height:9px;min-width:9px;flex:0 0 9px;border-radius:50%;background:#20c66b;box-shadow:0 0 0 3px rgba(32,198,107,.12);animation:status-heartbeat 1.15s ease-in-out infinite}
 .compact-intro .eyebrow .status-pulse:after{content:"";position:absolute;inset:-5px;border:1px solid rgba(32,198,107,.48);border-radius:50%;animation:status-ripple 1.5s ease-out infinite}
 .compact-intro .eyebrow .status-label{display:inline-block;width:auto;height:auto;min-width:0;flex:0 1 auto;background:transparent;border-radius:0;color:inherit;white-space:normal}
-@keyframes status-heartbeat{0%,100%{transform:scale(1);box-shadow:0 0 0 3px rgba(32,198,107,.12),0 0 7px rgba(32,198,107,.3)}15%{transform:scale(1.22);box-shadow:0 0 0 5px rgba(32,198,107,.17),0 0 12px rgba(32,198,107,.5)}30%{transform:scale(1)}}
-@keyframes status-ripple{0%{transform:scale(.65);opacity:.85}75%,100%{transform:scale(1.55);opacity:0}}
-@keyframes status-check-pop{0%,72%,100%{transform:scale(1);filter:brightness(1)}78%{transform:scale(1.2);filter:brightness(1.18)}84%{transform:scale(.96);filter:brightness(1.05)}90%{transform:scale(1.06);filter:brightness(1.1)}}
-@media(max-width:480px){.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}.compact-intro .eyebrow.premium-status > .status-check{width:17px;height:17px;min-width:17px;min-height:17px;flex-basis:17px}.compact-intro .eyebrow.premium-status > .status-check svg{width:12px;height:12px;min-width:12px;min-height:12px}}
-@media(prefers-reduced-motion:reduce){.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after,.compact-intro .eyebrow .status-check{animation:none!important}}
+@keyframes  status-heartbeat {0%,100%{transform:scale(1);box-shadow:0 0 0 3px rgba(32,198,107,.12),0 0 7px rgba(32,198,107,.3)}15%{transform:scale(1.22);box-shadow:0 0 0 5px rgba(32,198,107,.17),0 0 12px rgba(32,198,107,.5)}30%{transform:scale(1)}}
+@keyframes  status-ripple {0%{transform:scale(.65);opacity:.85}75%,100%{transform:scale(1.55);opacity:0}}
+@keyframes  status-check-pop {0%,72%,100%{transform:scale(1);filter:brightness(1)}78%{transform:scale(1.2);filter:brightness(1.18)}84%{transform:scale(.96);filter:brightness(1.05)}90%{transform:scale(1.06);filter:brightness(1.1)}}
+@media (max-width:480px) {.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}.compact-intro .eyebrow.premium-status > .status-check{width:17px;height:17px;min-width:17px;min-height:17px;flex-basis:17px}.compact-intro .eyebrow.premium-status > .status-check svg{width:12px;height:12px;min-width:12px;min-height:12px}}
+@media (prefers-reduced-motion:reduce) {.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after,.compact-intro .eyebrow .status-check{animation:none!important}}
 
 /* custom blue verified-style badge with repeating check-draw animation.
  Decorative branding only; it does not indicate official Meta verification. */
@@ -1850,22 +1836,22 @@ summary:focus-visible {
   stroke-dashoffset: 24;
   animation: arisu-blue-check-draw 2s ease-in-out infinite;
 }
-@keyframes arisu-blue-check-draw {
+@keyframes  arisu-blue-check-draw  {
   0%, 8% { stroke-dashoffset: 24; opacity: .75; }
   24%, 38% { stroke-dashoffset: 0; opacity: 1; }
   48%, 100% { stroke-dashoffset: 0; opacity: 1; }
 }
-@keyframes arisu-blue-badge-pop {
+@keyframes  arisu-blue-badge-pop  {
   0%, 45%, 100% { transform: scale(1); filter: brightness(1); box-shadow: 0 2px 7px rgba(24,119,242,.28), 0 0 0 2px rgba(24,119,242,.10); }
   10% { transform: scale(.92); filter: brightness(1.02); }
   20% { transform: scale(1.16); filter: brightness(1.14); box-shadow: 0 3px 10px rgba(24,119,242,.40), 0 0 0 4px rgba(24,119,242,.13); }
   30% { transform: scale(1); filter: brightness(1.04); }
 }
-@media (max-width: 480px) {
+@media  (max-width: 480px)  {
   .compact-intro .eyebrow.premium-status > .status-check { width: 20px !important; height: 20px !important; min-width: 20px !important; min-height: 20px !important; flex-basis: 20px !important; }
   .compact-intro .eyebrow.premium-status > .status-check svg { width: 13px !important; height: 13px !important; min-width: 13px !important; min-height: 13px !important; }
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .compact-intro .eyebrow.premium-status > .status-check,
   .compact-intro .eyebrow.premium-status > .status-check svg path { animation: none !important; }
   .compact-intro .eyebrow.premium-status > .status-check svg path { stroke-dashoffset: 0 !important; }
@@ -1879,12 +1865,12 @@ summary:focus-visible {
 .arisu-verified-badge:after{content:"";position:absolute;inset:-3px;border:1px solid rgba(24,119,242,.28);border-radius:50%;animation:arisu-brand-badge-glow 2s ease-out infinite;pointer-events:none}
 .arisu-verified-badge svg{display:block;width:14px;height:14px;overflow:visible;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .arisu-verified-badge svg path{stroke-dasharray:24;stroke-dashoffset:24;animation:arisu-brand-check-draw 2s ease-in-out infinite}
-@keyframes arisu-brand-check-draw{0%,8%{stroke-dashoffset:24;opacity:.7}24%,42%{stroke-dashoffset:0;opacity:1}50%,100%{stroke-dashoffset:0;opacity:1}}
-@keyframes arisu-brand-badge-pop{0%,45%,100%{transform:scale(1);filter:brightness(1)}10%{transform:scale(.92)}20%{transform:scale(1.16);filter:brightness(1.14);box-shadow:0 3px 10px rgba(24,119,242,.4),0 0 0 4px rgba(24,119,242,.13)}30%{transform:scale(1);filter:brightness(1.04)}}
-@keyframes arisu-brand-badge-glow{0%,100%{transform:scale(.88);opacity:0}18%{opacity:.65}55%{transform:scale(1.35);opacity:0}}
-@media(max-width:600px){.brand-name-row{gap:5px}.arisu-verified-badge{width:18px;height:18px;flex-basis:18px}.arisu-verified-badge svg{width:12px;height:12px}}
-@media(max-width:380px){.arisu-verified-badge{width:16px;height:16px;flex-basis:16px}.arisu-verified-badge svg{width:10px;height:10px}}
-@media(prefers-reduced-motion:reduce){.arisu-verified-badge,.arisu-verified-badge:after,.arisu-verified-badge svg path{animation:none!important}.arisu-verified-badge svg path{stroke-dashoffset:0!important}}
+@keyframes  arisu-brand-check-draw {0%,8%{stroke-dashoffset:24;opacity:.7}24%,42%{stroke-dashoffset:0;opacity:1}50%,100%{stroke-dashoffset:0;opacity:1}}
+@keyframes  arisu-brand-badge-pop {0%,45%,100%{transform:scale(1);filter:brightness(1)}10%{transform:scale(.92)}20%{transform:scale(1.16);filter:brightness(1.14);box-shadow:0 3px 10px rgba(24,119,242,.4),0 0 0 4px rgba(24,119,242,.13)}30%{transform:scale(1);filter:brightness(1.04)}}
+@keyframes  arisu-brand-badge-glow {0%,100%{transform:scale(.88);opacity:0}18%{opacity:.65}55%{transform:scale(1.35);opacity:0}}
+@media (max-width:600px) {.brand-name-row{gap:5px}.arisu-verified-badge{width:18px;height:18px;flex-basis:18px}.arisu-verified-badge svg{width:12px;height:12px}}
+@media (max-width:380px) {.arisu-verified-badge{width:16px;height:16px;flex-basis:16px}.arisu-verified-badge svg{width:10px;height:10px}}
+@media (prefers-reduced-motion:reduce) {.arisu-verified-badge,.arisu-verified-badge:after,.arisu-verified-badge svg path{animation:none!important}.arisu-verified-badge svg path{stroke-dashoffset:0!important}}
 
 /* Recovery-first step; only the checkmarks animate. */
 .how-section .recovery-first-card {
@@ -1929,29 +1915,29 @@ summary:focus-visible {
 }
 .promise-check svg { display: block; width: 15px; height: 15px; }
 .promise-check svg path { stroke-dasharray: 24; stroke-dashoffset: 24; animation-delay: .12s; stroke-width: 3.5; }
-@keyframes recovery-check-draw {
+@keyframes  recovery-check-draw  {
   0%, 8% { stroke-dashoffset: 24; }
   28%, 68% { stroke-dashoffset: 0; }
   82%, 100% { stroke-dashoffset: 24; }
 }
 
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   .how-section .recovery-first-card { grid-column: 1 / -1; min-height: 0; }
   .how-section .recovery-first-card h3 { max-width: calc(100% - 38px); }
   .how-section .recovery-first-card p { max-width: 900px; }
 }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .how-section .recovery-first-card { padding: 14px 13px; }
 
   .how-section .recovery-first-card h3 { margin-right: 24px; }
   .recovery-payment-promise { grid-column: 2; margin-bottom: 7px; font-size: 12px; }
 
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .recovery-payment-promise { align-items: flex-start; font-size: 11px; gap: 7px; padding: 7px; }
   .how-section .recovery-first-card h3 { font-size: 13px; }
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .promise-check svg path { animation: none !important; }
   .promise-check svg path { stroke-dashoffset: 0; }
 }
@@ -1986,9 +1972,9 @@ summary:focus-visible {
 .whatsapp-feature-card .whatsapp-button .wa-icon svg{width:32px;height:32px}
 .whatsapp-feature-card .whatsapp-button:hover{filter:brightness(1.03);transform:translateY(-1px)}
 
-@keyframes waIconRipple{0%{transform:scale(.86);opacity:.75}75%,100%{transform:scale(1.34);opacity:0}}
+@keyframes  waIconRipple {0%{transform:scale(.86);opacity:.75}75%,100%{transform:scale(1.34);opacity:0}}
 
-@media(max-width:600px){
+@media (max-width:600px) {
  .whatsapp-feature-card{grid-template-columns:48px minmax(0,1fr);column-gap:13px;row-gap:14px;margin-top:12px;padding:15px 13px;border-radius:18px}
  .whatsapp-feature-icon{width:48px;height:48px;border-radius:15px;margin-top:4px}
  .whatsapp-feature-icon:before{inset:5px;border-radius:12px}
@@ -2001,8 +1987,8 @@ summary:focus-visible {
  .whatsapp-feature-card .whatsapp-button{min-height:54px;padding:12px 10px;border-radius:13px;font-size:clamp(12px,3.4vw,15px);gap:8px}
  .whatsapp-feature-card .whatsapp-button .wa-icon,.whatsapp-feature-card .whatsapp-button .wa-icon svg{width:26px;height:26px;flex-basis:26px}
 }
-@media(max-width:360px){.whatsapp-feature-card{grid-template-columns:42px minmax(0,1fr);gap:11px;padding:12px 10px}.whatsapp-feature-icon{width:42px;height:42px}.whatsapp-feature-content h2{font-size:18px}.whatsapp-feature-content p{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.whatsapp-feature-icon:after{animation:none!important}}
+@media (max-width:360px) {.whatsapp-feature-card{grid-template-columns:42px minmax(0,1fr);gap:11px;padding:12px 10px}.whatsapp-feature-icon{width:42px;height:42px}.whatsapp-feature-content h2{font-size:18px}.whatsapp-feature-content p{font-size:11px}}
+@media (prefers-reduced-motion:reduce) {.whatsapp-feature-icon:after{animation:none!important}}
 
 /* pin the RECOMMENDED pill to the upper-right of the WhatsApp card. */
 .whatsapp-feature-card{position:relative}
@@ -2010,26 +1996,26 @@ summary:focus-visible {
 .whatsapp-recommended{position:absolute;top:0;right:0;z-index:2}
 .whatsapp-feature-kicker{display:block;max-width:calc(100% - 128px);min-height:20px}
 .whatsapp-feature-content h2{margin-top:14px}
-@media(max-width:600px){
+@media (max-width:600px) {
  .whatsapp-feature-card{position:relative}
  .whatsapp-feature-top{display:block;padding-right:0}
  .whatsapp-recommended{position:absolute;top:0;right:0;font-size:8px;padding:6px 8px;gap:4px}
  .whatsapp-feature-kicker{max-width:calc(100% - 112px);font-size:9px;letter-spacing:1px;line-height:1.35;padding-top:4px}
  .whatsapp-feature-content h2{margin-top:10px}
 }
-@media(max-width:360px){
+@media (max-width:360px) {
  .whatsapp-recommended{font-size:7px;padding:5px 6px}
  .whatsapp-feature-kicker{max-width:calc(100% - 104px);font-size:8px;letter-spacing:.6px}
 }
 
 /* add balanced breathing room at the marked intro-to-contact transition
  and keep the WhatsApp, availability, and social blocks evenly separated. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .compact-intro {
     padding-bottom: 5px;
   }
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   body.home-page .compact-intro {
     margin-bottom: 17px;
   }
@@ -2048,7 +2034,7 @@ body.home-page .whatsapp-feature-card {
 
 body.home-page .contact-divider,
 body.home-page .social-collage { grid-column: 1 / -1; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .wizard-card.contact-only {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     padding: 12px;
@@ -2062,7 +2048,7 @@ body.home-page .social-collage { grid-column: 1 / -1; }
 
   body.home-page .contact-divider { margin-top: 18px; }
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   body.home-page .wizard-card.contact-only { padding: 9px; gap: 8px; }
   body.home-page .whatsapp-feature-card { padding: 9px 7px; }
   body.home-page .whatsapp-feature-content h2 { font-size: 15px; }
@@ -2095,14 +2081,14 @@ body.home-page .whatsapp-feature-card {
 body.home-page .whatsapp-feature-icon {
   margin-top: 0;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .compact-intro { margin-bottom: 12px; }
 
 }
 
 /* compact mobile first-screen layout so WhatsApp and Available Hours both show early.
  The Bible verse remains in the page, but follows the two contact cards on phones. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   main:has(.compact-intro) {
     display: flex;
     flex-direction: column;
@@ -2179,12 +2165,12 @@ body.home-page .whatsapp-feature-icon {
   main:has(.compact-intro) .review-lightbox[hidden] { display: none !important; }
   main:has(.compact-intro) > .site-section { order: 8; margin-top: 22px !important; }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   main:has(.compact-intro) { padding-left: 9px !important; padding-right: 9px !important; gap: 7px !important; }
   main:has(.compact-intro) .whatsapp-feature-card { padding: 9px !important; }
 
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   main:has(.compact-intro) .whatsapp-feature-icon:after { animation: none !important; }
 }
 
@@ -2195,7 +2181,7 @@ body.home-page .whatsapp-feature-kicker {
 }
 body.home-page .whatsapp-feature-content p { margin-top: 0 !important; }
 
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   main:has(.compact-intro) > .daily-verse-card {
     order: 0 !important;
     display: block !important;
@@ -2307,11 +2293,11 @@ body.home-page .whatsapp-feature-card .whatsapp-button {
 body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon,
 body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 28px !important; height: 28px !important; }
 
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .whatsapp-feature-card { column-gap: 12px !important; row-gap: 12px !important; margin-top: 12px !important; }
 
 }
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   body.home-page .whatsapp-feature-icon { border-radius: 13px !important; }
   body.home-page .whatsapp-feature-icon svg { width: 26px !important; height: 26px !important; }
 
@@ -2321,7 +2307,7 @@ body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 28p
 
 /* compact first-screen contact layout based on the approved reference.
  Keep the Bible verse, recovery-status badge, heading and copy in their existing order. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page main {
     display: flex !important;
     flex-direction: column !important;
@@ -2489,7 +2475,7 @@ body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 28p
   /* Keep the same sections and text order; tighten only the vertical gaps. */
 }
 
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   body.home-page .whatsapp-feature-card {
     padding: 8px !important;
     column-gap: 7px !important;
@@ -2504,12 +2490,6 @@ body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 28p
 
 }
 
-/* pull the main title lines closer to their blue kicker labels, matching the user's red markers. */
-@media (max-width: 600px) {
-  body.home-page .whatsapp-feature-content h2 {
-  }
-
-}
 
 /* keep the RECOMMENDED badge in its own top-right area so it never overlaps the title or description. */
 body.home-page .whatsapp-feature-top {
@@ -2545,7 +2525,7 @@ body.home-page .whatsapp-feature-content p {
   z-index: 1 !important;
   margin: 0 !important;
 }
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   body.home-page .whatsapp-recommended {
     font-size: 5.8px !important;
     padding: 4px 5px !important;
@@ -2563,7 +2543,7 @@ body.home-page .whatsapp-feature-content h2 {
   margin-bottom: 4px !important;
   clear: both !important;
 }
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   body.home-page .whatsapp-feature-top {
     min-height: 21px !important;
     padding-right: 92px !important;
@@ -2575,7 +2555,7 @@ body.home-page .whatsapp-feature-content h2 {
 
 /* use the WhatsApp brand glyph while preserving the floating button animation. */
 #floatingWhatsApp.arc-scroll-reveal-visible { animation: arc-wa-float-v112 3.2s ease-in-out 650ms infinite; }
-@keyframes arc-wa-float-v112 {
+@keyframes  arc-wa-float-v112  {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -4px, 0); }
 }
@@ -2590,12 +2570,12 @@ body.home-page .whatsapp-feature-content h2 {
 #floatingWhatsApp .floating-whatsapp-icon { width: 30px; height: 30px; flex: 0 0 30px; }
 #floatingWhatsApp:hover { transform: translateY(-2px); }
 #floatingWhatsApp:active { transform: scale(.96); }
-@media (max-width: 760px) { #floatingWhatsApp { width: 54px; height: 54px; min-height: 54px; padding: 0; } }
-@media (max-width: 420px) { #floatingWhatsApp { width: 52px; height: 52px; min-height: 52px; } }
+@media  (max-width: 760px)  { #floatingWhatsApp { width: 54px; height: 54px; min-height: 54px; padding: 0; } }
+@media  (max-width: 420px)  { #floatingWhatsApp { width: 52px; height: 52px; min-height: 52px; } }
 
 /* desktop contact-card alignment and restrained icon motion.
  Keep the established scroll-reveal system and mobile sizing intact. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   body.home-page .whatsapp-feature-card {
     grid-template-columns: 72px minmax(0, 1fr);
     column-gap: 18px;
@@ -2625,18 +2605,18 @@ body.home-page .whatsapp-feature-content h2 {
   }
 
 }
-@media (prefers-reduced-motion: no-preference) {
+@media  (prefers-reduced-motion: no-preference)  {
   .whatsapp-feature-icon:after { animation: waIconRipple 2.2s ease-out infinite !important; }
 
   .whatsapp-recommended span { display: inline-block; transform-origin: 50% 65%; animation: recommendedBoltPulse 2.4s ease-in-out infinite; }
   .whatsapp-feature-icon svg { transform-origin: 50% 50%; animation: whatsappIconBreathe 3.2s ease-in-out infinite; }
 }
 
-@keyframes recommendedBoltPulse {
+@keyframes  recommendedBoltPulse  {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.12); }
 }
-@keyframes whatsappIconBreathe {
+@keyframes  whatsappIconBreathe  {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.045); }
 }
@@ -2644,7 +2624,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* restore subtle decorative icon motion when the OS requests reduced motion.
  The site's large scroll/reveal behavior is handled separately and remains unchanged.
  Motion here is limited to small badges, status dots and contact icons. */
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .compact-intro .eyebrow {
     animation: eyebrow-green-glow-v101 3.6s ease-in-out 1s infinite !important;
   }
@@ -2680,7 +2660,7 @@ body.home-page .whatsapp-feature-content h2 {
 }
 
 /* desktop contact-card spacing fix. Keep animation rules unchanged. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   body.home-page .wizard-card.contact-only {
     align-items: start;
     row-gap: 18px;
@@ -2701,7 +2681,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* modestly enlarge the availability clock and keep it aligned with the heading block.
  Also explicitly animate the recovery promise check on desktop, matching the existing check-draw
  animation used elsewhere. No HTML/JS, mobile layout, or scroll-reveal code is changed. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
 
   .how-section .recovery-first-card .promise-check svg path {
     stroke-dasharray: 24 !important;
@@ -2719,7 +2699,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* desktop recovery-promise check animation fix.
  Ensure the check is visible even when reduced motion is enabled; animate it on
  desktop when motion is allowed. The icon must never remain an empty green circle. */
-@media (min-width: 761px) and (prefers-reduced-motion: no-preference) {
+@media  (min-width: 761px) and (prefers-reduced-motion: no-preference)  {
   .how-section .recovery-first-card .recovery-payment-promise .promise-check svg path {
     stroke: #fff !important;
     stroke-dasharray: 24 !important;
@@ -2732,7 +2712,7 @@ body.home-page .whatsapp-feature-content h2 {
   }
 }
 
-@media (min-width: 761px) and (prefers-reduced-motion: reduce) {
+@media  (min-width: 761px) and (prefers-reduced-motion: reduce)  {
   .how-section .recovery-first-card .recovery-payment-promise .promise-check svg path {
     stroke: #fff !important;
     stroke-dasharray: 24 !important;
@@ -2755,7 +2735,7 @@ body.home-page .whatsapp-feature-content h2 {
   text-decoration: none !important;
 }
 
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .compact-intro .eyebrow.premium-status > .status-label {
     color: #164E3B !important;
     text-shadow: none !important;
@@ -2768,7 +2748,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* restore desktop motion for the floating WhatsApp button and recovery check.
  These are small decorative animations requested by the site owner. Keep their
  existing size, position, colors, and markup unchanged. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   #floatingWhatsApp {
     animation: arc-wa-float-v112 3.2s ease-in-out 650ms infinite !important;
     will-change: transform;
@@ -2778,7 +2758,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* keep the recovery promise check visible while it animates on desktop.
  The previous dash-draw loop left the green circle empty for much of each cycle.
  Keep the white check continuously visible and use a subtle pulse instead. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   .how-section .recovery-first-card .recovery-payment-promise .promise-check {
     animation: recovery-promise-circle-pulse 2.4s ease-in-out infinite !important;
     transform-origin: center;
@@ -2795,12 +2775,12 @@ body.home-page .whatsapp-feature-content h2 {
   }
 }
 
-@keyframes recovery-promise-circle-pulse {
+@keyframes  recovery-promise-circle-pulse  {
   0%, 100% { transform: scale(1); filter: brightness(1); }
   50% { transform: scale(1.07); filter: brightness(1.08); }
 }
 
-@keyframes recovery-promise-check-pulse {
+@keyframes  recovery-promise-check-pulse  {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.12); opacity: 1; }
 }
@@ -2827,7 +2807,7 @@ body.home-page .whatsapp-feature-content h2 {
   height: 17px;
 }
 
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .about-card h2.about-brand-title {
     gap: 7px;
   }
@@ -2842,7 +2822,7 @@ body.home-page .whatsapp-feature-content h2 {
   }
 }
 
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   .about-card .about-verified-badge {
     width: 21px;
     height: 21px;
@@ -2858,7 +2838,7 @@ body.home-page .whatsapp-feature-content h2 {
  Keep Bible Verse, intro, WhatsApp and Contact Availability in the same order,
  reduce wasted vertical spacing so more of the key content is visible above the fold.
  Desktop-only: mobile layout and all other sections remain in their existing flow. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   body.home-page main {
     padding-top: 10px !important;
     padding-bottom: 48px !important;
@@ -2900,7 +2880,7 @@ body.home-page .whatsapp-feature-content h2 {
  Only desktop breakpoints are changed here: the Bible verse, status badge,
  headline, WhatsApp panel and availability panel lead the page. Social cards
  remain in normal document flow below the availability panel, never removed. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   body.home-page .topbar {
     min-height: 76px !important;
     height: 76px !important;
@@ -3190,7 +3170,7 @@ body.home-page .whatsapp-feature-content h2 {
     bottom: 18px !important;
   }
 }
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   /* Three standard steps share the first row; the two larger promise cards span the grid below. */
   .how-section .steps-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3200,7 +3180,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* keep the opening desktop view focused on Bible verse and contact methods.
  The existing social/proof collage is moved below the main information on desktop;
  mobile ordering stays controlled by the layout script in index.html. */
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   .desktop-social-destination {
     width: 100%;
     max-width: 1000px;
@@ -3218,7 +3198,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* approved larger desktop contact cards.
  Increase WhatsApp and availability card proportions for readability without
  stretching content; scope is desktop only so mobile layout remains unchanged. */
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   body.home-page main > .daily-verse-card {
     margin-bottom: clamp(12px, 1.1vw, 18px) !important;
   }
@@ -3283,12 +3263,12 @@ body.home-page .whatsapp-feature-content h2 {
 .desktop-social-destination .contact-divider { margin: 0 auto 10px !important; }
 .desktop-social-destination .social-collage { margin-top: 0 !important; }
 body.home-page .desktop-social-destination { order: 5 !important; }
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   body.home-page main { max-width: 1320px !important; padding-left: clamp(24px,3vw,48px) !important; padding-right: clamp(24px,3vw,48px) !important; }
   body.home-page .daily-verse-card { min-height: clamp(190px,17vw,235px) !important; }
 
 }
-@media (max-width: 899px) {
+@media  (max-width: 899px)  {
   body.home-page main { padding-left: 14px !important; padding-right: 14px !important; }
   .daily-verse-card { min-height: 215px !important; padding: 23px 15px !important; background-position: 68% center !important; }
   .daily-verse-topline { gap: 5px !important; }
@@ -3299,7 +3279,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
 
   .desktop-social-destination { margin-top: 28px !important; }
 }
-@media (max-width: 420px) {
+@media  (max-width: 420px)  {
   .daily-verse-card { min-height: 225px !important; padding: 22px 12px !important; }
   .daily-verse-label { font-size: 8px !important; letter-spacing: .7px !important; }
   .daily-verse-date { font-size: 8px !important; }
@@ -3307,7 +3287,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
 }
 
 /* restore the scenic Bible banner and compact desktop contact cards. */
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   body.home-page main > .daily-verse-card {
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
@@ -3468,7 +3448,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
 .how-section .recovery-first-card .recovery-payment-promise {
   background: linear-gradient(100deg, #e5fff3, #eafbf6) !important;
 }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .how-section .step-card {
     grid-template-columns: 42px 38px minmax(0, 1fr) !important;
     border-radius: 17px !important;
@@ -3489,7 +3469,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     flex-basis: 21px !important;
   }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   .how-section .step-card .step-symbol { border-radius: 10px !important; }
   
   .how-section .step-card .recovery-payment-promise { font-size: 11px !important; }
@@ -3514,7 +3494,7 @@ body.home-page .daily-verse-card h2 { margin: 0 0 7px !important; font-size: cla
 body.home-page .daily-verse-card .daily-verse-text { max-width: 1180px !important; margin: 0 auto 2px !important; color: #fff !important; font-size: clamp(14px, 1.2vw, 19px) !important; line-height: 1.38 !important; font-weight: 750 !important; text-shadow: 0 1px 6px rgba(4, 30, 66, .4) !important; }
 body.home-page .daily-verse-card .daily-verse-reference { margin-top: 2px !important; color: #eaf4ff !important; font-size: clamp(10px, .82vw, 13px) !important; font-style: italic !important; }
 body.home-page .daily-verse-card .daily-verse-translation { max-width: 1180px !important; margin: 5px auto 0 !important; color: #edf6ff !important; font-size: clamp(10px, .86vw, 14px) !important; line-height: 1.38 !important; }
-@media (max-width: 899px) {
+@media  (max-width: 899px)  {
   body.home-page main > .daily-verse-card { min-height: 0 !important; }
   body.home-page .daily-verse-topline { gap: 5px !important; }
   body.home-page .daily-verse-cross { font-size: 13px !important; }
@@ -3525,7 +3505,7 @@ body.home-page .daily-verse-card .daily-verse-translation { max-width: 1180px !i
   body.home-page .daily-verse-card .daily-verse-reference { font-size: 11px !important; margin-top: 3px !important; }
   body.home-page .daily-verse-card .daily-verse-translation { font-size: clamp(10px, 3vw, 12px) !important; line-height: 1.42 !important; margin-top: 6px !important; }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   body.home-page .daily-verse-topline { gap: 4px !important; }
 }
 
@@ -3534,7 +3514,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV332") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV416") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3548,7 +3528,7 @@ body.home-page main > .daily-verse-card::before {
   content: none !important;
   display: none !important;
 }
-@media (max-width: 899px) {
+@media  (max-width: 899px)  {
   body.home-page main > .daily-verse-card {
     padding: 18px 12px 15px !important;
     margin: 0 auto 12px !important;
@@ -3565,7 +3545,7 @@ body.home-page main > .daily-verse-card::before {
   }
 }
 /* Keep the floating WhatsApp shortcut from crowding the contact cards on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .floating-whatsapp {
     width: 58px !important;
     height: 58px !important;
@@ -3577,7 +3557,7 @@ body.home-page main > .daily-verse-card::before {
 }
 
 /* mobile first-screen spacing: reveal the full Contact Availability card sooner. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page main {
     padding-top: 10px !important;
     padding-bottom: 28px !important;
@@ -3615,7 +3595,7 @@ body.home-page main > .daily-verse-card::before {
 }
 
 /* reduce the mobile Bible banner height so Contact Availability appears sooner. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page main > .daily-verse-card {
     margin-bottom: 8px !important;
   }
@@ -3625,7 +3605,7 @@ body.home-page main > .daily-verse-card::before {
 }
 
 /* preserve the full mountain/cross artwork and bring Contact Availability into view on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page main > .daily-verse-card {
     box-sizing: border-box !important;
     width: 100% !important;
@@ -3729,7 +3709,7 @@ body.home-page main > .daily-verse-card::before {
   }
 
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   body.home-page main > .daily-verse-card { padding: 7px 7px 8px !important; }
   body.home-page .daily-verse-label,
   body.home-page .daily-verse-date { font-size: 6.5px !important; letter-spacing: 0 !important; }
@@ -3738,7 +3718,7 @@ body.home-page main > .daily-verse-card::before {
 }
 
 /* adaptive first-screen layout for short and narrow phones */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main {
     padding: 8px 10px 18px !important;
   }
@@ -3793,7 +3773,7 @@ body.home-page main > .daily-verse-card::before {
   }
 }
 /* Short viewports need a little extra compression; widths still control text. */
-@media (max-width: 600px) and (max-height: 780px) {
+@media  (max-width: 600px) and (max-height: 780px)  {
   html body.home-page main { padding-top: 6px !important; }
   html body.home-page #daily-bible-verse.daily-verse-card { padding-top: 6px !important; padding-bottom: 7px !important; }
   html body.home-page main > .compact-intro { margin-top: 3px !important; margin-bottom: 5px !important; }
@@ -3805,7 +3785,7 @@ body.home-page main > .daily-verse-card::before {
 /* compact Contact Availability for short mobile viewports without hiding details. */
 
 /* finish mobile Contact Availability layout: readable details, safe spacing, no floating-button overlap. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html, body { max-width: 100%; overflow-x: clip; }
 
   /* Keep the floating WhatsApp shortcut away from the schedule/details. */
@@ -3856,11 +3836,11 @@ body.home-page .terms-card {
 body.home-page .site-footer {
   margin-top: 18px !important;
 }
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   body.home-page .site-section { margin-top: 28px !important; }
   body.home-page .social-collage { gap: 12px !important; }
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .contact-divider {
     margin: 8px 0 6px !important;
     gap: 8px !important;
@@ -3878,7 +3858,7 @@ body.home-page .site-footer {
   body.home-page .terms-card { padding-top: 14px !important; padding-bottom: 14px !important; }
   body.home-page .site-footer { margin-top: 12px !important; }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   body.home-page .social-collage { gap: 7px !important; }
   body.home-page .site-section { margin-top: 15px !important; }
 }
@@ -3902,7 +3882,7 @@ body.home-page .site-footer {
 .service-check { display:inline-grid; place-items:center; width:21px; height:21px; margin-left:3px; border-radius:7px; background:#2671fa; color:white; font:800 13px/1 sans-serif; vertical-align:3px; }
 .service-issue-list { display:grid; gap:6px; margin:0; padding:0; list-style:none; }
 .service-issue-list li { display:flex; align-items:center; gap:10px; min-height:35px; padding:6px 12px; border-radius:12px; background:#edf4ff; color:#15264c; font-size:14px; line-height:1.35; }
-.service-issue-list li::before { content:'✓'; flex:0 0 22px; width:22px; height:22px; display:grid; place-items:center; border-radius:50%; background:#2671fa; color:white; font-size:13px; font-weight:800; }
+.service-issue-list li::before { content:"✓"; flex:0 0 22px; width:22px; height:22px; display:grid; place-items:center; border-radius:50%; background:#2671fa; color:white; font-size:13px; font-weight:800; }
 .service-platforms { margin-top:12px; padding:14px; border:1px solid #cfe0ff; border-radius:16px; background:rgba(255,255,255,.72); }
 .service-platforms h4 { margin:0 0 10px; color:#1858d8; font:800 15px/1.35 Manrope,sans-serif; }
 .service-platform-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
@@ -3923,7 +3903,7 @@ body.home-page .site-footer {
 .service-disclaimer > span { display:grid; place-items:center; width:27px; height:27px; border-radius:50%; background:#e91e63; color:white; font-weight:800; }
 .service-disclaimer p { margin:0; font-size:13px; line-height:1.55; }
 .service-disclaimer strong { display:inline-block; margin-top:6px; font-weight:700; }
-@media(max-width:700px) {
+@media (max-width:700px)  {
  .desktop-social-destination .services-section { margin-top:25px; padding:0 1px; }
  .services-heading { margin-bottom:17px; padding:0 6px; }
  .services-heading h2 { font-size:clamp(27px,7vw,35px); letter-spacing:-1px; }
@@ -3960,14 +3940,14 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV332") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV416") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-origin: border-box !important;
   background-clip: border-box !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   /* Intentionally outranks the legacy compact-intro/main/id selector. */
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     background-repeat: no-repeat !important;
@@ -3988,17 +3968,17 @@ html body #daily-bible-verse.daily-verse-card {
 .social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
   min-width: 0;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .recovery-proofs-showcase { padding: 14px; }
 }
 
 /* mobile-only correction — Recovery Proofs must stay the same height as Customer Feedback. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage { align-items: stretch; }
 }
 
 /* mobile Recovery Proofs previews use the larger, framed image style from Customer Feedback. Desktop remains unchanged. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage .recovery-proofs-showcase .recovery-proofs-preview {
     display: flex !important;
     flex-direction: column !important;
@@ -4037,7 +4017,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* desktop-only alignment — match Recovery Proofs card height to Customer Feedback. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage {
     align-items: stretch;
   }
@@ -4060,7 +4040,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* Version 127: desktop Recovery Proofs previews use portrait cards to match Customer Feedback.
  Mobile rules are intentionally left unchanged. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   .recovery-proofs-showcase .recovery-proofs-preview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
@@ -4085,7 +4065,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* desktop fix — use higher-specificity selectors so the portrait
  preview ratio overrides the older 4:3 rule. Mobile styling remains unchanged. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   .social-collage .recovery-proofs-showcase .recovery-proofs-preview {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -4137,14 +4117,14 @@ html body #daily-bible-verse.daily-verse-card {
 .service-benefit>span:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}
 .service-benefit strong{color:#1c2d50;font-size:11px;line-height:1.3}
 .service-benefit small{color:#65789b;font-size:10px;line-height:1.35}
-@keyframes serviceStatusPulse{0%,100%{box-shadow:0 0 0 3px rgba(19,191,112,.11)}50%{box-shadow:0 0 0 6px rgba(19,191,112,.05)}}
-@media(max-width:850px){.service-status-panel{grid-template-columns:1fr}.service-status-main{padding:3px 2px 7px}.service-status-details{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.service-status-panel{gap:10px;margin:12px 0 15px;padding:12px;border-radius:17px}.service-status-main h2{font-size:21px}.service-status-main>p{font-size:11px}.service-status-details{grid-template-columns:1fr}.service-status-detail{padding:10px}.service-status-detail+.service-status-detail{border-left:0;border-top:1px solid #dce7ff}.service-status-detail-icon{width:33px;height:33px;flex-basis:33px}.service-status-detail strong{font-size:12px}.service-benefit-row{gap:6px}.service-benefit{flex-direction:column;align-items:flex-start;gap:7px;padding:9px 8px}.service-benefit-icon{width:31px;height:31px;flex-basis:31px}.service-benefit-icon svg{width:19px;height:19px}.service-benefit strong{font-size:10px}.service-benefit small{font-size:9px}}
-@media(prefers-reduced-motion:reduce){.service-status-dot{animation:none}}
+@keyframes  serviceStatusPulse {0%,100%{box-shadow:0 0 0 3px rgba(19,191,112,.11)}50%{box-shadow:0 0 0 6px rgba(19,191,112,.05)}}
+@media (max-width:850px) {.service-status-panel{grid-template-columns:1fr}.service-status-main{padding:3px 2px 7px}.service-status-details{grid-template-columns:1fr 1fr}}
+@media (max-width:560px) {.service-status-panel{gap:10px;margin:12px 0 15px;padding:12px;border-radius:17px}.service-status-main h2{font-size:21px}.service-status-main>p{font-size:11px}.service-status-details{grid-template-columns:1fr}.service-status-detail{padding:10px}.service-status-detail+.service-status-detail{border-left:0;border-top:1px solid #dce7ff}.service-status-detail-icon{width:33px;height:33px;flex-basis:33px}.service-status-detail strong{font-size:12px}.service-benefit-row{gap:6px}.service-benefit{flex-direction:column;align-items:flex-start;gap:7px;padding:9px 8px}.service-benefit-icon{width:31px;height:31px;flex-basis:31px}.service-benefit-icon svg{width:19px;height:19px}.service-benefit strong{font-size:10px}.service-benefit small{font-size:9px}}
+@media (prefers-reduced-motion:reduce) {.service-status-dot{animation:none}}
 
 /* restore the WhatsApp Preferred Contact card on mobile only.
  Keep the desktop layout unchanged. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > .compact-intro {
     display: block !important;
     visibility: visible !important;
@@ -4217,7 +4197,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* tighten the mobile vertical rhythm above the intro, WhatsApp card, and service status.
  Desktop layout remains unchanged. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     margin-bottom: 10px !important;
   }
@@ -4245,7 +4225,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* reduce excess gap between intro subtitle and WhatsApp preferred-contact card on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > .compact-intro .eyebrow {
     margin-bottom: 9px !important;
   }
@@ -4262,7 +4242,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* compact WhatsApp contact card on mobile: recommended badge at upper-right,
  with tighter text spacing and no unnecessary gaps inside the content area. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #contact .whatsapp-feature-card {
     grid-template-columns: 48px minmax(0, 1fr) !important;
     column-gap: 10px !important;
@@ -4317,7 +4297,7 @@ html body #daily-bible-verse.daily-verse-card {
     margin-top: 1px !important;
   }
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   html body.home-page #contact .whatsapp-feature-card {
     grid-template-columns: 42px minmax(0, 1fr) !important;
     column-gap: 9px !important;
@@ -4333,7 +4313,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* keep the smaller WhatsApp mark centered inside its existing green tile on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #contact .whatsapp-feature-icon {
     display: grid !important;
     place-items: center !important;
@@ -4378,7 +4358,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 .tiktok-profile-preview { border-color: rgba(254, 44, 85, .38); }
 .facebook-page-preview { border-color: rgba(24, 119, 242, .42); }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-profile-preview {
     flex: 0 0 auto;
     min-height: 0;
@@ -4406,7 +4386,7 @@ html body #daily-bible-verse.daily-verse-card {
   object-fit: cover !important;
   object-position: center center !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-feedback-card .reviews-grid-featured .review-proof-image {
     height: clamp(240px, 78vw, 300px) !important;
   }
@@ -4451,17 +4431,10 @@ html body #daily-bible-verse.daily-verse-card {
   padding: 8px 12px !important;
   line-height: 1.25 !important;
 }
-@media (max-width: 600px) {
-  .social-collage .recovery-proofs-showcase .recovery-proofs-button {
-    min-height: 48px !important;
-    height: 48px !important;
-    flex-basis: 48px !important;
-    font-size: 13px !important;
-  }
-}
+
 
 /* match social brand marks to the compact Recovery Proofs icon. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .tiktok-showcase .tiktok-showcase-head,
   .social-collage > .facebook-showcase .facebook-showcase-head {
     display: flex !important;
@@ -4492,14 +4465,14 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* tighten the extra top gap before the social collage on mobile.
  Keep card dimensions, logos, previews, and buttons unchanged. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage {
     margin-top: 8px !important;
   }
 }
 
 /* nudge TikTok and Facebook logos up 2px for visual alignment with Recovery Proofs. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .tiktok-showcase .tiktok-brand-icon,
   .social-collage > .facebook-showcase .facebook-brand-icon {
     transform: translateY(-2px) !important;
@@ -4508,7 +4481,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* show supported Facebook/Instagram account types at the bottom of Account Deletion. */
 .deletion-service-platforms { margin-top: 12px; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .deletion-service-platforms { margin-top: 12px; }
 }
 
@@ -4516,7 +4489,7 @@ html body #daily-bible-verse.daily-verse-card {
 .service-status-main h2 #serviceStatusHeadline.is-offline{color:#dc2626!important;}
 .service-status-dot.is-offline{background:#dc2626!important;box-shadow:0 0 0 4px rgba(220,38,38,.16)!important;}
 .service-status-dot.is-offline{animation-name:serviceStatusPulseOffline!important;}
-@keyframes serviceStatusPulseOffline{0%,100%{box-shadow:0 0 0 3px rgba(220,38,38,.12)}50%{box-shadow:0 0 0 6px rgba(220,38,38,.05)}}
+@keyframes  serviceStatusPulseOffline {0%,100%{box-shadow:0 0 0 3px rgba(220,38,38,.12)}50%{box-shadow:0 0 0 6px rgba(220,38,38,.05)}}
 .service-status-pill-closed{border-color:#fecaca!important;background:#fef2f2!important;color:#b91c1c!important;}
 
 /* align Recovery Proofs and Customer Feedback actions, and clarify preview spacing. */
@@ -4572,16 +4545,8 @@ html body #daily-bible-verse.daily-verse-card {
   flex: 1 1 0 !important;
   min-height: 0 !important;
 }
-@media (max-width: 600px) {
-  .social-collage .recovery-proofs-showcase .recovery-proofs-button,
-  .social-collage > .social-feedback-card .social-feedback-view-all {
-    height: 44px !important;
-    min-height: 44px !important;
-    max-height: 44px !important;
-    flex-basis: 44px !important;
-    font-size: 11px !important;
-    padding: 6px 8px !important;
-  }
+@media  (max-width: 600px)  {
+  
   .social-collage .recovery-proofs-showcase .recovery-proofs-preview {
     gap: 10px !important;
     margin: 10px 0 10px !important;
@@ -4633,7 +4598,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 /* Keep the last agreed fine-tuning: review preview 2px shorter at each edge (4px total), title 2px lower. */
 .social-collage > .social-feedback-card .feedback-showcase-head h3 { transform: translateY(2px) !important; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .social-feedback-card .feedback-showcase-head { gap: 8px !important; padding: 4px 0 10px !important; }
   .social-collage > .social-feedback-card .feedback-showcase-icon { width: 36px !important; height: 36px !important; flex-basis: 36px !important; border-radius: 10px !important; }
   .social-collage > .social-feedback-card .feedback-showcase-icon svg { width: 22px !important; height: 22px !important; }
@@ -4652,7 +4617,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* Fine-tune the mobile Customer Feedback image frame without changing card width,
  Recovery Proofs previews, or buttons. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
     height: calc(clamp(240px, 78vw, 300px) - 53px) !important;
     min-height: 0 !important;
@@ -4663,7 +4628,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* Keep desktop Recovery Proofs and Customer Feedback cards aligned to the same height. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .recovery-proofs-showcase,
   .social-collage > .social-feedback-card {
     height: 545.34px !important;
@@ -4681,7 +4646,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* reduce the Customer Feedback icon tile on desktop only; preserve mobile sizing. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .social-feedback-card .feedback-showcase-icon {
     width: 32px !important;
     height: 32px !important;
@@ -4695,7 +4660,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* slightly raise the Customer Feedback star tile and heading on desktop only. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .social-feedback-card .feedback-showcase-icon {
     transform: translateY(-2px) !important;
   }
@@ -4706,7 +4671,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* desktop-only Customer Feedback image fit and button separation.
  Keep the card dimensions and mobile layout unchanged. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .social-feedback-card .reviews-grid-featured {
     margin-bottom: 8px !important;
     min-height: 0 !important;
@@ -4738,7 +4703,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* desktop showcase images use clean matching gradients instead of blurred/white side fills.
  Keep the original screenshots crisp and centered; mobile styling remains unchanged. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .tiktok-showcase,
   .social-collage > .facebook-showcase {
     display: flex !important;
@@ -4788,7 +4753,7 @@ html body #daily-bible-verse.daily-verse-card {
 /* include the Customer Feedback portrait preview in the clean gradient treatment.
  Replace the plain pale side fill with a soft lavender-to-blue gradient; keep the
  original review screenshot sharp, centered, and at its natural portrait ratio. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
     background: linear-gradient(135deg,
       #fce7ff 0%,
@@ -4807,7 +4772,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* match the requested desktop card dimensions exactly.
  Only applies on wide desktop layouts; tablet/mobile layout stays fluid. */
-@media (min-width: 1200px) {
+@media  (min-width: 1200px)  {
   .social-collage {
     grid-template-columns: repeat(2, 611.3px) !important;
     width: max-content !important;
@@ -4824,7 +4789,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* align Recovery Proofs and Customer Feedback bottom controls on desktop.
  Keep the existing 611.3 x 543.33 card dimensions and mobile styles unchanged. */
-@media (min-width: 1200px) {
+@media  (min-width: 1200px)  {
   .social-collage {
     align-items: stretch !important;
   }
@@ -4866,7 +4831,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* add another 2px to the desktop-only Recovery Proofs bottom-button adjustment. */
-@media (min-width: 1200px) {
+@media  (min-width: 1200px)  {
   .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
     transform: translateY(8px) !important;
   }
@@ -4874,7 +4839,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* desktop-only preview assets are cropped at the source to remove leftover blur along both sides and top; transparent upper corners reveal the matching gradient frame. Mobile continues to use the original images. */
 .preview-desktop-clean { display: none !important; }
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   .social-collage > .tiktok-showcase .social-profile-preview .preview-original,
   .social-collage > .facebook-showcase .social-profile-preview .preview-original { display: none !important; }
   .social-collage > .tiktok-showcase .social-profile-preview .preview-desktop-clean,
@@ -4885,7 +4850,7 @@ html body #daily-bible-verse.daily-verse-card {
     background: transparent !important;
   }
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .tiktok-showcase .social-profile-preview .preview-original,
   .social-collage > .facebook-showcase .social-profile-preview .preview-original { display: block !important; }
   .social-collage > .tiktok-showcase .social-profile-preview .preview-desktop-clean,
@@ -4894,7 +4859,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* authoritative mobile alignment override.
  Keep both preview-to-button gaps exactly 6px, regardless of older CSS rules. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .social-feedback-card > .windows-feedback-content {
     display: flex !important;
     flex-direction: column !important;
@@ -4903,18 +4868,14 @@ html body #daily-bible-verse.daily-verse-card {
     margin: 0 0 6px !important;
     flex: 0 0 auto !important;
   }
-  .social-collage > .social-feedback-card .social-feedback-view-all {
-    margin-top: 0 !important;
-    transform: none !important;
-    flex: 0 0 auto !important;
-  }
+  
 }
 
 /* restore mobile Recovery Proofs thumbnails.
  Earlier flex rules allowed the preview items to collapse to zero height while the
  images had height:100%. Give the preview area the available card space, let both
  images share it, and keep exactly 6px between the final preview and its button. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .recovery-proofs-showcase {
     display: flex !important;
     flex-direction: column !important;
@@ -4964,11 +4925,7 @@ html body #daily-bible-verse.daily-verse-card {
     background: linear-gradient(transparent, rgba(18,31,58,.84)) !important;
     text-align: left !important;
   }
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
-    flex: 0 0 auto !important;
-    margin-top: 0 !important;
-    transform: none !important;
-  }
+  
 }
 
 /* align the Facebook warning box with the TikTok warning box. */
@@ -4981,7 +4938,7 @@ html body #daily-bible-verse.daily-verse-card {
   padding: 8px 9px;
   margin: 0 0 12px;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage .tiktok-authenticity-note,
   .social-collage .facebook-authenticity-note {
     font-size: 10px;
@@ -5063,7 +5020,7 @@ html body #daily-bible-verse.daily-verse-card {
 .review-lightbox-image { position: relative; overflow: hidden; }
 
 /* gently improve small-text readability on mobile without changing layout dimensions. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .service-status-label { font-size: 11px; }
   .service-status-pill { font-size: 11px; }
   .service-status-main > p { font-size: 13px; line-height: 1.5; }
@@ -5094,14 +5051,14 @@ html body #daily-bible-verse.daily-verse-card {
   opacity: 1;
   transform: translateY(0);
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .arc-scroll-reveal-enabled .arc-scroll-reveal {
     transform: translateY(11px);
     transition-duration: 460ms !important;
   }
 }
 /* Explicitly preserve the requested reveal even when the OS prefers reduced motion. */
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .arc-scroll-reveal-enabled .arc-scroll-reveal,
   .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
   .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
@@ -5111,7 +5068,7 @@ html body #daily-bible-verse.daily-verse-card {
     transition-delay: var(--arc-reveal-delay, 0ms) !important;
   }
 }
-@media (prefers-reduced-motion: reduce) and (max-width: 600px) {
+@media  (prefers-reduced-motion: reduce) and (max-width: 600px)  {
   .arc-scroll-reveal-enabled .arc-scroll-reveal,
   .arc-scroll-reveal-enabled .arc-scroll-reveal:not(.arc-scroll-reveal-visible),
   .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
@@ -5122,7 +5079,7 @@ html body #daily-bible-verse.daily-verse-card {
 /* Scroll-performance tuning: avoid a universal selector over every page element.
    Pause only the floating WhatsApp decoration and reduce sticky-header blur while
    the user is actively scrolling; scroll-reveal transitions remain unchanged. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   html.arc-is-scrolling #floatingWhatsApp {
     animation-play-state: paused !important;
   }
@@ -5213,7 +5170,7 @@ html body #daily-bible-verse.daily-verse-card {
   line-height: 1;
   padding-left: 3px;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .scam-awareness-card {
     width: 100%;
     gap: 8px;
@@ -5234,7 +5191,7 @@ html body #daily-bible-verse.daily-verse-card {
   .scam-awareness-tagline span { width: 15px; height: 15px; font-size: 10px; }
   .scam-awareness-arrow { font-size: 25px; }
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   .scam-awareness-card { width: 100%; padding: 10px; gap: 8px; }
   .scam-awareness-icon { flex-basis: 32px; width: 32px; height: 32px; }
   .scam-awareness-content h2 { font-size: 11px; }
@@ -5246,7 +5203,7 @@ html body #daily-bible-verse.daily-verse-card {
 body.home-page .desktop-social-destination {
   margin-top: -18px !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .desktop-social-destination {
     margin-top: -24px !important;
   }
@@ -5260,7 +5217,7 @@ body.home-page .social-media-heading {
   letter-spacing: 1.1px !important;
   text-shadow: 0 1px 0 rgba(255,255,255,0.95);
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .social-media-heading {
     font-size: 14px !important;
     letter-spacing: 0.7px !important;
@@ -5282,7 +5239,7 @@ body.home-page #services,
 body.home-page .services-container {
   margin-top: 0 !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .section-kicker {
     font-size: 15px !important;
     letter-spacing: 1.4px !important;
@@ -5321,7 +5278,7 @@ body.home-page .about-card .independent-note {
   font-weight: 600 !important;
   line-height: 1.65 !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .about-card .section-kicker {
     font-size: 12.5px !important;
     letter-spacing: 1.35px !important;
@@ -5347,7 +5304,7 @@ body.home-page .about-card .independent-note {
 }
 
 /* Version 64: tighten mobile header alignment and the space above the intro heading. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body .topbar {
     padding: 8px 12px 6px !important;
     row-gap: 2px !important;
@@ -5385,7 +5342,7 @@ body.home-page .about-card .independent-note {
 
 /* Version 68: compact the mobile service-status card and lift its contents slightly.
  Desktop layout and existing responsive rules are preserved. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #serviceStatus.service-status-panel {
     gap: 6px !important;
     padding: 8px !important;
@@ -5400,7 +5357,7 @@ body.home-page .about-card .independent-note {
 
 /* Version 68: lift mobile Service Status text and tighten internal vertical rhythm.
  Scoped to the mobile service-status card; desktop and unrelated sections stay unchanged. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #serviceStatus.service-status-panel {
     padding-top: 6px !important;
     padding-bottom: 7px !important;
@@ -5491,7 +5448,7 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
 .why-arisu-heading{margin:0 auto 22px;text-align:center;max-width:760px}.why-arisu-heading .section-kicker{color:#78b7ff;letter-spacing:.17em}.why-arisu-heading h2{color:#f7faff;margin:8px 0;font-size:clamp(1.7rem,3.5vw,2.65rem);line-height:1.12}.why-arisu-heading h2 span{color:#58a4ff}.why-arisu-heading p{color:#c1d0e6;margin:0;font-size:clamp(.92rem,1.5vw,1.05rem)}
 .why-since-badge{display:flex;align-items:center;justify-content:center;gap:14px;width:fit-content;max-width:100%;margin:0 auto 22px;padding:12px 24px;border:1px solid #238bff;border-radius:999px;background:rgba(4,24,51,.75);box-shadow:0 0 22px rgba(30,125,255,.12)}.why-since-icon{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:rgba(39,116,255,.18);color:#62b0ff}.why-since-icon svg{width:25px;height:25px}.why-since-badge strong,.why-since-badge small{display:block}.why-since-badge strong{font-size:1.25rem;line-height:1.2;color:#fff}.why-since-badge small{font-size:.8rem;color:#b9cce5;margin-top:3px}
 .why-arisu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.why-arisu-item{display:flex;align-items:flex-start;gap:14px;padding:18px;border:1px solid rgba(104,157,221,.23);border-radius:17px;background:rgba(4,17,36,.55);min-width:0}.why-arisu-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:50%;color:#7dbbff;background:radial-gradient(circle at 35% 25%,rgba(43,133,255,.42),rgba(14,49,91,.8));box-shadow:0 0 20px rgba(30,117,255,.12)}.why-arisu-icon svg{width:25px;height:25px}.why-arisu-item strong,.why-arisu-item small{display:block}.why-arisu-item strong{color:#f5f8ff;font-size:1rem;line-height:1.35;margin:1px 0 5px}.why-arisu-item small{color:#c0cee2;font-size:.88rem;line-height:1.55}.why-arisu-note{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:13px;padding:12px 15px;border:1px solid rgba(49,153,229,.35);border-radius:14px;background:rgba(1,28,48,.56);text-align:center}.why-arisu-note>span{display:grid;place-items:center;width:23px;height:23px;flex:0 0 23px;border-radius:50%;background:#20b7ed;color:#06213b;font-weight:800}.why-arisu-note p{margin:0}.why-arisu-note strong,.why-arisu-note small{display:block}.why-arisu-note strong{font-size:.94rem;color:#f6faff}.why-arisu-note small{margin-top:3px;color:#b9cbe0;font-size:.77rem;line-height:1.45}
-@media(max-width:640px){.why-arisu-section{margin-top:20px}.why-arisu-card{padding:19px 14px;border-radius:19px}.why-arisu-heading{margin-bottom:18px}.why-arisu-heading h2{font-size:1.75rem}.why-since-badge{margin-bottom:16px;padding:10px 16px;gap:11px}.why-since-icon{width:37px;height:37px;flex-basis:37px}.why-since-badge strong{font-size:1.12rem}.why-since-badge small{font-size:.73rem}.why-arisu-grid{grid-template-columns:1fr;gap:9px}.why-arisu-item{padding:13px;gap:12px;border-radius:14px}.why-arisu-icon{width:42px;height:42px;flex-basis:42px}.why-arisu-item strong{font-size:.94rem}.why-arisu-item small{font-size:.82rem;line-height:1.45}.why-arisu-note{align-items:flex-start;text-align:left;padding:11px}.why-arisu-note small{font-size:.73rem}}
+@media (max-width:640px) {.why-arisu-section{margin-top:20px}.why-arisu-card{padding:19px 14px;border-radius:19px}.why-arisu-heading{margin-bottom:18px}.why-arisu-heading h2{font-size:1.75rem}.why-since-badge{margin-bottom:16px;padding:10px 16px;gap:11px}.why-since-icon{width:37px;height:37px;flex-basis:37px}.why-since-badge strong{font-size:1.12rem}.why-since-badge small{font-size:.73rem}.why-arisu-grid{grid-template-columns:1fr;gap:9px}.why-arisu-item{padding:13px;gap:12px;border-radius:14px}.why-arisu-icon{width:42px;height:42px;flex-basis:42px}.why-arisu-item strong{font-size:.94rem}.why-arisu-item small{font-size:.82rem;line-height:1.45}.why-arisu-note{align-items:flex-start;text-align:left;padding:11px}.why-arisu-note small{font-size:.73rem}}
 
 /* Account recovery experience + Facebook Page milestone */
 .why-history-card{max-width:820px;margin:0 auto 22px;padding:clamp(20px,3vw,30px);border:1px solid rgba(104,157,221,.24);border-radius:20px;background:linear-gradient(145deg,rgba(4,17,36,.82),rgba(8,28,53,.72));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
@@ -5507,7 +5464,7 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
 .why-history-facebook-icon{background:rgba(39,116,255,.16)}.why-history-facebook-icon svg{width:27px;height:27px}
 .why-history-page-title{font-size:clamp(1.2rem,2.5vw,1.65rem)}.why-history-page-title span{display:inline-block;margin-left:4px;color:#78b7ff;font-size:.78em}
 .why-history-footnote{margin:20px 0 0;color:#c0cee2;font-size:.95rem;line-height:1.65}
-@media(max-width:640px){.why-history-card{padding:20px 16px;margin-bottom:18px;border-radius:17px}.why-history-row{gap:13px;align-items:flex-start}.why-history-icon{width:50px;height:50px;flex-basis:50px;border-radius:14px}.why-history-icon svg{width:25px;height:25px}.why-history-kicker{font-size:.7rem}.why-history-title{font-size:1.65rem}.why-history-copy p{font-size:.93rem;line-height:1.5}.why-history-divider{margin:20px 0}.why-history-page-title{font-size:1.25rem}.why-history-footnote{margin-top:17px;font-size:.9rem;line-height:1.55}}
+@media (max-width:640px) {.why-history-card{padding:20px 16px;margin-bottom:18px;border-radius:17px}.why-history-row{gap:13px;align-items:flex-start}.why-history-icon{width:50px;height:50px;flex-basis:50px;border-radius:14px}.why-history-icon svg{width:25px;height:25px}.why-history-kicker{font-size:.7rem}.why-history-title{font-size:1.65rem}.why-history-copy p{font-size:.93rem;line-height:1.5}.why-history-divider{margin:20px 0}.why-history-page-title{font-size:1.25rem}.why-history-footnote{margin-top:17px;font-size:.9rem;line-height:1.55}}
 
 /* Option 6: Premium Light Gradient for Why Choose Arisu */
 .why-arisu-section .why-arisu-card{
@@ -5572,11 +5529,11 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
   color:#fff;background:linear-gradient(145deg,#28d7f1,#087dff 68%,#6257f3);
   box-shadow:0 7px 18px rgba(44,127,236,.17);
 }
-@media(max-width:640px){
+@media (max-width:640px) {
   .why-arisu-section .why-arisu-card{background:radial-gradient(ellipse at 3% 0%,rgba(91,215,255,.18),transparent 34%),radial-gradient(ellipse at 100% 18%,rgba(171,151,255,.17),transparent 34%),linear-gradient(135deg,#f9fdff 0%,#edf7ff 52%,#f7f3ff 100%)}
   .why-arisu-section .why-history-card::before{right:-85px;bottom:-70px;width:210px;height:120px}
 }
-@media(prefers-reduced-motion:reduce){.why-arisu-section .why-history-page-link{transition:none}}
+@media (prefers-reduced-motion:reduce) {.why-arisu-section .why-history-page-link{transition:none}}
 
 /* V85: make the Facebook Page action explicit and prevent accidental taps on the whole history row. */
 .why-arisu-section .why-history-page-link{cursor:default;pointer-events:none;background:transparent!important;outline:none!important}
@@ -5585,8 +5542,8 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
 .why-arisu-section .why-history-cta-arrow{font-size:20px;line-height:1;margin-left:2px}
 .why-arisu-section .why-history-facebook-cta:hover{transform:translateY(-1px);box-shadow:0 11px 23px rgba(24,105,238,.26);filter:saturate(1.08)}
 .why-arisu-section .why-history-facebook-cta:focus-visible{outline:3px solid #8bc7ff;outline-offset:3px}
-@media(max-width:640px){.why-arisu-section .why-history-facebook-cta{min-height:50px;margin-top:15px;font-size:14px;border-radius:13px}}
-@media(prefers-reduced-motion:reduce){.why-arisu-section .why-history-facebook-cta{transition:none}}
+@media (max-width:640px) {.why-arisu-section .why-history-facebook-cta{min-height:50px;margin-top:15px;font-size:14px;border-radius:13px}}
+@media (prefers-reduced-motion:reduce) {.why-arisu-section .why-history-facebook-cta{transition:none}}
 
 /* Soft Glass purpose card, placed directly below About This Website. */
 .purpose-section {
@@ -5677,7 +5634,7 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
   color: #74839b;
   font: 600 10.5px/1.5 Manrope, Arial, sans-serif;
 }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .purpose-section { margin-top: 13px !important; }
   .purpose-card {
     padding: 19px 16px 18px;
@@ -5697,13 +5654,13 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
   .purpose-creator-role { font-size: 9.5px; }
   .purpose-card::after { width: 155px; height: 100px; right: -83px; bottom: -62px; }
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .purpose-card { scroll-behavior: auto; }
 }
 
 /* compact ONLY the inner Account Recovery Experience / Pinoy Cyber Tech card on mobile.
  The outer Why Choose Arisu card, heading, Honest & Transparent card, and desktop styles remain unchanged. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   .why-arisu-section .why-history-card {
     padding: 9px 8px !important;
     margin-bottom: 11px !important;
@@ -5751,7 +5708,7 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
 .terms-security-icon svg { display: block; width: 34px; height: 34px; }
 .terms-security-copy h3 { margin: 0 0 6px; color: #172650; font-size: 18px; line-height: 1.25; font-weight: 750; letter-spacing: -.35px; }
 .terms-security-copy p { margin: 0; color: #64718a; font-size: 14px; line-height: 1.55; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
  .terms-card .terms-intro { margin-bottom: 11px; }
  .terms-security { grid-template-columns: 36px minmax(0, 1fr); gap: 10px; padding: 11px; border-radius: 13px; }
  .terms-security-icon { width: 36px; height: 36px; border-radius: 11px; }
@@ -5785,7 +5742,7 @@ body.home-page .terms-card .terms-security-copy h3 {
 body.home-page .terms-card .terms-security-copy p {
   margin: 0 !important; color: #64718a !important; font-size: 13px !important; line-height: 1.5 !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .terms-card .terms-intro { margin-bottom: 11px !important; }
   body.home-page .terms-card .terms-security { grid-template-columns: 36px minmax(0, 1fr) !important; gap: 10px !important; padding: 11px !important; border-radius: 13px !important; }
   body.home-page .terms-card .terms-security-icon { width: 36px !important; height: 36px !important; border-radius: 10px !important; }
@@ -5793,7 +5750,7 @@ body.home-page .terms-card .terms-security-copy p {
   body.home-page .terms-card .terms-security-copy h3 { margin-bottom: 4px !important; font-size: 14px !important; line-height: 1.3 !important; letter-spacing: -.15px !important; }
   body.home-page .terms-card .terms-security-copy p { font-size: 12px !important; line-height: 1.48 !important; }
 }
-@media (max-width: 360px) {
+@media  (max-width: 360px)  {
   body.home-page .terms-card .terms-security { grid-template-columns: 30px minmax(0, 1fr) !important; gap: 8px !important; padding: 9px !important; }
   body.home-page .terms-card .terms-security-icon { width: 30px !important; height: 30px !important; border-radius: 9px !important; }
   body.home-page .terms-card .terms-security-icon svg { width: 18px !important; height: 18px !important; }
@@ -5803,7 +5760,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* V94: tighter mobile spacing for the account-assistance process cards.
  Keep desktop layout unchanged; remove excess grid-row height caused by the icon spanning three rows. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .how-section .step-card {
     grid-template-rows: auto auto !important;
     column-gap: 9px !important;
@@ -5831,7 +5788,7 @@ body.home-page .terms-card .terms-security-copy p {
     font-size: 12.5px !important;
   }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   .how-section .step-card {
     grid-template-columns: 32px 30px minmax(0, 1fr) !important;
     column-gap: 7px !important;
@@ -5852,7 +5809,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* lift process-card titles and descriptions on mobile only.
  Keep outer card layout, icons, badges, and desktop presentation unchanged. */
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   .how-section .step-card h3,
   .how-section .step-card > p {
     transform: translateY(-3px) !important;
@@ -5865,7 +5822,7 @@ body.home-page .terms-card .terms-security-copy p {
 /* approved tighter mobile spacing inside the five process cards.
  Reduce the inner top/bottom padding and the title-to-description row gap.
  Desktop styling and the outer section layout remain unchanged. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .how-section .steps-grid {
     gap: 7px !important;
   }
@@ -5892,7 +5849,7 @@ body.home-page .terms-card .terms-security-copy p {
     margin-top: 0 !important;
   }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   .how-section .step-card {
     padding: 7px 8px 8px !important;
     row-gap: 1px !important;
@@ -5901,7 +5858,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* authoritative mobile compact spacing for account-assistance steps.
  Higher specificity intentionally overrides legacy home-page rules. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page .site-section.how-section .step-card .recovery-payment-promise {
     margin-top: 0 !important;
   }
@@ -5910,7 +5867,7 @@ body.home-page .terms-card .terms-security-copy p {
 /* compact, aligned mobile process cards.
  Tightens inner vertical rhythm and lets long headings wrap cleanly.
  Desktop layout and outer section/container dimensions are untouched. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page .site-section.how-section .section-heading {
     margin-bottom: 8px !important;
   }
@@ -5979,7 +5936,7 @@ body.home-page .terms-card .terms-security-copy p {
     margin: 0 !important;
   }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   body.home-page .site-section.how-section .step-card {
     row-gap: 2px !important;
     padding: 7px 8px !important;
@@ -6010,7 +5967,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 /* align process descriptions directly beneath their headings on mobile. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page .site-section.how-section .recovery-first-card > p {
     margin-top: 4px !important;
   }
@@ -6018,7 +5975,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* remove excess gap between process-card titles and descriptions on mobile.
  Override legacy grid placement explicitly so descriptions follow titles immediately. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page .site-section.how-section .step-card {
     grid-template-columns: 36px 34px minmax(0, 1fr) !important;
     grid-template-rows: auto auto auto !important;
@@ -6068,7 +6025,7 @@ body.home-page .terms-card .terms-security-copy p {
   }
 }
 
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   body.home-page .site-section.how-section .step-card {
     grid-template-columns: 32px 30px minmax(0, 1fr) !important;
     column-gap: 6px !important;
@@ -6076,7 +6033,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 /* refined mobile title-to-description spacing across all five process cards. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page .site-section.how-section .step-card h3 {
     margin: 0 !important;
     padding: 0 !important;
@@ -6101,7 +6058,7 @@ body.home-page .terms-card .terms-security-copy p {
  Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
  Desktop keeps the existing grid placement via display: contents. */
 .step-card .step-copy { display: contents; }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page .site-section.how-section .step-card .step-copy {
     grid-column: 3 !important;
     grid-row: 1 / span 3 !important;
@@ -6138,7 +6095,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* restore the desktop process-card text wrapper layout.
  Keep icon + number columns unchanged; let the copy occupy the full third column. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   body.home-page .site-section.how-section .step-card .step-copy {
     grid-column: 3 !important;
     grid-row: 1 / span 3 !important;
@@ -6178,7 +6135,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* desktop-only refinement for the five account-assistance cards.
  Adjust interior content only; deliberately preserve the existing outer card border and radius. */
-@media (min-width: 761px) {
+@media  (min-width: 761px)  {
   body.home-page .site-section.how-section .step-card {
     grid-template-columns: 50px 42px minmax(0, 1fr) !important;
     column-gap: 13px !important;
@@ -6263,7 +6220,7 @@ body.home-page .terms-card .terms-security-copy p {
   position: static !important;
   top: auto !important;
 }
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   .why-arisu-section .why-arisu-card {
     padding-top: 5px !important;
   }
@@ -6323,13 +6280,13 @@ body.home-page .why-arisu-section .why-arisu-note {
   margin-top: 5px !important;
   padding: 7px 9px !important;
 }
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   body.home-page .why-arisu-section .why-arisu-item strong { margin-bottom: 2px !important; }
 }
 
 /* match the compact mobile card spacing used in Why Choose Arisu.
  Scoped only to Account Recovery and Account Deletion service cards. */
-@media (max-width: 700px) {
+@media  (max-width: 700px)  {
   body.home-page .desktop-social-destination .services-section .service-card {
     padding: 12px 10px !important;
     border-width: 1px !important;
@@ -6432,7 +6389,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* lift and compact the complete MY SERVICES heading on mobile.
  Keeps this adjustment scoped to the Services section; outer section styling remains intact. */
-@media (max-width: 700px) {
+@media  (max-width: 700px)  {
   html body.home-page .desktop-social-destination .services-section {
     margin-top: 9px !important;
     padding-top: 0 !important;
@@ -6462,7 +6419,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* compact Account Deletion card on mobile and vertically align the warning copy.
  Scoped to the deletion card; no outer section border or other service card is changed. */
-@media (max-width: 700px) {
+@media  (max-width: 700px)  {
   html body.home-page .desktop-social-destination .services-section .deletion-service-card {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
@@ -6490,7 +6447,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* tighter mobile spacing across both service cards.
  Preserve outer section styling, icon sizes, and readable type. */
-@media (max-width: 700px) {
+@media  (max-width: 700px)  {
   html body.home-page .desktop-social-destination .services-section .services-grid {
     gap: 8px !important;
   }
@@ -6568,7 +6525,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* extra-compact mobile spacing for Why Choose Arisu.
  Preserve the outer card border, radius, background, horizontal inset, and type/icon sizes. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   body.home-page .why-arisu-section .why-arisu-card {
     padding-top: 0 !important;
     padding-bottom: 10px !important;
@@ -6643,7 +6600,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* tighten the gap slightly above the Why Choose Arisu outer section on mobile.
  Keep the section's own padding, border, and inner card spacing unchanged. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page main > .why-arisu-section {
     margin-top: 8px !important;
   }
@@ -6651,7 +6608,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* restore a little breathing room above the mobile process section.
  Only the section's outside spacing changes; card internals and desktop layout stay untouched. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page main > .site-section.how-section {
     margin-top: 6px !important;
   }
@@ -6660,7 +6617,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 /* apply the compact mobile gap to the actual moved sections.
  desktop-layout.js moves #services and #why-choose-arisu inside #desktopSocialDestination,
  so target them there rather than as direct children of main. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page #desktopSocialDestination > #services {
     margin-bottom: 0 !important;
   }
@@ -6671,7 +6628,7 @@ body.home-page .why-arisu-section .why-arisu-note {
 
 /* enforce the requested mobile text-size increases after legacy overrides.
  Higher-specificity selectors ensure the values actually win without changing layout. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > .compact-intro > p {
     font-size: 14px !important;
     line-height: 1.45 !important;
@@ -6685,7 +6642,7 @@ body.home-page .why-arisu-section .why-arisu-note {
     line-height: 1.45 !important;
   }
 }
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   html body.home-page main > .compact-intro > p {
     font-size: 13px !important;
   }
@@ -6706,49 +6663,21 @@ body.home-page .contact-divider {
   line-height: 1.4 !important;
   font-weight: 700 !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .contact-divider {
     font-size: 10px !important;
     letter-spacing: .75px !important;
   }
 }
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   body.home-page .contact-divider {
     font-size: 9px !important;
     letter-spacing: .5px !important;
   }
 }
 
-/* force the mobile Recovery Proofs and View All Reviews buttons to match exactly.
- This final, high-specificity override supersedes earlier conflicting size rules.
- Desktop styles and card layouts remain unchanged. */
-@media (max-width: 600px) {
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button,
-  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-    height: 48px !important;
-    min-height: 48px !important;
-    max-height: 48px !important;
-    flex: 0 0 48px !important;
-    margin-top: 0 !important;
-    padding: 6px 8px !important;
-    gap: 7px !important;
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-    border-radius: 10px !important;
-    white-space: nowrap !important;
-    transform: none !important;
-  }
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button > span:last-child,
-  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all > span:last-child {
-    flex: 0 0 auto !important;
-    line-height: 1 !important;
-  }
-}
+/* V376 cleanup: removed the older mobile flex/nowrap override for the two action buttons.
+   The scoped consolidated mobile rules below now own Recovery Proofs CTA layout. */
 
 /* final mobile alignment correction. Both buttons remain exactly 48px tall;
  move the Recovery Proofs button down 9px so its visible baseline matches View All Reviews.
@@ -6766,7 +6695,7 @@ body.home-page .contact-divider {
   min-height: 0 !important;
   max-height: none !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .recovery-proofs-showcase,
   .social-collage > .social-feedback-card {
     align-self: stretch !important;
@@ -6821,7 +6750,7 @@ body.home-page .contact-divider {
   min-height: 0 !important;
   object-fit: cover !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .recovery-proofs-showcase,
   .social-collage > .social-feedback-card {
     height: clamp(360px, 96.5vw, 390px) !important;
@@ -6840,7 +6769,7 @@ body.home-page .contact-divider {
     object-fit: cover !important;
   }
 }
-@media (min-width: 601px) and (max-width: 1199px) {
+@media  (min-width: 601px) and (max-width: 1199px)  {
   .social-collage > .recovery-proofs-showcase,
   .social-collage > .social-feedback-card {
     height: 545.34px !important;
@@ -6848,7 +6777,7 @@ body.home-page .contact-divider {
     max-height: 545.34px !important;
   }
 }
-@media (min-width: 1200px) {
+@media  (min-width: 1200px)  {
   .social-collage > .recovery-proofs-showcase,
   .social-collage > .social-feedback-card {
     height: 543.33px !important;
@@ -6857,46 +6786,11 @@ body.home-page .contact-divider {
   }
 }
 
-/* match the Reviews button's outer-card side spacing to Recovery Proofs.
- The buttons sit in different parent boxes: the proof button is inside a padded anchor,
- while Reviews is inside .windows-feedback-content. Do not give them the same raw width.
- Keep the proof button's proven inset and compensate for the Reviews wrapper padding. */
-@media (max-width: 600px) {
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
-    box-sizing: border-box !important;
-    width: calc(100% + 16px) !important;
-    max-width: none !important;
-    margin-left: -8px !important;
-    margin-right: 0 !important;
-    align-self: flex-start !important;
-    height: 48px !important;
-    min-height: 48px !important;
-    max-height: 48px !important;
-    flex: 0 0 48px !important;
-    transform: translateY(9px) !important;
-  }
-  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
-    box-sizing: border-box !important;
-    /* Compensate for the feedback content wrapper's padding so its visible side
- insets match the Recovery Proofs button instead of appearing narrower. */
-    width: calc(100% + 11px) !important;
-    max-width: none !important;
-    margin-left: -5.5px !important;
-    margin-right: -5.5px !important;
-    align-self: flex-start !important;
-    height: 48px !important;
-    min-height: 48px !important;
-    max-height: 48px !important;
-    flex: 0 0 48px !important;
-    margin-top: auto !important;
-    transform: translateY(2px) !important;
-  }
-}
 
 /* subtle mobile proof-preview refinement. Lift the Suspended preview slightly,
  and make the Disabled preview just a touch shorter so its visual weight better matches
  the Customer Feedback preview without changing the outer cards or button alignment. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   .social-collage > .recovery-proofs-showcase .recovery-proofs-preview {
     margin-top: 8px !important;
     gap: 8px !important;
@@ -6911,25 +6805,21 @@ body.home-page .contact-divider {
 
 /* restore the established content inset. The requested 4px reduction
  applies to the review preview image itself, not to the card content padding. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
     box-sizing: border-box !important;
     padding-bottom: 8px !important;
   }
 }
 
-/* exact requested adjustment — shorten the Customer Feedback preview image
- by 4px at its bottom on mobile only. Do not move or resize the View All Reviews button,
- and do not alter the outer card dimensions. This final rule overrides older preview sizing. */
-@media (max-width: 600px) {
-  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card {
-    min-height: 0 !important;
-  }
+/* ArisuV395: reduce the actual review preview image by 2px from V394. Keep outer preview card and button unchanged. */
+@media  (max-width: 600px)  {
+
   html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
-    height: calc(100% - 4px) !important;
+    height: calc(100% + 2px) !important;
     min-height: 0 !important;
     max-height: none !important;
-    flex: 0 0 calc(100% - 4px) !important;
+    flex: 0 0 calc(100% + 2px) !important;
     box-sizing: border-box !important;
   }
   html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
@@ -6950,7 +6840,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV332") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV416") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6958,7 +6848,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   background-clip: border-box !important;
   background-color: #155a9a !important;
 }
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 42px !important;
     padding-bottom: 40px !important;
@@ -6966,7 +6856,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     background-size: cover !important;
   }
 }
-@media (max-width: 899px) {
+@media  (max-width: 899px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 30px !important;
     padding-bottom: 27px !important;
@@ -6974,7 +6864,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   }
 }
 /* Mobile-only: zoom the photo slightly and shift its right-side cross inward so it stays visible. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     margin-top: -3px !important;
     padding-top: 14px !important;
@@ -6982,7 +6872,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV332") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV416") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -7002,7 +6892,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   html body.home-page #daily-bible-verse .daily-verse-reference { margin-top: 1px !important; font-size: 10px !important; line-height: 1.25 !important; }
   html body.home-page #daily-bible-verse .daily-verse-translation { max-width: 100% !important; margin-top: 4px !important; font-size: 11.5px !important; line-height: 1.35 !important; }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 16px !important;
     padding-bottom: 15px !important;
@@ -7036,11 +6926,11 @@ html body .floating-menu:not([data-state="open"]) #floatingWhatsApp::before {
   inset: -5px !important; border: 1.5px solid rgba(104,220,255,.68) !important; box-shadow: 0 0 14px rgba(63,173,255,.28); animation: arisuGlassRipple162 2.7s ease-out infinite !important;
 }
 html body .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation: arisuGlassFloat162 4s ease-in-out infinite !important; }
-@keyframes arisuGlassRipple162 { 0% { opacity: .72; transform: scale(.94); } 80%,100% { opacity: 0; transform: scale(1.24); } }
-@keyframes arisuGlassFloat162 { 0%,100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 18px rgba(80,203,255,.25); } 50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 9px 25px rgba(22,87,205,.4), 0 0 23px rgba(80,203,255,.34); } }
-@media(max-width:600px) { html body .floating-menu #floatingWhatsApp { width:56px !important;height:56px !important;min-width:56px !important;min-height:56px !important; } }
-@media(max-width:360px) { html body .floating-menu #floatingWhatsApp { width:52px !important;height:52px !important;min-width:52px !important;min-height:52px !important; } }
-@media(prefers-reduced-motion:reduce) { html body .floating-menu:not([data-state="open"]) #floatingWhatsApp, html body .floating-menu:not([data-state="open"]) #floatingWhatsApp::before { animation:none !important; } }
+@keyframes  arisuGlassRipple162  { 0% { opacity: .72; transform: scale(.94); } 80%,100% { opacity: 0; transform: scale(1.24); } }
+@keyframes  arisuGlassFloat162  { 0%,100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 18px rgba(80,203,255,.25); } 50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 9px 25px rgba(22,87,205,.4), 0 0 23px rgba(80,203,255,.34); } }
+@media (max-width:600px)  { html body .floating-menu #floatingWhatsApp { width:56px !important;height:56px !important;min-width:56px !important;min-height:56px !important; } }
+@media (max-width:360px)  { html body .floating-menu #floatingWhatsApp { width:52px !important;height:52px !important;min-width:52px !important;min-height:52px !important; } }
+@media (prefers-reduced-motion:reduce)  { html body .floating-menu:not([data-state="open"]) #floatingWhatsApp, html body .floating-menu:not([data-state="open"]) #floatingWhatsApp::before { animation:none !important; } }
 
 /* fix conflicting animation:none rule; visible double expanding-ring cue, no sparkle badge. */
 html body .floating-menu {
@@ -7066,21 +6956,21 @@ html body .floating-menu #floatingWhatsApp::before {
 /* V177: CSS directly controls the continuous pulse; no JS class required. */
 html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before { animation: arisuExpandingRing177 2s ease-out infinite !important; }
 html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation: arisuOrbHalo177 2s ease-in-out infinite !important; }
-@keyframes arisuExpandingRing177 {
+@keyframes  arisuExpandingRing177  {
   0% { opacity: .9; transform: scale(.96); }
   45% { opacity: .55; }
   100% { opacity: 0; transform: scale(1.78); }
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body .floating-menu { right: max(12px, env(safe-area-inset-right, 0px)) !important; bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
   html body .floating-menu #floatingWhatsApp { width: 56px !important; height: 56px !important; min-width: 56px !important; min-height: 56px !important; }
 }
-@media (max-width: 360px) { html body .floating-menu #floatingWhatsApp { width: 52px !important; height: 52px !important; min-width: 52px !important; min-height: 52px !important; } }
-@keyframes arisuOrbHalo177 {
+@media  (max-width: 360px)  { html body .floating-menu #floatingWhatsApp { width: 52px !important; height: 52px !important; min-width: 52px !important; min-height: 52px !important; } }
+@keyframes  arisuOrbHalo177  {
   0%,100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 18px rgba(80,203,255,.25); }
   50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 8px 24px rgba(22,87,205,.43), 0 0 27px rgba(80,203,255,.52); }
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before,
  html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation:none !important; }
 }
@@ -7178,7 +7068,7 @@ html body.home-page .floating-menu-item-icon.tt-shortcut { background: #171923 !
 html body.home-page .floating-menu-item-icon.proofs-shortcut { background: #4267e8 !important; }
 html body.home-page .floating-menu-item-icon.faq-shortcut { background: #e9efff !important; color: #3156bb !important; }
 html body.home-page .floating-menu-reminder { font-size: 0 !important; line-height: 0 !important; }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page .floating-menu { right: max(12px, env(safe-area-inset-right, 0px)) !important; bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
   html body.home-page .floating-menu-items:not([hidden]) { width: min(186px, calc(100vw - 78px)) !important; max-width: calc(100vw - 78px) !important; border-radius: 17px !important; }
   html body.home-page .floating-menu-item { width: 100% !important; align-self: stretch !important; min-height: 38px !important; padding: 5px 9px !important; gap: 9px !important; font-size: 13px !important; }
@@ -7186,14 +7076,14 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
 
 
 /* ArisuV320: add breathing room below the Terms & Limitations content on mobile. */
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   body.home-page main .terms-card {
     padding-bottom: 24px !important;
   }
 }
 
 /* ArisuV320: keep footer content in a single, readable mobile flow. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .site-footer {
     grid-template-columns: minmax(0, 1fr) !important;
     align-items: start !important;
@@ -7211,7 +7101,7 @@ html body.home-page .floating-menu-reminder { font-size: 0 !important; line-heig
 /* ArisuV320 cleanup: removed obsolete mobile spacing declarations superseded below. */
 
 /* ArisuV320: soften outer-card outlines from About This Website through the final content cards. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   body.home-page .about-card,
   body.home-page .why-arisu-section .why-arisu-card,
   body.home-page .why-arisu-section .why-history-card,
@@ -7248,7 +7138,7 @@ html body.home-page main .purpose-card {
   padding-bottom: 12px !important;
   gap: 9px !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > section.site-section.about-section,
   html body.home-page main > section.site-section.purpose-section,
   html body.home-page main > section.site-section.safety-section,
@@ -7269,7 +7159,7 @@ html body.home-page main .purpose-card {
     padding: 2px 15px 12px !important;
   }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   html body.home-page main .about-card {
     padding: 5px 13px 2px !important;
     column-gap: 10px !important;
@@ -7323,7 +7213,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* ArisuV320: move the purpose text and creator divider slightly higher on mobile.
    This final, high-specificity block intentionally overrides only the matching mobile margins. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main .purpose-card h2 { margin-bottom: 6px !important; }
   html body.home-page main .purpose-card > p:not(.purpose-mantra) { margin-bottom: 5px !important; }
   html body.home-page main .purpose-card > .purpose-mantra { margin-top: 7px !important; }
@@ -7334,11 +7224,9 @@ body.home-page .purpose-card .purpose-kicker {
 }
 
 
-
-
 /* ArisuV320: definitive mobile card padding override. Keep this as the final CSS block
    so earlier broad !important rules cannot restore the old 14px padding. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > section.site-section.safety-section .safety-panel {
     padding-block: 8px !important;
   }
@@ -7350,7 +7238,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* ArisuV320: bring the footer closer to the Legitimate Account Recovery card on mobile.
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main { padding-bottom: 8px !important; }
   html body.home-page .site-footer { margin-top: 4px !important; }
 }
@@ -7358,7 +7246,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* ArisuV332: consolidate repeated mobile WhatsApp spacing adjustments.
    Preserve the final values from the previous consecutive rules. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #contact .whatsapp-feature-card {
     padding-top: 5px !important;
   }
@@ -7375,7 +7263,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 
 /* ArisuV320: raise Service Status 4px closer to the WhatsApp card on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > .compact-intro {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
@@ -7390,7 +7278,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 
 /* ArisuV320: raise the full Please Read card content by another 2px on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > section.site-section.terms-section > .terms-card {
     padding-top: 2px !important;
     padding-bottom: 8px !important;
@@ -7400,7 +7288,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* ArisuV320: repair desktop footer location icons and alignment.
    The SVGs previously had no desktop size/stroke rules, so their paths rendered as huge black shapes. */
-@media (min-width: 601px) {
+@media  (min-width: 601px)  {
   body.home-page .site-footer > .footer-location {
     grid-column: 3 !important;
     grid-row: 1 !important;
@@ -7442,7 +7330,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* ArisuV320: desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
    Desktop-only refinements preserve the mobile card stack and spacing. */
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   html body.home-page main {
     max-width: 1320px !important;
     padding-left: clamp(32px, 3.7vw, 48px) !important;
@@ -7601,7 +7489,7 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* ArisuV320: true desktop centering for the content sections from How It Works through Please Read.
    Keep one consistent width and equal viewport-side margins; mobile layout is untouched. */
-@media (min-width: 900px) {
+@media  (min-width: 900px)  {
   html body.home-page main > section.site-section.how-section,
   html body.home-page main > section.site-section.about-section,
   html body.home-page main > section.site-section.purpose-section,
@@ -7660,7 +7548,7 @@ html body.home-page .why-arisu-card > .process-heading-band p {
   font-size: 15px !important;
   line-height: 1.5 !important;
 }
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .process-heading-band {
     width: calc(100% + 28px) !important;
     margin-top: 11px !important;
@@ -7701,7 +7589,7 @@ html body.home-page .why-arisu-card > .process-heading-band p {
   fill: none;
   stroke: none;
 }
-@media (max-width: 760px) {
+@media  (max-width: 760px)  {
   .how-section .social-platforms-step-card .social-platforms-symbol svg {
     width: 29px !important;
     height: 29px !important;
@@ -7751,7 +7639,7 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p {
 html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:last-child {
   margin-bottom: 0 !important; color: #245be9 !important; font-weight: 700 !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page .why-arisu-card > .safety-section-inline { margin-top: 8px !important; }
   html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
     grid-template-columns: 42px minmax(0,1fr) !important; gap: 10px !important;
@@ -7767,7 +7655,7 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
 
 
 /* ArisuV320: mobile-only two-column account recovery issue list. Desktop layout intentionally unchanged. */
-@media (max-width: 700px) {
+@media  (max-width: 700px)  {
   html body.home-page .desktop-social-destination .services-section .service-issue-list {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -7799,7 +7687,7 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
 
 
 /* ArisuV320: mobile-only Soft Blue Glass treatment for the reassurance note. Desktop styling/content remains unchanged. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-note {
     display: flex !important;
     align-items: center !important;
@@ -7842,7 +7730,7 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
   html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-desktop { display: none !important; }
   html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-mobile { display: block !important; }
 }
-@media (min-width: 641px) {
+@media  (min-width: 641px)  {
   html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-desktop { display: block !important; }
   html body.home-page .why-arisu-section .why-arisu-note .why-arisu-note-mobile { display: none !important; }
 }
@@ -7872,7 +7760,7 @@ html body.home-page .why-arisu-section .why-arisu-note > span {
 html body.home-page .why-arisu-section .why-arisu-note-copy { min-width: 0 !important; margin: 0 !important; line-height: 1.4 !important; }
 html body.home-page .why-arisu-section .why-arisu-note-copy strong { display: block !important; color: #102b55 !important; font-size: .94rem !important; line-height: 1.35 !important; font-weight: 800 !important; }
 html body.home-page .why-arisu-section .why-arisu-note-copy small { display: block !important; margin-top: 4px !important; color: #3d5677 !important; font-size: .8rem !important; line-height: 1.45 !important; }
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-note { gap: 11px !important; margin-top: 8px !important; padding: 11px 12px !important; }
   html body.home-page .why-arisu-section .why-arisu-note-copy strong { font-size: .86rem !important; }
   html body.home-page .why-arisu-section .why-arisu-note-copy small { font-size: .75rem !important; }
@@ -7922,7 +7810,7 @@ html body.home-page .services-section .services-heading-divider span {
   background: linear-gradient(135deg, #6dcfff, #3477f5);
   box-shadow: 0 0 0 3px rgba(79,151,255,.10), 0 1px 5px rgba(44,117,236,.22);
 }
-@media (max-width: 700px) {
+@media  (max-width: 700px)  {
   html body.home-page .services-section .services-heading-divider {
     width: min(92%, 320px);
     margin-bottom: 7px;
@@ -7948,15 +7836,15 @@ html body.home-page #serviceStatus .service-status-dot.is-offline::after {
   border-color: rgba(220, 38, 38, .78);
   animation-name: serviceStatusRingOffline;
 }
-@keyframes serviceStatusRingOnline {
+@keyframes  serviceStatusRingOnline  {
   0% { transform: scale(.72); opacity: .9; }
   100% { transform: scale(1.9); opacity: 0; }
 }
-@keyframes serviceStatusRingOffline {
+@keyframes  serviceStatusRingOffline  {
   0% { transform: scale(.72); opacity: .95; }
   100% { transform: scale(1.9); opacity: 0; }
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   html body.home-page #serviceStatus .service-status-dot::after { animation: none !important; }
 }
 
@@ -7992,7 +7880,7 @@ html body.home-page .why-arisu-card > .process-heading-band .process-heading-div
 html body.home-page .why-arisu-card > .process-heading-band h2 {
   font-size: clamp(30px, 4vw, 48px) !important;
 }
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider { width: min(92%, 320px); margin-bottom: 7px; }
   html body.home-page .why-arisu-card > .process-heading-band h2 { font-size: clamp(29px, 7vw, 37px) !important; }
 }
@@ -8020,13 +7908,13 @@ html body.home-page .contact-divider::after {
   background: linear-gradient(90deg, #7dd3fc 0%, #3987f6 55%, #7dd3fc 100%) !important;
   opacity: 1 !important;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page .contact-divider {
     font-size: 11px !important;
     letter-spacing: .75px !important;
   }
 }
-@media (max-width: 370px) {
+@media  (max-width: 370px)  {
   html body.home-page .contact-divider {
     font-size: 10px !important;
     letter-spacing: .4px !important;
@@ -8050,13 +7938,12 @@ html body.home-page .topbar .brand,
 html body:not(.home-page) .topbar .brand {
   color: var(--ink);
 }
-@media (prefers-reduced-transparency: reduce) {
+@media  (prefers-reduced-transparency: reduce)  {
   html body.home-page .topbar,
   html body:not(.home-page) .topbar {
     background: linear-gradient(112deg, #EAF4FF 0%, #EDE9FE 52%, #FCE7F3 100%) !important;
   }
 }
-
 
 
 /* ArisuV327: smart hide-on-scroll header; keeps layout flow stable. */
@@ -8068,7 +7955,7 @@ html body:not(.home-page) .topbar .brand {
   transform: translateY(calc(-100% - 12px));
   pointer-events: none;
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   .topbar.topbar-scroll-aware { transition: none !important; }
 }
 
@@ -8104,15 +7991,14 @@ html body .topbar > .header-meta > .proofs-header-link:focus-visible,
 html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   outline: 3px solid #A5B4FC !important; outline-offset: 3px !important;
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   html body .topbar > .header-meta > .proofs-header-link,
   html body .topbar > .header-meta > .webtools-header-link { transition: none !important; }
 }
 
 
-
 /* ArisuV337: reduce Clear guidance note vertical padding by another 2px on mobile only. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-note {
     padding-top: 7px !important;
     padding-bottom: 7px !important;
@@ -8121,7 +8007,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV339: reduce mobile Remember safety card vertical padding by another 2px per side. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
     padding-block: 6px !important;
   }
@@ -8129,7 +8015,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV340: reduce the outer spacing below the Remember safety card by 4px on mobile. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .safety-section-inline {
     margin-bottom: -4px !important;
   }
@@ -8137,7 +8023,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV342: keep Clear Guidance lifted 4px and lift Remember another 4px on mobile. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-note {
     transform: translateY(-4px) !important;
   }
@@ -8148,7 +8034,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV343: reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .safety-section-inline {
     margin-bottom: -8px !important;
   }
@@ -8156,7 +8042,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV345: lift the Honest-through-Remember card group by another 2px on mobile. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .why-arisu-grid {
     transform: translateY(-6px) !important;
   }
@@ -8170,14 +8056,14 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV347: reduce only the bottom padding of the Why Choose Arisu outer card by 8px on mobile. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-card {
     padding-bottom: 2px !important; /* previous effective value: 10px */
   }
 }
 
 /* ArisuV347: lift the entire “Why I Built This Site” outer card by 4px on mobile only. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page main .purpose-card {
     transform: translateY(-4px) !important;
   }
@@ -8185,7 +8071,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV348: lift the outer PLEASE READ / Terms & limitations card by 4px on mobile only. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page main > section.site-section.terms-section > .terms-card {
     transform: translateY(-4px) !important;
   }
@@ -8193,7 +8079,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV349: reduce the outer card bottom spacing after Remember by another 2px on mobile. */
-@media (max-width: 640px) {
+@media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .safety-section-inline {
     margin-bottom: -10px !important;
   }
@@ -8201,7 +8087,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV350: raise the About This Website outer card by 8px on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main .about-card {
     transform: translateY(-8px) !important;
   }
@@ -8209,7 +8095,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV362: reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #contact .whatsapp-feature-card {
     padding-bottom: 5px !important;
   }
@@ -8217,19 +8103,19 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 
 /* ArisuV362: reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 10px !important;
     padding-bottom: 13px !important;
   }
 }
-@media (max-width: 380px) {
+@media  (max-width: 380px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 12px !important;
     padding-bottom: 11px !important;
   }
 }
-@media (max-width: 600px) and (max-height: 780px) {
+@media  (max-width: 600px) and (max-height: 780px)  {
   html body.home-page #daily-bible-verse.daily-verse-card {
     padding-top: 2px !important;
     padding-bottom: 3px !important;
@@ -8248,7 +8134,7 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
   box-shadow: none !important;
   animation: eyebrow-fade-in-v101 1s ease-out both !important;
 }
-@media (prefers-reduced-motion: reduce) {
+@media  (prefers-reduced-motion: reduce)  {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: none !important;
     opacity: 1;
@@ -8258,7 +8144,7 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
 
 
 /* ArisuV362: lift the mobile intro heading and subtitle by 2px; lift the WhatsApp feature card 4px total. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page main > .compact-intro h1 {
     transform: translateY(-2px) !important;
   }
@@ -8271,11 +8157,319 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
 }
 
 
-
-
 /* ArisuV362: single authoritative mobile positioning rule for Service Status. */
-@media (max-width: 600px) {
+@media  (max-width: 600px)  {
   html body.home-page #serviceStatus.service-status-panel {
     margin-top: -2px !important;
+  }
+}
+
+
+/* ArisuV367: social card headers use text only; platform logos live in their action buttons.
+   Tighten title-to-preview spacing by 2px without changing button placement or card structure. */
+.social-collage .tiktok-brand-icon,
+.social-collage .facebook-brand-icon { display: none !important; }
+.social-collage .tiktok-showcase-head,
+.social-collage .facebook-showcase-head { gap: 0 !important; }
+.social-collage .tiktok-showcase h3,
+.social-collage .facebook-showcase h3 { margin-top: 0 !important; margin-bottom: 0 !important; }
+.social-collage .social-profile-preview { margin-top: 2px !important; }
+.social-collage .tiktok-profile-button,
+.social-collage .facebook-profile-button { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.social-collage .tiktok-button-icon,
+.social-collage .facebook-button-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 24px; height: 24px; }
+.social-collage .tiktok-button-icon svg { width: 23px; height: 23px; display: block; color: #fff; filter: drop-shadow(-1px 0 #fe2c55) drop-shadow(1px 0 #25f4ee); }
+.social-collage .facebook-button-icon svg { width: 24px; height: 24px; display: block; color: #fff; }
+@media  (max-width: 600px)  {
+  .social-collage .tiktok-button-icon,
+  .social-collage .facebook-button-icon { width: 22px; height: 22px; }
+  .social-collage .tiktok-button-icon svg,
+  .social-collage .facebook-button-icon svg { width: 22px; height: 22px; }
+}
+
+
+/* ArisuV367: keep TikTok and Facebook action buttons equal in size; prevent Facebook label wrapping. */
+.social-collage .tiktok-showcase .tiktok-profile-button,
+.social-collage .facebook-showcase .facebook-profile-button {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+  line-height: 1.2 !important;
+}
+@media  (max-width: 600px)  {
+  .social-collage .tiktok-showcase .tiktok-profile-button,
+  .social-collage .facebook-showcase .facebook-profile-button {
+    min-height: 44px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* ArisuV389: match V368's mobile Customer Feedback heading position.
+   The content wrapper's inherited 14px top padding was pushing the heading down;
+   reset that wrapper and keep the requested 2px heading-to-preview spacing. */
+@media  (max-width: 600px)  {
+
+
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head,
+  .social-collage > .social-feedback-card .feedback-showcase-head {
+    margin: 0 !important;
+    padding: 2px 0 0 !important;
+  }
+
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head h3,
+  .social-collage > .social-feedback-card .feedback-showcase-head h3 {
+    transform: none !important;
+  }
+
+
+  
+
+  
+
+  
+
+  
+
+  
+}
+
+
+/* ArisuV389: align both mobile headings, divider lines, previews, and action buttons. */
+@media  (max-width: 600px)  {
+  .social-collage > .recovery-proofs-showcase {
+    padding-top: 8px; /* Lift Recovery Proofs content by 2px. */
+  }
+
+  .social-collage > .social-feedback-card {
+    padding-top: 10px;
+  }
+
+  .social-collage > .social-feedback-card > .windows-feedback-content {
+    padding-top: 0 !important;
+  }
+
+  /* Keep both headings on the same visual baseline. */
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head,
+  .social-collage > .social-feedback-card .feedback-showcase-head {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 0 2px !important;
+    padding: 0 0 3px !important;
+    gap: 0 !important;
+    border-bottom: 1px solid rgba(133, 148, 173, 0.28) !important;
+    transform: none !important;
+  }
+
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head h3,
+  .social-collage > .social-feedback-card .feedback-showcase-head h3 {
+    margin: 0 !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* The decorative heading arrow is removed from both cards. */
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head > .recovery-proofs-arrow,
+  .social-collage > .social-feedback-card .feedback-showcase-head > .recovery-proofs-arrow {
+    display: none !important;
+  }
+
+  /* Keep a deliberate 2px gap from divider to preview. */
+  .social-collage > .recovery-proofs-showcase .recovery-proofs-preview,
+  .social-collage > .social-feedback-card .reviews-grid-featured {
+    margin-top: 2px !important;
+  }
+
+  /* Keep both action buttons 2px below their preview areas and lift them equally. */
+  
+
+  /* ArisuV389: shorten the actual bordered Customer Feedback preview card by 6px
+     at its bottom. Keep the View All Reviews button in normal flow and unchanged. */
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured {
+    margin-bottom: 0 !important;
+  }
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card {
+    height: calc(100% - 14px) !important;
+    min-height: 0 !important;
+    align-self: start !important;
+    box-sizing: border-box !important;
+  }
+  
+}
+
+
+/* ArisuV404: normalize mobile CTA typography and prevent labels being squeezed by icon flex sizing.
+   Keep preview images/cards untouched; this block is authoritative only for the two action buttons. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    flex: 0 0 48px !important;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+    text-decoration: none !important;
+    transform: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button-icon,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all .feedback-button-icon {
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 22px !important;
+    width: 22px !important;
+    min-width: 22px !important;
+    max-width: 22px !important;
+    height: 22px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button-icon svg,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all .feedback-button-icon svg {
+    display: block !important;
+    width: 22px !important;
+    height: 22px !important;
+    flex: 0 0 22px !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button-label,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all .view-button-label {
+    display: block !important;
+    box-sizing: border-box !important;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 4px 0 28px !important;
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-button-arrow,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all > span[aria-hidden="true"]:not(.feedback-button-icon) {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+
+/* ArisuV406: lift only the Customer Feedback / View All Reviews button by 6px on mobile.
+   Keep the Recovery Proofs button, preview image, and card dimensions unchanged. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+    transform: translateY(-6px) !important;
+  }
+}
+
+
+/* ArisuV409: raise only the TikTok and Facebook showcase titles by 8px total on mobile. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-showcase-head h3,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head h3 {
+    transform: translateY(-8px) !important;
+  }
+}
+
+
+/* ArisuV412: one authoritative mobile divider rule for TikTok and Facebook titles.
+   The line belongs to the same h3 box as the title, so legacy head-level borders/pseudo-elements cannot leave it behind. */
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-showcase-head,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head {
+    border-bottom: 0 !important;
+    position: relative !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-showcase-head::before,
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-showcase-head::after,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head::before,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head::after,
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-showcase-head h3::before,
+  html body.home-page .tiktok-showcase .tiktok-showcase-head h3::after,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head h3::before,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head h3::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-showcase-head h3,
+  html body.home-page .social-collage > .facebook-showcase .facebook-showcase-head h3 {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 0 2px !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(133, 148, 173, 0.28) !important;
+    position: relative !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase .tiktok-profile-arrow,
+  html body.home-page .social-collage > .facebook-showcase .facebook-profile-arrow {
+    display: none !important;
+  }
+}
+
+
+/* ArisuV413 desktop regression fix: use the original full-color profile screenshots on desktop.
+   The transparent desktop-clean assets were revealing large purple/blue frame areas and making the previews look broken.
+   Mobile behavior remains unchanged; desktop card structure and dimensions are preserved. */
+@media (min-width: 601px) {
+  html body.home-page .social-collage > .tiktok-showcase .social-profile-preview .preview-original,
+  html body.home-page .social-collage > .facebook-showcase .social-profile-preview .preview-original {
+    display: block !important;
+  }
+  html body.home-page .social-collage > .tiktok-showcase .social-profile-preview .preview-desktop-clean,
+  html body.home-page .social-collage > .facebook-showcase .social-profile-preview .preview-desktop-clean {
+    display: none !important;
+  }
+}
+
+
+/* ArisuV416: Service Status uses the WhatsApp card's content width without a column-height flex-basis. */
+@media (min-width: 601px) {
+  html body.home-page main > #contact.wizard-card.contact-only > #serviceStatus.service-status-panel {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    align-self: stretch !important;
+    flex: 0 0 auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
