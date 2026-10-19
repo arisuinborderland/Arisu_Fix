@@ -1,14 +1,15 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV356
+Version: ArisuV362
 Updated: 2026-10-19
+ArisuV362 safe CSS cleanup: removed two ineffective #contact-descendant selectors for #serviceStatus after confirming the card is a sibling of #contact in index.html. Preserved the single mobile-only #serviceStatus positioning rule at margin-top: -2px. No intended visual change beyond the existing 2px lift.
 
-ArisuV356 mobile adjustment: lifted the two-line contact heading and subtitle by 2px; lifted the WhatsApp feature card by 4px total.
+ArisuV362 mobile adjustment: lifted the Service Status card by 2px. Removed older conflicting mobile margin-top overrides and replaced them with one direct ID selector; unrelated styles preserved.
 
 ArisuV348 mobile spacing adjustment: lifted the outer PLEASE READ / Terms & limitations card by 4px on screens up to 640px; internal padding and desktop layout are unchanged.
 ArisuV347 mobile spacing adjustment: reduced the bottom padding of the main Why Choose Arisu outer card by 8px (10px to 2px) on screens up to 640px; top and horizontal padding and desktop layout are unchanged.
 ArisuV343 mobile spacing adjustment: reduced the outer bottom spacing after the Remember safety card by 8px on screens up to 640px; internal card padding and top spacing are unchanged.
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV356
+Version: ArisuV362
 Updated: 2026-10-19
 ArisuV338 mobile spacing adjustment: reduced only the Remember: Keep Your Account Safe card top and bottom padding by 4px (12px to 8px) on screens up to 640px. Horizontal padding, desktop spacing, icon, typography, borders, and surrounding layout remain unchanged.
 ArisuV337 mobile spacing adjustment: reduced the Clear guidance / Honest expectations note card top and bottom padding by another 2px (9px to 7px) on screens up to 640px. Horizontal padding, desktop spacing, typography, icon, borders, and surrounding layout remain unchanged.
@@ -106,3 +107,9 @@ ArisuV320 release note: Added the same thin blue-to-cyan gradient divider with a
 
 
 ArisuV320 release note: Increased contrast and thickness of both horizontal divider lines around “OR VISIT MY OTHER SOCIAL MEDIA ACCOUNTS” and made its label font more prominent on desktop and mobile. No other section layout intentionally changed.
+
+ArisuV362 mobile adjustment: added 2px spacing above the Service Status card; other layout styling preserved.
+
+ArisuV362 fix: target #serviceStatus directly and set mobile margin-top to 2px so the rule applies to the actual card.
+
+ArisuV362 change note (2026-10-19): Removed the duplicate TikTok and Facebook authenticity warning boxes from the social cards. The main Scam Awareness Reminder remains in place; social previews, links, buttons, and overall card structure are unchanged.

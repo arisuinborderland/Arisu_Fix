@@ -2507,7 +2507,6 @@ body.home-page .whatsapp-feature-card .whatsapp-button .wa-icon svg { width: 28p
 /* pull the main title lines closer to their blue kicker labels, matching the user's red markers. */
 @media (max-width: 600px) {
   body.home-page .whatsapp-feature-content h2 {
-    margin-top: -4px !important;
   }
 
 }
@@ -5388,7 +5387,6 @@ body.home-page .about-card .independent-note {
  Desktop layout and existing responsive rules are preserved. */
 @media (max-width: 600px) {
   html body.home-page #serviceStatus.service-status-panel {
-    margin-top: -4px !important;
     gap: 6px !important;
     padding: 8px !important;
   }
@@ -7383,13 +7381,9 @@ body.home-page .purpose-card .purpose-kicker {
     padding-bottom: 0 !important;
   }
   html body.home-page main > #contact.wizard-card.contact-only {
-    margin-top: -4px !important;
     gap: 4px !important;
   }
   html body.home-page #contact .whatsapp-feature-card {
-    margin-top: 0 !important;
-  }
-  html body.home-page #contact .service-status-panel {
     margin-top: 0 !important;
   }
 }
@@ -7475,18 +7469,6 @@ body.home-page .purpose-card .purpose-kicker {
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
-  }
-
-  html body.home-page #contact .service-status-panel {
-    /* Match the WhatsApp card's exact desktop content width. */
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr) !important;
-    gap: 14px !important;
-    margin: 0 !important;
-    padding: 16px !important;
-    border-radius: 20px !important;
   }
 
   html body.home-page #contact .service-status-main {
@@ -8226,7 +8208,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 
-/* ArisuV356: reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
+/* ArisuV362: reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
 @media (max-width: 600px) {
   html body.home-page #contact .whatsapp-feature-card {
     padding-bottom: 5px !important;
@@ -8234,7 +8216,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 
-/* ArisuV356: reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
+/* ArisuV362: reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
 @media (max-width: 600px) {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 10px !important;
@@ -8255,13 +8237,13 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 
-/* ArisuV356: lift the account-recovery intro sentence 2px further (4px total). */
+/* ArisuV362: lift the account-recovery intro sentence 2px further (4px total). */
 html body.home-page .compact-intro > p {
   transform: translateY(-4px);
 }
 
 
-/* ArisuV356: remove only the outer green glow from the account-recovery badge; retain its green border and the dot/check styling. */
+/* ArisuV362: remove only the outer green glow from the account-recovery badge; retain its green border and the dot/check styling. */
 html body.home-page main > .compact-intro .eyebrow.premium-status {
   box-shadow: none !important;
   animation: eyebrow-fade-in-v101 1s ease-out both !important;
@@ -8275,7 +8257,7 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
 }
 
 
-/* ArisuV356: lift the mobile intro heading and subtitle by 2px; lift the WhatsApp feature card 4px total. */
+/* ArisuV362: lift the mobile intro heading and subtitle by 2px; lift the WhatsApp feature card 4px total. */
 @media (max-width: 600px) {
   html body.home-page main > .compact-intro h1 {
     transform: translateY(-2px) !important;
@@ -8285,5 +8267,15 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
   }
   html body.home-page #contact .whatsapp-feature-card {
     transform: translateY(-4px) !important;
+  }
+}
+
+
+
+
+/* ArisuV362: single authoritative mobile positioning rule for Service Status. */
+@media (max-width: 600px) {
+  html body.home-page #serviceStatus.service-status-panel {
+    margin-top: -2px !important;
   }
 }
