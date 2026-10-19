@@ -3514,7 +3514,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV416") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV424") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3872,6 +3872,9 @@ body.home-page .site-footer {
 .services-heading .services-intro { margin-top:8px; font-size:14px; }
 .services-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:stretch; }
 .service-card { min-width:0; padding:24px; border:1px solid #d3e1ff; border-radius:22px; background:rgba(255,255,255,.82); box-shadow:0 10px 28px rgba(55,90,170,.07); }
+.service-card.recovery-service-card { --arc-reveal-offset: -16px; }
+/* Account Deletion position is independent of scroll-reveal transforms. */
+.service-card.deletion-service-card { position: relative; top: -16px; }
 .deletion-service-card { border-color:#f6d7e9; background:rgba(255,249,253,.88); }
 .service-card-heading { display:grid; grid-template-columns:76px minmax(0,1fr); gap:17px; align-items:center; margin-bottom:18px; }
 .service-icon { width:76px; height:76px; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#6db2ff,#1764f4); border-radius:20px; box-shadow:0 7px 16px rgba(30,103,245,.18); }
@@ -3883,9 +3886,9 @@ body.home-page .site-footer {
 .service-issue-list { display:grid; gap:6px; margin:0; padding:0; list-style:none; }
 .service-issue-list li { display:flex; align-items:center; gap:10px; min-height:35px; padding:6px 12px; border-radius:12px; background:#edf4ff; color:#15264c; font-size:14px; line-height:1.35; }
 .service-issue-list li::before { content:"✓"; flex:0 0 22px; width:22px; height:22px; display:grid; place-items:center; border-radius:50%; background:#2671fa; color:white; font-size:13px; font-weight:800; }
-.service-platforms { margin-top:12px; padding:14px; border:1px solid #cfe0ff; border-radius:16px; background:rgba(255,255,255,.72); }
-.service-platforms h4 { margin:0 0 10px; color:#1858d8; font:800 15px/1.35 Manrope,sans-serif; }
-.service-platform-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.service-platforms { display:flex; flex-direction:column; align-items:stretch; min-width:0; margin-top:12px; padding:14px; border:1px solid #cfe0ff; border-radius:16px; background:rgba(255,255,255,.72); }
+.service-platforms h4 { position:relative; z-index:1; display:block; flex:0 0 auto; margin:0 0 10px; color:#1858d8; font:800 15px/1.35 Manrope,sans-serif; }
+.service-platform-list { position:relative; z-index:0; display:grid; flex:0 0 auto; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0; }
 .service-platform { display:flex; align-items:center; gap:10px; min-width:0; padding:11px; border-radius:13px; }
 .service-platform-facebook { background:#eaf3ff; color:#1257c8; }
 .service-platform-instagram { background:#fff0f8; color:#a01880; }
@@ -3920,9 +3923,9 @@ body.home-page .site-footer {
  .service-issue-list { gap:5px; }
  .service-issue-list li { min-height:32px; padding:6px 9px; gap:8px; font-size:12px; }
  .service-issue-list li::before { flex-basis:20px; width:20px; height:20px; font-size:12px; }
- .service-platforms { margin-top:10px; padding:11px; border-radius:14px; }
- .service-platforms h4 { font-size:13px; }
- .service-platform-list { gap:7px; }
+ .service-platforms { display:flex; flex-direction:column; margin-top:10px; padding:11px; border-radius:14px; }
+ .service-platforms h4 { display:block; flex:0 0 auto; margin:0 0 10px; font-size:13px; }
+ .service-platform-list { display:grid; flex:0 0 auto; gap:7px; margin:0; }
  .service-platform { gap:7px; padding:8px 7px; border-radius:11px; }
  .service-platform-logo { width:32px; height:32px; flex-basis:32px; }
  .service-platform-logo svg { width:20px; height:20px; }
@@ -3940,7 +3943,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV416") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV424") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -4479,11 +4482,8 @@ html body #daily-bible-verse.daily-verse-card {
   }
 }
 
-/* show supported Facebook/Instagram account types at the bottom of Account Deletion. */
+/* Account Deletion uses the shared .service-platforms spacing. */
 .deletion-service-platforms { margin-top: 12px; }
-@media  (max-width: 600px)  {
-  .deletion-service-platforms { margin-top: 12px; }
-}
 
 /* make only the “Offline” word red when outside published hours. */
 .service-status-main h2 #serviceStatusHeadline.is-offline{color:#dc2626!important;}
@@ -5039,7 +5039,7 @@ html body #daily-bible-verse.daily-verse-card {
 .arc-scroll-reveal { opacity: 1; transform: none; }
 .arc-scroll-reveal-enabled .arc-scroll-reveal {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(calc(12px + var(--arc-reveal-offset, 0px)));
   transition-property: opacity, transform !important;
   transition-duration: 420ms !important;
   transition-timing-function: cubic-bezier(.2, .7, .2, 1) !important;
@@ -5049,11 +5049,11 @@ html body #daily-bible-verse.daily-verse-card {
 }
 .arc-scroll-reveal-enabled .arc-scroll-reveal.arc-scroll-reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(var(--arc-reveal-offset, 0px));
 }
 @media  (max-width: 600px)  {
   .arc-scroll-reveal-enabled .arc-scroll-reveal {
-    transform: translateY(11px);
+    transform: translateY(calc(11px + var(--arc-reveal-offset, 0px)));
     transition-duration: 460ms !important;
   }
 }
@@ -5443,12 +5443,12 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
 }
 
 /* Why Choose Arisu — */
-.why-arisu-section{margin-top:clamp(22px,3vw,36px)}
+.why-arisu-section{margin-top:clamp(6px,calc(3vw - 16px),20px)}
 .why-arisu-card{position:relative;overflow:hidden;padding:clamp(20px,3.2vw,38px);border:1px solid rgba(63,139,255,.5);border-radius:24px;background:radial-gradient(ellipse at 12% 0%,rgba(63,130,255,.13),transparent 42%),linear-gradient(145deg,#07152b 0%,#0b1b33 58%,#081326 100%);box-shadow:0 12px 34px rgba(18,57,110,.13),inset 0 1px 0 rgba(255,255,255,.035);color:#f4f8ff}
 .why-arisu-heading{margin:0 auto 22px;text-align:center;max-width:760px}.why-arisu-heading .section-kicker{color:#78b7ff;letter-spacing:.17em}.why-arisu-heading h2{color:#f7faff;margin:8px 0;font-size:clamp(1.7rem,3.5vw,2.65rem);line-height:1.12}.why-arisu-heading h2 span{color:#58a4ff}.why-arisu-heading p{color:#c1d0e6;margin:0;font-size:clamp(.92rem,1.5vw,1.05rem)}
 .why-since-badge{display:flex;align-items:center;justify-content:center;gap:14px;width:fit-content;max-width:100%;margin:0 auto 22px;padding:12px 24px;border:1px solid #238bff;border-radius:999px;background:rgba(4,24,51,.75);box-shadow:0 0 22px rgba(30,125,255,.12)}.why-since-icon{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:rgba(39,116,255,.18);color:#62b0ff}.why-since-icon svg{width:25px;height:25px}.why-since-badge strong,.why-since-badge small{display:block}.why-since-badge strong{font-size:1.25rem;line-height:1.2;color:#fff}.why-since-badge small{font-size:.8rem;color:#b9cce5;margin-top:3px}
 .why-arisu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.why-arisu-item{display:flex;align-items:flex-start;gap:14px;padding:18px;border:1px solid rgba(104,157,221,.23);border-radius:17px;background:rgba(4,17,36,.55);min-width:0}.why-arisu-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:50%;color:#7dbbff;background:radial-gradient(circle at 35% 25%,rgba(43,133,255,.42),rgba(14,49,91,.8));box-shadow:0 0 20px rgba(30,117,255,.12)}.why-arisu-icon svg{width:25px;height:25px}.why-arisu-item strong,.why-arisu-item small{display:block}.why-arisu-item strong{color:#f5f8ff;font-size:1rem;line-height:1.35;margin:1px 0 5px}.why-arisu-item small{color:#c0cee2;font-size:.88rem;line-height:1.55}.why-arisu-note{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:13px;padding:12px 15px;border:1px solid rgba(49,153,229,.35);border-radius:14px;background:rgba(1,28,48,.56);text-align:center}.why-arisu-note>span{display:grid;place-items:center;width:23px;height:23px;flex:0 0 23px;border-radius:50%;background:#20b7ed;color:#06213b;font-weight:800}.why-arisu-note p{margin:0}.why-arisu-note strong,.why-arisu-note small{display:block}.why-arisu-note strong{font-size:.94rem;color:#f6faff}.why-arisu-note small{margin-top:3px;color:#b9cbe0;font-size:.77rem;line-height:1.45}
-@media (max-width:640px) {.why-arisu-section{margin-top:20px}.why-arisu-card{padding:19px 14px;border-radius:19px}.why-arisu-heading{margin-bottom:18px}.why-arisu-heading h2{font-size:1.75rem}.why-since-badge{margin-bottom:16px;padding:10px 16px;gap:11px}.why-since-icon{width:37px;height:37px;flex-basis:37px}.why-since-badge strong{font-size:1.12rem}.why-since-badge small{font-size:.73rem}.why-arisu-grid{grid-template-columns:1fr;gap:9px}.why-arisu-item{padding:13px;gap:12px;border-radius:14px}.why-arisu-icon{width:42px;height:42px;flex-basis:42px}.why-arisu-item strong{font-size:.94rem}.why-arisu-item small{font-size:.82rem;line-height:1.45}.why-arisu-note{align-items:flex-start;text-align:left;padding:11px}.why-arisu-note small{font-size:.73rem}}
+@media (max-width:640px) {.why-arisu-section{margin-top:4px}.why-arisu-card{padding:19px 14px;border-radius:19px}.why-arisu-heading{margin-bottom:18px}.why-arisu-heading h2{font-size:1.75rem}.why-since-badge{margin-bottom:16px;padding:10px 16px;gap:11px}.why-since-icon{width:37px;height:37px;flex-basis:37px}.why-since-badge strong{font-size:1.12rem}.why-since-badge small{font-size:.73rem}.why-arisu-grid{grid-template-columns:1fr;gap:9px}.why-arisu-item{padding:13px;gap:12px;border-radius:14px}.why-arisu-icon{width:42px;height:42px;flex-basis:42px}.why-arisu-item strong{font-size:.94rem}.why-arisu-item small{font-size:.82rem;line-height:1.45}.why-arisu-note{align-items:flex-start;text-align:left;padding:11px}.why-arisu-note small{font-size:.73rem}}
 
 /* Account recovery experience + Facebook Page milestone */
 .why-history-card{max-width:820px;margin:0 auto 22px;padding:clamp(20px,3vw,30px);border:1px solid rgba(104,157,221,.24);border-radius:20px;background:linear-gradient(145deg,rgba(4,17,36,.82),rgba(8,28,53,.72));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
@@ -6343,9 +6343,7 @@ body.home-page .why-arisu-section .why-arisu-note {
   body.home-page .desktop-social-destination .services-section .service-platforms h4 {
     margin-bottom: 7px !important;
   }
-  body.home-page .desktop-social-destination .services-section .service-platform-list {
-    gap: 5px !important;
-  }
+  
   body.home-page .desktop-social-destination .services-section .service-platform {
     gap: 6px !important;
     padding: 6px !important;
@@ -6476,16 +6474,14 @@ body.home-page .why-arisu-section .why-arisu-note {
     flex-basis: 22px !important;
   }
   html body.home-page .desktop-social-destination .services-section .service-platforms {
-    margin-top: 7px !important;
-    padding: 7px !important;
+    margin-top: 5px !important;
+    padding: 6px !important;
     border-radius: 12px !important;
   }
   html body.home-page .desktop-social-destination .services-section .service-platforms h4 {
     margin-bottom: 5px !important;
   }
-  html body.home-page .desktop-social-destination .services-section .service-platform-list {
-    gap: 5px !important;
-  }
+  
   html body.home-page .desktop-social-destination .services-section .service-platform {
     gap: 6px !important;
     padding: 6px !important;
@@ -6516,10 +6512,6 @@ body.home-page .why-arisu-section .why-arisu-note {
     margin-top: 5px !important;
     padding: 6px 7px !important;
     border-radius: 10px !important;
-  }
-  html body.home-page .desktop-social-destination .services-section .deletion-service-card .deletion-service-platforms {
-    margin-top: 5px !important;
-    padding: 6px !important;
   }
 }
 
@@ -6840,7 +6832,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   padding-bottom: 36px !important;
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV416") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV424") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6872,7 +6864,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV416") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV424") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8471,5 +8463,483 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
     flex: 0 0 auto !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+}
+
+
+/* ArisuV419: remove the redundant WhatsApp sentence and lift only its card by 2px. */
+body.home-page #contact .whatsapp-feature-card { margin-top: -2px !important; }
+
+
+/* ArisuV419: lower only the FASTEST CONTACT METHOD label by 2px. */
+html body.home-page #contact .whatsapp-feature-kicker {
+  transform: translateY(2px) !important;
+}
+
+
+/* ArisuV420: remove the four social collage heading rows and place every preview 2px below its outer card border.
+   Only top spacing is adjusted; side/bottom padding, previews, buttons, destinations, and other sections remain unchanged. */
+html body.home-page .social-collage > .tiktok-showcase,
+html body.home-page .social-collage > .facebook-showcase,
+html body.home-page .social-collage > .recovery-proofs-showcase,
+html body.home-page .social-collage > .social-feedback-card {
+  padding-top: 0 !important;
+}
+/* ArisuV424: lift only the TikTok and Facebook preview areas by an additional 2px.
+   Their top margin is now 0px (previously 2px); Recovery Proofs and Customer Feedback retain their 2px spacing. */
+html body.home-page .social-collage > .tiktok-showcase > .social-profile-preview,
+html body.home-page .social-collage > .facebook-showcase > .social-profile-preview {
+  margin-top: 0 !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+  margin-top: 2px !important;
+}
+html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
+  padding-top: 0 !important;
+}
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured {
+  margin-top: 2px !important;
+}
+
+
+/* ArisuV424: lower only the TikTok, Facebook Page, and Recovery Proofs image previews by 6px.
+   Customer Feedback and all outer cards, buttons, and surrounding layout remain unchanged. */
+html body.home-page .social-collage > .tiktok-showcase > .social-profile-preview,
+html body.home-page .social-collage > .facebook-showcase > .social-profile-preview,
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+  transform: translateY(6px) !important;
+}
+
+
+/* ArisuV424: reduce only the bottom padding of the TikTok, Facebook Page, and Recovery Proofs outer cards to 6px. */
+html body.home-page .social-collage > .tiktok-showcase,
+html body.home-page .social-collage > .facebook-showcase,
+html body.home-page .social-collage > .recovery-proofs-showcase {
+  padding-bottom: 6px !important;
+}
+
+
+/* ArisuV424: Customer Feedback preview only. Add 4px above the image,
+   reduce the gap below it by 4px, and remove the inner image frame entirely.
+   The outer Customer Feedback card and View All Reviews button remain unchanged. */
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured {
+  margin-top: 6px !important; /* previous 2px + 4px */
+  margin-bottom: -4px !important;
+}
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-image-hint {
+  display: none !important;
+}
+
+
+/* ArisuV426: resolve the conflicting parent/child transforms in Recovery Proofs.
+   The preview container is intentionally 6px lower from the earlier V424 adjustment.
+   Move each complete preview tile up 8px/10px so the net visible position is 2px/4px UP
+   from its prior baseline. Do not transform the image separately; hover only scales it. */
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:first-child {
+  transform: translateY(-8px) !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:nth-child(2) {
+  transform: translateY(-10px) !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
+  height: 100% !important;
+  transform: none !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase:hover .recovery-proof-preview-item img {
+  transform: scale(1.025) !important;
+}
+
+
+/* ArisuV427: Recovery Proofs preview returns to 4px top spacing; raise its button by 4px.
+   Neutralize earlier wrapper/tile transforms so the spacing is deterministic. */
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+  margin-top: 4px !important;
+  transform: none !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:first-child {
+  transform: none !important;
+}
+/* ArisuV437: move only the Disabled Accounts preview tile 2px further upward (4px total). */
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:nth-child(2) {
+  transform: translateY(-4px) !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+  position: relative !important;
+  transform: translateY(-4px) !important;
+}
+
+
+/* ArisuV437: raise only the Recovery Proofs button by an additional 1px (7px total). */
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+  transform: translateY(-7px) !important;
+}
+
+
+/* ArisuV437: fix the real bottom-gap owners instead of padding the inner preview tiles.
+   The Recovery Proofs and Customer Feedback outer cards now retain only a 2px bottom inset.
+   Override the nested mobile content padding that previously kept an 8px gap. */
+html body.home-page .social-collage > .recovery-proofs-showcase {
+  padding-bottom: 2px !important;
+  box-sizing: border-box !important;
+}
+html body.home-page .social-collage > .social-feedback-card {
+  padding-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
+  padding-bottom: 2px !important;
+  box-sizing: border-box !important;
+}
+
+
+/* ArisuV437: remove external-link arrows from TikTok/Facebook buttons and refine icon-label alignment. */
+html body.home-page .social-collage .tiktok-profile-button,
+html body.home-page .social-collage .facebook-profile-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+}
+html body.home-page .social-collage .tiktok-button-icon,
+html body.home-page .social-collage .facebook-button-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: 17px !important;
+  height: 17px !important;
+  line-height: 1 !important;
+}
+html body.home-page .social-collage .tiktok-button-icon svg,
+html body.home-page .social-collage .facebook-button-icon svg {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+/* ArisuV437: TikTok/Facebook outer cards stay 4px higher; Recovery Proofs and Customer Feedback move an additional 4px upward. */
+html body.home-page .social-collage > .tiktok-showcase,
+html body.home-page .social-collage > .facebook-showcase {
+  position: relative !important;
+  top: -4px !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase,
+html body.home-page .social-collage > .social-feedback-card {
+  position: relative !important;
+  top: -8px !important;
+}
+
+
+/* ArisuV437: enlarge only the Suspended and Disabled preview images horizontally by 4px per side. Keep the tile labels, outer card, vertical size, and button positions unchanged. */
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item {
+  overflow: visible !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
+  position: relative !important;
+  left: -4px !important;
+  width: calc(100% + 8px) !important;
+  max-width: none !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  box-sizing: border-box !important;
+}
+
+
+/* ArisuV440: restore rounded corners on the enlarged Suspended/Disabled preview images without changing tile dimensions or layout. */
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item {
+  box-shadow: none !important;
+  filter: none !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
+  border-radius: 11px !important;
+}
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item > span {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-radius: 0 0 11px 11px !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.95), 0 0 5px rgba(0,0,0,.75) !important;
+  padding: 8px 8px 7px !important;
+}
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img { border-radius: 9px !important; }
+  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item > span { border-radius: 0 0 9px 9px !important; }
+}
+
+
+/* ArisuV442: reduce only the Daily Bible Verse card top and bottom padding by 4px; preserve horizontal padding and layout. */
+html body.home-page main > #daily-bible-verse.daily-verse-card { padding-top: 5px !important; padding-bottom: 5px !important; }
+@media (max-width: 600px) { html body.home-page main > #daily-bible-verse.daily-verse-card { padding-top: 6px !important; padding-bottom: 6px !important; } }
+
+
+/* ArisuV442: lift the WhatsApp contact card and Service Status card by an additional 4px.
+   Preserve all existing dimensions, spacing inside the cards, and responsive layout. */
+html body.home-page #contact .whatsapp-feature-card {
+  position: relative !important;
+  top: -4px !important;
+}
+html body.home-page #contact #serviceStatus.service-status-panel {
+  position: relative !important;
+  top: -4px !important;
+}
+
+
+/* ArisuV443: Premium glass WhatsApp contact card; keep existing geometry and responsive layout. */
+html body.home-page #contact .whatsapp-feature-card {
+  background: linear-gradient(118deg, rgba(255,255,255,.94) 0%, rgba(246,249,255,.88) 52%, rgba(235,248,255,.90) 100%) !important;
+  border: 1px solid rgba(255,255,255,.92) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 28px rgba(57, 86, 170, .13), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.12) !important;
+  backdrop-filter: blur(14px) saturate(1.12) !important;
+  overflow: hidden;
+}
+html body.home-page #contact .whatsapp-feature-icon {
+  background: linear-gradient(145deg, #35dc91 0%, #16b96d 56%, #07965b 100%) !important;
+  border: 1px solid rgba(255,255,255,.76) !important;
+  box-shadow: 0 7px 18px rgba(23, 176, 103, .22), inset 0 1px 0 rgba(255,255,255,.4) !important;
+}
+html body.home-page #contact .whatsapp-feature-icon::before {
+  border: 1px solid rgba(255,255,255,.24) !important;
+}
+html body.home-page #contact .whatsapp-feature-kicker { color: #2f6890 !important; }
+html body.home-page #contact .whatsapp-recommended {
+  background: rgba(224, 246, 255, .82) !important;
+  border: 1px solid rgba(155, 205, 237, .65) !important;
+  color: #245c88 !important;
+  border-radius: 999px !important;
+}
+html body.home-page #contact .whatsapp-feature-content h2 { color: #1b2b50 !important; }
+html body.home-page #contact .whatsapp-feature-content h2 span { color: #168c59 !important; }
+html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+  background: linear-gradient(112deg, #20c878 0%, #13ad68 55%, #07985b 100%) !important;
+  border: 1px solid rgba(255,255,255,.58) !important;
+  color: #fff !important;
+  border-radius: 15px !important;
+  box-shadow: 0 7px 17px rgba(14, 166, 94, .22), inset 0 1px 0 rgba(255,255,255,.24) !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.08);
+}
+html body.home-page #contact .whatsapp-feature-card .whatsapp-button:hover {
+  filter: brightness(1.035) !important;
+  box-shadow: 0 9px 20px rgba(14, 166, 94, .26), inset 0 1px 0 rgba(255,255,255,.28) !important;
+}
+html body.home-page #contact .whatsapp-feature-card .whatsapp-button:focus-visible {
+  outline: 3px solid rgba(32, 200, 120, .35) !important; outline-offset: 3px !important;
+}
+
+
+/* ArisuV446: Aurora Gradient Glass background for the floating shortcut panel only.
+   Keep panel geometry and menu-item layout unchanged. */
+html body.home-page .floating-menu-items:not([hidden]) {
+  background: linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(239,241,255,.93) 52%, rgba(232,246,255,.94) 100%) !important;
+  border: 1px solid rgba(255,255,255,.94) !important;
+  box-shadow: 0 12px 34px rgba(63,76,150,.18), 0 3px 12px rgba(105,145,210,.10), inset 0 1px 0 rgba(255,255,255,.98) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.22) !important;
+  backdrop-filter: blur(20px) saturate(1.22) !important;
+}
+
+
+/* ArisuV448: lift only the Scam Awareness Reminder card by 4px without changing layout spacing. */
+html body.home-page .desktop-social-destination > .scam-awareness-card {
+  transform: translateY(-4px) !important;
+}
+
+
+/* ArisuV450: replace the divider above MY SERVICES with a subtle rounded heading card. */
+html body.home-page .services-section > .services-heading {
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  margin: 0 auto 22px !important;
+  padding: 20px 22px 18px !important;
+  border: 1px solid rgba(104, 151, 218, .22) !important;
+  border-radius: 20px !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(242,247,255,.94)) !important;
+  box-shadow: 0 8px 24px rgba(35, 75, 132, .07) !important;
+}
+html body.home-page .services-section > .services-heading .section-kicker {
+  margin-top: 0 !important;
+}
+@media (max-width: 700px) {
+  html body.home-page .services-section > .services-heading {
+    width: 100%;
+    margin-bottom: 18px !important;
+    padding: 16px 14px 15px !important;
+    border-radius: 16px !important;
+  }
+}
+
+
+/* ArisuV450: approved centered Premium Rounded Card preview for MY SERVICES. */
+html body.home-page .services-section > .services-heading {
+ text-align:center !important; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+ width:min(100%,1100px); padding:30px 28px 26px !important; margin:0 auto 24px !important;
+ border:1px solid rgba(111,169,239,.55) !important; border-radius:26px !important;
+ background:radial-gradient(ellipse at 0% 100%,rgba(211,231,255,.55),transparent 36%),radial-gradient(ellipse at 100% 0%,rgba(225,237,255,.48),transparent 32%),linear-gradient(145deg,rgba(255,255,255,.99),rgba(246,249,255,.98)) !important;
+ box-shadow:0 10px 28px rgba(53,103,174,.09),inset 0 1px 0 rgba(255,255,255,.98) !important;
+}
+html body.home-page .services-section > .services-heading .section-kicker { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:8px 18px !important; margin:0 auto 5px !important; border:1px solid rgba(99,157,235,.28); border-radius:999px; background:linear-gradient(135deg,#edf5ff,#e1edff); box-shadow:0 4px 12px rgba(52,112,195,.10),inset 0 1px 0 rgba(255,255,255,.95); color:#2465c5 !important; letter-spacing:.09em; }
+html body.home-page .services-section > .services-heading .section-kicker::before { content:"⚙"; font-size:1.05em; line-height:1; }
+html body.home-page .services-section > .services-heading h2,html body.home-page .services-section > .services-heading > p { width:100%; text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
+html body.home-page .services-section > .services-heading .services-intro { max-width:760px; }
+@media(max-width:700px){html body.home-page .services-section > .services-heading{width:100%;gap:8px;padding:22px 15px 20px !important;margin-bottom:18px !important;border-radius:20px !important;}html body.home-page .services-section > .services-heading .section-kicker{padding:7px 14px !important;margin-bottom:3px !important;}}
+
+
+/* ArisuV461: canonical MY SERVICES positioning.
+   Use relative top instead of transform so other transform/animation rules cannot cancel the vertical move.
+   Keep the pill 4px lower and its title/subtitle/description 2px higher. */
+html body.home-page .services-section > .services-heading {
+  position: relative !important;
+  margin-top: -16px !important;
+  top: -14px !important;
+  transform: none !important;
+}
+html body.home-page .services-section > .services-heading .section-kicker {
+  position: relative !important;
+  top: 4px !important;
+}
+html body.home-page .services-section > .services-heading > h2,
+html body.home-page .services-section > .services-heading > p {
+  position: relative !important;
+  top: -2px !important;
+}
+
+/* ArisuV481: raise the complete ARISU RECOVERY CONTACT / WHY CHOOSE ARISU card by 16px on desktop and mobile. */
+html body.home-page .why-arisu-section > .why-arisu-card {
+  position: relative !important;
+  top: -16px !important;
+}
+
+/* ArisuV486: raise the WHY I BUILT THIS SITE, PLEASE READ, and ABOUT THIS WEBSITE outer cards by 16px on desktop and mobile. */
+html body.home-page main > section.site-section.purpose-section > .purpose-card,
+html body.home-page main > section.site-section.terms-section > .terms-card,
+html body.home-page main > section.site-section.about-section > .about-card {
+  position: relative !important;
+  top: -16px !important;
+}
+
+
+/* ArisuV487: desktop-only correction — lower the MY SERVICES outer card so it no longer overlaps the preview cards above it. Mobile positioning remains unchanged. */
+@media (min-width: 701px) {
+  html body.home-page .services-section > .services-heading {
+    margin-top: 0 !important;
+    top: 0 !important;
+  }
+}
+
+
+/* ArisuV489: compact highlighted labels for the two Recovery Proofs preview images.
+   Keep the existing small-label feel; use contrast and a restrained glow rather than oversized badges. */
+html body.home-page .social-collage .recovery-proofs-showcase .recovery-proof-preview-item > span,
+html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item > span {
+  position: absolute !important;
+  inset: auto 6px 6px 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  min-height: 28px !important;
+  box-sizing: border-box !important;
+  padding: 4px 8px !important;
+  border: 1px solid rgba(67, 151, 255, .88) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(110deg, rgba(3, 17, 48, .88), rgba(5, 35, 92, .90)) !important;
+  box-shadow: 0 1px 5px rgba(0, 90, 220, .28), inset 0 1px 0 rgba(255,255,255,.12) !important;
+  color: #fff !important;
+  font-size: clamp(9px, .82vw, 11px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: .015em !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8) !important;
+}
+html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(1) > span::before {
+  content: "!" !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  flex: 0 0 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1px solid #62b7ff !important;
+  border-radius: 5px 5px 6px 6px !important;
+  background: linear-gradient(145deg, #278bff, #0748c8) !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
+  box-shadow: 0 0 4px rgba(0,132,255,.3) !important;
+}
+html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(2) > span {
+  border-color: rgba(255, 93, 111, .88) !important;
+  background: linear-gradient(110deg, rgba(25, 7, 15, .90), rgba(65, 8, 20, .91)) !important;
+  box-shadow: 0 1px 5px rgba(255, 42, 72, .24), inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(2) > span::before {
+  content: "⊘" !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  flex: 0 0 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1px solid #ff8792 !important;
+  border-radius: 50% !important;
+  background: linear-gradient(145deg, #ff697b, #d91f3e) !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
+  box-shadow: 0 0 4px rgba(255,45,75,.28) !important;
+}
+@media (max-width: 600px) {
+  html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item > span {
+    inset: auto 5px 5px 5px !important;
+    min-height: 25px !important;
+    gap: 4px !important;
+    padding: 4px 6px !important;
+    border-radius: 7px !important;
+    font-size: clamp(9px, 2.5vw, 11px) !important;
+    letter-spacing: 0 !important;
+  }
+  html body.home-page .recovery-proofs-showcase .recovery-proof-preview-item > span::before {
+    flex-basis: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 10px !important;
   }
 }

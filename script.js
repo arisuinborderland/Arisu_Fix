@@ -465,11 +465,10 @@ renderRecoveryProofs();
 (() => {
   const headline = document.getElementById("serviceStatusHeadline");
   const pill = document.getElementById("serviceStatusPill");
-  const description = document.getElementById("serviceStatusDescription");
   const clock = document.getElementById("serviceStatusClock");
   const updated = document.getElementById("serviceStatusUpdated");
   const statusDot = document.querySelector(".service-status-dot");
-  if (!headline || !pill || !description || !clock || !updated) return;
+  if (!headline || !pill || !clock || !updated) return;
 
   const statusTimeFormatter = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Asia/Manila", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
@@ -495,9 +494,6 @@ renderRecoveryProofs();
       headline.textContent = isOpen ? "Available" : "Unavailable";
       headline.classList.toggle("is-offline", !isOpen);
       pill.textContent = isOpen ? "Online" : "Offline";
-      description.textContent = isOpen
-        ? "You can message me on WhatsApp for account recovery assistance. I reply during my available hours."
-        : "You can still send me a WhatsApp message. I resume replies at 7:00 AM Philippine Time.";
       pill.classList.toggle("service-status-pill-closed", !isOpen);
       if (statusDot) statusDot.classList.toggle("is-offline", !isOpen);
       lastAvailability = isOpen;
@@ -509,7 +505,7 @@ renderRecoveryProofs();
       lastClockLabel = clockLabel;
     }
 
-    const dateLabel = `${dateFormatter.format(now)} · GMT+8 · Auto-updated`;
+    const dateLabel = `${dateFormatter.format(now)} · GMT+8`;
     if (dateLabel !== lastDateLabel) {
       updated.textContent = dateLabel;
       lastDateLabel = dateLabel;

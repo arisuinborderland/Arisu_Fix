@@ -17,7 +17,6 @@
       ".social-collage > .recovery-proofs-showcase",
       ".services-section > .services-heading",
       ".services-section > .services-grid > *",
-      ".services-section .service-platform",
       ".services-section .deletion-option",
       ".services-section .service-disclaimer",
       ".why-arisu-section > .why-arisu-card > .why-arisu-heading",

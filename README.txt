@@ -1,12 +1,67 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV417
+Version: ArisuV489
 Updated: 2026-10-19
+ArisuV489 update (2026-10-19): Reduced the Suspended Accounts and Disabled Accounts preview labels to compact, small-font highlighted badges with restrained blue/red accents. Preview image dimensions and card layout are unchanged.
+ArisuV487 update (2026-10-19): Corrected the MY SERVICES outer card on desktop only by resetting its negative top offset and negative top margin at min-width 701px, so it sits below rather than overlapping the preview cards. Mobile positioning is unchanged.
+ArisuV486 update (2026-10-19): Restored the desktop width values from the last known baseline (V482) after the broad width increases in V483–V485 caused the preview cards and services section to appear shifted/undersized relative to the content. No mobile CSS rules were changed in this correction. Updated shared HTML cache-busting references and package version.
+ArisuV482 update (2026-10-19): Raised the outer “WHY I BUILT THIS SITE,” “PLEASE READ,” and “ABOUT THIS WEBSITE” cards by 16px on desktop and mobile using scoped relative top offsets. Preserved internal card spacing and all other sections; updated HTML CSS/JS cache-busting references and package version.
+ArisuV481 update (2026-10-19): Raised only the complete ARISU RECOVERY CONTACT / WHY CHOOSE ARISU card by 16px on desktop and mobile using a scoped relative top offset. Card content, internal spacing, and other sections remain unchanged. Updated the HTML asset cache-busting references and package version.
+ArisuV460 update (2026-10-19): Moved only the MY SERVICES rounded pill 4px farther down (existing top offset changed from 4px to 8px); did not move the outer services card or alter the heading text offsets.
+ArisuV459 update (2026-10-19): Adjusted the existing authoritative MY SERVICES outer-card position from top:-6px to top:-14px (8px further up); no duplicate positioning rule added. Preserved pill +4px and text -2px offsets.
+
+ArisuV450 update (2026-10-19): Removed the decorative line above MY SERVICES and placed the complete services heading and intro copy inside a subtle rounded card; scoped styling for desktop and mobile.
+ArisuV450 update (2026-10-19): Lifted only the Scam Awareness Reminder card by 4px using a targeted selector; preserved card dimensions, surrounding layout, and responsive rules.
+ArisuV448 update (2026-10-19): Fixed the Service Status JavaScript initialization error by removing an undeclared variable from its element guard; the live Philippine clock and automatic availability updates remain enabled. The “Auto-updated” label remains removed.
+ArisuV446 update (2026-10-19): Removed the Service Status description sentence and removed “Auto-updated” from the Philippine time label; preserved the live clock and status functionality.
+
+ArisuV446 update (2026-10-19): Applied a soft Aurora Gradient Glass background to the floating menu panel only; preserved menu items, icons, size, spacing, and positioning.
+ArisuV443 update (2026-10-19): Applied Premium Glass styling to the WhatsApp contact card with a soft white translucent gradient, subtle border and shadow, refined WhatsApp-green icon and CTA, and muted blue recommendation badge. Existing card geometry, content, and responsive layout are preserved.
+
+ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
+
+
+ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
+
+ArisuV440 update (2026-10-19): Removed the dark rectangular gradient panel and tile shadow from Suspended/Disabled preview labels; preserved label readability with text-shadow only.
+ArisuV440 update (2026-10-19): Removed the arrow glyphs from the TikTok and Facebook Page buttons; refined icon-to-label spacing and alignment for a balanced button layout.
+
+ArisuV440 update (2026-10-19): Raised only the home-page Recovery Proofs button by a further 1px (translateY -7px total). Other buttons, preview images, and layout rules remain unchanged.
+
+ArisuV440 update (2026-10-19): Raised the four social-collage outer cards (TikTok, Facebook Page, Recovery Proofs, and Customer Feedback) by 4px using relative positioning, preserving internal preview and button offsets.
+
+ARISUV435 RELEASE SUMMARY — 2026-10-19
+- Moved only the Disabled Accounts preview tile an additional 2px upward (4px upward total from the prior V427 baseline); other preview/card/button spacing remains unchanged.
+- Kept the preview tile/label geometry, outer Recovery Proofs card, action button, links, and all other sections unchanged.
+- Updated active HTML cache-busting references and package version to ArisuV438.
+- Static file and archive validation performed; live browser visual regression was not run.
+
+
+ARISUV422 RELEASE SUMMARY — 2026-10-19
+- Lowered only the TikTok, Facebook Page, and Recovery Proofs image-preview areas by 6px relative to ArisuV421; Customer Feedback preview and all other layout elements remain unchanged.
+- Used narrowly scoped transforms on the three preview containers to avoid changing card flow, sizing, buttons, or links.
+- Updated active HTML/CSS cache-busting references and package version to ArisuV424.
+- Static validation performed; browser visual regression still requires live rendering on mobile and desktop.
+
+- Lifted only the TikTok and Facebook preview areas an additional 2px by changing their top margin from 2px to 0px.
+- Kept Recovery Proofs and Customer Feedback preview spacing unchanged at 2px; other layout, images, buttons, links, and card structure are preserved.
+- Updated active HTML/CSS cache-busting references and package version to ArisuV421.
+- Static validation performed; browser visual regression still requires live rendering on mobile and desktop.
+
+ARISUV420 RELEASE SUMMARY — 2026-10-19
+- Removed the TikTok, Facebook Page, Recovery Proofs, and Customer Feedback heading rows from the home-page social collage, including their decorative arrows.
+- Moved the top of all four preview areas to a 2px inset from each outer card's border, while preserving side/bottom spacing, preview assets, CTA buttons, and links.
+- Updated active HTML/CSS cache-busting references and package version to ArisuV420.
+- Static validation performed; browser visual regression still requires live rendering on mobile and desktop.
+
+ARISUV419 RELEASE SUMMARY — 2026-10-19
+- Lowered only the “FASTEST CONTACT METHOD” label by 2px using a final CSS override.
+- Preserved all other layout and content.
 
 ARISUV417 RELEASE SUMMARY — 2026-10-19
 - Conservative maintenance based on ArisuV416; no intentional layout redesign or component sizing change.
 - Removed eight verified same-selector/same-media duplicate declarations, keeping the later identical declarations that determine the cascade.
 - Removed seven empty CSS rule/media-query blocks left by earlier edits; no active declarations were removed from those blocks because they contained none.
-- Aligned active cache-busting tokens across all four HTML pages to ArisuV417.
+- Aligned active cache-busting tokens across all four HTML pages to ArisuV419.
 - Removed one duplicated ArisuV389 changelog paragraph and corrected stale CSP/testing documentation.
 - Validation: archive integrity, build, CSS/JavaScript syntax, local references, version tokens, and duplicate IDs checked. A full browser visual regression was not completed; verify desktop, tablet, and mobile before deployment.
 
@@ -185,3 +240,39 @@ ArisuV413 update: Restored original TikTok and Facebook preview images on deskto
 
 
 ArisuV414 update: Added one desktop-only authoritative sizing rule for #serviceStatus so the Service Status card stretches to the same full content width as the WhatsApp feature card. Existing internal grid, mobile rules, and unrelated sections are preserved. Desktop browser rendering still requires visual confirmation.
+
+
+ARISUV423 RELEASE SUMMARY — 2026-10-19
+- Reduced bottom padding of the TikTok, Facebook Page, and Recovery Proofs outer cards to 6px.
+- Left Customer Feedback and all preview positions, buttons, links, and other layout elements unchanged.
+- Updated active HTML/CSS cache-busting references and package version to ArisuV424.
+- ZIP integrity and static syntax checks performed; live browser visual regression was not available.
+
+
+ARISU RECOVERY CONTACT — PROJECT README
+Version: ArisuV480
+Updated: 2026-10-19
+
+ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
+
+ArisuV426 CSS override audit: fixed the Recovery Proofs image-position conflict. The preview wrapper remains 6px lower from the earlier layout adjustment; individual Suspended and Disabled preview tiles now compensate by 8px and 10px respectively, resulting in net positions 2px and 4px upward. Removed competing image-level transforms and retained hover-only scaling. Static checks performed; browser visual testing remains unconfirmed.
+
+
+ARISUV427 RELEASE SUMMARY — 2026-10-19
+- Set the Recovery Proofs preview area to 4px top spacing and raised the Recovery Proofs button by 4px.
+- Neutralized conflicting earlier wrapper and tile transforms for this preview only.
+- Preserved all other cards, links, and layout.
+
+ArisuV440 update (2026-10-19): Raised only the Recovery Proofs and Customer Feedback outer cards an additional 4px (top: -8px total); TikTok and Facebook Page cards remain at top: -4px.
+
+ArisuV440 update (2026-10-19): Enlarged only the Suspended and Disabled proof preview images by 4px on each horizontal side. Kept vertical sizing, labels, outer cards, and buttons unchanged.
+
+ArisuV440 update (2026-10-19): Restored rounded corners on Suspended/Disabled preview images and their label edge; no layout dimensions changed.
+
+
+ArisuV441 update (2026-10-19): Reduced only the Daily Bible Verse card vertical padding by 4px on desktop and mobile; horizontal padding and other layout elements remain unchanged.
+
+ArisuV442 update (2026-10-19): Lifted the WhatsApp contact card and Service Status card by 4px using scoped positioning rules; existing card dimensions and internal layout are preserved.
+
+ArisuV450 update (2026-10-19): Refined the MY SERVICES heading card to match the approved centered Premium Rounded Card preview; removed the top divider, added a compact blue kicker pill, soft blue-white gradient, rounded border, and subtle shadow. Mobile styles are included.
+ArisuV480 update (2026-10-19): Moved only the Account Deletion card up an additional 8px (top: -16px). Account Recovery remains unchanged; MY SERVICES and other sections are unchanged. Account Recovery remains at -16px; MY SERVICES and other sections are unchanged.
