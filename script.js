@@ -39,15 +39,6 @@ if (facebookCard) {
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-// Keep the FAQ tidy on mobile: opening one answer closes the others.
-const faqItems = Array.from(document.querySelectorAll(".faq-list details"));
-faqItems.forEach((item) => {
-  item.addEventListener("toggle", () => {
-    if (!item.open) return;
-    faqItems.forEach((other) => { if (other !== item) other.open = false; });
-  });
-});
-
 // Give keyboard users a visible focus state and prevent accidental duplicate setup.
 document.documentElement.classList.add("js-ready");
 
@@ -459,7 +450,7 @@ renderRecoveryProofs();
 })();
 
 
-// V_135: show a live Philippine Standard Time clock and inquiry status based on published hours.
+// Show a live Philippine Standard Time clock and inquiry status based on published hours.
 // Formatters are created once. Only the seconds clock changes every second; availability and date
 // labels are updated only when their displayed value changes, reducing mobile DOM work.
 (() => {

@@ -1,6 +1,22 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV500
+Version: ArisuV514
 Updated: 2026-10-19
+ArisuV514 legacy version-reference audit (2026-10-19): Reviewed live source files for version labels at or below ArisuV512. Removed the stale V_135 comment label in script.js and replaced V101/V112 suffixes in CSS animation identifiers with version-neutral names, updating all corresponding animation declarations and keyframes together. This is an identifier-only change; animation timings, properties, selectors, and behavior are unchanged. Historical version references in README.txt are intentionally retained as changelog history. Build and static validation passed; browser visual regression testing remains pending.
+ArisuV513 README cleanup (2026-10-19): Removed two exact duplicate copies of the ArisuV440 MY SERVICES subtitle changelog entry, retaining the first occurrence and preserving the rest of the historical changelog. Similar generic validation-summary lines in different release-summary sections were retained because they belong to separate historical entries. No site HTML, CSS, JavaScript behavior, or layout rules were changed; browser visual regression testing remains pending.
+ArisuV512 targeted cascade audit (2026-10-19): Reviewed winning declarations for Service Status, social collage, WhatsApp feature card, and floating WhatsApp icon. No !important declarations were removed because no safely redundant same-selector, same-context, same-property, same-importance duplicates were proven in those target groups. Removed one provably overridden non-important width declaration from the services heading base rule (later same-selector base rule sets width to min(100%,1100px)). Layout-affecting !important rules and responsive overrides were preserved. Browser visual regression testing remains pending.
+ArisuV511 CSS selector audit (2026-10-19): Reviewed repeated selectors across stylesheet rule contexts. Repeated selector text alone is not proof of redundancy; declarations are spread across different properties, responsive breakpoints, and cascade overrides. No exact duplicate declarations with the same selector, at-rule context, property, value, and importance were found, so no CSS declarations were removed. This is a conservative audit-only release; browser visual regression testing remains pending.
+
+ArisuV510 maintenance (2026-10-19): Removed the stale ArisuV327 version label from the header-scroll.js comment, keeping the comment version-neutral. Updated active source cache-busting tokens and package version to ArisuV510. No runtime JavaScript logic or CSS layout rules were intentionally changed. Build and static validation passed; browser visual regression testing remains pending.
+
+ArisuV508 audit (2026-10-19): Removed 15 empty CSS rule blocks from styles.css, including unused placeholders affecting the social collage, Recovery Proofs, Daily Bible Verse, WhatsApp card, and Why Arisu sections. Empty blocks contained no declarations and had no visual or cascade effect. Kept non-empty visual overrides and their order unchanged; no selectors, declarations, breakpoints, or animation rules were consolidated. Build/syntax/ZIP checks passed; browser visual regression testing remains pending.
+ArisuV508 Service Status audit (2026-10-19): Consolidated two adjacent max-width: 600px Service Status CSS blocks into one media query, preserving the exact declaration order and values. Kept the mobile margin-top: -2px and separate top: -4px positioning rules because they control distinct properties; kept the desktop width/flex rules and 850px/560px responsive layout rules unchanged. CSS parsing/build checks passed; browser visual regression testing remains pending.
+
+ArisuV506 audit (2026-10-19): Removed 37 earlier !important declarations only where the exact same selector, property, and at-rule context had a later !important declaration that wins the cascade. No unique declarations, selectors, breakpoints, or layout values were changed. CSS parsing and build checks passed; browser visual regression testing remains pending.
+ArisuV505 audit (2026-10-19): Removed the obsolete WhatsApp-card pulse block that was fully superseded by the later static-icon rules; the separate floating WhatsApp pulse remains intact. Removed version-specific labels from the floating-pulse comments. Confirmed the mobile-only pulse overrides the base pulse only at max-width 767px; reduced-motion rules remain in place. Service Status override audit completed: retained the existing responsive rules and the required mobile margin-top: -2px rule because the later overrides target different properties and consolidation without browser comparison could change the cascade. Confirmed .faq-list CSS has no matching markup in the four HTML pages and no script-generated FAQ elements; dormant FAQ CSS is retained for this conservative pass. README history is retained; no visual browser regression test was performed.
+
+ArisuV504 update (2026-10-19): Removed the generated dist/ directory from the delivered ZIP package. Source files and build configuration are retained; no layout or styling rules were changed.
+ArisuV504 update (2026-10-19): Cleaned old version identifiers from CSS comments while preserving useful implementation notes. CSS declarations, selectors, media queries, and layout behavior were not changed.
+ArisuV501 update (2026-10-19): Removed the unused FAQ accordion JavaScript helper after confirming no FAQ markup exists in the included HTML pages and no other script generates .faq-list details. Kept dormant FAQ CSS unchanged to avoid broad stylesheet cleanup. Updated active cache-busting references and package version. Layout and animation behavior otherwise unchanged.
 ArisuV500 audit fix (2026-10-19): Aligned CSS background-image cache-busting tokens and all active HTML asset cache tokens to ArisuV500; corrected the WhatsApp-card animation changelog entry to ArisuV496; removed the stale embedded V480 README header. ArisuV499 mobile-only floating pulse behavior is unchanged.
 ArisuV498 update (2026-10-19): Removed the blue check badge from the “ACCOUNT RECOVERY ASSISTANCE · EST. 2018” banner only. Preserved the green status indicator, header verification badge, layout, spacing, and animations.
 ArisuV497 update (2026-10-19): Slightly reduced the floating shortcut pulse intensity by softening the expanding ring, reducing its maximum scale, and lowering the green halo. The floating shortcut remains animated; other layout and animations are unchanged.
@@ -26,7 +42,6 @@ ArisuV443 update (2026-10-19): Applied Premium Glass styling to the WhatsApp con
 ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
 
 
-ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
 
 ArisuV440 update (2026-10-19): Removed the dark rectangular gradient panel and tile shadow from Suspended/Disabled preview labels; preserved label readability with text-shadow only.
 ArisuV440 update (2026-10-19): Removed the arrow glyphs from the TikTok and Facebook Page buttons; refined icon-to-label spacing and alignment for a balanced button layout.
@@ -255,7 +270,6 @@ ARISUV423 RELEASE SUMMARY — 2026-10-19
 - ZIP integrity and static syntax checks performed; live browser visual regression was not available.
 
 
-ArisuV440 update (2026-10-19): Removed the “Get in touch with me for account recovery assistance.” subtitle under MY SERVICES only; surrounding layout and spacing were left unchanged.
 
 ArisuV426 CSS override audit: fixed the Recovery Proofs image-position conflict. The preview wrapper remains 6px lower from the earlier layout adjustment; individual Suspended and Disabled preview tiles now compensate by 8px and 10px respectively, resulting in net positions 2px and 4px upward. Removed competing image-level transforms and retained hover-only scaling. Static checks performed; browser visual testing remains unconfirmed.
 
@@ -278,3 +292,5 @@ ArisuV442 update (2026-10-19): Lifted the WhatsApp contact card and Service Stat
 
 ArisuV450 update (2026-10-19): Refined the MY SERVICES heading card to match the approved centered Premium Rounded Card preview; removed the top divider, added a compact blue kicker pill, soft blue-white gradient, rounded border, and subtle shadow. Mobile styles are included.
 ArisuV480 update (2026-10-19): Moved only the Account Deletion card up an additional 8px (top: -16px). Account Recovery remains unchanged; MY SERVICES and other sections are unchanged. Account Recovery remains at -16px; MY SERVICES and other sections are unchanged.
+
+

@@ -1,4 +1,4 @@
-/* ArisuV327 — responsive scroll-direction header behavior. */
+/* Responsive scroll-direction header behavior. */
 (() => {
   'use strict';
   const header = document.querySelector('.topbar');
