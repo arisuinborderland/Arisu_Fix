@@ -1,6 +1,16 @@
+ArisuV349 mobile spacing adjustment: reduced the outer bottom spacing after the Remember safety card by another 2px on screens up to 640px; inner padding, top spacing, and desktop layout are unchanged.
+ArisuV348 mobile spacing adjustment: lifted the outer PLEASE READ / Terms & limitations card by 4px on screens up to 640px; internal padding and desktop layout are unchanged.
+ArisuV347 mobile spacing adjustment: reduced the bottom padding of the main Why Choose Arisu outer card by 8px (10px to 2px) on screens up to 640px; top and horizontal padding and desktop layout are unchanged.
+ArisuV343 mobile spacing adjustment: reduced the outer bottom spacing after the Remember safety card by 8px on screens up to 640px; internal card padding and top spacing are unchanged.
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV333
+Version: ArisuV350
 Updated: 2026-10-19
+ArisuV338 mobile spacing adjustment: reduced only the Remember: Keep Your Account Safe card top and bottom padding by 4px (12px to 8px) on screens up to 640px. Horizontal padding, desktop spacing, icon, typography, borders, and surrounding layout remain unchanged.
+ArisuV337 mobile spacing adjustment: reduced the Clear guidance / Honest expectations note card top and bottom padding by another 2px (9px to 7px) on screens up to 640px. Horizontal padding, desktop spacing, typography, icon, borders, and surrounding layout remain unchanged.
+ArisuV335 mobile spacing adjustment: reduced the Clear guidance / Honest expectations note card top and bottom padding by 2px (13px to 11px) on screens up to 640px. Horizontal padding, desktop spacing, typography, icon, borders, and surrounding layout remain unchanged.
+
+ArisuV334 scroll-performance refinement: removed the broad mobile scroll-time animation pause selector that applied to every element and pseudo-element. The pause now targets only the floating WhatsApp decoration, and sticky-header blur is reduced while scrolling on mobile to lower compositing work. Scroll-reveal animation behavior and layout declarations are preserved. Validate scrolling on the deployed preview across mobile and desktop before treating performance as confirmed.
+
 ArisuV331 maintenance audit: removed only CSS rules whose declarations were all superseded later by declarations for the exact same selector and media/support context, with equal or higher !important priority. This is a conservative cascade cleanup; final winning declarations were retained. CSS parser, JS syntax, build, and ZIP checks are required. Browser visual regression was not independently available.
 
 

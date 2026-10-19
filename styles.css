@@ -5120,22 +5120,22 @@ html body #daily-bible-verse.daily-verse-card {
   }
 }
 
-/* mobile scroll optimization: pause decorative animations only while scrolling.
- Scroll-reveal uses transitions, so reveal-on-enter/exit continues in both directions. */
+/* Scroll-performance tuning: avoid a universal selector over every page element.
+   Pause only the floating WhatsApp decoration and reduce sticky-header blur while
+   the user is actively scrolling; scroll-reveal transitions remain unchanged. */
 @media (max-width: 760px) {
-  html.arc-is-scrolling *,
-  html.arc-is-scrolling *::before,
-  html.arc-is-scrolling *::after {
+  html.arc-is-scrolling #floatingWhatsApp {
     animation-play-state: paused !important;
   }
-}
 
-/* slightly reduce sticky-header blur on mobile to lower scroll-time compositing work.
- Keep the translucent glass treatment and leave desktop styling unchanged. */
-@media (max-width: 760px) {
   .topbar {
     backdrop-filter: saturate(135%) blur(10px);
     -webkit-backdrop-filter: saturate(135%) blur(10px);
+  }
+
+  html.arc-is-scrolling .topbar {
+    backdrop-filter: saturate(115%) blur(3px);
+    -webkit-backdrop-filter: saturate(115%) blur(3px);
   }
 }
 
@@ -7891,7 +7891,7 @@ html body.home-page .why-arisu-section .why-arisu-note-copy { min-width: 0 !impo
 html body.home-page .why-arisu-section .why-arisu-note-copy strong { display: block !important; color: #102b55 !important; font-size: .94rem !important; line-height: 1.35 !important; font-weight: 800 !important; }
 html body.home-page .why-arisu-section .why-arisu-note-copy small { display: block !important; margin-top: 4px !important; color: #3d5677 !important; font-size: .8rem !important; line-height: 1.45 !important; }
 @media (max-width: 640px) {
-  html body.home-page .why-arisu-section .why-arisu-note { gap: 11px !important; margin-top: 8px !important; padding: 13px 12px !important; }
+  html body.home-page .why-arisu-section .why-arisu-note { gap: 11px !important; margin-top: 8px !important; padding: 11px 12px !important; }
   html body.home-page .why-arisu-section .why-arisu-note-copy strong { font-size: .86rem !important; }
   html body.home-page .why-arisu-section .why-arisu-note-copy small { font-size: .75rem !important; }
 }
@@ -8127,3 +8127,100 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   html body .topbar > .header-meta > .webtools-header-link { transition: none !important; }
 }
 
+
+
+/* ArisuV337: reduce Clear guidance note vertical padding by another 2px on mobile only. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section .why-arisu-note {
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
+}
+
+
+/* ArisuV339: reduce mobile Remember safety card vertical padding by another 2px per side. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
+    padding-block: 6px !important;
+  }
+}
+
+
+/* ArisuV340: reduce the outer spacing below the Remember safety card by 4px on mobile. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-card > .safety-section-inline {
+    margin-bottom: -4px !important;
+  }
+}
+
+
+/* ArisuV342: keep Clear Guidance lifted 4px and lift Remember another 4px on mobile. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section .why-arisu-note {
+    transform: translateY(-4px) !important;
+  }
+  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
+    transform: translateY(-8px) !important;
+  }
+}
+
+
+/* ArisuV343: reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-card > .safety-section-inline {
+    margin-bottom: -8px !important;
+  }
+}
+
+
+/* ArisuV345: lift the Honest-through-Remember card group by another 2px on mobile. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-card > .why-arisu-grid {
+    transform: translateY(-6px) !important;
+  }
+  html body.home-page .why-arisu-section .why-arisu-note {
+    transform: translateY(-10px) !important;
+  }
+  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
+    transform: translateY(-14px) !important;
+  }
+}
+
+
+/* ArisuV347: reduce only the bottom padding of the Why Choose Arisu outer card by 8px on mobile. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section .why-arisu-card {
+    padding-bottom: 2px !important; /* previous effective value: 10px */
+  }
+}
+
+/* ArisuV347: lift the entire “Why I Built This Site” outer card by 4px on mobile only. */
+@media (max-width: 640px) {
+  html body.home-page main .purpose-card {
+    transform: translateY(-4px) !important;
+  }
+}
+
+
+/* ArisuV348: lift the outer PLEASE READ / Terms & limitations card by 4px on mobile only. */
+@media (max-width: 640px) {
+  html body.home-page main > section.site-section.terms-section > .terms-card {
+    transform: translateY(-4px) !important;
+  }
+}
+
+
+/* ArisuV349: reduce the outer card bottom spacing after Remember by another 2px on mobile. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-card > .safety-section-inline {
+    margin-bottom: -10px !important;
+  }
+}
+
+
+/* ArisuV350: raise the About This Website outer card by 8px on mobile. */
+@media (max-width: 600px) {
+  html body.home-page main .about-card {
+    transform: translateY(-8px) !important;
+  }
+}
