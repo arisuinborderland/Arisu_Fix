@@ -4,10 +4,10 @@
 
   const start = () => {
     const selectors = [
-      "main > #daily-bible-verse",
       "main > .compact-intro",
-      ".scam-awareness-card",
       "#contact > .whatsapp-feature-card",
+      "main > #daily-bible-verse",
+      ".scam-awareness-card",
       "#serviceStatus > .service-status-main",
       "#serviceStatus > .service-status-details",
       "#serviceStatus > .service-benefit-row > .service-benefit",
@@ -33,6 +33,7 @@
     ];
     const selectorText = selectors.join(",");
     const uniqueTargets = [...new Set(document.querySelectorAll(selectorText))];
+
     if (!uniqueTargets.length) return;
 
     // If observers are unavailable, leave everything visible rather than hiding page content.
@@ -51,12 +52,34 @@
       document.documentElement.classList.add("arc-scroll-reveal-enabled");
       const header = document.querySelector(".topbar");
       const headerHeight = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+      const bibleVerseHideTimers = new WeakMap();
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           // Threshold zero avoids missed triggers for tall desktop cards/sections.
           // Toggling on every enter/exit intentionally repeats for scroll-up and scroll-down.
           const visible = entry.isIntersecting && entry.intersectionRatio > 0;
-          entry.target.classList.toggle("arc-scroll-reveal-visible", visible);
+          const target = entry.target;
+          const useDebouncedReveal = target.id === "daily-bible-verse"
+            || target.matches(".compact-intro, #contact > .whatsapp-feature-card");
+          if (useDebouncedReveal) {
+            // Use the same stable reveal behavior as the working Bible Verse card.
+            if (visible) {
+              const pendingHide = bibleVerseHideTimers.get(target);
+              if (pendingHide) {
+                clearTimeout(pendingHide);
+                bibleVerseHideTimers.delete(target);
+              }
+              target.classList.add("arc-scroll-reveal-visible");
+            } else if (!bibleVerseHideTimers.has(target)) {
+              const timer = window.setTimeout(() => {
+                target.classList.remove("arc-scroll-reveal-visible");
+                bibleVerseHideTimers.delete(target);
+              }, 180);
+              bibleVerseHideTimers.set(target, timer);
+            }
+          } else {
+            target.classList.toggle("arc-scroll-reveal-visible", visible);
+          }
         });
       }, {
         threshold: 0,

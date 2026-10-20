@@ -1,8 +1,8 @@
 ARISU RECOVERY CONTACT — PROJECT README
-Version: ArisuV570
+Version: ArisuV592
 Updated: 2026-10-20
 
-ArisuV570 About This Website outer-card position update (2026-10-20): Starting from ArisuV569, changed only the existing selector `html body.home-page main > section.site-section.about-section > .about-card`, updating `translate: 0 -68px` to `translate: 0 -70px` to move the whole outer card upward by 2px. No other CSS selector or positioning rule was changed. Updated active HTML cache-busting references and package version to ArisuV570. Build, JavaScript syntax, and ZIP integrity checks performed; browser visual verification remains pending.
+ArisuV591 About This Website outer-card position update (2026-10-20): Starting from ArisuV569, changed only the existing selector `html body.home-page main > section.site-section.about-section > .about-card`, updating `translate: 0 -68px` to `translate: 0 -70px` to move the whole outer card upward by 2px. No other CSS selector or positioning rule was changed. Updated active HTML cache-busting references and package version to ArisuV591. Build, JavaScript syntax, and ZIP integrity checks performed; browser visual verification remains pending.
 
 
 ArisuV569 Please Read outer-card bottom padding correction (2026-10-20): Starting from ArisuV568, changed only the mobile outer-card selector `html body.home-page main > section.site-section.terms-section > .terms-card`, reducing its effective bottom padding from 8px to 4px while preserving top padding at 2px. The previous broad selector was overridden by this more-specific mobile rule, so this corrects the actual winning declaration. Updated active HTML cache-busting references and package version. Build, JavaScript syntax, and ZIP integrity checks performed; browser visual verification remains pending.
