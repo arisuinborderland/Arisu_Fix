@@ -75,7 +75,7 @@ const recoveryProofs = [
   }
 ];
 
-const PROOFS_PER_PAGE = 6; // Version 29: mobile back button follows the proof image
+const PROOFS_PER_PAGE = 6; // Mobile back button follows the proof image
 let activeProofCategory = "all";
 let activeProofPage = 1;
 let proofSearchTerm = "";
@@ -456,10 +456,11 @@ renderRecoveryProofs();
 (() => {
   const headline = document.getElementById("serviceStatusHeadline");
   const pill = document.getElementById("serviceStatusPill");
+  const pillText = document.getElementById("serviceStatusPillText");
   const clock = document.getElementById("serviceStatusClock");
   const updated = document.getElementById("serviceStatusUpdated");
-  const statusDot = document.querySelector(".service-status-dot");
-  if (!headline || !pill || !clock || !updated) return;
+  const statusDot = pill ? pill.querySelector(".service-status-dot") : null;
+  if (!headline || !pill || !pillText || !clock || !updated) return;
 
   const statusTimeFormatter = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Asia/Manila", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
@@ -484,7 +485,7 @@ renderRecoveryProofs();
     if (lastAvailability !== isOpen) {
       headline.textContent = isOpen ? "Available" : "Unavailable";
       headline.classList.toggle("is-offline", !isOpen);
-      pill.textContent = isOpen ? "Online" : "Offline";
+      pillText.textContent = isOpen ? "Online" : "Offline";
       pill.classList.toggle("service-status-pill-closed", !isOpen);
       if (statusDot) statusDot.classList.toggle("is-offline", !isOpen);
       lastAvailability = isOpen;

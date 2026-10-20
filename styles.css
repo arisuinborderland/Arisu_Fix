@@ -3427,7 +3427,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV514") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV516") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3855,7 +3855,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV514") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV516") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -4012,7 +4012,7 @@ html body #daily-bible-verse.daily-verse-card {
 .service-status-main{min-width:0;padding:3px 7px;display:flex;flex-direction:column;justify-content:center}
 .service-status-label{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;color:#087b50;font-size:10px;font-weight:850;letter-spacing:.8px}
 .service-status-dot{width:11px;height:11px;flex:0 0 11px;border-radius:50%;background:#13bf70;box-shadow:0 0 0 4px rgba(19,191,112,.13);animation:serviceStatusPulse 2s ease-in-out infinite}
-.service-status-pill{margin-left:auto;padding:6px 10px;border:1px solid #a8efd0;border-radius:999px;background:#e7fff3;color:#087b50;font-size:10px;letter-spacing:0;text-transform:none;white-space:nowrap}
+.service-status-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-left:auto;padding:6px 10px;border:1px solid #a8efd0;border-radius:999px;background:#e7fff3;color:#087b50;font-size:10px;letter-spacing:0;text-transform:none;white-space:nowrap}.service-status-pill .service-status-dot{position:relative;width:7px;height:7px;min-width:7px;flex:0 0 7px;margin:0;border-radius:50%;background:#13bf70;box-shadow:0 0 0 3px rgba(19,191,112,.13);animation:serviceStatusPulse 2s ease-in-out infinite}
 .service-status-main h2{margin:0;color:#19294c;font-size:clamp(20px,2.2vw,28px);font-weight:850;line-height:1.15;letter-spacing:-.7px}
 .service-status-main h2 span{color:#078957}
 .service-status-main>p{margin:6px 0 0;color:#526b96;font-size:12px;line-height:1.5;max-width:360px}
@@ -6732,7 +6732,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV514") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV516") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6764,7 +6764,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV514") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV516") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -6846,24 +6846,12 @@ html body .floating-menu #floatingWhatsApp::before {
   animation: none !important;
 }
 /* CSS directly controls the continuous pulse; no JS class required. */
-@keyframes  arisuExpandingRing177  {
-  0% { opacity: .9; transform: scale(.96); }
-  45% { opacity: .55; }
-  100% { opacity: 0; transform: scale(1.78); }
-}
+
 @media  (max-width: 600px)  {
   html body .floating-menu { right: max(12px, env(safe-area-inset-right, 0px)) !important; bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
   html body .floating-menu #floatingWhatsApp { width: 56px !important; height: 56px !important; min-width: 56px !important; min-height: 56px !important; }
 }
 @media  (max-width: 360px)  { html body .floating-menu #floatingWhatsApp { width: 52px !important; height: 52px !important; min-width: 52px !important; min-height: 52px !important; } }
-@keyframes  arisuOrbHalo177  {
-  0%,100% { box-shadow: inset 0 1px 2px rgba(255,255,255,.82), inset 0 -5px 12px rgba(6,24,84,.35), 0 7px 22px rgba(22,87,205,.34), 0 0 18px rgba(80,203,255,.25); }
-  50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 8px 24px rgba(22,87,205,.43), 0 0 27px rgba(80,203,255,.52); }
-}
-@media  (prefers-reduced-motion: reduce)  {
- html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before,
- html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation:none !important; }
-}
 
 /* Floating shortcut menu: single source of truth for panel spacing and card sizing. */
 html body.home-page .floating-menu {
@@ -6912,13 +6900,10 @@ html body.home-page .floating-menu-item {
   width: calc(100% - 50px) !important;
   min-height: 40px !important;
   padding: 5px 9px !important;
-  border: 1px solid rgba(107,139,190,.14) !important;
   border-radius: 13px !important;
-  background: rgba(255,255,255,.92) !important;
   color: #172a4a !important;
   font: 700 14px/1.25 Arial, sans-serif !important;
   text-decoration: none !important;
-  box-shadow: 0 2px 7px rgba(24,51,93,.06) !important;
   overflow: hidden !important;
 }
 html body.home-page .floating-menu-item:focus-visible {
@@ -7691,7 +7676,7 @@ html body.home-page #serviceStatus .service-status-dot {
 html body.home-page #serviceStatus .service-status-dot::after {
   content: "";
   position: absolute;
-  inset: -4px;
+  inset: -3px;
   border: 1.5px solid rgba(19, 191, 112, .62);
   border-radius: 50%;
   pointer-events: none;
@@ -7872,19 +7857,13 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 /* reduce the outer spacing below the Remember safety card by 4px on mobile. */
-@media  (max-width: 640px)  {
 
-}
 
 /* keep Clear Guidance lifted 4px and lift Remember another 4px on mobile. */
-@media  (max-width: 640px)  {
 
-}
 
 /* reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
-@media  (max-width: 640px)  {
 
-}
 
 /* lift the Honest-through-Remember card group by another 2px on mobile. */
 @media  (max-width: 640px)  {
@@ -7942,9 +7921,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 }
 
 /* reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
-@media  (max-width: 600px)  {
 
-}
 @media  (max-width: 380px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 12px !important;
@@ -8036,25 +8013,7 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
   }
 }
 
-/* match previously established mobile Customer Feedback heading position.
-   The content wrapper's inherited 14px top padding was pushing the heading down;
-   reset that wrapper and keep the requested 2px heading-to-preview spacing. */
-@media  (max-width: 600px)  {
-
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head,
-
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-showcase-head h3,
-
-  
-
-  
-
-  
-
-  
-
-  
-}
+/* Removed an empty, malformed mobile media-query block; no declarations were present. */
 
 /* align both mobile headings, divider lines, previews, and action buttons. */
 @media  (max-width: 600px)  {
@@ -8556,15 +8515,7 @@ html body.home-page #contact .whatsapp-feature-card .whatsapp-button:focus-visib
   outline: 3px solid rgba(32, 200, 120, .35) !important; outline-offset: 3px !important;
 }
 
-/* Aurora Gradient Glass background for the floating shortcut panel only.
-   Keep panel geometry and menu-item layout unchanged. */
-html body.home-page .floating-menu-items:not([hidden]) {
-  background: linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(239,241,255,.93) 52%, rgba(232,246,255,.94) 100%) !important;
-  border: 1px solid rgba(255,255,255,.94) !important;
-  box-shadow: 0 12px 34px rgba(63,76,150,.18), 0 3px 12px rgba(105,145,210,.10), inset 0 1px 0 rgba(255,255,255,.98) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.22) !important;
-  backdrop-filter: blur(20px) saturate(1.22) !important;
-}
+/* Previous Aurora panel visual block removed: superseded by the ArisuV519 3D Glass Card rule below. */
 
 /* lift only the Scam Awareness Reminder card by 4px without changing layout spacing. */
 html body.home-page .desktop-social-destination > .scam-awareness-card {
@@ -8817,4 +8768,52 @@ html body.home-page #contact .whatsapp-feature-icon::before {
 @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
   html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp::before,
   html body.home-page .floating-menu:not([data-state="open"]) #floatingWhatsApp { animation: none !important; }
+}
+
+
+/* ArisuV519: Option 5 — 3D Glass Card for the floating shortcut menu.
+   Scope is limited to the floating panel and its shortcut rows; geometry,
+   mobile sizing, links, open/close behavior, and orb animation stay unchanged. */
+html body.home-page .floating-menu-items:not([hidden]) {
+  background: linear-gradient(145deg,
+    rgba(255,255,255,.78) 0%,
+    rgba(174,205,255,.48) 28%,
+    rgba(161,125,255,.40) 62%,
+    rgba(233,190,255,.50) 100%) !important;
+  border: 1px solid rgba(255,255,255,.96) !important;
+  box-shadow:
+    0 18px 38px rgba(57,69,153,.24),
+    0 5px 14px rgba(64,164,255,.16),
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -2px 0 rgba(109,115,255,.18) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.35) !important;
+  backdrop-filter: blur(24px) saturate(1.35) !important;
+}
+html body.home-page .floating-menu-item {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,.76) 0%,
+    rgba(240,245,255,.64) 52%,
+    rgba(220,232,255,.58) 100%) !important;
+  border: 1px solid rgba(255,255,255,.88) !important;
+  box-shadow:
+    0 5px 12px rgba(44,69,139,.10),
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(105,125,211,.10) !important;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease !important;
+}
+html body.home-page .floating-menu-item:hover {
+  transform: translateY(-1px) !important;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,.94) 0%,
+    rgba(231,240,255,.84) 55%,
+    rgba(228,220,255,.78) 100%) !important;
+  box-shadow:
+    0 8px 16px rgba(44,69,139,.15),
+    inset 0 1px 0 rgba(255,255,255,1) !important;
+}
+html body.home-page .floating-menu-item:active {
+  transform: translateY(0) scale(.99) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .floating-menu-item { transition: none !important; }
 }
