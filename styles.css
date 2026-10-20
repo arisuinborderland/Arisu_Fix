@@ -3157,7 +3157,7 @@ body.home-page .whatsapp-feature-content h2 {
   overflow: hidden !important;
   border: 1px solid rgba(195,225,255,.42) !important;
   border-radius: clamp(16px, 1.5vw, 24px) !important;
-  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=ArisuV525") center 52% / cover no-repeat !important;
+  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=ArisuV553") center 52% / cover no-repeat !important;
   color: #fff !important;
   box-shadow: 0 12px 30px rgba(15,58,115,.17) !important;
   text-align: center !important;
@@ -3205,7 +3205,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
     background-color: #14549b !important;
-    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
+    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=ArisuV553") !important;
     background-position: center 52% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -3427,7 +3427,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV525") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV553") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3784,9 +3784,8 @@ body.home-page .site-footer {
 .services-heading .services-intro { margin-top:8px; font-size:14px; }
 .services-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:stretch; }
 .service-card { min-width:0; padding:24px; border:1px solid #d3e1ff; border-radius:22px; background:rgba(255,255,255,.82); box-shadow:0 10px 28px rgba(55,90,170,.07); }
-.service-card.recovery-service-card { --arc-reveal-offset: -16px; }
-/* Account Deletion position is independent of scroll-reveal transforms. */
-.service-card.deletion-service-card { position: relative; top: -16px; }
+/* Recovery outer-card offset is defined once in the authoritative block at EOF. */
+/* Account Deletion visual styling only; outer-card positioning is authoritative at EOF. */
 .deletion-service-card { border-color:#f6d7e9; background:rgba(255,249,253,.88); }
 .service-card-heading { display:grid; grid-template-columns:76px minmax(0,1fr); gap:17px; align-items:center; margin-bottom:18px; }
 .service-icon { width:76px; height:76px; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#6db2ff,#1764f4); border-radius:20px; box-shadow:0 7px 16px rgba(30,103,245,.18); }
@@ -3855,7 +3854,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV553") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5004,11 +5003,14 @@ html body #daily-bible-verse.daily-verse-card {
   }
 }
 
-/* align scam-awareness banner width with the main feature panel and tighten spacing. */
+/* Scam Awareness card styling. Its vertical offset is controlled by the single
+   authoritative rule at the end of this stylesheet; this transform consumes that variable
+   when scroll-reveal is not active, avoiding a second hard-coded position. */
 .scam-awareness-card {
   --scam-pink: #d91f50;
   --scam-ink: #79243a;
   position: relative;
+  transform: translateY(var(--arc-reveal-offset, 0px));
   display: flex;
   align-items: center;
   gap: 13px;
@@ -6732,7 +6734,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV553") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6764,7 +6766,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV553") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -7098,7 +7100,8 @@ body.home-page .purpose-card .purpose-kicker {
     padding-block: 8px !important;
   }
   html body.home-page main > section.site-section.terms-section .terms-card {
-    padding-block: 8px !important;
+    padding-top: 8px !important;
+    padding-bottom: 4px !important;
   }
 }
 
@@ -7143,7 +7146,7 @@ body.home-page .purpose-card .purpose-kicker {
 @media  (max-width: 600px)  {
   html body.home-page main > section.site-section.terms-section > .terms-card {
     padding-top: 2px !important;
-    padding-bottom: 8px !important;
+    padding-bottom: 4px !important;
   }
 }
 
@@ -7238,7 +7241,8 @@ body.home-page .purpose-card .purpose-kicker {
     margin-right: 0 !important;
   }
 
-  /* Center the reminder card at the reference width, with its thin content spacing. */
+  /* Layout-only sizing for the reminder card; vertical positioning is controlled by
+     the authoritative --arc-reveal-offset rule at the end of this stylesheet. */
   html body.home-page .desktop-social-destination > .scam-awareness-card {
     width: 100% !important;
     max-width: none !important;
@@ -7885,20 +7889,6 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   }
 }
 
-/* lift the entire “Why I Built This Site” outer card by 4px on mobile only. */
-@media  (max-width: 640px)  {
-  html body.home-page main .purpose-card {
-    transform: translateY(-4px) !important;
-  }
-}
-
-/* lift the outer PLEASE READ / Terms & limitations card by 4px on mobile only. */
-@media  (max-width: 640px)  {
-  html body.home-page main > section.site-section.terms-section > .terms-card {
-    transform: translateY(-4px) !important;
-  }
-}
-
 /* reduce the outer card bottom spacing after Remember by another 2px on mobile. */
 @media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .safety-section-inline {
@@ -7906,19 +7896,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   }
 }
 
-/* raise the About This Website outer card by 8px on mobile. */
-@media  (max-width: 600px)  {
-  html body.home-page main .about-card {
-    transform: translateY(-8px) !important;
-  }
-}
-
-/* reduce only the bottom padding of the WhatsApp feature card by 4px on mobile. */
-@media  (max-width: 600px)  {
-  html body.home-page #contact .whatsapp-feature-card {
-    padding-bottom: 5px !important;
-  }
-}
+/* Superseded mobile-only WhatsApp bottom-padding rule removed; see ArisuV526 authoritative geometry rule. */
 
 /* reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
 
@@ -7962,16 +7940,10 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
     transform: translateY(-6px) !important; /* existing -4px plus another 2px */
   }
   html body.home-page #contact .whatsapp-feature-card {
-    transform: translateY(-4px) !important;
+    transform: translateY(-8px) !important;
   }
 }
 
-/* single authoritative mobile positioning rule for Service Status. */
-@media  (max-width: 600px)  {
-  html body.home-page #serviceStatus.service-status-panel {
-    margin-top: -2px !important;
-  }
-}
 
 /* social card headers use text only; platform logos live in their action buttons.
    Tighten title-to-preview spacing by 2px without changing button placement or card structure. */
@@ -8354,7 +8326,7 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 }
 /* move only the Disabled Accounts preview tile 2px further upward (4px total). */
 html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:nth-child(2) {
-  transform: translateY(-4px) !important;
+  transform: translateY(-8px) !important;
 }
 html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
   position: relative !important;
@@ -8461,13 +8433,8 @@ html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-
 html body.home-page main > #daily-bible-verse.daily-verse-card { padding-top: 5px !important; padding-bottom: 5px !important; }
 @media (max-width: 600px) { html body.home-page main > #daily-bible-verse.daily-verse-card { padding-top: 6px !important; padding-bottom: 6px !important; } }
 
-/* lift the WhatsApp contact card and Service Status card by an additional 4px.
-   Preserve all existing dimensions, spacing inside the cards, and responsive layout. */
+/* Keep the WhatsApp card's existing 4px lift; Service Status positioning is consolidated below. */
 html body.home-page #contact .whatsapp-feature-card {
-  position: relative !important;
-  top: -4px !important;
-}
-html body.home-page #contact #serviceStatus.service-status-panel {
   position: relative !important;
   top: -4px !important;
 }
@@ -8517,11 +8484,6 @@ html body.home-page #contact .whatsapp-feature-card .whatsapp-button:focus-visib
 
 /* Previous Aurora panel visual block removed: superseded by the 3D Glass Card rule below. */
 
-/* lift only the Scam Awareness Reminder card by 4px without changing layout spacing. */
-html body.home-page .desktop-social-destination > .scam-awareness-card {
-  transform: translateY(-4px) !important;
-}
-
 /* replace the divider above MY SERVICES with a subtle rounded heading card. */
 html body.home-page .services-section > .services-heading {
   box-sizing: border-box;
@@ -8558,15 +8520,7 @@ html body.home-page .services-section > .services-heading h2,html body.home-page
 html body.home-page .services-section > .services-heading .services-intro { max-width:760px; }
 @media(max-width:700px){html body.home-page .services-section > .services-heading{width:100%;gap:8px;padding:22px 15px 20px !important;margin-bottom:18px !important;border-radius:20px !important;}html body.home-page .services-section > .services-heading .section-kicker{padding:7px 14px !important;margin-bottom:3px !important;}}
 
-/* canonical MY SERVICES positioning.
-   Use relative top instead of transform so other transform/animation rules cannot cancel the vertical move.
-   Keep the pill 4px lower and its title/subtitle/description 2px higher. */
-html body.home-page .services-section > .services-heading {
-  position: relative !important;
-  margin-top: -16px !important;
-  top: -14px !important;
-  transform: none !important;
-}
+/* Keep the existing small offsets for content inside the MY SERVICES card only. */
 html body.home-page .services-section > .services-heading .section-kicker {
   position: relative !important;
   top: 4px !important;
@@ -8575,28 +8529,6 @@ html body.home-page .services-section > .services-heading > h2,
 html body.home-page .services-section > .services-heading > p {
   position: relative !important;
   top: -2px !important;
-}
-
-/* raise the complete ARISU RECOVERY CONTACT / WHY CHOOSE ARISU card by 16px on desktop and mobile. */
-html body.home-page .why-arisu-section > .why-arisu-card {
-  position: relative !important;
-  top: -16px !important;
-}
-
-/* raise the WHY I BUILT THIS SITE, PLEASE READ, and ABOUT THIS WEBSITE outer cards by 16px on desktop and mobile. */
-html body.home-page main > section.site-section.purpose-section > .purpose-card,
-html body.home-page main > section.site-section.terms-section > .terms-card,
-html body.home-page main > section.site-section.about-section > .about-card {
-  position: relative !important;
-  top: -16px !important;
-}
-
-/* desktop-only correction — lower the MY SERVICES outer card so it no longer overlaps the preview cards above it. Mobile positioning remains unchanged. */
-@media (min-width: 701px) {
-  html body.home-page .services-section > .services-heading {
-    margin-top: 0 !important;
-    top: 0 !important;
-  }
 }
 
 /* compact highlighted labels for the two Recovery Proofs preview images.
@@ -8864,4 +8796,173 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   html body .topbar > .header-meta > .webtools-header-link {
     transition: none !important;
   }
+}
+
+
+/* ArisuV527: cumulative WhatsApp button/card bottom alignment.
+   Raise the CTA by another 4px (8px total from the V525 baseline).
+   Shorten only the outer card's bottom edge by another 4px; preserve its top edge,
+   side padding, content, responsive layout, and interactions. */
+html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+  position: relative !important;
+  top: -8px !important;
+}
+html body.home-page #contact .whatsapp-feature-card {
+  padding-bottom: 16px !important;
+}
+@media (max-width: 600px) {
+  html body.home-page #contact .whatsapp-feature-card {
+    padding-bottom: 0 !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+    margin-bottom: -3px !important;
+  }
+}
+
+/* ArisuV532: single-source Service Status positioning.
+   Move the whole card upward by exactly 2px from V531; keep top neutral to avoid
+   competing top offsets. Preserve the existing 2px mobile-specific difference. */
+html body.home-page #contact #serviceStatus.service-status-panel {
+  position: relative !important;
+  top: 0 !important;
+  transform: translateY(-22px) !important;
+}
+@media (max-width: 600px) {
+  html body.home-page #contact #serviceStatus.service-status-panel {
+    top: 0 !important;
+    transform: translateY(-24px) !important;
+  }
+}
+
+
+
+/* V534: lift only the service-status content below the label by an additional 4px.
+   Cumulative content offset is -8px. Keep SERVICE STATUS and the Online pill unchanged.
+   This final, high-specificity rule supersedes the earlier V533 content transform. */
+html body.home-page #contact #serviceStatus > .service-status-main > h2,
+html body.home-page #contact #serviceStatus > .service-status-details,
+html body.home-page #contact #serviceStatus > .service-benefit-row {
+  position: relative !important;
+  top: 0 !important;
+  transform: translateY(-8px) !important;
+}
+
+
+/* ArisuV537: lower only the SERVICE STATUS text by 1px from V536.
+   Net label-only offset is 7px upward; keep the Online/Offline pill, card,
+   and all other content unchanged. */
+html body.home-page #contact #serviceStatus .service-status-label > span:first-child {
+  position: relative !important;
+  top: 0 !important;
+  transform: translateY(-7px) !important;
+}
+
+
+/* ArisuV538: reduce only the Service Status card's bottom edge by 8px.
+   Desktop: reduce bottom padding from 16px to 8px.
+   Mobile: the existing bottom padding is already 7px, so remove it and reclaim the final 1px
+   through the last grid row's bottom margin. This preserves the card top, label, pill, and content positions.
+   Scoped final rules intentionally supersede the older base/mobile padding values. */
+html body.home-page #contact #serviceStatus.service-status-panel {
+  padding-bottom: 8px !important;
+}
+@media (max-width: 600px) {
+  html body.home-page #contact #serviceStatus.service-status-panel {
+    padding-bottom: 0 !important;
+  }
+  html body.home-page #contact #serviceStatus > .service-benefit-row {
+    margin-bottom: -1px !important;
+  }
+}
+
+
+/* ArisuV544 final authority: Scam Awareness card is lowered 6px from V542,
+   changing its cumulative upward offset from 32px to 26px. The single variable
+   controls the settled scroll-reveal position and base fallback transform. */
+html body.home-page .desktop-social-destination > .scam-awareness-card,
+html body.home-page .scam-awareness-card {
+  --arc-reveal-offset: -26px !important;
+}
+
+
+/* ArisuV545: move only the “OR VISIT MY OTHER SOCIAL MEDIA ACCOUNTS” divider up 26px.
+   The individual translate property composes with the scroll-reveal transform instead of
+   being replaced by it, so the offset remains visible before, during, and after the reveal.
+   Existing margins, social-card flow, and responsive layout remain unchanged. */
+html body.home-page .contact-divider {
+  translate: 0 -26px !important;
+  --arc-reveal-offset: 0px !important;
+}
+
+/* ArisuV546 authoritative social-card offset: raise TikTok, Facebook Page, Recovery Proofs,
+   and Customer Feedback together by 26px. The scroll-reveal animation reads this variable,
+   so its transform remains intact. This is the only positioning offset for these four cards. */
+html body.home-page .desktop-social-destination > .social-collage > .tiktok-showcase,
+html body.home-page .desktop-social-destination > .social-collage > .facebook-showcase,
+html body.home-page .desktop-social-destination > .social-collage > .recovery-proofs-showcase,
+html body.home-page .desktop-social-destination > .social-collage > .social-feedback-card,
+html body.home-page #contact > .social-collage > .tiktok-showcase,
+html body.home-page #contact > .social-collage > .facebook-showcase,
+html body.home-page #contact > .social-collage > .recovery-proofs-showcase,
+html body.home-page #contact > .social-collage > .social-feedback-card {
+  --arc-reveal-offset: -26px !important;
+}
+
+
+/* ArisuV548 authoritative MY SERVICES outer-card position.
+   Final offset is 34px upward (previous 26px + requested 8px), desktop and mobile.
+   Keep exactly one outer-card positioning rule; no legacy top/margin/transform offsets.
+   Relative top stays independent of the scroll-reveal transform. */
+html body.home-page .services-section > .services-heading {
+  position: relative !important;
+  top: -34px !important;
+}
+
+
+/* ArisuV551 authoritative Account Recovery outer-card position.
+   Final settled offset: 42px upward (previous 38px + requested 4px), desktop and mobile.
+   Replaced the prior -38px value; do not stack another offset. This single card-specific
+   rule supplies the offset consumed by the shared scroll-reveal transform. */
+html body.home-page .services-section > .services-grid > .service-card.recovery-service-card {
+  --arc-reveal-offset: -42px !important;
+}
+
+
+/* ArisuV564: only the Arisu Recovery Contact outer card changes in this release.
+   The previous V562 release mistakenly targeted .recovery-service-card, the inner Account Recovery
+   service tile. Keep all sibling-card offsets exactly as in the V561 baseline.
+   Independent translate composes with transform-based scroll-reveal animation.
+*/
+html body.home-page .services-section > .services-grid > .service-card.deletion-service-card {
+  position: relative !important;
+  top: auto !important;
+  translate: 0 -46px !important;
+}
+html body.home-page .services-section > .services-grid > .service-card.recovery-service-card {
+  --arc-reveal-offset: -42px !important;
+}
+html body.home-page .why-arisu-section > .why-arisu-card {
+  position: relative !important;
+  top: auto !important;
+  translate: 0 -50px !important;
+}
+html body.home-page main > section.site-section.purpose-section > .purpose-card {
+  position: relative !important;
+  top: auto !important;
+  translate: 0 -58px !important;
+}
+html body.home-page main > section.site-section.terms-section > .terms-card {
+  position: relative !important;
+  top: auto !important;
+  translate: 0 -64px !important;
+}
+html body.home-page main > section.site-section.about-section > .about-card {
+  position: relative !important;
+  top: auto !important;
+  translate: 0 -70px !important;
+}
+
+/* ArisuV567: position only the footer to maintain a 6px visual gap below the translated About This Website card. */
+html body.home-page .site-footer {
+  margin-top: -62px !important;
 }

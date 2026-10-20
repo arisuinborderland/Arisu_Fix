@@ -1,6 +1,6 @@
 {
   "name": "arisu-recovery-contact",
-  "version": "525.0.0",
+  "version": "570.0.0",
   "private": true,
   "engines": {
     "node": ">=18"
