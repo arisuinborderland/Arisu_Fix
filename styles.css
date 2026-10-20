@@ -3157,7 +3157,7 @@ body.home-page .whatsapp-feature-content h2 {
   overflow: hidden !important;
   border: 1px solid rgba(195,225,255,.42) !important;
   border-radius: clamp(16px, 1.5vw, 24px) !important;
-  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg") center 52% / cover no-repeat !important;
+  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=ArisuV525") center 52% / cover no-repeat !important;
   color: #fff !important;
   box-shadow: 0 12px 30px rgba(15,58,115,.17) !important;
   text-align: center !important;
@@ -3205,7 +3205,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
     background-color: #14549b !important;
-    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg") !important;
+    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
     background-position: center 52% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -3427,7 +3427,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArisuV516") !important;
+    url("./verse-lake-photo.jpg?v=ArisuV525") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3855,7 +3855,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV516") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -6732,7 +6732,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV516") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6764,7 +6764,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV516") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArisuV525") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8515,7 +8515,7 @@ html body.home-page #contact .whatsapp-feature-card .whatsapp-button:focus-visib
   outline: 3px solid rgba(32, 200, 120, .35) !important; outline-offset: 3px !important;
 }
 
-/* Previous Aurora panel visual block removed: superseded by the ArisuV519 3D Glass Card rule below. */
+/* Previous Aurora panel visual block removed: superseded by the 3D Glass Card rule below. */
 
 /* lift only the Scam Awareness Reminder card by 4px without changing layout spacing. */
 html body.home-page .desktop-social-destination > .scam-awareness-card {
@@ -8771,7 +8771,7 @@ html body.home-page #contact .whatsapp-feature-icon::before {
 }
 
 
-/* ArisuV519: Option 5 — 3D Glass Card for the floating shortcut menu.
+/* Option 5 — 3D Glass Card for the floating shortcut menu.
    Scope is limited to the floating panel and its shortcut rows; geometry,
    mobile sizing, links, open/close behavior, and orb animation stay unchanged. */
 html body.home-page .floating-menu-items:not([hidden]) {
@@ -8816,4 +8816,52 @@ html body.home-page .floating-menu-item:active {
 }
 @media (prefers-reduced-motion: reduce) {
   html body.home-page .floating-menu-item { transition: none !important; }
+}
+
+
+/* Restrained pearl-glass treatment for existing header actions. */
+html body .topbar > .header-meta > .proofs-header-link,
+html body .topbar > .header-meta > .webtools-header-link {
+  background: linear-gradient(135deg, rgba(255,255,255,.78) 0%, rgba(232,241,255,.66) 100%) !important;
+  color: #183766 !important;
+  border: 1px solid rgba(119, 157, 224, .48) !important;
+  -webkit-backdrop-filter: saturate(145%) blur(12px);
+  backdrop-filter: saturate(145%) blur(12px);
+  box-shadow: 0 4px 14px rgba(53, 88, 157, .10),
+              inset 0 1px 0 rgba(255,255,255,.92) !important;
+  text-decoration: none !important;
+}
+html body .topbar > .header-meta > .proofs-header-link .header-icon,
+html body .topbar > .header-meta > .webtools-header-link .header-icon {
+  color: #2865d7;
+}
+html body .topbar > .header-meta > .proofs-header-link:hover,
+html body .topbar > .header-meta > .webtools-header-link:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,.94) 0%, rgba(224,237,255,.86) 100%) !important;
+  border-color: rgba(74, 123, 215, .62) !important;
+  box-shadow: 0 6px 17px rgba(53, 88, 157, .15),
+              inset 0 1px 0 rgba(255,255,255,.98) !important;
+}
+html body .topbar > .header-meta > .proofs-header-link:active,
+html body .topbar > .header-meta > .webtools-header-link:active {
+  transform: translateY(0) scale(.985);
+}
+html body .topbar > .header-meta > .proofs-header-link:focus-visible,
+html body .topbar > .header-meta > .webtools-header-link:focus-visible {
+  outline: 3px solid rgba(96, 150, 255, .72) !important;
+  outline-offset: 3px !important;
+}
+@media (prefers-reduced-transparency: reduce) {
+  html body .topbar > .header-meta > .proofs-header-link,
+  html body .topbar > .header-meta > .webtools-header-link {
+    background: linear-gradient(135deg, #FFFFFF 0%, #EAF1FF 100%) !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .topbar > .header-meta > .proofs-header-link,
+  html body .topbar > .header-meta > .webtools-header-link {
+    transition: none !important;
+  }
 }
