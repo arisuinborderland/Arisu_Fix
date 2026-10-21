@@ -72,3 +72,18 @@ main{max-width:1000px;padding:40px 20px 64px}
 .proof-updates-coming h3{margin:0 0 7px;color:#4e6385;font-size:12px;font-weight:750;line-height:1.45}
 .proof-updates-coming p{margin:0;color:#68768b;font-size:12px;line-height:1.6}
 @media(max-width:600px){.proof-updates-coming{gap:11px;margin-top:13px;padding:14px 13px;border-radius:15px}.proof-updates-coming-icon{flex-basis:36px;width:36px;height:36px;border-radius:11px;font-size:20px}.proof-updates-coming h2{font-size:16px}.proof-updates-coming h3{font-size:11px}.proof-updates-coming p{font-size:11px;line-height:1.55}}
+
+
+/* AFV117: fixed Back to site control on Recovery Proofs, matching Customer Reviews. */
+.button.secondary.proofs-back-to-site{position:fixed!important;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:1000;display:inline-flex;align-items:center;justify-content:center;width:auto;max-width:calc(100vw - 24px);margin:0;padding:0 17px;min-height:48px;border:1px solid rgba(255,255,255,.82)!important;border-radius:999px;background:linear-gradient(135deg,#253b70,#365fe0 58%,#7546c8)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-align:center;text-decoration:none;font-size:14px;font-weight:800;line-height:1.3;box-shadow:0 8px 24px rgba(31,56,125,.28),inset 0 1px 0 rgba(255,255,255,.24);white-space:nowrap;opacity:1!important;filter:none!important;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.button.secondary.proofs-back-to-site:hover,.button.secondary.proofs-back-to-site:focus-visible{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 11px 28px rgba(31,56,125,.34),inset 0 1px 0 rgba(255,255,255,.28)}
+.button.secondary.proofs-back-to-site:focus-visible{outline:3px solid rgba(99,145,255,.55);outline-offset:3px}
+.button.secondary.proofs-back-to-site[hidden]{display:none!important}
+/* Keep the Arisu icon at the same elevated offset used on Customer Reviews. */
+html body .floating-menu{bottom:82px!important;z-index:1001!important}
+@media(max-width:600px){.button.secondary.proofs-back-to-site{right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));min-height:44px;padding:0 15px;font-size:13px;box-shadow:0 6px 19px rgba(31,56,125,.3)}html body .floating-menu{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + 64px)!important}}
+@media(prefers-reduced-motion:reduce){.button.secondary.proofs-back-to-site{transition:none}.button.secondary.proofs-back-to-site:hover,.button.secondary.proofs-back-to-site:focus-visible{transform:none}}
+
+/* AFV117: Back to Home label and home icon on Recovery Proofs. */
+.button.secondary.proofs-back-to-site{gap:9px}
+.button.secondary.proofs-back-to-site svg{width:18px;height:18px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}

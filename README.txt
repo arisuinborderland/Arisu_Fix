@@ -1,6 +1,63 @@
 ARISU FIX — PROJECT README
-Version: AFV99
+Version: AFV117
 Updated: 2026-10-21
+
+## AFV117 — Separate floating icon position
+- Customer Reviews only: moved the Arisu floating menu container upward by 64px above its prior bottom anchor on mobile, and set a separate desktop offset, leaving the Back to Home button at the bottom.
+- Updated active cache-busting references and package version to AFV117 / 115.0.0.
+- Source ZIP excludes dist/.
+
+## AFV117 — Floating menu positioned above Back to Home on Customer Reviews
+- Adjusted only the Customer Reviews page stacking: the floating shortcut icon sits above the existing Back to Home button, with safe-area-aware spacing.
+- Kept the Back to Home button in its existing bottom position; aligned active cache-busting references and package version to AFV117 / 115.0.0.
+- Replaced the static “Back to homepage” link with a fixed floating “Back to Home” button on reviews.html.
+- The button stays visible while scrolling up or down and links directly to index.html.
+- Added a home icon, keyboard focus styling, mobile safe-area spacing, and reduced-motion support.
+- Kept the change limited to the Customer Reviews page and aligned active cache-busting references and package version to AFV112 / 111.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV110 — Replace Free Web Tools with Customer Reviews
+- Replaced the header Free Web Tools link with an internal Customer Reviews link to reviews.html.
+- Changed its small tool icon to a star icon matching the Customer Reviews theme.
+- Renamed the Customer Feedback card action from “View All Reviews” to “Customer Reviews”; it still opens reviews.html.
+- Kept the existing button styling, placement, and other page content unchanged.
+- Updated active HTML cache-busting references and package version to AFV110 / 110.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV109 — Refine Screenshot 03 issue wording
+- Changed Screenshot 03 issue text to “Two Factor Authentication (No Email & Number Access)”.
+- Preserved the October 21, 2026 date, highlighted styling, image, lightbox, and all other layout.
+- Updated active cache-busting references and package version to AFV109 / 109.0.0.
+- Excluded dist/ from the source ZIP.
+
+
+## AFV105 — Screenshot 02 issue details
+- Replaced all reference-image caption text under Screenshot 02 with a highlighted recovery-case description: “Suspended Account (Rejected ID)” and date “August 8, 2026”.
+- Updated Screenshot 02 accessible label and alt text.
+- Kept Screenshot 01, Screenshot 03, screenshots, gallery layout, and lightbox behavior unchanged.
+- Updated active cache-busting references and release metadata to AFV105 / 105.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV105 — Highlight Screenshot 01 issue details
+- Styled Screenshot 01 issue/date metadata as a compact soft-gradient highlight with a clear title hierarchy.
+- Scoped the change to Screenshot 01 only; preserved screenshots, other cards, gallery layout, and lightbox behavior.
+- Updated active cache-busting references and release metadata to AFV105 / 104.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV103 — Move issue details to Screenshot 01
+- Moved “Issue: Instagram Login Error Loop.” and “Date: Aug 22, 2026” from Screenshot 03 to Screenshot 01.
+- Restored the reference-image label and explanatory caption to Screenshot 03 because it mentions Pinoy Cyber Tech, not Arisu Recovery Service.
+- Updated the affected image alt text; preserved screenshots, lightbox behavior, and layout.
+- Updated active cache-busting references and release metadata to AFV102 / 102.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV100 — Add Customer Feedback Screenshot 03
+- Replaced the editable Screenshot 03 placeholder with the user-provided screenshot at reviews/review-slot-3.jpg.
+- Updated the gallery card to open the image in the existing review lightbox.
+- Labeled the image accurately as a reference screenshot mentioning Pinoy Cyber Tech, not a testimonial for Arisu Recovery Service.
+- Preserved other cards, layout, and existing AFV99 pink/purple WhatsApp light trails.
+- Updated active cache-busting references and release metadata to AFV100 / 100.0.0.
+- Excluded dist/ from the source ZIP.
 
 ## AFV99 — Hot Pink + Electric Purple + White Core WhatsApp light trails
 - Changed only the two rotating WhatsApp button border trail colors to hot pink and electric purple with bright white cores.
@@ -86,3 +143,20 @@ Updated: 2026-10-21
 ## AFV71 — Terms outer-card bottom spacing diagnosis
 - Removed the relative top offset from the inner security card so it no longer leaves a misleading visual gap at the bottom of the outer Terms card.
 - Kept the existing 2px bottom padding on the outer Terms card; no other layout values intentionally changed.
+
+## AFV109 — Raise Customer Feedback label by 4px
+- Moved only the CUSTOMER FEEDBACK label upward by 4px on the reviews page.
+- Left surrounding padding, description, screenshots, and other layout unchanged.
+- Excluded dist/ from the source ZIP.
+
+## AFV117 — Recovery Proofs floating controls
+- Converted the Recovery Proofs “← Back to site” control into a fixed floating button, matching the Customer Reviews return-home button style and keeping it visible while scrolling on the album overview.
+- Positioned the Arisu floating menu at the same elevated offset used on Customer Reviews, above the fixed Back to site button with spacing.
+- Updated active cache-busting references and package version to AFV117 / 116.0.0.
+- Source ZIP excludes dist/.
+
+## AFV117 — Recovery Proofs Back to Home
+- Renamed the fixed Recovery Proofs return control to “Back to Home” and added a matching inline home icon.
+- Kept its existing homepage destination, fixed positioning, and floating Arisu icon placement.
+- Updated active cache-busting references and package version to AFV117 / 117.0.0.
+- Source ZIP excludes dist/.
