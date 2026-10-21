@@ -90,7 +90,6 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 .tiktok-showcase{margin-top:13px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f8faff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
 
 .tiktok-showcase h3{font:800 17px/1.25 Manrope,sans-serif;letter-spacing:-.3px;margin:2px 0 2px;color:var(--ink)}
-@media (max-width:600px) {}
 .tiktok-profile-button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 14px;border-radius:10px;background:#11131b;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .tiktok-profile-button:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(17,19,27,.18)}
 
@@ -355,12 +354,12 @@ footer>a:not(.brand),footer>span{color:#596980}
 /* Final spacing adjustment: place the Daily Bible Verse immediately below the header links. */
 main{padding-top:0}
 .daily-verse-card{margin-top:0}
-@media (max-width:600px) {main{padding-top:0}.daily-verse-card{margin-top:0}}
+@media (max-width:600px) {main{padding-top:0}}
 
 /* Compact vertical rhythm: lift the WhatsApp contact panel and following content. */
 .compact-intro{margin-bottom:10px;padding-bottom:4px}
 .compact-intro h1{margin-bottom:7px}
-.compact-intro p{margin-top:0}
+
 .wizard-card.contact-only{margin-top:0;padding-top:18px}
 
 @media (max-width:600px) {
@@ -1687,15 +1686,10 @@ summary:focus-visible {
   82%, 100% { stroke-dashoffset: 24; }
 }
 
-@media  (min-width: 761px)  {
-}
-@media  (max-width: 760px)  {
 
-}
-@media  (max-width: 360px)  {
-}
-@media  (prefers-reduced-motion: reduce)  {
-}
+
+
+
 
 /* matching contact availability card and static handshake icon. */
 
@@ -1743,7 +1737,6 @@ summary:focus-visible {
 .whatsapp-feature-kicker{display:block;max-width:calc(100% - 128px);min-height:20px}
 .whatsapp-feature-content h2{margin-top:14px}
 @media (max-width:600px) {
- .whatsapp-feature-card{position:relative}
  .whatsapp-feature-top{display:block;padding-right:0}
  .whatsapp-recommended{position:absolute;top:0;right:0;font-size:8px;padding:6px 8px;gap:4px}
  .whatsapp-feature-kicker{max-width:calc(100% - 112px);font-size:9px;letter-spacing:1px;line-height:1.35;padding-top:4px}
@@ -2401,8 +2394,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* modestly enlarge the availability clock and keep it aligned with the heading block.
  Also explicitly animate the recovery promise check on desktop, matching the existing check-draw
  animation used elsewhere. No HTML/JS, mobile layout, or scroll-reveal code is changed. */
-@media  (min-width: 761px)  {
-}
+
 
 /* approved sample: 82×82 desktop clock tile, aligned with the availability kicker.
  Keep the clock proportionate and match the WhatsApp icon tile's visual size. */
@@ -2412,11 +2404,9 @@ body.home-page .whatsapp-feature-content h2 {
 /* desktop recovery-promise check animation fix.
  Ensure the check is visible even when reduced motion is enabled; animate it on
  desktop when motion is allowed. The icon must never remain an empty green circle. */
-@media  (min-width: 761px) and (prefers-reduced-motion: no-preference)  {
-}
 
-@media  (min-width: 761px) and (prefers-reduced-motion: reduce)  {
-}
+
+
 
 /* clean status badge text only; preserve badge, glow, dot and check design. */
 .compact-intro .eyebrow.premium-status > .status-label {
@@ -2455,8 +2445,7 @@ body.home-page .whatsapp-feature-content h2 {
 /* keep the recovery promise check visible while it animates on desktop.
  The previous dash-draw loop left the green circle empty for much of each cycle.
  Keep the white check continuously visible and use a subtle pulse instead. */
-@media  (min-width: 761px)  {
-}
+
 
 @keyframes  recovery-promise-circle-pulse  {
   0%, 100% { transform: scale(1); filter: brightness(1); }
@@ -2927,7 +2916,7 @@ body.home-page .whatsapp-feature-content h2 {
   overflow: hidden !important;
   border: 1px solid rgba(195,225,255,.42) !important;
   border-radius: clamp(16px, 1.5vw, 24px) !important;
-  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=ArizoFixV10") center 52% / cover no-repeat !important;
+  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV21") center 52% / cover no-repeat !important;
   color: #fff !important;
   box-shadow: 0 12px 30px rgba(15,58,115,.17) !important;
   text-align: center !important;
@@ -2975,7 +2964,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
     background-color: #14549b !important;
-    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=ArizoFixV10") !important;
+    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV21") !important;
     background-position: center 52% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -3082,8 +3071,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     letter-spacing: -.2px !important;
   }
 }
-@media  (max-width: 380px)  {
-}
+
 
 /* closer scenic Bible verse banner styling for desktop and mobile. */
 body.home-page main > .daily-verse-card {
@@ -3124,7 +3112,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=ArizoFixV10") !important;
+    url("./verse-lake-photo.jpg?v=AFV21") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3551,7 +3539,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=ArizoFixV10") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV21") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -4040,8 +4028,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* match social brand marks to the compact Recovery Proofs icon. */
-@media  (max-width: 600px)  {
-}
+
 
 /* tighten the extra top gap before the social collage on mobile.
  Keep card dimensions, logos, previews, and buttons unchanged. */
@@ -4052,8 +4039,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* nudge TikTok and Facebook logos up 2px for visual alignment with Recovery Proofs. */
-@media  (max-width: 600px)  {
-}
+
 
 /* Account Deletion uses the shared .service-platforms spacing. */
 .deletion-service-platforms { margin-top: 12px; }
@@ -4141,8 +4127,7 @@ html body #daily-bible-verse.daily-verse-card {
   box-sizing: border-box !important;
 }
 /* Keep the last agreed fine-tuning: review preview 2px shorter at each edge (4px total), title 2px lower. */
-@media  (max-width: 600px)  {
-}
+
 
 /* shorten the Customer Feedback image by another 2px at the top and 2px at the bottom; leave Recovery Proofs images and buttons unchanged. */
 .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
@@ -4184,12 +4169,10 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* reduce the Customer Feedback icon tile on desktop only; preserve mobile sizing. */
-@media  (min-width: 601px)  {
-}
+
 
 /* slightly raise the Customer Feedback star tile and heading on desktop only. */
-@media  (min-width: 601px)  {
-}
+
 
 /* desktop-only Customer Feedback image fit and button separation.
  Keep the card dimensions and mobile layout unchanged. */
@@ -4432,8 +4415,7 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* align the Facebook warning box with the TikTok warning box. */
-@media  (max-width: 600px)  {
-}
+
 
 /* discourage casual image dragging in proof/review previews. */
 .recovery-proofs-preview img,
@@ -4700,8 +4682,7 @@ body.home-page .desktop-social-destination {
 }
 
 /* stronger visibility and +2px font size for the social-media divider. */
-@media  (max-width: 600px)  {
-}
+
 
 /* tighten spacing before Services and strengthen the MY SERVICES label. */
 .section-kicker {
@@ -5007,8 +4988,6 @@ html body.home-page .why-arisu-section .why-arisu-heading-divider span {
 
 /* make the Facebook Page action explicit and prevent accidental taps on the whole history row. */
 .why-arisu-section .why-history-page-link{cursor:default;pointer-events:none;background:transparent!important;outline:none!important}
-@media (max-width:640px) {}
-@media (prefers-reduced-motion:reduce) {}
 
 /* Soft Glass purpose card, placed directly below About This Website. */
 .purpose-section {
@@ -5289,8 +5268,7 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* authoritative mobile compact spacing for account-assistance steps.
  Higher specificity intentionally overrides legacy home-page rules. */
-@media  (max-width: 760px)  {
-}
+
 
 /* compact, aligned mobile process cards.
  Tightens inner vertical rhythm and lets long headings wrap cleanly.
@@ -5338,8 +5316,7 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 /* align process descriptions directly beneath their headings on mobile. */
-@media  (max-width: 760px)  {
-}
+
 
 /* remove excess gap between process-card titles and descriptions on mobile.
  Override legacy grid placement explicitly so descriptions follow titles immediately. */
@@ -5391,13 +5368,11 @@ body.home-page .terms-card .terms-security-copy p {
 /* reliable mobile spacing using a real text wrapper.
  Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
  Desktop keeps the existing grid placement via display: contents. */
-@media  (max-width: 760px)  {
-}
+
 
 /* restore the desktop process-card text wrapper layout.
  Keep icon + number columns unchanged; let the copy occupy the full third column. */
-@media  (min-width: 761px)  {
-}
+
 
 /* desktop-only refinement for the five account-assistance cards.
  Adjust interior content only; deliberately preserve the existing outer card border and radius. */
@@ -5612,7 +5587,7 @@ body.home-page .why-arisu-section .why-arisu-note {
     line-height: 1.35 !important;
   }
   html body.home-page .desktop-social-destination .services-section .services-heading .services-intro {
-    margin: 4px 0 0 !important;
+    margin: 4px 0 -22px !important;
     line-height: 1.45 !important;
   }
 }
@@ -6030,7 +6005,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=ArizoFixV10") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV21") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6062,7 +6037,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=ArizoFixV10") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV21") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -6729,8 +6704,7 @@ html body.home-page .why-arisu-card > .process-heading-band p {
 }
 
 /* Step 05 is the Facebook & Instagram assistance card, not a warranty card. */
-@media  (max-width: 760px)  {
-}
+
 
 /* place the account-safety reminder inside the Why Choose Arisu card,
    immediately below the account-choice note; the old standalone section is removed. */
@@ -6861,8 +6835,7 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
     line-height: 1.4 !important;
   }
 }
-@media  (min-width: 641px)  {
-}
+
 
 /* Soft Blue Glass reassurance note on desktop and mobile. */
 html body.home-page .why-arisu-section .why-arisu-note {
@@ -7387,13 +7360,11 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
 }
 
 /* raise only the TikTok and Facebook showcase titles by 8px total on mobile. */
-@media (max-width: 600px) {
-}
+
 
 /* one authoritative mobile divider rule for TikTok and Facebook titles.
    The line belongs to the same h3 box as the title, so legacy head-level borders/pseudo-elements cannot leave it behind. */
-@media (max-width: 600px) {
-}
+
 
 /* desktop regression fix: use the original full-color profile screenshots on desktop.
    The transparent desktop-clean assets were revealing large purple/blue frame areas and making the previews look broken.
@@ -7701,7 +7672,7 @@ html body.home-page .services-section > .services-heading .section-kicker {
 /* approved centered Premium Rounded Card preview for MY SERVICES. */
 html body.home-page .services-section > .services-heading {
  text-align:center !important; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
- width:min(100%,1100px); padding:30px 28px 26px !important; margin:0 auto 24px !important;
+ width:min(100%,1100px); padding:30px 28px 2px !important; margin:0 auto 24px !important;
  border:1px solid rgba(111,169,239,.55) !important; border-radius:26px !important;
  background:radial-gradient(ellipse at 0% 100%,rgba(211,231,255,.55),transparent 36%),radial-gradient(ellipse at 100% 0%,rgba(225,237,255,.48),transparent 32%),linear-gradient(145deg,rgba(255,255,255,.99),rgba(246,249,255,.98)) !important;
  box-shadow:0 10px 28px rgba(53,103,174,.09),inset 0 1px 0 rgba(255,255,255,.98) !important;
@@ -7709,18 +7680,21 @@ html body.home-page .services-section > .services-heading {
 html body.home-page .services-section > .services-heading .section-kicker { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:8px 18px !important; margin:0 auto 5px !important; border:1px solid rgba(99,157,235,.28); border-radius:999px; background:linear-gradient(135deg,#edf5ff,#e1edff); box-shadow:0 4px 12px rgba(52,112,195,.10),inset 0 1px 0 rgba(255,255,255,.95); color:#2465c5 !important; letter-spacing:.09em; }
 html body.home-page .services-section > .services-heading .section-kicker::before { content:"⚙"; font-size:1.05em; line-height:1; }
 html body.home-page .services-section > .services-heading h2,html body.home-page .services-section > .services-heading > p { width:100%; text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
-html body.home-page .services-section > .services-heading .services-intro { max-width:760px; }
-@media(max-width:700px){html body.home-page .services-section > .services-heading{width:100%;gap:8px;padding:22px 15px 20px !important;margin-bottom:18px !important;border-radius:20px !important;}html body.home-page .services-section > .services-heading .section-kicker{padding:7px 14px !important;margin-bottom:3px !important;}}
+html body.home-page .services-section > .services-heading .services-intro { max-width:760px; position:relative; top:-22px; margin-bottom:-22px !important; }
+@media(max-width:700px){html body.home-page .services-section > .services-heading{width:100%;gap:8px;padding:22px 15px 2px !important;margin-bottom:18px !important;border-radius:20px !important;}html body.home-page .services-section > .services-heading .section-kicker{padding:7px 14px !important;margin-bottom:3px !important;}}
 
 /* Keep the existing small offsets for content inside the MY SERVICES card only. */
 html body.home-page .services-section > .services-heading .section-kicker {
   position: relative !important;
   top: 4px !important;
 }
-html body.home-page .services-section > .services-heading > h2,
-html body.home-page .services-section > .services-heading > p {
+html body.home-page .services-section > .services-heading > h2 {
   position: relative !important;
-  top: -2px !important;
+  top: -6px !important;
+}
+html body.home-page .services-section > .services-heading > p:first-of-type {
+  position: relative !important;
+  top: -12px !important;
 }
 
 /* compact highlighted labels for the two Recovery Proofs preview images.
@@ -8122,4 +8096,37 @@ html body.home-page main > section.site-section.about-section > .about-card {
 
 html body.home-page .site-footer {
   margin-top: -62px !important;
+}
+
+
+/* AFV21: Soft-gradient MY SERVICES label.
+   Replaces the prior editorial-label override; preserve section layout and content. */
+html body.home-page .services-section > .services-heading .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  width: fit-content !important;
+  padding: 9px 20px !important;
+  margin: 0 auto 8px !important;
+  border: 1px solid rgba(104, 157, 239, .48) !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, rgba(239, 247, 255, .98), rgba(230, 235, 255, .96) 58%, rgba(246, 233, 255, .96)) !important;
+  box-shadow: 0 5px 15px rgba(63, 113, 200, .12), inset 0 1px 0 rgba(255,255,255,.98) !important;
+  color: #285fbb !important;
+  font-size: clamp(.95rem, 2.8vw, 1.1rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  letter-spacing: .12em !important;
+  text-align: center !important;
+  text-shadow: none !important;
+}
+html body.home-page .services-section > .services-heading .section-kicker::before {
+  content: "⚙" !important;
+  display: inline-block !important;
+  font-size: 1.05em !important;
+  line-height: 1 !important;
+}
+html body.home-page .services-section > .services-heading .section-kicker::after {
+  content: none !important;
 }
