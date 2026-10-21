@@ -1,6 +1,6 @@
 {
   "name": "arizo-fix",
-  "version": "21.0.0",
+  "version": "38.0.0",
   "private": true,
   "engines": {
     "node": ">=18"

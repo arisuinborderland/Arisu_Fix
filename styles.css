@@ -2916,7 +2916,7 @@ body.home-page .whatsapp-feature-content h2 {
   overflow: hidden !important;
   border: 1px solid rgba(195,225,255,.42) !important;
   border-radius: clamp(16px, 1.5vw, 24px) !important;
-  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV21") center 52% / cover no-repeat !important;
+  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV38") center 52% / cover no-repeat !important;
   color: #fff !important;
   box-shadow: 0 12px 30px rgba(15,58,115,.17) !important;
   text-align: center !important;
@@ -2964,7 +2964,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
     background-color: #14549b !important;
-    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV21") !important;
+    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV38") !important;
     background-position: center 52% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -3112,7 +3112,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=AFV21") !important;
+    url("./verse-lake-photo.jpg?v=AFV38") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3539,7 +3539,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV21") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV38") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -5420,7 +5420,7 @@ body.home-page .why-arisu-section .why-arisu-heading { margin-top: 0 !important;
 body.home-page .why-arisu-section .why-arisu-heading .eyebrow,
 body.home-page .why-arisu-section .why-arisu-heading .section-kicker { margin-bottom: 2px !important; }
 body.home-page .why-arisu-section .why-arisu-heading h2 { margin-top: 2px !important; margin-bottom: 3px !important; }
-body.home-page .why-arisu-section .why-arisu-heading p { margin-top: 0 !important; margin-bottom: 0 !important; }
+body.home-page .why-arisu-section .why-arisu-heading p { margin-top: 0 !important; margin-bottom: 0 !important; transform: translateY(0px) !important; }
 
 /* tighter mobile spacing and subtler inner card outlines for Why Choose Arisu.
  The outer section border/background and typography/icon sizes remain unchanged. */
@@ -6005,7 +6005,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV21") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV38") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6037,7 +6037,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV21") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV38") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -6640,19 +6640,18 @@ body.home-page .purpose-card .purpose-kicker {
   }
 }
 
-/* place the process heading immediately after the history footnote as requested.
-   This unique selector replaces the previous rules that styled the heading in its old location. */
+/* Process heading: remove the kicker and keep the title 2px below the history card. */
 html body.home-page .why-arisu-card > .process-heading-band {
   position: relative !important;
   left: auto !important;
   right: auto !important;
   width: calc(100% + clamp(20px, 3.2vw, 38px) + clamp(20px, 3.2vw, 38px)) !important;
   max-width: none !important;
-  margin-top: 14px !important;
+  margin-top: 2px !important;
   margin-bottom: 18px !important;
   margin-left: calc(0px - clamp(20px, 3.2vw, 38px)) !important;
   margin-right: calc(0px - clamp(20px, 3.2vw, 38px)) !important;
-  padding: 14px 16px 12px !important;
+  padding: 2px 16px 2px !important;
   box-sizing: border-box !important;
   border-top: 1px solid rgba(112, 166, 255, .30) !important;
   border-bottom: 1px solid rgba(112, 166, 255, .30) !important;
@@ -6660,41 +6659,34 @@ html body.home-page .why-arisu-card > .process-heading-band {
   background: linear-gradient(105deg, #e0f6ff 0%, #e7edff 50%, #fae4fa 100%) !important;
   text-align: center !important;
 }
-html body.home-page .why-arisu-card > .process-heading-band .section-kicker {
-  display: block !important;
-  margin: 0 !important;
-  color: #315ff4 !important;
-  font-size: 12px !important;
-  line-height: 1.3 !important;
-  letter-spacing: 1.5px !important;
-}
 html body.home-page .why-arisu-card > .process-heading-band h2 {
-  margin: 7px 0 6px !important;
+  position: relative !important;
+  top: 0 !important;
+  margin: 0 0 6px !important;
   color: #152247 !important;
   line-height: 1.15 !important;
   letter-spacing: -.8px !important;
+  font-size: clamp(30px, 4vw, 48px) !important;
 }
 html body.home-page .why-arisu-card > .process-heading-band p {
   margin: 0 !important;
   color: #435778 !important;
   font-size: 15px !important;
   line-height: 1.5 !important;
+  transform: translateY(-2px) !important;
 }
-@media  (max-width: 640px)  {
+@media (max-width: 640px) {
   html body.home-page .why-arisu-card > .process-heading-band {
     width: calc(100% + 28px) !important;
-    margin-top: 11px !important;
+    margin-top: 2px !important;
     margin-bottom: 14px !important;
     margin-left: -14px !important;
     margin-right: -14px !important;
-    padding: 12px 12px 10px !important;
-  }
-  html body.home-page .why-arisu-card > .process-heading-band .section-kicker {
-    font-size: 10px !important;
-    letter-spacing: 1.15px !important;
+    padding: 2px 12px 2px !important;
   }
   html body.home-page .why-arisu-card > .process-heading-band h2 {
-    margin: 6px 0 5px !important;
+    font-size: clamp(29px, 7vw, 37px) !important;
+    margin: 0 0 5px !important;
     letter-spacing: -.5px !important;
   }
   html body.home-page .why-arisu-card > .process-heading-band p {
@@ -6869,7 +6861,7 @@ html body.home-page .why-arisu-section .why-arisu-note-copy small { display: blo
 
 /* lower the ARISU RECOVERY CONTACT divider 2px and raise its title 2px on desktop and mobile. */
 html body.home-page .why-arisu-section .why-arisu-heading > .services-heading-divider {
-  transform: translateY(2px) !important;
+  display: none !important;
 }
 html body.home-page .why-arisu-section .why-arisu-heading > .section-kicker {
   transform: translateY(-2px) !important;
@@ -6944,42 +6936,6 @@ html body.home-page #serviceStatus .service-status-dot.is-offline::after {
 }
 @media  (prefers-reduced-motion: reduce)  {
   html body.home-page #serviceStatus .service-status-dot::after { animation: none !important; }
-}
-
-/* match A CLEAR PROCESS heading scale to the main MY SERVICES title and add its gradient divider. */
-html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  width: min(100%, 420px);
-  height: 12px;
-  margin: 0 auto 9px;
-}
-html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider::before,
-html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider::after {
-  content: "";
-  display: block;
-  flex: 1 1 auto;
-  height: 2px;
-  border-radius: 999px;
-}
-html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider::before {
-  background: linear-gradient(90deg, rgba(93,151,255,0), #70a9ff 100%);
-}
-html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider::after {
-  background: linear-gradient(90deg, #2dbcf3 0%, rgba(45,188,243,0));
-}
-html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider span {
-  display: block; flex: 0 0 10px; width: 10px; height: 10px; margin: 0 10px;
-  border-radius: 50%; background: linear-gradient(135deg, #6dcfff, #3477f5);
-  box-shadow: 0 0 0 3px rgba(79,151,255,.10), 0 1px 5px rgba(44,117,236,.22);
-}
-html body.home-page .why-arisu-card > .process-heading-band h2 {
-  font-size: clamp(30px, 4vw, 48px) !important;
-}
-@media  (max-width: 640px)  {
-  html body.home-page .why-arisu-card > .process-heading-band .process-heading-divider { width: min(92%, 320px); margin-bottom: 7px; }
-  html body.home-page .why-arisu-card > .process-heading-band h2 { font-size: clamp(29px, 7vw, 37px) !important; }
 }
 
 /* raise only the header Privacy Policy button by 2px. */
@@ -7678,7 +7634,7 @@ html body.home-page .services-section > .services-heading {
  box-shadow:0 10px 28px rgba(53,103,174,.09),inset 0 1px 0 rgba(255,255,255,.98) !important;
 }
 html body.home-page .services-section > .services-heading .section-kicker { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:8px 18px !important; margin:0 auto 5px !important; border:1px solid rgba(99,157,235,.28); border-radius:999px; background:linear-gradient(135deg,#edf5ff,#e1edff); box-shadow:0 4px 12px rgba(52,112,195,.10),inset 0 1px 0 rgba(255,255,255,.95); color:#2465c5 !important; letter-spacing:.09em; }
-html body.home-page .services-section > .services-heading .section-kicker::before { content:"⚙"; font-size:1.05em; line-height:1; }
+/* Removed obsolete gear icon pseudo-element; heading remains text-only. */
 html body.home-page .services-section > .services-heading h2,html body.home-page .services-section > .services-heading > p { width:100%; text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
 html body.home-page .services-section > .services-heading .services-intro { max-width:760px; position:relative; top:-22px; margin-bottom:-22px !important; }
 @media(max-width:700px){html body.home-page .services-section > .services-heading{width:100%;gap:8px;padding:22px 15px 2px !important;margin-bottom:18px !important;border-radius:20px !important;}html body.home-page .services-section > .services-heading .section-kicker{padding:7px 14px !important;margin-bottom:3px !important;}}
@@ -7690,7 +7646,7 @@ html body.home-page .services-section > .services-heading .section-kicker {
 }
 html body.home-page .services-section > .services-heading > h2 {
   position: relative !important;
-  top: -6px !important;
+  top: -4px !important;
 }
 html body.home-page .services-section > .services-heading > p:first-of-type {
   position: relative !important;
@@ -8098,35 +8054,3 @@ html body.home-page .site-footer {
   margin-top: -62px !important;
 }
 
-
-/* AFV21: Soft-gradient MY SERVICES label.
-   Replaces the prior editorial-label override; preserve section layout and content. */
-html body.home-page .services-section > .services-heading .section-kicker {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 9px !important;
-  width: fit-content !important;
-  padding: 9px 20px !important;
-  margin: 0 auto 8px !important;
-  border: 1px solid rgba(104, 157, 239, .48) !important;
-  border-radius: 14px !important;
-  background: linear-gradient(135deg, rgba(239, 247, 255, .98), rgba(230, 235, 255, .96) 58%, rgba(246, 233, 255, .96)) !important;
-  box-shadow: 0 5px 15px rgba(63, 113, 200, .12), inset 0 1px 0 rgba(255,255,255,.98) !important;
-  color: #285fbb !important;
-  font-size: clamp(.95rem, 2.8vw, 1.1rem) !important;
-  font-weight: 800 !important;
-  line-height: 1.25 !important;
-  letter-spacing: .12em !important;
-  text-align: center !important;
-  text-shadow: none !important;
-}
-html body.home-page .services-section > .services-heading .section-kicker::before {
-  content: "⚙" !important;
-  display: inline-block !important;
-  font-size: 1.05em !important;
-  line-height: 1 !important;
-}
-html body.home-page .services-section > .services-heading .section-kicker::after {
-  content: none !important;
-}
