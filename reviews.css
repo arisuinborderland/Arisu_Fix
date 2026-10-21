@@ -67,22 +67,18 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 @media(prefers-reduced-motion:reduce){.reviews-floating-home{transition:none}.reviews-floating-home:hover,.reviews-floating-home:focus-visible{transform:none}}
 
 
-/* AFV117: place the Arisu floating icon clearly ABOVE the fixed Back to Home button. */
-body .reviews-floating-home { bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; z-index: 1000 !important; }
-body .floating-menu { bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 76px) !important; z-index: 1001 !important; }
-@media (max-width: 600px) {
-  body .reviews-floating-home { bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
-  body .floating-menu { bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 70px) !important; }
+/* AFV118: one authoritative, non-overlapping position for the floating menu and Back to Home button. */
+body .reviews-floating-home {
+  right: max(12px, env(safe-area-inset-right, 0px)) !important;
+  bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important;
+  z-index: 1000 !important;
 }
-
-/* AFV117: separate the Arisu floating icon from the fixed Back to Home button. */
-@media (max-width: 600px) {
-  html body .floating-menu {
-    bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 64px) !important;
-  }
+body .floating-menu {
+  right: max(12px, env(safe-area-inset-right, 0px)) !important;
+  bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 76px) !important;
+  z-index: 1001 !important;
 }
 @media (min-width: 601px) {
-  html body .floating-menu {
-    bottom: 82px !important;
-  }
+  body .floating-menu { bottom: 82px !important; }
+  body .reviews-floating-home { bottom: 12px !important; }
 }

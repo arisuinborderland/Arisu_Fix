@@ -1,4 +1,12 @@
 README.txt
 **/README.txt
+README.*
 dist/
+**/README.*
 **/dist/**
+*_File_Audit.md
+**/*_File_Audit.md
+*_DeepAudit_Report.md
+**/*_DeepAudit_Report.md
+*_ImageAsset_Audit.md
+**/*_ImageAsset_Audit.md
