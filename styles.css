@@ -2912,7 +2912,7 @@ body.home-page .whatsapp-feature-content h2 {
   overflow: hidden !important;
   border: 1px solid rgba(195,225,255,.42) !important;
   border-radius: clamp(16px, 1.5vw, 24px) !important;
-  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV98") center 52% / cover no-repeat !important;
+  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV99") center 52% / cover no-repeat !important;
   color: #fff !important;
   box-shadow: 0 12px 30px rgba(15,58,115,.17) !important;
   text-align: center !important;
@@ -2960,7 +2960,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
     background-color: #14549b !important;
-    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV98") !important;
+    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV99") !important;
     background-position: center 52% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -3108,7 +3108,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=AFV98") !important;
+    url("./verse-lake-photo.jpg?v=AFV99") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3535,7 +3535,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV98") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV99") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -6007,7 +6007,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV98") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV99") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6039,7 +6039,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV98") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV99") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8199,8 +8199,8 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV98: Electric Cyan + Ice White rotating light trails around the WhatsApp button border.
-   Bright cyan and ice-white cores with an electric-blue secondary accent; geometry and timing stay unchanged. */
+/* AFV99: Hot Pink + Electric Purple + White Core rotating light trails around the WhatsApp button border.
+   Hot pink and electric-purple trails with bright white cores; geometry and timing stay unchanged. */
 @property --wa-trace-angle {
   syntax: "<angle>";
   inherits: false;
@@ -8234,30 +8234,30 @@ html body.home-page .purpose-card .purpose-signoff {
   background: conic-gradient(
     from var(--wa-trace-angle),
     transparent 0deg 20deg,
-    rgba(0, 229, 255, .28) 31deg,
-    rgba(0, 229, 255, .72) 43deg,
-    rgba(165, 243, 252, .98) 52deg,
+    rgba(255, 61, 206, .28) 31deg,
+    rgba(255, 61, 206, .78) 43deg,
+    rgba(255, 255, 255, .98) 52deg,
     #ffffff 59deg,
-    #00e5ff 64deg,
-    rgba(22, 139, 255, .82) 72deg,
+    #ff3dce 64deg,
+    rgba(168, 85, 247, .88) 72deg,
     transparent 84deg 360deg
   );
-  filter: drop-shadow(0 0 4px rgba(0, 229, 255, .98));
+  filter: drop-shadow(0 0 4px rgba(255, 61, 206, .98));
   animation: wa-border-trace 2.8s linear infinite;
 }
 .whatsapp-feature-card .whatsapp-button::after {
   background: conic-gradient(
     from var(--wa-trace-angle-reverse),
     transparent 0deg 23deg,
-    rgba(165, 243, 252, .24) 34deg,
-    rgba(165, 243, 252, .68) 45deg,
+    rgba(168, 85, 247, .28) 34deg,
+    rgba(168, 85, 247, .78) 45deg,
     rgba(255, 255, 255, .98) 54deg,
     #ffffff 60deg,
-    #a5f3fc 65deg,
-    rgba(0, 229, 255, .78) 73deg,
+    #a855f7 65deg,
+    rgba(255, 61, 206, .82) 73deg,
     transparent 85deg 360deg
   );
-  filter: drop-shadow(0 0 4px rgba(165, 243, 252, .98));
+  filter: drop-shadow(0 0 4px rgba(168, 85, 247, .98));
   animation: wa-border-trace-reverse 3.2s linear infinite;
 }
 .whatsapp-feature-card .whatsapp-button > * {
@@ -8276,11 +8276,11 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: none !important;
   }
   .whatsapp-feature-card .whatsapp-button::before {
-    background: linear-gradient(135deg, transparent 35%, rgba(0, 229, 255, .82) 50%, transparent 65%);
+    background: linear-gradient(135deg, transparent 35%, rgba(255, 61, 206, .82) 50%, transparent 65%);
     opacity: .35;
   }
   .whatsapp-feature-card .whatsapp-button::after {
-    background: linear-gradient(45deg, transparent 35%, rgba(165, 243, 252, .78) 50%, transparent 65%);
+    background: linear-gradient(45deg, transparent 35%, rgba(168, 85, 247, .78) 50%, transparent 65%);
     opacity: .3;
   }
 }

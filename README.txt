@@ -1,14 +1,12 @@
 ARISU FIX — PROJECT README
-Version: AFV98
+Version: AFV99
 Updated: 2026-10-21
 
-## AFV98 — Electric Cyan + Ice White WhatsApp light trails
-- Changed the dual rotating border trails to bright electric cyan and ice white, with an electric-blue accent.
-- Kept the 3px trail thickness, brighter highlight cores, glow, animation timing, and reduced-motion support.
-- Preserved WhatsApp text, icon, link, button dimensions/position, and surrounding layout.
-- Updated active HTML/CSS/JS cache-busting tokens and release metadata to AFV98.
+## AFV99 — Hot Pink + Electric Purple + White Core WhatsApp light trails
+- Changed only the two rotating WhatsApp button border trail colors to hot pink and electric purple with bright white cores.
+- Preserved the 3px trail thickness, animation timing, glow behavior, reduced-motion support, button text, icon, link, dimensions, position, and surrounding layout.
+- Updated active HTML/CSS/JS cache-busting tokens and release metadata to AFV99.
 - Excluded dist/ from the source ZIP; build output is generated locally by the build process.
-
 
 ## AFV96 — Targeted cache-busting and internal README cleanup
 - Updated six Daily Bible Verse background-image cache tokens in styles.css from AFV91 to AFV96.
