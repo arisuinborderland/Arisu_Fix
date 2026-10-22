@@ -208,18 +208,23 @@
 
   $('loginForm').addEventListener('submit', signIn);
   $('caption').addEventListener('input', () => $('captionCount').textContent = String($('caption').value.length));
-  const previewUrls = [];
   $('storyImage').addEventListener('change', () => {
-    previewUrls.forEach(url => URL.revokeObjectURL(url)); previewUrls.length = 0;
+    // Use data URLs instead of blob: URLs. The site's Content-Security-Policy
+    // permits same-origin and Supabase images but does not permit blob: images.
     const preview = $('imagePreview'); preview.replaceChildren();
     const files = Array.from($('storyImage').files || []);
     if (!files.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Image previews will appear here after you choose files.'; preview.append(p); return; }
     files.forEach(file => {
       const card = document.createElement('div'); card.className = 'image-preview-card';
       const img = document.createElement('img'); img.alt = 'Preview of ' + file.name;
-      const url = URL.createObjectURL(file); previewUrls.push(url); img.src = url;
+      img.loading = 'lazy';
+      img.addEventListener('error', () => { img.hidden = true; const error = document.createElement('small'); error.textContent = 'Preview unavailable'; card.insertBefore(error, name); });
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
       card.append(img, name); preview.append(card);
+      const reader = new FileReader();
+      reader.onload = () => { if (typeof reader.result === 'string') img.src = reader.result; };
+      reader.onerror = () => { img.hidden = true; name.textContent += ' · Preview unavailable'; };
+      reader.readAsDataURL(file);
     });
   });
   $('saveAsDraft').addEventListener('change', () => { $('publishButton').textContent = $('saveAsDraft').checked ? 'Save as Draft' : 'Publish for 24 hours'; });
