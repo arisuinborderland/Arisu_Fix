@@ -1,5 +1,5 @@
 // Recovery proof gallery. Add only real examples that you have permission to publish.
-// Use category: "suspended" or category: "disabled" for each item.
+// Use category: "suspended", "disabled", or "2fa" for each item.
 const recoveryProofs = [
   {
     category: "suspended",
@@ -14,6 +14,14 @@ const recoveryProofs = [
     image: "proofs/disabled-account-integrity.jpg",
     alt: "Public case example showing a disabled Facebook account notice and a related profile screenshot; personal details are blurred in the supplied image",
     violation: "Account Integrity"
+  },
+  {
+    category: "2fa",
+    title: "Two Factor Authentication (2FA)",
+    image: "proofs/two-factor-authentication-01.jpg",
+    images: ["proofs/two-factor-authentication-01.jpg", "proofs/two-factor-authentication-02.jpg"],
+    alt: "Two related screenshots showing a Meta Advanced Protection identity-confirmation issue and the associated Facebook profile, presented together as one example",
+    violation: "Two-Factor Authentication"
   }
 ];
 
@@ -21,6 +29,7 @@ const PROOFS_PER_PAGE = 6; // Mobile back button follows the proof image
 let activeProofCategory = "all";
 let activeProofPage = 1;
 let proofSearchTerm = "";
+let showAlbumCardsForCategory = false;
 
 function renderRecoveryProofs() {
   const gallery = document.getElementById("proofGallery");
@@ -37,13 +46,13 @@ function renderRecoveryProofs() {
   });
 
   const countFor = (category) => validProofs.filter((proof) => category === "all" || proof.category === category).length;
-  [["allProofCount", "all"], ["suspendedProofCount", "suspended"], ["disabledProofCount", "disabled"]].forEach(([id, category]) => {
+  [["allProofCount", "all"], ["suspendedProofCount", "suspended"], ["disabledProofCount", "disabled"], ["twoFaProofCount", "2fa"]].forEach(([id, category]) => {
     const node = document.getElementById(id);
     if (node) node.textContent = String(countFor(category));
   });
 
   // Album landing view: keep the page compact as more proof images are added.
-  const showAlbumOverview = activeProofCategory === "all" && !normalizedSearch;
+  const showAlbumOverview = !normalizedSearch && (activeProofCategory === "all" || showAlbumCardsForCategory);
   // Keep Back to site on the album landing view only, not beneath an open proof.
   const backToSiteLink = document.querySelector(".proofs-back-to-site");
   if (backToSiteLink) backToSiteLink.hidden = !showAlbumOverview;
@@ -59,21 +68,57 @@ function renderRecoveryProofs() {
 
     const albums = [
       { category: "suspended", title: "Suspended Accounts", description: "Suspension notices and related account-status examples.", icon: "suspended" },
-      { category: "disabled", title: "Disabled Accounts", description: "Disabled-account notices and related case examples.", icon: "disabled" }
+      { category: "disabled", title: "Disabled Accounts", description: "Disabled-account notices and related case examples.", icon: "disabled" },
+      { category: "2fa", title: "Two Factor Authentication (2FA)", description: "Examples and updates related to two-factor authentication access issues.", icon: "2fa" }
     ];
-    albums.forEach((album) => {
+    const visibleAlbums = activeProofCategory === "all"
+      ? albums
+      : albums.filter((album) => album.category === activeProofCategory);
+    visibleAlbums.forEach((album) => {
       const items = validProofs.filter((proof) => proof.category === album.category);
       const card = document.createElement("article");
       card.className = `proof-album-card proof-album-${album.icon}`;
       const cover = document.createElement("div");
       cover.className = "proof-album-cover";
-      if (items[0]?.image) {
+      const previewImages = album.icon === "2fa" && items[0]?.images?.length > 1
+        ? items[0].images.slice(0, 2)
+        : (items[0]?.image ? [items[0].image] : []);
+      if (previewImages.length > 1) {
+        const previewPair = document.createElement("div");
+        previewPair.className = "proof-album-preview-pair proof-album-preview-pair-2fa";
+        previewPair.setAttribute("aria-label", "Two Factor Authentication screenshots shown side by side");
+        previewImages.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "";
+          img.loading = "lazy";
+          img.decoding = "async";
+          img.draggable = false;
+          img.className = `proof-album-preview-image proof-album-preview-image-${index + 1}`;
+          previewPair.appendChild(img);
+        });
+        cover.appendChild(previewPair);
+      } else if (previewImages.length === 1) {
+        const img = document.createElement("img");
+        img.src = previewImages[0];
+        img.alt = "";
+        img.loading = "lazy";
+        img.draggable = false;
+        cover.appendChild(img);
+      } else if (items[0]?.image) {
         const img = document.createElement("img");
         img.src = items[0].image;
         img.alt = "";
         img.loading = "lazy";
         img.draggable = false;
         cover.appendChild(img);
+      }
+      if (album.icon === "2fa" && !items[0]?.image) {
+        const securityMark = document.createElement("span");
+        securityMark.className = "proof-album-security-mark";
+        securityMark.setAttribute("aria-hidden", "true");
+        securityMark.innerHTML = '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M32 5 52 13v15c0 13-8 23-20 30C20 51 12 41 12 28V13L32 5Z"/><rect x="22" y="27" width="20" height="16" rx="3"/><path d="M26 27v-5a6 6 0 0 1 12 0v5M32 33v4"/></svg>';
+        cover.appendChild(securityMark);
       }
       const coverShade = document.createElement("span");
       coverShade.className = "proof-album-cover-shade";
@@ -91,13 +136,15 @@ function renderRecoveryProofs() {
       heading.textContent = album.title;
       const description = document.createElement("p");
       description.textContent = album.description;
+      description.hidden = true;
       const button = document.createElement("button");
       button.type = "button";
       button.className = "proof-album-open";
       button.textContent = "View album →";
-      button.disabled = items.length === 0;
+      button.disabled = items.length === 0 && album.category !== "2fa";
       button.addEventListener("click", () => {
         activeProofCategory = album.category;
+        showAlbumCardsForCategory = false;
         activeProofPage = 1;
         document.querySelectorAll("[data-proof-filter]").forEach((other) => {
           const active = other.dataset.proofFilter === album.category;
@@ -123,6 +170,15 @@ function renderRecoveryProofs() {
   gallery.classList.toggle("is-two", visibleProofs.length === 2);
   gallery.replaceChildren();
   empty.hidden = filtered.length !== 0;
+  const emptyHeading = empty.querySelector("h3");
+  const emptyDescription = empty.querySelector("p");
+  if (activeProofCategory === "2fa" && !filtered.length && emptyHeading && emptyDescription) {
+    emptyHeading.textContent = "Two Factor Authentication (2FA)";
+    emptyDescription.textContent = "This album is ready. Add approved examples here when they are available.";
+  } else if (emptyHeading && emptyDescription) {
+    emptyHeading.textContent = "No matching proofs found";
+    emptyDescription.textContent = "Try another search term or choose a different category.";
+  }
 
   const resultsText = document.getElementById("proofResultsText");
   if (resultsText) {
@@ -150,6 +206,19 @@ function renderRecoveryProofs() {
       media.disablePictureInPicture = true;
       media.setAttribute("aria-label", proof.alt || proof.title);
       media.classList.add("proof-video-media");
+    } else if (Array.isArray(proof.images) && proof.images.length > 1) {
+      media = document.createElement("div");
+      media.className = "proof-image-pair";
+      proof.images.forEach((src, index) => {
+        const image = document.createElement("img");
+        image.src = src;
+        image.alt = `${proof.alt || proof.title} — screenshot ${index + 1} of ${proof.images.length}`;
+        image.draggable = false;
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.addEventListener("error", () => { image.hidden = true; });
+        media.appendChild(image);
+      });
     } else {
       media = document.createElement("img");
       media.src = proof.image;
@@ -157,8 +226,8 @@ function renderRecoveryProofs() {
       media.draggable = false;
       media.loading = "lazy";
       media.decoding = "async";
+      media.addEventListener("error", () => { card.hidden = true; });
     }
-    media.addEventListener("error", () => { card.hidden = true; });
 
     const watermark = document.createElement("span");
     watermark.className = "proof-watermark";
@@ -272,6 +341,7 @@ const proofSearch = document.getElementById("proofSearch");
 if (proofSearch) {
   proofSearch.addEventListener("input", () => {
     proofSearchTerm = proofSearch.value;
+    showAlbumCardsForCategory = false;
     activeProofPage = 1;
     renderRecoveryProofs();
   });
@@ -279,6 +349,7 @@ if (proofSearch) {
 document.querySelectorAll("[data-proof-filter]").forEach((button) => {
   button.addEventListener("click", () => {
     activeProofCategory = button.dataset.proofFilter || "all";
+    showAlbumCardsForCategory = activeProofCategory !== "all";
     activeProofPage = 1;
     document.querySelectorAll("[data-proof-filter]").forEach((other) => {
       const active = other === button;

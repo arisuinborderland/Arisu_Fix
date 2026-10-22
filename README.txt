@@ -1,6 +1,33 @@
 ARISU FIX — PROJECT README
-Version: AFV118
-Updated: 2026-10-21
+Version: AFV130
+Updated: 2026-10-22
+
+## AFV130 — Prepare Recovery Stories backend
+- Added a temporary Story viewer bubble on the homepage; it appears only when the Stories API returns active, unexpired Stories.
+- Added a private Story admin page at story-admin.html with Supabase Auth sign-in, existing-proof selection, optional caption, publish, refresh, and manual deletion.
+- Added server-side API routes for listing, publishing temporary copies, deleting Stories, and scheduled cleanup. Server-only Supabase secret keys are never placed in browser code.
+- Temporary copies use the private recovery-stories Storage bucket and the stories/ path; cleanup refuses to delete objects outside that path. Permanent Recovery Proof files are not deleted.
+- Added a protected cleanup endpoint. Configure Supabase Cron (hourly) to call it using a secret stored in Supabase Vault; this avoids Vercel Hobby plan daily-only cron limits. Stories become unavailable to visitors at the 24-hour expiry, and the scheduled cleanup deletes the temporary image and database row on its next hourly run.
+- Added setup requirements for server-side environment variables. Story publishing is unavailable until the backend, admin allowlist, Data API table exposure, and Cron secret are configured.
+- Updated active cache-busting tokens to AFV130 and package version to 130.0.0.
+- Kept generated dist/ output out of the source ZIP; production build generates it locally.
+
+## Deployment setup checklist
+1. Keep the existing SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY variables in Vercel.
+2. Add SUPABASE_SECRET_KEY as a Vercel server-only environment variable using the Supabase secret key. Never add it to frontend files or commit it to GitHub.
+3. Add STORY_ADMIN_EMAIL with the exact email address of the confirmed Supabase Auth admin account (or use STORY_ADMIN_USER_ID instead).
+4. Add CRON_SECRET as a long random secret in Vercel. The cleanup endpoint expects an Authorization: Bearer header containing that same value. Configure Supabase Cron hourly to call /api/cleanup-stories and store the URL plus cleanup secret in Supabase Vault; enable pg_cron, pg_net, and Vault first. Do not paste the cleanup secret into public SQL or GitHub files.
+5. In Supabase Data API settings, expose only public.recovery_stories if it is not already exposed. Keep RLS enabled and retain the existing public read-only policy/grants; do not grant public insert, update, or delete.
+6. Confirm the recovery-stories Storage bucket remains private. Server API routes use the secret key to create signed URLs and manage temporary copies.
+7. Redeploy after setting environment variables. Test the Stories API and admin page before publishing any Story. Do not treat cleanup as automatic until the Supabase Cron job is enabled and its run history confirms success.
+
+## AFV129 — Add Two Factor Authentication album
+- Added a new Recovery Proofs album named exactly “Two Factor Authentication (2FA)”.
+- Added a matching security-themed cover and an informative empty state; no example images were fabricated.
+- Kept existing albums, proof entries, filters, and page layout intact.
+- Updated active HTML/CSS cache-busting references to AFV129 and package version to 119.0.0.
+- Excluded generated dist/ output from the source ZIP.
+
 
 ## AFV118 — Deployment and floating control position correction
 - Consolidated duplicate Customer Reviews floating-menu positioning overrides into one authoritative rule so the Arisu icon is independently positioned above the fixed Back to Home button with clear spacing.
@@ -153,3 +180,9 @@ Updated: 2026-10-21
 - Kept its existing homepage destination, fixed positioning, and floating Arisu icon placement.
 - Updated active cache-busting references and package version to AFV117 / 117.0.0.
 - Source ZIP excludes dist/.
+
+
+## AFV129 — Add 2FA proof examples
+- Added two user-provided screenshots to the Two Factor Authentication (2FA) album.
+- Matched their card presentation to the existing Suspended Accounts and Disabled Accounts proof gallery.
+- Preserved the existing proof albums and entries; updated cache-busting references to AFV129.

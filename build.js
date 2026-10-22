@@ -12,6 +12,8 @@ const excludedNames = new Set([
   "build.js",
   "vercel.json",
   "dist",
+  "api",
+  "lib",
   ".git",
   ".vercel"
 ]);
