@@ -8420,3 +8420,25 @@ html body.home-page .purpose-card .purpose-signoff {
     min-height: 37px; padding: 0 8px; font-size: 10px;
   }
 }
+
+
+/* AFV167 — keep the mobile header focused on the Arisu profile and Privacy Policy. */
+@media (max-width: 700px) {
+  html body.home-page .topbar > .header-meta {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    grid-template-columns: none !important;
+    justify-content: flex-end;
+    gap: 0 !important;
+  }
+  html body.home-page .topbar > .header-meta > .proofs-header-link,
+  html body.home-page .topbar > .header-meta > .webtools-header-link {
+    display: none !important;
+  }
+  html body.home-page .topbar > .header-meta > .privacy-link {
+    display: inline-flex !important;
+    width: auto;
+    flex: 0 0 auto;
+  }
+}
