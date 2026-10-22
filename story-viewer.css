@@ -190,7 +190,7 @@ html body .story-viewer .story-viewer-image {
   transition: opacity 140ms ease;
 }
 html body .story-viewer.story-viewer-switching .story-viewer-image {
-  opacity: 0;
+  opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
   html body .story-viewer .story-viewer-image { transition: none !important; }

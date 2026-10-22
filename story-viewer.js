@@ -8,48 +8,53 @@
   const progress = viewer.querySelector('.story-viewer-progress');
   const close = viewer.querySelector('.story-viewer-close');
   const timestamp = viewer.querySelector('.story-viewer-time');
-  let stories = [], index = 0, timer = 0, started = 0, navigationTimer = 0, navigating = false;
+  let stories = [], index = 0, timer = 0, started = 0, navigating = false;
   const DURATION = 7000;
-  const NAVIGATION_DELAY = 140;
-  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); clearTimeout(navigationTimer); navigating = false; viewer.classList.remove('story-viewer-switching'); progress.style.transition = 'none'; }
+  const preloadedImages = new Map();
+  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progress.style.transition = 'none'; }
+  function preloadImage(url) {
+    if (!url) return Promise.resolve(false);
+    const cached = preloadedImages.get(url);
+    if (cached) return cached;
+    const promise = new Promise(resolve => {
+      const preload = new Image();
+      let settled = false;
+      const finish = value => { if (!settled) { settled = true; resolve(value); } };
+      preload.onload = async () => {
+        try { if (typeof preload.decode === 'function') await preload.decode(); } catch { /* loaded image can still be displayed */ }
+        finish(true);
+      };
+      preload.onerror = () => finish(false);
+      preload.src = url;
+      if (preload.complete) finish(preload.naturalWidth > 0);
+    });
+    preloadedImages.set(url, promise);
+    return promise;
+  }
+  function warmNextImage(fromIndex = index) {
+    if (stories.length < 2) return;
+    const nextIndex = (fromIndex + 1) % stories.length;
+    preloadImage(stories[nextIndex].imageUrl);
+  }
   function navigateBy(direction) {
     if (viewer.hidden || navigating || !stories.length) return;
     navigating = true;
     clearTimeout(timer);
-    clearTimeout(navigationTimer);
-    viewer.classList.add('story-viewer-switching');
-
-    // Preload the destination before swapping the visible image. This prevents
-    // the previous image from remaining visible while the next URL is loading.
     const targetIndex = (index + direction + stories.length) % stories.length;
     const targetUrl = stories[targetIndex].imageUrl;
-    const preload = new Image();
-    const loaded = new Promise(resolve => {
-      let settled = false;
-      const finish = value => { if (!settled) { settled = true; resolve(value); } };
-      preload.onload = () => finish(true);
-      preload.onerror = () => finish(false);
-      preload.src = targetUrl;
-      if (preload.complete) finish(preload.naturalWidth > 0);
-    });
-    const minimumPause = new Promise(resolve => { navigationTimer = setTimeout(resolve, NAVIGATION_DELAY); });
-
-    Promise.all([loaded, minimumPause]).then(([imageLoaded]) => {
+    // The next image is warmed in the background while the current story is shown.
+    // On a cold visit, wait only for the actual image readiness, not an artificial delay.
+    preloadImage(targetUrl).then(() => {
       if (viewer.hidden) { navigating = false; return; }
-      // Even on a failed preload, switch to the requested URL rather than
-      // leaving the old story displayed. A successful preload is already cached.
       showAt(targetIndex);
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        viewer.classList.remove('story-viewer-switching');
-        navigating = false;
-      }));
+      requestAnimationFrame(() => { viewer.classList.remove('story-viewer-switching'); navigating = false; });
     });
   }
   function timeAgo(value) { const date = new Date(value); if (!value || Number.isNaN(date.getTime())) return ''; const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000)); if (seconds < 60) return 'Just now'; if (seconds < 3600) { const minutes = Math.floor(seconds / 60); return `${minutes} min${minutes === 1 ? '' : 's'} ago`; } if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; return `${Math.floor(seconds / 86400)}d ago`; }
   function showAt(next) {
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
-    const story = stories[index]; image.src = story.imageUrl; viewer.querySelector('.story-viewer-card').style.setProperty('--story-image-bg', `url("${String(story.imageUrl).replace(/["\\]/g, '')}")`); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
+    const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); viewer.querySelector('.story-viewer-card').style.setProperty('--story-image-bg', `url("${String(story.imageUrl).replace(/["\\]/g, '')}")`); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
     progress.style.transition = 'none'; progress.style.width = '0%'; viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
     clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => { progress.style.transition = `width ${DURATION}ms linear`; progress.style.width = '100%'; }));
@@ -59,6 +64,8 @@
     try {
       const response = await fetch('/api/stories', { cache: 'no-store' }); if (!response.ok) return;
       const data = await response.json(); stories = Array.isArray(data.stories) ? data.stories : [];
+      // Preload the first story and warm the next one before the viewer is opened.
+      stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
       if (!stories.length) { bubble.hidden = true; return; }
       bubble.hidden = false; bubble.setAttribute('aria-label', `View ${stories.length} active Recovery ${stories.length === 1 ? 'Story' : 'Stories'}`);
       bubble.querySelector('.story-bubble-count').textContent = String(stories.length);

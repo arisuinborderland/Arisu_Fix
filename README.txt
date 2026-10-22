@@ -1,8 +1,8 @@
 ARISU FIX — PROJECT README
-Version: AFV150
+Version: AFV151
 Updated: 2026-10-22
 
-## AFV150 — Deep Purple Stories button and inline timestamp
+## AFV151 — Faster first-load story navigation with image preloading
 - Restyled only the existing Recovery Stories bubble button with a Deep Purple background, white text, subtle purple shadow, and restrained hover/press feedback.
 - Positioned the story timestamp directly beside the profile name with the existing flex gap, and changed minute labels to readable forms such as “14 mins ago”.
 - Preserved the existing page layout, story viewer controls, progress timer, story navigation, image loading, backend API, and permanent Recovery Proofs.
