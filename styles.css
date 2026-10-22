@@ -8503,3 +8503,70 @@ html body.home-page .purpose-card .purpose-signoff {
     border-top-color: rgba(167, 139, 250, .2) !important;
   }
 }
+
+
+/* AFV171 — desktop version of the five-item bottom navigation. */
+@media (min-width: 701px) {
+  html body.home-page .mobile-bottom-nav {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 5 !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: min(100% - 64px, 1040px) !important;
+    margin: 22px auto 0 !important;
+    padding: 12px 14px !important;
+    min-height: 0 !important;
+    border: 1px solid rgba(167, 139, 250, .22) !important;
+    border-radius: 18px !important;
+    background: #101827 !important;
+    box-shadow: 0 10px 28px rgba(5, 10, 22, .2) !important;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  html body.home-page .mobile-nav-item {
+    min-width: 0 !important;
+    min-height: 58px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 5px 4px !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    color: #F8FAFF !important;
+    text-decoration: none !important;
+    font: 600 12px/1.1 "DM Sans", sans-serif !important;
+    cursor: pointer !important;
+  }
+  html body.home-page .mobile-nav-item svg {
+    width: 23px !important;
+    height: 23px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.home-page .mobile-nav-item.is-active {
+    color: #D8C7FF !important;
+    background: rgba(167, 139, 250, .09) !important;
+  }
+  html body.home-page .mobile-nav-stories {
+    color: #D8C7FF !important;
+  }
+  html body.home-page .mobile-nav-stories .mobile-nav-story-avatar {
+    box-shadow: 0 0 13px rgba(167, 139, 250, .48) !important;
+  }
+  html body.home-page .mobile-nav-stories .mobile-nav-story-count {
+    background: #A855F7 !important;
+    border-color: #101827 !important;
+  }
+}
+@media (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  html body.home-page .mobile-nav-item { transition: none !important; }
+}
