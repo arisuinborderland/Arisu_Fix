@@ -299,3 +299,13 @@ html body .story-viewer .story-viewer-image {
 html body .story-viewer .story-viewer-card {
   -webkit-touch-callout: none;
 }
+
+
+/* AFV163 — story navigation uses left/right image taps; remove the old visible arrow controls. */
+html body .story-viewer:not([hidden]) .story-viewer-nav {
+  display: none !important;
+}
+html body .story-viewer .story-viewer-image {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
