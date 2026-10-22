@@ -124,29 +124,71 @@
   async function loadStories() {
     const list = $('storyList'); list.textContent = 'Loading Stories…';
     try {
-      const data = await api('/api/stories');
-      let views = {};
-      let countsAvailable = true;
-      try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; }
-      catch { countsAvailable = false; }
+      const data = await api('/api/stories?admin=1');
+      let views = {}; let countsAvailable = true;
+      try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; } catch { countsAvailable = false; }
       list.replaceChildren();
       if (!countsAvailable) { const warning = document.createElement('p'); warning.className = 'muted'; warning.textContent = 'View counts need the Supabase database migration in supabase/recovery-story-views.sql.'; list.append(warning); }
-      if (!data.stories?.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'No active Stories.'; list.append(p); return; }
-      data.stories.forEach(story => {
+      const filter = $('storyFilter')?.value || 'active';
+      const now = Date.now();
+      let stories = (data.stories || []).filter(story => {
+        const state = story.adminStatus || 'active';
+        if (filter === 'expired') return state === 'active' && new Date(story.expiresAt || story.expires_at).getTime() <= now;
+        return state === filter && (filter !== 'active' || new Date(story.expiresAt || story.expires_at).getTime() > now);
+      });
+      if (!stories.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = filter === 'draft' ? 'No saved drafts yet.' : filter === 'archived' ? 'No archived Stories.' : filter === 'expired' ? 'No expired Stories.' : 'No active Stories.'; list.append(p); return; }
+      stories.forEach((story, storyIndex) => {
+        const state = story.adminStatus || 'active';
+        const expired = state === 'active' && new Date(story.expiresAt || story.expires_at).getTime() <= now;
+        const displayState = expired ? 'expired' : state;
         const row = document.createElement('div'); row.className = 'story-row';
+        if (filter === 'active' && !expired) { row.draggable = true; row.dataset.storyId = story.id; }
         const info = document.createElement('div'); info.className = 'story-info';
         const title = document.createElement('strong'); title.textContent = story.caption || 'Recovery Story';
-        const meta = document.createElement('small'); meta.textContent = `Expires ${new Date(story.expires_at).toLocaleString()}`;
+        const meta = document.createElement('small'); meta.textContent = state === 'draft' ? 'Saved as draft · not visible to visitors' : state === 'archived' ? 'Archived · not visible to visitors' : expired ? 'Expired · not visible to visitors' : 'Expires ' + new Date(story.expiresAt || story.expires_at).toLocaleString();
+        const statusBadge = document.createElement('span'); statusBadge.className = 'story-status'; statusBadge.dataset.status = displayState; statusBadge.textContent = displayState.charAt(0).toUpperCase() + displayState.slice(1);
+        info.append(title, meta, statusBadge);
         const viewCount = document.createElement('span'); viewCount.className = 'story-view-count';
         const eye = document.createElement('span'); eye.className = 'story-view-eye'; eye.setAttribute('aria-hidden', 'true'); eye.textContent = '◉';
         const count = document.createElement('strong'); count.className = 'story-view-number'; count.textContent = countsAvailable ? (Number(views[story.id]) || 0).toLocaleString() : '—';
         const label = document.createElement('small'); label.className = 'story-view-label'; label.textContent = 'Views';
-        viewCount.append(eye, count, label); info.append(title, meta);
-        const actions = document.createElement('div'); actions.className = 'story-actions'; actions.append(viewCount);
-        const del = document.createElement('button'); del.type = 'button'; del.textContent = 'Delete'; del.addEventListener('click', async () => { if (!confirm('Delete this temporary Story? The permanent proof will remain.')) return; del.disabled = true; try { await api(`/api/stories?id=${encodeURIComponent(story.id)}`, { method: 'DELETE' }); await loadStories(); say('Story deleted.'); } catch(e) { say(e.message, true); del.disabled = false; } });
-        actions.append(del); row.append(info, actions); list.append(row);
+        viewCount.append(eye, count, label);
+        const actions = document.createElement('div'); actions.className = 'story-actions';
+        const actionButton = (text, className, handler) => { const button = document.createElement('button'); button.type = 'button'; button.textContent = text; button.className = className || 'secondary-action'; button.addEventListener('click', handler); return button; };
+        if (state !== 'active' || expired) actions.append(actionButton('Publish', 'secondary-action', async () => { await updateStory(story.id, { status: 'active' }, 'Story published for 24 hours.'); }));
+        if (state !== 'draft') actions.append(actionButton('Archive', 'secondary-action', async () => { if (confirm('Archive this Story? It will no longer appear to visitors.')) await updateStory(story.id, { status: 'archived' }, 'Story archived.'); }));
+        if (state === 'archived') actions.append(actionButton('Restore as draft', 'secondary-action', async () => { await updateStory(story.id, { status: 'draft' }, 'Story restored to drafts.'); }));
+        actions.append(viewCount, actionButton('Delete', 'danger-action', async () => {
+          if (!confirm('Permanently delete this temporary Story image? The permanent Recovery Proofs remain unchanged.')) return;
+          try { await api('/api/stories?id=' + encodeURIComponent(story.id), { method: 'DELETE' }); await loadStories(); say('Story deleted.'); } catch(e) { say(e.message, true); }
+        }));
+        row.append(info, actions); list.append(row);
+        if (row.draggable) {
+          row.addEventListener('dragstart', event => { row.classList.add('is-dragging'); event.dataTransfer.setData('text/plain', story.id); event.dataTransfer.effectAllowed = 'move'; });
+          row.addEventListener('dragend', () => { row.classList.remove('is-dragging'); list.querySelectorAll('.is-drop-target').forEach(el => el.classList.remove('is-drop-target')); });
+          row.addEventListener('dragover', event => { event.preventDefault(); row.classList.add('is-drop-target'); });
+          row.addEventListener('dragleave', () => row.classList.remove('is-drop-target'));
+          row.addEventListener('drop', async event => {
+            event.preventDefault(); row.classList.remove('is-drop-target');
+            const draggedId = event.dataTransfer.getData('text/plain');
+            if (!draggedId || draggedId === story.id) return;
+            const current = Array.from(list.querySelectorAll('.story-row[draggable=true]'));
+            const draggedRow = current.find(el => el.dataset.storyId === draggedId);
+            if (!draggedRow) return;
+            list.insertBefore(draggedRow, row);
+            const ordered = Array.from(list.querySelectorAll('.story-row[draggable=true]'));
+            try {
+              for (let i = 0; i < ordered.length; i++) await api('/api/stories', { method: 'PATCH', body: JSON.stringify({ id: ordered[i].dataset.storyId, sortOrder: i }) });
+              say('Story order saved.');
+            } catch(e) { say('Could not save the new order: ' + e.message, true); await loadStories(); }
+          });
+        }
       });
     } catch(e) { list.textContent = e.message; }
+  }
+  async function updateStory(id, changes, successMessage) {
+    try { await api('/api/stories', { method: 'PATCH', body: JSON.stringify({ id, ...changes }) }); await loadStories(); say(successMessage); }
+    catch (e) { say(e.message, true); }
   }
 
   const uploadTab = $('uploadTab'), activeTab = $('activeTab');
@@ -166,26 +208,45 @@
 
   $('loginForm').addEventListener('submit', signIn);
   $('caption').addEventListener('input', () => $('captionCount').textContent = String($('caption').value.length));
+  const previewUrls = [];
+  $('storyImage').addEventListener('change', () => {
+    previewUrls.forEach(url => URL.revokeObjectURL(url)); previewUrls.length = 0;
+    const preview = $('imagePreview'); preview.replaceChildren();
+    const files = Array.from($('storyImage').files || []);
+    if (!files.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Image previews will appear here after you choose files.'; preview.append(p); return; }
+    files.forEach(file => {
+      const card = document.createElement('div'); card.className = 'image-preview-card';
+      const img = document.createElement('img'); img.alt = 'Preview of ' + file.name;
+      const url = URL.createObjectURL(file); previewUrls.push(url); img.src = url;
+      const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
+      card.append(img, name); preview.append(card);
+    });
+  });
+  $('saveAsDraft').addEventListener('change', () => { $('publishButton').textContent = $('saveAsDraft').checked ? 'Save as Draft' : 'Publish for 24 hours'; });
+  $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
-    event.preventDefault(); const button = $('publishForm').querySelector('button[type="submit"]'); button.disabled = true; say('Uploading your Story image…');
+    event.preventDefault(); const button = $('publishForm').querySelector('button[type="submit"]'); button.disabled = true; say('Preparing your Story images…');
     try {
       const files = Array.from($('storyImage').files || []);
       if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
-        if (!allowed.includes(file.type)) throw new Error(`${file.name}: use a JPEG, PNG, or WebP image.`);
-        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(`${file.name}: image must be no larger than 3.5 MB.`);
+        if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
+        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
       }
-      let published = 0;
+      let saved = 0; const draft = $('saveAsDraft').checked;
       for (const file of files) {
-        say(`Uploading Story ${published + 1} of ${files.length}…`);
-        const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error(`Could not read ${file.name}.`)); reader.readAsDataURL(file); });
-        await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value }) });
-        published++;
+        say((draft ? 'Saving draft ' : 'Publishing Story ') + (saved + 1) + ' of ' + files.length + '…');
+        const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error('Could not read ' + file.name + '.')); reader.readAsDataURL(file); });
+        await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value, saveAsDraft: draft }) });
+        saved++;
       }
-      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; say(`${published} ${published === 1 ? 'Story' : 'Stories'} published. Use Next to view each image; the progress bar advances automatically. Stories expire after 24 hours.`); await loadStories();
-    }
-    catch(e) { say(e.message, true); } finally { button.disabled = false; }
+      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
+      previewUrls.forEach(url => URL.revokeObjectURL(url)); previewUrls.length = 0; $('imagePreview').replaceChildren();
+      $('storyFilter').value = draft ? 'draft' : 'active';
+      say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
+      showAdminTab('active');
+    } catch(e) { say(e.message, true); } finally { button.disabled = false; }
   });
   $('refreshStories').addEventListener('click', loadStories);
   $('signOut').addEventListener('click', () => showSignedOut('Signed out.'));
