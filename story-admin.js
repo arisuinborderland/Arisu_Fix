@@ -148,6 +148,22 @@
       });
     } catch(e) { list.textContent = e.message; }
   }
+
+  const uploadTab = $('uploadTab'), activeTab = $('activeTab');
+  const uploadSection = $('uploadSection'), activeSection = $('activeSection');
+  function showAdminTab(tab) {
+    const showUpload = tab === 'upload';
+    uploadSection.hidden = !showUpload;
+    activeSection.hidden = showUpload;
+    uploadTab.classList.toggle('is-active', showUpload);
+    activeTab.classList.toggle('is-active', !showUpload);
+    uploadTab.setAttribute('aria-selected', String(showUpload));
+    activeTab.setAttribute('aria-selected', String(!showUpload));
+  }
+  uploadTab.addEventListener('click', () => showAdminTab('upload'));
+  activeTab.addEventListener('click', () => { showAdminTab('active'); loadStories(); });
+  showAdminTab('upload');
+
   $('loginForm').addEventListener('submit', signIn);
   $('caption').addEventListener('input', () => $('captionCount').textContent = String($('caption').value.length));
   $('publishForm').addEventListener('submit', async event => {
