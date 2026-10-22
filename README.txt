@@ -1,8 +1,8 @@
 ARISU FIX — PROJECT README
-Version: AFV153
+Version: AFV154
 Updated: 2026-10-22
 
-## AFV153 — Segmented Recovery Story progress
+## AFV154 — Story viewer header and bottom Back to Site control
 - Replaced the single progress bar with one compact segment per active story image, matching familiar social-story progress indicators.
 - Completed segments remain filled, the current segment animates with the existing 7-second timer, and upcoming segments remain unfilled.
 - Preserved the current Story Viewer layout, Next/Previous behavior, preloading, asynchronous view tracking, and admin-only counts.
@@ -233,3 +233,10 @@ Updated: 2026-10-22
 - Added two user-provided screenshots to the Two Factor Authentication (2FA) album.
 - Matched their card presentation to the existing Suspended Accounts and Disabled Accounts proof gallery.
 - Preserved the existing proof albums and entries; updated cache-busting references to AFV129.
+
+
+## AFV154 — Story viewer layout update
+- Increased story profile picture to 52px and timestamp to 14px.
+- Expanded segmented progress bar across the top of the viewer.
+- Replaced top-right close icon with a full-width purple “Back to Site” button at the bottom.
+- Preserved story navigation, view tracking, and automatic progress timer.

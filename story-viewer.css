@@ -227,3 +227,60 @@ html body .story-viewer .story-viewer-time {
 @media (prefers-reduced-motion: reduce) {
   html body .story-bubble { transition: none !important; }
 }
+
+
+/* AFV154 — larger story header, full-width segmented progress, bottom Back to Site control. */
+html body .story-viewer .story-viewer-progress-track {
+  top: 10px !important; left: 8px !important; right: 8px !important;
+  width: auto !important; height: 4px !important; gap: 4px !important;
+}
+html body .story-viewer .story-viewer-meta {
+  top: 25px !important; left: 16px !important; right: 16px !important;
+  min-height: 52px !important; gap: 8px !important; align-items: center !important;
+}
+html body .story-viewer .story-viewer-avatar {
+  width: 52px !important; height: 52px !important; min-width: 52px !important;
+  border-width: 2px !important;
+}
+html body .story-viewer .story-viewer-name {
+  max-width: 48% !important; font-size: 15px !important; line-height: 1.25 !important;
+}
+html body .story-viewer .story-viewer-time {
+  margin-left: 0 !important; font-size: 14px !important; line-height: 1.25 !important;
+  white-space: nowrap !important; flex: 0 0 auto !important;
+}
+html body .story-viewer .story-viewer-image {
+  top: 88px !important; bottom: 72px !important; height: calc(100% - 160px) !important;
+  max-height: none !important; object-fit: contain !important; object-position: center center !important;
+}
+html body .story-viewer .story-viewer-caption {
+  bottom: 66px !important; padding-bottom: 12px !important;
+}
+html body .story-viewer:not([hidden]) .story-viewer-close {
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  gap: 8px !important; position: absolute !important; top: auto !important; right: 16px !important;
+  bottom: max(12px, env(safe-area-inset-bottom)) !important; left: 16px !important;
+  width: auto !important; min-width: 0 !important; height: 44px !important; min-height: 44px !important;
+  padding: 0 18px !important; border-radius: 999px !important;
+  color: #fff !important; background: #5B21B6 !important;
+  border: 1px solid rgba(196,181,253,.7) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25) !important;
+  font: 700 14px/1 Arial,sans-serif !important; letter-spacing: .1px !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+html body .story-viewer:not([hidden]) .story-viewer-close span:first-child {
+  font-size: 19px !important; line-height: 1 !important;
+}
+html body .story-viewer:not([hidden]) .story-viewer-close:active {
+  transform: scale(.99) !important; background: #6D28D9 !important;
+}
+@media screen and (max-width: 600px) {
+  html body .story-viewer .story-viewer-progress-track { top: 10px !important; left: 8px !important; right: 8px !important; }
+  html body .story-viewer .story-viewer-meta { top: 25px !important; left: 14px !important; right: 14px !important; gap: 8px !important; }
+  html body .story-viewer .story-viewer-avatar { width: 52px !important; height: 52px !important; min-width: 52px !important; }
+  html body .story-viewer .story-viewer-name { font-size: 15px !important; max-width: 48% !important; }
+  html body .story-viewer .story-viewer-time { font-size: 14px !important; margin-left: 0 !important; }
+  html body .story-viewer .story-viewer-image { top: 88px !important; bottom: 72px !important; height: calc(100% - 160px) !important; object-fit: contain !important; }
+  html body .story-viewer .story-viewer-caption { bottom: 66px !important; }
+  html body .story-viewer:not([hidden]) .story-viewer-close { left: 16px !important; right: 16px !important; bottom: max(12px, env(safe-area-inset-bottom)) !important; width: auto !important; height: 44px !important; min-height: 44px !important; }
+}
