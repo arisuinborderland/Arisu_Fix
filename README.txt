@@ -1,6 +1,13 @@
 ARISU FIX — PROJECT README
-Version: AFV172
+Version: AFV173
 Updated: 2026-10-22
+
+## AFV173 — Floating Desktop Navigation
+- Changed the desktop five-item navigation from an in-flow footer element to a fixed, centered floating bar near the bottom of the viewport, matching the mobile behavior.
+- Set a compact desktop width, consistent icon and label alignment, and a smaller Stories avatar.
+- Added bottom page space so content can scroll clear of the floating navigation.
+- Updated homepage CSS/JS cache-busting references to AFV173.
+- Preserved the mobile navigation behavior.
 
 ## AFV172 — Desktop Navigation and Footer Spacing
 - Reduced the desktop Stories avatar to better match the other navigation items.
