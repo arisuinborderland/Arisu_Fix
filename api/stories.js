@@ -1,6 +1,7 @@
 'use strict';
-const { SUPABASE_URL, sb, json, admin } = require('../lib/stories');
+const { SUPABASE_URL, sb, json, admin, deleteStorageObjectIfPresent } = require('../lib/stories');
 const crypto = require('node:crypto');
+const { validateStoryImage } = require('../lib/story-image');
 module.exports = async function handler(req, res) {
   try {
     if (req.method === 'GET') {
@@ -27,12 +28,11 @@ module.exports = async function handler(req, res) {
       const mime = String(body.mimeType || '').toLowerCase();
       const match = String(body.imageData || '').match(/^data:(image\/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$/);
       if (!match || match[1].toLowerCase() !== mime) { json(res, 400, { error: 'Choose a valid JPEG, PNG, or WebP image.' }); return; }
+      // Keep the raw file limit below Vercel's request-body ceiling because data URLs
+      // expand binary images by roughly 4/3 before JSON overhead is added.
       const bytes = Buffer.from(match[2], 'base64');
-      if (!bytes.length || bytes.length > 3.5 * 1024 * 1024) { json(res, 413, { error: 'Story image must be no larger than 3.5 MB.' }); return; }
-      const valid = mime === 'image/jpeg' ? bytes.length > 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff
-        : mime === 'image/png' ? bytes.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10]))
-        : mime === 'image/webp' ? bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WEBP' : false;
-      if (!valid) { json(res, 415, { error: 'The uploaded file does not match its image type.' }); return; }
+      const imageCheck = await validateStoryImage(mime, bytes);
+      if (!imageCheck.ok) { json(res, imageCheck.status, { error: imageCheck.error }); return; }
       const ext = mime === 'image/png' ? 'png' : mime === 'image/webp' ? 'webp' : 'jpg';
       const storagePath = `stories/${crypto.randomUUID()}.${ext}`;
       await sb(`/storage/v1/object/recovery-stories/${storagePath}`, { method: 'POST', headers: { 'Content-Type': mime, 'x-upsert': 'false' }, body: bytes });
@@ -74,11 +74,13 @@ module.exports = async function handler(req, res) {
     if (!rows?.length) { json(res, 404, { error: 'Story not found.' }); return; }
     const path = rows[0].storage_path;
     if (!path.startsWith('stories/')) { json(res, 400, { error: 'Refusing to delete a non-Story object.' }); return; }
-    await sb(`/storage/v1/object/recovery-stories/${path.split('/').map(encodeURIComponent).join('/')}`, { method: 'DELETE' });
+    const storageUrl = `/storage/v1/object/recovery-stories/${path.split('/').map(encodeURIComponent).join('/')}`;
+    await deleteStorageObjectIfPresent(storageUrl);
     await sb(`/rest/v1/recovery_stories?id=eq.${encodeURIComponent(id)}`, { method: 'DELETE' });
     json(res, 200, { ok: true });
   } catch (error) {
     console.error('Stories API error:', error.message);
-    json(res, error.status || 503, { error: 'Stories service is temporarily unavailable.' });
+    const status = Number(error.status) >= 400 && Number(error.status) < 500 ? Number(error.status) : 503;
+    json(res, status, { error: 'Stories service is temporarily unavailable.' });
   }
 };
