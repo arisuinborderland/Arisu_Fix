@@ -184,7 +184,7 @@ html body .story-viewer .story-viewer-image {
 }
 
 
-/* AFV147 — subtle pause and fade when moving between stories/images. */
+/* AFV148 — preload the destination image before completing the fade transition. */
 html body .story-viewer .story-viewer-image {
   opacity: 1;
   transition: opacity 140ms ease;
