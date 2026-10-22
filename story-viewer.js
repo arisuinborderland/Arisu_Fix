@@ -8,6 +8,8 @@
   const progressTrack = viewer.querySelector('.story-viewer-progress-track');
   let progressFills = [];
   const close = viewer.querySelector('.story-viewer-close');
+  const mobileStoriesButton = document.getElementById('mobileNavStories');
+  const mobileStoriesCount = mobileStoriesButton?.querySelector('.mobile-nav-story-count');
   const timestamp = viewer.querySelector('.story-viewer-time');
   let stories = [], index = 0, timer = 0, started = 0, navigating = false;
   const DURATION = 7000;
@@ -105,6 +107,7 @@
       if (!stories.length) { bubble.hidden = true; return; }
       bubble.hidden = false; bubble.setAttribute('aria-label', `View ${stories.length} active Recovery ${stories.length === 1 ? 'Story' : 'Stories'}`);
       bubble.querySelector('.story-bubble-count').textContent = String(stories.length);
+      if (mobileStoriesCount) mobileStoriesCount.textContent = String(stories.length);
     } catch { bubble.hidden = true; }
   }
   // Basic anti-save deterrents only: these discourage casual context-menu saving
@@ -119,7 +122,9 @@
   viewer.addEventListener('dragstart', event => {
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
-  bubble.addEventListener('click', () => showAt(0)); close.addEventListener('click', hide);
+  bubble.addEventListener('click', () => showAt(0));
+  mobileStoriesButton?.addEventListener('click', () => { if (!bubble.hidden) bubble.click(); });
+  close.addEventListener('click', hide);
   // Instagram/Facebook-style navigation: tap the left or right half of the story image.
   viewer.addEventListener('click', event => {
     if (event.target === viewer) { hide(); return; }
