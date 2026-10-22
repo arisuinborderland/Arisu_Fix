@@ -1,8 +1,8 @@
 ARISU FIX — PROJECT README
-Version: AFV112
+Version: AFV118
 Updated: 2026-10-21
 
-## AFV112 — Shared floating menu on Recovery Proofs and Customer Reviews
+## AFV118 — Shared floating menu on Recovery Proofs and Customer Reviews
 - Replaced all previous caption content under Screenshot 03 with “Two Factor Authentication (No Email & Number Access)” and date “October 21, 2026”.
 - Matched Screenshot 03 caption styling to the highlighted recovery-case format used for Screenshots 01 and 02.
 - Updated Screenshot 03 accessible label and image alt text; preserved its image, lightbox behavior, and all other cards/layout.
