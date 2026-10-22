@@ -3,15 +3,11 @@ Version: AFV176
 Updated: 2026-10-23
 
 ## AFV176 — Remove Floating Quick-Access Menu
-- Removed the homepage floating quick-access menu and its toggle button from index.html.
+- Removed the homepage floating quick-access menu and toggle button from index.html.
 - Removed the floating-menu-only controller and WhatsApp shortcut setup from script.js.
 - Preserved the standard WhatsApp contact card, mobile bottom navigation, Stories, and shared stylesheet rules.
 - Updated homepage cache-busting references to AFV176.
 - Kept generated dist output excluded from the source ZIP.
-
-
-ZIP free of generated dist output.
-
 
 ## AFV173 — Floating Desktop Navigation
 - Changed the desktop five-item navigation from an in-flow footer element to a fixed, centered floating bar near the bottom of the viewport, matching the mobile behavior.
