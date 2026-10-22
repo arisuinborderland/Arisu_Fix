@@ -1,6 +1,11 @@
 ARISU FIX — PROJECT README
-Version: AFV145
+Version: AFV147
 Updated: 2026-10-22
+
+## AFV147 — Slightly higher centered Story image
+- Fixed the Story image element to use an explicit stage height, so landscape images are centered in the available viewer area instead of sticking near the top.
+- Nudged the contained image slightly upward using `object-position: center 46%`; no crop or distortion.
+- Preserved Midnight Blue soft-glow gradient, viewer controls, and other page features.
 
 ## AFV145 — Midnight Blue soft glow and image positioning
 - Applied a premium Midnight Blue gradient with a subtle royal-blue glow to the empty Story Viewer background areas.

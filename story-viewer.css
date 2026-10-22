@@ -117,7 +117,7 @@ html body .story-viewer .story-viewer-image{
 }
 
 
-/* AFV146 — Center all image aspect ratios in the available Story stage.
+/* AFV147 — Center all image aspect ratios in the available Story stage.
    Keep the complete image visible; no crop, stretch, or blurred duplicate background. */
 html body .story-viewer .story-viewer-card::before {
   content: none !important;
@@ -153,7 +153,7 @@ html body .story-viewer .story-viewer-image {
 }
 
 
-/* AFV146 — Midnight Blue soft-glow background and slightly higher centered Story image. */
+/* AFV147 — Midnight Blue soft-glow background and slightly higher centered Story image. */
 html body .story-viewer:not([hidden]) {
   background: radial-gradient(ellipse at 50% 46%, #174EA6 0%, #10182F 47%, #07101F 100%) !important;
 }
@@ -181,4 +181,17 @@ html body .story-viewer .story-viewer-image {
     object-fit: contain !important;
     object-position: center 46% !important;
   }
+}
+
+
+/* AFV147 — subtle pause and fade when moving between stories/images. */
+html body .story-viewer .story-viewer-image {
+  opacity: 1;
+  transition: opacity 140ms ease;
+}
+html body .story-viewer.story-viewer-switching .story-viewer-image {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .story-viewer .story-viewer-image { transition: none !important; }
 }
