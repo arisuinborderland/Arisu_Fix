@@ -4,8 +4,8 @@ Updated: 2026-10-22
 
 ## AFV130 — Prepare Recovery Stories backend
 - Added a temporary Story viewer bubble on the homepage; it appears only when the Stories API returns active, unexpired Stories.
-- Added a private Story admin page at story-admin.html with Supabase Auth sign-in, existing-proof selection, optional caption, publish, refresh, and manual deletion.
-- Added server-side API routes for listing, publishing temporary copies, deleting Stories, and scheduled cleanup. Server-only Supabase secret keys are never placed in browser code.
+- Added a private Story admin page at story-admin.html with Supabase Auth sign-in, direct image upload from Gallery (JPEG/PNG/WebP up to 3.5 MB), optional caption, publish, refresh, and manual deletion.
+- Added server-side API routes for listing, publishing temporary uploads, deleting Stories, and scheduled cleanup. Server-only Supabase secret keys are never placed in browser code.
 - Temporary copies use the private recovery-stories Storage bucket and the stories/ path; cleanup refuses to delete objects outside that path. Permanent Recovery Proof files are not deleted.
 - Added a protected cleanup endpoint. Configure Supabase Cron (hourly) to call it using a secret stored in Supabase Vault; this avoids Vercel Hobby plan daily-only cron limits. Stories become unavailable to visitors at the 24-hour expiry, and the scheduled cleanup deletes the temporary image and database row on its next hourly run.
 - Added setup requirements for server-side environment variables. Story publishing is unavailable until the backend, admin allowlist, Data API table exposure, and Cron secret are configured.
@@ -18,7 +18,7 @@ Updated: 2026-10-22
 3. Add STORY_ADMIN_EMAIL with the exact email address of the confirmed Supabase Auth admin account (or use STORY_ADMIN_USER_ID instead).
 4. Add CRON_SECRET as a long random secret in Vercel. The cleanup endpoint expects an Authorization: Bearer header containing that same value. Configure Supabase Cron hourly to call /api/cleanup-stories and store the URL plus cleanup secret in Supabase Vault; enable pg_cron, pg_net, and Vault first. Do not paste the cleanup secret into public SQL or GitHub files.
 5. In Supabase Data API settings, expose only public.recovery_stories if it is not already exposed. Keep RLS enabled and retain the existing public read-only policy/grants; do not grant public insert, update, or delete.
-6. Confirm the recovery-stories Storage bucket remains private. Server API routes use the secret key to create signed URLs and manage temporary copies.
+6. Confirm the recovery-stories Storage bucket remains private. Server API routes use the secret key to create signed URLs and manage temporary uploads.
 7. Redeploy after setting environment variables. Test the Stories API and admin page before publishing any Story. Do not treat cleanup as automatic until the Supabase Cron job is enabled and its run history confirms success.
 
 ## AFV129 — Add Two Factor Authentication album
