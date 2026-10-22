@@ -8472,3 +8472,34 @@ html body.home-page .purpose-card .purpose-signoff {
     border-color: #101827 !important;
   }
 }
+
+
+/* AFV170 — apply the Deep Black-Navy + Violet footer style on desktop too. */
+@media (min-width: 701px) {
+  html body.home-page .site-footer {
+    background: #101827 !important;
+    color: #F8FAFF !important;
+    border-top: 1px solid rgba(167, 139, 250, .25) !important;
+  }
+  html body.home-page .site-footer .footer-brand,
+  html body.home-page .site-footer .footer-brand .brand-name-row,
+  html body.home-page .site-footer .footer-brand small,
+  html body.home-page .site-footer .footer-note,
+  html body.home-page .site-footer .footer-location,
+  html body.home-page .site-footer .footer-location-item,
+  html body.home-page .site-footer .footer-copyright {
+    color: #F8FAFF !important;
+  }
+  html body.home-page .site-footer .footer-links a {
+    color: #F8FAFF !important;
+    transition: color .2s ease, text-shadow .2s ease;
+  }
+  html body.home-page .site-footer .footer-links a:hover,
+  html body.home-page .site-footer .footer-links a:focus-visible {
+    color: #D8C7FF !important;
+    text-shadow: 0 0 10px rgba(167, 139, 250, .42);
+  }
+  html body.home-page .site-footer .footer-copyright {
+    border-top-color: rgba(167, 139, 250, .2) !important;
+  }
+}
