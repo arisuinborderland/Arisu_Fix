@@ -195,3 +195,33 @@ html body .story-viewer.story-viewer-switching .story-viewer-image {
 @media (prefers-reduced-motion: reduce) {
   html body .story-viewer .story-viewer-image { transition: none !important; }
 }
+
+
+/* AFV150 — Deep Purple Recovery Stories button and inline story timestamp */
+html body .story-bubble {
+  background: #5B21B6 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(196, 181, 253, .62) !important;
+  box-shadow: 0 8px 24px rgba(91, 33, 182, .28) !important;
+  transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+html body .story-bubble:hover {
+  background: #7C3AED !important;
+  box-shadow: 0 10px 28px rgba(124, 58, 237, .34) !important;
+}
+html body .story-bubble:active {
+  transform: scale(.98) !important;
+}
+html body .story-bubble:focus-visible {
+  outline: 2px solid #C4B5FD !important;
+  outline-offset: 3px !important;
+}
+html body .story-viewer .story-viewer-time {
+  margin-left: 0 !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  opacity: .92;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .story-bubble { transition: none !important; }
+}

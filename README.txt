@@ -1,11 +1,12 @@
 ARISU FIX — PROJECT README
-Version: AFV149
+Version: AFV150
 Updated: 2026-10-22
 
-## AFV149 — Multi-image Stories with Next and automatic progress timer
-- Story Admin now accepts multiple selected images and publishes each as an individual temporary Story, preserving the existing 24-hour expiry.
-- Next/Previous navigates through each published image one by one; the progress bar timer automatically advances to the next image and closes the viewer after the final Story.
-- Preserved existing Story Viewer design, image preloading, captions, profile header, backend API, and permanent Recovery Proofs.
+## AFV150 — Deep Purple Stories button and inline timestamp
+- Restyled only the existing Recovery Stories bubble button with a Deep Purple background, white text, subtle purple shadow, and restrained hover/press feedback.
+- Positioned the story timestamp directly beside the profile name with the existing flex gap, and changed minute labels to readable forms such as “14 mins ago”.
+- Preserved the existing page layout, story viewer controls, progress timer, story navigation, image loading, backend API, and permanent Recovery Proofs.
+- Kept the multi-image Stories navigation and automatic progress timer from AFV149.
 
 ARISU FIX — PROJECT README
 Version: AFV147
