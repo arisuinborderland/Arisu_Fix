@@ -1,0 +1,298 @@
+ARISU FIX — RELEASE HISTORY
+Historical release notes only. Current release status and metadata are maintained in README.txt.
+Newest archived release notes appear first. This file is not the source of current-version metadata.
+
+## AFV178 — Build allowlist and release validation
+- Added an explicit public-file allowlist for production output.
+- Kept Vercel API handlers and shared backend dependencies outside static `dist/` output.
+- Added build-time checks for backend files, active cache-busting tokens, JavaScript syntax, and local references.
+- Separated current release status into `README.txt`.
+
+## AFV176 — Remove Floating Quick-Access Menu
+- Removed the homepage floating quick-access menu and toggle button from index.html.
+- Removed the floating-menu-only controller and WhatsApp shortcut setup from script.js.
+- Preserved the standard WhatsApp contact card, mobile bottom navigation, Stories, and shared stylesheet rules.
+- Updated homepage cache-busting references to AFV176.
+- Kept generated dist output excluded from the source ZIP.
+
+## AFV173 — Floating Desktop Navigation
+- Changed the desktop five-item navigation from an in-flow footer element to a fixed, centered floating bar near the bottom of the viewport, matching the mobile behavior.
+- Set a compact desktop width, consistent icon and label alignment, and a smaller Stories avatar.
+- Added bottom page space so content can scroll clear of the floating navigation.
+- Updated homepage CSS/JS cache-busting references to AFV173.
+- Preserved the mobile navigation behavior.
+
+## AFV172 — Desktop Navigation and Footer Spacing
+- Reduced the desktop Stories avatar to better match the other navigation items.
+- Tightened desktop navigation item spacing and icon sizing for a more balanced five-item bar.
+- Removed the negative desktop footer margin that could cause the navigation and footer to overlap.
+- Updated homepage CSS/JS cache-busting references to AFV172.
+- Preserved the existing mobile bottom navigation rules.
+
+## AFV171 — Desktop Bottom Navigation
+- Added the five-item Home, Reviews, Stories, Proofs, and Contact navigation to desktop using the same Deep Black-Navy + Violet Stories visual style.
+- Preserved the existing mobile fixed navigation behavior and story viewer button.
+- Updated homepage CSS/JS cache-busting references to AFV171.
+
+## AFV170 — Desktop Footer Palette
+- Applied the Deep Black-Navy footer background and violet hover/focus accent to the desktop site footer.
+- Kept desktop footer layout and existing navigation links intact.
+- Updated CSS and Story Viewer cache-busting references to AFV170.
+
+ARISU FIX — PROJECT README
+Version: AFV171
+Updated: 2026-10-22
+
+## AFV169 — Footer Navigation Palette
+- Updated the mobile bottom navigation to Option 3: Deep Black-Navy (`#101827`) with violet Stories accent (`#A78BFA`) and white inactive navigation icons/text.
+- Aligned the public Story Viewer script cache-busting reference with AFV169.
+- Removed the superseded AFV168 footer palette override.
+
+
+## AFV162 — Advanced Story Admin
+- Added client-side image previews before upload, including file names and sizes.
+- Added draft saving and a Story Library filter for Active, Drafts, Archived, and Expired Stories.
+- Added archive/restore/publish actions and drag-and-drop ordering for active Stories.
+- Added authenticated admin-only listing for management; the public Stories API continues to return only active, unexpired Stories.
+- Preserved existing sign-in/session restoration, view counts, image validation, batch upload, 24-hour active Story expiry, and permanent Recovery Proofs.
+- Updated Story Admin CSS/JS cache-busting references to AFV162.
+- Required one-time Supabase migration: `supabase/recovery-stories-admin-v162.sql`. Run it in the Supabase SQL Editor before using the new library controls.
+
+## AFV154 — Story viewer header and bottom Back to Site control
+- Replaced the single progress bar with one compact segment per active story image, matching familiar social-story progress indicators.
+- Completed segments remain filled, the current segment animates with the existing 7-second timer, and upcoming segments remain unfilled.
+- Preserved the current Story Viewer layout, Next/Previous behavior, preloading, asynchronous view tracking, and admin-only counts.
+- Updated active story viewer CSS/JavaScript cache-busting references to AFV153; ZIP contains one project folder and excludes `dist/`.
+
+## AFV152 — Private total views for Recovery Stories
+- Added per-story total view tracking through a server-side Supabase RPC. Counts include each story display, including revisits and automatic advances.
+- Added view totals to Active Stories in the signed-in admin only; no public view-count UI or count data is returned by the public Stories endpoint.
+- Added the one-time database migration at `supabase/recovery-story-views.sql`. Run it in the Supabase SQL Editor before deploying to enable persistent counts.
+- View tracking is asynchronous and must not delay story rendering or the progress timer.
+
+## Prior AFV151 — Faster first-load story navigation with image preloading
+- Restyled only the existing Recovery Stories bubble button with a Deep Purple background, white text, subtle purple shadow, and restrained hover/press feedback.
+- Positioned the story timestamp directly beside the profile name with the existing flex gap, and changed minute labels to readable forms such as “14 mins ago”.
+- Preserved the existing page layout, story viewer controls, progress timer, story navigation, image loading, backend API, and permanent Recovery Proofs.
+- Kept the multi-image Stories navigation and automatic progress timer from AFV149.
+
+ARISU FIX — PROJECT README
+Version: AFV147
+Updated: 2026-10-22
+
+## AFV147 — Slightly higher centered Story image
+- Fixed the Story image element to use an explicit stage height, so landscape images are centered in the available viewer area instead of sticking near the top.
+- Nudged the contained image slightly upward using `object-position: center 46%`; no crop or distortion.
+- Preserved Midnight Blue soft-glow gradient, viewer controls, and other page features.
+
+## AFV145 — Midnight Blue soft glow and image positioning
+- Applied a premium Midnight Blue gradient with a subtle royal-blue glow to the empty Story Viewer background areas.
+- Shifted the centered Story image slightly upward by reserving balanced space below it, while preserving its full aspect ratio with `object-fit: contain`.
+- Removed the blurred duplicate backdrop and kept the profile header, progress bar, navigation arrows, captions, API/admin files, proofs, reviews, and other page layouts intact.
+- Updated active cache-busting references and package metadata to AFV145 / 145.0.0.
+- Source ZIP contains one project folder and excludes generated `dist/`.
+
+## AFV144 — Centered Story image for every aspect ratio
+- Fixed the Story image stage so landscape, portrait, and square images are centered in the available area below the profile header.
+- Removed the blurred duplicate backdrop; retained the original image with `object-fit: contain` so it is not cropped or distorted.
+- Preserved viewer controls, progress bar, caption behavior, API/admin files, proofs, reviews, and other page layouts.
+- Updated active cache-busting references and package metadata to AFV144 / 144.0.0.
+- Source ZIP contains one project folder and excludes generated `dist/`.
+
+
+## AFV143 — Responsive Story image display
+- Fixed the Story viewer for wide/landscape images: the full image remains visible without cropping, while a subtle blurred version fills the otherwise empty dark space. Portrait and square images continue to use contain sizing.
+- Preserved the profile header, progress bar, close control, navigation arrows, and caption behavior. Updated cache-busting references and package version to AFV143.
+
+## AFV143 — Direct Story upload and viewer refinements
+- Added a temporary Story viewer bubble on the homepage; it appears only when the Stories API returns active, unexpired Stories. The viewer now keeps its progress bar within the screen and displays upload time as “Just now”, “5m ago”, or “1h ago”.
+- Added a private Story admin page at story-admin.html with Supabase Auth sign-in, direct image upload from Gallery (JPEG/PNG/WebP up to 3.5 MB), optional caption, publish, refresh, and manual deletion. Improved mobile viewer spacing, navigation controls, and progress animation. Added the Arisu profile photo and name beside the upload time, and reduced the viewer frame height slightly to reduce excess top/bottom space without cropping the Story image.
+- Added server-side API routes for listing, publishing temporary uploads, deleting Stories, and scheduled cleanup. Server-only Supabase secret keys are never placed in browser code.
+- Temporary copies use the private recovery-stories Storage bucket and the stories/ path; cleanup refuses to delete objects outside that path. Permanent Recovery Proof files are not deleted.
+- Added a protected cleanup endpoint. Configure Supabase Cron (hourly) to call it using a secret stored in Supabase Vault; this avoids Vercel Hobby plan daily-only cron limits. Stories become unavailable to visitors at the 24-hour expiry, and the scheduled cleanup deletes the temporary image and database row on its next hourly run.
+- Added setup requirements for server-side environment variables. Story publishing is unavailable until the backend, admin allowlist, Data API table exposure, and Cron secret are configured.
+- Updated active cache-busting tokens to AFV143 and package version to 143.0.0.
+- Replaced conflicting legacy story-control CSS overrides with a single compact Royal Navy style: 40px close control and 38×46px navigation buttons.
+- Kept generated dist/ output out of the source ZIP; production build generates it locally.
+
+## Deployment setup checklist
+1. Keep the existing SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY variables in Vercel.
+2. Add SUPABASE_SECRET_KEY as a Vercel server-only environment variable using the Supabase secret key. Never add it to frontend files or commit it to GitHub.
+3. Add STORY_ADMIN_EMAIL with the exact email address of the confirmed Supabase Auth admin account (or use STORY_ADMIN_USER_ID instead).
+4. Add CRON_SECRET as a long random secret in Vercel. The cleanup endpoint expects an Authorization: Bearer header containing that same value. Configure Supabase Cron hourly to call /api/cleanup-stories and store the URL plus cleanup secret in Supabase Vault; enable pg_cron, pg_net, and Vault first. Do not paste the cleanup secret into public SQL or GitHub files.
+5. In Supabase Data API settings, expose only public.recovery_stories if it is not already exposed. Keep RLS enabled and retain the existing public read-only policy/grants; do not grant public insert, update, or delete.
+6. Confirm the recovery-stories Storage bucket remains private. Server API routes use the secret key to create signed URLs and manage temporary uploads.
+7. Redeploy after setting environment variables. Test the Stories API and admin page before publishing any Story. Do not treat cleanup as automatic until the Supabase Cron job is enabled and its run history confirms success.
+
+## AFV129 — Add Two Factor Authentication album
+- Added a new Recovery Proofs album named exactly “Two Factor Authentication (2FA)”.
+- Added a matching security-themed cover and an informative empty state; no example images were fabricated.
+- Kept existing albums, proof entries, filters, and page layout intact.
+- Updated active HTML/CSS cache-busting references to AFV129 and package version to 119.0.0.
+- Excluded generated dist/ output from the source ZIP.
+
+
+## AFV118 — Deployment and floating control position correction
+- Consolidated duplicate Customer Reviews floating-menu positioning overrides into one authoritative rule so the Arisu icon is independently positioned above the fixed Back to Home button with clear spacing.
+- Consolidated Recovery Proofs floating-menu offset so the Arisu icon sits above the fixed Back to Home button, matching the Customer Reviews spacing.
+- Confirmed Vercel production output is generated by `npm run build` into `dist/`; `dist/` remains excluded from the source ZIP and is recreated by the build.
+- Corrected package version to 118.0.0 and aligned active cache-busting references to AFV118.
+- Fixed stale README release metadata; source ZIP excludes generated output and internal docs.
+
+## AFV110 — Replace Free Web Tools with Customer Reviews
+- Replaced the header Free Web Tools link with an internal Customer Reviews link to reviews.html.
+- Changed its small tool icon to a star icon matching the Customer Reviews theme.
+- Renamed the Customer Feedback card action from “View All Reviews” to “Customer Reviews”; it still opens reviews.html.
+- Kept the existing button styling, placement, and other page content unchanged.
+- Updated active HTML cache-busting references and package version to AFV110 / 110.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV109 — Refine Screenshot 03 issue wording
+- Changed Screenshot 03 issue text to “Two Factor Authentication (No Email & Number Access)”.
+- Preserved the October 21, 2026 date, highlighted styling, image, lightbox, and all other layout.
+- Updated active cache-busting references and package version to AFV109 / 109.0.0.
+- Excluded dist/ from the source ZIP.
+
+
+## AFV105 — Screenshot 02 issue details
+- Replaced all reference-image caption text under Screenshot 02 with a highlighted recovery-case description: “Suspended Account (Rejected ID)” and date “August 8, 2026”.
+- Updated Screenshot 02 accessible label and alt text.
+- Kept Screenshot 01, Screenshot 03, screenshots, gallery layout, and lightbox behavior unchanged.
+- Updated active cache-busting references and release metadata to AFV105 / 105.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV105 — Highlight Screenshot 01 issue details
+- Styled Screenshot 01 issue/date metadata as a compact soft-gradient highlight with a clear title hierarchy.
+- Scoped the change to Screenshot 01 only; preserved screenshots, other cards, gallery layout, and lightbox behavior.
+- Updated active cache-busting references and release metadata to AFV105 / 104.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV103 — Move issue details to Screenshot 01
+- Moved “Issue: Instagram Login Error Loop.” and “Date: Aug 22, 2026” from Screenshot 03 to Screenshot 01.
+- Restored the reference-image label and explanatory caption to Screenshot 03 because it mentions Pinoy Cyber Tech, not Arisu Recovery Service.
+- Updated the affected image alt text; preserved screenshots, lightbox behavior, and layout.
+- Updated active cache-busting references and release metadata to AFV102 / 102.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV100 — Add Customer Feedback Screenshot 03
+- Replaced the editable Screenshot 03 placeholder with the user-provided screenshot at reviews/review-slot-3.jpg.
+- Updated the gallery card to open the image in the existing review lightbox.
+- Labeled the image accurately as a reference screenshot mentioning Pinoy Cyber Tech, not a testimonial for Arisu Recovery Service.
+- Preserved other cards, layout, and existing AFV99 pink/purple WhatsApp light trails.
+- Updated active cache-busting references and release metadata to AFV100 / 100.0.0.
+- Excluded dist/ from the source ZIP.
+
+## AFV99 — Hot Pink + Electric Purple + White Core WhatsApp light trails
+- Changed only the two rotating WhatsApp button border trail colors to hot pink and electric purple with bright white cores.
+- Preserved the 3px trail thickness, animation timing, glow behavior, reduced-motion support, button text, icon, link, dimensions, position, and surrounding layout.
+- Updated active HTML/CSS/JS cache-busting tokens and release metadata to AFV99.
+- Excluded dist/ from the source ZIP; build output is generated locally by the build process.
+
+## AFV96 — Targeted cache-busting and internal README cleanup
+- Updated six Daily Bible Verse background-image cache tokens in styles.css from AFV91 to AFV96.
+- Aligned active cache-busting references across all HTML pages to AFV96.
+- Updated the version/date headers in proofs/README.txt and reviews/README.txt to AFV96 / 2026-10-21.
+- Updated package metadata to 96.0.0.
+- Preserved the AFV95 dual cyan-blue and violet WhatsApp border animation and all layout, links, and assets.
+- Excluded dist/ from the source ZIP; build output is generated locally by the build process.
+
+## AFV95 — Dual cyan-blue and violet rotating WhatsApp button border trails
+- Replaced the single mint-green comet with two contrasting light trails: cyan-blue and violet, rotating around the full button border.
+- Kept the WhatsApp button text, icon, dimensions, position, destination, and surrounding layout unchanged.
+- Used CSS only and retained `prefers-reduced-motion` support.
+- Updated active cache-busting references and package metadata to AFV95 / 95.0.0.
+- Excluded the `dist/` directory from the release ZIP; production output is generated by the build process.
+
+## AFV93 — Dual rotating WhatsApp button border trails
+- Replaced the single border trace with two separated mint-green light trails rotating around the main “Message Us on WhatsApp” button border.
+- Kept the button text, icon, dimensions, placement, link behavior, and other page layout unchanged.
+- Used CSS only and respected `prefers-reduced-motion`.
+- Updated active HTML cache-busting references and package metadata to AFV93 / 93.0.0.
+
+
+## AFV91 — Additional mobile heading size refinement
+- Reduced the mobile-only “How account assistance works” heading from clamp(29px, 7vw, 37px) to clamp(22px, 5.8vw, 25px).
+- Preserved the AFV90 mobile reductions for “What Services I Offer” and “Why Choose Arisu?”.
+- Kept desktop typography and unrelated layout, spacing, cards, and features unchanged.
+- Updated active HTML/CSS cache-busting references and package metadata to AFV91 / 91.0.0.
+
+## AFV89 — Targeted version and CSS redundancy cleanup
+- Fixed mobile header font breakpoint order: 14px/10px applies through 420px, and the subtitle reduces to 9px through 380px; broad mobile rules no longer override those sizes.
+- Updated six active scenic Bible image cache-busting references to AFV89.
+- Removed only confirmed redundant CSS declarations for Terms intro spacing, duplicate WhatsApp sizing rules, reduced-motion check stroke offset, and the dark-mode copy of the default verse pseudo-element background.
+- Preserved distinct responsive styling and all card positioning values.
+- Rebuilt and compared production output with AFV88; no public output files were added or removed.
+
+## AFV88 — Desktop outer-card spacing
+- Increased desktop-only gaps between the Why Choose Arisu section and Purpose card, Purpose and Terms cards, and Terms and About This Website cards to approximately 12px.
+- Consolidated desktop positioning offsets for the three target cards to -50px and set their section top margins to 12px.
+- Preserved the tablet/mobile offsets and all internal card spacing.
+
+## AFV86 — Purpose / Terms outer spacing (desktop only)
+- Aligned the Terms card vertical translation to -58px on desktop (min-width: 900px), matching the Purpose card translation and restoring the existing 6px section gap.
+- Preserved the previous -64px Terms card translation for tablet/mobile widths below 900px.
+- No inner card spacing, content, or unrelated card positions were changed.
+- Updated active cache-busting tokens and package metadata to AFV86 / 86.0.0.
+
+## AFV85 — Corrected desktop Services section spacing
+- Removed the ineffective +24px margin rule that was overridden by the legacy #services reset. Added one high-specificity desktop-only rule setting the Services section margin-top to 18px; mobile/tablet rules and heading internals remain unchanged.
+- Removed no unrelated selectors or declarations; the service heading's internal offset remains unchanged so the spacing between the heading and service cards is preserved.
+- Kept tablet/mobile spacing, Customer Feedback rounded preview, and its 6px top/bottom spacing unchanged.
+- Updated active HTML/CSS cache-busting tokens and package version metadata to AFV85 / 85.0.0.
+
+## AFV83 — Desktop spacing below social showcase
+- Increased the desktop-only gap between the Recovery Proofs / Customer Feedback cards and the “What Services I Offer” section by 6px.
+- Kept the Customer Feedback rounded preview and its 6px internal spacing unchanged.
+- Mobile and tablet spacing remains unchanged.
+
+## AFV76 — Legacy asset tokens and redundant CSS cleanup
+- Replaced six stale `AFV58` cache-busting tokens for `verse-lake-photo.jpg` with `AFV76`.
+- Removed the redundant mobile-only reduced-motion override; the broader reduced-motion rule already disables animation for the same selectors.
+- Removed a redundant mobile `.social-feedback-card` radius declaration because an identical global declaration later in the stylesheet applies at all viewport widths.
+- Preserved responsive `.terms-security` rules and other layout declarations.
+- Updated package version metadata to `76.0.0`.
+## AFV72 — Legitimate card spacing
+- Set the gap below the Terms & limitations paragraph and above the Legitimate Account Recovery Only card to 2px.
+- Changed only the existing `.terms-intro` bottom-margin rules; preserved the legitimate card itself and all other layout values.
+
+## AFV49 — Services heading icon adjustment
+- No other layout or content changes were intended.
+
+## AFV49 — CSS audit cleanup
+- Removed two historical CSS comments describing completed cleanup actions.
+- Reviewed repeated selectors and CSS cascade contexts; no exact duplicate rule groups were found, so no declarations were removed without proof of redundancy.
+- Preserved current visual declarations and layout offsets.
+
+## AFV71 — Terms outer-card bottom spacing diagnosis
+- Removed the relative top offset from the inner security card so it no longer leaves a misleading visual gap at the bottom of the outer Terms card.
+- Kept the existing 2px bottom padding on the outer Terms card; no other layout values intentionally changed.
+
+## AFV109 — Raise Customer Feedback label by 4px
+- Moved only the CUSTOMER FEEDBACK label upward by 4px on the reviews page.
+- Left surrounding padding, description, screenshots, and other layout unchanged.
+- Excluded dist/ from the source ZIP.
+
+## AFV117 — Recovery Proofs floating controls
+- Converted the Recovery Proofs “← Back to site” control into a fixed floating button, matching the Customer Reviews return-home button style and keeping it visible while scrolling on the album overview.
+- Positioned the Arisu floating menu at the same elevated offset used on Customer Reviews, above the fixed Back to site button with spacing.
+- Updated active cache-busting references and package version to AFV117 / 116.0.0.
+- Source ZIP excludes dist/.
+
+## AFV117 — Recovery Proofs Back to Home
+- Renamed the fixed Recovery Proofs return control to “Back to Home” and added a matching inline home icon.
+- Kept its existing homepage destination, fixed positioning, and floating Arisu icon placement.
+- Updated active cache-busting references and package version to AFV117 / 117.0.0.
+- Source ZIP excludes dist/.
+
+
+## AFV129 — Add 2FA proof examples
+- Added two user-provided screenshots to the Two Factor Authentication (2FA) album.
+- Matched their card presentation to the existing Suspended Accounts and Disabled Accounts proof gallery.
+- Preserved the existing proof albums and entries; updated cache-busting references to AFV129.
+
+
+## AFV154 — Story viewer layout update
+- Increased story profile picture to 52px and timestamp to 14px.
+- Expanded segmented progress bar across the top of the viewer.
+- Replaced top-right close icon with a full-width purple “Back to Site” button at the bottom.
+- Preserved story navigation, view tracking, and automatic progress timer.
