@@ -8647,3 +8647,96 @@ html body.home-page .purpose-card .purpose-signoff {
     margin-top: 22px !important;
   }
 }
+
+
+/* AFV174 — enforce compact Stories sizing and keep fixed navigation clear of footer content. */
+@media (min-width: 701px) {
+  html body.home-page {
+    padding-bottom: 150px !important;
+  }
+  html body.home-page .site-footer {
+    padding-bottom: 120px !important;
+    margin-top: 24px !important;
+  }
+  html body.home-page nav.mobile-bottom-nav {
+    position: fixed !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: min(680px, calc(100vw - 48px)) !important;
+    min-height: 76px !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    overflow: visible !important;
+    z-index: 2147482500 !important;
+  }
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 54px !important;
+    height: auto !important;
+    flex: initial !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    overflow: visible !important;
+  }
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories {
+    position: relative !important;
+    transform: none !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    position: relative !important;
+    display: block !important;
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    flex: 0 0 32px !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar img {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+  }
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count {
+    position: absolute !important;
+    top: -4px !important;
+    right: -5px !important;
+    width: auto !important;
+    min-width: 14px !important;
+    max-width: none !important;
+    height: 14px !important;
+    min-height: 14px !important;
+    padding: 0 3px !important;
+    font-size: 9px !important;
+  }
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar) {
+    display: block !important;
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+}
