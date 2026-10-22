@@ -2,6 +2,9 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   const loginPanel = $('loginPanel'), editorPanel = $('editorPanel'), status = $('status');
+  // Avoid briefly showing the sign-in form while a saved session is being restored.
+  loginPanel.hidden = true;
+  editorPanel.hidden = true;
   let accessToken = '', refreshToken = '', idleTimer = 0, lastActivityAt = 0, restoring = false;
   const IDLE_LIMIT_MS = 60 * 60 * 1000;
   const SESSION_KEY = 'arisu_story_admin_refresh_token';
@@ -87,9 +90,10 @@
     try {
       const savedToken = localStorage.getItem(SESSION_KEY) || '';
       const savedActivity = Number(localStorage.getItem(ACTIVITY_KEY) || 0);
-      if (!savedToken) return;
+      if (!savedToken) { loginPanel.hidden = false; editorPanel.hidden = true; return; }
       if (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS) {
         clearSavedSession();
+        loginPanel.hidden = false; editorPanel.hidden = true;
         say('Session expired after 1 hour of inactivity. Please sign in again.');
         return;
       }

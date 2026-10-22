@@ -1,5 +1,5 @@
 ARISU FIX — PROJECT README
-Version: AFV154
+Version: AFV157
 Updated: 2026-10-22
 
 ## AFV154 — Story viewer header and bottom Back to Site control
