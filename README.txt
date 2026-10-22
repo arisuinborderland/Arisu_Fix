@@ -1,6 +1,12 @@
 ARISU FIX — PROJECT README
-Version: AFV152
+Version: AFV153
 Updated: 2026-10-22
+
+## AFV153 — Segmented Recovery Story progress
+- Replaced the single progress bar with one compact segment per active story image, matching familiar social-story progress indicators.
+- Completed segments remain filled, the current segment animates with the existing 7-second timer, and upcoming segments remain unfilled.
+- Preserved the current Story Viewer layout, Next/Previous behavior, preloading, asynchronous view tracking, and admin-only counts.
+- Updated active story viewer CSS/JavaScript cache-busting references to AFV153; ZIP contains one project folder and excludes `dist/`.
 
 ## AFV152 — Private total views for Recovery Stories
 - Added per-story total view tracking through a server-side Supabase RPC. Counts include each story display, including revisits and automatic advances.

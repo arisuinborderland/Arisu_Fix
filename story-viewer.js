@@ -5,13 +5,14 @@
   if (!bubble || !viewer) return;
   const image = viewer.querySelector('.story-viewer-image');
   const caption = viewer.querySelector('.story-viewer-caption');
-  const progress = viewer.querySelector('.story-viewer-progress');
+  const progressTrack = viewer.querySelector('.story-viewer-progress-track');
+  let progressFills = [];
   const close = viewer.querySelector('.story-viewer-close');
   const timestamp = viewer.querySelector('.story-viewer-time');
   let stories = [], index = 0, timer = 0, started = 0, navigating = false;
   const DURATION = 7000;
   const preloadedImages = new Map();
-  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progress.style.transition = 'none'; }
+  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
   function preloadImage(url) {
     if (!url) return Promise.resolve(false);
     const cached = preloadedImages.get(url);
@@ -51,6 +52,37 @@
     });
   }
   function timeAgo(value) { const date = new Date(value); if (!value || Number.isNaN(date.getTime())) return ''; const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000)); if (seconds < 60) return 'Just now'; if (seconds < 3600) { const minutes = Math.floor(seconds / 60); return `${minutes} min${minutes === 1 ? '' : 's'} ago`; } if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; return `${Math.floor(seconds / 86400)}d ago`; }
+  function renderProgressSegments() {
+    progressTrack.replaceChildren();
+    progressFills = stories.map((story, segmentIndex) => {
+      const segment = document.createElement('span');
+      segment.className = 'story-viewer-progress-segment';
+      segment.setAttribute('aria-hidden', 'true');
+      const fill = document.createElement('span');
+      fill.className = 'story-viewer-progress-fill';
+      segment.appendChild(fill);
+      progressTrack.appendChild(segment);
+      return fill;
+    });
+  }
+  function setProgress(percent, animate = false, duration = DURATION) {
+    progressFills.forEach((fill, fillIndex) => {
+      const segment = fill.parentElement;
+      fill.style.transition = 'none';
+      segment.classList.toggle('is-complete', fillIndex < index);
+      if (fillIndex < index) fill.style.width = '100%';
+      else if (fillIndex > index) fill.style.width = '0%';
+      else {
+        fill.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+        if (animate) {
+          // Force the starting width to apply before animating the active segment.
+          void fill.offsetWidth;
+          fill.style.transition = `width ${duration}ms linear`;
+          fill.style.width = '100%';
+        }
+      }
+    });
+  }
   function showAt(next) {
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
@@ -59,8 +91,9 @@
     // and never delays rendering or the progress timer.
     if (story.id) fetch('/api/story-view', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: story.id }), keepalive: true }).catch(() => {});
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
-    progress.style.transition = 'none'; progress.style.width = '0%'; viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
-    clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => { progress.style.transition = `width ${DURATION}ms linear`; progress.style.width = '100%'; }));
+    if (progressFills.length !== stories.length) renderProgressSegments();
+    setProgress(0); viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
+    clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
     timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, DURATION);
   }
   async function load() {
@@ -78,8 +111,8 @@
   viewer.querySelector('.story-viewer-next').addEventListener('click', () => navigateBy(1));
   viewer.querySelector('.story-viewer-prev').addEventListener('click', () => navigateBy(-1));
   viewer.addEventListener('click', event => { if (event.target === viewer) hide(); });
-  viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); progress.style.transition = 'none'; progress.style.width = `${elapsed / DURATION * 100}%`; });
-  viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); progress.style.transition = `width ${remaining}ms linear`; progress.style.width = '100%'; timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
+  viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
+  viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
   load();
 })();

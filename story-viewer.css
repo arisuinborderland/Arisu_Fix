@@ -7,8 +7,10 @@
 .story-viewer{position:fixed;inset:0;z-index:2000;background:radial-gradient(ellipse at 50% 42%,#172640 0%,#0b1424 48%,#050811 100%);display:flex;align-items:center;justify-content:center;padding:8px 0;overscroll-behavior:contain}
 .story-viewer-card{position:relative;width:min(420px,100vw);height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#111d31 0%,#080d18 72%);display:flex;flex-direction:column;box-shadow:0 24px 90px #0009,0 0 42px #315a9a20;isolation:isolate}
 .story-viewer-image{position:absolute;left:0;right:0;top:58px;bottom:0;display:block;width:100%;height:calc(100% - 58px);min-height:0;object-fit:contain;object-position:center;background:#080d18;user-select:none;-webkit-user-drag:none}
-.story-viewer-progress-track{position:absolute;top:7px;left:10px;right:56px;height:3px;border-radius:8px;background:#ffffff66;z-index:5;overflow:hidden}
-.story-viewer-progress{height:100%;width:0;background:#fff;border-radius:8px}
+.story-viewer-progress-track{position:absolute;top:7px;left:10px;right:56px;height:4px;display:flex;gap:4px;z-index:5;overflow:hidden;pointer-events:none}
+.story-viewer-progress-segment{position:relative;flex:1 1 0;min-width:0;height:100%;border-radius:8px;background:#ffffff66;overflow:hidden}
+.story-viewer-progress-fill{display:block;width:0;height:100%;border-radius:8px;background:#fff;will-change:width}
+.story-viewer-progress-segment.is-complete .story-viewer-progress-fill{width:100%}
 .story-viewer-meta{position:absolute;z-index:4;top:17px;left:12px;right:58px;min-height:32px;display:flex;align-items:center;gap:8px;pointer-events:none}
 .story-viewer-avatar{width:32px;height:32px;flex:none;object-fit:cover;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px #0008}.story-viewer-name{color:#fff;font:700 13px/1.2 Arial,sans-serif;text-shadow:0 1px 4px #000,0 1px 8px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45%}.story-viewer-time{margin-left:auto;color:#fff;font:600 12px/1.2 Arial,sans-serif;text-shadow:0 1px 4px #000,0 1px 8px #000;letter-spacing:.1px}
 .story-viewer-close{position:absolute;top:7px;right:8px;z-index:6;border:0;background:#0009;color:#fff;border-radius:50%;width:36px;height:36px;font-size:24px;line-height:1;display:grid;place-items:center;cursor:pointer;touch-action:manipulation}
