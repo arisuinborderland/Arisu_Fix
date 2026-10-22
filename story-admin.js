@@ -2,9 +2,44 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   const loginPanel = $('loginPanel'), editorPanel = $('editorPanel'), status = $('status');
-  let accessToken = '', refreshToken = '';
+  let accessToken = '', refreshToken = '', idleTimer = 0, lastActivityAt = 0, restoring = false;
+  const IDLE_LIMIT_MS = 60 * 60 * 1000;
+  const SESSION_KEY = 'arisu_story_admin_refresh_token';
+  const ACTIVITY_KEY = 'arisu_story_admin_last_activity';
   const supabaseUrl = 'https://glivqrmyqwtbmlffghjo.supabase.co';
   function say(message, isError = false) { status.textContent = message; status.style.color = isError ? '#b42335' : '#3454c9'; }
+  function clearSavedSession() {
+    try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+    accessToken = ''; refreshToken = ''; lastActivityAt = 0;
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = 0;
+  }
+  function showSignedOut(message = 'Please sign in to continue.') {
+    clearSavedSession();
+    editorPanel.hidden = true; loginPanel.hidden = false;
+    say(message);
+  }
+  function saveActivity() {
+    lastActivityAt = Date.now();
+    try { localStorage.setItem(ACTIVITY_KEY, String(lastActivityAt)); } catch (_) {}
+    scheduleIdleLogout();
+  }
+  function scheduleIdleLogout() {
+    if (idleTimer) clearTimeout(idleTimer);
+    if (!accessToken) return;
+    const elapsed = Date.now() - (lastActivityAt || Date.now());
+    const remaining = IDLE_LIMIT_MS - elapsed;
+    if (remaining <= 0) { showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.'); return; }
+    idleTimer = setTimeout(() => showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.'), remaining);
+  }
+  const activityEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+  activityEvents.forEach(name => window.addEventListener(name, () => { if (accessToken) saveActivity(); }, { passive: true }));
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && accessToken) {
+      if (Date.now() - (lastActivityAt || 0) >= IDLE_LIMIT_MS) showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.');
+      else scheduleIdleLogout();
+    }
+  });
   async function auth(path, payload) {
     const response = await fetch(`${supabaseUrl}/auth/v1/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: window.SUPABASE_PUBLISHABLE_KEY || '' }, body: JSON.stringify(payload) });
     const data = await response.json().catch(() => ({}));
@@ -23,13 +58,64 @@
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       const data = await auth('token?grant_type=password', { email: $('email').value.trim(), password: $('password').value });
       accessToken = data.access_token; refreshToken = data.refresh_token || '';
+      try { localStorage.setItem(SESSION_KEY, refreshToken); } catch (_) {}
+      saveActivity();
       $('password').value = ''; loginPanel.hidden = true; editorPanel.hidden = false; say('Signed in.'); await loadStories();
     } catch (e) { say(e.message, true); } finally { button.disabled = false; }
   }
+  async function refreshAccessToken() {
+    if (!refreshToken) throw new Error('Your admin session expired. Please sign in again.');
+    const data = await auth('token?grant_type=refresh_token', { refresh_token: refreshToken });
+    accessToken = data.access_token || '';
+    refreshToken = data.refresh_token || refreshToken;
+    try { localStorage.setItem(SESSION_KEY, refreshToken); } catch (_) {}
+    return accessToken;
+  }
   async function api(url, options = {}) {
-    const response = await fetch(url, { ...options, headers: { ...(options.headers || {}), Authorization: `Bearer ${accessToken}`, ...(options.body ? { 'Content-Type': 'application/json' } : {}) } });
+    const send = () => fetch(url, { ...options, headers: { ...(options.headers || {}), Authorization: `Bearer ${accessToken}`, ...(options.body ? { 'Content-Type': 'application/json' } : {}) } });
+    let response = await send();
+    if (response.status === 401 && refreshToken) {
+      try { await refreshAccessToken(); response = await send(); }
+      catch (_) { showSignedOut('Your admin session expired. Please sign in again.'); throw new Error('Your admin session expired. Please sign in again.'); }
+    }
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || 'Request failed.'); return data;
+  }
+  async function restoreSession() {
+    if (restoring) return;
+    restoring = true;
+    try {
+      const savedToken = localStorage.getItem(SESSION_KEY) || '';
+      const savedActivity = Number(localStorage.getItem(ACTIVITY_KEY) || 0);
+      if (!savedToken) return;
+      if (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS) {
+        clearSavedSession();
+        say('Session expired after 1 hour of inactivity. Please sign in again.');
+        return;
+      }
+      const response = await fetch('/api/story-config', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Story backend is not configured yet.');
+      const config = await response.json();
+      if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
+      refreshToken = savedToken;
+      await refreshAccessToken();
+      lastActivityAt = savedActivity;
+      loginPanel.hidden = true; editorPanel.hidden = false;
+      scheduleIdleLogout();
+      await loadStories();
+      say('Session restored.');
+    } catch (error) {
+      // Do not erase a valid saved refresh token because of a temporary network/config failure.
+      // Only clear it when Supabase explicitly rejects the refresh token.
+      const message = String(error && error.message || '');
+      const invalidRefreshToken = /invalid refresh token|refresh token not found|already used|invalid_grant|refresh_token.*(expired|invalid)/i.test(message);
+      if (invalidRefreshToken) clearSavedSession();
+      loginPanel.hidden = false; editorPanel.hidden = true;
+      say(invalidRefreshToken
+        ? 'Your saved admin session has expired. Please sign in again.'
+        : 'Could not restore your session right now. Your saved session was kept; check your connection and refresh this page.', true);
+    } finally { restoring = false; }
   }
   async function loadStories() {
     const list = $('storyList'); list.textContent = 'Loading Stories…';
@@ -82,5 +168,6 @@
     catch(e) { say(e.message, true); } finally { button.disabled = false; }
   });
   $('refreshStories').addEventListener('click', loadStories);
-  $('signOut').addEventListener('click', () => { accessToken = ''; refreshToken = ''; editorPanel.hidden = true; loginPanel.hidden = false; say('Signed out.'); });
+  $('signOut').addEventListener('click', () => showSignedOut('Signed out.'));
+  restoreSession();
 })();
