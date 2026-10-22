@@ -1,3 +1,14 @@
+ARISU FIX — PROJECT README
+Version: AFV172
+Updated: 2026-10-22
+
+## AFV172 — Desktop Navigation and Footer Spacing
+- Reduced the desktop Stories avatar to better match the other navigation items.
+- Tightened desktop navigation item spacing and icon sizing for a more balanced five-item bar.
+- Removed the negative desktop footer margin that could cause the navigation and footer to overlap.
+- Updated homepage CSS/JS cache-busting references to AFV172.
+- Preserved the existing mobile bottom navigation rules.
+
 ## AFV171 — Desktop Bottom Navigation
 - Added the five-item Home, Reviews, Stories, Proofs, and Contact navigation to desktop using the same Deep Black-Navy + Violet Stories visual style.
 - Preserved the existing mobile fixed navigation behavior and story viewer button.
