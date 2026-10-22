@@ -1,5 +1,10 @@
+## AFV170 — Desktop Footer Palette
+- Applied the Deep Black-Navy footer background and violet hover/focus accent to the desktop site footer.
+- Kept desktop footer layout and existing navigation links intact.
+- Updated CSS and Story Viewer cache-busting references to AFV170.
+
 ARISU FIX — PROJECT README
-Version: AFV169
+Version: AFV170
 Updated: 2026-10-22
 
 ## AFV169 — Footer Navigation Palette
