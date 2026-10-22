@@ -1,13 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV175
-Updated: 2026-10-22
+Version: AFV176
+Updated: 2026-10-23
 
-## AFV175 — Restore Floating Quick-Access Menu
-- Restored the missing homepage floating-menu HTML expected by the existing JavaScript and CSS.
-- Added accessible quick links for WhatsApp, Facebook, TikTok, Recovery Proofs, and Help & Terms.
-- Removed the mobile breakpoint rule that forcibly hid the floating menu, while preserving the existing mobile bottom navigation.
-- Aligned homepage CSS/JavaScript cache-busting references to AFV175.
-- Kept the source ZIP free of generated dist output.
+## AFV176 — Remove Floating Quick-Access Menu
+- Removed the homepage floating quick-access menu and its toggle button from index.html.
+- Removed the floating-menu-only controller and WhatsApp shortcut setup from script.js.
+- Preserved the standard WhatsApp contact card, mobile bottom navigation, Stories, and shared stylesheet rules.
+- Updated homepage cache-busting references to AFV176.
+- Kept generated dist output excluded from the source ZIP.
+
+
+ZIP free of generated dist output.
 
 
 ## AFV173 — Floating Desktop Navigation
