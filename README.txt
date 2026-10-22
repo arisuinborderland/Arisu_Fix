@@ -1,5 +1,5 @@
 ARISU FIX — PROJECT README
-Version: AFV175
+Version: AFV176
 Updated: 2026-10-22
 
 ## AFV175 — Restore Floating Quick-Access Menu
