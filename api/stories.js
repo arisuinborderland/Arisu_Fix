@@ -1,5 +1,6 @@
 'use strict';
-const { SUPABASE_URL, sb, json, method, admin, proofs } = require('../lib/stories');
+const { SUPABASE_URL, sb, json, method, admin } = require('../lib/stories');
+const crypto = require('node:crypto');
 module.exports = async function handler(req, res) {
   try {
     if (req.method === 'GET') {
@@ -16,19 +17,19 @@ module.exports = async function handler(req, res) {
     if (!(await admin(req))) { json(res, 401, { error: 'Admin authentication required.' }); return; }
     if (req.method === 'POST') {
       const body = req.body || {};
-      const proofPath = String(body.proofPath || '');
-      const proof = proofs.find(item => item.path === proofPath);
       const caption = String(body.caption || '').trim();
-      if (!proof) { json(res, 400, { error: 'Choose an existing Recovery Proof.' }); return; }
       if (caption.length > 180) { json(res, 400, { error: 'Caption must be 180 characters or fewer.' }); return; }
-      const siteUrl = (process.env.STORY_SOURCE_URL || 'https://arisufix.vercel.app').replace(/\/$/, '');
-      const imageResponse = await fetch(`${siteUrl}/${proof.path}`);
-      if (!imageResponse.ok) { json(res, 502, { error: 'Could not read the selected permanent proof image.' }); return; }
-      const mime = imageResponse.headers.get('content-type') || '';
-      if (!/^image\/(jpeg|png|webp)$/i.test(mime)) { json(res, 415, { error: 'Selected source is not an allowed image type.' }); return; }
-      const bytes = Buffer.from(await imageResponse.arrayBuffer());
-      if (!bytes.length || bytes.length > 5 * 1024 * 1024) { json(res, 413, { error: 'Story image must be no larger than 5 MB.' }); return; }
-      const ext = mime.toLowerCase().includes('png') ? 'png' : mime.toLowerCase().includes('webp') ? 'webp' : 'jpg';
+      const mime = String(body.mimeType || '').toLowerCase();
+      const match = String(body.imageData || '').match(/^data:(image\/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$/);
+      if (!match || match[1].toLowerCase() !== mime) { json(res, 400, { error: 'Choose a valid JPEG, PNG, or WebP image.' }); return; }
+      const bytes = Buffer.from(match[2], 'base64');
+      if (!bytes.length || bytes.length > 3.5 * 1024 * 1024) { json(res, 413, { error: 'Story image must be no larger than 3.5 MB.' }); return; }
+      // Check file signatures as well as the declared MIME type.
+      const valid = mime === 'image/jpeg' ? bytes.length > 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff
+        : mime === 'image/png' ? bytes.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10]))
+        : mime === 'image/webp' ? bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WEBP' : false;
+      if (!valid) { json(res, 415, { error: 'The uploaded file does not match its image type.' }); return; }
+      const ext = mime === 'image/png' ? 'png' : mime === 'image/webp' ? 'webp' : 'jpg';
       const storagePath = `stories/${crypto.randomUUID()}.${ext}`;
       await sb(`/storage/v1/object/recovery-stories/${storagePath}`, { method: 'POST', headers: { 'Content-Type': mime, 'x-upsert': 'false' }, body: bytes });
       try {
