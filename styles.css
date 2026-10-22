@@ -8299,7 +8299,7 @@ html body.home-page .purpose-card .purpose-signoff {
     grid-template-columns:repeat(5,minmax(0,1fr));
     align-items:end;
     gap:2px;
-    padding:4px 8px calc(7px + env(safe-area-inset-bottom));
+    padding:2px 8px calc(7px + env(safe-area-inset-bottom));
     min-height:76px;
     background:rgba(15,24,45,.97);
     border-top:1px solid rgba(174,198,255,.32);
