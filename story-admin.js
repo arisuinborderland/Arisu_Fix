@@ -209,8 +209,6 @@
   $('loginForm').addEventListener('submit', signIn);
   $('caption').addEventListener('input', () => $('captionCount').textContent = String($('caption').value.length));
   $('storyImage').addEventListener('change', () => {
-    // Use data URLs instead of blob: URLs. The site's Content-Security-Policy
-    // permits same-origin and Supabase images but does not permit blob: images.
     const preview = $('imagePreview'); preview.replaceChildren();
     const files = Array.from($('storyImage').files || []);
     if (!files.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Image previews will appear here after you choose files.'; preview.append(p); return; }
@@ -260,7 +258,7 @@
         saved++;
       }
       $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
-      previewUrls.forEach(url => URL.revokeObjectURL(url)); previewUrls.length = 0; $('imagePreview').replaceChildren();
+      $('imagePreview').replaceChildren();
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
       showAdminTab('active');
