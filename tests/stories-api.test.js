@@ -191,3 +191,27 @@ test('27 cleanup retry succeeds after storage removal and first DB delete failur
   const first=response(); await cleanupHandler(req('GET',{headers:{authorization:'Bearer test-cron-secret'}}),first); assert.equal(first.statusCode,503); assert.equal(rowPresent,true); assert.equal(objectPresent,false);
   const second=response(); await cleanupHandler(req('GET',{headers:{authorization:'Bearer test-cron-secret'}}),second); assert.equal(second.statusCode,200); assert.equal(second.json().deleted,1); assert.equal(rowPresent,false); assert.equal(dbDeleteAttempts,2);
 });
+
+const storyCountHandler = require('../api/story-count');
+test('28 public Stories count uses lightweight exact-count query without image signing', async () => {
+  let calledUrl = '';
+  let calledOptions = {};
+  setFetch(async (url, options = {}) => {
+    calledUrl = String(url); calledOptions = options;
+    return { ok: true, status: 200, headers: { get(name) { return name.toLowerCase() === 'content-range' ? '0-0/3' : null; } }, async text() { return '[{"id":"story-1"}]'; } };
+  });
+  const res = response(); await storyCountHandler(req('GET'), res);
+  assert.equal(res.statusCode, 200); assert.deepEqual(res.json(), { count: 3 });
+  assert.match(calledUrl, /admin_status=eq\.active/); assert.match(calledUrl, /is_active=eq\.true/); assert.match(calledUrl, /expires_at=gt\./);
+  assert.equal(calledOptions.headers.Prefer, 'count=exact'); assert.equal(calledOptions.headers.Range, '0-0');
+  assert.equal(calledUrl.includes('/storage/'), false);
+});
+test('29 Stories count returns controlled service error when Supabase fails', async () => {
+  setFetch(async () => ({ ok: false, status: 503, headers: { get() { return null; } }, async text() { return '{"message":"unavailable"}'; } }));
+  const res = response(); await storyCountHandler(req('GET'), res);
+  assert.equal(res.statusCode, 503); assert.match(res.json().error, /temporarily unavailable/);
+});
+test('30 Stories count rejects unsupported methods', async () => {
+  const res = response(); await storyCountHandler(req('POST'), res);
+  assert.equal(res.statusCode, 405); assert.equal(res.headers.Allow, 'GET');
+});
