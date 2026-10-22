@@ -1,6 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV157
+Version: AFV162
 Updated: 2026-10-22
+
+## AFV162 — Advanced Story Admin
+- Added client-side image previews before upload, including file names and sizes.
+- Added draft saving and a Story Library filter for Active, Drafts, Archived, and Expired Stories.
+- Added archive/restore/publish actions and drag-and-drop ordering for active Stories.
+- Added authenticated admin-only listing for management; the public Stories API continues to return only active, unexpired Stories.
+- Preserved existing sign-in/session restoration, view counts, image validation, batch upload, 24-hour active Story expiry, and permanent Recovery Proofs.
+- Updated Story Admin CSS/JS cache-busting references to AFV162.
+- Required one-time Supabase migration: `supabase/recovery-stories-admin-v162.sql`. Run it in the Supabase SQL Editor before using the new library controls.
 
 ## AFV154 — Story viewer header and bottom Back to Site control
 - Replaced the single progress bar with one compact segment per active story image, matching familiar social-story progress indicators.
