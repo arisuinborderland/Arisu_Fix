@@ -1,5 +1,5 @@
 'use strict';
-const { sb, json, method, deleteStorageObjectIfPresent } = require('../lib/stories');
+const { sb, json, method } = require('../lib/stories');
 module.exports = async function handler(req, res) {
   if (!method(req, res, 'GET')) return;
   const expected = process.env.CRON_SECRET || process.env.STORY_CLEANUP_SECRET || '';
@@ -11,10 +11,7 @@ module.exports = async function handler(req, res) {
     let deleted = 0;
     for (const row of rows || []) {
       if (!String(row.storage_path || '').startsWith('stories/')) continue;
-      const storagePath = `/storage/v1/object/recovery-stories/${row.storage_path.split('/').map(encodeURIComponent).join('/')}`;
-      // A missing object is already in the desired storage state; continue to remove the DB row.
-      // Transient/auth/storage errors still abort so the next cron run can safely retry.
-      await deleteStorageObjectIfPresent(storagePath);
+      await sb(`/storage/v1/object/recovery-stories/${row.storage_path.split('/').map(encodeURIComponent).join('/')}`, { method: 'DELETE' });
       await sb(`/rest/v1/recovery_stories?id=eq.${encodeURIComponent(row.id)}`, { method: 'DELETE' });
       deleted++;
     }

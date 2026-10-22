@@ -1,15 +1,20 @@
 ARISU FIX — PROJECT README
-Version: AFV179
+Version: AFV180
 Updated: 2026-10-23
 
+Current release: AFV180
+Stories count optimization: the navigation count is fetched independently through `/api/story-count`, while full Story records and signed image URLs load separately. A neutral loading marker is shown until the count request succeeds.
+
+Historical release notes: see `RELEASE_HISTORY.txt`.
+
 CURRENT RELEASE STATUS
-- Release: AFV179
-- Package version: 179.0.0
-- Source ZIP folder: AFV179/
+- Release: AFV180
+- Package version: 180.0.0
+- Source ZIP folder: AFV180/
 - Generated production output: dist/ (created by `npm run build`; intentionally excluded from the source ZIP)
 - Deployment target: Vercel
 
-AFV179 RELEASE SUMMARY
+AFV180 RELEASE SUMMARY
 - Uses an explicit allowlist for public production files instead of recursively copying project files.
 - Keeps Vercel API handlers under `api/` and shared backend dependencies under `lib/`; backend source, SQL migrations, build tooling, package metadata, Vercel configuration, and documentation are excluded from `dist/`.
 - Validates required backend files and relative backend dependencies, exact public output contents, active AFV cache-busting tokens, JavaScript syntax, and local HTML/CSS references during the build.

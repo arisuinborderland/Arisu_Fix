@@ -10,7 +10,7 @@
   const mobileStoriesButton = document.getElementById('mobileNavStories');
   const mobileStoriesCount = mobileStoriesButton?.querySelector('.mobile-nav-story-count');
   const timestamp = viewer.querySelector('.story-viewer-time');
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false;
+  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false;
   const DURATION = 7000;
   const preloadedImages = new Map();
   function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
@@ -97,14 +97,33 @@
     clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
     timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, DURATION);
   }
+  async function loadCount() {
+    if (!mobileStoriesCount) return;
+    try {
+      const response = await fetch('/api/story-count', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Stories count request failed');
+      const data = await response.json();
+      if (Number.isInteger(data.count) && data.count >= 0) {
+        mobileStoriesCount.textContent = String(data.count);
+        countLoaded = true;
+        mobileStoriesCount.setAttribute('aria-label', `${data.count} available stories`);
+      }
+    } catch {
+      // Keep the neutral loading marker rather than displaying a false zero.
+    }
+  }
   async function load() {
     try {
       const response = await fetch('/api/stories', { cache: 'no-store' }); if (!response.ok) return;
       const data = await response.json(); stories = Array.isArray(data.stories) ? data.stories : [];
+      // Fallback to the loaded public list if the lightweight count endpoint is unavailable.
+      if (mobileStoriesCount && !countLoaded) {
+        mobileStoriesCount.textContent = String(stories.length);
+        mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
+      }
       // Preload the first story and warm the next one before the viewer is opened.
       stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
       if (!stories.length) { if (mobileStoriesButton) mobileStoriesButton.hidden = true; return; }
-      if (mobileStoriesCount) mobileStoriesCount.textContent = String(stories.length);
     } catch { if (mobileStoriesButton) mobileStoriesButton.hidden = true; }
   }
   // Basic anti-save deterrents only: these discourage casual context-menu saving
@@ -133,5 +152,6 @@
   viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
   viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
+  loadCount();
   load();
 })();

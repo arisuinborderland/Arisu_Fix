@@ -296,3 +296,9 @@ Updated: 2026-10-22
 - Expanded segmented progress bar across the top of the viewer.
 - Replaced top-right close icon with a full-width purple “Back to Site” button at the bottom.
 - Preserved story navigation, view tracking, and automatic progress timer.
+
+## AFV180 — Stories count performance optimization
+- Added the lightweight public `/api/story-count` endpoint using Supabase exact-count metadata without signing Story images.
+- Updated the mobile Stories badge to load its count independently from full Story data and show a neutral loading marker instead of a misleading initial zero.
+- Added regression tests for count filtering, Supabase failure handling, and unsupported HTTP methods.
+- Preserved existing Story viewer behavior and page layout; no live deployment verification was performed.

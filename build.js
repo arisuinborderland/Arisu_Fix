@@ -26,7 +26,7 @@ const publicRootFiles = new Set([
 const publicAssetDirectories = new Set(["reviews", "proofs"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
 const requiredBackendFiles = [
-  "api/stories.js", "api/story-config.js", "api/story-view.js",
+  "api/stories.js", "api/story-count.js", "api/story-config.js", "api/story-view.js",
   "api/story-views-admin.js", "api/cleanup-stories.js", "lib/stories.js", "lib/story-image.js"
 ];
 
