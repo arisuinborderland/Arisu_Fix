@@ -284,3 +284,18 @@ html body .story-viewer:not([hidden]) .story-viewer-close:active {
   html body .story-viewer .story-viewer-caption { bottom: 66px !important; }
   html body .story-viewer:not([hidden]) .story-viewer-close { left: 16px !important; right: 16px !important; bottom: max(12px, env(safe-area-inset-bottom)) !important; width: auto !important; height: 44px !important; min-height: 44px !important; }
 }
+
+
+/* AFV162 — basic anti-save deterrents for the temporary Story Viewer.
+   These discourage casual saving/dragging; they do not prevent screenshots. */
+html body .story-viewer .story-viewer-image {
+  -webkit-user-drag: none !important;
+  -webkit-touch-callout: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-user-drag: none !important;
+  pointer-events: auto !important;
+}
+html body .story-viewer .story-viewer-card {
+  -webkit-touch-callout: none;
+}
