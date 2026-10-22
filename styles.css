@@ -8465,3 +8465,33 @@ html body.home-page .purpose-card .purpose-signoff {
     box-shadow: 0 0 12px rgba(72, 132, 255, .3) !important;
   }
 }
+
+
+/* AFV169 — Option 3: Deep Black-Navy footer with a Violet Stories accent. */
+@media (max-width: 700px) {
+  html body.home-page .mobile-bottom-nav {
+    background: rgba(16, 24, 39, .985) !important;
+    border-top-color: rgba(167, 139, 250, .25) !important;
+    box-shadow: 0 -8px 28px rgba(5, 10, 22, .28) !important;
+  }
+  html body.home-page .mobile-nav-item {
+    color: #F8FAFF !important;
+  }
+  html body.home-page .mobile-nav-item.is-active {
+    color: #FFFFFF !important;
+  }
+  html body.home-page .mobile-nav-item.is-active svg {
+    color: #FFFFFF !important;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, .18)) !important;
+  }
+  html body.home-page .mobile-nav-stories {
+    color: #D8C7FF !important;
+  }
+  html body.home-page .mobile-nav-stories .mobile-nav-story-avatar {
+    box-shadow: 0 0 13px rgba(167, 139, 250, .48) !important;
+  }
+  html body.home-page .mobile-nav-stories .mobile-nav-story-count {
+    background: #A855F7 !important;
+    border-color: #101827 !important;
+  }
+}
