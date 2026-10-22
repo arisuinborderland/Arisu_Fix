@@ -8363,3 +8363,60 @@ html body.home-page .purpose-card .purpose-signoff {
 @media (prefers-reduced-motion: reduce) {
   html body.home-page .mobile-nav-story-avatar { transition:none !important; }
 }
+
+
+/* AFV166 — refined compact profile header; preserve the existing header links and gradient. */
+@media (max-width: 700px) {
+  html body.home-page .topbar {
+    padding: 10px 12px 11px;
+    column-gap: 10px;
+    row-gap: 8px;
+  }
+  html body.home-page .topbar > .brand {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    gap: 9px;
+  }
+  html body.home-page .topbar > .brand .logo {
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 13px;
+  }
+  html body.home-page .topbar > .brand .brand-copy { min-width: 0; }
+  html body.home-page .topbar > .brand b {
+    font-size: 15px;
+    line-height: 1.15;
+    letter-spacing: -.35px;
+  }
+  html body.home-page .topbar > .brand small {
+    margin-top: 3px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  html body.home-page .topbar .arisu-verified-badge {
+    flex: 0 0 auto;
+  }
+  html body.home-page .topbar .header-meta {
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+  html body.home-page .topbar .header-meta .privacy-link {
+    min-height: 40px;
+    padding: 0 11px;
+    border-radius: 12px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.home-page .topbar > .brand { gap: 7px; }
+  html body.home-page .topbar > .brand .logo {
+    width: 39px; height: 39px; flex-basis: 39px;
+  }
+  html body.home-page .topbar .header-meta .privacy-link {
+    min-height: 37px; padding: 0 8px; font-size: 10px;
+  }
+}
