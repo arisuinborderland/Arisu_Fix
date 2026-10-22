@@ -107,6 +107,18 @@
       bubble.querySelector('.story-bubble-count').textContent = String(stories.length);
     } catch { bubble.hidden = true; }
   }
+  // Basic anti-save deterrents only: these discourage casual context-menu saving
+  // and dragging, but cannot prevent screenshots or browser/devtools extraction.
+  image.draggable = false;
+  image.setAttribute('draggable', 'false');
+  image.addEventListener('contextmenu', event => event.preventDefault());
+  image.addEventListener('dragstart', event => event.preventDefault());
+  viewer.addEventListener('contextmenu', event => {
+    if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
+  });
+  viewer.addEventListener('dragstart', event => {
+    if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
+  });
   bubble.addEventListener('click', () => showAt(0)); close.addEventListener('click', hide);
   viewer.querySelector('.story-viewer-next').addEventListener('click', () => navigateBy(1));
   viewer.querySelector('.story-viewer-prev').addEventListener('click', () => navigateBy(-1));
