@@ -177,3 +177,29 @@ document.documentElement.classList.add("js-ready");
   window.setInterval(refreshStatus, 1000);
 })();
 
+
+// CSS-driven continuous expanding ring; no JS class/timer dependency.
+(function initArisuFloatingMenu(){
+ const menu=document.getElementById('floatingMenu');
+ const toggle=document.getElementById('floatingWhatsApp');
+ const items=document.getElementById('floatingMenuItems');
+ if(!menu||!toggle||!items)return;
+ function closeMenu(){menu.dataset.state='closed';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open quick access menu');items.hidden=true;}
+ function openMenu(){menu.dataset.state='open';toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label','Close quick access menu');items.hidden=false;}
+ // Pulse is CSS-driven from data-state="closed"; no class or timer is needed.
+ toggle.addEventListener('click',()=>{if(menu.dataset.state==='open')closeMenu();else openMenu();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.dataset.state==='open'){closeMenu();toggle.focus();}});
+ // Close on a tap outside the visible menu card, including its padding/border.
+ // The card itself lives inside #floatingMenu, so checking only menu.contains()
+ // incorrectly treats taps on the empty card surface as inside-item interactions.
+ function isShortcutOrToggle(target){
+  return !!(target && target.closest && (target.closest('.floating-menu-item') || target.closest('#floatingWhatsApp')));
+ }
+ function handleOutsideTap(e){
+  if(menu.dataset.state==='open' && !isShortcutOrToggle(e.target)) closeMenu();
+ }
+ // Capture phase avoids interference from page elements that stop event bubbling.
+ document.addEventListener('pointerdown',handleOutsideTap,true);
+ // Fallback for browsers/devices that do not dispatch Pointer Events.
+ if(!('PointerEvent' in window)) document.addEventListener('click',handleOutsideTap,true);
+})();
