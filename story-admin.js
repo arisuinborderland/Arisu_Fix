@@ -216,20 +216,28 @@
     if (!files.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Image previews will appear here after you choose files.'; preview.append(p); return; }
     files.forEach(file => {
       const card = document.createElement('div'); card.className = 'image-preview-card';
-      const img = document.createElement('img'); img.alt = 'Preview of ' + file.name;
-      img.loading = 'lazy';
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
       card.append(name); preview.append(card);
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (typeof reader.result !== 'string') { name.textContent += ' · Preview unavailable'; return; }
-        // Attach the image and its error handler only after a valid data URL exists.
-        img.addEventListener('error', () => { img.hidden = true; name.textContent += ' · Preview unavailable'; }, { once: true });
-        card.insertBefore(img, name);
-        img.src = reader.result;
-      };
-      reader.onerror = () => { name.textContent += ' · Could not read image'; };
-      reader.readAsDataURL(file);
+      // Decode the locally selected file directly and paint it to canvas.
+      // This avoids data:/blob: image sources, which can be blocked by the
+      // deployed Content-Security-Policy even when the file is local.
+      if (typeof createImageBitmap !== 'function') {
+        name.textContent += ' · Preview unsupported in this browser'; return;
+      }
+      createImageBitmap(file).then(bitmap => {
+        const canvas = document.createElement('canvas');
+        const maxWidth = 320; const maxHeight = 240;
+        const scale = Math.min(1, maxWidth / bitmap.width, maxHeight / bitmap.height);
+        canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+        canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+        canvas.setAttribute('role', 'img');
+        canvas.setAttribute('aria-label', 'Preview of ' + file.name);
+        const context = canvas.getContext('2d');
+        if (!context) { bitmap.close(); name.textContent += ' · Preview unavailable'; return; }
+        context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        bitmap.close();
+        card.insertBefore(canvas, name);
+      }).catch(() => { name.textContent += ' · Could not decode image'; });
     });
   });
   $('saveAsDraft').addEventListener('change', () => { $('publishButton').textContent = $('saveAsDraft').checked ? 'Save as Draft' : 'Publish for 24 hours'; });
