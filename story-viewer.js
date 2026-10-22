@@ -120,9 +120,15 @@
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
   bubble.addEventListener('click', () => showAt(0)); close.addEventListener('click', hide);
-  viewer.querySelector('.story-viewer-next').addEventListener('click', () => navigateBy(1));
-  viewer.querySelector('.story-viewer-prev').addEventListener('click', () => navigateBy(-1));
-  viewer.addEventListener('click', event => { if (event.target === viewer) hide(); });
+  // Instagram/Facebook-style navigation: tap the left or right half of the story image.
+  viewer.addEventListener('click', event => {
+    if (event.target === viewer) { hide(); return; }
+    if (event.target === image) {
+      const bounds = image.getBoundingClientRect();
+      const midpoint = bounds.left + bounds.width / 2;
+      navigateBy(event.clientX < midpoint ? -1 : 1);
+    }
+  });
   viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
   viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
