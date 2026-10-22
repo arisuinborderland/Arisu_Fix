@@ -1,8 +1,7 @@
 'use strict';
 (() => {
-  const bubble = document.getElementById('recoveryStoryBubble');
   const viewer = document.getElementById('recoveryStoryViewer');
-  if (!bubble || !viewer) return;
+  if (!viewer) return;
   const image = viewer.querySelector('.story-viewer-image');
   const caption = viewer.querySelector('.story-viewer-caption');
   const progressTrack = viewer.querySelector('.story-viewer-progress-track');
@@ -104,11 +103,9 @@
       const data = await response.json(); stories = Array.isArray(data.stories) ? data.stories : [];
       // Preload the first story and warm the next one before the viewer is opened.
       stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
-      if (!stories.length) { bubble.hidden = true; return; }
-      bubble.hidden = false; bubble.setAttribute('aria-label', `View ${stories.length} active Recovery ${stories.length === 1 ? 'Story' : 'Stories'}`);
-      bubble.querySelector('.story-bubble-count').textContent = String(stories.length);
+      if (!stories.length) { if (mobileStoriesButton) mobileStoriesButton.hidden = true; return; }
       if (mobileStoriesCount) mobileStoriesCount.textContent = String(stories.length);
-    } catch { bubble.hidden = true; }
+    } catch { if (mobileStoriesButton) mobileStoriesButton.hidden = true; }
   }
   // Basic anti-save deterrents only: these discourage casual context-menu saving
   // and dragging, but cannot prevent screenshots or browser/devtools extraction.
@@ -122,8 +119,7 @@
   viewer.addEventListener('dragstart', event => {
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
-  bubble.addEventListener('click', () => showAt(0));
-  mobileStoriesButton?.addEventListener('click', () => { if (!bubble.hidden) bubble.click(); });
+  mobileStoriesButton?.addEventListener('click', () => { if (stories.length) showAt(0); });
   close.addEventListener('click', hide);
   // Instagram/Facebook-style navigation: tap the left or right half of the story image.
   viewer.addEventListener('click', event => {
