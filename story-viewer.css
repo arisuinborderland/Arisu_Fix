@@ -115,3 +115,39 @@ html body .story-viewer .story-viewer-image{
   z-index:1!important;object-fit:contain!important;object-position:center center!important;
   background:transparent!important;
 }
+
+
+/* AFV144 — Center all image aspect ratios in the available Story stage.
+   Keep the complete image visible; no crop, stretch, or blurred duplicate background. */
+html body .story-viewer .story-viewer-card::before {
+  content: none !important;
+  display: none !important;
+}
+html body .story-viewer .story-viewer-card {
+  background: #080d18 !important;
+}
+html body .story-viewer .story-viewer-image {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 58px !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: calc(100% - 58px) !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
+  z-index: 1 !important;
+}
+@media (max-width: 600px) {
+  html body .story-viewer .story-viewer-image {
+    top: 58px !important;
+    bottom: 0 !important;
+    height: calc(100% - 58px) !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
