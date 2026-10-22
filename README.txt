@@ -1,13 +1,14 @@
 ARISU FIX — PROJECT README
-Version: AFV174
+Version: AFV175
 Updated: 2026-10-22
 
-## AFV174 — Desktop Floating Navigation Sizing
-- Enforced a compact 32px Stories avatar and constrained its image sizing on desktop.
-- Kept the five-item navigation centered and fixed above the bottom edge of the desktop viewport.
-- Added extra footer bottom clearance so fixed navigation does not obscure footer content.
-- Updated homepage stylesheet and story-viewer cache-busting references to AFV174.
-- Preserved mobile navigation behavior.
+## AFV175 — Restore Floating Quick-Access Menu
+- Restored the missing homepage floating-menu HTML expected by the existing JavaScript and CSS.
+- Added accessible quick links for WhatsApp, Facebook, TikTok, Recovery Proofs, and Help & Terms.
+- Removed the mobile breakpoint rule that forcibly hid the floating menu, while preserving the existing mobile bottom navigation.
+- Aligned homepage CSS/JavaScript cache-busting references to AFV175.
+- Kept the source ZIP free of generated dist output.
+
 
 ## AFV173 — Floating Desktop Navigation
 - Changed the desktop five-item navigation from an in-flow footer element to a fixed, centered floating bar near the bottom of the viewport, matching the mobile behavior.

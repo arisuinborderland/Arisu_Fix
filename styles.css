@@ -6216,7 +6216,7 @@ html body.home-page .floating-menu-item-icon.tt-shortcut { background: #171923 !
 html body.home-page .floating-menu-item-icon.proofs-shortcut { background: #4267e8 !important; }
 html body.home-page .floating-menu-item-icon.faq-shortcut { background: #e9efff !important; color: #3156bb !important; }
 @media  (max-width: 600px)  {
-  html body.home-page .floating-menu { right: max(12px, env(safe-area-inset-right, 0px)) !important; bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
+  html body.home-page .floating-menu { right: max(12px, env(safe-area-inset-right, 0px)) !important; bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
   html body.home-page .floating-menu-items:not([hidden]) { width: min(186px, calc(100vw - 78px)) !important; max-width: calc(100vw - 78px) !important; border-radius: 17px !important; }
   html body.home-page .floating-menu-item { width: 100% !important; align-self: stretch !important; min-height: 38px !important; padding: 5px 9px !important; gap: 9px !important; font-size: 13px !important; }
 }
@@ -8290,7 +8290,7 @@ html body.home-page .purpose-card .purpose-signoff {
 .mobile-bottom-nav { display:none; }
 @media screen and (max-width: 700px) {
   html body.home-page { padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
-  html body.home-page .floating-menu { display:none !important; }
+  /* Keep the restored floating quick-access menu available on mobile too. */
   html body.home-page .mobile-bottom-nav {
     position:fixed;
     left:0; right:0; bottom:0;
