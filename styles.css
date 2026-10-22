@@ -8444,29 +8444,6 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV168 — Option 1: Midnight Navy + Blue Glow footer navigation palette. */
-@media (max-width: 700px) {
-  html body.home-page .mobile-bottom-nav {
-    background: rgba(23, 33, 58, .98) !important;
-    border-top-color: rgba(142, 181, 255, .28) !important;
-    box-shadow: 0 -8px 28px rgba(18, 34, 70, .22) !important;
-  }
-  html body.home-page .mobile-nav-item {
-    color: #E5EDFF !important;
-  }
-  html body.home-page .mobile-nav-item.is-active {
-    color: #8EB5FF !important;
-  }
-  html body.home-page .mobile-nav-item.is-active svg {
-    color: #8EB5FF !important;
-    filter: drop-shadow(0 0 7px rgba(72, 132, 255, .9)) !important;
-  }
-  html body.home-page .mobile-nav-story-avatar {
-    box-shadow: 0 0 12px rgba(72, 132, 255, .3) !important;
-  }
-}
-
-
 /* AFV169 — Option 3: Deep Black-Navy footer with a Violet Stories accent. */
 @media (max-width: 700px) {
   html body.home-page .mobile-bottom-nav {
