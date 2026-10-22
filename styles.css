@@ -8284,3 +8284,82 @@ html body.home-page .purpose-card .purpose-signoff {
     opacity: .3;
   }
 }
+
+
+/* AFV164 — fixed mobile bottom navigation with a dedicated Recovery Stories shortcut. */
+.mobile-bottom-nav { display:none; }
+@media screen and (max-width: 700px) {
+  html body.home-page { padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
+  html body.home-page .floating-menu { display:none !important; }
+  html body.home-page .mobile-bottom-nav {
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:2147482500;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    align-items:end;
+    gap:2px;
+    padding:8px 8px calc(7px + env(safe-area-inset-bottom));
+    min-height:76px;
+    background:rgba(15,24,45,.97);
+    border-top:1px solid rgba(174,198,255,.32);
+    box-shadow:0 -8px 28px rgba(20,35,70,.18);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+  }
+  html body.home-page .mobile-nav-item {
+    min-width:0;
+    min-height:58px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    padding:3px 0;
+    border:0;
+    border-radius:12px;
+    background:transparent;
+    color:#e5edff;
+    text-decoration:none;
+    font:600 11px/1.1 "DM Sans",sans-serif;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+  html body.home-page .mobile-nav-item svg {
+    width:24px; height:24px;
+    fill:none; stroke:currentColor; stroke-width:1.8;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+  html body.home-page .mobile-nav-item.is-active { color:#fff; }
+  html body.home-page .mobile-nav-item.is-active svg {
+    filter:drop-shadow(0 0 7px rgba(74,123,255,.9));
+    color:#8eb5ff;
+  }
+  html body.home-page .mobile-nav-stories { gap:2px; }
+  html body.home-page .mobile-nav-story-avatar {
+    position:relative;
+    display:block;
+    width:43px; height:43px;
+    padding:3px;
+    border-radius:50%;
+    background:conic-gradient(#ff3f91,#8b5cf6,#2778ff,#20d6c4,#ff3f91);
+    box-shadow:0 0 12px rgba(87,100,255,.3);
+  }
+  html body.home-page .mobile-nav-story-avatar img {
+    display:block; width:100%; height:100%; object-fit:cover;
+    border:2px solid #101a31; border-radius:50%;
+  }
+  html body.home-page .mobile-nav-story-count {
+    position:absolute; top:-3px; right:-4px;
+    min-width:17px; height:17px; padding:0 4px;
+    display:grid; place-items:center;
+    border:2px solid #10182b; border-radius:12px;
+    background:#f02e66; color:#fff;
+    font:700 10px/1 Arial,sans-serif;
+  }
+  html body.home-page .mobile-nav-stories:active .mobile-nav-story-avatar { transform:scale(.96); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .mobile-nav-story-avatar { transition:none !important; }
+}
