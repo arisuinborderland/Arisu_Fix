@@ -8572,32 +8572,64 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV172 — compact desktop navigation and prevent overlap with the footer. */
+/* AFV173 — make desktop navigation float above page content, matching mobile behavior. */
 @media (min-width: 701px) {
+  html body.home-page {
+    padding-bottom: 112px !important;
+  }
   html body.home-page .mobile-bottom-nav {
-    margin: 22px auto 0 !important;
-    align-items: stretch !important;
+    position: fixed !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147482500 !important;
+    width: min(720px, calc(100vw - 48px)) !important;
+    max-width: 720px !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
     gap: 6px !important;
     padding: 8px 12px !important;
+    min-height: 76px !important;
+    background: rgba(16, 24, 39, .97) !important;
+    border: 1px solid rgba(167, 139, 250, .28) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 34px rgba(5, 10, 22, .32) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(16px) !important;
   }
   html body.home-page .mobile-bottom-nav .mobile-nav-item {
-    min-height: 48px !important;
+    min-width: 0 !important;
+    min-height: 54px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 4px !important;
     padding: 4px !important;
     line-height: 1.15 !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
   }
   html body.home-page .mobile-bottom-nav .mobile-nav-item svg {
     width: 21px !important;
     height: 21px !important;
     flex: 0 0 21px !important;
   }
+  html body.home-page .mobile-bottom-nav .mobile-nav-item.is-active {
+    background: rgba(167, 139, 250, .12) !important;
+  }
   html body.home-page .mobile-bottom-nav .mobile-nav-stories {
     gap: 3px !important;
+    color: #D8C7FF !important;
   }
   html body.home-page .mobile-bottom-nav .mobile-nav-story-avatar {
-    width: 29px !important;
-    height: 29px !important;
-    flex: 0 0 29px !important;
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
     padding: 2px !important;
   }
   html body.home-page .mobile-bottom-nav .mobile-nav-story-avatar img {
