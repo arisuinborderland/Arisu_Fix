@@ -1,6 +1,21 @@
 ARISU FIX — PROJECT README
-Version: AFV143
+Version: AFV145
 Updated: 2026-10-22
+
+## AFV145 — Midnight Blue soft glow and image positioning
+- Applied a premium Midnight Blue gradient with a subtle royal-blue glow to the empty Story Viewer background areas.
+- Shifted the centered Story image slightly upward by reserving balanced space below it, while preserving its full aspect ratio with `object-fit: contain`.
+- Removed the blurred duplicate backdrop and kept the profile header, progress bar, navigation arrows, captions, API/admin files, proofs, reviews, and other page layouts intact.
+- Updated active cache-busting references and package metadata to AFV145 / 145.0.0.
+- Source ZIP contains one project folder and excludes generated `dist/`.
+
+## AFV144 — Centered Story image for every aspect ratio
+- Fixed the Story image stage so landscape, portrait, and square images are centered in the available area below the profile header.
+- Removed the blurred duplicate backdrop; retained the original image with `object-fit: contain` so it is not cropped or distorted.
+- Preserved viewer controls, progress bar, caption behavior, API/admin files, proofs, reviews, and other page layouts.
+- Updated active cache-busting references and package metadata to AFV144 / 144.0.0.
+- Source ZIP contains one project folder and excludes generated `dist/`.
+
 
 ## AFV143 — Responsive Story image display
 - Fixed the Story viewer for wide/landscape images: the full image remains visible without cropping, while a subtle blurred version fills the otherwise empty dark space. Portrait and square images continue to use contain sizing.
