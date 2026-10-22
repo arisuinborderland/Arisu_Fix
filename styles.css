@@ -7554,3 +7554,18 @@ html body.home-page .purpose-card .purpose-signoff {
     white-space: nowrap !important;
   }
 }
+
+/* AFV179 emergency removal: legacy floating quick-access/WhatsApp control must never render on any viewport. */
+#floatingWhatsApp,
+#floatingMenu,
+#floatingMenuItems,
+.floating-menu,
+.floating-whatsapp,
+.floating-menu-item,
+.wa-shortcut,
+.floating-menu-item-icon.wa-shortcut {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
