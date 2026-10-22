@@ -14,6 +14,9 @@ set admin_status = case
 end
 where admin_status is null or admin_status not in ('active', 'draft', 'archived');
 
+-- The column default marks pre-existing rows as active, so preserve legacy archive state.
+update public.recovery_stories set admin_status = 'archived' where is_active = false and admin_status = 'active';
+
 create index if not exists recovery_stories_admin_status_sort_order_idx
   on public.recovery_stories (admin_status, sort_order, published_at desc);
 
