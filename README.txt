@@ -1,4 +1,13 @@
 ARISU FIX — PROJECT README
+Version: AFV149
+Updated: 2026-10-22
+
+## AFV149 — Multi-image Stories with Next and automatic progress timer
+- Story Admin now accepts multiple selected images and publishes each as an individual temporary Story, preserving the existing 24-hour expiry.
+- Next/Previous navigates through each published image one by one; the progress bar timer automatically advances to the next image and closes the viewer after the final Story.
+- Preserved existing Story Viewer design, image preloading, captions, profile header, backend API, and permanent Recovery Proofs.
+
+ARISU FIX — PROJECT README
 Version: AFV147
 Updated: 2026-10-22
 

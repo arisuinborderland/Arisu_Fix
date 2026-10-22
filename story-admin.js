@@ -49,14 +49,21 @@
   $('publishForm').addEventListener('submit', async event => {
     event.preventDefault(); const button = $('publishForm').querySelector('button[type="submit"]'); button.disabled = true; say('Uploading your Story image…');
     try {
-      const file = $('storyImage').files[0];
-      if (!file) throw new Error('Please choose an image from your Gallery.');
+      const files = Array.from($('storyImage').files || []);
+      if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
-      if (!allowed.includes(file.type)) throw new Error('Use a JPEG, PNG, or WebP image.');
-      if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error('Image must be no larger than 3.5 MB.');
-      const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error('Could not read the selected image.')); reader.readAsDataURL(file); });
-      await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value }) });
-      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; say('Story published. It will expire after 24 hours.'); await loadStories();
+      for (const file of files) {
+        if (!allowed.includes(file.type)) throw new Error(`${file.name}: use a JPEG, PNG, or WebP image.`);
+        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(`${file.name}: image must be no larger than 3.5 MB.`);
+      }
+      let published = 0;
+      for (const file of files) {
+        say(`Uploading Story ${published + 1} of ${files.length}…`);
+        const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error(`Could not read ${file.name}.`)); reader.readAsDataURL(file); });
+        await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value }) });
+        published++;
+      }
+      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; say(`${published} ${published === 1 ? 'Story' : 'Stories'} published. Use Next to view each image; the progress bar advances automatically. Stories expire after 24 hours.`); await loadStories();
     }
     catch(e) { say(e.message, true); } finally { button.disabled = false; }
   });
