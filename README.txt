@@ -1,15 +1,20 @@
 ARISU FIX — PROJECT README
-Version: AFV130
+Version: AFV143
 Updated: 2026-10-22
 
-## AFV130 — Prepare Recovery Stories backend
-- Added a temporary Story viewer bubble on the homepage; it appears only when the Stories API returns active, unexpired Stories.
-- Added a private Story admin page at story-admin.html with Supabase Auth sign-in, direct image upload from Gallery (JPEG/PNG/WebP up to 3.5 MB), optional caption, publish, refresh, and manual deletion.
+## AFV143 — Responsive Story image display
+- Fixed the Story viewer for wide/landscape images: the full image remains visible without cropping, while a subtle blurred version fills the otherwise empty dark space. Portrait and square images continue to use contain sizing.
+- Preserved the profile header, progress bar, close control, navigation arrows, and caption behavior. Updated cache-busting references and package version to AFV143.
+
+## AFV143 — Direct Story upload and viewer refinements
+- Added a temporary Story viewer bubble on the homepage; it appears only when the Stories API returns active, unexpired Stories. The viewer now keeps its progress bar within the screen and displays upload time as “Just now”, “5m ago”, or “1h ago”.
+- Added a private Story admin page at story-admin.html with Supabase Auth sign-in, direct image upload from Gallery (JPEG/PNG/WebP up to 3.5 MB), optional caption, publish, refresh, and manual deletion. Improved mobile viewer spacing, navigation controls, and progress animation. Added the Arisu profile photo and name beside the upload time, and reduced the viewer frame height slightly to reduce excess top/bottom space without cropping the Story image.
 - Added server-side API routes for listing, publishing temporary uploads, deleting Stories, and scheduled cleanup. Server-only Supabase secret keys are never placed in browser code.
 - Temporary copies use the private recovery-stories Storage bucket and the stories/ path; cleanup refuses to delete objects outside that path. Permanent Recovery Proof files are not deleted.
 - Added a protected cleanup endpoint. Configure Supabase Cron (hourly) to call it using a secret stored in Supabase Vault; this avoids Vercel Hobby plan daily-only cron limits. Stories become unavailable to visitors at the 24-hour expiry, and the scheduled cleanup deletes the temporary image and database row on its next hourly run.
 - Added setup requirements for server-side environment variables. Story publishing is unavailable until the backend, admin allowlist, Data API table exposure, and Cron secret are configured.
-- Updated active cache-busting tokens to AFV130 and package version to 130.0.0.
+- Updated active cache-busting tokens to AFV143 and package version to 143.0.0.
+- Replaced conflicting legacy story-control CSS overrides with a single compact Royal Navy style: 40px close control and 38×46px navigation buttons.
 - Kept generated dist/ output out of the source ZIP; production build generates it locally.
 
 ## Deployment setup checklist
