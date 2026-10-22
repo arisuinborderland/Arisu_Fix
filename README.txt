@@ -1,10 +1,15 @@
+## AFV171 — Desktop Bottom Navigation
+- Added the five-item Home, Reviews, Stories, Proofs, and Contact navigation to desktop using the same Deep Black-Navy + Violet Stories visual style.
+- Preserved the existing mobile fixed navigation behavior and story viewer button.
+- Updated homepage CSS/JS cache-busting references to AFV171.
+
 ## AFV170 — Desktop Footer Palette
 - Applied the Deep Black-Navy footer background and violet hover/focus accent to the desktop site footer.
 - Kept desktop footer layout and existing navigation links intact.
 - Updated CSS and Story Viewer cache-busting references to AFV170.
 
 ARISU FIX — PROJECT README
-Version: AFV170
+Version: AFV171
 Updated: 2026-10-22
 
 ## AFV169 — Footer Navigation Palette
