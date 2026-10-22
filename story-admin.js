@@ -34,13 +34,27 @@
   async function loadStories() {
     const list = $('storyList'); list.textContent = 'Loading Stories…';
     try {
-      const data = await api('/api/stories'); list.replaceChildren();
+      const data = await api('/api/stories');
+      let views = {};
+      let countsAvailable = true;
+      try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; }
+      catch { countsAvailable = false; }
+      list.replaceChildren();
+      if (!countsAvailable) { const warning = document.createElement('p'); warning.className = 'muted'; warning.textContent = 'View counts need the Supabase database migration in supabase/recovery-story-views.sql.'; list.append(warning); }
       if (!data.stories?.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'No active Stories.'; list.append(p); return; }
       data.stories.forEach(story => {
         const row = document.createElement('div'); row.className = 'story-row';
-        const info = document.createElement('div'); const title = document.createElement('strong'); title.textContent = story.caption || 'Recovery Story';
-        const meta = document.createElement('small'); meta.textContent = `Expires ${new Date(story.expires_at).toLocaleString()}`; info.append(title, meta);
-        const del = document.createElement('button'); del.type = 'button'; del.textContent = 'Delete'; del.addEventListener('click', async () => { if (!confirm('Delete this temporary Story? The permanent proof will remain.')) return; del.disabled = true; try { await api(`/api/stories?id=${encodeURIComponent(story.id)}`, { method: 'DELETE' }); await loadStories(); say('Story deleted.'); } catch(e) { say(e.message, true); del.disabled = false; } }); row.append(info, del); list.append(row);
+        const info = document.createElement('div'); info.className = 'story-info';
+        const title = document.createElement('strong'); title.textContent = story.caption || 'Recovery Story';
+        const meta = document.createElement('small'); meta.textContent = `Expires ${new Date(story.expires_at).toLocaleString()}`;
+        const viewCount = document.createElement('span'); viewCount.className = 'story-view-count';
+        const eye = document.createElement('span'); eye.className = 'story-view-eye'; eye.setAttribute('aria-hidden', 'true'); eye.textContent = '◉';
+        const count = document.createElement('strong'); count.className = 'story-view-number'; count.textContent = countsAvailable ? (Number(views[story.id]) || 0).toLocaleString() : '—';
+        const label = document.createElement('small'); label.className = 'story-view-label'; label.textContent = 'Views';
+        viewCount.append(eye, count, label); info.append(title, meta);
+        const actions = document.createElement('div'); actions.className = 'story-actions'; actions.append(viewCount);
+        const del = document.createElement('button'); del.type = 'button'; del.textContent = 'Delete'; del.addEventListener('click', async () => { if (!confirm('Delete this temporary Story? The permanent proof will remain.')) return; del.disabled = true; try { await api(`/api/stories?id=${encodeURIComponent(story.id)}`, { method: 'DELETE' }); await loadStories(); say('Story deleted.'); } catch(e) { say(e.message, true); del.disabled = false; } });
+        actions.append(del); row.append(info, actions); list.append(row);
       });
     } catch(e) { list.textContent = e.message; }
   }

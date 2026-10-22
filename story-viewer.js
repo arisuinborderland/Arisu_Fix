@@ -55,6 +55,9 @@
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
     const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); viewer.querySelector('.story-viewer-card').style.setProperty('--story-image-bg', `url("${String(story.imageUrl).replace(/["\\]/g, '')}")`); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
+    // Count each story display (including revisits/automatic advances). Failure is silent
+    // and never delays rendering or the progress timer.
+    if (story.id) fetch('/api/story-view', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: story.id }), keepalive: true }).catch(() => {});
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
     progress.style.transition = 'none'; progress.style.width = '0%'; viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
     clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => { progress.style.transition = `width ${DURATION}ms linear`; progress.style.width = '100%'; }));

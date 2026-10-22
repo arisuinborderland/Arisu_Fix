@@ -1,8 +1,14 @@
 ARISU FIX — PROJECT README
-Version: AFV151
+Version: AFV152
 Updated: 2026-10-22
 
-## AFV151 — Faster first-load story navigation with image preloading
+## AFV152 — Private total views for Recovery Stories
+- Added per-story total view tracking through a server-side Supabase RPC. Counts include each story display, including revisits and automatic advances.
+- Added view totals to Active Stories in the signed-in admin only; no public view-count UI or count data is returned by the public Stories endpoint.
+- Added the one-time database migration at `supabase/recovery-story-views.sql`. Run it in the Supabase SQL Editor before deploying to enable persistent counts.
+- View tracking is asynchronous and must not delay story rendering or the progress timer.
+
+## Prior AFV151 — Faster first-load story navigation with image preloading
 - Restyled only the existing Recovery Stories bubble button with a Deep Purple background, white text, subtle purple shadow, and restrained hover/press feedback.
 - Positioned the story timestamp directly beside the profile name with the existing flex gap, and changed minute labels to readable forms such as “14 mins ago”.
 - Preserved the existing page layout, story viewer controls, progress timer, story navigation, image loading, backend API, and permanent Recovery Proofs.
