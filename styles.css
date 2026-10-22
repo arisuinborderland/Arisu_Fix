@@ -8570,3 +8570,48 @@ html body.home-page .purpose-card .purpose-signoff {
 @media (min-width: 701px) and (prefers-reduced-motion: reduce) {
   html body.home-page .mobile-nav-item { transition: none !important; }
 }
+
+
+/* AFV172 — compact desktop navigation and prevent overlap with the footer. */
+@media (min-width: 701px) {
+  html body.home-page .mobile-bottom-nav {
+    margin: 22px auto 0 !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+  }
+  html body.home-page .mobile-bottom-nav .mobile-nav-item {
+    min-height: 48px !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    line-height: 1.15 !important;
+  }
+  html body.home-page .mobile-bottom-nav .mobile-nav-item svg {
+    width: 21px !important;
+    height: 21px !important;
+    flex: 0 0 21px !important;
+  }
+  html body.home-page .mobile-bottom-nav .mobile-nav-stories {
+    gap: 3px !important;
+  }
+  html body.home-page .mobile-bottom-nav .mobile-nav-story-avatar {
+    width: 29px !important;
+    height: 29px !important;
+    flex: 0 0 29px !important;
+    padding: 2px !important;
+  }
+  html body.home-page .mobile-bottom-nav .mobile-nav-story-avatar img {
+    border-width: 1px !important;
+  }
+  html body.home-page .mobile-bottom-nav .mobile-nav-story-count {
+    top: -4px !important;
+    right: -5px !important;
+    min-width: 14px !important;
+    height: 14px !important;
+    padding: 0 3px !important;
+    font-size: 9px !important;
+  }
+  html body.home-page .site-footer {
+    margin-top: 22px !important;
+  }
+}
