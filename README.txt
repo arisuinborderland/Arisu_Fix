@@ -1,6 +1,12 @@
 ARISU FIX — PROJECT README
-Version: AFV162
+Version: AFV169
 Updated: 2026-10-22
+
+## AFV169 — Footer Navigation Palette
+- Updated the mobile bottom navigation to Option 3: Deep Black-Navy (`#101827`) with violet Stories accent (`#A78BFA`) and white inactive navigation icons/text.
+- Aligned the public Story Viewer script cache-busting reference with AFV169.
+- Removed the superseded AFV168 footer palette override.
+
 
 ## AFV162 — Advanced Story Admin
 - Added client-side image previews before upload, including file names and sizes.
