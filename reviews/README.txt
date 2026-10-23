@@ -1,5 +1,5 @@
 ARISU FIX — CUSTOMER REVIEWS ASSET GUIDE
-Version: AFV181
+Version: AFV182
 Updated: 2026-10-23
 
 The review-slot image files in this folder are display assets referenced by the
