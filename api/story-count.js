@@ -35,7 +35,12 @@ module.exports = async function handler(req, res) {
     const total = contentRange.match(/\/(\d+)$/);
     if (!total) throw new Error('Stories count response did not include a valid Content-Range.');
     const totalDuration = Math.max(0, Date.now() - startedAt);
-    res.setHeader('Cache-Control', 'no-store');
+    // Cache only successful public counts at Vercel's edge. The shared json()
+    // helper still sets browser Cache-Control: no-store; this Vercel-specific
+    // header takes precedence for the CDN and is not exposed to the browser.
+    // The short freshness window keeps counts responsive to adds/expirations,
+    // while stale-while-revalidate avoids making visitors wait on every request.
+    res.setHeader('Vercel-CDN-Cache-Control', 'public, s-maxage=15, stale-while-revalidate=120');
     res.setHeader('Server-Timing', `supabase_count;dur=${queryDuration}, total;dur=${totalDuration}`);
     res.setHeader('X-Story-Count-Source', 'supabase-exact-count');
     json(res, 200, { count: Number(total[1]) });
