@@ -1,4 +1,4 @@
-/* AFV191 — profile-card About This Website CTA */
+/* AFV194 — profile-card About This Website CTA inside the footer */
 .about-link-section{max-width:960px}
 .about-page-cta{box-sizing:border-box;display:flex;align-items:center;gap:20px;width:100%;min-height:154px;padding:24px 28px;border:1px solid rgba(125,163,229,.34);border-radius:26px;background:linear-gradient(115deg,rgba(247,251,255,.98) 0%,rgba(239,247,255,.96) 56%,rgba(250,245,255,.98) 100%);box-shadow:0 10px 30px rgba(52,91,157,.08);color:#172b52;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .about-page-cta:hover,.about-page-cta:focus-visible{transform:translateY(-2px);border-color:rgba(76,130,224,.62);box-shadow:0 14px 34px rgba(52,91,157,.14);outline:none}
@@ -9,7 +9,7 @@
 .about-cta-description{display:block;color:#5c6b83;font:500 17px/1.45 Manrope,Arial,sans-serif}
 .about-cta-arrow{display:block;flex:0 0 25px;width:25px;height:25px;margin-left:auto;color:#2b61d5}
 @media(max-width:600px){
- html body.home-page main>section.site-section.about-link-section{display:block!important;position:relative!important;z-index:2!important;width:calc(100% - 36px)!important;max-width:960px!important;margin:18px auto 30px!important;padding:0!important;visibility:visible!important;opacity:1!important}
+ html body.home-page footer.site-footer>section.site-section.about-link-section{display:block!important;position:relative!important;z-index:2!important;grid-column:1/-1!important;grid-row:1!important;justify-self:stretch!important;width:100%!important;max-width:960px!important;margin:0 0 10px!important;padding:0!important;visibility:visible!important;opacity:1!important}
  html body.home-page .about-page-cta{display:flex!important;visibility:visible!important;opacity:1!important;gap:14px;min-height:122px!important;padding:17px 16px;border-radius:22px}
  .about-cta-profile{flex-basis:72px;width:72px;height:72px;border-radius:17px}
  .about-cta-copy{gap:5px}
@@ -19,3 +19,274 @@
  .about-cta-arrow{flex-basis:19px;width:19px;height:19px}
 }
 @media(prefers-reduced-motion:reduce){.about-page-cta{transition:none}.about-page-cta:hover,.about-page-cta:focus-visible{transform:none}}
+
+
+/* AFV194: keep the About CTA as the first, full-width card inside the site footer. */
+html body.home-page footer.site-footer > section.about-link-section{box-sizing:border-box;grid-column:1/-1;grid-row:1;width:100%;max-width:960px;margin:0 auto 8px;padding:0;justify-self:center;position:relative;z-index:1}
+html body.home-page footer.site-footer > section.about-link-section .about-page-cta{width:100%}
+@media(max-width:600px){
+ html body.home-page footer.site-footer{grid-template-columns:minmax(0,1fr)!important;align-items:start!important}
+ html body.home-page footer.site-footer > section.about-link-section{grid-column:1!important;grid-row:1!important;width:100%!important;max-width:none!important;margin:0 0 10px!important;justify-self:stretch!important}
+ html body.home-page footer.site-footer > .footer-brand{grid-column:1!important;grid-row:2!important}
+ html body.home-page footer.site-footer > .footer-note{grid-column:1!important;grid-row:3!important}
+ html body.home-page footer.site-footer > .footer-location{grid-column:1!important;grid-row:4!important}
+ html body.home-page footer.site-footer > .footer-links{grid-column:1!important;grid-row:5!important}
+ html body.home-page footer.site-footer > .footer-copyright{grid-column:1!important;grid-row:6!important}
+}
+
+
+/* AFV194 — compact footer About card and tighten mobile footer spacing. */
+@media (max-width: 600px) {
+  html body.home-page footer.site-footer {
+    padding: 8px 14px calc(20px + env(safe-area-inset-bottom)) !important;
+    row-gap: 7px !important;
+  }
+  html body.home-page footer.site-footer > section.about-link-section {
+    margin: 0 0 2px !important;
+    padding: 0 !important;
+  }
+  html body.home-page footer.site-footer .about-page-cta {
+    min-height: 0 !important;
+    height: auto !important;
+    gap: 10px !important;
+    padding: 12px 12px !important;
+    border-radius: 18px !important;
+  }
+  html body.home-page footer.site-footer .about-cta-profile {
+    flex: 0 0 58px !important;
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 14px !important;
+  }
+  html body.home-page footer.site-footer .about-cta-copy {
+    gap: 3px !important;
+  }
+  html body.home-page footer.site-footer .about-cta-eyebrow {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 1.1px !important;
+  }
+  html body.home-page footer.site-footer .about-cta-title {
+    font-size: clamp(15px, 4.2vw, 18px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -.25px !important;
+  }
+  html body.home-page footer.site-footer .about-cta-description {
+    font-size: 12px !important;
+    line-height: 1.32 !important;
+  }
+  html body.home-page footer.site-footer .about-cta-arrow {
+    flex: 0 0 17px !important;
+    width: 17px !important;
+    height: 17px !important;
+  }
+  html body.home-page footer.site-footer > .footer-location {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    align-self: start !important;
+  }
+  html body.home-page footer.site-footer > .footer-links,
+  html body.home-page footer.site-footer > .footer-copyright {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* AFV195 — remove empty mobile footer grid rows and keep the location block 4px below the About card. */
+@media (max-width: 600px) {
+  html body.home-page footer.site-footer {
+    row-gap: 4px !important;
+  }
+  html body.home-page footer.site-footer > section.about-link-section {
+    grid-row: 1 !important;
+    margin: 0 !important;
+  }
+  html body.home-page footer.site-footer > .footer-location {
+    grid-row: 2 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+  }
+  html body.home-page footer.site-footer > .footer-links {
+    grid-row: 3 !important;
+    margin: 0 !important;
+  }
+  html body.home-page footer.site-footer > .footer-copyright {
+    grid-row: 4 !important;
+    margin: 0 !important;
+  }
+}
+
+
+/* AFV215 — compact About link beside Privacy Policy in the homepage header. */
+html body.home-page .topbar .header-meta .about-header-link {
+  box-sizing: border-box;
+  display: inline-flex !important;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(105, 133, 255, .72);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f1f5ff 0%, #e8edff 100%);
+  color: #245fe5;
+  box-shadow: 0 4px 12px rgba(63, 97, 220, .10);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .16s ease, border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+html body.home-page .topbar .header-meta .about-header-link .header-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+html body.home-page .topbar .header-meta .about-header-link:hover {
+  transform: translateY(-1px);
+  border-color: #456dff;
+  background: linear-gradient(135deg, #e7edff 0%, #dfe7ff 100%);
+  box-shadow: 0 6px 16px rgba(63, 97, 220, .16);
+}
+html body.home-page .topbar .header-meta .about-header-link:focus-visible {
+  outline: 3px solid rgba(91, 126, 255, .4);
+  outline-offset: 2px;
+}
+@media (max-width: 700px) {
+  html body.home-page .topbar .header-meta {
+    gap: 6px !important;
+  }
+  html body.home-page .topbar .header-meta .about-header-link {
+    min-height: 40px;
+    padding: 0 10px;
+    gap: 5px;
+    border-radius: 12px;
+    font-size: 11px;
+  }
+  html body.home-page .topbar .header-meta .about-header-link .header-icon {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page .topbar .header-meta .about-header-link {
+    min-height: 37px;
+    padding: 0 7px;
+    gap: 4px;
+    font-size: 10px;
+  }
+  html body.home-page .topbar .header-meta .about-header-link .header-icon {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .topbar .header-meta .about-header-link { transition: none; }
+  html body.home-page .topbar .header-meta .about-header-link:hover { transform: none; }
+}
+
+
+/* AFV218 — align About and Privacy Policy buttons precisely on the profile header row. */
+html body.home-page .topbar > .header-meta > .privacy-link,
+html body.home-page .topbar > .header-meta > .about-header-link {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transform: none !important;
+}
+html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
+html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+}
+@media (max-width: 700px) {
+  html body.home-page .topbar > .header-meta > .privacy-link,
+  html body.home-page .topbar > .header-meta > .about-header-link {
+    min-height: 40px !important;
+    height: 40px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+  }
+  html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
+  html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
+    width: 15px !important;
+    height: 15px !important;
+    flex-basis: 15px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page .topbar > .header-meta > .privacy-link,
+  html body.home-page .topbar > .header-meta > .about-header-link {
+    min-height: 38px !important;
+    height: 38px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    gap: 4px !important;
+    font-size: 10px !important;
+  }
+  html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
+  html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px !important;
+  }
+}
+
+/* AFV218 — reduce only the header About button by 2px at the top and bottom. */
+html body.home-page .topbar > .header-meta > .about-header-link {
+  min-height: 44px !important;
+  height: 44px !important;
+}
+@media (max-width: 700px) {
+  html body.home-page .topbar > .header-meta > .about-header-link {
+    min-height: 36px !important;
+    height: 36px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page .topbar > .header-meta > .about-header-link {
+    min-height: 34px !important;
+    height: 34px !important;
+  }
+}
+
+
+/* AFV218 — reduce Privacy Policy button height by 2px at the top and bottom, matching About. */
+html body.home-page .topbar > .header-meta > .privacy-link {
+  min-height: 44px !important;
+  height: 44px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  transform: none !important;
+}
+@media (max-width: 700px) {
+  html body.home-page .topbar > .header-meta > .privacy-link {
+    min-height: 36px !important;
+    height: 36px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page .topbar > .header-meta > .privacy-link {
+    min-height: 34px !important;
+    height: 34px !important;
+  }
+}

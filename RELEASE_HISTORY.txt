@@ -1,5 +1,46 @@
+AFV218 — 2026-10-23
+- Reduced Privacy Policy button height by 2px at the top and bottom to match the compact About button.
+- Removed the legacy -2px vertical translation from Privacy Policy to keep both header buttons aligned.
+- Updated active cache-busting references and release metadata to AFV218.
+
+AFV217 — 2026-10-23
+- Reduced the header About button height by 2px at the top and bottom: 48px to 44px desktop, 40px to 36px mobile, and 38px to 34px on very narrow screens.
+- Scoped the change to About only; Privacy Policy sizing, header alignment, Stories-centered five-item bottom navigation, and other layout remain unchanged.
+- Updated active cache-busting references, README, and package metadata.
+
+AFV216 — 2026-10-23
+- Fixed header alignment by applying the same explicit height, vertical centering, and icon sizing to About and Privacy Policy buttons.
+- Removed the legacy vertical offset on Privacy Policy; retained responsive compact sizing on narrow screens.
+- Updated active index.html cache-busting references, README, and package metadata.
+
+AFV215 — About button in homepage header
+- Added an About This Website button beside Privacy Policy in the homepage profile header.
+- Used a compact blue-violet treatment with mobile-specific sizing for narrow screens.
+- Preserved the five-item bottom navigation and centered Stories button.
+- Preserved the existing footer About card and other content.
+- Updated active cache-busting references and release metadata to AFV215.
+
 ARISU FIX — RELEASE HISTORY
 Historical release notes only. Current release status and metadata are maintained in README.txt.
+
+## AFV214 — Keep Stories navigation stable
+- Prevented the Stories bottom-navigation button from being hidden when the stories API returns an empty list or temporarily fails.
+- Added an on-tap retry when story data is unavailable.
+- Updated active cache-busting references and package/README version metadata to AFV214.
+## AFV195 — Tighten mobile footer spacing
+- Removed unused mobile grid rows left behind after removing footer brand/note content.
+- Placed location/service coverage immediately below the About card with a 4px target gap, moving footer links and copyright upward.
+- Updated active cache-busting references and release metadata to AFV195.
+
+## AFV194 — Simplify footer below About card
+- Removed the footer profile/brand row and the independent account-recovery disclaimer paragraph.
+- Kept the About This Website card, location/service coverage, footer links, and copyright.
+- Updated active cache-busting references and package/README version metadata to AFV194.
+## AFV192 — Move About CTA into footer
+- Moved the existing profile-card About This Website CTA into the top of the site footer, removing the standalone card from the main content.
+- Preserved the reference design and About page destination.
+- Adjusted footer grid rows and mobile spacing to keep footer content readable.
+- Updated active cache-busting references and package/README version metadata to AFV192.
 
 ## AFV188 — Compact Story Library cards
 - Reduced mobile Story card padding and vertical gaps for a denser list.
@@ -357,3 +398,13 @@ Updated: 2026-10-22
 AFV191 — 2026-10-23
 - Redesigned the homepage About This Website link as the profile-card CTA from the supplied reference image.
 - Kept the link targeting about.html and retained mobile navigation clearance.
+
+
+AFV194 — 2026-10-23
+- Compact mobile About This Website footer card.
+- Tightened mobile footer spacing to move location, service coverage, links, and copyright upward.
+
+
+AFV214 — 2026-10-23
+- Added small inline icons to compact footer navigation links.
+- Updated active index.html cache-busting references and package metadata.
