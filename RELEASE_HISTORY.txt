@@ -1,7 +1,23 @@
-AFV229 — 2026-10-23
+AFV237 — 2026-10-23
+- Corrected the About page Stories notification badge background to match the homepage purple styling.
+
+AFV237 — 2026-10-23
+- Matched the About page Stories avatar ring, glow, notification badge, and label color to the homepage reference.
+- Preserved existing About content, bottom navigation layout, and reduced-motion behavior.
+
+AFV235 — 2026-10-23
+- Matched the Customer Reviews and Recovery Proofs mobile header geometry to the homepage reference: brand/logo sizing, Privacy Policy and About button height, padding, icon sizing, and spacing. Scoped to those pages only.
+
+AFV235 — 2026-10-23
+- Fixed Stories navigation color drift on Customer Reviews and Recovery Proofs.
+- Synced the Stories avatar glow, purple notification badge, badge border, and label tint with the homepage's final CSS treatment.
+- Preserved avatar gradient, size, layout, and page-scoped styles.
+- Updated active cache-busting references, package version, README, and regression tests.
+
+AFV230 — 2026-10-23
 - Matched Recovery Proofs header button dimensions, internal icon/text spacing, border radius, color treatment, and position to the homepage reference.
 - Matched desktop spacing and responsive mobile sizes while keeping changes scoped to the Recovery Proofs page.
-- Updated active cache-busting references and package/release metadata to AFV229.
+- Updated active cache-busting references and package/release metadata to AFV230.
 
 AFV228 — 2026-10-23
 - Matched About and Privacy Policy header button sizing, padding, icon dimensions, and vertical alignment on Customer Reviews and Recovery Proofs to the homepage reference.
@@ -463,3 +479,18 @@ AFV226 — 2026-10-23
 - This keeps testing on a Preview deployment within that same Preview deployment, so the new Reviews header and floating-control cleanup can actually be checked before production deploy.
 - Preserved the five-item bottom navigation, About + Privacy Policy header, Reviews content, scoped floating-control cleanup, and homepage controls.
 - Updated active cache-busting references, package version, README, and regression tests.
+
+
+AFV235 — 2026-10-23
+- Corrected the mobile header on Customer Reviews and Recovery Proofs to follow the homepage reference geometry. Prevented flex wrapping, normalized topbar padding/height, and fixed the Privacy Policy/About button widths and heights so the brand and actions align on one row.
+- Kept changes scoped to the two non-home pages; homepage and bottom navigation styling are unchanged.
+
+AFV235 — 2026-10-23
+- Privacy Policy header now links to About instead of Back to site.
+- Added the shared five-item mobile bottom navigation with centered Stories button.
+- Stories viewer script is enabled on Privacy Policy page.
+
+
+AFV235 — 2026-10-23
+- About page: replaced the floating Back to Main Page CTA with the homepage-style five-item mobile bottom navigation.
+- Added the Recovery Stories viewer markup and script hook so Stories is functional on About.

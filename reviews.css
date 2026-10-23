@@ -223,3 +223,103 @@ html body.reviews-document .topbar .header-meta .header-icon {
     flex-basis: 14px !important;
   }
 }
+
+
+/* AFV235 — Keep the Stories item visually consistent with the homepage on every page. */
+@media (max-width: 700px) {
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-stories { gap: 2px !important; color: #D8C7FF !important; }
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    width: 43px !important; min-width: 43px !important; max-width: 43px !important;
+    height: 43px !important; min-height: 43px !important; max-height: 43px !important;
+    flex: 0 0 43px !important; padding: 3px !important; box-sizing: border-box !important;
+    background: conic-gradient(#ff3f91,#8b5cf6,#2778ff,#20d6c4,#ff3f91) !important;
+    box-shadow: 0 0 13px rgba(167,139,250,.48) !important;
+  }
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar img {
+    width: 100% !important; height: 100% !important; border: 2px solid #101a31 !important;
+    border-radius: 50% !important; object-fit: cover !important; box-sizing: border-box !important;
+  }
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-count {
+    top: -3px !important; right: -4px !important; min-width: 17px !important; height: 17px !important;
+    padding: 0 4px !important; border: 2px solid #101827 !important; border-radius: 12px !important;
+    background: #A855F7 !important; color: #fff !important; font: 700 10px/1 Arial,sans-serif !important;
+  }
+}
+
+
+/* AFV235 — Match the homepage profile header sizing and alignment on Customer Reviews. */
+@media (max-width: 700px) {
+  html body.reviews-document .topbar {
+    padding: 10px 12px 11px !important;
+    column-gap: 10px !important;
+    row-gap: 8px !important;
+    align-items: center !important;
+  }
+  html body.reviews-document .topbar > .brand {
+    flex: 1 1 auto !important; min-width: 0 !important; justify-content: flex-start !important; gap: 9px !important;
+  }
+  html body.reviews-document .topbar > .brand .logo {
+    width: 43px !important; height: 43px !important; flex: 0 0 43px !important; border-radius: 13px !important;
+  }
+  html body.reviews-document .topbar > .brand b { font-size: 15px !important; line-height: 1.15 !important; letter-spacing: -.35px !important; }
+  html body.reviews-document .topbar > .brand small { margin-top: 3px !important; font-size: 11px !important; line-height: 1.2 !important; }
+  html body.reviews-document .topbar .header-meta { flex: 0 0 auto !important; gap: 6px !important; }
+  html body.reviews-document .topbar .header-meta > .privacy-link,
+  html body.reviews-document .topbar .header-meta > .about-header-link {
+    min-height: 40px !important; height: 40px !important; padding: 0 11px !important; border-radius: 12px !important;
+    font-size: 11px !important; line-height: 1 !important; white-space: nowrap !important; box-sizing: border-box !important;
+  }
+  html body.reviews-document .topbar .header-meta .header-icon { width: 16px !important; height: 16px !important; flex: 0 0 16px !important; }
+}
+@media (max-width: 380px) {
+  html body.reviews-document .topbar { padding-left: 9px !important; padding-right: 9px !important; }
+  html body.reviews-document .topbar > .brand { gap: 7px !important; }
+  html body.reviews-document .topbar > .brand .logo { width: 39px !important; height: 39px !important; flex-basis: 39px !important; }
+  html body.reviews-document .topbar .header-meta > .privacy-link,
+  html body.reviews-document .topbar .header-meta > .about-header-link { min-height: 37px !important; height: 37px !important; padding: 0 8px !important; font-size: 10px !important; }
+}
+
+
+/* AFV235 — match homepage mobile header geometry exactly; prevent the header from wrapping. */
+@media (max-width: 700px) {
+  html body.reviews-document .topbar {
+    box-sizing: border-box !important; display:flex !important; flex-flow:row nowrap !important;
+    align-items:center !important; justify-content:space-between !important;
+    padding:8px 12px !important; gap:8px !important; min-height:0 !important; height:auto !important;
+  }
+  html body.reviews-document .topbar > .brand {
+    flex:1 1 auto !important; min-width:0 !important; width:auto !important;
+    justify-content:flex-start !important; gap:7px !important;
+  }
+  html body.reviews-document .topbar > .brand .logo {
+    width:43px !important; height:43px !important; flex:0 0 43px !important;
+    border-radius:13px !important;
+  }
+  html body.reviews-document .topbar > .brand b { font-size:15px !important; line-height:1.15 !important; }
+  html body.reviews-document .topbar > .brand small { margin-top:3px !important; font-size:11px !important; line-height:1.2 !important; }
+  html body.reviews-document .topbar > .header-meta {
+    display:flex !important; flex:0 0 auto !important; width:auto !important; min-width:0 !important;
+    justify-content:flex-end !important; align-items:center !important; gap:6px !important;
+  }
+  html body.reviews-document .topbar > .header-meta > .privacy-link,
+  html body.reviews-document .topbar > .header-meta > .about-header-link {
+    box-sizing:border-box !important; flex:0 0 auto !important; display:inline-flex !important;
+    align-items:center !important; justify-content:center !important; height:36px !important; min-height:36px !important;
+    padding:0 8px !important; margin:0 !important; gap:5px !important; border-radius:12px !important;
+    font-size:10.5px !important; line-height:1 !important; white-space:nowrap !important;
+  }
+  html body.reviews-document .topbar > .header-meta > .privacy-link { width:102px !important; }
+  html body.reviews-document .topbar > .header-meta > .about-header-link { width:76px !important; }
+  html body.reviews-document .topbar > .header-meta .header-icon { width:14px !important; height:14px !important; flex:0 0 14px !important; }
+}
+@media (max-width: 380px) {
+  html body.reviews-document .topbar { padding-left:9px !important; padding-right:9px !important; gap:5px !important; }
+  html body.reviews-document .topbar > .brand { gap:6px !important; }
+  html body.reviews-document .topbar > .brand .logo { width:39px !important; height:39px !important; flex-basis:39px !important; }
+  html body.reviews-document .topbar > .brand b { font-size:13px !important; }
+  html body.reviews-document .topbar > .brand small { font-size:9.5px !important; }
+  html body.reviews-document .topbar > .header-meta { gap:4px !important; }
+  html body.reviews-document .topbar > .header-meta > .privacy-link { width:96px !important; padding:0 6px !important; font-size:9.5px !important; }
+  html body.reviews-document .topbar > .header-meta > .about-header-link { width:70px !important; padding:0 5px !important; font-size:9.5px !important; }
+  html body.reviews-document .topbar > .header-meta .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
+}

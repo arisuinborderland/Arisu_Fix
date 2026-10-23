@@ -1,4 +1,4 @@
-/* AFV194 — dedicated About page */
+/* AFV235 — About page mobile navigation replaces the floating Back to Main Page CTA. */
 .about-page{min-height:100vh;background:linear-gradient(145deg,#f1f9ff 0%,#f5f5ff 58%,#fff5fb 100%);color:#243452}
 .about-topbar{position:relative;z-index:1;padding:14px max(18px,calc((100% - 960px)/2));background:rgba(255,255,255,.86);backdrop-filter:blur(12px)}
 .about-back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid #dbe5f5;border-radius:999px;color:#24416f;text-decoration:none;font-size:13px;font-weight:800;background:#fff}
@@ -347,3 +347,38 @@
     padding-bottom: 72px !important;
   }
 }
+
+
+/* AFV235 — homepage-matched bottom navigation on About page; only visible on mobile. */
+body.about-page .about-floating-home { display:none !important; }
+body.about-page { padding-bottom:0; }
+body.about-page .mobile-bottom-nav { display:none; }
+@media screen and (max-width:700px) {
+  html body.about-page { padding-bottom:calc(84px + env(safe-area-inset-bottom,0px)) !important; }
+  html body.about-page .mobile-bottom-nav {
+    -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
+    position:fixed; left:0; right:0; bottom:0; z-index:2147482500;
+    display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); align-items:end; gap:2px;
+    box-sizing:border-box; width:100%; min-height:72px;
+    padding:2px 8px calc(7px + env(safe-area-inset-bottom,0px));
+    background:rgba(15,24,45,.97); border-top:1px solid rgba(174,198,255,.32);
+    box-shadow:0 -8px 28px rgba(20,35,70,.18);
+    -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
+  }
+  html body.about-page .mobile-bottom-nav > .mobile-nav-item {
+    min-width:0; min-height:58px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:4px; padding:3px 0; border:0; border-radius:12px; background:transparent; color:#e5edff;
+    text-decoration:none; font:600 11px/1.1 "DM Sans",sans-serif; cursor:pointer; -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  }
+  html body.about-page .mobile-bottom-nav > .mobile-nav-item svg { display:block; width:24px; height:24px; flex:0 0 24px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-item.is-active { background:rgba(167,139,250,.12); color:#fff; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-stories { position:relative; gap:2px; color:#8eb5ff; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-story-avatar { position:relative; display:block; width:43px; min-width:43px; max-width:43px; height:43px; min-height:43px; max-height:43px; flex:0 0 43px; box-sizing:border-box; padding:3px; margin:0; border-radius:50%; background:conic-gradient(#ff3f91,#8b5cf6,#2778ff,#20d6c4,#ff3f91); box-shadow:0 0 12px rgba(87,100,255,.3); overflow:visible; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-story-avatar img { display:block; width:100%; height:100%; object-fit:cover; border:2px solid #101a31; border-radius:50%; pointer-events:none; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-story-count { position:absolute; top:-3px; right:-4px; min-width:17px; height:17px; padding:0 4px; display:grid; place-items:center; border:2px solid #10182b; border-radius:12px; background:#A855F7; color:#fff; font:700 10px/1 Arial,sans-serif; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-story-count[data-loading="true"] { opacity:.88; background:#A855F7; font-weight:600; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-story-count[data-loading="false"] { opacity:1; transition:opacity .16s ease, background-color .16s ease; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar) { display:block; font-size:11px; line-height:1.15; white-space:nowrap; }
+  html body.about-page .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon { fill:currentColor; stroke:none; stroke-width:0; }
+}
+@media (prefers-reduced-motion:reduce) { html body.about-page .mobile-bottom-nav * { transition:none !important; animation:none !important; } }
