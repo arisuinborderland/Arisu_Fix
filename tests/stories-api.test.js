@@ -37,6 +37,7 @@ process.env.CRON_SECRET = 'test-cron-secret';
 const { validateStoryImage } = require('../lib/story-image');
 const storiesHandler = require('../api/stories');
 const cleanupHandler = require('../api/cleanup-stories');
+const storyCountHandler = require('../api/story-count');
 
 function response() {
   return { headers: {}, statusCode: 200, body: '', setHeader(k,v){this.headers[k]=v;}, end(v){this.body=String(v || '');}, json(){return JSON.parse(this.body);} };
@@ -192,7 +193,6 @@ test('27 cleanup retry succeeds after storage removal and first DB delete failur
   const second=response(); await cleanupHandler(req('GET',{headers:{authorization:'Bearer test-cron-secret'}}),second); assert.equal(second.statusCode,200); assert.equal(second.json().deleted,1); assert.equal(rowPresent,false); assert.equal(dbDeleteAttempts,2);
 });
 
-const storyCountHandler = require('../api/story-count');
 test('28 public Stories count uses lightweight exact-count query without image signing', async () => {
   let calledUrl = '';
   let calledOptions = {};
@@ -203,15 +203,17 @@ test('28 public Stories count uses lightweight exact-count query without image s
   const res = response(); await storyCountHandler(req('GET'), res);
   assert.equal(res.statusCode, 200); assert.deepEqual(res.json(), { count: 3 });
   assert.match(calledUrl, /admin_status=eq\.active/); assert.match(calledUrl, /is_active=eq\.true/); assert.match(calledUrl, /expires_at=gt\./);
-  assert.equal(calledOptions.headers.Prefer, 'count=exact'); assert.equal(calledOptions.headers.Range, '0-0');
+  assert.equal(calledOptions.method, 'HEAD'); assert.equal(calledOptions.headers.Prefer, 'count=exact'); assert.equal(calledOptions.headers.Range, '0-0');
+  assert.match(res.headers['Server-Timing'], /supabase_count;dur=/); assert.equal(res.headers['Cache-Control'], 'no-store');
   assert.equal(calledUrl.includes('/storage/'), false);
 });
 test('29 Stories count returns controlled service error when Supabase fails', async () => {
   setFetch(async () => ({ ok: false, status: 503, headers: { get() { return null; } }, async text() { return '{"message":"unavailable"}'; } }));
   const res = response(); await storyCountHandler(req('GET'), res);
-  assert.equal(res.statusCode, 503); assert.match(res.json().error, /temporarily unavailable/);
+  assert.equal(res.statusCode, 503); assert.match(res.json().error, /temporarily unavailable/); assert.match(res.headers['Server-Timing'], /total;dur=/);
 });
 test('30 Stories count rejects unsupported methods', async () => {
   const res = response(); await storyCountHandler(req('POST'), res);
   assert.equal(res.statusCode, 405); assert.equal(res.headers.Allow, 'GET');
 });
+
