@@ -1,0 +1,27 @@
+/* AFV189 — dedicated About page */
+.about-page{min-height:100vh;background:linear-gradient(145deg,#f1f9ff 0%,#f5f5ff 58%,#fff5fb 100%);color:#243452}
+.about-topbar{position:relative;z-index:1;padding:14px max(18px,calc((100% - 960px)/2));background:rgba(255,255,255,.86);backdrop-filter:blur(12px)}
+.about-back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid #dbe5f5;border-radius:999px;color:#24416f;text-decoration:none;font-size:13px;font-weight:800;background:#fff}
+.about-back-link span{font-size:20px;line-height:1}
+.about-page-main{width:min(920px,calc(100% - 36px));margin:0 auto;padding:30px 0 44px}
+.about-page-heading{text-align:center;margin:0 auto 22px;max-width:680px}
+.about-page-heading .section-kicker{color:#2b67d8;font-size:12px;font-weight:800;letter-spacing:.16em}
+.about-page-heading h1{margin:8px 0;color:#172749;font:800 clamp(27px,4vw,38px)/1.15 Manrope,Arial,sans-serif;letter-spacing:-1px}
+.about-page-heading p{margin:0;color:#5b6c87;font-size:15px;line-height:1.6}
+.about-page-purpose{margin:0 0 16px}
+.about-page-profile{margin:0 0 16px;padding:22px;gap:17px}
+.about-page-profile .about-description,.about-page-profile .independent-note{font-size:14px;line-height:1.7}
+.about-page-profile .independent-note{padding:10px 12px}
+.about-page-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.about-value-card{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:20px;border:1px solid rgba(125,163,229,.32);border-radius:20px;background:linear-gradient(140deg,#fff,#f6f9ff);box-shadow:0 8px 22px rgba(58,102,170,.06)}
+.about-value-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:#e6f1ff;color:#1761d3;font-size:25px;font-weight:800}
+.about-value-card h2{margin:3px 0 8px;color:#172749;font:800 17px/1.3 Manrope,Arial,sans-serif}
+.about-value-card p,.about-value-card li{color:#586984;font-size:13px;line-height:1.65}
+.about-value-card p{margin:0}.about-value-card ul{margin:0;padding-left:18px}
+.about-established{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px 0;color:#225ac2;font:800 14px/1.5 Manrope,Arial,sans-serif;text-align:center}
+.about-established span{font-size:20px}
+.about-home-cta{display:flex;align-items:center;justify-content:center;gap:12px;max-width:320px;margin:0 auto;padding:14px 18px;border-radius:12px;background:linear-gradient(100deg,#1688f4,#3155ed);box-shadow:0 8px 18px rgba(49,94,234,.2);color:#fff;text-decoration:none;font-weight:800}
+.about-page-footer{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;padding:20px 16px;border-top:1px solid #dce5f4;background:rgba(255,255,255,.8);font-size:12px}
+.about-page-footer a{color:#34557f;text-decoration:none}.about-page-footer span{color:#7a879c}
+@media(max-width:600px){.about-topbar{padding:11px 14px}.about-back-link{padding:9px 10px;font-size:12px}.about-page-main{width:calc(100% - 28px);padding:23px 0 32px}.about-page-heading{margin-bottom:17px}.about-page-heading p{font-size:13px}.about-page-purpose{padding:20px 17px;border-radius:19px}.about-page-purpose .purpose-card h2{font-size:25px}.about-page-purpose .purpose-card>p{font-size:14px;line-height:1.65}.about-page-profile{grid-template-columns:58px minmax(0,1fr);padding:15px 13px;gap:11px;border-radius:17px}.about-page-profile>img{width:58px;height:58px;border-radius:16px}.about-page-profile .about-brand-title{font-size:18px!important}.about-page-profile .about-description,.about-page-profile .independent-note{font-size:12.5px;line-height:1.55}.about-page-values{grid-template-columns:1fr;gap:12px}.about-value-card{padding:16px;border-radius:17px}.about-value-card p,.about-value-card li{font-size:13px}.about-established{font-size:13px}.about-page-footer{gap:12px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.about-page-cta{transition:none}.about-page-cta:hover{transform:none}}

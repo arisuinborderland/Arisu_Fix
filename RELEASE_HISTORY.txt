@@ -1,6 +1,11 @@
 ARISU FIX — RELEASE HISTORY
 Historical release notes only. Current release status and metadata are maintained in README.txt.
 
+## AFV188 — Compact Story Library cards
+- Reduced mobile Story card padding and vertical gaps for a denser list.
+- Slightly compacted thumbnails, action buttons, and view counters while preserving existing controls and behavior.
+- Updated Story Admin stylesheet cache-busting reference and package/readme version metadata to AFV188.
+
 ## AFV187 — Active Story library refinements
 - Compact Story cards and action layout while preserving existing library functions.
 - Added visible reorder grip plus accessible move-up/move-down controls for touch devices.

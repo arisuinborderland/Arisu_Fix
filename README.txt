@@ -1,19 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV187
+Version: AFV189
 Updated: 2026-10-23
 
-Current release: AFV187
-Package version: 187.0.0
-Source ZIP folder: AFV187/
+Current release: AFV189
+Package version: 189.0.0
+Source ZIP folder: AFV189/
 
-AFV187 RELEASE SUMMARY
-- Improved Story Admin image picker with clearer full-width upload guidance and responsive image previews.
-- Added per-image remove controls before upload and clearer invalid file-size feedback.
-- Refined Upload Stories / Active Stories tab states and focus visibility.
-- Added upload progress feedback for multi-image publishing.
-- Added image thumbnails to Active Stories management while preserving expiry/status details and existing archive/delete confirmations.
-- Preserved existing Story API behavior, 24-hour expiry rules, drafts, and permanent Recovery Proofs.
-- Updated active cache-busting references and package/readme version metadata to AFV187.
+AFV189 RELEASE SUMMARY
+- Moved the full “More Than Just Account Recovery” content to a dedicated About page.
+- Replaced the homepage purpose/about section with a single “About This Website” button linking to about.html.
+- Kept Terms & Limitations and the legitimate account recovery notice on the homepage.
+- Added responsive About page styling and included the new page and stylesheets in the production build allowlist.
+- Updated package version, active cache-busting references, and project folder name to AFV189.
 
 Build and test
 - npm test
