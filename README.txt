@@ -1,29 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV188
+Version: AFV242
 Updated: 2026-10-23
 
-Current release: AFV188
-Package version: 188.0.0
-Source ZIP folder: AFV188/
+Current release: AFV242
+Package version: 242.0.0
+Source ZIP folder: AFV242/
 
-AFV188 RELEASE SUMMARY
-- Tightened mobile Story Library card spacing, thumbnails, and action controls while preserving story management behavior.
-- Improved Story Admin image picker with clearer full-width upload guidance and responsive image previews.
-- Added per-image remove controls before upload and clearer invalid file-size feedback.
-- Refined Upload Stories / Active Stories tab states and focus visibility.
-- Added upload progress feedback for multi-image publishing.
-- Added image thumbnails to Active Stories management while preserving expiry/status details and existing archive/delete confirmations.
-- Preserved existing Story API behavior, 24-hour expiry rules, drafts, and permanent Recovery Proofs.
-- Updated active cache-busting references and package/readme version metadata to AFV188.
+AFV242 RELEASE SUMMARY
+- Synchronized active AFV cache-busting references and regression-test expectations to AFV242.
+- Preserved the compact Story Library card styling already present in the AFV241 baseline.
+- Preserved Story Admin, Stories API, database behavior, existing navigation, and page layouts outside the requested version update.
+- Kept build validation enabled.
 
-Build and test
-- npm test
-- npm run build
-
-Deployment note
-Vercel deployment must be verified from the actual preview/deployment logs. Local build success does not prove a live deployment succeeded.
-
-Documentation map
-- RELEASE_HISTORY.txt: historical release notes
-- tests/: automated regression tests
-- scripts/: maintenance and staging verification utilities
+Validation notes
+- Automated tests and production build are run as part of this release preparation.
+- Live Vercel deployment and browser visual confirmation must be checked after upload.

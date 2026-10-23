@@ -13,3 +13,35 @@ main>.wizard-card>h1{letter-spacing:-1.2px!important}
 .policy-updated{display:inline-block;padding:7px 11px;border:1px solid #e1e8f4;background:#f8faff;border-radius:999px;color:#63718a;font-size:11px}
 @media(max-width:600px){main{padding:20px 12px 40px}main>.wizard-card{padding:20px 16px;border-radius:19px}.policy-point{gap:12px}}
 #year{font:800 32px Manrope,sans-serif}
+
+
+/* AFV235 — align Privacy Policy navigation with the homepage mobile navigation. */
+.privacy-about-link { min-width: 94px; gap: 8px; white-space: nowrap; }
+.privacy-about-link svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mobile-bottom-nav { display: none; }
+@media screen and (max-width: 700px) {
+  html body.privacy-page { padding-bottom: calc(82px + env(safe-area-inset-bottom)) !important; }
+  html body.privacy-page .mobile-bottom-nav {
+    -webkit-touch-callout: none; -webkit-user-select: none; user-select: none;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147482500;
+    display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; gap: 2px;
+    padding: 2px 8px calc(7px + env(safe-area-inset-bottom)); min-height: 72px;
+    background: rgba(15,24,45,.97); border-top: 1px solid rgba(174,198,255,.32);
+    box-shadow: 0 -8px 28px rgba(20,35,70,.18); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  }
+  html body.privacy-page .mobile-nav-item {
+    min-width: 0; min-height: 58px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px; padding: 3px 0; border: 0; border-radius: 12px; background: transparent; color: #e5edff;
+    text-decoration: none; font: 600 11px/1.1 "DM Sans",sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  }
+  html body.privacy-page .mobile-nav-item svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  html body.privacy-page .mobile-nav-stories { gap: 2px; }
+  html body.privacy-page .mobile-nav-story-avatar { position: relative; display: block; width: 43px; height: 43px; padding: 3px; border-radius: 50%; background: conic-gradient(#ff3f91,#8b5cf6,#2778ff,#20d6c4,#ff3f91); box-shadow: 0 0 12px rgba(87,100,255,.3); }
+  html body.privacy-page .mobile-nav-story-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; border: 2px solid #101a31; border-radius: 50%; pointer-events: none; -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; }
+  html body.privacy-page .mobile-nav-story-count { position: absolute; top: -3px; right: -4px; min-width: 17px; height: 17px; padding: 0 4px; display: grid; place-items: center; border: 2px solid #10182b; border-radius: 12px; background: #a855f7; color: #fff; font: 700 10px/1 Arial,sans-serif; }
+  html body.privacy-page .mobile-nav-story-count[data-loading="true"] { opacity: .88; background: #5b6b8d; }
+  html body.privacy-page .mobile-nav-stories:active .mobile-nav-story-avatar { transform: scale(.96); }
+  html body.privacy-page .mobile-nav-item.is-active { color: #fff; }
+  html body.privacy-page .mobile-nav-item svg.whatsapp-nav-icon { fill: currentColor; stroke: none; stroke-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) { html body.privacy-page .mobile-nav-story-avatar { transition: none !important; } }
