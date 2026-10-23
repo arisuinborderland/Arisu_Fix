@@ -1,4 +1,4 @@
-/* AFV189 — dedicated About page */
+/* AFV190 — dedicated About page */
 .about-page{min-height:100vh;background:linear-gradient(145deg,#f1f9ff 0%,#f5f5ff 58%,#fff5fb 100%);color:#243452}
 .about-topbar{position:relative;z-index:1;padding:14px max(18px,calc((100% - 960px)/2));background:rgba(255,255,255,.86);backdrop-filter:blur(12px)}
 .about-back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid #dbe5f5;border-radius:999px;color:#24416f;text-decoration:none;font-size:13px;font-weight:800;background:#fff}
@@ -25,3 +25,10 @@
 .about-page-footer a{color:#34557f;text-decoration:none}.about-page-footer span{color:#7a879c}
 @media(max-width:600px){.about-topbar{padding:11px 14px}.about-back-link{padding:9px 10px;font-size:12px}.about-page-main{width:calc(100% - 28px);padding:23px 0 32px}.about-page-heading{margin-bottom:17px}.about-page-heading p{font-size:13px}.about-page-purpose{padding:20px 17px;border-radius:19px}.about-page-purpose .purpose-card h2{font-size:25px}.about-page-purpose .purpose-card>p{font-size:14px;line-height:1.65}.about-page-profile{grid-template-columns:58px minmax(0,1fr);padding:15px 13px;gap:11px;border-radius:17px}.about-page-profile>img{width:58px;height:58px;border-radius:16px}.about-page-profile .about-brand-title{font-size:18px!important}.about-page-profile .about-description,.about-page-profile .independent-note{font-size:12.5px;line-height:1.55}.about-page-values{grid-template-columns:1fr;gap:12px}.about-value-card{padding:16px;border-radius:17px}.about-value-card p,.about-value-card li{font-size:13px}.about-established{font-size:13px}.about-page-footer{gap:12px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.about-page-cta{transition:none}.about-page-cta:hover{transform:none}}
+
+/* AFV190 — include the complete Please Read / Terms card on the About page. */
+.about-page-main > .about-terms-section{display:block;width:100%;max-width:none;margin:22px 0 20px;padding:0}
+.about-page-main > .about-terms-section .terms-card{padding:22px;border-radius:20px}
+.about-page-main > .about-terms-section .terms-card h2{margin:8px 0 10px}
+.about-page-main > .about-terms-section .terms-intro{margin:0 0 12px}
+@media(max-width:600px){.about-page-main > .about-terms-section{margin:18px 0 16px}.about-page-main > .about-terms-section .terms-card{padding:17px 15px}.about-page-main > .about-terms-section .terms-card p{font-size:14px;line-height:1.65}}

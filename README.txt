@@ -1,17 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV189
+Version: AFV190
 Updated: 2026-10-23
 
-Current release: AFV189
-Package version: 189.0.0
-Source ZIP folder: AFV189/
+Current release: AFV190
+Package version: 190.0.0
+Source ZIP folder: AFV190/
 
-AFV189 RELEASE SUMMARY
-- Moved the full “More Than Just Account Recovery” content to a dedicated About page.
-- Replaced the homepage purpose/about section with a single “About This Website” button linking to about.html.
-- Kept Terms & Limitations and the legitimate account recovery notice on the homepage.
-- Added responsive About page styling and included the new page and stylesheets in the production build allowlist.
-- Updated package version, active cache-busting references, and project folder name to AFV189.
+AFV190 RELEASE SUMMARY
+- Kept only the “About This Website” button on the homepage; positioned it visibly above the footer and fixed mobile navigation.
+- Moved the complete “PLEASE READ — Terms & Limitations” card, including the legitimate recovery notice, onto the dedicated About page.
+- Updated homepage/footer Terms links to open about.html#terms.
+- Updated package version, cache-busting references, and release documentation to AFV190.
 
 Build and test
 - npm test
