@@ -10,3 +10,14 @@ test('Stories navigation stays visible when stories are empty or the API fails',
   assert.match(source, /must never hide the bottom-navigation button/);
   assert.match(source, /if \(!stories\.length\) await load\(\)/);
 });
+
+
+test('every page with Stories navigation loads the viewer stylesheet and script', () => {
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html', 'privacy.html']) {
+    const html = fs.readFileSync(path.join(__dirname, '..', page), 'utf8');
+    assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
+    assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
+    assert.match(html, /story-viewer\.css\?v=AFV261/, `${page} should load Story Viewer styles`);
+    assert.match(html, /story-viewer\.js\?v=AFV261/, `${page} should load Story Viewer behavior`);
+  }
+});
