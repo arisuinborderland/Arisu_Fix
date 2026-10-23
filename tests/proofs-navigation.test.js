@@ -1,0 +1,11 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.join(__dirname, '..');
+const html = fs.readFileSync(path.join(root, 'proofs.html'), 'utf8');
+const css = fs.readFileSync(path.join(root, 'proofs.css'), 'utf8');
+test('Recovery Proofs has Privacy Policy and About header actions', () => { assert.match(html, /class="privacy-link"/); assert.match(html, /class="about-header-link"/); });
+test('Recovery Proofs no longer includes the floating Back to Home button', () => { assert.doesNotMatch(html, /proofs-back-to-site/); });
+test('Recovery Proofs has five-item bottom navigation and Stories centered', () => { assert.match(html, /class="mobile-bottom-nav"/); assert.match(html, /id="mobileNavStories"/); assert.match(html, /class="mobile-nav-item is-active" href="proofs.html"/); });
+test('Recovery Proofs navigation styles are page scoped', () => { assert.match(css, /body\.proofs-document \.mobile-bottom-nav/); });

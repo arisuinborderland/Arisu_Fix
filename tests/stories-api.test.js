@@ -205,12 +205,14 @@ test('28 public Stories count uses lightweight exact-count query without image s
   assert.match(calledUrl, /admin_status=eq\.active/); assert.match(calledUrl, /is_active=eq\.true/); assert.match(calledUrl, /expires_at=gt\./);
   assert.equal(calledOptions.method, 'HEAD'); assert.equal(calledOptions.headers.Prefer, 'count=exact'); assert.equal(calledOptions.headers.Range, '0-0');
   assert.match(res.headers['Server-Timing'], /supabase_count;dur=/); assert.equal(res.headers['Cache-Control'], 'no-store');
+  assert.equal(res.headers['Vercel-CDN-Cache-Control'], 'public, s-maxage=15, stale-while-revalidate=120');
   assert.equal(calledUrl.includes('/storage/'), false);
 });
 test('29 Stories count returns controlled service error when Supabase fails', async () => {
   setFetch(async () => ({ ok: false, status: 503, headers: { get() { return null; } }, async text() { return '{"message":"unavailable"}'; } }));
   const res = response(); await storyCountHandler(req('GET'), res);
   assert.equal(res.statusCode, 503); assert.match(res.json().error, /temporarily unavailable/); assert.match(res.headers['Server-Timing'], /total;dur=/);
+  assert.equal(res.headers['Vercel-CDN-Cache-Control'], undefined, 'failed count requests must not be cached');
 });
 test('30 Stories count rejects unsupported methods', async () => {
   const res = response(); await storyCountHandler(req('POST'), res);
