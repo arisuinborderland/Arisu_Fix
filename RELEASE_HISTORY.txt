@@ -1,3 +1,7 @@
+AFV256 — 2026-10-23
+- Fixed stale AFV242 active cache-busting expectations in tests/reviews-page-cleanup.test.js that caused Vercel build.js to fail for AFV255.
+- Updated active cache-busting tokens and release metadata to AFV256 / 256.0.0.
+
 AFV255 — 2026-10-23
 - Fixed missing Story Viewer stylesheet on About and Privacy Policy pages so the viewer overlay can display correctly there.
 - Added regression coverage requiring Story Viewer CSS and JavaScript on Home, Reviews, Proofs, About, and Privacy Policy.

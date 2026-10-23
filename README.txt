@@ -1,16 +1,18 @@
 ARISU FIX — PROJECT README
-Version: AFV255
+Version: AFV256
 Updated: 2026-10-23
 
-Current release: AFV255
-Package version: 255.0.0
-Source ZIP folder: AFV255/
+Current release: AFV256
+Package version: 256.0.0
+Source ZIP folder: AFV256/
 
-AFV255 RELEASE SUMMARY
+AFV256 RELEASE SUMMARY
+- Fixed stale AFV242 cache-busting expectations in the Reviews regression test that caused Vercel production builds to fail.
+- Kept Stories viewer assets and page behavior unchanged from AFV255.
 - Fixed missing Story Viewer styling on About and Privacy Policy pages.
 - Added regression coverage to require the viewer stylesheet on every page with Stories navigation.
 - Performed a deeper source-level file audit based on AFV253.
-- Synchronized active cache-busting references, package metadata, tests, and asset-guide versions to AFV255.
+- Synchronized active cache-busting references, package metadata, tests, and asset-guide versions to AFV256.
 - Corrected stale version labels and removed unrelated AFV195 historical notes from the Recovery Proofs and Customer Reviews asset guides.
 - Preserved application CSS declarations and runtime behavior; no unverified WhatsApp CSS consolidation was made.
 - Excluded the generated dist/ directory from the delivered source ZIP.
