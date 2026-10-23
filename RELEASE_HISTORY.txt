@@ -311,3 +311,11 @@ Updated: 2026-10-22
 - Preserved the neutral loading marker and independent count/full-Story requests.
 - Added regression tests for count accuracy, HEAD request semantics, unsupported methods, and Supabase failures.
 - Live Vercel/Supabase latency has not been measured in this release.
+
+## AFV183 — Stories count loading polish
+- Kept the lightweight `/api/story-count` request independent from full Story loading.
+- Added an explicit accessible loading state (`aria-busy`) to the footer Stories count badge.
+- Recorded browser request duration and the `Server-Timing` response header for diagnostics, including failed requests.
+- Added subtle loading-state styling without changing badge geometry or navigation layout.
+- Preserved fallback to the full Stories list if the count endpoint is unavailable.
+- Automated regression tests: 30 passed; production build passed. Live latency still requires deployment measurements.

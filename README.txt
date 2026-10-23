@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV182
+Version: AFV183
 Updated: 2026-10-23
 
-Current release: AFV182
-Package version: 182.0.0
-Source ZIP folder: AFV182/
+Current release: AFV183
+Package version: 183.0.0
+Source ZIP folder: AFV183/
 
-AFV182 RELEASE SUMMARY
-- Fixed build validation so Vercel-generated node_modules/.bin symbolic links are not treated as project source files.
-- Preserved the explicit public output allowlist and backend/source exclusions.
+AFV183 RELEASE SUMMARY
+- Improved footer Stories count loading state and accessibility.
+- Recorded browser-side count request duration and the server timing header for diagnostics.
+- Preserved the independent lightweight count request, fallback count, and existing Stories viewer behavior.
 - Kept source tests and staging scripts out of public dist output.
 
 Build and test

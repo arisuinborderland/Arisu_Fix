@@ -97,9 +97,16 @@
     clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
     timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, DURATION);
   }
+  function setCountLoading(isLoading) {
+    if (!mobileStoriesCount) return;
+    mobileStoriesCount.dataset.loading = isLoading ? 'true' : 'false';
+    mobileStoriesCount.setAttribute('aria-busy', String(isLoading));
+    if (isLoading) mobileStoriesCount.setAttribute('aria-label', 'Loading Stories count');
+  }
   async function loadCount() {
     if (!mobileStoriesCount) return;
     const requestStarted = performance.now();
+    setCountLoading(true);
     try {
       performance.mark('story-count-request-start');
       const response = await fetch('/api/story-count', { cache: 'no-store' });
@@ -109,13 +116,17 @@
         mobileStoriesCount.textContent = String(data.count);
         countLoaded = true;
         mobileStoriesCount.setAttribute('aria-label', `${data.count} available stories`);
+        setCountLoading(false);
         // Visible in browser Performance tools to distinguish browser/network
         // latency from the server-side Supabase timing in the Server-Timing header.
         performance.mark('story-count-request-end');
         performance.measure('story-count-request', 'story-count-request-start', 'story-count-request-end');
         mobileStoriesCount.dataset.countLoadMs = String(Math.round(performance.now() - requestStarted));
+        mobileStoriesCount.dataset.countServerTiming = response.headers.get('Server-Timing') || '';
       }
     } catch {
+      mobileStoriesCount.dataset.countLoadMs = String(Math.round(performance.now() - requestStarted));
+      setCountLoading(false);
       // Keep the neutral loading marker rather than displaying a false zero.
       // If full Story data arrives first, load() supplies a fallback count.
     }
@@ -128,6 +139,7 @@
       if (mobileStoriesCount && !countLoaded) {
         mobileStoriesCount.textContent = String(stories.length);
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
+        setCountLoading(false);
       }
       // Preload the first story and warm the next one before the viewer is opened.
       stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
