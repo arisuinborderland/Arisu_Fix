@@ -1,5 +1,5 @@
 ARISU FIX — RECOVERY PROOFS ASSET GUIDE
-Version: AFV181
+Version: AFV182
 Updated: 2026-10-23
 
 Place only authorized proof screenshots/images in this folder, then edit the
