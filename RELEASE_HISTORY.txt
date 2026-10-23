@@ -352,3 +352,8 @@ Updated: 2026-10-22
 - Added regression assertions for edge-cache headers and for keeping failed count responses uncached.
 - Updated package version, current cache-busting tokens, README, and staging smoke-test labels to AFV184.
 - A cold request on an empty cache can still wait on Vercel/Supabase; live deployment latency must be measured after deployment.
+
+
+AFV191 — 2026-10-23
+- Redesigned the homepage About This Website link as the profile-card CTA from the supplied reference image.
+- Kept the link targeting about.html and retained mobile navigation clearance.

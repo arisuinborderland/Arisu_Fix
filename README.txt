@@ -1,16 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV190
+Version: AFV191
 Updated: 2026-10-23
 
-Current release: AFV190
-Package version: 190.0.0
-Source ZIP folder: AFV190/
+Current release: AFV191
+Package version: 191.0.0
+Source ZIP folder: AFV191/
 
-AFV190 RELEASE SUMMARY
-- Kept only the “About This Website” button on the homepage; positioned it visibly above the footer and fixed mobile navigation.
-- Moved the complete “PLEASE READ — Terms & Limitations” card, including the legitimate recovery notice, onto the dedicated About page.
-- Updated homepage/footer Terms links to open about.html#terms.
-- Updated package version, cache-busting references, and release documentation to AFV190.
+AFV191 RELEASE SUMMARY
+- Replaced the compact About button with a full-width profile-card link matching the supplied reference: profile image, eyebrow label, headline, supporting text, and right arrow.
+- Preserved the dedicated About page destination and homepage placement above the footer.
+- Updated package version, cache-busting references, and release documentation to AFV191.
 
 Build and test
 - npm test
