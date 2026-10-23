@@ -1,3 +1,36 @@
+AFV229 — 2026-10-23
+- Matched Recovery Proofs header button dimensions, internal icon/text spacing, border radius, color treatment, and position to the homepage reference.
+- Matched desktop spacing and responsive mobile sizes while keeping changes scoped to the Recovery Proofs page.
+- Updated active cache-busting references and package/release metadata to AFV229.
+
+AFV228 — 2026-10-23
+- Matched About and Privacy Policy header button sizing, padding, icon dimensions, and vertical alignment on Customer Reviews and Recovery Proofs to the homepage reference.
+- Added Privacy Policy and About header buttons to Recovery Proofs.
+- Removed the Back to Home floating button from Recovery Proofs only.
+- Added the homepage-matched five-item mobile navigation with Stories centered and Proofs active.
+- Scoped copied navigation CSS to the Recovery Proofs page; left homepage layout and controls unchanged.
+- Updated cache-busting references, package version, README, and release metadata.
+
+AFV226 — 2026-10-23
+- Matched Customer Reviews header Privacy Policy and About button sizing to the homepage mobile header: 43px controls at <=600px and 41px at <=380px, with matching padding, font size, and radius.
+- Kept the Reviews-only legacy floating-control cleanup scoped to body.reviews-document; no global floating-button behavior changed.
+
+AFV221 — 2026-10-23
+- Replaced the malformed WhatsApp icon in the bottom Contact navigation with a clean, solid brand glyph.
+- Kept icon size, color, alignment, navigation behavior, and all other layout unchanged.
+- Updated active cache-busting references, package version, README, and release metadata to AFV221.
+
+AFV220 — 2026-10-23
+- Suppressed right-click/context menus, long-press callouts, and drag behavior on the entire five-item mobile bottom navigation.
+- Made the Stories avatar image ignore pointer targeting so a long press cannot open the image menu; the Stories button remains tappable.
+- Added regression coverage for navigation context-menu suppression and preserved Reviews destination.
+- Updated active cache-busting references, package version, README, and release metadata to AFV220.
+
+AFV219 — 2026-10-23
+- Changed the bottom Reviews navigation item on the home page to open https://arisufix.vercel.app/reviews.html directly, rather than jump to the in-page Customer Reviews section.
+- Kept Home, Stories, Proofs, and Contact navigation behavior unchanged; Stories remains centered.
+- Updated active cache-busting references, package version, README, and release metadata to AFV219.
+
 AFV218 — 2026-10-23
 - Reduced Privacy Policy button height by 2px at the top and bottom to match the compact About button.
 - Removed the legacy -2px vertical translation from Privacy Policy to keep both header buttons aligned.
@@ -408,3 +441,25 @@ AFV194 — 2026-10-23
 AFV214 — 2026-10-23
 - Added small inline icons to compact footer navigation links.
 - Updated active index.html cache-busting references and package metadata.
+
+
+AFV223 — 2026-10-23
+- Removed the two floating controls from Customer Reviews only, without deleting shared homepage markup or styles.
+- Replaced the Reviews header Recovery Proofs action with the About action, alongside Privacy Policy.
+- Added the five-item fixed bottom navigation to Customer Reviews, using the existing Stories viewer and preserving the direct Reviews destination.
+- Added scoped responsive styles and regression tests for the Reviews page; updated package version, cache-busting tokens, and README.
+
+
+AFV224 — 2026-10-23
+- Follow-up fix after the two floating controls remained visible on the live Customer Reviews page.
+- Added Reviews-page-only CSS protection and a MutationObserver cleanup for the Back to Home shortcut, legacy Arisu floating menu, and floating WhatsApp control if present or dynamically injected.
+- Kept shared homepage floating controls and all review content/navigation unchanged.
+- Updated the production build allowlist, active cache-busting tokens, package metadata, README, and regression tests.
+- Browser rendering on the live Vercel deployment still requires confirmation after deployment.
+
+
+AFV226 — 2026-10-23
+- Fixed Preview navigation: the Reviews item in the homepage and Reviews-page bottom navigation now uses relative reviews.html instead of hard-wiring the production Vercel URL.
+- This keeps testing on a Preview deployment within that same Preview deployment, so the new Reviews header and floating-control cleanup can actually be checked before production deploy.
+- Preserved the five-item bottom navigation, About + Privacy Policy header, Reviews content, scoped floating-control cleanup, and homepage controls.
+- Updated active cache-busting references, package version, README, and regression tests.

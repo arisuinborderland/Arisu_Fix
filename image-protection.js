@@ -8,20 +8,22 @@
     ".review-lightbox-image", ".review-lightbox"
   ].join(", ");
   const inProtectedArea = (target) => target instanceof Element && Boolean(target.closest(protectedSelector));
+  const inBottomNavigation = (target) => target instanceof Element && Boolean(target.closest(".mobile-bottom-nav"));
+  // Keep all five navigation controls tap/click-only, including the Stories avatar image.
   document.addEventListener("contextmenu", (event) => {
-    if (inProtectedArea(event.target)) event.preventDefault();
+    if (inProtectedArea(event.target) || inBottomNavigation(event.target)) event.preventDefault();
   }, true);
   document.addEventListener("dragstart", (event) => {
-    if (inProtectedArea(event.target)) event.preventDefault();
+    if (inProtectedArea(event.target) || inBottomNavigation(event.target)) event.preventDefault();
   }, true);
   document.addEventListener("touchstart", (event) => {
-    if (inProtectedArea(event.target)) {
+    if (inProtectedArea(event.target) || inBottomNavigation(event.target)) {
       const el = event.target.closest("img, .review-lightbox-image");
       if (el) el.style.webkitTouchCallout = "none";
     }
   }, { passive: true, capture: true });
   const protectImages = (root = document) => {
-    root.querySelectorAll?.(`${protectedSelector} img`).forEach((img) => {
+    root.querySelectorAll?.(`${protectedSelector} img, .mobile-bottom-nav img`).forEach((img) => {
       img.draggable = false;
       img.style.webkitUserDrag = "none";
       img.style.webkitTouchCallout = "none";

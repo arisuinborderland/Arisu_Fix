@@ -120,3 +120,791 @@ html body .floating-menu{right:max(12px,env(safe-area-inset-right,0px))!importan
 .proof-image-pair img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;object-position:center;aspect-ratio:709/1340}
 .proof-image-link:has(.proof-image-pair){aspect-ratio:709/670}
 @media(max-width:600px){.proof-image-pair{gap:2px}}
+
+
+/* AFV228 — Recovery Proofs header actions and homepage-matched mobile navigation. */
+html body.proofs-document .topbar .header-meta{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:0}
+html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:48px;padding:0 15px;border:1px solid #cbd5e5;border-radius:15px;background:rgba(255,255,255,.88);color:#34415a;text-decoration:none;white-space:nowrap;font-size:13px;font-weight:800;box-shadow:0 3px 10px rgba(31,49,83,.07)}
+html body.proofs-document .topbar .header-meta>.about-header-link{border-color:#8ba7ff;background:linear-gradient(135deg,rgba(242,247,255,.98),rgba(238,233,255,.96));color:#2858d6}
+html body.proofs-document .topbar .header-meta .header-icon{display:block;width:17px;height:17px;flex:0 0 17px}
+html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))!important}
+@media(max-width:600px){html body.proofs-document .topbar .header-meta{gap:6px}html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{min-height:43px;padding:0 15px;gap:5px;border-radius:12px;font-size:12px}html body.proofs-document .topbar .header-meta .header-icon{width:14px;height:14px;flex-basis:14px}}
+@media(max-width:380px){html body.proofs-document .topbar .header-meta{gap:4px}html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{min-height:41px;padding:0 10px;gap:4px;font-size:11px}html body.proofs-document .topbar .header-meta .header-icon{width:12px;height:12px;flex-basis:12px}}
+/* AFV228 — fixed mobile bottom navigation on Recovery Proofs, matching the homepage. */
+.mobile-bottom-nav { display:none; }
+@media screen and (max-width: 700px) {
+  html body.proofs-document { padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
+  /* Keep the restored floating quick-access menu available on mobile too. */
+  html body.proofs-document .mobile-bottom-nav {
+    /* Navigation is tap-only: suppress text selection, image callouts, and long-press menus. */
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:2147482500;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    align-items:end;
+    gap:2px;
+    padding:2px 8px calc(7px + env(safe-area-inset-bottom));
+    min-height:72px;
+    background:rgba(15,24,45,.97);
+    border-top:1px solid rgba(174,198,255,.32);
+    box-shadow:0 -8px 28px rgba(20,35,70,.18);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+  }
+  html body.proofs-document .mobile-nav-item {
+    min-width:0;
+    min-height:58px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    padding:3px 0;
+    border:0;
+    border-radius:12px;
+    background:transparent;
+    color:#e5edff;
+    text-decoration:none;
+    font:600 11px/1.1 "DM Sans",sans-serif;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+  html body.proofs-document .mobile-nav-item svg {
+    width:24px; height:24px;
+    fill:none; stroke:currentColor; stroke-width:1.8;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+  html body.proofs-document .mobile-nav-item.is-active { color:#fff; }
+  html body.proofs-document .mobile-nav-item.is-active svg {
+    filter:drop-shadow(0 0 7px rgba(74,123,255,.9));
+    color:#8eb5ff;
+  }
+  html body.proofs-document .mobile-nav-stories { gap:2px; }
+  html body.proofs-document .mobile-nav-story-avatar {
+    position:relative;
+    display:block;
+    width:43px; height:43px;
+    padding:3px;
+    border-radius:50%;
+    background:conic-gradient(#ff3f91,#8b5cf6,#2778ff,#20d6c4,#ff3f91);
+    box-shadow:0 0 12px rgba(87,100,255,.3);
+  }
+  html body.proofs-document .mobile-nav-story-avatar img {
+    display:block; width:100%; height:100%; object-fit:cover;
+    border:2px solid #101a31; border-radius:50%;
+    pointer-events:none;
+    -webkit-touch-callout:none;
+    -webkit-user-drag:none;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  html body.proofs-document .mobile-nav-story-count[data-loading="true"] {
+    opacity:.88;
+    background:#5b6b8d;
+    font-weight:600;
+  }
+  html body.proofs-document .mobile-nav-story-count[data-loading="false"] {
+    opacity:1;
+    transition:opacity .16s ease, background-color .16s ease;
+  }
+  html body.proofs-document .mobile-nav-story-count {
+    position:absolute; top:-3px; right:-4px;
+    min-width:17px; height:17px; padding:0 4px;
+    display:grid; place-items:center;
+    border:2px solid #10182b; border-radius:12px;
+    background:#f02e66; color:#fff;
+    font:700 10px/1 Arial,sans-serif;
+  }
+  html body.proofs-document .mobile-nav-stories:active .mobile-nav-story-avatar { transform:scale(.96); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.proofs-document .mobile-nav-story-avatar { transition:none !important; }
+}
+
+
+/* AFV194 — refined compact profile header; preserve the existing header links and gradient. */
+@media (max-width: 700px) {
+  html body.proofs-document .topbar {
+    padding: 10px 12px 11px;
+    column-gap: 10px;
+    row-gap: 8px;
+  }
+  html body.proofs-document .topbar > .brand {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    gap: 9px;
+  }
+  html body.proofs-document .topbar > .brand .logo {
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 13px;
+  }
+  html body.proofs-document .topbar > .brand .brand-copy { min-width: 0; }
+  html body.proofs-document .topbar > .brand b {
+    font-size: 15px;
+    line-height: 1.15;
+    letter-spacing: -.35px;
+  }
+  html body.proofs-document .topbar > .brand small {
+    margin-top: 3px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  html body.proofs-document .topbar .arisu-verified-badge {
+    flex: 0 0 auto;
+  }
+  html body.proofs-document .topbar .header-meta {
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+  html body.proofs-document .topbar .header-meta .privacy-link {
+    min-height: 40px;
+    padding: 0 11px;
+    border-radius: 12px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 380px) {
+  html body.proofs-document .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.proofs-document .topbar > .brand { gap: 7px; }
+  html body.proofs-document .topbar > .brand .logo {
+    width: 39px; height: 39px; flex-basis: 39px;
+  }
+  html body.proofs-document .topbar .header-meta .privacy-link {
+    min-height: 37px; padding: 0 8px; font-size: 10px;
+  }
+}
+
+
+/* AFV194 — keep the mobile header focused on the Arisu profile and Privacy Policy. */
+@media (max-width: 700px) {
+  html body.proofs-document .topbar > .header-meta {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    grid-template-columns: none !important;
+    justify-content: flex-end;
+    gap: 0 !important;
+  }
+  html body.proofs-document .topbar > .header-meta > .proofs-header-link,
+  html body.proofs-document .topbar > .header-meta > .webtools-header-link {
+    display: none !important;
+  }
+  html body.proofs-document .topbar > .header-meta > .privacy-link {
+    display: inline-flex !important;
+    width: auto;
+    flex: 0 0 auto;
+  }
+}
+
+
+/* AFV194 — Option 3: Deep Black-Navy footer with a Violet Stories accent. */
+@media (max-width: 700px) {
+  html body.proofs-document .mobile-bottom-nav {
+    background: rgba(16, 24, 39, .985) !important;
+    border-top-color: rgba(167, 139, 250, .25) !important;
+    box-shadow: 0 -8px 28px rgba(5, 10, 22, .28) !important;
+  }
+  html body.proofs-document .mobile-nav-item {
+    color: #F8FAFF !important;
+  }
+  html body.proofs-document .mobile-nav-item.is-active {
+    color: #FFFFFF !important;
+  }
+  html body.proofs-document .mobile-nav-item.is-active svg {
+    color: #FFFFFF !important;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, .18)) !important;
+  }
+  html body.proofs-document .mobile-nav-stories {
+    color: #D8C7FF !important;
+  }
+  html body.proofs-document .mobile-nav-stories .mobile-nav-story-avatar {
+    box-shadow: 0 0 13px rgba(167, 139, 250, .48) !important;
+  }
+  html body.proofs-document .mobile-nav-stories .mobile-nav-story-count {
+    background: #A855F7 !important;
+    border-color: #101827 !important;
+  }
+}
+
+
+/* AFV194 — apply the Deep Black-Navy + Violet footer style on desktop too. */
+@media (min-width: 701px) {
+  html body.proofs-document .site-footer {
+    background: #101827 !important;
+    color: #F8FAFF !important;
+    border-top: 1px solid rgba(167, 139, 250, .25) !important;
+  }
+  html body.proofs-document .site-footer .footer-brand,
+  html body.proofs-document .site-footer .footer-brand .brand-name-row,
+  html body.proofs-document .site-footer .footer-brand small,
+  html body.proofs-document .site-footer .footer-note,
+  html body.proofs-document .site-footer .footer-location,
+  html body.proofs-document .site-footer .footer-location-item,
+  html body.proofs-document .site-footer .footer-copyright {
+    color: #F8FAFF !important;
+  }
+  html body.proofs-document .site-footer .footer-links a {
+    color: #F8FAFF !important;
+    transition: color .2s ease, text-shadow .2s ease;
+  }
+  html body.proofs-document .site-footer .footer-links a:hover,
+  html body.proofs-document .site-footer .footer-links a:focus-visible {
+    color: #D8C7FF !important;
+    text-shadow: 0 0 10px rgba(167, 139, 250, .42);
+  }
+  html body.proofs-document .site-footer .footer-copyright {
+    border-top-color: rgba(167, 139, 250, .2) !important;
+  }
+}
+
+
+/* AFV194 — desktop version of the five-item bottom navigation. */
+@media (min-width: 701px) {
+  html body.proofs-document .mobile-bottom-nav {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 5 !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: min(100% - 64px, 1040px) !important;
+    margin: 22px auto 0 !important;
+    padding: 12px 14px !important;
+    min-height: 0 !important;
+    border: 1px solid rgba(167, 139, 250, .22) !important;
+    border-radius: 18px !important;
+    background: #101827 !important;
+    box-shadow: 0 10px 28px rgba(5, 10, 22, .2) !important;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  html body.proofs-document .mobile-nav-item {
+    min-width: 0 !important;
+    min-height: 58px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 5px 4px !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    color: #F8FAFF !important;
+    text-decoration: none !important;
+    font: 600 12px/1.1 "DM Sans", sans-serif !important;
+    cursor: pointer !important;
+  }
+  html body.proofs-document .mobile-nav-item svg {
+    width: 23px !important;
+    height: 23px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.proofs-document .mobile-nav-item.is-active {
+    color: #D8C7FF !important;
+    background: rgba(167, 139, 250, .09) !important;
+  }
+  html body.proofs-document .mobile-nav-stories {
+    color: #D8C7FF !important;
+  }
+  html body.proofs-document .mobile-nav-stories .mobile-nav-story-avatar {
+    box-shadow: 0 0 13px rgba(167, 139, 250, .48) !important;
+  }
+  html body.proofs-document .mobile-nav-stories .mobile-nav-story-count {
+    background: #A855F7 !important;
+    border-color: #101827 !important;
+  }
+}
+@media (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  html body.proofs-document .mobile-nav-item { transition: none !important; }
+}
+
+
+/* AFV194 — make desktop navigation float above page content, matching mobile behavior. */
+@media (min-width: 701px) {
+  html body.proofs-document {
+    padding-bottom: 112px !important;
+  }
+  html body.proofs-document .mobile-bottom-nav {
+    position: fixed !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147482500 !important;
+    width: min(720px, calc(100vw - 48px)) !important;
+    max-width: 720px !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+    min-height: 76px !important;
+    background: rgba(16, 24, 39, .97) !important;
+    border: 1px solid rgba(167, 139, 250, .28) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 34px rgba(5, 10, 22, .32) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(16px) !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-item {
+    min-width: 0 !important;
+    min-height: 54px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    line-height: 1.15 !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-item svg {
+    width: 21px !important;
+    height: 21px !important;
+    flex: 0 0 21px !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-item.is-active {
+    background: rgba(167, 139, 250, .12) !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-stories {
+    gap: 3px !important;
+    color: #D8C7FF !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-story-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+    padding: 2px !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-story-avatar img {
+    border-width: 1px !important;
+  }
+  html body.proofs-document .mobile-bottom-nav .mobile-nav-story-count {
+    top: -4px !important;
+    right: -5px !important;
+    min-width: 14px !important;
+    height: 14px !important;
+    padding: 0 3px !important;
+    font-size: 9px !important;
+  }
+  html body.proofs-document .site-footer {
+    margin-top: 22px !important;
+  }
+}
+
+
+/* AFV194 — enforce compact Stories sizing and keep fixed navigation clear of footer content. */
+@media (min-width: 701px) {
+  html body.proofs-document {
+    padding-bottom: 150px !important;
+  }
+  html body.proofs-document .site-footer {
+    padding-bottom: 120px !important;
+    margin-top: 24px !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav {
+    position: fixed !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: min(680px, calc(100vw - 48px)) !important;
+    min-height: 76px !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    overflow: visible !important;
+    z-index: 2147482500 !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 54px !important;
+    height: auto !important;
+    flex: initial !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    overflow: visible !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories {
+    position: relative !important;
+    transform: none !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    position: relative !important;
+    display: block !important;
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    flex: 0 0 32px !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar img {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-count {
+    position: absolute !important;
+    top: -4px !important;
+    right: -5px !important;
+    width: auto !important;
+    min-width: 14px !important;
+    max-width: none !important;
+    height: 14px !important;
+    min-height: 14px !important;
+    padding: 0 3px !important;
+    font-size: 9px !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar) {
+    display: block !important;
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* AFV215 — compact mobile footer links and reduce excess vertical spacing. */
+@media (max-width: 600px) {
+  html body.proofs-document .site-footer > .about-link-section {
+    margin-bottom: 4px !important;
+  }
+  html body.proofs-document .site-footer > .footer-location {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    row-gap: 4px !important;
+    column-gap: 8px !important;
+  }
+  html body.proofs-document .site-footer > .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    justify-content: stretch !important;
+    align-items: start !important;
+    gap: 6px 12px !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+  }
+  html body.proofs-document .site-footer > .footer-links a {
+    display: block !important;
+    min-width: 0 !important;
+    padding: 2px 0 !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    overflow-wrap: anywhere;
+  }
+  html body.proofs-document .site-footer > .footer-copyright {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+
+/* AFV215 — compact footer links with small inline icons for clearer scanning. */
+@media (max-width: 600px) {
+  html body.proofs-document .site-footer > .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px 10px !important;
+  }
+  html body.proofs-document .site-footer > .footer-links a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    min-height: 24px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+  html body.proofs-document .site-footer > .footer-links a svg {
+    display: block !important;
+    width: 14px !important;
+    height: 14px !important;
+    flex: 0 0 14px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.proofs-document .site-footer > .footer-links a span {
+    min-width: 0 !important;
+  }
+}
+@media (min-width: 601px) {
+  html body.proofs-document .site-footer > .footer-links a {
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  html body.proofs-document .site-footer > .footer-links a svg {
+    width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor;
+    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  }
+}
+
+
+/* AFV215 — trim the extra mobile footer tail without reducing clearance for the fixed navigation. */
+@media (max-width: 700px) {
+  html body.proofs-document .site-footer {
+    padding-bottom: 6px !important;
+  }
+}
+
+
+/* AFV215 — balance footer height with fixed bottom navigation; keep copyright visible. */
+@media (max-width: 700px) {
+  html body.proofs-document {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
+  }
+  html body.proofs-document .site-footer {
+    padding-bottom: 6px !important;
+  }
+}
+
+
+/* AFV215: place copyright beside Contact in the compact mobile footer. */
+@media (max-width:760px) {
+  .site-footer {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    row-gap: 10px;
+  }
+  .site-footer > .about-link-section,
+  .site-footer > .footer-location {
+    grid-column: 1 / -1;
+  }
+  .site-footer > .footer-links {
+    display: contents;
+  }
+  .site-footer > .footer-links a {
+    min-width: 0;
+    justify-self: start;
+    padding: 2px 0;
+  }
+  .site-footer > .footer-copyright {
+    grid-column: 2;
+    grid-row: auto;
+    align-self: center;
+    justify-self: start;
+    border-top: 0;
+    padding-top: 2px;
+    white-space: nowrap;
+  }
+}
+
+
+/* AFV215 — place copyright in the final mobile footer grid cell beside Contact. */
+@media (max-width: 760px) {
+  html body.proofs-document .site-footer > .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    align-items: center !important;
+    column-gap: 12px !important;
+    row-gap: 7px !important;
+  }
+  html body.proofs-document .site-footer > .footer-links > .footer-copyright {
+    display: inline-flex !important;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    align-self: center !important;
+    justify-self: start !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 2px 0 !important;
+    border: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+    color: #8a95a6 !important;
+  }
+}
+@media (min-width: 761px) {
+  html body.proofs-document .site-footer > .footer-links > .footer-copyright {
+    margin-left: auto;
+    border: 0;
+    padding-top: 0;
+    white-space: nowrap;
+  }
+}
+
+
+/* AFV215 — reduce only the remaining space below the compact footer on mobile. */
+@media (max-width: 700px) {
+  html body.proofs-document {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+
+/* AFV221: use a clean, solid WhatsApp brand glyph in the bottom Contact navigation item. */
+@media screen and (max-width:700px) {
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon {
+    fill: currentColor;
+    stroke: none;
+    stroke-width: 0;
+    filter: none;
+    overflow: visible;
+  }
+}
+
+
+/* AFV229 — use the same header action geometry and visual treatment as the homepage. */
+html body.proofs-document .topbar > .header-meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  gap: 12px !important;
+}
+html body.proofs-document .topbar > .header-meta > .privacy-link,
+html body.proofs-document .topbar > .header-meta > .about-header-link {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px !important;
+  height: 44px !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  transform: none !important;
+  transition: background .16s ease, border-color .16s ease, box-shadow .16s ease, transform .16s ease !important;
+}
+html body.proofs-document .topbar > .header-meta > .privacy-link {
+  gap: 0 !important;
+  padding-left: 17px !important;
+  padding-right: 17px !important;
+  border: 1px solid #C7D2FE !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(238,242,255,.94)) !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 8px rgba(71,85,150,.08), inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+html body.proofs-document .topbar > .header-meta > .about-header-link {
+  gap: 8px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  border: 1px solid rgba(105,133,255,.72) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #f1f5ff 0%, #e8edff 100%) !important;
+  color: #245fe5 !important;
+  box-shadow: 0 4px 12px rgba(63,97,220,.10) !important;
+}
+html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
+html body.proofs-document .topbar > .header-meta > .about-header-link .header-icon {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+}
+html body.proofs-document .topbar > .header-meta > .privacy-link:hover {
+  background: linear-gradient(135deg, #fff, #e0e7ff) !important;
+  border-color: #A5B4FC !important;
+  color: #1E3A8A !important;
+}
+html body.proofs-document .topbar > .header-meta > .about-header-link:hover {
+  transform: translateY(-1px) !important;
+  border-color: #456dff !important;
+  background: linear-gradient(135deg, #e7edff 0%, #dfe7ff 100%) !important;
+  box-shadow: 0 6px 16px rgba(63,97,220,.16) !important;
+}
+html body.proofs-document .topbar > .header-meta > .privacy-link:focus-visible,
+html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visible {
+  outline: 3px solid rgba(91,126,255,.4) !important;
+  outline-offset: 2px !important;
+}
+@media (max-width: 700px) {
+  html body.proofs-document .topbar > .header-meta { gap: 6px !important; }
+  html body.proofs-document .topbar > .header-meta > .privacy-link,
+  html body.proofs-document .topbar > .header-meta > .about-header-link {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+  }
+  html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
+  html body.proofs-document .topbar > .header-meta > .about-header-link .header-icon {
+    width: 15px !important;
+    height: 15px !important;
+    flex-basis: 15px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.proofs-document .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.proofs-document .topbar > .header-meta { gap: 6px !important; }
+  html body.proofs-document .topbar > .header-meta > .privacy-link,
+  html body.proofs-document .topbar > .header-meta > .about-header-link {
+    min-height: 34px !important;
+    height: 34px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    gap: 4px !important;
+    font-size: 10px !important;
+  }
+  html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
+  html body.proofs-document .topbar > .header-meta > .about-header-link .header-icon {
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.proofs-document .topbar > .header-meta > .privacy-link,
+  html body.proofs-document .topbar > .header-meta > .about-header-link { transition: none !important; }
+  html body.proofs-document .topbar > .header-meta > .privacy-link:hover,
+  html body.proofs-document .topbar > .header-meta > .about-header-link:hover { transform: none !important; }
+}

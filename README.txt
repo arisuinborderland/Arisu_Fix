@@ -1,15 +1,18 @@
 ARISU FIX — PROJECT README
-Version: AFV218
+Version: AFV229
 Updated: 2026-10-23
 
-Current release: AFV218
-Package version: 218.0.0
-Source ZIP folder: AFV218/
+Current release: AFV229
+Package version: 229.0.0
+Source ZIP folder: AFV229/
 
-AFV218 RELEASE SUMMARY
-- Reduced the header Privacy Policy button height by 2px at the top and 2px at the bottom, matching the existing About button reduction.
-- Privacy Policy button height is now 44px on desktop, 36px on mobile, and 34px on very narrow screens.
-- Removed the old upward 2px translation from Privacy Policy so it stays vertically aligned with About.
-- Preserved button widths, labels, icon sizes, colors, and all other page layout.
-- Kept the mobile bottom navigation at five items: Home, Reviews, Stories, Proofs, and Contact; Stories remains centered.
-- Updated active cache-busting references and release metadata to AFV218.
+AFV229 RELEASE SUMMARY
+- Matched Recovery Proofs header button dimensions, internal icon/text spacing, border radius, color treatment, and position to the homepage header.
+- Kept responsive button sizing aligned with the homepage at widths up to 700px and 380px.
+- Kept the change scoped to body.proofs-document; the homepage, proof gallery, floating controls, and bottom navigation are unchanged.
+- Updated active cache-busting references and package version to AFV229.
+
+Validation notes
+- Automated tests: 45 passed, 0 failed.
+- Production build: passed; 46 allowlisted public files verified.
+- Live Vercel rendering should still be checked in Preview before production deployment.
