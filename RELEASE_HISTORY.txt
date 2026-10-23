@@ -304,7 +304,7 @@ Updated: 2026-10-22
 - Preserved existing Story viewer behavior and page layout; no live deployment verification was performed.
 
 
-## AFV181 — Stories count latency diagnostics
+## AFV182 — Stories count latency diagnostics
 - Updated `/api/story-count` to use a Supabase HEAD request with exact-count metadata, avoiding transfer of Story rows and any signed-image URL work.
 - Added `Server-Timing` response metrics for Supabase count latency and total handler duration.
 - Added browser Performance marks/measure for the footer badge count request.

@@ -34,8 +34,11 @@ function walkFiles(directory) {
   const files = [];
   if (!fs.existsSync(directory)) return files;
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    // Package-manager and deployment metadata directories are not project source.
+    // In particular, Vercel may materialize node_modules/.bin entries as symlinks.
+    if (entry.name === "node_modules" || entry.name === ".git" || entry.name === ".vercel") continue;
     const fullPath = path.join(directory, entry.name);
-    if (entry.isSymbolicLink()) throw new Error(`Symlinks are not allowed in project/build inputs: ${path.relative(root, fullPath)}`);
+    if (entry.isSymbolicLink()) throw new Error(`Symlinks are not allowed in project source inputs: ${path.relative(root, fullPath)}`);
     if (entry.isDirectory()) files.push(...walkFiles(fullPath));
     else if (entry.isFile()) files.push(fullPath);
   }
@@ -48,9 +51,12 @@ function copyAllowedPublicFiles() {
   fs.mkdirSync(output, { recursive: true });
   for (const name of fs.readdirSync(root)) {
     if (name === "dist") continue;
+    // Ignore all non-allowlisted root entries before inspecting their filesystem type.
+    // This keeps npm/Vercel-generated node_modules symlinks out of the source audit.
+    if (!publicRootFiles.has(name) && !publicAssetDirectories.has(name)) continue;
     const source = path.join(root, name);
     const stat = fs.lstatSync(source);
-    if (stat.isSymbolicLink()) throw new Error(`Symlink at project root is not allowed: ${name}`);
+    if (stat.isSymbolicLink()) throw new Error(`Symlink at allowlisted project input is not allowed: ${name}`);
     if (stat.isFile() && publicRootFiles.has(name)) {
       fs.copyFileSync(source, path.join(output, name));
       continue;
