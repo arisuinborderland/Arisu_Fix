@@ -1,17 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV243
+Version: AFV242
 Updated: 2026-10-23
 
-Current release: AFV243
-Package version: 243.0.0
-Source ZIP folder: AFV243/
+Current release: AFV242
+Package version: 242.0.0
+Source ZIP folder: AFV242/
 
-AFV243 RELEASE SUMMARY
-- Synchronized active AFV cache-busting references and regression-test expectations to AFV243.
-- Added a compact live overview for all Stories, active Stories, and drafts.
-- Added drag-and-drop image selection while retaining file type/size validation and existing preview/remove workflow.
-- Refined responsive Upload and Active Stories layouts, hover/focus states, and reduced-motion support.
-- Preserved Supabase authentication, Stories API, database/storage behavior, 24-hour expiry, deletion safeguards, view counts, and existing navigation.
+AFV242 RELEASE SUMMARY
+- Synchronized active AFV cache-busting references and regression-test expectations to AFV242.
+- Preserved the compact Story Library card styling already present in the AFV241 baseline.
+- Preserved Story Admin, Stories API, database behavior, existing navigation, and page layouts outside the requested version update.
 - Kept build validation enabled.
 
 Validation notes

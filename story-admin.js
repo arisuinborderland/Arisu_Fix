@@ -136,15 +136,9 @@
       try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; } catch { countsAvailable = false; }
       list.replaceChildren();
       if (!countsAvailable) { const warning = document.createElement('p'); warning.className = 'muted'; warning.textContent = 'View counts need the Supabase database migration in supabase/recovery-story-views.sql.'; list.append(warning); }
-      const allStories = data.stories || [];
-      const now = Date.now();
-      const activeCount = allStories.filter(story => (story.adminStatus || 'active') === 'active' && new Date(story.expiresAt || story.expires_at).getTime() > now).length;
-      const draftCount = allStories.filter(story => (story.adminStatus || 'active') === 'draft').length;
-      $('overviewTotal').textContent = String(allStories.length);
-      $('overviewActive').textContent = String(activeCount);
-      $('overviewDrafts').textContent = String(draftCount);
       const filter = $('storyFilter')?.value || 'active';
-      let stories = allStories.filter(story => {
+      const now = Date.now();
+      let stories = (data.stories || []).filter(story => {
         const state = story.adminStatus || 'active';
         if (filter === 'expired') return state === 'active' && new Date(story.expiresAt || story.expires_at).getTime() <= now;
         return state === filter && (filter !== 'active' || new Date(story.expiresAt || story.expires_at).getTime() > now);
@@ -272,25 +266,6 @@
     });
   }
   $('storyImage').addEventListener('change', renderImagePreviews);
-  const dropZone = document.querySelector('.file-picker-wrap');
-  if (dropZone) {
-    ['dragenter', 'dragover'].forEach(type => dropZone.addEventListener(type, event => {
-      event.preventDefault(); dropZone.classList.add('is-drag-over');
-    }));
-    ['dragleave', 'drop'].forEach(type => dropZone.addEventListener(type, event => {
-      event.preventDefault(); dropZone.classList.remove('is-drag-over');
-    }));
-    dropZone.addEventListener('drop', event => {
-      const files = Array.from(event.dataTransfer?.files || []);
-      if (!files.length) return;
-      const transfer = new DataTransfer();
-      Array.from($('storyImage').files || []).forEach(file => transfer.items.add(file));
-      files.forEach(file => transfer.items.add(file));
-      $('storyImage').files = transfer.files;
-      renderImagePreviews();
-      say(files.length + (files.length === 1 ? ' image added to selection.' : ' images added to selection.'));
-    });
-  }
   $('saveAsDraft').addEventListener('change', () => { $('publishButton').textContent = $('saveAsDraft').checked ? 'Save as Draft' : 'Publish for 24 hours'; });
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
