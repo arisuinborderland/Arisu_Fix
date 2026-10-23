@@ -38,7 +38,7 @@
   .story-view-count{min-width:48px;padding:4px 5px}
 }
 
-/* AFV259: compact uploader, selection summary, and clearer publish states */
+/* AFV260: compact uploader, selection summary, and clearer publish states */
 .admin-shell header{padding:20px 2px 14px}
 .admin-shell header p{margin:8px 0 0;line-height:1.45}
 .panel{padding:clamp(15px,3.5vw,24px);margin:12px 0}

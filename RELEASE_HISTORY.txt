@@ -591,3 +591,9 @@ AFV258 — 2026-10-23
 - Updated the review screenshot lightbox so tapping outside the actual image closes it, including empty space within the viewer area.
 - Kept taps on the screenshot interactive and preserved zoom, pan, close-button, and Escape behavior.
 - Updated active cache-busting references, package metadata, README, and regression tests.
+
+
+AFV260 — 2026-10-23
+- Corrected the Reviews regression-test cache-busting expectations and synchronized active assets, tests, package metadata, and README to AFV260.
+- Retained AFV259 Recovery Stories admin improvements: compact uploader, selected-image summary and validation, and safer publish state handling.
+- Revalidated production build and automated tests; deployment still requires GitHub upload and Vercel confirmation.
