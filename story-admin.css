@@ -37,3 +37,29 @@
   .story-actions button{min-height:33px;padding:7px 8px;font-size:11px}
   .story-view-count{min-width:48px;padding:4px 5px}
 }
+
+/* AFV259: compact uploader, selection summary, and clearer publish states */
+.admin-shell header{padding:20px 2px 14px}
+.admin-shell header p{margin:8px 0 0;line-height:1.45}
+.panel{padding:clamp(15px,3.5vw,24px);margin:12px 0}
+.panel h2{margin-bottom:12px}
+form{gap:12px}
+.file-picker-wrap{gap:8px;padding:10px}
+.file-picker-hint{line-height:1.35}
+.selection-summary{display:block;padding:8px 10px;border-radius:10px;background:#f1f4ff;color:#4a5780;font-size:12px;font-weight:600;line-height:1.4}
+.selection-summary.has-invalid{background:#fff0f0;color:#a82134}
+.image-preview{padding:9px;gap:8px}
+.preview-empty{min-height:110px;padding:18px 12px;gap:5px}
+.notice{padding:10px 11px;line-height:1.4}
+#publishButton{min-height:46px;transition:opacity .18s ease,filter .18s ease}
+#publishButton:disabled{background:#aeb8d8;opacity:1;color:#f8faff;cursor:not-allowed}
+.upload-progress{padding:10px 11px;border:1px solid #e2e7f2;border-radius:12px;background:#fafbff}
+@media(max-width:440px){
+ .admin-shell{width:calc(100% - 22px);margin:18px auto 36px}
+ .admin-shell header{padding:17px 1px 12px}
+ .panel{padding:15px;border-radius:19px}
+ form{gap:11px}
+ .file-picker-wrap{padding:8px}
+ .image-preview{padding:7px;gap:7px}
+ .preview-empty{min-height:94px;padding:14px 9px}
+}

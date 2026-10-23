@@ -1,3 +1,11 @@
+AFV257 — 2026-10-23
+- Redesigned Customer Reviews as compact horizontal thumbnail + details cards (Option C), scoped only to reviews.html.
+- Added visible tap-to-view prompts and keyboard-accessible activation from the case details.
+- Added full-size viewer zoom controls and drag-to-pan support while preserving the existing watermark and close behavior.
+- Updated active cache-busting references and package metadata to AFV257 / 257.0.0.
+- Added regression coverage for the compact layout and viewer controls; excluded dist/ from the source ZIP.
+- Automated test and build results are recorded by the validation run; visual comparison on a real mobile browser remains unverified.
+
 AFV256 — 2026-10-23
 - Fixed stale AFV242 active cache-busting expectations in tests/reviews-page-cleanup.test.js that caused Vercel build.js to fail for AFV255.
 - Updated active cache-busting tokens and release metadata to AFV256 / 256.0.0.
@@ -577,3 +585,9 @@ AFV224 — 2026-10-23
 - Kept shared homepage floating controls and all review content/navigation unchanged.
 - Updated the production build allowlist, active cache-busting tokens, package metadata, README, and regression tests.
 - Browser rendering on the live Vercel deployment still requires confirmation after deployment.
+
+
+AFV258 — 2026-10-23
+- Updated the review screenshot lightbox so tapping outside the actual image closes it, including empty space within the viewer area.
+- Kept taps on the screenshot interactive and preserved zoom, pan, close-button, and Escape behavior.
+- Updated active cache-busting references, package metadata, README, and regression tests.

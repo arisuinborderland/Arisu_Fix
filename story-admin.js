@@ -230,9 +230,27 @@
 
   $('loginForm').addEventListener('submit', signIn);
   $('caption').addEventListener('input', () => $('captionCount').textContent = String($('caption').value.length));
+  function updatePublishState() {
+    const files = Array.from($('storyImage').files || []);
+    const allowed = ['image/jpeg', 'image/png', 'image/webp'];
+    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3.5 * 1024 * 1024);
+    const button = $('publishButton');
+    if (!button.dataset.busy) button.disabled = !valid;
+    const draft = $('saveAsDraft').checked;
+    const label = draft ? 'Save Drafts' : 'Publish Stories';
+    button.textContent = files.length ? `${label} · ${files.length}` : (draft ? 'Save as Draft' : 'Publish Stories · 24 hours');
+  }
   function renderImagePreviews() {
     const input = $('storyImage'); const preview = $('imagePreview'); preview.replaceChildren();
     const files = Array.from(input.files || []);
+    const summary = $('selectionSummary');
+    const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
+    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3.5 * 1024 * 1024).length;
+    summary.textContent = files.length
+      ? `${files.length} image${files.length === 1 ? '' : 's'} selected · ${(totalBytes / 1024 / 1024).toFixed(2)} MB total${invalidCount ? ` · ${invalidCount} invalid` : ''}`
+      : 'No images selected.';
+    summary.classList.toggle('has-invalid', invalidCount > 0);
+    updatePublishState();
     if (!files.length) {
       const empty = document.createElement('div'); empty.className = 'preview-empty';
       const icon = document.createElement('span'); icon.className = 'preview-empty-icon'; icon.setAttribute('aria-hidden', 'true'); icon.textContent = '+';
@@ -266,10 +284,10 @@
     });
   }
   $('storyImage').addEventListener('change', renderImagePreviews);
-  $('saveAsDraft').addEventListener('change', () => { $('publishButton').textContent = $('saveAsDraft').checked ? 'Save as Draft' : 'Publish for 24 hours'; });
+  $('saveAsDraft').addEventListener('change', updatePublishState);
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
-    event.preventDefault(); const button = $('publishForm').querySelector('button[type="submit"]'); button.disabled = true; say('Preparing your Story images…');
+    event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; button.disabled = true; button.textContent = 'Preparing upload…'; say('Preparing your Story images…');
     try {
       const files = Array.from($('storyImage').files || []);
       if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
@@ -290,7 +308,7 @@
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
       showAdminTab('active');
-    } catch(e) { say(e.message, true); } finally { button.disabled = false; if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
+    } catch(e) { say(e.message, true); } finally { delete button.dataset.busy; updatePublishState(); if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
   });
   $('refreshStories').addEventListener('click', loadStories);
   $('signOut').addEventListener('click', () => showSignedOut('Signed out.'));

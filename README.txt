@@ -1,24 +1,21 @@
 ARISU FIX — PROJECT README
-Version: AFV256
+Version: AFV259
 Updated: 2026-10-23
 
-Current release: AFV256
-Package version: 256.0.0
-Source ZIP folder: AFV256/
+Current release: AFV259
+Package version: 259.0.0
+Source ZIP folder: AFV259/
 
-AFV256 RELEASE SUMMARY
-- Fixed stale AFV242 cache-busting expectations in the Reviews regression test that caused Vercel production builds to fail.
-- Kept Stories viewer assets and page behavior unchanged from AFV255.
-- Fixed missing Story Viewer styling on About and Privacy Policy pages.
-- Added regression coverage to require the viewer stylesheet on every page with Stories navigation.
-- Performed a deeper source-level file audit based on AFV253.
-- Synchronized active cache-busting references, package metadata, tests, and asset-guide versions to AFV256.
-- Corrected stale version labels and removed unrelated AFV195 historical notes from the Recovery Proofs and Customer Reviews asset guides.
-- Preserved application CSS declarations and runtime behavior; no unverified WhatsApp CSS consolidation was made.
-- Excluded the generated dist/ directory from the delivered source ZIP.
+AFV259 RELEASE SUMMARY
+- Made the Recovery Stories upload panel more compact on mobile while preserving the existing visual identity.
+- Added selected-image count, total selected file size, and an invalid-file count summary.
+- Kept client-side file type and 3.5 MB per-image validation, with a clear summary before publishing.
+- Updated the publish action to show the selected Story count and duration, disable when no valid images are selected, and prevent duplicate submissions while processing.
+- Preserved existing authentication, backend endpoints, drafts, Story expiry, Active Stories management, and other site pages.
+- Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV259 / 259.0.0.
+- Kept the generated dist/ directory out of the delivered source ZIP.
 
 Validation notes
 - Automated tests and production build are run during release preparation.
-- The build generates dist/ locally; dist/ is intentionally excluded from the delivered source ZIP.
 - Staging smoke tests require isolated staging-only environment variables and must be run separately.
-- Browser visual comparison and live Vercel deployment have not been verified in this release.
+- Live Vercel deployment and browser-based visual comparison have not been verified in this release.
