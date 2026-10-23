@@ -309,3 +309,66 @@ html body .story-viewer .story-viewer-image {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
+
+
+/* AFV185 — adaptive image orientation, refined story header and compact Back to Site control. */
+html body .story-viewer .story-viewer-card {
+  background: radial-gradient(ellipse at 50% 42%, #142b4c 0%, #0b1426 48%, #050912 100%) !important;
+}
+html body .story-viewer .story-viewer-image {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
+  transition: opacity 160ms ease, filter 180ms ease !important;
+}
+/* Landscape artwork remains fully visible and is centered in the usable viewing area. */
+html body .story-viewer.story-viewer-landscape .story-viewer-image {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+/* Portrait artwork uses the available height without cropping any poster content. */
+html body .story-viewer.story-viewer-portrait .story-viewer-image {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+html body .story-viewer.story-viewer-square .story-viewer-image {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+html body .story-viewer .story-viewer-meta {
+  gap: 9px !important;
+  align-items: center !important;
+}
+html body .story-viewer .story-viewer-name {
+  font-weight: 750 !important;
+  letter-spacing: -.2px !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.32) !important;
+}
+html body .story-viewer .story-viewer-time {
+  color: rgba(255,255,255,.82) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.32) !important;
+}
+html body .story-viewer:not([hidden]) .story-viewer-close {
+  height: 44px !important; min-height: 44px !important;
+  bottom: max(14px, env(safe-area-inset-bottom)) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #6427c8 0%, #5120a8 100%) !important;
+  border: 1px solid rgba(221, 204, 255, .72) !important;
+  box-shadow: 0 7px 22px rgba(52, 20, 110, .30), inset 0 1px 0 rgba(255,255,255,.12) !important;
+  font-size: 14px !important;
+  letter-spacing: .15px !important;
+  transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease !important;
+}
+html body .story-viewer:not([hidden]) .story-viewer-close:hover {
+  background: linear-gradient(180deg, #7135d5 0%, #5b25b6 100%) !important;
+  box-shadow: 0 9px 26px rgba(52, 20, 110, .38), inset 0 1px 0 rgba(255,255,255,.15) !important;
+}
+html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible {
+  outline: 2px solid #ddd6fe !important; outline-offset: 3px !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .story-viewer .story-viewer-image,
+  html body .story-viewer:not([hidden]) .story-viewer-close { transition: none !important; }
+}

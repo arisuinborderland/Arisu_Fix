@@ -3,6 +3,13 @@
   const viewer = document.getElementById('recoveryStoryViewer');
   if (!viewer) return;
   const image = viewer.querySelector('.story-viewer-image');
+  image.addEventListener('load', () => {
+    const ratio = image.naturalWidth && image.naturalHeight ? image.naturalWidth / image.naturalHeight : 1;
+    viewer.classList.toggle('story-viewer-landscape', ratio > 1.15);
+    viewer.classList.toggle('story-viewer-portrait', ratio < 0.87);
+    viewer.classList.toggle('story-viewer-square', ratio >= 0.87 && ratio <= 1.15);
+  });
+  image.addEventListener('error', () => viewer.classList.remove('story-viewer-landscape', 'story-viewer-portrait', 'story-viewer-square'));
   const caption = viewer.querySelector('.story-viewer-caption');
   const progressTrack = viewer.querySelector('.story-viewer-progress-track');
   let progressFills = [];
