@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#eef2ff">
-<title>Story Admin — Arisu Fix</title><link rel="stylesheet" href="story-admin.css?v=AFV242">
+<title>Story Admin — Arisu Fix</title><link rel="stylesheet" href="story-admin.css?v=AFV243">
 </head>
 <body>
 <main class="admin-shell">
@@ -16,6 +16,11 @@
       <button class="admin-tab is-active" id="uploadTab" type="button" role="tab" aria-controls="uploadSection" aria-selected="true">Upload Stories</button>
       <button class="admin-tab" id="activeTab" type="button" role="tab" aria-controls="activeSection" aria-selected="false">Active Stories</button>
     </nav>
+    <section class="story-overview" aria-label="Story overview">
+      <article class="overview-card"><span class="overview-icon" aria-hidden="true">▧</span><span class="overview-value" id="overviewTotal">—</span><span class="overview-label">All stories</span></article>
+      <article class="overview-card"><span class="overview-icon overview-icon-active" aria-hidden="true">✓</span><span class="overview-value" id="overviewActive">—</span><span class="overview-label">Active</span></article>
+      <article class="overview-card"><span class="overview-icon overview-icon-draft" aria-hidden="true">◷</span><span class="overview-value" id="overviewDrafts">—</span><span class="overview-label">Drafts</span></article>
+    </section>
     <section class="admin-tab-panel" id="uploadSection" role="tabpanel" aria-labelledby="uploadTab">
       <h2>Publish a Story</h2>
       <form id="publishForm"><label class="upload-label">Story images <span class="field-help">Select multiple JPEG, PNG, or WebP images · up to 3.5 MB each</span><span class="file-picker-wrap"><input id="storyImage" type="file" accept="image/jpeg,image/png,image/webp" multiple required><span class="file-picker-hint">Choose images from your phone. Preview and remove any image before publishing.</span></span></label><div id="imagePreview" class="image-preview" aria-live="polite"><div class="preview-empty"><span class="preview-empty-icon" aria-hidden="true">＋</span><strong>Your image previews will appear here</strong><span class="muted">Choose one or more images to get started.</span></div></div><div id="uploadProgress" class="upload-progress" hidden aria-live="polite"><div class="upload-progress-track"><span id="uploadProgressFill"></span></div><span id="uploadProgressText">Preparing upload…</span></div><label>Optional caption <span class="counter"><span id="captionCount">0</span>/180</span><textarea id="caption" maxlength="180" rows="3" placeholder="Add a short caption (optional)"></textarea></label><label class="draft-toggle"><input id="saveAsDraft" type="checkbox"> Save as draft instead of publishing</label><p class="notice">Each selected image becomes a separate Story. Preview images before publishing. Active Stories expire after 24 hours; drafts are private and do not appear to visitors. Each image must be no larger than 3.5 MB.</p><button type="submit" id="publishButton">Publish for 24 hours</button></form>
@@ -28,5 +33,5 @@
   </section>
   <p class="footnote">If the backend is not configured, publishing remains unavailable. Never share your password or secret API key.</p>
 </main>
-<script src="story-admin.js?v=AFV242" defer></script>
+<script src="story-admin.js?v=AFV243" defer></script>
 </body></html>
