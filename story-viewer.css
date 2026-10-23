@@ -311,7 +311,7 @@ html body .story-viewer .story-viewer-image {
 }
 
 
-/* AFV186 — adaptive image orientation, refined story header and compact Back to Site control. */
+/* AFV187 — adaptive image orientation, refined story header and compact Back to Site control. */
 html body .story-viewer .story-viewer-card {
   background: radial-gradient(ellipse at 50% 42%, #142b4c 0%, #0b1426 48%, #050912 100%) !important;
 }

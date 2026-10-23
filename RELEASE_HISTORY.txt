@@ -1,6 +1,12 @@
 ARISU FIX — RELEASE HISTORY
 Historical release notes only. Current release status and metadata are maintained in README.txt.
 
+## AFV187 — Active Story library refinements
+- Compact Story cards and action layout while preserving existing library functions.
+- Added visible reorder grip plus accessible move-up/move-down controls for touch devices.
+- Added remaining-time hints to Story expiration metadata and refined view-count presentation.
+- Updated Story Admin cache-busting references and package/readme version metadata to AFV187.
+
 ## AFV186 — Story Admin upload and library UX
 - Improved the image selection area, responsive previews, and per-image removal before upload.
 - Added multi-image upload progress and refined tab focus/selected states.

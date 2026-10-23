@@ -121,6 +121,13 @@
         : 'Could not restore your session right now. Your saved session was kept; check your connection and refresh this page.', true);
     } finally { restoring = false; }
   }
+  async function persistStoryOrder(list) {
+    const ordered = Array.from(list.querySelectorAll('.story-row[draggable=true]'));
+    try {
+      for (let i = 0; i < ordered.length; i++) await api('/api/stories', { method: 'PATCH', body: JSON.stringify({ id: ordered[i].dataset.storyId, sortOrder: i }) });
+      say('Story order saved.');
+    } catch (e) { say('Could not save the new order: ' + e.message, true); await loadStories(); }
+  }
   async function loadStories() {
     const list = $('storyList'); list.textContent = 'Loading Stories…';
     try {
@@ -144,6 +151,15 @@
         const row = document.createElement('div'); row.className = 'story-row';
         if (filter === 'active' && !expired) { row.draggable = true; row.dataset.storyId = story.id; }
         const infoWrap = document.createElement('div'); infoWrap.className = 'story-info-wrap';
+        if (row.draggable) {
+          const reorder = document.createElement('div'); reorder.className = 'story-reorder';
+          const grip = document.createElement('span'); grip.className = 'story-drag-grip'; grip.setAttribute('aria-hidden', 'true'); grip.textContent = '⠿';
+          const moveUp = document.createElement('button'); moveUp.type = 'button'; moveUp.className = 'story-move-button'; moveUp.textContent = '↑'; moveUp.setAttribute('aria-label', 'Move story up'); moveUp.title = 'Move up';
+          const moveDown = document.createElement('button'); moveDown.type = 'button'; moveDown.className = 'story-move-button'; moveDown.textContent = '↓'; moveDown.setAttribute('aria-label', 'Move story down'); moveDown.title = 'Move down';
+          reorder.append(grip, moveUp, moveDown); infoWrap.append(reorder);
+          moveUp.addEventListener('click', async () => { const rows = Array.from(list.querySelectorAll('.story-row[draggable=true]')); const i = rows.indexOf(row); if (i <= 0) return; list.insertBefore(row, rows[i - 1]); await persistStoryOrder(list); });
+          moveDown.addEventListener('click', async () => { const rows = Array.from(list.querySelectorAll('.story-row[draggable=true]')); const i = rows.indexOf(row); if (i < 0 || i >= rows.length - 1) return; list.insertBefore(rows[i + 1], row); await persistStoryOrder(list); });
+        }
         if (story.imageUrl) {
           const thumb = document.createElement('img'); thumb.className = 'story-thumb'; thumb.src = story.imageUrl; thumb.alt = ''; thumb.loading = 'lazy'; thumb.decoding = 'async';
           thumb.addEventListener('error', () => { thumb.hidden = true; });
@@ -151,10 +167,14 @@
         }
         const info = document.createElement('div'); info.className = 'story-info';
         const title = document.createElement('strong'); title.textContent = story.caption || 'Recovery Story';
-        const meta = document.createElement('small'); meta.textContent = state === 'draft' ? 'Saved as draft · not visible to visitors' : state === 'archived' ? 'Archived · not visible to visitors' : expired ? 'Expired · not visible to visitors' : 'Expires ' + new Date(story.expiresAt || story.expires_at).toLocaleString();
+        const meta = document.createElement('small'); meta.className = 'expiry-meta';
+        if (state === 'draft') meta.textContent = 'Saved as draft · not visible to visitors';
+        else if (state === 'archived') meta.textContent = 'Archived · not visible to visitors';
+        else if (expired) meta.textContent = 'Expired · not visible to visitors';
+        else { const expiryDate = new Date(story.expiresAt || story.expires_at); const remainingMs = expiryDate.getTime() - now; const remainingHours = Math.floor(remainingMs / 3600000); const remainingMinutes = Math.floor((remainingMs % 3600000) / 60000); const remainingLabel = remainingHours > 0 ? `Expires in ${remainingHours}h ${remainingMinutes}m` : `Expires in ${Math.max(0, remainingMinutes)}m`; meta.textContent = `${remainingLabel} · ${expiryDate.toLocaleString()}`; }
         const statusBadge = document.createElement('span'); statusBadge.className = 'story-status'; statusBadge.dataset.status = displayState; statusBadge.textContent = displayState.charAt(0).toUpperCase() + displayState.slice(1);
         info.append(title, meta, statusBadge);
-        const viewCount = document.createElement('span'); viewCount.className = 'story-view-count';
+        const viewCount = document.createElement('span'); viewCount.className = 'story-view-count'; viewCount.setAttribute('aria-label', `${countsAvailable ? (Number(views[story.id]) || 0).toLocaleString() : 'Unknown'} views`);
         const eye = document.createElement('span'); eye.className = 'story-view-eye'; eye.setAttribute('aria-hidden', 'true'); eye.textContent = '◉';
         const count = document.createElement('strong'); count.className = 'story-view-number'; count.textContent = countsAvailable ? (Number(views[story.id]) || 0).toLocaleString() : '—';
         const label = document.createElement('small'); label.className = 'story-view-label'; label.textContent = 'Views';
@@ -182,11 +202,7 @@
             const draggedRow = current.find(el => el.dataset.storyId === draggedId);
             if (!draggedRow) return;
             list.insertBefore(draggedRow, row);
-            const ordered = Array.from(list.querySelectorAll('.story-row[draggable=true]'));
-            try {
-              for (let i = 0; i < ordered.length; i++) await api('/api/stories', { method: 'PATCH', body: JSON.stringify({ id: ordered[i].dataset.storyId, sortOrder: i }) });
-              say('Story order saved.');
-            } catch(e) { say('Could not save the new order: ' + e.message, true); await loadStories(); }
+            await persistStoryOrder(list);
           });
         }
       });
