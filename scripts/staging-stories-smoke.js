@@ -44,7 +44,7 @@ async function main() {
   await readJson(adminRes);
   await check('Unauthenticated admin listing is blocked', adminRes.status === 401, `HTTP ${adminRes.status}`);
 
-  const postRes = await fetch(new URL('/api/stories', base), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ caption: 'AFV181 unauthorized smoke test' }) });
+  const postRes = await fetch(new URL('/api/stories', base), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ caption: 'AFV182 unauthorized smoke test' }) });
   await readJson(postRes);
   await check('Unauthenticated Story mutation is blocked', postRes.status === 401, `HTTP ${postRes.status}`);
 
@@ -59,7 +59,7 @@ async function main() {
   // Exercise the deployed real image decoder with one tiny valid PNG and ensure the
   // temporary draft is removed immediately through the admin API.
   const tinyPng = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/XioAAAAASUVORK5CYII=';
-  const uploadRes = await fetch(new URL('/api/stories', base), { method: 'POST', headers: { Authorization: `Bearer ${process.env.STAGING_ADMIN_TOKEN}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ caption: 'AFV181 staging image decoder smoke test', mimeType: 'image/png', imageData: `data:image/png;base64,${tinyPng}`, saveAsDraft: true }) });
+  const uploadRes = await fetch(new URL('/api/stories', base), { method: 'POST', headers: { Authorization: `Bearer ${process.env.STAGING_ADMIN_TOKEN}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ caption: 'AFV182 staging image decoder smoke test', mimeType: 'image/png', imageData: `data:image/png;base64,${tinyPng}`, saveAsDraft: true }) });
   const uploadData = await readJson(uploadRes);
   await check('Real decoder accepts valid staging PNG', uploadRes.status === 201 && Boolean(uploadData?.story?.id), `HTTP ${uploadRes.status}`);
   if (uploadData?.story?.id) {
@@ -91,7 +91,7 @@ async function main() {
   try {
     const insertRes = await fetch(`${supabase}/rest/v1/recovery_stories?select=id,storage_path`, {
       method: 'POST', headers: { ...headers, Prefer: 'return=representation' },
-      body: JSON.stringify({ caption: 'AFV181 staging cleanup smoke fixture', storage_path: fixturePath, published_at: new Date(Date.now() - 48*60*60*1000).toISOString(), expires_at: new Date(Date.now() - 60*1000).toISOString(), is_active: false, admin_status: 'archived', sort_order: 0 })
+      body: JSON.stringify({ caption: 'AFV182 staging cleanup smoke fixture', storage_path: fixturePath, published_at: new Date(Date.now() - 48*60*60*1000).toISOString(), expires_at: new Date(Date.now() - 60*1000).toISOString(), is_active: false, admin_status: 'archived', sort_order: 0 })
     });
     const inserted = await readJson(insertRes);
     if (!insertRes.ok || !Array.isArray(inserted) || !inserted[0]?.id) throw new Error(`Could not create isolated staging fixture (HTTP ${insertRes.status})`);
