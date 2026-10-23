@@ -319,3 +319,12 @@ Updated: 2026-10-22
 - Added subtle loading-state styling without changing badge geometry or navigation layout.
 - Preserved fallback to the full Stories list if the count endpoint is unavailable.
 - Automated regression tests: 30 passed; production build passed. Live latency still requires deployment measurements.
+
+
+## AFV184 — Reduce Stories count wait on repeat visits
+- Added a 10-minute browser-storage cache so the footer Stories badge can display the most recently confirmed count immediately on repeat page loads while refreshing from the server.
+- Enabled Vercel edge caching for successful public `/api/story-count` responses (`s-maxage=15`, `stale-while-revalidate=120`); browser cache remains `no-store`.
+- Kept error responses uncached and retained Supabase/server timing diagnostics.
+- Added regression assertions for edge-cache headers and for keeping failed count responses uncached.
+- Updated package version, current cache-busting tokens, README, and staging smoke-test labels to AFV184.
+- A cold request on an empty cache can still wait on Vercel/Supabase; live deployment latency must be measured after deployment.

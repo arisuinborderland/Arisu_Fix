@@ -10,7 +10,9 @@
   const mobileStoriesButton = document.getElementById('mobileNavStories');
   const mobileStoriesCount = mobileStoriesButton?.querySelector('.mobile-nav-story-count');
   const timestamp = viewer.querySelector('.story-viewer-time');
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false;
+  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false;
+  const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
+  const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
   const DURATION = 7000;
   const preloadedImages = new Map();
   function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
@@ -103,10 +105,34 @@
     mobileStoriesCount.setAttribute('aria-busy', String(isLoading));
     if (isLoading) mobileStoriesCount.setAttribute('aria-label', 'Loading Stories count');
   }
+  function readCachedCount() {
+    try {
+      const cached = JSON.parse(localStorage.getItem(STORY_COUNT_CACHE_KEY) || 'null');
+      const age = Date.now() - Number(cached?.savedAt);
+      if (Number.isInteger(cached?.count) && cached.count >= 0 && Number.isFinite(age) && age >= 0 && age <= STORY_COUNT_CACHE_TTL_MS) {
+        return cached.count;
+      }
+    } catch { /* Browser storage can be unavailable in restricted contexts. */ }
+    return null;
+  }
+  function saveCachedCount(count) {
+    try { localStorage.setItem(STORY_COUNT_CACHE_KEY, JSON.stringify({ count, savedAt: Date.now() })); }
+    catch { /* The live API response remains authoritative if browser storage is unavailable. */ }
+  }
   async function loadCount() {
     if (!mobileStoriesCount) return;
     const requestStarted = performance.now();
-    setCountLoading(true);
+    const cachedCount = readCachedCount();
+    if (cachedCount !== null) {
+      // Paint the last known count before waiting on the network, then revalidate.
+      mobileStoriesCount.textContent = String(cachedCount);
+      countHasUsableValue = true;
+      mobileStoriesCount.setAttribute('aria-label', `${cachedCount} available stories`);
+      mobileStoriesCount.dataset.countCache = 'browser-storage';
+      setCountLoading(false);
+    } else {
+      setCountLoading(true);
+    }
     try {
       performance.mark('story-count-request-start');
       const response = await fetch('/api/story-count', { cache: 'no-store' });
@@ -115,6 +141,9 @@
       if (Number.isInteger(data.count) && data.count >= 0) {
         mobileStoriesCount.textContent = String(data.count);
         countLoaded = true;
+        countHasUsableValue = true;
+        saveCachedCount(data.count);
+        mobileStoriesCount.dataset.countCache = response.headers.get('x-vercel-cache') || 'origin';
         mobileStoriesCount.setAttribute('aria-label', `${data.count} available stories`);
         setCountLoading(false);
         // Visible in browser Performance tools to distinguish browser/network
@@ -123,12 +152,15 @@
         performance.measure('story-count-request', 'story-count-request-start', 'story-count-request-end');
         mobileStoriesCount.dataset.countLoadMs = String(Math.round(performance.now() - requestStarted));
         mobileStoriesCount.dataset.countServerTiming = response.headers.get('Server-Timing') || '';
+      } else {
+        throw new Error('Stories count response was invalid');
       }
     } catch {
       mobileStoriesCount.dataset.countLoadMs = String(Math.round(performance.now() - requestStarted));
       setCountLoading(false);
-      // Keep the neutral loading marker rather than displaying a false zero.
-      // If full Story data arrives first, load() supplies a fallback count.
+      if (cachedCount === null && !countLoaded) mobileStoriesCount.setAttribute('aria-label', 'Stories count temporarily unavailable');
+      // Keep a recent cached count when available. Otherwise, load() supplies a
+      // fallback count if full Story data arrives first.
     }
   }
   async function load() {
@@ -136,8 +168,9 @@
       const response = await fetch('/api/stories', { cache: 'no-store' }); if (!response.ok) return;
       const data = await response.json(); stories = Array.isArray(data.stories) ? data.stories : [];
       // Fallback to the loaded public list if the lightweight count endpoint is unavailable.
-      if (mobileStoriesCount && !countLoaded) {
+      if (mobileStoriesCount && !countLoaded && !countHasUsableValue) {
         mobileStoriesCount.textContent = String(stories.length);
+        countHasUsableValue = true;
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
         setCountLoading(false);
       }

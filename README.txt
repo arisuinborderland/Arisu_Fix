@@ -1,16 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV183
+Version: AFV184
 Updated: 2026-10-23
 
-Current release: AFV183
-Package version: 183.0.0
-Source ZIP folder: AFV183/
+Current release: AFV184
+Package version: 184.0.0
+Source ZIP folder: AFV184/
 
-AFV183 RELEASE SUMMARY
-- Improved footer Stories count loading state and accessibility.
-- Recorded browser-side count request duration and the server timing header for diagnostics.
-- Preserved the independent lightweight count request, fallback count, and existing Stories viewer behavior.
-- Kept source tests and staging scripts out of public dist output.
+AFV184 RELEASE SUMMARY
+- Added Vercel edge caching for successful public Stories counts (15-second freshness with stale-while-revalidate) while leaving browser responses no-store.
+- Added a 10-minute browser-storage cache so repeat visits can display the latest known Stories count immediately while the endpoint refreshes in the background.
+- Kept the live endpoint authoritative, preserving fallback to the full Stories list when the count endpoint fails.
+- Preserved Stories viewer layout and behavior; updated release version and active cache-busting references.
 
 Build and test
 - npm test
