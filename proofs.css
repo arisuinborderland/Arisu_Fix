@@ -1007,3 +1007,36 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
   html body.proofs-document .topbar > .header-meta > .about-header-link { width:70px !important; padding:0 5px !important; font-size:9.5px !important; }
   html body.proofs-document .topbar > .header-meta .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
 }
+
+
+/* AFV241 — Keep the live Stories count badge above the avatar image on Proofs. */
+@media (max-width: 700px) {
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-stories .mobile-nav-story-avatar {
+    position: relative !important;
+    overflow: visible !important;
+    isolation: isolate !important;
+  }
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-stories .mobile-nav-story-count {
+    display: grid !important;
+    place-items: center !important;
+    position: absolute !important;
+    z-index: 20 !important;
+    top: -3px !important;
+    right: -4px !important;
+    min-width: 17px !important;
+    width: max-content !important;
+    height: 17px !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    border: 2px solid #101827 !important;
+    border-radius: 12px !important;
+    background: #A855F7 !important;
+    color: #fff !important;
+    font: 700 10px/1 Arial, sans-serif !important;
+    text-indent: 0 !important;
+    white-space: nowrap !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
