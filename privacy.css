@@ -15,7 +15,7 @@ main>.wizard-card>h1{letter-spacing:-1.2px!important}
 #year{font:800 32px Manrope,sans-serif}
 
 
-/* AFV235 — align Privacy Policy navigation with the homepage mobile navigation. */
+/* align Privacy Policy navigation with the homepage mobile navigation. */
 .privacy-about-link { min-width: 94px; gap: 8px; white-space: nowrap; }
 .privacy-about-link svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .mobile-bottom-nav { display: none; }

@@ -11,7 +11,7 @@ if (!versionMatch) throw new Error("package.json must use a numeric semantic ver
 const releaseToken = `AFV${versionMatch[1]}`;
 
 // Explicit root-level allowlist: anything not listed here is never copied to public output.
-// Keep backend handlers (stories.js, story-config.js, cleanup-stories.js), build tooling,
+// Keep canonical backend handlers under api/ and shared helpers under lib/ out of dist; also exclude build tooling,
 // package metadata, Vercel configuration, SQL migrations, and documentation out of dist/.
 const publicRootFiles = new Set([
   "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",

@@ -1,4 +1,4 @@
-/* AFV224: remove only legacy floating shortcuts on the Customer Reviews page. */
+/* Remove only legacy floating shortcuts on the Customer Reviews page. */
 (() => {
   'use strict';
   const body = document.body;

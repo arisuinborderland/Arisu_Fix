@@ -1,4 +1,4 @@
-/* AFV194 — profile-card About This Website CTA inside the footer */
+/* profile-card About This Website CTA inside the footer */
 .about-link-section{max-width:960px}
 .about-page-cta{box-sizing:border-box;display:flex;align-items:center;gap:20px;width:100%;min-height:154px;padding:24px 28px;border:1px solid rgba(125,163,229,.34);border-radius:26px;background:linear-gradient(115deg,rgba(247,251,255,.98) 0%,rgba(239,247,255,.96) 56%,rgba(250,245,255,.98) 100%);box-shadow:0 10px 30px rgba(52,91,157,.08);color:#172b52;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .about-page-cta:hover,.about-page-cta:focus-visible{transform:translateY(-2px);border-color:rgba(76,130,224,.62);box-shadow:0 14px 34px rgba(52,91,157,.14);outline:none}
@@ -21,7 +21,7 @@
 @media(prefers-reduced-motion:reduce){.about-page-cta{transition:none}.about-page-cta:hover,.about-page-cta:focus-visible{transform:none}}
 
 
-/* AFV194: keep the About CTA as the first, full-width card inside the site footer. */
+/* keep the About CTA as the first, full-width card inside the site footer. */
 html body.home-page footer.site-footer > section.about-link-section{box-sizing:border-box;grid-column:1/-1;grid-row:1;width:100%;max-width:960px;margin:0 auto 8px;padding:0;justify-self:center;position:relative;z-index:1}
 html body.home-page footer.site-footer > section.about-link-section .about-page-cta{width:100%}
 @media(max-width:600px){
@@ -35,7 +35,7 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
 }
 
 
-/* AFV194 — compact footer About card and tighten mobile footer spacing. */
+/* compact footer About card and tighten mobile footer spacing. */
 @media (max-width: 600px) {
   html body.home-page footer.site-footer {
     padding: 8px 14px calc(20px + env(safe-area-inset-bottom)) !important;
@@ -92,7 +92,7 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
 }
 
 
-/* AFV195 — remove empty mobile footer grid rows and keep the location block 4px below the About card. */
+/* remove empty mobile footer grid rows and keep the location block 4px below the About card. */
 @media (max-width: 600px) {
   html body.home-page footer.site-footer {
     row-gap: 4px !important;
@@ -117,7 +117,7 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
 }
 
 
-/* AFV215 — compact About link beside Privacy Policy in the homepage header. */
+/* compact About link beside Privacy Policy in the homepage header. */
 html body.home-page .topbar .header-meta .about-header-link {
   box-sizing: border-box;
   display: inline-flex !important;
@@ -191,7 +191,7 @@ html body.home-page .topbar .header-meta .about-header-link:focus-visible {
 }
 
 
-/* AFV218 — align About and Privacy Policy buttons precisely on the profile header row. */
+/* align About and Privacy Policy buttons precisely on the profile header row. */
 html body.home-page .topbar > .header-meta > .privacy-link,
 html body.home-page .topbar > .header-meta > .about-header-link {
   box-sizing: border-box !important;
@@ -251,7 +251,7 @@ html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
   }
 }
 
-/* AFV218 — reduce only the header About button by 2px at the top and bottom. */
+/* reduce only the header About button by 2px at the top and bottom. */
 html body.home-page .topbar > .header-meta > .about-header-link {
   min-height: 44px !important;
   height: 44px !important;
@@ -270,7 +270,7 @@ html body.home-page .topbar > .header-meta > .about-header-link {
 }
 
 
-/* AFV218 — reduce Privacy Policy button height by 2px at the top and bottom, matching About. */
+/* reduce Privacy Policy button height by 2px at the top and bottom, matching About. */
 html body.home-page .topbar > .header-meta > .privacy-link {
   min-height: 44px !important;
   height: 44px !important;

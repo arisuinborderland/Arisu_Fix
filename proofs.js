@@ -131,12 +131,21 @@ function renderRecoveryProofs() {
       copy.className = "proof-album-copy";
       const eyebrow = document.createElement("span");
       eyebrow.className = "proof-album-eyebrow";
-      eyebrow.textContent = "PROOF ALBUM";
+      const folderIcon = document.createElement("span");
+      folderIcon.className = "proof-album-folder-icon";
+      folderIcon.setAttribute("aria-hidden", "true");
+      folderIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 6.5A2.5 2.5 0 0 1 6 4h4l2 2h6a2.5 2.5 0 0 1 2.5 2.5v9A2.5 2.5 0 0 1 18 20H6a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>';
+      const eyebrowText = document.createElement("span");
+      eyebrowText.textContent = "PROOF ALBUM";
+      eyebrow.append(folderIcon, eyebrowText);
       const heading = document.createElement("h2");
       heading.textContent = album.title;
       const description = document.createElement("p");
-      description.textContent = album.description;
-      description.hidden = true;
+      description.textContent = album.icon === "suspended"
+        ? "Examples for suspended Facebook accounts."
+        : album.icon === "disabled"
+          ? "Examples for disabled Facebook accounts."
+          : "Examples for 2FA and login-related cases.";
       const button = document.createElement("button");
       button.type = "button";
       button.className = "proof-album-open";

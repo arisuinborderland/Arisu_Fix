@@ -17,7 +17,7 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 .reviews-updates-coming{width:100%;box-sizing:border-box}
 
 
-/* AFV194: highlighted issue metadata for Screenshot 01 only */
+/* highlighted issue metadata for Screenshot 01 only */
 .review-proof-card .review-proof-caption.issue-highlight{
   margin-top:0;
   padding:15px 16px 14px;
@@ -50,17 +50,17 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
   .review-proof-caption.issue-highlight strong{font-size:18px;}
 }
 
-/* AFV194: raise only the CUSTOMER FEEDBACK label by 4px; leave surrounding layout unchanged. */
+/* raise only the CUSTOMER FEEDBACK label by 4px; leave surrounding layout unchanged. */
 .reviews-page-heading .section-kicker { transform: translateY(-4px); }
 
 
-/* AFV194: raise only the customer-feedback permission/disclaimer sentence by 4px. */
+/* raise only the customer-feedback permission/disclaimer sentence by 4px. */
 .reviews-page-heading > p { transform: translateY(-4px); }
 
 
 
 
-/* AFV224 — Reviews page header uses the same Privacy Policy + About actions as the homepage. */
+/* Reviews page header uses the same Privacy Policy + About actions as the homepage. */
 html body.reviews-document .topbar .header-meta { display:flex; align-items:center; justify-content:flex-end; gap:10px; min-width:0; }
 html body.reviews-document .topbar .header-meta > .privacy-link,
 html body.reviews-document .topbar .header-meta > .about-header-link {
@@ -77,7 +77,7 @@ html body.reviews-document .topbar .header-meta > .privacy-link:focus-visible,
 html body.reviews-document .topbar .header-meta > .about-header-link:focus-visible { outline:3px solid rgba(99,145,255,.5); outline-offset:2px; }
 html body.reviews-document .topbar .header-meta .header-icon { display:block; width:17px; height:17px; flex:0 0 17px; }
 
-/* AFV224 — match the homepage's five-item fixed navigation on the Customer Reviews page only. */
+/* match the homepage's five-item fixed navigation on the Customer Reviews page only. */
 html body.reviews-document { padding-bottom:calc(100px + env(safe-area-inset-bottom, 0px)) !important; }
 html body.reviews-document .mobile-bottom-nav {
   -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
@@ -130,7 +130,7 @@ html body.reviews-document .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-
   html body.reviews-document .topbar .header-meta > .about-header-link { transition:none; }
 }
 
-/* AFV224 final mobile header alignment: keep both actions side-by-side beside the brand. */
+/* Final mobile header alignment: keep both actions side-by-side beside the brand. */
 @media (max-width:600px) {
   html body.reviews-document .topbar {
     display:grid !important;
@@ -147,7 +147,7 @@ html body.reviews-document .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-
 }
 
 
-/* AFV224: hard-hide legacy floating shortcuts on Customer Reviews only.
+/* hard-hide legacy floating shortcuts on Customer Reviews only.
    The homepage keeps its floating menu and WhatsApp shortcut unchanged. */
 html body.reviews-document .floating-menu,
 html body.reviews-document #floatingMenu,
@@ -161,7 +161,7 @@ html body.reviews-document .proofs-back-to-site {
 }
 
 
-/* AFV228 — match the homepage header action sizing and alignment. */
+/* match the homepage header action sizing and alignment. */
 html body.reviews-document .topbar > .header-meta > .privacy-link,
 html body.reviews-document .topbar > .header-meta > .about-header-link,
 html body.reviews-document .topbar > .privacy-link,
@@ -225,7 +225,7 @@ html body.reviews-document .topbar .header-meta .header-icon {
 }
 
 
-/* AFV235 — Keep the Stories item visually consistent with the homepage on every page. */
+/* Keep the Stories item visually consistent with the homepage on every page. */
 @media (max-width: 700px) {
   html body.reviews-document nav.mobile-bottom-nav .mobile-nav-stories { gap: 2px !important; color: #D8C7FF !important; }
   html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar {
@@ -247,7 +247,7 @@ html body.reviews-document .topbar .header-meta .header-icon {
 }
 
 
-/* AFV235 — Match the homepage profile header sizing and alignment on Customer Reviews. */
+/* Match the homepage profile header sizing and alignment on Customer Reviews. */
 @media (max-width: 700px) {
   html body.reviews-document .topbar {
     padding: 10px 12px 11px !important;
@@ -280,7 +280,7 @@ html body.reviews-document .topbar .header-meta .header-icon {
 }
 
 
-/* AFV235 — match homepage mobile header geometry exactly; prevent the header from wrapping. */
+/* match homepage mobile header geometry exactly; prevent the header from wrapping. */
 @media (max-width: 700px) {
   html body.reviews-document .topbar {
     box-sizing: border-box !important; display:flex !important; flex-flow:row nowrap !important;
@@ -291,12 +291,7 @@ html body.reviews-document .topbar .header-meta .header-icon {
     flex:1 1 auto !important; min-width:0 !important; width:auto !important;
     justify-content:flex-start !important; gap:7px !important;
   }
-  html body.reviews-document .topbar > .brand .logo {
-    width:43px !important; height:43px !important; flex:0 0 43px !important;
-    border-radius:13px !important;
-  }
   html body.reviews-document .topbar > .brand b { font-size:15px !important; line-height:1.15 !important; }
-  html body.reviews-document .topbar > .brand small { margin-top:3px !important; font-size:11px !important; line-height:1.2 !important; }
   html body.reviews-document .topbar > .header-meta {
     display:flex !important; flex:0 0 auto !important; width:auto !important; min-width:0 !important;
     justify-content:flex-end !important; align-items:center !important; gap:6px !important;
@@ -315,7 +310,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
 @media (max-width: 380px) {
   html body.reviews-document .topbar { padding-left:9px !important; padding-right:9px !important; gap:5px !important; }
   html body.reviews-document .topbar > .brand { gap:6px !important; }
-  html body.reviews-document .topbar > .brand .logo { width:39px !important; height:39px !important; flex-basis:39px !important; }
   html body.reviews-document .topbar > .brand b { font-size:13px !important; }
   html body.reviews-document .topbar > .brand small { font-size:9.5px !important; }
   html body.reviews-document .topbar > .header-meta { gap:4px !important; }

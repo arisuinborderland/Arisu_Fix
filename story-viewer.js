@@ -96,7 +96,7 @@
   function showAt(next) {
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
-    const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); viewer.querySelector('.story-viewer-card').style.setProperty('--story-image-bg', `url("${String(story.imageUrl).replace(/["\\]/g, '')}")`); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
+    const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
     // Count each story display (including revisits/automatic advances). Failure is silent
     // and never delays rendering or the progress timer.
     if (story.id) fetch('/api/story-view', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: story.id }), keepalive: true }).catch(() => {});

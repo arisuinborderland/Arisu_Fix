@@ -1,4 +1,4 @@
-/* AFV194 — Dark Navy Gradient Recovery Stories viewer */
+/* Dark Navy Gradient Recovery Stories viewer */
 .story-bubble{position:fixed;right:18px;bottom:94px;z-index:900;display:flex;align-items:center;gap:8px;padding:7px 13px 7px 7px;border:1px solid #d9e2ff;border-radius:999px;background:#fff;color:#20315d;font:700 13px Arial,sans-serif;box-shadow:0 10px 32px #172b5b2b;cursor:pointer}
 .story-bubble[hidden],.story-viewer[hidden]{display:none}
 .story-bubble-ring{width:42px;height:42px;border-radius:50%;padding:3px;background:conic-gradient(#fb3f86,#8653ee,#3867f2,#16b9c2,#fb3f86);display:grid;place-items:center;flex:none}
@@ -23,7 +23,7 @@ body.story-viewer-open{overflow:hidden;overscroll-behavior:none}
 @media(prefers-reduced-motion:reduce){.story-viewer-progress{transition:none!important}}
 
 
-/* AFV194 — mobile-first viewer sizing; prevents desktop-width media queries from shrinking phone viewers */
+/* mobile-first viewer sizing; prevents desktop-width media queries from shrinking phone viewers */
 html body .story-viewer[hidden]{display:none!important}
 html body .story-viewer:not([hidden]){position:fixed!important;inset:0!important;z-index:2147483000!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;overflow:hidden!important;box-sizing:border-box!important}
 html body .story-viewer .story-viewer-card{box-sizing:border-box!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important}
@@ -42,7 +42,7 @@ html body .story-viewer .story-viewer-image{max-width:100%!important;object-fit:
 }
 @media(prefers-reduced-motion:reduce){html body .story-viewer .story-viewer-progress{transition:none!important}}
 
-/* AFV194: prioritize portrait/narrow viewport sizing even when Chrome reports a fine pointer. */
+/* prioritize portrait/narrow viewport sizing even when Chrome reports a fine pointer. */
 @media screen and (max-width: 900px) and (orientation: portrait){
  html body .story-viewer:not([hidden]){position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;padding:0!important;margin:0!important;}
  html body .story-viewer .story-viewer-card{width:100vw!important;max-width:none!important;height:100vh!important;height:100dvh!important;max-height:none!important;min-height:0!important;border-radius:0!important;}
@@ -50,14 +50,14 @@ html body .story-viewer .story-viewer-image{max-width:100%!important;object-fit:
 }
 
 
-/* AFV194 — trim matching space from the bottom of the displayed image on portrait phones. */
+/* trim matching space from the bottom of the displayed image on portrait phones. */
 @media screen and (max-width: 900px) and (orientation: portrait){
  html body .story-viewer:not([hidden]){padding:8px 0!important;box-sizing:border-box!important;}
  html body .story-viewer .story-viewer-card{height:calc(100dvh - 16px)!important;max-height:calc(100dvh - 16px)!important;min-height:0!important;margin:0!important;border-radius:10px!important;}
  html body .story-viewer .story-viewer-image{top:58px!important;bottom:58px!important;height:auto!important;max-height:none!important;object-fit:cover!important;object-position:center center!important;}
 }
 
-/* AFV194 — Royal Navy controls: compact, premium, and consistent across devices. */
+/* Royal Navy controls: compact, premium, and consistent across devices. */
 html body .story-viewer:not([hidden]) .story-viewer-close {
   display:grid!important; place-items:center!important;
   width:40px!important; height:40px!important; min-width:40px!important; min-height:40px!important;
@@ -98,36 +98,12 @@ html body .story-viewer:not([hidden]) .story-viewer-nav:active {
 }
 
 
-/* AFV194 — landscape and wide images: retain the complete image while filling unused viewer space with a subtle blurred backdrop. */
-html body .story-viewer .story-viewer-card{
-  background:#080d18!important;
-}
-html body .story-viewer .story-viewer-card::before{
-  content:"";position:absolute;inset:-24px;z-index:0;
-  background-image:var(--story-image-bg,none);background-size:cover;background-position:center;
-  filter:blur(24px) brightness(.48) saturate(.82);transform:scale(1.06);
-  opacity:.92;pointer-events:none;
-}
 html body .story-viewer .story-viewer-progress-track,
 html body .story-viewer .story-viewer-meta,
 html body .story-viewer .story-viewer-close,
 html body .story-viewer .story-viewer-nav,
 html body .story-viewer .story-viewer-caption{z-index:4!important}
-html body .story-viewer .story-viewer-image{
-  z-index:1!important;object-fit:contain!important;object-position:center center!important;
-  background:transparent!important;
-}
-
-
-/* AFV194 — Center all image aspect ratios in the available Story stage.
-   Keep the complete image visible; no crop, stretch, or blurred duplicate background. */
-html body .story-viewer .story-viewer-card::before {
-  content: none !important;
-  display: none !important;
-}
-html body .story-viewer .story-viewer-card {
-  background: #080d18 !important;
-}
+/* Final Story image stage sizing; keep the complete image visible without cropping or stretching. */
 html body .story-viewer .story-viewer-image {
   position: absolute !important;
   left: 0 !important;
@@ -155,15 +131,12 @@ html body .story-viewer .story-viewer-image {
 }
 
 
-/* AFV194 — Midnight Blue soft-glow background and slightly higher centered Story image. */
+/* Midnight Blue soft-glow background and slightly higher centered Story image. */
 html body .story-viewer:not([hidden]) {
   background: radial-gradient(ellipse at 50% 46%, #174EA6 0%, #10182F 47%, #07101F 100%) !important;
 }
 html body .story-viewer .story-viewer-card {
   background: radial-gradient(ellipse at 50% 42%, rgba(23,78,166,.82) 0%, rgba(16,24,47,.98) 53%, #07101F 100%) !important;
-}
-html body .story-viewer .story-viewer-card::before {
-  content: none !important; display: none !important;
 }
 html body .story-viewer .story-viewer-image {
   top: 58px !important;
@@ -186,7 +159,7 @@ html body .story-viewer .story-viewer-image {
 }
 
 
-/* AFV194 — preload the destination image before completing the fade transition. */
+/* preload the destination image before completing the fade transition. */
 html body .story-viewer .story-viewer-image {
   opacity: 1;
   transition: opacity 140ms ease;
@@ -199,7 +172,7 @@ html body .story-viewer.story-viewer-switching .story-viewer-image {
 }
 
 
-/* AFV194 — Deep Purple Recovery Stories button, inline timestamp, and private view tracking */
+/* Deep Purple Recovery Stories button, inline timestamp, and private view tracking */
 html body .story-bubble {
   background: #5B21B6 !important;
   color: #FFFFFF !important;
@@ -229,7 +202,7 @@ html body .story-viewer .story-viewer-time {
 }
 
 
-/* AFV194 — larger story header, full-width segmented progress, bottom Back to Site control. */
+/* larger story header, full-width segmented progress, bottom Back to Site control. */
 html body .story-viewer .story-viewer-progress-track {
   top: 10px !important; left: 8px !important; right: 8px !important;
   width: auto !important; height: 4px !important; gap: 4px !important;
@@ -286,7 +259,7 @@ html body .story-viewer:not([hidden]) .story-viewer-close:active {
 }
 
 
-/* AFV194 — basic anti-save deterrents for the temporary Story Viewer.
+/* basic anti-save deterrents for the temporary Story Viewer.
    These discourage casual saving/dragging; they do not prevent screenshots. */
 html body .story-viewer .story-viewer-image {
   -webkit-user-drag: none !important;
@@ -301,7 +274,7 @@ html body .story-viewer .story-viewer-card {
 }
 
 
-/* AFV194 — story navigation uses left/right image taps; remove the old visible arrow controls. */
+/* story navigation uses left/right image taps; remove the old visible arrow controls. */
 html body .story-viewer:not([hidden]) .story-viewer-nav {
   display: none !important;
 }
@@ -311,7 +284,7 @@ html body .story-viewer .story-viewer-image {
 }
 
 
-/* AFV194 — adaptive image orientation, refined story header and compact Back to Site control. */
+/* adaptive image orientation, refined story header and compact Back to Site control. */
 html body .story-viewer .story-viewer-card {
   background: radial-gradient(ellipse at 50% 42%, #142b4c 0%, #0b1426 48%, #050912 100%) !important;
 }

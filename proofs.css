@@ -74,55 +74,53 @@ main{max-width:1000px;padding:40px 20px 64px}
 @media(max-width:600px){.proof-updates-coming{gap:11px;margin-top:13px;padding:14px 13px;border-radius:15px}.proof-updates-coming-icon{flex-basis:36px;width:36px;height:36px;border-radius:11px;font-size:20px}.proof-updates-coming h2{font-size:16px}.proof-updates-coming h3{font-size:11px}.proof-updates-coming p{font-size:11px;line-height:1.55}}
 
 
-/* AFV194: fixed Back to site control on Recovery Proofs, matching Customer Reviews. */
+/* fixed Back to site control on Recovery Proofs, matching Customer Reviews. */
 .button.secondary.proofs-back-to-site{position:fixed!important;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:1000;display:inline-flex;align-items:center;justify-content:center;width:auto;max-width:calc(100vw - 24px);margin:0;padding:0 17px;min-height:48px;border:1px solid rgba(255,255,255,.82)!important;border-radius:999px;background:linear-gradient(135deg,#253b70,#365fe0 58%,#7546c8)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-align:center;text-decoration:none;font-size:14px;font-weight:800;line-height:1.3;box-shadow:0 8px 24px rgba(31,56,125,.28),inset 0 1px 0 rgba(255,255,255,.24);white-space:nowrap;opacity:1!important;filter:none!important;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
 .button.secondary.proofs-back-to-site:hover,.button.secondary.proofs-back-to-site:focus-visible{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 11px 28px rgba(31,56,125,.34),inset 0 1px 0 rgba(255,255,255,.28)}
 .button.secondary.proofs-back-to-site:focus-visible{outline:3px solid rgba(99,145,255,.55);outline-offset:3px}
-.button.secondary.proofs-back-to-site[hidden]{display:none!important}
+
 /* Keep the Arisu icon at the same elevated offset used on Customer Reviews. */
 html body .floating-menu{right:max(12px,env(safe-area-inset-right,0px))!important;bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + 76px)!important;z-index:1001!important}
 @media(max-width:600px){.button.secondary.proofs-back-to-site{right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));min-height:44px;padding:0 15px;font-size:13px;box-shadow:0 6px 19px rgba(31,56,125,.3)}}
 @media(prefers-reduced-motion:reduce){.button.secondary.proofs-back-to-site{transition:none}.button.secondary.proofs-back-to-site:hover,.button.secondary.proofs-back-to-site:focus-visible{transform:none}}
 
-/* AFV194: Back to Home label and home icon on Recovery Proofs. */
+/* Back to Home label and home icon on Recovery Proofs. */
 .button.secondary.proofs-back-to-site{gap:9px}
 .button.secondary.proofs-back-to-site svg{width:18px;height:18px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 
 
-/* AFV194 — Two Factor Authentication album cover */
+/* Two Factor Authentication album cover */
 .proof-album-2fa .proof-album-cover{background:linear-gradient(135deg,#0b1c3d 0%,#183f7a 48%,#2b79a8 100%)}
 .proof-album-2fa .proof-album-cover-shade{background:linear-gradient(180deg,rgba(4,14,34,.02),rgba(4,14,34,.48))}
 .proof-album-security-mark{position:absolute;inset:0;display:grid;place-items:center;color:#d9f4ff}
 .proof-album-security-mark svg{width:clamp(58px,9vw,92px);height:auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))}
 
-/* AFV194 — Keep related 2FA screenshots together in one proof card. */
-/* AFV194 — Equal-height 2FA screenshot panels; preserve the full screenshot content. */
+/* Keep related 2FA screenshots together in one proof card. */
+/* Equal-height 2FA screenshot panels; preserve the full screenshot content. */
 .proof-image-link:has(.proof-image-pair){aspect-ratio:4/3;display:block;overflow:hidden}
 .proof-image-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:2px;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;background:#e8edf5}
 .proof-image-pair img{display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:contain;object-position:center center;background:#f5f7fb}
 .proof-image-pair img[hidden]{display:none!important}
 @media(max-width:600px){.proof-image-link:has(.proof-image-pair){aspect-ratio:4/3}.proof-image-pair{gap:2px}}
 
-/* AFV194 — Show both related 2FA screenshots in the album cover preview. */
+/* Show both related 2FA screenshots in the album cover preview. */
 .proof-album-preview-pair{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:2px;overflow:hidden}
 .proof-album-preview-pair img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;object-position:top center;filter:saturate(.9)}
 .proof-album-2fa .proof-album-cover-shade{background:linear-gradient(180deg,rgba(20,34,63,.02),rgba(20,34,63,.43))}
 
-/* AFV194: Explicit two-image album preview for the 2FA album. */
+/* Explicit two-image album preview for the 2FA album. */
 .proof-album-2fa .proof-album-cover{position:relative;overflow:hidden}
 .proof-album-2fa .proof-album-preview-pair-2fa{position:absolute;inset:0;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2px;width:100%;height:100%;overflow:hidden}
 .proof-album-2fa .proof-album-preview-pair-2fa .proof-album-preview-image{position:relative;display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center top;filter:saturate(.9)}
 .proof-album-2fa .proof-album-preview-pair-2fa .proof-album-preview-image-1{object-position:center top}
 .proof-album-2fa .proof-album-preview-pair-2fa .proof-album-preview-image-2{object-position:center top}
 
-/* AFV194 — Equalized 2FA image crops */
-.proof-image-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:2px;width:100%;height:100%;overflow:hidden}
+/* Equalized 2FA image crops */
 .proof-image-pair img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;object-position:center;aspect-ratio:709/1340}
 .proof-image-link:has(.proof-image-pair){aspect-ratio:709/670}
-@media(max-width:600px){.proof-image-pair{gap:2px}}
 
 
-/* AFV228 — Recovery Proofs header actions and homepage-matched mobile navigation. */
+/* Recovery Proofs header actions and homepage-matched mobile navigation. */
 html body.proofs-document .topbar .header-meta{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:0}
 html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:48px;padding:0 15px;border:1px solid #cbd5e5;border-radius:15px;background:rgba(255,255,255,.88);color:#34415a;text-decoration:none;white-space:nowrap;font-size:13px;font-weight:800;box-shadow:0 3px 10px rgba(31,49,83,.07)}
 html body.proofs-document .topbar .header-meta>.about-header-link{border-color:#8ba7ff;background:linear-gradient(135deg,rgba(242,247,255,.98),rgba(238,233,255,.96));color:#2858d6}
@@ -130,7 +128,7 @@ html body.proofs-document .topbar .header-meta .header-icon{display:block;width:
 html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))!important}
 @media(max-width:600px){html body.proofs-document .topbar .header-meta{gap:6px}html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{min-height:43px;padding:0 15px;gap:5px;border-radius:12px;font-size:12px}html body.proofs-document .topbar .header-meta .header-icon{width:14px;height:14px;flex-basis:14px}}
 @media(max-width:380px){html body.proofs-document .topbar .header-meta{gap:4px}html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{min-height:41px;padding:0 10px;gap:4px;font-size:11px}html body.proofs-document .topbar .header-meta .header-icon{width:12px;height:12px;flex-basis:12px}}
-/* AFV228 — fixed mobile bottom navigation on Recovery Proofs, matching the homepage. */
+/* fixed mobile bottom navigation on Recovery Proofs, matching the homepage. */
 .mobile-bottom-nav { display:none; }
 @media screen and (max-width: 700px) {
   html body.proofs-document { padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
@@ -227,7 +225,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — refined compact profile header; preserve the existing header links and gradient. */
+/* refined compact profile header; preserve the existing header links and gradient. */
 @media (max-width: 700px) {
   html body.proofs-document .topbar {
     padding: 10px 12px 11px;
@@ -284,7 +282,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — keep the mobile header focused on the Arisu profile and Privacy Policy. */
+/* keep the mobile header focused on the Arisu profile and Privacy Policy. */
 @media (max-width: 700px) {
   html body.proofs-document .topbar > .header-meta {
     display: flex !important;
@@ -306,7 +304,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — Option 3: Deep Black-Navy footer with a Violet Stories accent. */
+/* Option 3: Deep Black-Navy footer with a Violet Stories accent. */
 @media (max-width: 700px) {
   html body.proofs-document .mobile-bottom-nav {
     background: rgba(16, 24, 39, .985) !important;
@@ -336,7 +334,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — apply the Deep Black-Navy + Violet footer style on desktop too. */
+/* apply the Deep Black-Navy + Violet footer style on desktop too. */
 @media (min-width: 701px) {
   html body.proofs-document .site-footer {
     background: #101827 !important;
@@ -367,7 +365,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — desktop version of the five-item bottom navigation. */
+/* desktop version of the five-item bottom navigation. */
 @media (min-width: 701px) {
   html body.proofs-document .mobile-bottom-nav {
     position: relative !important;
@@ -434,7 +432,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — make desktop navigation float above page content, matching mobile behavior. */
+/* make desktop navigation float above page content, matching mobile behavior. */
 @media (min-width: 701px) {
   html body.proofs-document {
     padding-bottom: 112px !important;
@@ -511,7 +509,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV194 — enforce compact Stories sizing and keep fixed navigation clear of footer content. */
+/* enforce compact Stories sizing and keep fixed navigation clear of footer content. */
 @media (min-width: 701px) {
   html body.proofs-document {
     padding-bottom: 150px !important;
@@ -604,7 +602,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215 — compact mobile footer links and reduce excess vertical spacing. */
+/* compact mobile footer links and reduce excess vertical spacing. */
 @media (max-width: 600px) {
   html body.proofs-document .site-footer > .about-link-section {
     margin-bottom: 4px !important;
@@ -642,7 +640,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215 — compact footer links with small inline icons for clearer scanning. */
+/* compact footer links with small inline icons for clearer scanning. */
 @media (max-width: 600px) {
   html body.proofs-document .site-footer > .footer-links {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -683,7 +681,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215 — trim the extra mobile footer tail without reducing clearance for the fixed navigation. */
+/* trim the extra mobile footer tail without reducing clearance for the fixed navigation. */
 @media (max-width: 700px) {
   html body.proofs-document .site-footer {
     padding-bottom: 6px !important;
@@ -691,7 +689,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215 — balance footer height with fixed bottom navigation; keep copyright visible. */
+/* balance footer height with fixed bottom navigation; keep copyright visible. */
 @media (max-width: 700px) {
   html body.proofs-document {
     padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
@@ -702,7 +700,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215: place copyright beside Contact in the compact mobile footer. */
+/* place copyright beside Contact in the compact mobile footer. */
 @media (max-width:760px) {
   .site-footer {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -733,7 +731,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215 — place copyright in the final mobile footer grid cell beside Contact. */
+/* place copyright in the final mobile footer grid cell beside Contact. */
 @media (max-width: 760px) {
   html body.proofs-document .site-footer > .footer-links {
     display: grid !important;
@@ -770,7 +768,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV215 — reduce only the remaining space below the compact footer on mobile. */
+/* reduce only the remaining space below the compact footer on mobile. */
 @media (max-width: 700px) {
   html body.proofs-document {
     padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important;
@@ -778,7 +776,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV221: use a clean, solid WhatsApp brand glyph in the bottom Contact navigation item. */
+/* use a clean, solid WhatsApp brand glyph in the bottom Contact navigation item. */
 @media screen and (max-width:700px) {
   html body.proofs-document nav.mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon {
     fill: currentColor;
@@ -790,7 +788,7 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* AFV235 — use the same header action geometry and visual treatment as the homepage. */
+/* use the same header action geometry and visual treatment as the homepage. */
 html body.proofs-document .topbar > .header-meta {
   display: flex !important;
   align-items: center !important;
@@ -910,7 +908,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
 }
 
 
-/* AFV235 — Keep the Stories item visually consistent with the homepage on every page. */
+/* Keep the Stories item visually consistent with the homepage on every page. */
 @media (max-width: 700px) {
   html body.proofs-document nav.mobile-bottom-nav .mobile-nav-stories { gap: 2px !important; color: #D8C7FF !important; }
   html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar {
@@ -932,7 +930,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
 }
 
 
-/* AFV235 — Match the homepage profile header sizing and alignment on Recovery Proofs. */
+/* Match the homepage profile header sizing and alignment on Recovery Proofs. */
 @media (max-width: 700px) {
   html body.proofs-document .topbar {
     padding: 10px 12px 11px !important;
@@ -965,7 +963,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
 }
 
 
-/* AFV235 — match homepage mobile header geometry exactly; prevent the header from wrapping. */
+/* match homepage mobile header geometry exactly; prevent the header from wrapping. */
 @media (max-width: 700px) {
   html body.proofs-document .topbar {
     box-sizing:border-box !important; display:flex !important; flex-flow:row nowrap !important;
@@ -1009,7 +1007,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
 }
 
 
-/* AFV242 — Keep the live Stories count badge above the avatar image on Proofs. */
+/* Keep the live Stories count badge above the avatar image on Proofs. */
 @media (max-width: 700px) {
   html body.proofs-document nav.mobile-bottom-nav .mobile-nav-stories {
     position: relative !important;
@@ -1044,4 +1042,96 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
     opacity: 1 !important;
     visibility: visible !important;
   }
+}
+
+
+/* Premium Clean / Gallery First Recovery Proofs refresh. */
+html body.proofs-document {
+  background: radial-gradient(ellipse at 12% 8%,rgba(202,228,255,.46),transparent 34rem),
+              radial-gradient(ellipse at 88% 72%,rgba(238,216,255,.36),transparent 34rem),
+              linear-gradient(180deg,#f8fbff 0%,#f5f7fc 58%,#fff 100%);
+}
+html body.proofs-document main { max-width:1040px; padding:28px 18px 52px; }
+html body.proofs-document .proofs-page-card {
+  max-width:1000px; padding:clamp(20px,3vw,34px); border-radius:28px;
+  background:rgba(255,255,255,.94); border:1px solid rgba(220,230,246,.92);
+  box-shadow:0 16px 42px rgba(39,61,106,.065);
+}
+html body.proofs-document .proofs-page-title {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  gap:14px 18px; max-width:none; margin:0 0 24px; text-align:left;
+}
+.proofs-title-main { display:flex; align-items:center; gap:14px; min-width:0; }
+.proofs-title-icon { display:grid; place-items:center; flex:0 0 54px; width:54px; height:54px; border-radius:17px; color:#fff; background:linear-gradient(140deg,#2457f4,#438cff); box-shadow:0 8px 20px rgba(49,95,225,.18); }
+.proofs-title-icon svg { width:28px; height:28px; }
+.proofs-title-copy { min-width:0; }
+html body.proofs-document .proofs-page-title h1 { margin:0 0 3px; font-size:clamp(25px,4vw,34px); line-height:1.12; letter-spacing:-1.1px; }
+html body.proofs-document .proofs-title-copy p { font-size:14px; line-height:1.45; }
+.proofs-updated-badge { display:inline-flex; align-items:center; justify-content:center; gap:7px; padding:10px 13px; border:1px solid #dce6ff; border-radius:14px; color:#2859d9; background:linear-gradient(135deg,#f1f6ff,#f4f0ff); font-size:12px; font-weight:800; white-space:nowrap; }
+.proofs-updated-badge svg { width:18px; height:18px; flex:0 0 18px; }
+html body.proofs-document .proofs-disclaimer { flex-basis:100%; margin:0; color:#8792a5; font-size:12px; line-height:1.55; }
+html body.proofs-document .proof-browser { margin-top:0; }
+html body.proofs-document .proof-search { max-width:none; width:100%; box-sizing:border-box; height:54px; margin:0 0 16px; padding:0 17px; border-radius:17px; border-color:#dce5f5; background:rgba(255,255,255,.88); box-shadow:0 5px 18px rgba(35,54,94,.035); }
+html body.proofs-document .proof-search svg { width:22px; height:22px; flex-basis:22px; color:#52688f; }
+html body.proofs-document .proof-search input { font-size:15px; }
+html body.proofs-document .proof-filters { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); justify-content:stretch; gap:9px; width:100%; margin:0 0 22px; }
+html body.proofs-document .proof-filter { min-width:0; min-height:64px; gap:7px; padding:10px 11px; border-radius:16px; font-size:12px; line-height:1.3; box-shadow:0 2px 8px rgba(35,54,94,.025); }
+html body.proofs-document .proof-filter span { min-width:26px; height:26px; border-radius:9px; font-size:12px; }
+html body.proofs-document .proof-filter.is-active { background:linear-gradient(125deg,#2858ef,#4d7df7); border-color:#3568f0; box-shadow:0 8px 18px rgba(49,95,225,.18); }
+html body.proofs-document .proof-results-line { margin:0 0 15px; color:#64728b; font-size:13px; }
+html body.proofs-document .proof-results-note { color:#8994a6; }
+html body.proofs-document .proof-album-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; max-width:none; }
+html body.proofs-document .proof-album-card { border:1px solid #dce5f3; border-radius:23px; box-shadow:0 7px 22px rgba(35,54,94,.055); }
+html body.proofs-document .proof-album-card:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(35,54,94,.09); }
+html body.proofs-document .proof-album-cover { aspect-ratio:16/9; background:#edf2fc; }
+html body.proofs-document .proof-album-cover img { object-fit:cover; }
+html body.proofs-document .proof-album-count { right:11px; bottom:11px; padding:7px 11px; border:1px solid rgba(255,255,255,.28); background:rgba(24,35,59,.78); color:#fff; font-size:11px; box-shadow:0 5px 16px rgba(0,0,0,.14); backdrop-filter:blur(8px); }
+html body.proofs-document .proof-album-copy { padding:15px 16px 16px; }
+html body.proofs-document .proof-album-eyebrow { display:flex; align-items:center; gap:8px; color:#62718d; font-size:10px; letter-spacing:1.1px; }
+.proof-album-folder-icon { display:inline-flex; color:#3168f3; }
+.proof-album-folder-icon svg { display:block; width:20px; height:20px; }
+html body.proofs-document .proof-album-copy h2 { margin:9px 0 7px; font-size:clamp(16px,2vw,21px); line-height:1.24; letter-spacing:-.45px; }
+html body.proofs-document .proof-album-copy p { min-height:0; margin:0 0 14px; color:#687791; font-size:13px; line-height:1.5; }
+html body.proofs-document .proof-album-open { min-height:44px; border:0; border-radius:13px; background:linear-gradient(115deg,#2458ed,#4a82fa); font-size:13px; box-shadow:0 5px 13px rgba(49,95,225,.14); transition:transform .16s ease,box-shadow .16s ease; }
+html body.proofs-document .proof-album-open:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 8px 17px rgba(49,95,225,.2); }
+html body.proofs-document .proof-album-open:focus-visible { outline:3px solid rgba(49,95,225,.28); outline-offset:3px; }
+html body.proofs-document .proof-album-2fa .proof-album-cover-shade { background:linear-gradient(180deg,rgba(20,34,63,.01),rgba(20,34,63,.28)); }
+html body.proofs-document .proof-album-suspended .proof-album-cover-shade,
+html body.proofs-document .proof-album-disabled .proof-album-cover-shade { background:linear-gradient(180deg,rgba(20,34,63,.01),rgba(20,34,63,.24)); }
+html body.proofs-document .proof-gallery-v2:not(.proof-album-grid) { gap:14px; }
+html body.proofs-document .proofs-footer { margin-top:10px; }
+@media(max-width:760px) {
+  html body.proofs-document main { padding:18px 12px 32px; }
+  html body.proofs-document .proofs-page-card { padding:20px 14px; border-radius:22px; }
+  html body.proofs-document .proofs-page-title { gap:12px; margin-bottom:20px; }
+  .proofs-title-icon { width:46px; height:46px; flex-basis:46px; border-radius:14px; }
+  .proofs-title-icon svg { width:24px; height:24px; }
+  .proofs-updated-badge { padding:8px 10px; font-size:11px; }
+  html body.proofs-document .proof-filters { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-bottom:19px; }
+  html body.proofs-document .proof-filter { flex-direction:row; justify-content:space-between; min-height:52px; padding:9px 10px; gap:8px; text-align:left; font-size:11px; border-radius:13px; }
+  html body.proofs-document .proof-filter span { flex:0 0 23px; min-width:23px; height:23px; }
+  html body.proofs-document .proof-album-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  html body.proofs-document .proof-album-card { border-radius:18px; }
+  html body.proofs-document .proof-album-cover { aspect-ratio:4/3; }
+  html body.proofs-document .proof-album-copy { padding:11px 11px 12px; }
+  html body.proofs-document .proof-album-eyebrow { gap:5px; font-size:8px; letter-spacing:.7px; }
+  .proof-album-folder-icon svg { width:16px; height:16px; }
+  html body.proofs-document .proof-album-copy h2 { margin:7px 0 6px; font-size:15px; line-height:1.25; }
+  html body.proofs-document .proof-album-copy p { margin-bottom:11px; font-size:11px; line-height:1.45; }
+  html body.proofs-document .proof-album-open { min-height:39px; padding:8px 5px; border-radius:11px; font-size:11px; }
+  html body.proofs-document .proof-album-count { right:7px; bottom:7px; padding:5px 8px; font-size:10px; }
+}
+@media(max-width:390px) {
+  html body.proofs-document .proofs-page-card { padding:17px 10px; }
+  html body.proofs-document .proofs-title-copy p { font-size:12px; }
+  .proofs-updated-badge { font-size:10px; }
+  html body.proofs-document .proof-filter { padding:8px; font-size:10px; }
+  html body.proofs-document .proof-album-copy { padding:10px 9px; }
+  html body.proofs-document .proof-album-copy h2 { font-size:14px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body.proofs-document .proof-album-card,
+  html body.proofs-document .proof-album-open { transition:none!important; }
+  html body.proofs-document .proof-album-card:hover,
+  html body.proofs-document .proof-album-open:hover:not(:disabled) { transform:none; }
 }

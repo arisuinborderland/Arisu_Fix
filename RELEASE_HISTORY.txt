@@ -1,3 +1,86 @@
+AFV255 — 2026-10-23
+- Fixed missing Story Viewer stylesheet on About and Privacy Policy pages so the viewer overlay can display correctly there.
+- Added regression coverage requiring Story Viewer CSS and JavaScript on Home, Reviews, Proofs, About, and Privacy Policy.
+- Performed a deeper source-level audit and corrected stale nested asset-guide version labels.
+- Synchronized active cache-busting tokens, package version, README, and regression-test expectations to AFV255 / 255.0.0.
+- Preserved CSS declarations and responsive overrides; no unverified WhatsApp CSS consolidation was performed.
+- Verified automated tests and production build; visual/browser comparison remains unverified.
+
+AFV253 — 2026-10-23
+- Consolidated adjacent max-width: 700px media-query wrappers for homepage mobile footer rules in styles.css.
+- Removed the duplicate site-footer padding-bottom declaration while preserving the body safe-area clearance rule and declaration order.
+- Added regression tests for the single footer padding declaration and fixed-navigation clearance.
+- Updated active cache-busting references, package version, README, and release history to AFV253.
+- Source ZIP excludes dist/ and node_modules/; browser visual verification and live deployment remain unconfirmed.
+
+AFV252 — 2026-10-23
+- Safe, targeted exact-duplicate cleanup in `reviews.css`, based on AFV251.
+- Removed repeated mobile header logo sizing and brand-small typography declarations where selectors, values, importance, and media-query conditions were identical.
+- Preserved header geometry, button dimensions, breakpoints, navigation, and other responsive overrides.
+- Added regression coverage and synchronized active cache-busting references, package metadata, and README to AFV252 / 252.0.0.
+- Validation: automated tests and production build run locally; visual browser and live deployment checks remain separate.
+
+AFV251 — 2026-10-23
+- Safe, targeted exact-duplicate cleanup in proofs.css, based on AFV250.
+- Removed the duplicate hidden-state rule for the fixed Back to Site control.
+- Removed a redundant .proof-image-pair base rule and duplicate mobile gap declaration; retained image crop rules, positioning, gallery layout, and responsive behavior declarations.
+- Added regression coverage and synchronized active cache-busting references, package metadata, README, and release history to AFV251 / 251.0.0.
+- Validation: automated regression tests and production build run locally; visual browser and live deployment checks remain separate.
+
+AFV250 — 2026-10-23
+- Safe, targeted cleanup of `about-page.css`, based on AFV249.
+- Removed superseded mobile main-content bottom-padding declarations (76px and 8px) that were overridden later by the same selector and importance at 2px; retained the final 2px rule and body-level bottom-navigation clearance.
+- Removed repeated same-condition spacing/padding declarations and an empty CSS rule block without changing the remaining rule order.
+- Added regression tests for the cleanup and synchronized active cache-busting references, package metadata, and README to AFV250 / 250.0.0.
+- Validation: automated tests and production build run locally; visual browser and live deployment checks remain separate.
+
+AFV249 — 2026-10-23
+- Safe, single-file CSS cleanup based on AFV248.
+- Removed one exact duplicate global Story Admin `.story-view-label` font-size declaration; preserved the identical later declaration and all responsive rules.
+- Added regression coverage and synchronized active cache-busting/version metadata to AFV249 / 249.0.0.
+- Validation: automated tests and production build run locally; browser visual and live deployment checks remain separate.
+
+AFV248 — 2026-10-23
+- Removed redundant mobile-only About paragraph margin declarations already supplied by the base rule.
+- Removed duplicate Story Admin drag cursor and secondary-action color declarations while preserving active drag state and responsive card rules.
+- Merged one adjacent duplicate desktop media-query wrapper in styles.css without changing inner rule order or declarations.
+- Updated package/version metadata, active cache-busting references, README, and regression-test expectations to AFV248.
+- Validation: automated regression tests and production build run from packaged source; visual browser and live deployment checks remain separate.
+
+AFV247 — 2026-10-23
+- Removed the obsolete Story Viewer blurred-backdrop pseudo-element rules and redundant intermediate background overrides.
+- Removed the now-unused `--story-image-bg` write from `story-viewer.js`.
+- Removed duplicate footer-year initialization from the Proofs page; kept `privacy-year.js` for the Privacy Policy page.
+- Replaced the stale AFV179 staging fixture label with a version-neutral path and generalized outdated AFV224 comments in active Reviews files.
+- Updated active cache-busting references and release metadata to AFV247 / 247.0.0.
+- Validation: 48 automated regression tests and production build passed locally. Staging-only and browser/live deployment checks remain separate.
+
+AFV246 — 2026-10-23
+- Safe maintenance release based on AFV245.
+- Excluded generated dist/ output from the source ZIP; it is regenerated by npm run build.
+- Removed stale AFV version prefixes from active CSS comments only; CSS declarations, ordering, and selectors were not refactored.
+- Synchronized package version, active cache-busting references, and regression-test expectations to AFV246.
+- Validation: regression tests and production build run from the packaged source; live Vercel/browser checks remain separate.
+
+AFV245 — 2026-10-23
+- Removed three unreferenced review-slot SVG placeholders after source reference scan.
+- Updated outdated internal README files and replaced stale AFV194 smoke-test fixture captions.
+- Consolidated duplicate release-history headings while retaining unique historical notes.
+- Preserved API handlers and runtime behavior; package and active cache-busting references aligned to AFV245.
+- Validation: automated tests and production build run on the packaged source; live Vercel/browser checks remain separate.
+
+AFV244 — 2026-10-23
+- Removed redundant root-level copies of stories.js, cleanup-stories.js, story-config.js, story-view.js, story-views-admin.js, and stories-api.test.js after repository reference scan.
+- Preserved canonical Vercel API handlers under api/ and the active regression test under tests/.
+- Updated build.js comments and aligned package/version cache-busting metadata to AFV244.
+- Validation: tests and production build run from the release source; live Vercel/browser checks remain separate.
+
+AFV243 — 2026-10-23
+- Refined the Recovery Proofs page with premium clean hierarchy, responsive category filters, gallery-first album cards, visible descriptions, consistent cover sizing, and softer blue accents.
+- Preserved existing proof assets, album filtering/search behavior, 2FA paired screenshots, Story Viewer, and correct Proofs active navigation.
+- Synchronized active cache-busting references and package/release metadata to AFV243.
+- Validation: automated tests and production build run for this package; live Vercel deployment/browser confirmation remains separate.
+
 AFV242 — 2026-10-23
 - Bumped the release version consistently across active HTML/CSS/JavaScript cache-busting references and regression tests.
 - Preserved the existing compact Story Library card styling and Story Admin behavior from the AFV241 baseline.
@@ -12,19 +95,22 @@ AFV241 — 2026-10-23
 AFV237 — 2026-10-23
 - Corrected the About page Stories notification badge background to match the homepage purple styling.
 
-AFV237 — 2026-10-23
 - Matched the About page Stories avatar ring, glow, notification badge, and label color to the homepage reference.
 - Preserved existing About content, bottom navigation layout, and reduced-motion behavior.
-
 AFV235 — 2026-10-23
 - Matched the Customer Reviews and Recovery Proofs mobile header geometry to the homepage reference: brand/logo sizing, Privacy Policy and About button height, padding, icon sizing, and spacing. Scoped to those pages only.
 
-AFV235 — 2026-10-23
 - Fixed Stories navigation color drift on Customer Reviews and Recovery Proofs.
 - Synced the Stories avatar glow, purple notification badge, badge border, and label tint with the homepage's final CSS treatment.
 - Preserved avatar gradient, size, layout, and page-scoped styles.
 - Updated active cache-busting references, package version, README, and regression tests.
-
+- Corrected the mobile header on Customer Reviews and Recovery Proofs to follow the homepage reference geometry. Prevented flex wrapping, normalized topbar padding/height, and fixed the Privacy Policy/About button widths and heights so the brand and actions align on one row.
+- Kept changes scoped to the two non-home pages; homepage and bottom navigation styling are unchanged.
+- Privacy Policy header now links to About instead of Back to site.
+- Added the shared five-item mobile bottom navigation with centered Stories button.
+- Stories viewer script is enabled on Privacy Policy page.
+- About page: replaced the floating Back to Main Page CTA with the homepage-style five-item mobile bottom navigation.
+- Added the Recovery Stories viewer markup and script hook so Stories is functional on About.
 AFV230 — 2026-10-23
 - Matched Recovery Proofs header button dimensions, internal icon/text spacing, border radius, color treatment, and position to the homepage reference.
 - Matched desktop spacing and responsive mobile sizes while keeping changes scoped to the Recovery Proofs page.
@@ -42,6 +128,10 @@ AFV226 — 2026-10-23
 - Matched Customer Reviews header Privacy Policy and About button sizing to the homepage mobile header: 43px controls at <=600px and 41px at <=380px, with matching padding, font size, and radius.
 - Kept the Reviews-only legacy floating-control cleanup scoped to body.reviews-document; no global floating-button behavior changed.
 
+- Fixed Preview navigation: the Reviews item in the homepage and Reviews-page bottom navigation now uses relative reviews.html instead of hard-wiring the production Vercel URL.
+- This keeps testing on a Preview deployment within that same Preview deployment, so the new Reviews header and floating-control cleanup can actually be checked before production deploy.
+- Preserved the five-item bottom navigation, About + Privacy Policy header, Reviews content, scoped floating-control cleanup, and homepage controls.
+- Updated active cache-busting references, package version, README, and regression tests.
 AFV221 — 2026-10-23
 - Replaced the malformed WhatsApp icon in the bottom Contact navigation with a clean, solid brand glyph.
 - Kept icon size, color, alignment, navigation behavior, and all other layout unchanged.
@@ -483,25 +573,3 @@ AFV224 — 2026-10-23
 - Kept shared homepage floating controls and all review content/navigation unchanged.
 - Updated the production build allowlist, active cache-busting tokens, package metadata, README, and regression tests.
 - Browser rendering on the live Vercel deployment still requires confirmation after deployment.
-
-
-AFV226 — 2026-10-23
-- Fixed Preview navigation: the Reviews item in the homepage and Reviews-page bottom navigation now uses relative reviews.html instead of hard-wiring the production Vercel URL.
-- This keeps testing on a Preview deployment within that same Preview deployment, so the new Reviews header and floating-control cleanup can actually be checked before production deploy.
-- Preserved the five-item bottom navigation, About + Privacy Policy header, Reviews content, scoped floating-control cleanup, and homepage controls.
-- Updated active cache-busting references, package version, README, and regression tests.
-
-
-AFV235 — 2026-10-23
-- Corrected the mobile header on Customer Reviews and Recovery Proofs to follow the homepage reference geometry. Prevented flex wrapping, normalized topbar padding/height, and fixed the Privacy Policy/About button widths and heights so the brand and actions align on one row.
-- Kept changes scoped to the two non-home pages; homepage and bottom navigation styling are unchanged.
-
-AFV235 — 2026-10-23
-- Privacy Policy header now links to About instead of Back to site.
-- Added the shared five-item mobile bottom navigation with centered Stories button.
-- Stories viewer script is enabled on Privacy Policy page.
-
-
-AFV235 — 2026-10-23
-- About page: replaced the floating Back to Main Page CTA with the homepage-style five-item mobile bottom navigation.
-- Added the Recovery Stories viewer markup and script hook so Stories is functional on About.
