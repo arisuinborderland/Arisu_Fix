@@ -597,3 +597,9 @@ AFV260 — 2026-10-23
 - Corrected the Reviews regression-test cache-busting expectations and synchronized active assets, tests, package metadata, and README to AFV260.
 - Retained AFV259 Recovery Stories admin improvements: compact uploader, selected-image summary and validation, and safer publish state handling.
 - Revalidated production build and automated tests; deployment still requires GitHub upload and Vercel confirmation.
+
+
+AFV261 — 2026-10-23
+- Tightened the mobile Recovery Stories Admin upload form to reduce excess vertical space in the file picker and empty preview.
+- Compactened helper text, caption field, draft toggle, notice, and publish button while preserving upload validation and behavior.
+- Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV261 / 261.0.0.

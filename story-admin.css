@@ -38,7 +38,7 @@
   .story-view-count{min-width:48px;padding:4px 5px}
 }
 
-/* AFV260: compact uploader, selection summary, and clearer publish states */
+/* AFV261: compact uploader, selection summary, and clearer publish states */
 .admin-shell header{padding:20px 2px 14px}
 .admin-shell header p{margin:8px 0 0;line-height:1.45}
 .panel{padding:clamp(15px,3.5vw,24px);margin:12px 0}
@@ -62,4 +62,35 @@ form{gap:12px}
  .file-picker-wrap{padding:8px}
  .image-preview{padding:7px;gap:7px}
  .preview-empty{min-height:94px;padding:14px 9px}
+}
+
+
+/* AFV261: tighter mobile upload workflow; scoped to Story Admin */
+@media (max-width: 600px) {
+  .admin-shell { margin-top: 14px; margin-bottom: 24px; }
+  .admin-shell header { padding: 14px 1px 10px; }
+  .admin-shell header p { font-size: 13px; line-height: 1.4; }
+  .panel { padding: 13px; margin: 10px 0; border-radius: 17px; }
+  .admin-tabs { margin-bottom: 15px; }
+  .admin-tab { min-height: 42px; padding: 10px 7px; }
+  .admin-tab-panel > h2 { font-size: 18px; margin-bottom: 9px; }
+  #publishForm { gap: 9px; }
+  .upload-label { gap: 5px; }
+  .field-help { font-size: 11px; line-height: 1.35; }
+  .file-picker-wrap { gap: 6px; padding: 7px; border-radius: 13px; }
+  #storyImage { padding: 7px; font-size: 12px; border-radius: 9px; }
+  #storyImage::file-selector-button { padding: 7px 9px; margin-right: 7px; }
+  .file-picker-hint { font-size: 11px; line-height: 1.3; }
+  .selection-summary { padding: 6px 8px; font-size: 11px; }
+  .image-preview { min-height: 0; padding: 6px; gap: 6px; border-radius: 12px; }
+  .preview-empty { min-height: 68px; padding: 8px 6px; gap: 3px; }
+  .preview-empty-icon { width: 28px; height: 28px; border-radius: 9px; font-size: 20px; }
+  .preview-empty strong { font-size: 12px; line-height: 1.3; }
+  .preview-empty .muted { font-size: 11px; line-height: 1.3; }
+  .image-preview-card canvas { height: 88px; }
+  #caption { min-height: 72px; padding: 10px 11px; }
+  .draft-toggle { padding: 9px 10px; gap: 8px; font-size: 13px; line-height: 1.35; }
+  .notice { padding: 8px 9px; font-size: 11px; line-height: 1.35; }
+  #publishButton { min-height: 43px; padding: 11px 13px; font-size: 14px; }
+  #status { margin: 8px 0; font-size: 12px; }
 }

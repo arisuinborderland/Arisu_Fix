@@ -1,19 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV260
+Version: AFV261
 Updated: 2026-10-23
 
-Current release: AFV260
-Package version: 260.0.0
-Source ZIP folder: AFV260/
+Current release: AFV261
+Package version: 261.0.0
+Source ZIP folder: AFV261/
 
-AFV260 RELEASE SUMMARY
-- Made the Recovery Stories upload panel more compact on mobile while preserving the existing visual identity.
-- Added selected-image count, total selected file size, and an invalid-file count summary.
-- Kept client-side file type and 3.5 MB per-image validation, with a clear summary before publishing.
-- Updated the publish action to show the selected Story count and duration, disable when no valid images are selected, and prevent duplicate submissions while processing.
-- Preserved existing authentication, backend endpoints, drafts, Story expiry, Active Stories management, and other site pages.
-- Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV260 / 260.0.0.
-- Corrected the Reviews regression-test version expectations after the AFV259 GitHub deployment failed because the repository still contained AFV256 assertions.
+AFV261 RELEASE SUMMARY
+- Tightened the Recovery Stories Admin mobile layout, focusing on the file picker, empty preview area, caption, draft control, helper text, and publish action.
+- Preserved the AFV260 image selection count, total file size summary, file validation, upload progress, and publish-state logic.
+- Scoped the new compact styling to the Story Admin page at mobile/tablet widths; other site pages and backend behavior remain unchanged.
+- Synchronized active cache-busting references, package metadata, tests, and README to AFV261 / 261.0.0.
 - Kept the generated dist/ directory out of the delivered source ZIP.
 
 Validation notes
