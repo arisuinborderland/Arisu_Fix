@@ -2912,7 +2912,7 @@ body.home-page .whatsapp-feature-content h2 {
   overflow: hidden !important;
   border: 1px solid rgba(195,225,255,.42) !important;
   border-radius: clamp(16px, 1.5vw, 24px) !important;
-  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV237") center 52% / cover no-repeat !important;
+  background: linear-gradient(90deg,rgba(3,35,82,.58),rgba(3,40,89,.34) 55%,rgba(3,35,82,.35)), url("verse-lake-photo.jpg?v=AFV187") center 52% / cover no-repeat !important;
   color: #fff !important;
   box-shadow: 0 12px 30px rgba(15,58,115,.17) !important;
   text-align: center !important;
@@ -2960,7 +2960,7 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     min-height: clamp(150px, 13vw, 190px) !important;
     padding: clamp(18px, 1.7vw, 26px) clamp(24px, 3vw, 46px) !important;
     background-color: #14549b !important;
-    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV237") !important;
+    background-image: linear-gradient(90deg, rgba(5,48,104,.20), rgba(5,48,104,.10) 55%, rgba(5,48,104,.12)), url("./verse-lake-photo.jpg?v=AFV187") !important;
     background-position: center 52% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -3108,7 +3108,7 @@ body.home-page main > .daily-verse-card {
   background-color: #14549b !important;
   background-image:
     linear-gradient(90deg, rgba(4, 44, 98, .10), rgba(4, 40, 88, .04) 52%, rgba(4, 35, 80, .08)),
-    url("./verse-lake-photo.jpg?v=AFV237") !important;
+    url("./verse-lake-photo.jpg?v=AFV187") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center 52% !important;
@@ -3535,7 +3535,7 @@ body.home-page .site-footer {
  Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
  because its more-specific selector was overriding every later mobile image update. */
 html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV237") !important;
+  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.jpg?v=AFV187") !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -6007,7 +6007,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   
   border-radius: 22px !important;
   overflow: hidden !important;
-  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV237") !important;
+  background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.jpg?v=AFV187") !important;
   background-size: cover !important;
   background-position: center 52% !important;
   background-repeat: no-repeat !important;
@@ -6039,7 +6039,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
-    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV237") !important;
+    background-image: linear-gradient(90deg, rgba(4,35,82,.30), rgba(4,35,82,.16) 55%, rgba(4,35,82,.08)), url("./verse-lake-photo.jpg?v=AFV187") !important;
   }
   html body.home-page #daily-bible-verse .daily-verse-topline {
     gap: 4px !important;
@@ -8157,7 +8157,7 @@ html body.home-page .site-footer {
 
 
 
-/* AFV194: retain the text offsets, but collapse the creator block's reserved space. */
+/* AFV143: retain the text offsets, but collapse the creator block's reserved space. */
 html body.home-page .purpose-card > h2 {
   position: relative;
   top: -6px;
@@ -8179,7 +8179,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194: desktop-only spacing below WhatsApp card; leave Service Status position unchanged. */
+/* AFV143: desktop-only spacing below WhatsApp card; leave Service Status position unchanged. */
 @media (min-width: 900px) {
   html body.home-page #contact .whatsapp-feature-card {
     padding-bottom: 30px !important;
@@ -8187,7 +8187,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194: reduce only the two requested headings on mobile; preserve desktop typography. */
+/* AFV143: reduce only the two requested headings on mobile; preserve desktop typography. */
 @media (max-width: 640px) {
   html body.home-page .services-section > .services-heading h2 {
     font-size: clamp(23px, 6.2vw, 28px) !important;
@@ -8199,7 +8199,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194: Hot Pink + Electric Purple + White Core rotating light trails around the WhatsApp button border.
+/* AFV143: Hot Pink + Electric Purple + White Core rotating light trails around the WhatsApp button border.
    Hot pink and electric-purple trails with bright white cores; geometry and timing stay unchanged. */
 @property --wa-trace-angle {
   syntax: "<angle>";
@@ -8286,16 +8286,12 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — fixed mobile bottom navigation with a dedicated Recovery Stories shortcut. */
+/* AFV164 — fixed mobile bottom navigation with a dedicated Recovery Stories shortcut. */
 .mobile-bottom-nav { display:none; }
 @media screen and (max-width: 700px) {
   html body.home-page { padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
   /* Keep the restored floating quick-access menu available on mobile too. */
   html body.home-page .mobile-bottom-nav {
-    /* Navigation is tap-only: suppress text selection, image callouts, and long-press menus. */
-    -webkit-touch-callout:none;
-    -webkit-user-select:none;
-    user-select:none;
     position:fixed;
     left:0; right:0; bottom:0;
     z-index:2147482500;
@@ -8353,11 +8349,6 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .mobile-nav-story-avatar img {
     display:block; width:100%; height:100%; object-fit:cover;
     border:2px solid #101a31; border-radius:50%;
-    pointer-events:none;
-    -webkit-touch-callout:none;
-    -webkit-user-drag:none;
-    -webkit-user-select:none;
-    user-select:none;
   }
   html body.home-page .mobile-nav-story-count[data-loading="true"] {
     opacity:.88;
@@ -8383,7 +8374,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — refined compact profile header; preserve the existing header links and gradient. */
+/* AFV166 — refined compact profile header; preserve the existing header links and gradient. */
 @media (max-width: 700px) {
   html body.home-page .topbar {
     padding: 10px 12px 11px;
@@ -8440,7 +8431,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — keep the mobile header focused on the Arisu profile and Privacy Policy. */
+/* AFV167 — keep the mobile header focused on the Arisu profile and Privacy Policy. */
 @media (max-width: 700px) {
   html body.home-page .topbar > .header-meta {
     display: flex !important;
@@ -8462,7 +8453,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — Option 3: Deep Black-Navy footer with a Violet Stories accent. */
+/* AFV169 — Option 3: Deep Black-Navy footer with a Violet Stories accent. */
 @media (max-width: 700px) {
   html body.home-page .mobile-bottom-nav {
     background: rgba(16, 24, 39, .985) !important;
@@ -8492,7 +8483,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — apply the Deep Black-Navy + Violet footer style on desktop too. */
+/* AFV170 — apply the Deep Black-Navy + Violet footer style on desktop too. */
 @media (min-width: 701px) {
   html body.home-page .site-footer {
     background: #101827 !important;
@@ -8523,7 +8514,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — desktop version of the five-item bottom navigation. */
+/* AFV171 — desktop version of the five-item bottom navigation. */
 @media (min-width: 701px) {
   html body.home-page .mobile-bottom-nav {
     position: relative !important;
@@ -8590,7 +8581,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — make desktop navigation float above page content, matching mobile behavior. */
+/* AFV173 — make desktop navigation float above page content, matching mobile behavior. */
 @media (min-width: 701px) {
   html body.home-page {
     padding-bottom: 112px !important;
@@ -8667,7 +8658,7 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* AFV194 — enforce compact Stories sizing and keep fixed navigation clear of footer content. */
+/* AFV174 — enforce compact Stories sizing and keep fixed navigation clear of footer content. */
 @media (min-width: 701px) {
   html body.home-page {
     padding-bottom: 150px !important;
@@ -8756,191 +8747,5 @@ html body.home-page .purpose-card .purpose-signoff {
     font-size: 11px !important;
     line-height: 1.15 !important;
     white-space: nowrap !important;
-  }
-}
-
-
-/* AFV215 — compact mobile footer links and reduce excess vertical spacing. */
-@media (max-width: 600px) {
-  html body.home-page .site-footer > .about-link-section {
-    margin-bottom: 4px !important;
-  }
-  html body.home-page .site-footer > .footer-location {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    row-gap: 4px !important;
-    column-gap: 8px !important;
-  }
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    justify-content: stretch !important;
-    align-items: start !important;
-    gap: 6px 12px !important;
-    margin-top: 8px !important;
-    margin-bottom: 0 !important;
-    width: 100% !important;
-  }
-  html body.home-page .site-footer > .footer-links a {
-    display: block !important;
-    min-width: 0 !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    overflow-wrap: anywhere;
-  }
-  html body.home-page .site-footer > .footer-copyright {
-    margin-top: 8px !important;
-    padding-top: 8px !important;
-    line-height: 1.35 !important;
-  }
-}
-
-
-/* AFV215 — compact footer links with small inline icons for clearer scanning. */
-@media (max-width: 600px) {
-  html body.home-page .site-footer > .footer-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 7px 10px !important;
-  }
-  html body.home-page .site-footer > .footer-links a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    min-height: 24px !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-  }
-  html body.home-page .site-footer > .footer-links a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-  html body.home-page .site-footer > .footer-links a span {
-    min-width: 0 !important;
-  }
-}
-@media (min-width: 601px) {
-  html body.home-page .site-footer > .footer-links a {
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  html body.home-page .site-footer > .footer-links a svg {
-    width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor;
-    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
-  }
-}
-
-
-/* AFV215 — trim the extra mobile footer tail without reducing clearance for the fixed navigation. */
-@media (max-width: 700px) {
-  html body.home-page .site-footer {
-    padding-bottom: 6px !important;
-  }
-}
-
-
-/* AFV215 — balance footer height with fixed bottom navigation; keep copyright visible. */
-@media (max-width: 700px) {
-  html body.home-page {
-    padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
-  }
-  html body.home-page .site-footer {
-    padding-bottom: 6px !important;
-  }
-}
-
-
-/* AFV215: place copyright beside Contact in the compact mobile footer. */
-@media (max-width:760px) {
-  .site-footer {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    row-gap: 10px;
-  }
-  .site-footer > .about-link-section,
-  .site-footer > .footer-location {
-    grid-column: 1 / -1;
-  }
-  .site-footer > .footer-links {
-    display: contents;
-  }
-  .site-footer > .footer-links a {
-    min-width: 0;
-    justify-self: start;
-    padding: 2px 0;
-  }
-  .site-footer > .footer-copyright {
-    grid-column: 2;
-    grid-row: auto;
-    align-self: center;
-    justify-self: start;
-    border-top: 0;
-    padding-top: 2px;
-    white-space: nowrap;
-  }
-}
-
-
-/* AFV215 — place copyright in the final mobile footer grid cell beside Contact. */
-@media (max-width: 760px) {
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 7px !important;
-  }
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    align-self: center !important;
-    justify-self: start !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-    color: #8a95a6 !important;
-  }
-}
-@media (min-width: 761px) {
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    margin-left: auto;
-    border: 0;
-    padding-top: 0;
-    white-space: nowrap;
-  }
-}
-
-
-/* AFV215 — reduce only the remaining space below the compact footer on mobile. */
-@media (max-width: 700px) {
-  html body.home-page {
-    padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important;
-  }
-}
-
-
-/* AFV221: use a clean, solid WhatsApp brand glyph in the bottom Contact navigation item. */
-@media screen and (max-width:700px) {
-  html body.home-page nav.mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon {
-    fill: currentColor;
-    stroke: none;
-    stroke-width: 0;
-    filter: none;
-    overflow: visible;
   }
 }

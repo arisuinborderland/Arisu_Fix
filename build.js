@@ -14,9 +14,9 @@ const releaseToken = `AFV${versionMatch[1]}`;
 // Keep backend handlers (stories.js, story-config.js, cleanup-stories.js), build tooling,
 // package metadata, Vercel configuration, SQL migrations, and documentation out of dist/.
 const publicRootFiles = new Set([
-  "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
-  "styles.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css",
-  "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
+  "index.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
+  "styles.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css",
+  "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
   "privacy-year.js", "proofs.js", "story-admin.js",
   "favicon.ico", "favicon-16.png", "favicon-32.png", "favicon-48.png", "apple-touch-icon.png",

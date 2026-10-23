@@ -183,21 +183,8 @@
       }
       // Preload the first story and warm the next one before the viewer is opened.
       stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
-      // Keep the Stories navigation item mounted even when the API temporarily
-      // returns an empty list. The button must not disappear/reappear as requests resolve.
-      if (!stories.length && mobileStoriesCount && !countHasUsableValue) {
-        mobileStoriesCount.textContent = '0';
-        mobileStoriesCount.setAttribute('aria-label', 'No active stories currently available');
-        setCountLoading(false);
-      }
-    } catch {
-      // A transient Stories API failure must never hide the bottom-navigation button.
-      if (mobileStoriesCount && !countHasUsableValue) {
-        mobileStoriesCount.textContent = '•';
-        mobileStoriesCount.setAttribute('aria-label', 'Stories temporarily unavailable');
-        setCountLoading(false);
-      }
-    }
+      if (!stories.length) { if (mobileStoriesButton) mobileStoriesButton.hidden = true; return; }
+    } catch { if (mobileStoriesButton) mobileStoriesButton.hidden = true; }
   }
   // Basic anti-save deterrents only: these discourage casual context-menu saving
   // and dragging, but cannot prevent screenshots or browser/devtools extraction.
@@ -211,11 +198,7 @@
   viewer.addEventListener('dragstart', event => {
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
-  mobileStoriesButton?.addEventListener('click', async () => {
-    // Retry loading on user intent if the initial request failed or returned no stories.
-    if (!stories.length) await load();
-    if (stories.length) showAt(0);
-  });
+  mobileStoriesButton?.addEventListener('click', () => { if (stories.length) showAt(0); });
   close.addEventListener('click', hide);
   // Instagram/Facebook-style navigation: tap the left or right half of the story image.
   viewer.addEventListener('click', event => {
