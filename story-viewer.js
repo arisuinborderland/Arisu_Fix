@@ -99,7 +99,9 @@
   }
   async function loadCount() {
     if (!mobileStoriesCount) return;
+    const requestStarted = performance.now();
     try {
+      performance.mark('story-count-request-start');
       const response = await fetch('/api/story-count', { cache: 'no-store' });
       if (!response.ok) throw new Error('Stories count request failed');
       const data = await response.json();
@@ -107,9 +109,15 @@
         mobileStoriesCount.textContent = String(data.count);
         countLoaded = true;
         mobileStoriesCount.setAttribute('aria-label', `${data.count} available stories`);
+        // Visible in browser Performance tools to distinguish browser/network
+        // latency from the server-side Supabase timing in the Server-Timing header.
+        performance.mark('story-count-request-end');
+        performance.measure('story-count-request', 'story-count-request-start', 'story-count-request-end');
+        mobileStoriesCount.dataset.countLoadMs = String(Math.round(performance.now() - requestStarted));
       }
     } catch {
       // Keep the neutral loading marker rather than displaying a false zero.
+      // If full Story data arrives first, load() supplies a fallback count.
     }
   }
   async function load() {

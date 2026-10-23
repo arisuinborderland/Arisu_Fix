@@ -302,3 +302,12 @@ Updated: 2026-10-22
 - Updated the mobile Stories badge to load its count independently from full Story data and show a neutral loading marker instead of a misleading initial zero.
 - Added regression tests for count filtering, Supabase failure handling, and unsupported HTTP methods.
 - Preserved existing Story viewer behavior and page layout; no live deployment verification was performed.
+
+
+## AFV181 — Stories count latency diagnostics
+- Updated `/api/story-count` to use a Supabase HEAD request with exact-count metadata, avoiding transfer of Story rows and any signed-image URL work.
+- Added `Server-Timing` response metrics for Supabase count latency and total handler duration.
+- Added browser Performance marks/measure for the footer badge count request.
+- Preserved the neutral loading marker and independent count/full-Story requests.
+- Added regression tests for count accuracy, HEAD request semantics, unsupported methods, and Supabase failures.
+- Live Vercel/Supabase latency has not been measured in this release.
