@@ -143,6 +143,12 @@
         const displayState = expired ? 'expired' : state;
         const row = document.createElement('div'); row.className = 'story-row';
         if (filter === 'active' && !expired) { row.draggable = true; row.dataset.storyId = story.id; }
+        const infoWrap = document.createElement('div'); infoWrap.className = 'story-info-wrap';
+        if (story.imageUrl) {
+          const thumb = document.createElement('img'); thumb.className = 'story-thumb'; thumb.src = story.imageUrl; thumb.alt = ''; thumb.loading = 'lazy'; thumb.decoding = 'async';
+          thumb.addEventListener('error', () => { thumb.hidden = true; });
+          infoWrap.append(thumb);
+        }
         const info = document.createElement('div'); info.className = 'story-info';
         const title = document.createElement('strong'); title.textContent = story.caption || 'Recovery Story';
         const meta = document.createElement('small'); meta.textContent = state === 'draft' ? 'Saved as draft · not visible to visitors' : state === 'archived' ? 'Archived · not visible to visitors' : expired ? 'Expired · not visible to visitors' : 'Expires ' + new Date(story.expiresAt || story.expires_at).toLocaleString();
@@ -162,7 +168,7 @@
           if (!confirm('Permanently delete this temporary Story image? The permanent Recovery Proofs remain unchanged.')) return;
           try { await api('/api/stories?id=' + encodeURIComponent(story.id), { method: 'DELETE' }); await loadStories(); say('Story deleted.'); } catch(e) { say(e.message, true); }
         }));
-        row.append(info, actions); list.append(row);
+        infoWrap.append(info); row.append(infoWrap, actions); list.append(row);
         if (row.draggable) {
           row.addEventListener('dragstart', event => { row.classList.add('is-dragging'); event.dataTransfer.setData('text/plain', story.id); event.dataTransfer.effectAllowed = 'move'; });
           row.addEventListener('dragend', () => { row.classList.remove('is-dragging'); list.querySelectorAll('.is-drop-target').forEach(el => el.classList.remove('is-drop-target')); });
@@ -208,36 +214,42 @@
 
   $('loginForm').addEventListener('submit', signIn);
   $('caption').addEventListener('input', () => $('captionCount').textContent = String($('caption').value.length));
-  $('storyImage').addEventListener('change', () => {
-    const preview = $('imagePreview'); preview.replaceChildren();
-    const files = Array.from($('storyImage').files || []);
-    if (!files.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Image previews will appear here after you choose files.'; preview.append(p); return; }
-    files.forEach(file => {
+  function renderImagePreviews() {
+    const input = $('storyImage'); const preview = $('imagePreview'); preview.replaceChildren();
+    const files = Array.from(input.files || []);
+    if (!files.length) {
+      const empty = document.createElement('div'); empty.className = 'preview-empty';
+      const icon = document.createElement('span'); icon.className = 'preview-empty-icon'; icon.setAttribute('aria-hidden', 'true'); icon.textContent = '+';
+      const heading = document.createElement('strong'); heading.textContent = 'Your image previews will appear here';
+      const help = document.createElement('span'); help.className = 'muted'; help.textContent = 'Choose one or more images to get started.';
+      empty.append(icon, heading, help); preview.append(empty); return;
+    }
+    files.forEach((file, index) => {
       const card = document.createElement('div'); card.className = 'image-preview-card';
+      const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'preview-remove'; remove.textContent = '×'; remove.setAttribute('aria-label', 'Remove ' + file.name + ' from selection');
+      remove.addEventListener('click', () => {
+        try {
+          const transfer = new DataTransfer();
+          Array.from(input.files || []).forEach((current, currentIndex) => { if (currentIndex !== index) transfer.items.add(current); });
+          input.files = transfer.files; renderImagePreviews();
+        } catch (_) { say('This browser cannot remove a single selected file. Please reselect the images you want to upload.', true); }
+      });
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
-      card.append(name); preview.append(card);
-      // Decode the locally selected file directly and paint it to canvas.
-      // This avoids data:/blob: image sources, which can be blocked by the
-      // deployed Content-Security-Policy even when the file is local.
-      if (typeof createImageBitmap !== 'function') {
-        name.textContent += ' · Preview unsupported in this browser'; return;
-      }
+      if (file.size > 3.5 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
+      card.append(remove, name); preview.append(card);
+      if (typeof createImageBitmap !== 'function') { name.textContent += ' · Preview unsupported in this browser'; return; }
       createImageBitmap(file).then(bitmap => {
-        const canvas = document.createElement('canvas');
-        const maxWidth = 320; const maxHeight = 240;
+        const canvas = document.createElement('canvas'); const maxWidth = 320; const maxHeight = 240;
         const scale = Math.min(1, maxWidth / bitmap.width, maxHeight / bitmap.height);
-        canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-        canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-        canvas.setAttribute('role', 'img');
-        canvas.setAttribute('aria-label', 'Preview of ' + file.name);
+        canvas.width = Math.max(1, Math.round(bitmap.width * scale)); canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+        canvas.setAttribute('role', 'img'); canvas.setAttribute('aria-label', 'Preview of ' + file.name);
         const context = canvas.getContext('2d');
         if (!context) { bitmap.close(); name.textContent += ' · Preview unavailable'; return; }
-        context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-        bitmap.close();
-        card.insertBefore(canvas, name);
+        context.drawImage(bitmap, 0, 0, canvas.width, canvas.height); bitmap.close(); card.insertBefore(canvas, name);
       }).catch(() => { name.textContent += ' · Could not decode image'; });
     });
-  });
+  }
+  $('storyImage').addEventListener('change', renderImagePreviews);
   $('saveAsDraft').addEventListener('change', () => { $('publishButton').textContent = $('saveAsDraft').checked ? 'Save as Draft' : 'Publish for 24 hours'; });
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
@@ -250,19 +262,19 @@
         if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
         if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
       }
-      let saved = 0; const draft = $('saveAsDraft').checked;
+      let saved = 0; const draft = $('saveAsDraft').checked; const progress = $('uploadProgress'); const progressFill = $('uploadProgressFill'); const progressText = $('uploadProgressText'); progress.hidden = false; progressFill.style.width = '0%';
       for (const file of files) {
-        say((draft ? 'Saving draft ' : 'Publishing Story ') + (saved + 1) + ' of ' + files.length + '…');
+        const currentLabel = (draft ? 'Saving draft ' : 'Publishing Story ') + (saved + 1) + ' of ' + files.length + '…'; say(currentLabel); progressText.textContent = currentLabel; progressFill.style.width = Math.round((saved / files.length) * 100) + '%';
         const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error('Could not read ' + file.name + '.')); reader.readAsDataURL(file); });
         await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value, saveAsDraft: draft }) });
-        saved++;
+        saved++; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
       }
       $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
-      $('imagePreview').replaceChildren();
+      $('imagePreview').replaceChildren(); renderImagePreviews(); $('uploadProgress').hidden = true;
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
       showAdminTab('active');
-    } catch(e) { say(e.message, true); } finally { button.disabled = false; }
+    } catch(e) { say(e.message, true); } finally { button.disabled = false; if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
   });
   $('refreshStories').addEventListener('click', loadStories);
   $('signOut').addEventListener('click', () => showSignedOut('Signed out.'));

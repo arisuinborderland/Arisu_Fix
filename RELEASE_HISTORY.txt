@@ -1,12 +1,18 @@
 ARISU FIX — RELEASE HISTORY
 Historical release notes only. Current release status and metadata are maintained in README.txt.
 
+## AFV186 — Story Admin upload and library UX
+- Improved the image selection area, responsive previews, and per-image removal before upload.
+- Added multi-image upload progress and refined tab focus/selected states.
+- Added thumbnails to the Active Stories library and retained expiry/status and deletion confirmation behavior.
+- Updated active cache-busting references and package/readme version metadata to AFV186.
 
-## AFV185 — Adaptive Story Viewer polish
+
+## AFV186 — Adaptive Story Viewer polish
 - Added orientation detection for portrait, landscape, and square Story images; all formats remain uncropped with contain sizing.
 - Refined Story header spacing, timestamp contrast, and text shadow for readability.
 - Polished the Back to Site control with a compact 44px height, restrained purple gradient, and visible keyboard focus.
-- Updated active cache-busting references and package/readme version metadata to AFV185.
+- Updated active cache-busting references and package/readme version metadata to AFV186.
 Newest archived release notes appear first. This file is not the source of current-version metadata.
 
 ## AFV178 — Build allowlist and release validation

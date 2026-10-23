@@ -1,19 +1,19 @@
 ARISU FIX — PROJECT README
-Version: AFV185
+Version: AFV186
 Updated: 2026-10-23
 
-Current release: AFV185
-Package version: 185.0.0
-Source ZIP folder: AFV185/
+Current release: AFV186
+Package version: 186.0.0
+Source ZIP folder: AFV186/
 
-AFV185 RELEASE SUMMARY
-- Added adaptive Story Viewer image orientation classes for portrait, landscape, and square artwork while keeping images uncropped.
-- Refined Story header timestamp/name contrast and spacing.
-- Polished the Back to Site button with a compact 44px target, subtle gradient, and focus-visible state.
-- Added Vercel edge caching for successful public Stories counts (15-second freshness with stale-while-revalidate) while leaving browser responses no-store.
-- Added a 10-minute browser-storage cache so repeat visits can display the latest known Stories count immediately while the endpoint refreshes in the background.
-- Kept the live endpoint authoritative, preserving fallback to the full Stories list when the count endpoint fails.
-- Preserved Stories viewer layout and behavior; updated release version and active cache-busting references.
+AFV186 RELEASE SUMMARY
+- Improved Story Admin image picker with clearer full-width upload guidance and responsive image previews.
+- Added per-image remove controls before upload and clearer invalid file-size feedback.
+- Refined Upload Stories / Active Stories tab states and focus visibility.
+- Added upload progress feedback for multi-image publishing.
+- Added image thumbnails to Active Stories management while preserving expiry/status details and existing archive/delete confirmations.
+- Preserved existing Story API behavior, 24-hour expiry rules, drafts, and permanent Recovery Proofs.
+- Updated active cache-busting references and package/readme version metadata to AFV186.
 
 Build and test
 - npm test
