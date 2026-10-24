@@ -40,7 +40,7 @@ export async function onRequest({ request, env }) {
   }
 
   return new Response(
-    JSON.stringify({ publishableKey }),
+    JSON.stringify({ supabaseUrl, publishableKey }),
     { status: 200, headers }
   );
 }
