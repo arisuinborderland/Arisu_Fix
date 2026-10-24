@@ -121,6 +121,51 @@
         : 'Could not restore your session right now. Your saved session was kept; check your connection and refresh this page.', true);
     } finally { restoring = false; }
   }
+  function updateActivitySummary(stories) {
+  const now = Date.now();
+  const soon = now + 6 * 60 * 60 * 1000;
+
+  let active = 0;
+  let drafts = 0;
+  let expiring = 0;
+  let archived = 0;
+
+  stories.forEach(story => {
+    const state = story.adminStatus || 'active';
+    const rawExpiry = story.expiresAt || story.expires_at;
+    const expiry = rawExpiry ? new Date(rawExpiry).getTime() : NaN;
+
+    if (state === 'draft') {
+      drafts++;
+    } else if (state === 'archived') {
+      archived++;
+    } else if (state === 'active') {
+      if (Number.isFinite(expiry) && expiry <= now) return;
+
+      active++;
+
+      if (
+        Number.isFinite(expiry) &&
+        expiry > now &&
+        expiry <= soon
+      ) {
+        expiring++;
+      }
+    }
+  });
+
+  const counters = {
+    activityActive: active,
+    activityDrafts: drafts,
+    activityExpiring: expiring,
+    activityArchived: archived
+  };
+
+  Object.entries(counters).forEach(([id, count]) => {
+    const element = $(id);
+    if (element) element.textContent = String(count);
+  });
+  }
   async function persistStoryOrder(list) {
     const ordered = Array.from(list.querySelectorAll('.story-row[draggable=true]'));
     try {
@@ -140,7 +185,7 @@ updateActivitySummary(allStories);
       if (!countsAvailable) { const warning = document.createElement('p'); warning.className = 'muted'; warning.textContent = 'View counts need the Supabase database migration in supabase/recovery-story-views.sql.'; list.append(warning); }
       const filter = $('storyFilter')?.value || 'active';
       const now = Date.now();
-      let stories = (data.stories || []).filter(story => {
+      let stories = allStories.filter(story => {
         const state = story.adminStatus || 'active';
         if (filter === 'expired') return state === 'active' && new Date(story.expiresAt || story.expires_at).getTime() <= now;
         return state === filter && (filter !== 'active' || new Date(story.expiresAt || story.expires_at).getTime() > now);
