@@ -164,15 +164,127 @@ async function patchOnCloudflare(request, env) {
   }
 }
 
+async function deleteOnCloudflare(request, env, url) {
+  const supabaseUrl = String(env.SUPABASE_URL || "").replace(/\/$/, "");
+  const secretKey = String(env.SUPABASE_SECRET_KEY || "");
+  const publishableKey = String(env.SUPABASE_PUBLISHABLE_KEY || "");
+  const allowedId = String(env.STORY_ADMIN_USER_ID || "").trim();
+  const allowedEmail = String(env.STORY_ADMIN_EMAIL || "")
+    .trim()
+    .toLowerCase();
+
+  if (!supabaseUrl || !secretKey || !publishableKey || (!allowedId && !allowedEmail)) {
+    return json(503, { error: "Story backend is not configured." });
+  }
+
+  const auth = (request.headers.get("Authorization") || "").match(/^Bearer\s+(.+)$/i);
+  if (!auth) return json(401, { error: "Admin authentication required." });
+
+  const id = String(url.searchParams.get("id") || "").trim();
+  if (!/^[0-9a-f-]{36}$/i.test(id)) {
+    return json(400, { error: "A valid Story ID is required." });
+  }
+
+  try {
+    const authResponse = await fetch(supabaseUrl + "/auth/v1/user", {
+      headers: {
+        apikey: publishableKey,
+        Authorization: "Bearer " + auth[1]
+      }
+    });
+    if (!authResponse.ok) return json(401, { error: "Admin authentication required." });
+
+    const user = await authResponse.json();
+    const authorized = Boolean(
+      user?.id &&
+      (
+        (allowedId && user.id === allowedId) ||
+        (allowedEmail && String(user.email || "").toLowerCase() === allowedEmail)
+      )
+    );
+    if (!authorized) return json(401, { error: "Admin authentication required." });
+
+    const recordResponse = await fetch(
+      supabaseUrl + "/rest/v1/recovery_stories?select=id,storage_path&id=eq." +
+      encodeURIComponent(id) + "&limit=1",
+      {
+        headers: {
+          apikey: secretKey,
+          Authorization: "Bearer " + secretKey
+        }
+      }
+    );
+    if (!recordResponse.ok) return json(503, { error: "Unable to locate the story." });
+
+    const records = await recordResponse.json();
+    if (!Array.isArray(records) || records.length === 0) {
+      return json(404, { error: "Story not found." });
+    }
+
+    const storagePath = String(records[0].storage_path || "");
+    if (!storagePath.startsWith("stories/")) {
+      return json(400, { error: "Refusing to delete a non-Story object." });
+    }
+
+    const encodedPath = storagePath.split("/").map(encodeURIComponent).join("/");
+    const storageResponse = await fetch(
+      supabaseUrl + "/storage/v1/object/recovery-stories/" + encodedPath,
+      {
+        method: "DELETE",
+        headers: {
+          apikey: secretKey,
+          Authorization: "Bearer " + secretKey
+        }
+      }
+    );
+
+    if (!storageResponse.ok) {
+      const details = (await storageResponse.text()).toLowerCase();
+      const missing =
+        storageResponse.status === 404 ||
+        ([400, 409].includes(storageResponse.status) &&
+          /(?:object|file|resource).*(?:not found|does not exist|no such)|(?:not found|does not exist|no such).*(?:object|file|resource)/i.test(details));
+      if (!missing) {
+        return json(503, {
+          error: "Unable to remove the story image. The record was preserved."
+        });
+      }
+    }
+
+    const deleteResponse = await fetch(
+      supabaseUrl + "/rest/v1/recovery_stories?id=eq." + encodeURIComponent(id),
+      {
+        method: "DELETE",
+        headers: {
+          apikey: secretKey,
+          Authorization: "Bearer " + secretKey,
+          Prefer: "return=minimal"
+        }
+      }
+    );
+    if (!deleteResponse.ok) {
+      return json(503, { error: "Unable to remove the story record." });
+    }
+
+    return json(200, { ok: true });
+  } catch {
+    return json(503, { error: "Stories service is temporarily unavailable." });
+  }
+}
+
 export async function onRequest({ request, env }) {
   const url = new URL(request.url);
 
-  // PATCH status and ordering updates now run on Cloudflare.
+  // PATCH status and ordering updates run on Cloudflare.
   if (request.method === "PATCH") {
     return patchOnCloudflare(request, env);
   }
 
-  // Keep uploads and deletions on Vercel for now.
+  // DELETE requests run on Cloudflare; uploads remain on Vercel.
+  if (request.method === "DELETE") {
+    return deleteOnCloudflare(request, env, url);
+  }
+
   if (request.method !== "GET") {
     return proxyToVercel(request, url);
   }
