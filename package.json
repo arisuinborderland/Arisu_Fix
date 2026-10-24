@@ -3,7 +3,7 @@
   "version": "261.0.0",
   "private": true,
   "engines": {
-    "node": "22.x"
+  "node": "24.x"
   },
   "scripts": {
     "build": "node build.js",
