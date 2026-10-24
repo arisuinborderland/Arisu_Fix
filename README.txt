@@ -1,10 +1,10 @@
 ARISU FIX — PROJECT README
-Version: AFV261
+Version: AFV263
 Updated: 2026-10-23
 
-Current release: AFV261
+Current release: AFV263
 Package version: 261.0.0
-Source ZIP folder: AFV261/
+Source ZIP folder: AFV263/
 
 AFV261 RELEASE SUMMARY
 - Tightened the Recovery Stories Admin mobile layout, focusing on the file picker, empty preview area, caption, draft control, helper text, and publish action.
