@@ -5,8 +5,7 @@ const { validateStoryImage } = require('../lib/story-image');
 module.exports = async function handler(req, res) {
   try {
     if (req.method === 'GET') {
-      const adminMode = new URL(req.url || '/', 'http://localhost')
-  .searchParams.get('admin') === '1';
+      const adminMode = new URL(req.url || '/', 'http://localhost').searchParams.get('admin') === '1';
       if (adminMode && !(await admin(req))) { json(res, 401, { error: 'Admin authentication required.' }); return; }
       const cutoff = encodeURIComponent(new Date().toISOString());
       const rows = adminMode
@@ -69,9 +68,7 @@ module.exports = async function handler(req, res) {
       }
       json(res, 400, { error: 'A Story status or order is required.' }); return;
     }
-    const id = String(
-  new URL(req.url || '/', 'http://localhost').searchParams.get('id') || body.id || ''
-);
+    const id = String(new URL(req.url || '/', 'http://localhost').searchParams.get('id') || body.id || '');
     if (!/^[0-9a-f-]{36}$/i.test(id)) { json(res, 400, { error: 'A valid Story ID is required.' }); return; }
     const rows = await sb(`/rest/v1/recovery_stories?select=id,storage_path&id=eq.${encodeURIComponent(id)}&limit=1`);
     if (!rows?.length) { json(res, 404, { error: 'Story not found.' }); return; }
