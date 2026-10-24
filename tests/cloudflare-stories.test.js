@@ -282,7 +282,7 @@ const configSource = await readFile(new URL("../functions/api/story-config.js", 
 const configModuleUrl = "data:text/javascript;base64," + Buffer.from(configSource).toString("base64");
 const { onRequest: onStoryConfigRequest } = await import(configModuleUrl);
 
-test("Cloudflare story-config only allows GET and does not expose server secrets", async () => {
+test("Cloudflare story-config rejects non-GET methods", async () => {
   const response = await onStoryConfigRequest({
     request: new Request("https://arisufix.pages.dev/api/story-config", { method: "POST" }),
     env: {
@@ -311,5 +311,4 @@ test("Cloudflare story-config returns only the publishable key when configured",
 
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { publishableKey: "public-test-key" });
-  assert.equal(await response.text().catch(() => ""), "");
 });
