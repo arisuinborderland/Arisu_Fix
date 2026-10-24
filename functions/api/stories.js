@@ -285,6 +285,10 @@ export async function onRequest({ request, env }) {
     return deleteOnCloudflare(request, env, url);
   }
 
+  if (!["GET", "POST"].includes(request.method)) {
+    return json(405, { error: "Method not allowed." });
+  }
+
   if (request.method !== "GET") {
     return proxyToVercel(request, url);
   }
