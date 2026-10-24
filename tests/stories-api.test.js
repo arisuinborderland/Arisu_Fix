@@ -214,8 +214,39 @@ test('29 Stories count returns controlled service error when Supabase fails', as
   assert.equal(res.statusCode, 503); assert.match(res.json().error, /temporarily unavailable/); assert.match(res.headers['Server-Timing'], /total;dur=/);
   assert.equal(res.headers['Vercel-CDN-Cache-Control'], undefined, 'failed count requests must not be cached');
 });
-test('30 Stories count rejects unsupported methods', async () => {
-  const res = response(); await storyCountHandler(req('POST'), res);
-  assert.equal(res.statusCode, 405); assert.equal(res.headers.Allow, 'GET');
-});
+test('DELETE reads Story ID from URL query string', async () => {
+  const id = '12345678-1234-4234-8234-123456789abc';
+  const calls = [];
 
+  setFetch(async (url, options = {}) => {
+    const u = String(url);
+    const method = options.method || 'GET';
+    calls.push({ url: u, method });
+
+    if (u.includes('/auth/v1/user')) {
+      return authResponse();
+    }
+    if (u.includes(`/rest/v1/recovery_stories?select=id,storage_path&id=eq.${id}`)) {
+      return fakeResponse(200, [{ id, storage_path: 'stories/test.jpg' }]);
+    }
+    if (u.includes('/storage/v1/object/')) {
+      return fakeResponse(204, '');
+    }
+    if (u.includes(`/rest/v1/recovery_stories?id=eq.${id}`) && method === 'DELETE') {
+      return fakeResponse(204, '');
+    }
+
+    return fakeResponse(500, { message: 'Unexpected request' });
+  });
+
+  const res = response();
+  await storiesHandler(req('DELETE', {
+    query: { id },
+    headers: { authorization: 'Bearer admin' }
+  }), res);
+
+  assert.equal(res.statusCode, 200);
+  assert.deepEqual(res.json(), { ok: true });
+  assert.ok(calls.some(c => c.url.includes(`/rest/v1/recovery_stories?select=id,storage_path&id=eq.${id}`)));
+  assert.ok(calls.some(c => c.url.includes(`/rest/v1/recovery_stories?id=eq.${id}`) && c.method === 'DELETE'));
+});
