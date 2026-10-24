@@ -312,3 +312,35 @@ test("Cloudflare story-config returns only the publishable key when configured",
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { publishableKey: "public-test-key" });
 });
+
+test("Cloudflare stories POST returns a controlled 502 when the Vercel upload fallback is unreachable", async (t) => {
+  const originalFetch = globalThis.fetch;
+  let requestedUrl = "";
+
+  globalThis.fetch = async (request) => {
+    requestedUrl = request.url;
+    throw new Error("simulated upstream network failure");
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories?source=cloudflare-test", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer test-token"
+      },
+      body: JSON.stringify({ caption: "staging-test" })
+    }),
+    env: {}
+  });
+
+  assert.equal(requestedUrl, "https://arisufix.vercel.app/api/stories?source=cloudflare-test");
+  assert.equal(response.status, 502);
+  assert.deepEqual(await response.json(), {
+    error: "Stories service is temporarily unavailable."
+  });
+});
