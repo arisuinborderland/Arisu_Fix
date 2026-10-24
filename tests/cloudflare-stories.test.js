@@ -238,3 +238,41 @@ test("Cloudflare story-view rejects malformed story IDs before calling Supabase"
     globalThis.fetch = originalFetch;
   }
 });
+
+
+test("Cloudflare stories PATCH rejects invalid status before writing to Supabase", async (t) => {
+  const originalFetch = globalThis.fetch;
+  const calls = [];
+
+  globalThis.fetch = async (input, init = {}) => {
+    const url = typeof input === "string" ? input : input.url;
+    calls.push({ url, method: init.method || (input instanceof Request ? input.method : "GET") });
+    if (url === "https://example.supabase.co/auth/v1/user") {
+      return new Response(JSON.stringify({ id: "test-admin-id", email: "admin@example.com" }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+    throw new Error("Database write must not occur for an invalid status");
+  };
+  t.after(() => { globalThis.fetch = originalFetch; });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", Authorization: "Bearer valid-test-token" },
+      body: JSON.stringify({ id: "00000000-0000-4000-8000-000000000000", status: "published" })
+    }),
+    env: {
+      SUPABASE_URL: "https://example.supabase.co",
+      SUPABASE_SECRET_KEY: "test-secret",
+      SUPABASE_PUBLISHABLE_KEY: "test-publishable",
+      STORY_ADMIN_USER_ID: "test-admin-id"
+    }
+  });
+
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), { error: "Invalid Story status." });
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, "https://example.supabase.co/auth/v1/user");
+});
