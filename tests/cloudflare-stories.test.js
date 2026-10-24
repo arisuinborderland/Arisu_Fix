@@ -409,3 +409,29 @@ test("Cloudflare stories POST preserves the upstream admin-authentication failur
     error: "Admin authentication required."
   });
 });
+
+test("Cloudflare stories rejects unsupported methods without proxying to Vercel", async (t) => {
+  const originalFetch = globalThis.fetch;
+  let fetchCalls = 0;
+
+  globalThis.fetch = async () => {
+    fetchCalls += 1;
+    throw new Error("Unsupported methods must not be proxied");
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories", {
+      method: "PUT"
+    }),
+    env: {}
+  });
+
+  assert.equal(response.status, 405);
+  assert.equal(response.headers.get("allow"), "GET, POST, PATCH, DELETE");
+  assert.deepEqual(await response.json(), { error: "Method not allowed." });
+  assert.equal(fetchCalls, 0);
+});
