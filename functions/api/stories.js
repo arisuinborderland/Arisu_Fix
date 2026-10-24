@@ -25,10 +25,154 @@ async function proxyToVercel(request, url) {
   }
 }
 
+async function patchOnCloudflare(request, env) {
+  const supabaseUrl = String(env.SUPABASE_URL || "").replace(/\/$/, "");
+  const secretKey = String(env.SUPABASE_SECRET_KEY || "");
+  const publishableKey = String(env.SUPABASE_PUBLISHABLE_KEY || "");
+  const allowedId = String(env.STORY_ADMIN_USER_ID || "").trim();
+  const allowedEmail = String(env.STORY_ADMIN_EMAIL || "")
+    .trim()
+    .toLowerCase();
+
+  if (
+    !supabaseUrl ||
+    !secretKey ||
+    !publishableKey ||
+    (!allowedId && !allowedEmail)
+  ) {
+    return json(503, { error: "Story backend is not configured." });
+  }
+
+  const auth = (request.headers.get("Authorization") || "")
+    .match(/^Bearer\s+(.+)$/i);
+
+  if (!auth) {
+    return json(401, { error: "Admin authentication required." });
+  }
+
+  try {
+    const authResponse = await fetch(`${supabaseUrl}/auth/v1/user`, {
+      headers: {
+        apikey: publishableKey,
+        Authorization: `Bearer ${auth[1]}`
+      }
+    });
+
+    if (!authResponse.ok) {
+      return json(401, { error: "Admin authentication required." });
+    }
+
+    const user = await authResponse.json();
+
+    const authorized = Boolean(
+      user?.id &&
+      (
+        (allowedId && user.id === allowedId) ||
+        (
+          allowedEmail &&
+          String(user.email || "").toLowerCase() === allowedEmail
+        )
+      )
+    );
+
+    if (!authorized) {
+      return json(401, { error: "Admin authentication required." });
+    }
+
+    let body;
+
+    try {
+      body = await request.json();
+    } catch {
+      return json(400, { error: "A valid JSON body is required." });
+    }
+
+    const id = String(body?.id || "");
+
+    if (!/^[0-9a-f-]{36}$/i.test(id)) {
+      return json(400, { error: "A valid Story ID is required." });
+    }
+
+    let patch;
+
+    if (body.status !== undefined) {
+      const status = String(body.status);
+
+      if (!["active", "draft", "archived"].includes(status)) {
+        return json(400, { error: "Invalid Story status." });
+      }
+
+      patch = {
+        admin_status: status,
+        is_active: status === "active"
+      };
+
+      if (status === "active") {
+        const now = new Date();
+
+        patch.published_at = now.toISOString();
+        patch.expires_at = new Date(
+          now.getTime() + 24 * 60 * 60 * 1000
+        ).toISOString();
+      }
+    } else if (body.sortOrder !== undefined) {
+      const sortOrder = Number(body.sortOrder);
+
+      if (
+        !Number.isInteger(sortOrder) ||
+        sortOrder < 0 ||
+        sortOrder > 1000000
+      ) {
+        return json(400, { error: "Invalid Story order." });
+      }
+
+      patch = { sort_order: sortOrder };
+    } else {
+      return json(400, {
+        error: "A Story status or order is required."
+      });
+    }
+
+    const updateResponse = await fetch(
+      `${supabaseUrl}/rest/v1/recovery_stories?id=eq.${encodeURIComponent(id)}`,
+      {
+        method: "PATCH",
+        headers: {
+          apikey: secretKey,
+          Authorization: `Bearer ${secretKey}`,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal"
+        },
+        body: JSON.stringify(patch)
+      }
+    );
+
+    if (!updateResponse.ok) {
+      const status =
+        updateResponse.status >= 400 && updateResponse.status < 500
+          ? updateResponse.status
+          : 503;
+
+      return json(status, { error: "Unable to update the story." });
+    }
+
+    return json(200, { ok: true });
+  } catch {
+    return json(503, {
+      error: "Stories service is temporarily unavailable."
+    });
+  }
+}
+
 export async function onRequest({ request, env }) {
   const url = new URL(request.url);
 
-  // Keep writes on Vercel for now.
+  // PATCH status and ordering updates now run on Cloudflare.
+  if (request.method === "PATCH") {
+    return patchOnCloudflare(request, env);
+  }
+
+  // Keep uploads and deletions on Vercel for now.
   if (request.method !== "GET") {
     return proxyToVercel(request, url);
   }
@@ -75,6 +219,7 @@ export async function onRequest({ request, env }) {
       }
 
       const user = await authResponse.json();
+
       const authorized = Boolean(
         user?.id &&
         (
