@@ -5,7 +5,8 @@ const { validateStoryImage } = require('../lib/story-image');
 module.exports = async function handler(req, res) {
   try {
     if (req.method === 'GET') {
-      const adminMode = String((req.query && req.query.admin) || '') === '1';
+      const adminMode = new URL(req.url || '/', 'http://localhost')
+  .searchParams.get('admin') === '1';
       if (adminMode && !(await admin(req))) { json(res, 401, { error: 'Admin authentication required.' }); return; }
       const cutoff = encodeURIComponent(new Date().toISOString());
       const rows = adminMode
