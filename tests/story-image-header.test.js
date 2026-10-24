@@ -3,7 +3,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { parseImageDimensions } = await import("../functions/_lib/story-image-header.mjs");
+const parserPromise = import("../functions/_lib/story-image-header.mjs");
 
 function writeU24LE(bytes, offset, value) {
   bytes[offset] = value & 0xff;
@@ -62,43 +62,50 @@ function webpHeader(width, height, variant = "VP8X") {
   return bytes;
 }
 
-test("parses PNG dimensions from the IHDR chunk", () => {
+test("parses PNG dimensions from the IHDR chunk", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.deepEqual(parseImageDimensions("image/png", pngHeader(800, 600)), {
     format: "png", width: 800, height: 600
   });
 });
 
-test("parses JPEG SOF dimensions", () => {
+test("parses JPEG SOF dimensions", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.deepEqual(parseImageDimensions("image/jpeg", jpegHeader(640, 480)), {
     format: "jpeg", width: 640, height: 480
   });
 });
 
-test("parses VP8X WebP canvas dimensions", () => {
+test("parses VP8X WebP canvas dimensions", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.deepEqual(parseImageDimensions("image/webp", webpHeader(1200, 900, "VP8X")), {
     format: "webp", width: 1200, height: 900
   });
 });
 
-test("parses VP8 lossy WebP frame dimensions", () => {
+test("parses VP8 lossy WebP frame dimensions", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.deepEqual(parseImageDimensions("image/webp", webpHeader(320, 200, "VP8 ")), {
     format: "webp", width: 320, height: 200
   });
 });
 
-test("parses VP8L lossless WebP dimensions", () => {
+test("parses VP8L lossless WebP dimensions", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.deepEqual(parseImageDimensions("image/webp", webpHeader(321, 201, "VP8L")), {
     format: "webp", width: 321, height: 201
   });
 });
 
-test("rejects MIME/header mismatches", () => {
+test("rejects MIME/header mismatches", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.equal(parseImageDimensions("image/jpeg", pngHeader(32, 32)), null);
   assert.equal(parseImageDimensions("image/png", jpegHeader(32, 32)), null);
   assert.equal(parseImageDimensions("image/webp", pngHeader(32, 32)), null);
 });
 
-test("rejects empty, truncated, and malformed headers", () => {
+test("rejects empty, truncated, and malformed headers", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.equal(parseImageDimensions("image/png", new Uint8Array()), null);
   assert.equal(parseImageDimensions("image/jpeg", new Uint8Array([0xff, 0xd8, 0xff])), null);
   const brokenPng = pngHeader(10, 10);
@@ -106,7 +113,8 @@ test("rejects empty, truncated, and malformed headers", () => {
   assert.equal(parseImageDimensions("image/png", brokenPng), null);
 });
 
-test("rejects zero/invalid dimensions", () => {
+test("rejects zero/invalid dimensions", async () => {
+  const { parseImageDimensions } = await parserPromise;
   assert.equal(parseImageDimensions("image/png", pngHeader(0, 100)), null);
   assert.equal(parseImageDimensions("image/jpeg", jpegHeader(100, 0)), null);
 });
