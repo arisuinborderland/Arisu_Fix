@@ -127,3 +127,51 @@ test("Cloudflare stories DELETE rejects missing admin authentication before any 
   assert.deepEqual(await response.json(), { error: "Admin authentication required." });
   assert.equal(fetchCalls, 0);
 });
+
+const configuredStoryEnv = {
+  SUPABASE_URL: "https://example.supabase.co",
+  SUPABASE_SECRET_KEY: "test-secret",
+  SUPABASE_PUBLISHABLE_KEY: "test-publishable",
+  STORY_ADMIN_USER_ID: "00000000-0000-4000-8000-000000000001"
+};
+
+test("Cloudflare stories PATCH rejects requests without an admin bearer token", async () => {
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: "00000000-0000-4000-8000-000000000000",
+        status: "active"
+      })
+    }),
+    env: configuredStoryEnv
+  });
+
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), { error: "Admin authentication required." });
+});
+
+test("Cloudflare stories DELETE rejects requests without an admin bearer token", async () => {
+  const response = await onRequest({
+    request: new Request(
+      "https://arisufix.pages.dev/api/stories?id=00000000-0000-4000-8000-000000000000",
+      { method: "DELETE" }
+    ),
+    env: configuredStoryEnv
+  });
+
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), { error: "Admin authentication required." });
+});
+
+test("Cloudflare stories admin GET rejects requests without an admin bearer token", async () => {
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories?admin=1"),
+    env: configuredStoryEnv
+  });
+
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), { error: "Admin authentication required." });
+});
+
