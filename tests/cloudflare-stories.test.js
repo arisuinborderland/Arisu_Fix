@@ -64,3 +64,66 @@ test("Cloudflare stories POST preserves the Vercel upload fallback and query str
   assert.equal(upstreamRequest.headers.get("Authorization"), "Bearer test-token");
   assert.deepEqual(await upstreamRequest.json(), { caption: "staging-test" });
 });
+
+
+test("Cloudflare stories PATCH rejects missing admin authentication before any upstream request", async (t) => {
+  const originalFetch = globalThis.fetch;
+  let fetchCalls = 0;
+
+  globalThis.fetch = async () => {
+    fetchCalls += 1;
+    throw new Error("Fetch must not be called without a bearer token");
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: "00000000-0000-4000-8000-000000000000", status: "active" })
+    }),
+    env: {
+      SUPABASE_URL: "https://example.supabase.co",
+      SUPABASE_SECRET_KEY: "test-secret",
+      SUPABASE_PUBLISHABLE_KEY: "test-publishable",
+      STORY_ADMIN_USER_ID: "test-admin-id"
+    }
+  });
+
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), { error: "Admin authentication required." });
+  assert.equal(fetchCalls, 0);
+});
+
+test("Cloudflare stories DELETE rejects missing admin authentication before any upstream request", async (t) => {
+  const originalFetch = globalThis.fetch;
+  let fetchCalls = 0;
+
+  globalThis.fetch = async () => {
+    fetchCalls += 1;
+    throw new Error("Fetch must not be called without a bearer token");
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories?id=00000000-0000-4000-8000-000000000000", {
+      method: "DELETE"
+    }),
+    env: {
+      SUPABASE_URL: "https://example.supabase.co",
+      SUPABASE_SECRET_KEY: "test-secret",
+      SUPABASE_PUBLISHABLE_KEY: "test-publishable",
+      STORY_ADMIN_USER_ID: "test-admin-id"
+    }
+  });
+
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), { error: "Admin authentication required." });
+  assert.equal(fetchCalls, 0);
+});
