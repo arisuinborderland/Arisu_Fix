@@ -38,7 +38,7 @@
   .story-view-count{min-width:48px;padding:4px 5px}
 }
 
-/* AFV261: compact uploader, selection summary, and clearer publish states */
+/* AFV263: compact uploader, selection summary, and clearer publish states */
 .admin-shell header{padding:20px 2px 14px}
 .admin-shell header p{margin:8px 0 0;line-height:1.45}
 .panel{padding:clamp(15px,3.5vw,24px);margin:12px 0}
@@ -65,7 +65,7 @@ form{gap:12px}
 }
 
 
-/* AFV261: tighter mobile upload workflow; scoped to Story Admin */
+/* AFV263: tighter mobile upload workflow; scoped to Story Admin */
 @media (max-width: 600px) {
   .admin-shell { margin-top: 14px; margin-bottom: 24px; }
   .admin-shell header { padding: 14px 1px 10px; }
@@ -93,4 +93,68 @@ form{gap:12px}
   .notice { padding: 8px 9px; font-size: 11px; line-height: 1.35; }
   #publishButton { min-height: 43px; padding: 11px 13px; font-size: 14px; }
   #status { margin: 8px 0; font-size: 12px; }
+}
+
+/* AFV263 — targeted Hybrid admin dashboard and story-library usability improvements */
+.admin-activity{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.activity-card{min-width:0;padding:12px 14px;border:1px solid #e1e7fb;border-radius:15px;background:linear-gradient(145deg,#fff,#f7f8ff);box-shadow:0 5px 18px #233d7608}
+.activity-card span{display:block;color:var(--muted);font-size:12px;font-weight:700;line-height:1.3}
+.activity-card strong{display:block;margin-top:5px;color:#3f45b8;font-size:25px;line-height:1.1;font-variant-numeric:tabular-nums}
+.search-label{margin:0 0 12px}
+.search-label input{background:#fbfcff}
+.library-tools{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:end;gap:9px}
+.library-tools .filter-label{margin-top:0}
+.library-tools .quiet{min-height:43px;white-space:nowrap}
+.bulk-archive:disabled{opacity:.48;cursor:not-allowed}
+.story-row{align-items:center}
+.story-select{display:flex;align-items:center;justify-content:center;gap:0;flex:0 0 24px;margin:0;cursor:pointer}
+.story-select-box{width:18px;height:18px;padding:0;margin:0;accent-color:var(--blue);cursor:pointer}
+.story-row .story-info-wrap{flex:1;min-width:0}
+.story-actions button{min-height:38px}
+.story-row[hidden]{display:none!important}
+@media(max-width:560px){
+  .admin-activity{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .activity-card{padding:11px 12px}
+  .activity-card strong{font-size:22px}
+  .library-tools{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .library-tools .filter-label{grid-column:1/-1}
+  .library-tools .quiet{width:100%;padding:11px 8px;font-size:12px}
+  .story-row{gap:9px;padding:10px}
+  .story-select{flex-basis:20px}
+  .story-actions{gap:6px}
+  .story-actions button{padding:9px 10px;min-height:40px}
+}
+@media(prefers-reduced-motion:no-preference){.activity-card{transition:border-color .18s ease,transform .18s ease}.activity-card:hover{border-color:#c6cff7;transform:translateY(-1px)}}
+
+/* AFV263: final compact mobile polish for Recovery Stories admin */
+@media (max-width: 600px) {
+  .admin-shell { width: calc(100% - 20px); margin-top: 10px; margin-bottom: 18px; }
+  .admin-shell header { padding: 10px 1px 8px; }
+  .admin-shell h1 { font-size: clamp(27px, 7vw, 34px); margin: 6px 0; }
+  .admin-shell header p { margin: 5px 0 0; font-size: 12px; line-height: 1.35; }
+  .panel { padding: 12px; margin: 8px 0; border-radius: 16px; }
+  .panel-heading h2 { font-size: 18px; }
+  .admin-top-heading { margin-bottom: 10px; }
+  .admin-activity { gap: 6px; margin-bottom: 10px; }
+  .activity-card { padding: 8px 10px; border-radius: 12px; box-shadow: none; }
+  .activity-card span { font-size: 11px; }
+  .activity-card strong { margin-top: 3px; font-size: 20px; }
+  .admin-tabs { gap: 6px; margin-bottom: 11px; padding: 4px; border-radius: 13px; }
+  .admin-tab { min-height: 40px; padding: 9px 5px; font-size: 12px; }
+  .admin-tab-panel > h2 { margin-bottom: 8px; }
+  #publishForm { gap: 8px; }
+  .upload-label { gap: 4px; }
+  .file-picker-wrap { gap: 5px; padding: 7px; }
+  .file-picker-hint { font-size: 10px; }
+  .selection-summary { padding: 5px 7px; }
+  .image-preview { margin-top: 0; }
+  .preview-empty { min-height: 56px; padding: 6px; }
+  .preview-empty-icon { width: 25px; height: 25px; font-size: 18px; }
+  .preview-empty .muted { font-size: 10px; }
+  #caption { min-height: 66px; }
+  .draft-toggle { padding: 8px 9px; }
+  .notice { font-size: 10px; }
+  #publishButton { min-height: 41px; padding: 10px 11px; }
+  #status { margin: 6px 0 0; }
+  .footnote { padding: 7px 4px; font-size: 11px; }
 }
