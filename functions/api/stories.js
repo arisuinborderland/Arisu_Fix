@@ -286,7 +286,9 @@ export async function onRequest({ request, env }) {
   }
 
   if (!["GET", "POST"].includes(request.method)) {
-    return json(405, { error: "Method not allowed." });
+    const response = json(405, { error: "Method not allowed." });
+    response.headers.set("Allow", "GET, POST, PATCH, DELETE");
+    return response;
   }
 
   if (request.method !== "GET") {
