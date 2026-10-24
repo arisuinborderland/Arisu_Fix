@@ -175,3 +175,66 @@ test("Cloudflare stories admin GET rejects requests without an admin bearer toke
   assert.deepEqual(await response.json(), { error: "Admin authentication required." });
 });
 
+
+const countSource = await readFile(new URL("../functions/api/story-count.js", import.meta.url), "utf8");
+const countModuleUrl = "data:text/javascript;base64," + Buffer.from(countSource).toString("base64");
+const { onRequest: onStoryCountRequest } = await import(countModuleUrl);
+
+const viewSource = await readFile(new URL("../functions/api/story-view.js", import.meta.url), "utf8");
+const viewModuleUrl = "data:text/javascript;base64," + Buffer.from(viewSource).toString("base64");
+const { onRequest: onStoryViewRequest } = await import(viewModuleUrl);
+
+test("Cloudflare stories DELETE fails closed when admin backend is not configured", async () => {
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories?id=00000000-0000-4000-8000-000000000000", {
+      method: "DELETE"
+    }),
+    env: {}
+  });
+
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { error: "Story backend is not configured." });
+});
+
+test("Cloudflare story-count rejects methods other than GET without calling Supabase", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => {
+    throw new Error("fetch should not be called for a disallowed method");
+  };
+
+  try {
+    const response = await onStoryCountRequest({
+      request: new Request("https://arisufix.pages.dev/api/story-count", { method: "POST" }),
+      env: { SUPABASE_URL: "https://example.supabase.co", SUPABASE_SECRET_KEY: "test-secret" }
+    });
+
+    assert.equal(response.status, 405);
+    assert.equal(response.headers.get("allow"), "GET");
+    assert.deepEqual(await response.json(), { error: "Method not allowed" });
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("Cloudflare story-view rejects malformed story IDs before calling Supabase", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => {
+    throw new Error("fetch should not be called for a malformed story ID");
+  };
+
+  try {
+    const response = await onStoryViewRequest({
+      request: new Request("https://arisufix.pages.dev/api/story-view", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: "not-a-uuid" })
+      }),
+      env: { SUPABASE_URL: "https://example.supabase.co", SUPABASE_SECRET_KEY: "test-secret" }
+    });
+
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: "A valid Story ID is required." });
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
