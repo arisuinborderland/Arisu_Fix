@@ -66,19 +66,19 @@ export async function onRequest({ request, env }) {
   const cutoff = new Date().toISOString();
 
   try {
-    // Bound each scheduled run so one invocation cannot monopolize the Worker.
-    // Successfully deleted rows disappear from the next batch query.
-    const maxBatches = 5;
+    // Process one ordered batch per scheduled run to keep execution bounded.
+    // The next hourly run continues with remaining expired rows.
     const batchSize = 100;
 
-    for (let batch = 0; batch < maxBatches; batch++) {
+    {
       const recordsUrl = new URL(
         "/rest/v1/recovery_stories",
         supabaseUrl
       );
       recordsUrl.searchParams.set("select", "id,storage_path");
       recordsUrl.searchParams.set("expires_at", `lte.${cutoff}`);
-      recordsUrl.searchParams.set("storage_path", "like.stories/*");
+      recordsUrl.searchParams.set("storage_path", "like.stories/%");
+      recordsUrl.searchParams.set("order", "expires_at.asc,id.asc");
       recordsUrl.searchParams.set("limit", String(batchSize));
 
       const recordsResponse = await fetch(recordsUrl.toString(), {
@@ -106,8 +106,10 @@ export async function onRequest({ request, env }) {
         });
       }
 
-      if (records.length === 0) break;
-      batches++;
+      if (records.length === 0) {
+        return json(200, { ok: true, deleted: 0, failed: 0, batches: 0, moreMayRemain: false });
+      }
+      batches = 1;
 
       for (const record of records) {
         const id = String(record.id || "");
@@ -186,7 +188,7 @@ export async function onRequest({ request, env }) {
       deleted,
       failed,
       batches,
-      moreMayRemain: batches === maxBatches
+      moreMayRemain: batches === 1
     });
   } catch {
     return json(503, {
