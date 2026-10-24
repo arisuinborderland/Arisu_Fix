@@ -276,3 +276,40 @@ test("Cloudflare stories PATCH rejects invalid status before writing to Supabase
   assert.equal(calls.length, 1);
   assert.equal(calls[0].url, "https://example.supabase.co/auth/v1/user");
 });
+
+
+const configSource = await readFile(new URL("../functions/api/story-config.js", import.meta.url), "utf8");
+const configModuleUrl = "data:text/javascript;base64," + Buffer.from(configSource).toString("base64");
+const { onRequest: onStoryConfigRequest } = await import(configModuleUrl);
+
+test("Cloudflare story-config only allows GET and does not expose server secrets", async () => {
+  const response = await onStoryConfigRequest({
+    request: new Request("https://arisufix.pages.dev/api/story-config", { method: "POST" }),
+    env: {
+      SUPABASE_URL: "https://example.supabase.co",
+      SUPABASE_SECRET_KEY: "server-secret-must-not-leak",
+      SUPABASE_PUBLISHABLE_KEY: "public-test-key",
+      STORY_ADMIN_USER_ID: "test-admin-id"
+    }
+  });
+
+  assert.equal(response.status, 405);
+  assert.equal(response.headers.get("allow"), "GET");
+  assert.deepEqual(await response.json(), { error: "Method not allowed" });
+});
+
+test("Cloudflare story-config returns only the publishable key when configured", async () => {
+  const response = await onStoryConfigRequest({
+    request: new Request("https://arisufix.pages.dev/api/story-config"),
+    env: {
+      SUPABASE_URL: "https://example.supabase.co",
+      SUPABASE_SECRET_KEY: "server-secret-must-not-leak",
+      SUPABASE_PUBLISHABLE_KEY: "public-test-key",
+      STORY_ADMIN_USER_ID: "test-admin-id"
+    }
+  });
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { publishableKey: "public-test-key" });
+  assert.equal(await response.text().catch(() => ""), "");
+});
