@@ -374,3 +374,38 @@ test("Cloudflare stories POST preserves an upstream validation error response", 
     error: "Choose a valid JPEG, PNG, or WebP image."
   });
 });
+
+test("Cloudflare stories POST preserves the upstream admin-authentication failure", async (t) => {
+  const originalFetch = globalThis.fetch;
+  let upstreamRequest;
+
+  globalThis.fetch = async (request) => {
+    upstreamRequest = request;
+    return new Response(
+      JSON.stringify({ error: "Admin authentication required." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ caption: "auth-test" })
+    }),
+    env: {}
+  });
+
+  assert.equal(upstreamRequest.url, "https://arisufix.vercel.app/api/stories");
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), {
+    error: "Admin authentication required."
+  });
+});
