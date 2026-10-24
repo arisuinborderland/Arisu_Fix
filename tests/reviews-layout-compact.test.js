@@ -9,7 +9,7 @@ const css = fs.readFileSync(path.join(root, "reviews.css"), "utf8");
 const lightbox = fs.readFileSync(path.join(root, "review-lightbox.js"), "utf8");
 
 test("Customer Reviews uses the compact thumbnail-and-details layout", () => {
-  assert.match(css, /AFV263 — Option C: compact thumbnail \+ details review rows/);
+  assert.match(css, /AFV264 — Option C: compact thumbnail \+ details review rows/);
   assert.match(css, /reviews-page-grid \.review-proof-card\s*\{[\s\S]*grid-template-columns: clamp\(100px, 27%, 166px\) minmax\(0, 1fr\)/);
   assert.match(css, /review-view-prompt/);
   assert.equal((html.match(/class="review-view-prompt"/g) || []).length, 3);
@@ -31,9 +31,9 @@ test("Full-size review viewer includes zoom controls and pan support", () => {
   assert.match(lightbox, /event\.key === "Escape"/);
 });
 
-test("Reviews page keeps the AFV263 cache-busting version", () => {
-  assert.match(html, /reviews\.css\?v=AFV263/);
-  assert.match(html, /review-lightbox\.js\?v=AFV263/);
+test("Reviews page keeps the AFV264 cache-busting version", () => {
+  assert.match(html, /reviews\.css\?v=AFV264/);
+  assert.match(html, /review-lightbox\.js\?v=AFV264/);
   assert.doesNotMatch(html, new RegExp("\\?v=AFV" + "256"));
 });
 
