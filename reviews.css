@@ -319,7 +319,7 @@ html body.reviews-document .topbar .header-meta .header-icon {
 }
 
 
-/* AFV261 — Option C: compact thumbnail + details review rows. Scoped to reviews.html only. */
+/* AFV264 — Option C: compact thumbnail + details review rows. Scoped to reviews.html only. */
 html body.reviews-document .reviews-page-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
