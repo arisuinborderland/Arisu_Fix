@@ -280,7 +280,7 @@ updateActivitySummary(allStories);
   function updatePublishState() {
     const files = Array.from($('storyImage').files || []);
     const allowed = ['image/jpeg', 'image/png', 'image/webp'];
-    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3.5 * 1024 * 1024);
+    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3 * 1024 * 1024);
     const button = $('publishButton');
     if (!button.dataset.busy) button.disabled = !valid;
     const draft = $('saveAsDraft').checked;
@@ -292,7 +292,7 @@ updateActivitySummary(allStories);
     const files = Array.from(input.files || []);
     const summary = $('selectionSummary');
     const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
-    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3.5 * 1024 * 1024).length;
+    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024).length;
     summary.textContent = files.length
       ? `${files.length} image${files.length === 1 ? '' : 's'} selected · ${(totalBytes / 1024 / 1024).toFixed(2)} MB total${invalidCount ? ` · ${invalidCount} invalid` : ''}`
       : 'No images selected.';
@@ -316,7 +316,7 @@ updateActivitySummary(allStories);
         } catch (_) { say('This browser cannot remove a single selected file. Please reselect the images you want to upload.', true); }
       });
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
-      if (file.size > 3.5 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
+      if (file.size > 3 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
       card.append(remove, name); preview.append(card);
       if (typeof createImageBitmap !== 'function') { name.textContent += ' · Preview unsupported in this browser'; return; }
       createImageBitmap(file).then(bitmap => {
@@ -335,27 +335,43 @@ updateActivitySummary(allStories);
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
     event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; button.disabled = true; button.textContent = 'Preparing upload…'; say('Preparing your Story images…');
+    let batchFiles = [];
+    let completedUploads = 0;
     try {
-      const files = Array.from($('storyImage').files || []);
+      batchFiles = Array.from($('storyImage').files || []);
+      completedUploads = 0;
+      const files = batchFiles;
       if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
         if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
-        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
+        if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3 MB.');
       }
       let saved = 0; const draft = $('saveAsDraft').checked; const progress = $('uploadProgress'); const progressFill = $('uploadProgressFill'); const progressText = $('uploadProgressText'); progress.hidden = false; progressFill.style.width = '0%';
       for (const file of files) {
         const currentLabel = (draft ? 'Saving draft ' : 'Publishing Story ') + (saved + 1) + ' of ' + files.length + '…'; say(currentLabel); progressText.textContent = currentLabel; progressFill.style.width = Math.round((saved / files.length) * 100) + '%';
         const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error('Could not read ' + file.name + '.')); reader.readAsDataURL(file); });
         await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value, saveAsDraft: draft }) });
-        saved++; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
+        saved++; completedUploads = saved; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
       }
       $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
       $('imagePreview').replaceChildren(); renderImagePreviews(); $('uploadProgress').hidden = true;
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
       showAdminTab('active');
-    } catch(e) { say(e.message, true); } finally { delete button.dataset.busy; updatePublishState(); if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
+    } catch(e) {
+      if (completedUploads > 0 && completedUploads < batchFiles.length) {
+        try {
+          const transfer = new DataTransfer();
+          batchFiles.slice(completedUploads).forEach(file => transfer.items.add(file));
+          $('storyImage').files = transfer.files;
+          renderImagePreviews();
+          say(`${completedUploads} image(s) uploaded successfully. Only the remaining ${batchFiles.length - completedUploads} image(s) are still selected. ${e.message}`, true);
+        } catch (_) {
+          say(`${e.message} ${completedUploads} image(s) were already uploaded. Remove those successful images before retrying to avoid duplicates.`, true);
+        }
+      } else say(e.message, true);
+    } finally { delete button.dataset.busy; updatePublishState(); if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
   });
   $('refreshStories').addEventListener('click', loadStories);
   $('signOut').addEventListener('click', () => showSignedOut('Signed out.'));

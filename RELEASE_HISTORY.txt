@@ -1,3 +1,9 @@
+AFV264 — 2026-10-24
+- Aligned Story Admin client-side image-size validation with the server's 3 MiB limit.
+- Improved partial batch-upload failure handling to retain only images not yet successfully uploaded when the browser supports updating the file selection.
+- Synchronized active cache-busting references, package metadata, README, and regression-test expectations to AFV264 / 264.0.0.
+- Validation: source changes committed on an audit branch; automated tests, production build, staging, and live browser checks remain to be run.
+
 AFV257 — 2026-10-23
 - Redesigned Customer Reviews as compact horizontal thumbnail + details cards (Option C), scoped only to reviews.html.
 - Added visible tap-to-view prompts and keyboard-accessible activation from the case details.

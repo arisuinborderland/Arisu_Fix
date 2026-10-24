@@ -25,6 +25,8 @@ test('Publish action is disabled initially and reflects selected valid image cou
 test('Publish action blocks duplicate submissions while processing and preserves per-image validation', () => {
   assert.match(js, /button\.dataset\.busy = 'true'/);
   assert.match(js, /if \(button\.disabled \|\| button\.dataset\.busy\) return/);
-  assert.match(js, /file\.size > 3\.5 \* 1024 \* 1024/);
+  assert.match(js, /file\.size > 3 \* 1024 \* 1024/);
   assert.match(js, /delete button\.dataset\.busy; updatePublishState\(\)/);
+  assert.match(js, /batchFiles\.slice\(completedUploads\)/);
+  assert.match(js, /Only the remaining/);
 });
