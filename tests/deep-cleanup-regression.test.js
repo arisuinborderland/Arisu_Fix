@@ -22,10 +22,10 @@ test('Proofs page updates its footer year only through the shared script', () =>
   const shared = read('script.js');
   const privacy = read('privacy.html');
 
-  assert.match(proofs, /script\.js\?v=AFV261/);
+  assert.match(proofs, /script\.js\?v=AFV263/);
   assert.doesNotMatch(proofs, /privacy-year\.js/);
   assert.match(shared, /getElementById\("year"\)/);
-  assert.match(privacy, /privacy-year\.js\?v=AFV261/);
+  assert.match(privacy, /privacy-year\.js\?v=AFV263/);
 });
 
 test('staging fixture uses a version-neutral missing-object label', () => {
