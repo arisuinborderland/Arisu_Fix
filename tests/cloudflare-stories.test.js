@@ -344,3 +344,33 @@ test("Cloudflare stories POST returns a controlled 502 when the Vercel upload fa
     error: "Stories service is temporarily unavailable."
   });
 });
+
+test("Cloudflare stories POST preserves an upstream validation error response", async (t) => {
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = async () => new Response(
+    JSON.stringify({ error: "Choose a valid JPEG, PNG, or WebP image." }),
+    {
+      status: 400,
+      headers: { "Content-Type": "application/json" }
+    }
+  );
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await onRequest({
+    request: new Request("https://arisufix.pages.dev/api/stories", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ imageData: "invalid", mimeType: "image/gif" })
+    }),
+    env: {}
+  });
+
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), {
+    error: "Choose a valid JPEG, PNG, or WebP image."
+  });
+});
