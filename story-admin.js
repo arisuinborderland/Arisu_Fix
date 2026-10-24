@@ -132,6 +132,8 @@
     const list = $('storyList'); list.textContent = 'Loading Stories…';
     try {
       const data = await api('/api/stories?admin=1');
+      const allStories = Array.isArray(data.stories) ? data.stories : [];
+updateActivitySummary(allStories);
       let views = {}; let countsAvailable = true;
       try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; } catch { countsAvailable = false; }
       list.replaceChildren();
