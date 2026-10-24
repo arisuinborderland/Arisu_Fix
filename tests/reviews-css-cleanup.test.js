@@ -23,7 +23,7 @@ test('Reviews CSS keeps one compact logo sizing rule for the 380px breakpoint', 
 });
 
 test('Reviews page loads the current release CSS and script cache tokens', () => {
-  assert.match(html, /reviews\.css\?v=AFV263/);
-  assert.match(html, /story-viewer\.js\?v=AFV263/);
+  assert.match(html, /reviews\.css\?v=AFV264/);
+  assert.match(html, /story-viewer\.js\?v=AFV264/);
   assert.doesNotMatch(html, new RegExp('\\?v=AFV' + '251'));
 });
