@@ -8,14 +8,14 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('Story Admin upload cap matches server-side 3 MiB validation', () => {
+test('Story Admin upload cap matches server-side 3.5 MiB validation', () => {
   const admin = read('story-admin.js');
   const api = read('functions/api/stories.js');
   const html = read('story-admin.html');
-  assert.match(admin, /file\.size <= 3 \* 1024 \* 1024/);
-  assert.match(api, /MAX_IMAGE_BYTES = 3 \* 1024 \* 1024/);
-  assert.match(html, /up to 3 MiB each/);
-  assert.doesNotMatch(admin, /3\.5 \* 1024 \* 1024/);
+  assert.match(admin, /file\\.size <= 3\\.5 \\* 1024 \\* 1024/);
+  assert.match(api, /MAX_IMAGE_BYTES = 3\\.5 \\* 1024 \\* 1024/);
+  assert.match(html, /up to 3\\.5 MB each/);
+  assert.doesNotMatch(admin, /const supabaseUrl = 'https:\\/\\/glivqrmyqwtbmlffghjo\\.supabase\\.co'/);
 });
 
 test('Story Viewer refreshes signed image URLs before opening', () => {
