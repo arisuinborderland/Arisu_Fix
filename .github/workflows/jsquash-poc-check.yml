@@ -204,7 +204,7 @@ jobs:
                 const alpha = transparentPng ? image.data[3] : undefined;
                 return Response.json({ codec, width: image.width, height: image.height, rgbaBytes: image.data.length, alpha });
               } catch (error) {
-                return Response.json({ error: String(error?.message || error) }, { status: invalid ? 400 : 500 });
+                return Response.json({ error: String(error?.message || error) }, { status: invalid || mismatch ? 400 : 500 });
               }
             }
           };
