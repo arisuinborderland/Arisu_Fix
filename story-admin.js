@@ -337,7 +337,7 @@ async function auth(path, payload) {
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
         if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
-        if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
+        if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3 MiB.');
       }
       let saved = 0; const draft = $('saveAsDraft').checked; const progress = $('uploadProgress'); const progressFill = $('uploadProgressFill'); const progressText = $('uploadProgressText'); progress.hidden = false; progressFill.style.width = '0%';
       for (const file of files) {
