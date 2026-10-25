@@ -9,39 +9,34 @@
   const IDLE_LIMIT_MS = 60 * 60 * 1000;
   const SESSION_KEY = 'arisu_story_admin_refresh_token';
   const ACTIVITY_KEY = 'arisu_story_admin_last_activity';
-  let supabaseUrl = '';
-  function say(message, isError = false) {
-    const target = !loginPanel.hidden ? $('loginStatus') : status;
-    if (!target) return;
-    target.textContent = message;
-    target.style.color = isError ? '#b42335' : '#3454c9';
-    target.dataset.error = isError ? 'true' : 'false';
-  }
-  function readStorage(storage, key) {
-    try { return storage.getItem(key) || ''; } catch (_) { return ''; }
-  }
-  function removeStorage(storage, key) {
-    try { storage.removeItem(key); } catch (_) {}
-  }
-  function getSavedRefreshToken() {
-    return readStorage(localStorage, SESSION_KEY) || readStorage(sessionStorage, SESSION_KEY);
-  }
-  function saveRefreshToken(token) {
-    removeStorage(localStorage, SESSION_KEY);
-    removeStorage(sessionStorage, SESSION_KEY);
-    if (!token) return;
-    // Persist only the Supabase refresh token, never the user's password.
-    if ($('rememberMe')?.checked) {
-      try { localStorage.setItem(SESSION_KEY, token); return; } catch (_) {}
-    }
-    try { sessionStorage.setItem(SESSION_KEY, token); } catch (_) {
-      // If storage is blocked, the current tab can still stay signed in.
+  const TEMP_SESSION_KEY = 'arisu_story_admin_refresh_token_tab';
+  const TEMP_ACTIVITY_KEY = 'arisu_story_admin_last_activity_tab';
+  const rememberMe = $('rememberMe');
+  function readStored(key) {
+    try { return localStorage.getItem(key) || sessionStorage.getItem(key) || ''; } catch (_) {
+      try { return sessionStorage.getItem(key) || ''; } catch (_) { return ''; }
     }
   }
+  function writeSession(token, activity) {
+    try {
+      localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY);
+      sessionStorage.removeItem(TEMP_SESSION_KEY); sessionStorage.removeItem(TEMP_ACTIVITY_KEY);
+      if (rememberMe && rememberMe.checked) {
+        localStorage.setItem(SESSION_KEY, token);
+        localStorage.setItem(ACTIVITY_KEY, String(activity));
+      } else {
+        sessionStorage.setItem(TEMP_SESSION_KEY, token);
+        sessionStorage.setItem(TEMP_ACTIVITY_KEY, String(activity));
+      }
+    } catch (_) {
+      try { sessionStorage.setItem(TEMP_SESSION_KEY, token); sessionStorage.setItem(TEMP_ACTIVITY_KEY, String(activity)); } catch (_) {}
+    }
+  }
+  const supabaseUrl = 'https://glivqrmyqwtbmlffghjo.supabase.co';
+  function say(message, isError = false) { status.textContent = message; status.style.color = isError ? '#b42335' : '#3454c9'; }
   function clearSavedSession() {
-    removeStorage(localStorage, SESSION_KEY);
-    removeStorage(localStorage, ACTIVITY_KEY);
-    removeStorage(sessionStorage, SESSION_KEY);
+    try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+    try { sessionStorage.removeItem(TEMP_SESSION_KEY); sessionStorage.removeItem(TEMP_ACTIVITY_KEY); } catch (_) {}
     accessToken = ''; refreshToken = ''; lastActivityAt = 0;
     if (idleTimer) clearTimeout(idleTimer);
     idleTimer = 0;
@@ -53,14 +48,12 @@
   }
   function saveActivity() {
     lastActivityAt = Date.now();
-    try { localStorage.setItem(ACTIVITY_KEY, String(lastActivityAt)); } catch (_) {
-      try { sessionStorage.setItem(ACTIVITY_KEY, String(lastActivityAt)); } catch (_) {}
-    }
+    writeSession(refreshToken, lastActivityAt);
     scheduleIdleLogout();
   }
   function scheduleIdleLogout() {
     if (idleTimer) clearTimeout(idleTimer);
-    if (!accessToken || $('rememberMe')?.checked) return;
+    if (!accessToken) return;
     const elapsed = Date.now() - (lastActivityAt || Date.now());
     const remaining = IDLE_LIMIT_MS - elapsed;
     if (remaining <= 0) { showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.'); return; }
@@ -70,28 +63,14 @@
   activityEvents.forEach(name => window.addEventListener(name, () => { if (accessToken) saveActivity(); }, { passive: true }));
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible' && accessToken) {
-      if (!$('rememberMe')?.checked && Date.now() - (lastActivityAt || 0) >= IDLE_LIMIT_MS) showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.');
+      if (Date.now() - (lastActivityAt || 0) >= IDLE_LIMIT_MS) showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.');
       else scheduleIdleLogout();
     }
   });
   async function auth(path, payload) {
-    let response;
-    try {
-      response = await fetch(`${supabaseUrl}/auth/v1/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: window.SUPABASE_PUBLISHABLE_KEY || '' }, body: JSON.stringify(payload) });
-    } catch (_) {
-      throw new Error('Could not reach the authentication server. Check your internet connection and try again.');
-    }
+    const response = await fetch(`${supabaseUrl}/auth/v1/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: window.SUPABASE_PUBLISHABLE_KEY || '' }, body: JSON.stringify(payload) });
     const data = await response.json().catch(() => ({}));
-    if (!response.ok) {
-      const detail = String(data.msg || data.message || data.error_description || data.error || '').toLowerCase();
-      if (response.status === 400 && /invalid login credentials|invalid_credentials|email not confirmed/.test(detail)) {
-        if (/email not confirmed/.test(detail)) throw new Error('Please confirm your admin email before signing in.');
-        throw new Error('Incorrect email or password. Please check both and try again.');
-      }
-      if (response.status === 429) throw new Error('Too many sign-in attempts. Please wait a few minutes and try again.');
-      if (response.status >= 500) throw new Error('The authentication service is temporarily unavailable. Please try again shortly.');
-      throw new Error(data.msg || data.message || data.error_description || 'Sign-in failed. Check your credentials and try again.');
-    }
+    if (!response.ok) throw new Error(data.msg || data.message || data.error_description || 'Sign-in failed.');
     return data;
   }
   // Public key is intentionally injected by a deployment-time public config endpoint; without it, login stays unavailable.
@@ -99,22 +78,13 @@
     event.preventDefault();
     const button = $('loginForm').querySelector('button'); button.disabled = true; say('Signing in…');
     try {
-      let response;
-      try { response = await fetch('/api/story-config', { cache: 'no-store' }); }
-      catch (_) { throw new Error('Could not reach the Story API. Check your internet connection and try again.'); }
-      if (!response.ok) {
-        if (response.status >= 500) throw new Error('The Story API is temporarily unavailable. Please try again shortly.');
-        throw new Error('The Story API returned an error (' + response.status + '). Please refresh and try again.');
-      }
-      let config;
-      try { config = await response.json(); } catch (_) { throw new Error('The Story API returned an invalid response. Please try again later.'); }
+      const response = await fetch('/api/story-config', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Story backend is not configured yet.');
+      const config = await response.json();
       if (!config.publishableKey) throw new Error('Story login is not configured yet.');
-      if (!config.supabaseUrl) throw new Error('Supabase URL is missing from Story configuration.');
-      supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       const data = await auth('token?grant_type=password', { email: $('email').value.trim(), password: $('password').value });
       accessToken = data.access_token; refreshToken = data.refresh_token || '';
-      saveRefreshToken(refreshToken);
       saveActivity();
       $('password').value = ''; loginPanel.hidden = true; editorPanel.hidden = false; say('Signed in.'); await loadStories();
     } catch (e) { say(e.message, true); } finally { button.disabled = false; }
@@ -124,7 +94,7 @@
     const data = await auth('token?grant_type=refresh_token', { refresh_token: refreshToken });
     accessToken = data.access_token || '';
     refreshToken = data.refresh_token || refreshToken;
-    saveRefreshToken(refreshToken);
+    writeSession(refreshToken, lastActivityAt || Date.now());
     return accessToken;
   }
   async function api(url, options = {}) {
@@ -141,27 +111,20 @@
     if (restoring) return;
     restoring = true;
     try {
-      const savedToken = getSavedRefreshToken();
-      const savedActivity = Number(readStorage(localStorage, ACTIVITY_KEY) || readStorage(sessionStorage, ACTIVITY_KEY) || 0);
+      const savedToken = readStored(SESSION_KEY) || readStored(TEMP_SESSION_KEY);
+      const savedActivity = Number(readStored(ACTIVITY_KEY) || readStored(TEMP_ACTIVITY_KEY) || 0);
+      if (rememberMe) rememberMe.checked = Boolean(readStored(SESSION_KEY));
       if (!savedToken) { loginPanel.hidden = false; editorPanel.hidden = true; return; }
-      // Existing persistent sessions are treated as remembered for compatibility.
-      const isRemembered = Boolean(readStorage(localStorage, SESSION_KEY));
-      if (isRemembered) $('rememberMe').checked = true;
-      if (!isRemembered && (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS)) {
+      if (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS) {
         clearSavedSession();
         loginPanel.hidden = false; editorPanel.hidden = true;
         say('Session expired after 1 hour of inactivity. Please sign in again.');
         return;
       }
-      let response;
-      try { response = await fetch('/api/story-config', { cache: 'no-store' }); }
-      catch (_) { throw new Error('Could not reach the Story API. Check your connection and refresh this page.'); }
-      if (!response.ok) throw new Error(response.status >= 500 ? 'The Story API is temporarily unavailable.' : 'The Story API returned an error (' + response.status + ').');
-      let config;
-      try { config = await response.json(); } catch (_) { throw new Error('The Story API returned an invalid response.'); }
+      const response = await fetch('/api/story-config', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Story backend is not configured yet.');
+      const config = await response.json();
       if (!config.publishableKey) throw new Error('Story login is not configured yet.');
-      if (!config.supabaseUrl) throw new Error('Supabase URL is missing from Story configuration.');
-      supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       refreshToken = savedToken;
       await refreshAccessToken();
@@ -175,63 +138,12 @@
       // Only clear it when Supabase explicitly rejects the refresh token.
       const message = String(error && error.message || '');
       const invalidRefreshToken = /invalid refresh token|refresh token not found|already used|invalid_grant|refresh_token.*(expired|invalid)/i.test(message);
-      if (invalidRefreshToken) {
-        clearSavedSession();
-        loginPanel.hidden = false; editorPanel.hidden = true;
-        say('Your saved admin session has expired. Please sign in again.', true);
-      } else {
-        // Keep the login form hidden while a saved session may still be valid.
-        // A temporary API/network issue must not look like a signed-out session.
-        loginPanel.hidden = true; editorPanel.hidden = false;
-        $('storyList').textContent = 'Could not restore the admin session right now. Check your connection, then refresh this page.';
-        say('Session restoration temporarily failed. Your saved session was kept; refresh to retry.', true);
-      }
+      if (invalidRefreshToken) clearSavedSession();
+      loginPanel.hidden = false; editorPanel.hidden = true;
+      say(invalidRefreshToken
+        ? 'Your saved admin session has expired. Please sign in again.'
+        : 'Could not restore your session right now. Your saved session was kept; check your connection and refresh this page.', true);
     } finally { restoring = false; }
-  }
-  function updateActivitySummary(stories) {
-  const now = Date.now();
-  const soon = now + 6 * 60 * 60 * 1000;
-
-  let active = 0;
-  let drafts = 0;
-  let expiring = 0;
-  let archived = 0;
-
-  stories.forEach(story => {
-    const state = story.adminStatus || 'active';
-    const rawExpiry = story.expiresAt || story.expires_at;
-    const expiry = rawExpiry ? new Date(rawExpiry).getTime() : NaN;
-
-    if (state === 'draft') {
-      drafts++;
-    } else if (state === 'archived') {
-      archived++;
-    } else if (state === 'active') {
-      if (Number.isFinite(expiry) && expiry <= now) return;
-
-      active++;
-
-      if (
-        Number.isFinite(expiry) &&
-        expiry > now &&
-        expiry <= soon
-      ) {
-        expiring++;
-      }
-    }
-  });
-
-  const counters = {
-    activityActive: active,
-    activityDrafts: drafts,
-    activityExpiring: expiring,
-    activityArchived: archived
-  };
-
-  Object.entries(counters).forEach(([id, count]) => {
-    const element = $(id);
-    if (element) element.textContent = String(count);
-  });
   }
   async function persistStoryOrder(list) {
     const ordered = Array.from(list.querySelectorAll('.story-row[draggable=true]'));
@@ -244,15 +156,13 @@
     const list = $('storyList'); list.textContent = 'Loading Stories…';
     try {
       const data = await api('/api/stories?admin=1');
-      const allStories = Array.isArray(data.stories) ? data.stories : [];
-updateActivitySummary(allStories);
       let views = {}; let countsAvailable = true;
       try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; } catch { countsAvailable = false; }
       list.replaceChildren();
       if (!countsAvailable) { const warning = document.createElement('p'); warning.className = 'muted'; warning.textContent = 'View counts need the Supabase database migration in supabase/recovery-story-views.sql.'; list.append(warning); }
       const filter = $('storyFilter')?.value || 'active';
       const now = Date.now();
-      let stories = allStories.filter(story => {
+      let stories = (data.stories || []).filter(story => {
         const state = story.adminStatus || 'active';
         if (filter === 'expired') return state === 'active' && new Date(story.expiresAt || story.expires_at).getTime() <= now;
         return state === filter && (filter !== 'active' || new Date(story.expiresAt || story.expires_at).getTime() > now);
@@ -347,31 +257,19 @@ updateActivitySummary(allStories);
   function updatePublishState() {
     const files = Array.from($('storyImage').files || []);
     const allowed = ['image/jpeg', 'image/png', 'image/webp'];
-    const invalid = files.filter(file => !allowed.includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024);
-    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3 * 1024 * 1024);
+    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3.5 * 1024 * 1024);
     const button = $('publishButton');
+    if (!button.dataset.busy) button.disabled = !valid;
     const draft = $('saveAsDraft').checked;
-    if (button.dataset.busy) return;
-    if (button.dataset.success === 'true') {
-      button.disabled = true;
-      return;
-    }
-    button.disabled = !valid;
     const label = draft ? 'Save Drafts' : 'Publish Stories';
-    if (!files.length) {
-      button.textContent = draft ? 'Select images to save draft' : 'Select images to publish';
-    } else if (invalid.length) {
-      button.textContent = 'Fix selected images to continue';
-    } else {
-      button.textContent = `${label} · ${files.length}`;
-    }
+    button.textContent = files.length ? `${label} · ${files.length}` : (draft ? 'Save as Draft' : 'Publish Stories · 24 hours');
   }
   function renderImagePreviews() {
     const input = $('storyImage'); const preview = $('imagePreview'); preview.replaceChildren();
     const files = Array.from(input.files || []);
     const summary = $('selectionSummary');
     const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
-    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024).length;
+    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3.5 * 1024 * 1024).length;
     summary.textContent = files.length
       ? `${files.length} image${files.length === 1 ? '' : 's'} selected · ${(totalBytes / 1024 / 1024).toFixed(2)} MB total${invalidCount ? ` · ${invalidCount} invalid` : ''}`
       : 'No images selected.';
@@ -395,7 +293,7 @@ updateActivitySummary(allStories);
         } catch (_) { say('This browser cannot remove a single selected file. Please reselect the images you want to upload.', true); }
       });
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
-      if (file.size > 3 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
+      if (file.size > 3.5 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
       card.append(remove, name); preview.append(card);
       if (typeof createImageBitmap !== 'function') { name.textContent += ' · Preview unsupported in this browser'; return; }
       createImageBitmap(file).then(bitmap => {
@@ -409,18 +307,18 @@ updateActivitySummary(allStories);
       }).catch(() => { name.textContent += ' · Could not decode image'; });
     });
   }
-  $('storyImage').addEventListener('change', () => { delete $('publishButton').dataset.success; renderImagePreviews(); });
-  $('saveAsDraft').addEventListener('change', () => { delete $('publishButton').dataset.success; updatePublishState(); });
+  $('storyImage').addEventListener('change', renderImagePreviews);
+  $('saveAsDraft').addEventListener('change', updatePublishState);
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
-    event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; delete button.dataset.success; button.disabled = true; button.textContent = 'Publishing…'; say('Preparing your Story images…');
+    event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; button.disabled = true; button.textContent = 'Preparing upload…'; say('Preparing your Story images…');
     try {
       const files = Array.from($('storyImage').files || []);
       if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
         if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
-        if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3 MiB.');
+        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
       }
       let saved = 0; const draft = $('saveAsDraft').checked; const progress = $('uploadProgress'); const progressFill = $('uploadProgressFill'); const progressText = $('uploadProgressText'); progress.hidden = false; progressFill.style.width = '0%';
       for (const file of files) {
@@ -429,7 +327,7 @@ updateActivitySummary(allStories);
         await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value, saveAsDraft: draft }) });
         saved++; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
       }
-      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').dataset.success = 'true'; $('publishButton').textContent = draft ? 'Drafts saved successfully' : 'Published successfully';
+      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
       $('imagePreview').replaceChildren(); renderImagePreviews(); $('uploadProgress').hidden = true;
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
