@@ -9225,9 +9225,9 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* Reduced-motion override for the two desktop accents explicitly requested by the site owner.
-   This intentionally animates only these badges when reduce motion is enabled; all other
-   reduced-motion rules remain intact. */
+/* Reduced-motion override for the specific desktop animations requested by the site owner.
+   Keep the header check permanently visible and deliberately restore motion only for these
+   two desktop UI accents; every other reduced-motion rule stays unchanged. */
 @media (min-width: 701px) and (prefers-reduced-motion: reduce) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-green-glow 3.6s ease-in-out infinite !important;
@@ -9241,6 +9241,8 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse::after {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
+
+  /* Blue badge keeps its pulse; check path remains drawn and visible all the time. */
   html body.home-page .topbar .arisu-verified-badge {
     animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
   }
@@ -9249,7 +9251,43 @@ html body.home-page .purpose-card .purpose-signoff {
   }
   html body.home-page .topbar .arisu-verified-badge svg path {
     stroke-dasharray: 24 !important;
-    stroke-dashoffset: 24 !important;
-    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  /* Restore CTA glow and the actual conic gradients as well as animation.
+     The earlier reduced-motion rules replace these gradients with static ones. */
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+    animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before {
+    background: conic-gradient(
+      from var(--wa-trace-angle),
+      transparent 0deg 20deg,
+      rgba(255, 61, 206, .28) 31deg,
+      rgba(255, 61, 206, .78) 43deg,
+      rgba(255, 255, 255, .98) 52deg,
+      #ffffff 59deg,
+      #ff3dce 64deg,
+      rgba(168, 85, 247, .88) 72deg,
+      transparent 84deg 360deg
+    ) !important;
+    filter: drop-shadow(0 0 4px rgba(255, 61, 206, .98)) !important;
+    animation: wa-border-trace 2.8s linear infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::after {
+    background: conic-gradient(
+      from var(--wa-trace-angle-reverse),
+      transparent 0deg 23deg,
+      rgba(168, 85, 247, .28) 34deg,
+      rgba(168, 85, 247, .78) 45deg,
+      rgba(255, 255, 255, .98) 54deg,
+      #ffffff 60deg,
+      #a855f7 65deg,
+      rgba(255, 61, 206, .82) 73deg,
+      transparent 85deg 360deg
+    ) !important;
+    filter: drop-shadow(0 0 4px rgba(168, 85, 247, .98)) !important;
+    animation: wa-border-trace-reverse 3.2s linear infinite !important;
   }
 }
