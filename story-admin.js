@@ -9,7 +9,7 @@
   const IDLE_LIMIT_MS = 60 * 60 * 1000;
   const SESSION_KEY = 'arisu_story_admin_refresh_token';
   const ACTIVITY_KEY = 'arisu_story_admin_last_activity';
-  const supabaseUrl = 'https://glivqrmyqwtbmlffghjo.supabase.co';
+  let supabaseUrl = '';
   function say(message, isError = false) { status.textContent = message; status.style.color = isError ? '#b42335' : '#3454c9'; }
   function clearSavedSession() {
     try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
@@ -57,7 +57,8 @@
       const response = await fetch('/api/story-config', { cache: 'no-store' });
       if (!response.ok) throw new Error('Story backend is not configured yet.');
       const config = await response.json();
-      if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      if (!config.supabaseUrl || !config.publishableKey) throw new Error('Story login is not configured yet.');
+      supabaseUrl = String(config.supabaseUrl).replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       const data = await auth('token?grant_type=password', { email: $('email').value.trim(), password: $('password').value });
       accessToken = data.access_token; refreshToken = data.refresh_token || '';
@@ -100,7 +101,8 @@
       const response = await fetch('/api/story-config', { cache: 'no-store' });
       if (!response.ok) throw new Error('Story backend is not configured yet.');
       const config = await response.json();
-      if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      if (!config.supabaseUrl || !config.publishableKey) throw new Error('Story login is not configured yet.');
+      supabaseUrl = String(config.supabaseUrl).replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       refreshToken = savedToken;
       await refreshAccessToken();
