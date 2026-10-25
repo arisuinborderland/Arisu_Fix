@@ -22,3 +22,10 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /story-viewer\.js\?v=AFV266/, `${page} should load Story Viewer behavior`);
   }
 });
+
+test('Story navigation never wraps from the final story back to the first', () => {
+  assert.match(source, /const targetIndex = index \+ direction;/);
+  assert.match(source, /if \(targetIndex < 0 \|\| targetIndex >= stories\.length\) return;/);
+  assert.doesNotMatch(source, /const targetIndex = \(index \+ direction \+ stories\.length\) % stories\.length/);
+  assert.match(source, /const nextIndex = fromIndex \+ 1;\s*if \(nextIndex >= stories\.length\) return;/);
+});

@@ -107,14 +107,17 @@
   }
   function warmNextImage(fromIndex = index) {
     if (stories.length < 2) return;
-    const nextIndex = (fromIndex + 1) % stories.length;
+    const nextIndex = fromIndex + 1;
+    if (nextIndex >= stories.length) return;
     preloadImage(stories[nextIndex].imageUrl);
   }
   function navigateBy(direction) {
     if (viewer.hidden || navigating || !stories.length) return;
+    const targetIndex = index + direction;
+    // Never wrap manual navigation: right advances forward, left moves backward.
+    if (targetIndex < 0 || targetIndex >= stories.length) return;
     navigating = true;
     clearTimeout(timer);
-    const targetIndex = (index + direction + stories.length) % stories.length;
     const targetUrl = stories[targetIndex].imageUrl;
     // The next image is warmed in the background while the current story is shown.
     // On a cold visit, wait only for the actual image readiness, not an artificial delay.
