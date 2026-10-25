@@ -28,3 +28,18 @@ test('Publish action blocks duplicate submissions while processing and preserves
   assert.match(js, /file\.size <= 3 \* 1024 \* 1024/);
   assert.match(js, /delete button\.dataset\.busy; updatePublishState\(\)/);
 });
+
+test('Remember Me is opt-in and session persistence stores only a refresh token, never the password', () => {
+  assert.match(html, /id="rememberMe" type="checkbox"(?! checked)/);
+  assert.match(js, /localStorage\.setItem\(SESSION_KEY, token\)/);
+  assert.match(js, /sessionStorage\.setItem\(TEMP_SESSION_KEY, token\)/);
+  assert.match(js, /if \(!token\) return/);
+  assert.doesNotMatch(js, /localStorage\.setItem\([^,\n]*(?:password|passwd)/i);
+  assert.doesNotMatch(js, /sessionStorage\.setItem\([^,\n]*(?:password|passwd)/i);
+});
+
+test('Story Admin restores configuration from the public config endpoint', () => {
+  assert.match(js, /fetch\('\/api\/story-config', \{ cache: 'no-store' \}\)/);
+  assert.match(js, /supabaseUrl = String\(config\.supabaseUrl\)\.trim\(\)\.replace\(\/\\\/\$\/, ''\)/);
+  assert.doesNotMatch(js, /const supabaseUrl = 'https:\/\/glivqrmyqwtbmlffghjo\.supabase\.co'/);
+});
