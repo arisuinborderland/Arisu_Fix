@@ -35,17 +35,14 @@ jobs:
         run: |
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
-          import { createRequire } from "node:module";
           import fs from "node:fs";
           import path from "node:path";
 
-          const require = createRequire(import.meta.url);
           for (const name of ["@jsquash/jpeg", "@jsquash/png", "@jsquash/webp"]) {
-            const packageJsonPath = require.resolve(name + "/package.json");
-            const pkg = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+            const root = path.join(process.cwd(), "node_modules", ...name.split("/"));
+            const pkg = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
             console.log(name, "version:", pkg.version);
             console.log(name, "exports:", JSON.stringify(pkg.exports ?? null));
-            const root = path.dirname(packageJsonPath);
             const wasmFiles = [];
             const visit = (dir) => {
               for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
