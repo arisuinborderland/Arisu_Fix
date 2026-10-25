@@ -12,7 +12,8 @@ const fixtures = {
   webp: fs.readFileSync(path.join(fixtureDir, "fixture.webp")),
   widePng: fs.readFileSync(path.join(fixtureDir, "too-wide.png")),
   oversized: fs.readFileSync(path.join(fixtureDir, "too-large.bin")),
-  truncatedPng: fs.readFileSync(path.join(fixtureDir, "truncated.png"))
+  truncatedPng: fs.readFileSync(path.join(fixtureDir, "truncated.png")),
+  maxPixels: fs.readFileSync(path.join(fixtureDir, "max-pixels.png"))
 };
 
 async function validate(label, mimeType, bytes, expectedStatus, expectedFormat) {
@@ -41,6 +42,9 @@ async function validate(label, mimeType, bytes, expectedStatus, expectedFormat) 
 
 await validate("valid JPEG", "image/jpeg", fixtures.jpeg, 200, "jpeg");
 await validate("valid PNG", "image/png", fixtures.png, 200, "png");
+const maxPixelsStarted = performance.now();
+await validate("exactly 16 MP PNG", "image/png", fixtures.maxPixels, 200, "png");
+console.log("16 MP validation wall time:", Math.round(performance.now() - maxPixelsStarted), "ms (local test runtime)");
 await validate("valid WebP", "image/webp", fixtures.webp, 200, "webp");
 await validate("wrong MIME: PNG declared as JPEG", "image/jpeg", fixtures.png, 415);
 await validate("unsupported GIF MIME", "image/gif", fixtures.png, 415);
