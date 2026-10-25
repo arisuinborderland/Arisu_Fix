@@ -125,3 +125,32 @@ test('Cloudflare Story Count Function: returns exact active count without storag
 test.after(() => {
   global.fetch = originalFetch;
 });
+
+test('Cloudflare Story Config Function: exposes only the publishable key when configured', async () => {
+  const config = await loadFunction('functions/api/story-config.js');
+  const response = await config.onRequest({
+    request: new Request('https://site.test/api/story-config'),
+    env
+  });
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get('cache-control') || '', /no-store/i);
+  assert.deepEqual(await response.json(), { publishableKey: env.SUPABASE_PUBLISHABLE_KEY });
+});
+
+test('Cloudflare Story View Function: rejects malformed JSON without contacting Supabase', async (t) => {
+  const view = await loadFunction('functions/api/story-view.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async () => { throw new Error('Supabase must not be called for malformed JSON'); };
+
+  const response = await view.onRequest({
+    request: new Request('https://site.test/api/story-view', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: '{invalid-json'
+    }),
+    env
+  });
+  assert.equal(response.status, 400);
+  assert.match((await response.json()).error, /valid JSON/i);
+});
