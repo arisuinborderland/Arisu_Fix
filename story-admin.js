@@ -276,7 +276,7 @@ async function auth(path, payload) {
   function updatePublishState() {
     const files = Array.from($('storyImage').files || []);
     const allowed = ['image/jpeg', 'image/png', 'image/webp'];
-    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3.5 * 1024 * 1024);
+    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3 * 1024 * 1024);
     const button = $('publishButton');
     if (!button.dataset.busy) button.disabled = !valid;
     const draft = $('saveAsDraft').checked;
@@ -288,7 +288,7 @@ async function auth(path, payload) {
     const files = Array.from(input.files || []);
     const summary = $('selectionSummary');
     const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
-    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3.5 * 1024 * 1024).length;
+    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024).length;
     summary.textContent = files.length
       ? `${files.length} image${files.length === 1 ? '' : 's'} selected · ${(totalBytes / 1024 / 1024).toFixed(2)} MB total${invalidCount ? ` · ${invalidCount} invalid` : ''}`
       : 'No images selected.';
@@ -312,7 +312,7 @@ async function auth(path, payload) {
         } catch (_) { say('This browser cannot remove a single selected file. Please reselect the images you want to upload.', true); }
       });
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
-      if (file.size > 3.5 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
+      if (file.size > 3 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
       card.append(remove, name); preview.append(card);
       if (typeof createImageBitmap !== 'function') { name.textContent += ' · Preview unsupported in this browser'; return; }
       createImageBitmap(file).then(bitmap => {
@@ -337,7 +337,7 @@ async function auth(path, payload) {
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
         if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
-        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
+        if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
       }
       let saved = 0; const draft = $('saveAsDraft').checked; const progress = $('uploadProgress'); const progressFill = $('uploadProgressFill'); const progressText = $('uploadProgressText'); progress.hidden = false; progressFill.style.width = '0%';
       for (const file of files) {
