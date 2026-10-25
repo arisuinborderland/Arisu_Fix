@@ -9897,3 +9897,39 @@ html body.home-page .purpose-card .purpose-signoff {
     padding-bottom: 120px !important;
   }
 }
+
+/* About page: clearer mobile footer links and reduced blank space below footer. */
+html body.about-page .about-page-footer {
+  gap: 12px 16px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+html body.about-page .about-page-footer a {
+  font-size: 13px;
+  line-height: 1.45;
+  padding: 3px 0;
+}
+html body.about-page .about-page-footer > span {
+  font-size: 12px;
+  line-height: 1.45;
+}
+@media (max-width: 600px) {
+  html body.about-page .about-page-main {
+    padding-bottom: 8px;
+  }
+  html body.about-page .about-page-footer {
+    padding: 12px 14px 14px !important;
+    gap: 10px 14px;
+  }
+  html body.about-page .about-page-footer a {
+    font-size: 13px;
+  }
+  html body.about-page .about-page-footer > span {
+    font-size: 12px;
+  }
+  html body.about-page {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
