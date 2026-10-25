@@ -1,0 +1,102 @@
+name: Cloudflare jSquash Integration Checks
+
+on:
+  push:
+    branches:
+      - migration/cloudflare-jSquash-integration
+  pull_request:
+    branches:
+      - migration/cloudflare-stories
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  integration-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out integration branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Generate matching lockfile and commit it on the integration branch
+        run: |
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+          if ! git diff --quiet -- package-lock.json; then
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add package-lock.json
+              git commit -m "chore: sync package lock for jSquash integration"
+              git push origin "HEAD:$GITHUB_REF_NAME"
+            else
+              echo "Lockfile generated for PR validation; not pushing changes."
+            fi
+          fi
+
+      - name: Install locked project dependencies
+        run: npm ci
+
+      - name: Run existing regression tests
+        run: npm test
+
+      - name: Verify production build output
+        run: npm run build
+
+      - name: Prepare pinned fixtures and isolated Wrangler harness
+        run: |
+          mkdir -p /tmp/jsquash-integration-harness
+          cd /tmp/jsquash-integration-harness
+          npm init -y
+          npm install --save-exact pngjs@7.0.0 wrangler@4.152.0
+          fixture_ref="da47a2be3b302beb5a5ae164a2ab7aa21a041d90"
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/jamsinclair/jSquash/$fixture_ref/test/fixtures/test.jpeg" -o fixture.jpeg
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/jamsinclair/jSquash/$fixture_ref/test/fixtures/test.png" -o fixture.png
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/jamsinclair/jSquash/$fixture_ref/test/fixtures/test.webp" -o fixture.webp
+          node --input-type=module <<'EOF'
+          import fs from "node:fs";
+          import { PNG } from "pngjs";
+
+          const pngBytes = fs.readFileSync("fixture.png");
+          fs.writeFileSync("truncated.png", pngBytes.subarray(0, 30));
+          const wide = new PNG({ width: 4097, height: 1 });
+          fs.writeFileSync("too-wide.png", PNG.sync.write(wide));
+          fs.writeFileSync("too-large.bin", Buffer.alloc(3 * 1024 * 1024 + 1));
+          console.log("Created pinned fixtures plus oversized, wide, and truncated test inputs.");
+          EOF
+
+      - name: Bundle and execute the actual Cloudflare validator
+        env:
+          JSQUASH_FIXTURE_DIR: /tmp/jsquash-integration-harness
+        run: |
+          cat > wrangler-jsquash-integration.jsonc <<'EOF'
+          {
+            "name": "arisu-fix-jsquash-integration-test",
+            "main": "scripts/cloudflare-jsquash-validation-worker.mjs",
+            "compatibility_date": "2026-10-25"
+          }
+          EOF
+
+          /tmp/jsquash-integration-harness/node_modules/.bin/wrangler deploy --dry-run --outdir=/tmp/jsquash-integration-harness/bundle --config=wrangler-jsquash-integration.jsonc
+
+          /tmp/jsquash-integration-harness/node_modules/.bin/wrangler dev --local --ip 127.0.0.1 --port 8798 --config=wrangler-jsquash-integration.jsonc > /tmp/jsquash-integration-harness/wrangler.log 2>&1 &
+          wrangler_pid=$!
+          trap 'kill "$wrangler_pid" 2>/dev/null || true; rm -f wrangler-jsquash-integration.jsonc' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8798/health > /dev/null; then ready=1; break; fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/jsquash-integration-harness/wrangler.log
+            echo "Cloudflare validator test Worker did not start."
+            exit 1
+          fi
+          node scripts/cloudflare-jsquash-validation-test.mjs
+
