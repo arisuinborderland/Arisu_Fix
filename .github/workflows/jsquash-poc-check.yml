@@ -1,0 +1,63 @@
+name: jSquash Cloudflare POC
+
+on:
+  push:
+    branches:
+      - migration/cloudflare-jSquash-poc
+  pull_request:
+    branches:
+      - migration/cloudflare-stories
+      - main
+
+jobs:
+  package-and-wasm-compatibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out isolated POC branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install existing locked project dependencies
+        run: npm ci
+
+      - name: Install jSquash packages and Wrangler in temporary workspace
+        run: |
+          mkdir -p /tmp/jsquash-poc
+          cd /tmp/jsquash-poc
+          npm init -y
+          npm install --save-exact @jsquash/jpeg @jsquash/png @jsquash/webp wrangler
+
+      - name: Verify package exports and installed WASM assets
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          import { createRequire } from "node:module";
+          import fs from "node:fs";
+          import path from "node:path";
+
+          const require = createRequire(import.meta.url);
+          for (const name of ["@jsquash/jpeg", "@jsquash/png", "@jsquash/webp"]) {
+            const packageJsonPath = require.resolve(name + "/package.json");
+            const pkg = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+            console.log(name, "version:", pkg.version);
+            console.log(name, "exports:", JSON.stringify(pkg.exports ?? null));
+            const root = path.dirname(packageJsonPath);
+            const wasmFiles = [];
+            const visit = (dir) => {
+              for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+                const full = path.join(dir, entry.name);
+                if (entry.isDirectory()) visit(full);
+                else if (entry.name.endsWith(".wasm")) wasmFiles.push(path.relative(root, full));
+              }
+            };
+            visit(root);
+            console.log(name, "WASM files:", JSON.stringify(wasmFiles));
+          }
+          EOF
+
+      - name: Record Wrangler version
+        run: /tmp/jsquash-poc/node_modules/.bin/wrangler --version
