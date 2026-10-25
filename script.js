@@ -1,7 +1,7 @@
 const WHATSAPP_NUMBER = "639423212281"; // International format, digits only
 const TIKTOK_PROFILE_URL = "https://www.tiktok.com/@arisuryohei2020";
 const FACEBOOK_PAGE_URL = "https://www.facebook.com/share/19gap1qLBf/";
-const WHATSAPP_MESSAGE = "Hi Arisu! I found your contact through your website,\n\nhttps://arisufix.vercel.app/\n\nI’d like to inquire about your account recovery assistance.";
+const WHATSAPP_MESSAGE = "Hi Arisu! I found your contact through your website,\n\nhttps://arisufix.pages.dev/\n\nI’d like to inquire about your account recovery assistance.";
 
 // Prefer the consumer WhatsApp app scheme from a direct user tap.
 // Keep an HTTPS fallback for TikTok/in-app browsers that block custom schemes.
