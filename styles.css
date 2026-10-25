@@ -9878,3 +9878,22 @@ html body.home-page .purpose-card .purpose-signoff {
     font-size: 10px !important;
   }
 }
+
+
+/* Desktop spacing correction v4.
+   The Why Choose card is visually shifted up by 50px; reclaim that reserved flow space.
+   Also trim the excessive footer tail while leaving the floating nav clear of the copyright. */
+@media (min-width: 701px) {
+  html body.home-page #desktopSocialDestination > #why-choose-arisu {
+    margin-bottom: -50px !important;
+  }
+
+  html body.home-page main {
+    padding-bottom: 0 !important;
+  }
+
+  html body.home-page .site-footer {
+    margin-top: 2px !important;
+    padding-bottom: 120px !important;
+  }
+}
