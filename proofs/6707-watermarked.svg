@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Arisu Fix suspended account recovery proof</title>
+  <desc id="desc">Original recovery proof image with an additional repeating Arisu Fix watermark.</desc>
+  <defs>
+    <pattern id="watermark" width="255" height="115" patternUnits="userSpaceOnUse" patternTransform="rotate(-27)">
+      <text x="0" y="32" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing=".7" fill="#ffffff" fill-opacity=".48" stroke="#101827" stroke-opacity=".46" stroke-width="1.2" paint-order="stroke">ARISU FIX • RECOVERY PROOF</text>
+    </pattern>
+  </defs>
+  <image xlink:href="6707.jpg" href="6707.jpg" x="0" y="0" width="512" height="512" preserveAspectRatio="xMidYMid meet"/>
+  <rect x="0" y="0" width="512" height="512" fill="url(#watermark)" pointer-events="none"/>
+</svg>

@@ -4,7 +4,7 @@ const recoveryProofs = [
   {
     category: "suspended",
     title: "Suspended Account — 180 Days",
-    image: "proofs/6707.jpg",
+    image: "proofs/6707-watermarked.svg?v=AFV267",
     alt: "Watermarked example screenshot showing a Facebook account suspension notice beside a profile page",
     violation: "Account Integrity"
   },
