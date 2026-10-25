@@ -31,7 +31,7 @@ jobs:
           npm init -y
           npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler
 
-      - name: Verify pinned package versions, decoder entry files, and actual WASM assets
+      - name: Verify pinned package versions, decoder exports, init functions, and WASM assets
         run: |
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
@@ -51,29 +51,37 @@ jobs:
               throw new Error(`${name}: expected ${version}, found ${pkg.version}`);
             }
 
-            const decoderCandidates = [
-              path.join(root, "decode.js"),
-              path.join(root, "dist", "decode.js")
-            ];
-            if (!decoderCandidates.some((candidate) => fs.existsSync(candidate))) {
-              throw new Error(`${name}: no expected decoder entry file found`);
-            }
-
             const wasmFiles = [];
+            const jsFiles = [];
             const visit = (dir) => {
               for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
                 const full = path.join(dir, entry.name);
                 if (entry.isDirectory()) visit(full);
-                else if (entry.name.endsWith(".wasm")) wasmFiles.push(path.relative(root, full));
+                else {
+                  const relative = path.relative(root, full);
+                  if (entry.name.endsWith(".wasm")) wasmFiles.push(relative);
+                  if (entry.name.endsWith(".js")) jsFiles.push(relative);
+                }
               }
             };
             visit(root);
+
             if (wasmFiles.length === 0) {
               throw new Error(`${name}: no WASM assets found`);
             }
 
-            console.log(`${name}@${version}: WASM assets found:`);
-            for (const file of wasmFiles) console.log(`  - ${file}`);
+            const decodeEntry = jsFiles.find((file) => /(^|\/)decode\.js$/.test(file));
+            if (!decodeEntry) {
+              throw new Error(`${name}: decoder JavaScript entry not found`);
+            }
+
+            const decoderSource = fs.readFileSync(path.join(root, decodeEntry), "utf8");
+            if (!/init/.test(decoderSource)) {
+              throw new Error(`${name}: decoder source does not appear to expose manual init`);
+            }
+
+            console.log(`${name}@${version}: decoder entry ${decodeEntry}`);
+            console.log("  WASM:", wasmFiles.join(", "));
           }
           EOF
 
