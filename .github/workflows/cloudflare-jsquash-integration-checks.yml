@@ -73,6 +73,61 @@ jobs:
           console.log("Created pinned fixtures plus oversized, wide, and truncated test inputs.");
           EOF
 
+      - name: Probe the 10 ms Workers Free CPU budget on a 16 MP image
+        env:
+          JSQUASH_FIXTURE_DIR: /tmp/jsquash-integration-harness
+        run: |
+          cat > wrangler-jsquash-free-limit.jsonc <<'EOF'
+          {
+            "name": "arisu-fix-jsquash-free-cpu-probe",
+            "main": "scripts/cloudflare-jsquash-validation-worker.mjs",
+            "compatibility_date": "2026-10-25",
+            "limits": { "cpu_ms": 10 }
+          }
+          EOF
+
+          /tmp/jsquash-integration-harness/node_modules/.bin/wrangler dev --local --ip 127.0.0.1 --port 8799 --config=wrangler-jsquash-free-limit.jsonc > /tmp/jsquash-integration-harness/free-cpu-probe.log 2>&1 &
+          wrangler_pid=$!
+          trap 'kill "$wrangler_pid" 2>/dev/null || true; rm -f wrangler-jsquash-free-limit.jsonc' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8799/health > /dev/null; then ready=1; break; fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/jsquash-integration-harness/free-cpu-probe.log
+            echo "10 ms CPU-budget probe Worker did not start."
+            exit 0
+          fi
+
+          node --input-type=module <<'EOF'
+          import fs from "node:fs";
+          const bytes = fs.readFileSync(process.env.JSQUASH_FIXTURE_DIR + "/max-pixels.png");
+          const body = JSON.stringify({
+            mimeType: "image/png",
+            base64: bytes.toString("base64")
+          });
+          const started = performance.now();
+          try {
+            const response = await fetch("http://127.0.0.1:8799/", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body
+            });
+            const detail = await response.text();
+            console.log("10 ms CPU probe HTTP status:", response.status);
+            console.log("10 ms CPU probe wall time:", Math.round(performance.now() - started), "ms");
+            if (!response.ok) {
+              console.log("Diagnostic: 16 MP validation did not pass under this local 10 ms CPU configuration.");
+              console.log(detail.slice(0, 600));
+            } else {
+              console.log("Diagnostic: the local 10 ms configuration returned success; this does not replace measurement on the real Cloudflare account.");
+            }
+          } catch (error) {
+            console.log("Diagnostic: request terminated under the local 10 ms CPU configuration:", String(error));
+          }
+          EOF
+
       - name: Bundle and execute the actual Cloudflare validator
         env:
           JSQUASH_FIXTURE_DIR: /tmp/jsquash-integration-harness
