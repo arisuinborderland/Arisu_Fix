@@ -257,3 +257,45 @@ test('Cloudflare Story Config Function: fails closed when required configuration
   assert.equal(response.status, 503);
   assert.match((await response.json()).error, /not configured/i);
 });
+
+test('Cloudflare Story View Function: converts Supabase RPC failures into a controlled 503', async (t) => {
+  const view = await loadFunction('functions/api/story-view.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    assert.match(String(input), /\/rest\/v1\/rpc\/increment_recovery_story_view$/);
+    return jsonResponse({ message: 'RPC unavailable' }, 503);
+  };
+
+  const response = await view.onRequest({
+    request: new Request('https://site.test/api/story-view', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: '12345678-1234-4234-8234-123456789abc' })
+    }),
+    env
+  });
+  assert.equal(response.status, 503);
+  assert.match((await response.json()).error, /temporarily unavailable/i);
+});
+
+test('Cloudflare Story Views Admin Function: converts view-count query failures into a controlled 503', async (t) => {
+  const viewsAdmin = await loadFunction('functions/api/story-views-admin.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    const url = String(input);
+    if (url.endsWith('/auth/v1/user')) return jsonResponse({ id: 'admin-user', email: 'admin@example.test' });
+    if (url.includes('/rest/v1/recovery_story_view_counts?')) return jsonResponse({ message: 'database unavailable' }, 503);
+    throw new Error(`Unexpected fetch: ${url}`);
+  };
+
+  const response = await viewsAdmin.onRequest({
+    request: new Request('https://site.test/api/story-views-admin', {
+      headers: { Authorization: 'Bearer valid-admin-token' }
+    }),
+    env
+  });
+  assert.equal(response.status, 503);
+  assert.match((await response.json()).error, /temporarily unavailable/i);
+});
