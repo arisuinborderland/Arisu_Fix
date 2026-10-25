@@ -234,8 +234,10 @@
   }
   async function load() {
     try {
-      const response = await fetch('/api/stories', { cache: 'no-store' }); if (!response.ok) return;
-      const data = await response.json(); stories = Array.isArray(data.stories) ? data.stories : [];
+      const response = await fetch('/api/stories', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Stories API request failed');
+      const data = await response.json();
+      stories = Array.isArray(data.stories) ? data.stories : [];
       // Fallback to the loaded public list if the lightweight count endpoint is unavailable.
       if (mobileStoriesCount && !countLoaded && !countHasUsableValue) {
         mobileStoriesCount.textContent = String(stories.length);
@@ -243,7 +245,7 @@
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
         setCountLoading(false);
       }
-      // Preload the first story and warm the next one before the viewer is opened.
+      // Refresh signed image URLs before opening the viewer, and warm the next image.
       stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
       // Keep the Stories navigation item mounted even when the API temporarily
       // returns an empty list. The button must not disappear/reappear as requests resolve.
@@ -252,6 +254,7 @@
         mobileStoriesCount.setAttribute('aria-label', 'No active stories currently available');
         setCountLoading(false);
       }
+      return true;
     } catch {
       // A transient Stories API failure must never hide the bottom-navigation button.
       if (mobileStoriesCount && !countHasUsableValue) {
@@ -259,6 +262,7 @@
         mobileStoriesCount.setAttribute('aria-label', 'Stories temporarily unavailable');
         setCountLoading(false);
       }
+      return false;
     }
   }
   // Basic anti-save deterrents only: these discourage casual context-menu saving
@@ -274,9 +278,10 @@
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
   mobileStoriesButton?.addEventListener('click', async () => {
-    // Retry loading on user intent if the initial request failed or returned no stories.
-    if (!stories.length) await load();
-    if (stories.length) showAt(0);
+    // Fetch fresh signed image URLs each time the viewer opens. URLs may have
+    // expired while the page stayed open in a background tab.
+    const refreshed = await load();
+    if (refreshed && stories.length) showAt(0);
   });
   close.addEventListener('click', hide);
   // Instagram/Facebook-style navigation: tap the left or right half of the story image.

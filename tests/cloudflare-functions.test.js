@@ -86,6 +86,7 @@ test('Cloudflare Stories Function: lists active stories and signs storage image 
     }
     if (url.includes('/storage/v1/object/sign/recovery-stories/stories/test.jpg')) {
       assert.equal(init.method, 'POST');
+      assert.deepEqual(JSON.parse(init.body), { expiresIn: 3600 });
       return jsonResponse({ signedURL: '/object/sign/recovery-stories/stories/test.jpg?token=test' });
     }
     throw new Error(`Unexpected fetch: ${url}`);
@@ -126,7 +127,7 @@ test.after(() => {
   global.fetch = originalFetch;
 });
 
-test('Cloudflare Story Config Function: exposes only the publishable key when configured', async () => {
+test('Cloudflare Story Config Function: exposes public connection settings but never the secret key', async () => {
   const config = await loadFunction('functions/api/story-config.js');
   const response = await config.onRequest({
     request: new Request('https://site.test/api/story-config'),
@@ -134,7 +135,8 @@ test('Cloudflare Story Config Function: exposes only the publishable key when co
   });
   assert.equal(response.status, 200);
   assert.match(response.headers.get('cache-control') || '', /no-store/i);
-  assert.deepEqual(await response.json(), { publishableKey: env.SUPABASE_PUBLISHABLE_KEY });
+  assert.deepEqual(await response.json(), { publishableKey: env.SUPABASE_PUBLISHABLE_KEY, supabaseUrl: env.SUPABASE_URL });
+  assert.doesNotMatch(await (async () => JSON.stringify(await response.clone().json()))(), /test-secret-key|SUPABASE_SECRET_KEY/);
 });
 
 test('Cloudflare Story View Function: rejects malformed JSON without contacting Supabase', async (t) => {

@@ -51,7 +51,9 @@ export async function onRequest({ request, env }) {
   let deleted = 0;
   let failed = 0;
   const cutoff = new Date().toISOString();
-  const batchSize = 100;
+  // Stay below the Pages Functions subrequest budget: one list request plus
+  // at most two Supabase requests (Storage delete + row delete) per Story.
+  const batchSize = 20;
 
   try {
     const recordsUrl = new URL("/rest/v1/recovery_stories", supabaseUrl);

@@ -421,7 +421,7 @@ async function listStories(request, config, url) {
               Authorization: `Bearer ${config.secretKey}`,
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({ expiresIn: 300 })
+            body: JSON.stringify({ expiresIn: 3600 })
           }
         );
         if (!signedResponse.ok) return null;

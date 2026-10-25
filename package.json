@@ -1,13 +1,13 @@
 {
   "name": "arisu-fix",
-  "version": "265.0.0",
+  "version": "266.0.0",
   "private": true,
   "engines": {
     "node": "24.x"
   },
   "scripts": {
     "build": "node build.js",
-    "test": "node --test tests/cloudflare-functions.test.js"
+    "test": "node --test"
   },
   "dependencies": {
     "sharp": "^0.35.5"

@@ -15,7 +15,7 @@ export async function onRequest({ request, env }) {
     );
   }
 
-  const supabaseUrl = String(env.SUPABASE_URL || "").trim();
+  const supabaseUrl = String(env.SUPABASE_URL || "").trim().replace(/\/$/, "");
   const publishableKey = String(
     env.SUPABASE_PUBLISHABLE_KEY || ""
   ).trim();
@@ -40,7 +40,7 @@ export async function onRequest({ request, env }) {
   }
 
   return new Response(
-    JSON.stringify({ publishableKey }),
+    JSON.stringify({ publishableKey, supabaseUrl }),
     { status: 200, headers }
   );
 }

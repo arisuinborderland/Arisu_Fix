@@ -9,7 +9,7 @@
   const IDLE_LIMIT_MS = 60 * 60 * 1000;
   const SESSION_KEY = 'arisu_story_admin_refresh_token';
   const ACTIVITY_KEY = 'arisu_story_admin_last_activity';
-  const supabaseUrl = 'https://glivqrmyqwtbmlffghjo.supabase.co';
+  let supabaseUrl = '';
   function say(message, isError = false) { status.textContent = message; status.style.color = isError ? '#b42335' : '#3454c9'; }
   function clearSavedSession() {
     try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
@@ -58,6 +58,8 @@
       if (!response.ok) throw new Error('Story backend is not configured yet.');
       const config = await response.json();
       if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      if (!config.supabaseUrl) throw new Error('Supabase URL is missing from Story configuration.');
+      supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       const data = await auth('token?grant_type=password', { email: $('email').value.trim(), password: $('password').value });
       accessToken = data.access_token; refreshToken = data.refresh_token || '';
@@ -101,6 +103,8 @@
       if (!response.ok) throw new Error('Story backend is not configured yet.');
       const config = await response.json();
       if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      if (!config.supabaseUrl) throw new Error('Supabase URL is missing from Story configuration.');
+      supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       refreshToken = savedToken;
       await refreshAccessToken();
@@ -280,7 +284,7 @@ updateActivitySummary(allStories);
   function updatePublishState() {
     const files = Array.from($('storyImage').files || []);
     const allowed = ['image/jpeg', 'image/png', 'image/webp'];
-    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3.5 * 1024 * 1024);
+    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3 * 1024 * 1024);
     const button = $('publishButton');
     if (!button.dataset.busy) button.disabled = !valid;
     const draft = $('saveAsDraft').checked;
@@ -292,7 +296,7 @@ updateActivitySummary(allStories);
     const files = Array.from(input.files || []);
     const summary = $('selectionSummary');
     const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
-    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3.5 * 1024 * 1024).length;
+    const invalidCount = files.filter(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024).length;
     summary.textContent = files.length
       ? `${files.length} image${files.length === 1 ? '' : 's'} selected · ${(totalBytes / 1024 / 1024).toFixed(2)} MB total${invalidCount ? ` · ${invalidCount} invalid` : ''}`
       : 'No images selected.';
@@ -316,7 +320,7 @@ updateActivitySummary(allStories);
         } catch (_) { say('This browser cannot remove a single selected file. Please reselect the images you want to upload.', true); }
       });
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
-      if (file.size > 3.5 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
+      if (file.size > 3 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
       card.append(remove, name); preview.append(card);
       if (typeof createImageBitmap !== 'function') { name.textContent += ' · Preview unsupported in this browser'; return; }
       createImageBitmap(file).then(bitmap => {
@@ -341,7 +345,7 @@ updateActivitySummary(allStories);
       const allowed = ['image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
         if (!allowed.includes(file.type)) throw new Error(file.name + ': use a JPEG, PNG, or WebP image.');
-        if (file.size < 1 || file.size > 3.5 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3.5 MB.');
+        if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error(file.name + ': image must be no larger than 3 MiB.');
       }
       let saved = 0; const draft = $('saveAsDraft').checked; const progress = $('uploadProgress'); const progressFill = $('uploadProgressFill'); const progressText = $('uploadProgressText'); progress.hidden = false; progressFill.style.width = '0%';
       for (const file of files) {

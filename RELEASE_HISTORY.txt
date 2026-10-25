@@ -1,3 +1,12 @@
+AFV266 — 2026-10-25
+- Refreshes the Stories API when the viewer opens, so stale signed image URLs are renewed after long idle periods.
+- Extends signed Story image URL TTL to one hour as a safety margin for long sessions.
+- Aligns Story Admin image validation with the backend's 3 MiB maximum.
+- Limits scheduled cleanup batches to 20 Stories to stay below the Pages Functions subrequest budget.
+- Makes the Supabase project URL come from the same public configuration endpoint as the publishable key.
+- Runs the full Node test suite, synchronizes package-lock metadata, pins Cloudflare build Node.js 24, and adds a project .gitignore.
+- Automated tests and live deployment remain the final acceptance checks.
+
 AFV265 — 2026-10-25
 - Fixed mobile duplicate-view behavior by persisting the browser-tab session ID immediately, before the first view request settles.
 - Bumped the project cache-busting release tokens to AFV265 / 265.0.0 so mobile browsers fetch the updated Story Viewer script instead of retaining AFV264 JavaScript.
