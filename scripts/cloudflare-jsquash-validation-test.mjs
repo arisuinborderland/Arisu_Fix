@@ -49,4 +49,68 @@ await validate("valid PNG with 4097-pixel dimension", "image/png", fixtures.wide
 await validate("truncated PNG", "image/png", fixtures.truncatedPng, 415);
 await validate("empty image", "image/png", Buffer.alloc(0), 415);
 
-console.log("All Cloudflare jSquash validator integration cases passed.");
+
+function imageData(mimeType, bytes) {
+  return "data:" + mimeType + ";base64," + bytes.toString("base64");
+}
+
+async function nativeUpload(label, { path = "/native-upload", mimeType = "image/png", bytes = fixtures.png, token = "test-admin-token", mode = "success", caption = "Integration upload", saveAsDraft = false } = {}, expectedStatus) {
+  const response = await fetch(baseUrl + path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+      "X-Mock-Mode": mode
+    },
+    body: JSON.stringify({
+      imageData: imageData(mimeType, bytes),
+      mimeType,
+      fileName: "integration-fixture.png",
+      caption,
+      saveAsDraft
+    })
+  });
+  const result = await response.json();
+  assert.equal(response.status, expectedStatus, label + ": " + JSON.stringify(result));
+  const stats = JSON.parse(response.headers.get("X-Integration-Mock-Stats") || "{}");
+  console.log("Native story upload route passed:", label, "=> HTTP", response.status);
+  return { response, result, stats };
+}
+
+const beforeSuccessStats = { ...{} };
+const successfulUpload = await nativeUpload("valid native upload", {}, 201);
+assert.equal(successfulUpload.result.story.caption, "Integration upload");
+assert.equal(successfulUpload.result.story.admin_status, "active");
+assert.ok(successfulUpload.result.story.storage_path.startsWith("stories/"));
+assert.ok(successfulUpload.result.story.storage_path.endsWith(".png"));
+assert.equal(successfulUpload.stats.storageUploads, 1);
+assert.equal(successfulUpload.stats.dbInsertAttempts, 1);
+
+const mismatchUpload = await nativeUpload("reject PNG bytes declared as JPEG", {
+  mimeType: "image/jpeg",
+  bytes: fixtures.png
+}, 415);
+assert.equal(mismatchUpload.stats.storageUploads, successfulUpload.stats.storageUploads, "mismatched file must not reach storage");
+
+const unauthorizedUpload = await nativeUpload("reject non-admin user", {
+  token: "not-admin-token"
+}, 401);
+assert.equal(unauthorizedUpload.stats.dbInsertAttempts, successfulUpload.stats.dbInsertAttempts, "non-admin must not insert a row");
+
+const storageFailureUpload = await nativeUpload("handle storage upload failure", {
+  mode: "storage-fail"
+}, 503);
+assert.equal(storageFailureUpload.stats.dbInsertAttempts, successfulUpload.stats.dbInsertAttempts, "storage failure must not insert DB row");
+
+const dbFailureUpload = await nativeUpload("roll back storage object after DB failure", {
+  mode: "db-fail"
+}, 503);
+assert.equal(dbFailureUpload.stats.storageDeletes, successfulUpload.stats.storageDeletes + 1, "database failure must trigger object cleanup");
+
+const fallbackUpload = await nativeUpload("feature flag off preserves Vercel fallback", {
+  path: "/fallback-upload"
+}, 202);
+assert.equal(fallbackUpload.result.source, "vercel-fallback");
+
+
+console.log("All Cloudflare jSquash validator and native-upload integration cases passed.");
