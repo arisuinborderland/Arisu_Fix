@@ -162,3 +162,47 @@ form{gap:12px}
 
 /* Admin sign-in remember option and visible authentication feedback */
 .remember-toggle{display:flex;grid-template-columns:auto 1fr;align-items:center;gap:9px;font-size:14px;font-weight:600;margin-top:-3px}.remember-toggle input{width:18px;height:18px;min-width:18px;margin:0;accent-color:var(--blue)}.login-help{margin:-10px 0 0 27px;color:var(--muted);font-size:12px;line-height:1.45}.login-status{margin:12px 0 0;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.login-status:empty{display:none}
+
+
+/* AFV268: compact, reliably horizontal Remember me control */
+#loginForm label.remember-toggle{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:10px!important;
+  width:100%;
+  margin:0!important;
+  padding:2px 0;
+  font-size:14px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+#loginForm label.remember-toggle input#rememberMe{
+  display:block;
+  flex:0 0 18px;
+  width:18px!important;
+  min-width:18px!important;
+  height:18px;
+  margin:0!important;
+  padding:0!important;
+  border-radius:5px;
+  accent-color:var(--blue);
+}
+#loginForm label.remember-toggle span{display:block;flex:1;min-width:0}
+#loginForm .login-help{
+  margin:-9px 0 0 28px!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+  font-weight:400!important;
+  color:var(--muted);
+}
+#loginForm{gap:15px}
+#loginForm .login-status{font-size:13px;line-height:1.45}
+@media(max-width:440px){
+  .admin-shell{margin-top:22px}
+  .admin-shell header{padding:22px 2px 16px}
+  #loginPanel{padding:20px}
+  #loginPanel h2{margin-bottom:14px}
+  #loginForm{gap:13px}
+}
