@@ -21,7 +21,7 @@ test('Customer Reviews has no floating home or old Arisu quick-access controls',
   assert.match(css, /body\.reviews-document #floatingWhatsApp[\s\S]*display:none !important/);
   assert.match(cleanup, /MutationObserver/);
   assert.match(cleanup, /body\.classList\.contains\('reviews-document'\)/);
-  assert.match(html, /reviews-floating-cleanup\.js\?v=AFV264/);
+  assert.match(html, /reviews-floating-cleanup\.js\?v=AFV265/);
 });
 
 test('Customer Reviews includes the five-item bottom navigation and Stories viewer', () => {
@@ -32,7 +32,7 @@ test('Customer Reviews includes the five-item bottom navigation and Stories view
   assert.match(nav, /href="proofs\.html" aria-label="Recovery Proofs"/);
   assert.match(nav, /href="index\.html#contact" aria-label="Contact Arisu"/);
   assert.match(html, /id="recoveryStoryViewer"/);
-  assert.match(html, /story-viewer\.js\?v=AFV264/);
+  assert.match(html, /story-viewer\.js\?v=AFV265/);
   assert.match(css, /body\.reviews-document \.mobile-bottom-nav/);
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) auto auto/);
   assert.match(css, /header-meta > \.about-header-link \{ grid-column:3 !important; grid-row:1 !important;/);

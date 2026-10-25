@@ -1,3 +1,8 @@
+AFV265 — 2026-10-25
+- Fixed mobile duplicate-view behavior by persisting the browser-tab session ID immediately, before the first view request settles.
+- Bumped the project cache-busting release tokens to AFV265 / 265.0.0 so mobile browsers fetch the updated Story Viewer script instead of retaining AFV264 JavaScript.
+- Production deploy and mobile re-test still required.
+
 AFV264 — 2026-10-25
 - Added database-backed deduplication so each Recovery Story is counted once per browser-tab session.
 - Synchronized active cache-busting query tokens and package metadata to AFV264 / 264.0.0 after the production build rejected a mixed AFV263/AFV264 token.

@@ -17,7 +17,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     const html = fs.readFileSync(path.join(__dirname, '..', page), 'utf8');
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
-    assert.match(html, /story-viewer\.css\?v=AFV264/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV264/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.css\?v=AFV265/, `${page} should load Story Viewer styles`);
+    assert.match(html, /story-viewer\.js\?v=AFV265/, `${page} should load Story Viewer behavior`);
   }
 });
