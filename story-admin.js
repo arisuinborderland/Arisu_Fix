@@ -19,8 +19,11 @@
   }
   function writeSession(token, activity) {
     try {
-      localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY);
-      sessionStorage.removeItem(TEMP_SESSION_KEY); sessionStorage.removeItem(TEMP_ACTIVITY_KEY);
+      localStorage.removeItem(SESSION_KEY);
+      localStorage.removeItem(ACTIVITY_KEY);
+      sessionStorage.removeItem(TEMP_SESSION_KEY);
+      sessionStorage.removeItem(TEMP_ACTIVITY_KEY);
+      if (!token) return;
       if (rememberMe && rememberMe.checked) {
         localStorage.setItem(SESSION_KEY, token);
         localStorage.setItem(ACTIVITY_KEY, String(activity));
@@ -29,7 +32,13 @@
         sessionStorage.setItem(TEMP_ACTIVITY_KEY, String(activity));
       }
     } catch (_) {
-      try { sessionStorage.setItem(TEMP_SESSION_KEY, token); sessionStorage.setItem(TEMP_ACTIVITY_KEY, String(activity)); } catch (_) {}
+      // If persistent storage is blocked, keep the session tab-scoped when possible.
+      try {
+        if (token) {
+          sessionStorage.setItem(TEMP_SESSION_KEY, token);
+          sessionStorage.setItem(TEMP_ACTIVITY_KEY, String(activity));
+        }
+      } catch (_) {}
     }
   }
   let supabaseUrl = '';
@@ -146,8 +155,9 @@ async function auth(path, payload) {
       if (!supabaseUrl) throw new Error('Story login configuration is missing.');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       refreshToken = savedToken;
-      await refreshAccessToken();
+      // Preserve the saved activity timestamp so a page reload cannot extend the idle session.
       lastActivityAt = savedActivity;
+      await refreshAccessToken();
       loginPanel.hidden = true; editorPanel.hidden = false;
       scheduleIdleLogout();
       await loadStories();
