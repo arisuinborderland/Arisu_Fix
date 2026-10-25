@@ -342,14 +342,13 @@ updateActivitySummary(allStories);
       return;
     }
     button.disabled = !valid;
+    const label = draft ? 'Save Drafts' : 'Publish Stories';
     if (!files.length) {
       button.textContent = draft ? 'Select images to save draft' : 'Select images to publish';
     } else if (invalid.length) {
       button.textContent = 'Fix selected images to continue';
     } else {
-      button.textContent = draft
-        ? `Save ${files.length} Draft${files.length === 1 ? '' : 's'}`
-        : `Publish ${files.length} Stor${files.length === 1 ? 'y' : 'ies'} · 24 hours`;
+      button.textContent = `${label} · ${files.length}`;
     }
   }
   function renderImagePreviews() {
