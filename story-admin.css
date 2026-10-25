@@ -206,3 +206,55 @@ form{gap:12px}
   #loginPanel h2{margin-bottom:14px}
   #loginForm{gap:13px}
 }
+
+
+/* AFV269: enforce a compact left-aligned Remember me row on mobile and desktop */
+#loginPanel #loginForm > label.remember-toggle{
+  display:flex!important;
+  flex-flow:row nowrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  justify-self:stretch!important;
+  gap:9px!important;
+  width:100%!important;
+  min-height:22px;
+  margin:0!important;
+  padding:0!important;
+  text-align:left!important;
+  font-size:14px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+#loginPanel #loginForm > label.remember-toggle > input#rememberMe{
+  appearance:auto!important;
+  display:block!important;
+  flex:0 0 18px!important;
+  width:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  height:18px!important;
+  margin:0!important;
+  padding:0!important;
+}
+#loginPanel #loginForm > label.remember-toggle > span{
+  display:inline-block!important;
+  flex:0 1 auto!important;
+  width:auto!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  text-align:left!important;
+}
+#loginPanel #loginForm > .login-help{
+  margin:-7px 0 0 27px!important;
+  padding:0!important;
+  font-size:12px!important;
+  line-height:1.4!important;
+  text-align:left!important;
+}
+#loginPanel #loginForm{row-gap:12px!important}
+@media(max-width:600px){
+  #loginPanel #loginForm{row-gap:11px!important}
+  #loginPanel #loginForm > label.remember-toggle{gap:9px!important}
+  #loginPanel #loginForm > .login-help{margin-top:-6px!important}
+}
