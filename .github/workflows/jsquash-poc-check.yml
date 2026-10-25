@@ -73,5 +73,28 @@ jobs:
           }
           EOF
 
+      - name: Verify Cloudflare-specific decoder WASM paths
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          import fs from "node:fs";
+          import path from "node:path";
+
+          const root = path.join(process.cwd(), "node_modules");
+          const expectedPaths = [
+            "@jsquash/jpeg/codec/dec/mozjpeg_dec.wasm",
+            "@jsquash/png/codec/dec/oxipng_dec.wasm",
+            "@jsquash/webp/codec/dec/webp_dec.wasm"
+          ];
+
+          for (const relativePath of expectedPaths) {
+            const fullPath = path.join(root, relativePath);
+            if (!fs.existsSync(fullPath)) {
+              throw new Error(`Expected Cloudflare decoder WASM path missing: ${relativePath}`);
+            }
+            console.log("Found decoder WASM:", relativePath);
+          }
+          EOF
+
       - name: Record Wrangler version
         run: /tmp/jsquash-poc/node_modules/.bin/wrangler --version
