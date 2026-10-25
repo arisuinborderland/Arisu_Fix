@@ -11,8 +11,8 @@ if (!versionMatch) throw new Error("package.json must use a numeric semantic ver
 const releaseToken = `AFV${versionMatch[1]}`;
 
 // Explicit root-level allowlist: anything not listed here is never copied to public output.
-// Keep canonical backend handlers under api/ and shared helpers under lib/ out of dist; also exclude build tooling,
-// package metadata, Vercel configuration, SQL migrations, and documentation out of dist/.
+// Keep Cloudflare Pages Functions outside dist; also exclude build tooling, package metadata,
+// legacy Vercel configuration, SQL migrations, and documentation from public output.
 const publicRootFiles = new Set([
   "_headers", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
   "styles.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css",
@@ -25,9 +25,10 @@ const publicRootFiles = new Set([
 ]);
 const publicAssetDirectories = new Set(["reviews", "proofs"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
-const requiredBackendFiles = [
-  "api/stories.js", "api/story-count.js", "api/story-config.js", "api/story-view.js",
-  "api/story-views-admin.js", "api/cleanup-stories.js", "lib/stories.js", "lib/story-image.js"
+const requiredFunctionFiles = [
+  "functions/api/stories.js", "functions/api/story-count.js", "functions/api/story-config.js",
+  "functions/api/story-view.js", "functions/api/story-views-admin.js", "functions/api/cleanup-stories.js",
+  "functions/api/[[path]].js"
 ];
 
 function walkFiles(directory) {
@@ -75,23 +76,14 @@ function copyAllowedPublicFiles() {
   }
 }
 function verifyBackendLayout() {
-  for (const name of requiredBackendFiles) {
-    if (!fs.existsSync(path.join(root, name)) || !fs.statSync(path.join(root, name)).isFile()) {
-      fail(`Build failed: required Vercel backend file is missing: ${name}`);
+  for (const name of requiredFunctionFiles) {
+    const file = path.join(root, name);
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+      fail(`Build failed: required Cloudflare Pages Function is missing: ${name}`);
     }
   }
-  // Ensure local relative CommonJS dependencies resolve from each API function.
-  for (const file of walkFiles(path.join(root, "api"))) {
-    if (path.extname(file) !== ".js") continue;
-    const source = fs.readFileSync(file, "utf8");
-    for (const match of source.matchAll(/require\(\s*["'](\.{1,2}\/[^"']+)["']\s*\)/g)) {
-      let target = path.resolve(path.dirname(file), match[1]);
-      if (!path.extname(target)) target += ".js";
-      if (!fs.existsSync(target) || !target.startsWith(`${root}${path.sep}`)) {
-        fail(`Build failed: unresolved/out-of-project backend dependency in ${relative(file)}: ${match[1]}`);
-      }
-    }
-  }
+  // Cloudflare Pages discovers runtime handlers from functions/, outside the static dist output.
+  // Their JavaScript syntax is checked separately by verifySyntax().
 }
 function verifyExactPublicOutput() {
   const actual = walkFiles(output).map(file => path.relative(output, file).split(path.sep).join("/")).sort();
@@ -169,5 +161,5 @@ verifyLocalReferences();
 if (process.exitCode) {
   console.error("Production build validation failed.");
 } else {
-  console.log(`Production build passed for ${releaseToken}: ${walkFiles(output).length} allowlisted public files; backend layout, local dependencies, output allowlist, cache-busting tokens, JavaScript syntax, and local references validated.`);
+  console.log(`Production build passed for ${releaseToken}: ${walkFiles(output).length} allowlisted public files; Cloudflare Functions layout, output allowlist, cache-busting tokens, JavaScript syntax, and local references validated.`);
 }
