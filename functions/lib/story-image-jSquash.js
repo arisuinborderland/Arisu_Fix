@@ -94,7 +94,7 @@ function jpegDimensions(bytes) {
 }
 
 function webpDimensions(bytes) {
-  if (bytes.length < 30 || !textAt(bytes, 0, "RIFF") || !textAt(bytes, 8, "WEBP")) return null;
+  if (bytes.length < 20 || !textAt(bytes, 0, "RIFF") || !textAt(bytes, 8, "WEBP")) return null;
   const chunk = bytes.length >= 16 ? String.fromCharCode(...bytes.subarray(12, 16)) : "";
   if (chunk === "VP8X" && bytes.length >= 30) {
     return {
