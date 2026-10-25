@@ -186,8 +186,9 @@ jobs:
               const parts = new URL(request.url).pathname.split("/").filter(Boolean);
               if (parts[0] === "health") return new Response("ok");
               if (parts[0] === "validate") {
-                const mime = parts[1];
-                const fixture = parts[2];
+                const requestUrl = new URL(request.url);
+                const mime = requestUrl.searchParams.get("mime");
+                const fixture = requestUrl.searchParams.get("fixture");
                 const expected = { "image/jpeg": "jpeg", "image/png": "png", "image/webp": "webp" }[mime];
                 if (!expected) return Response.json({ error: "unsupported mime" }, { status: 415 });
                 const encoded = fixtures[fixture];
@@ -281,13 +282,13 @@ jobs:
             ["image/png", "oversized", 413, "file-too-large"],
             ["image/gif", "png", 415, "unsupported mime"]
           ]) {
-            const response = await fetch("http://127.0.0.1:8797/validate/" + encodeURIComponent(mime) + "/" + fixture);
+            const response = await fetch("http://127.0.0.1:8797/validate?mime=" + encodeURIComponent(mime) + "&fixture=" + encodeURIComponent(fixture));
             const result = await response.json();
             assert.equal(response.status, expectedStatus, "validation status mismatch: " + mime + "/" + fixture);
             assert.equal(result.error, expectedError);
             console.log("End-to-end validation rejection passed", mime + "/" + fixture);
           }
-          const validResponse = await fetch("http://127.0.0.1:8797/validate/image/png/png");
+          const validResponse = await fetch("http://127.0.0.1:8797/validate?mime=image%2Fpng&fixture=png");
           assert.equal(validResponse.status, 200, "valid PNG should pass validation");
           console.log("End-to-end validation accepts valid PNG");
           const transparentResponse = await fetch("http://127.0.0.1:8797/transparent-png");
