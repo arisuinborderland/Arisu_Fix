@@ -24,25 +24,38 @@ jobs:
       - name: Install existing locked project dependencies
         run: npm ci
 
-      - name: Install jSquash packages and Wrangler in temporary workspace
+      - name: Install pinned jSquash codecs and Wrangler in temporary workspace
         run: |
           mkdir -p /tmp/jsquash-poc
           cd /tmp/jsquash-poc
           npm init -y
-          npm install --save-exact @jsquash/jpeg @jsquash/png @jsquash/webp wrangler
+          npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler
 
-      - name: Verify package exports and installed WASM assets
+      - name: Verify pinned package versions, decoder exports, and WASM assets
         run: |
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
           import fs from "node:fs";
           import path from "node:path";
 
-          for (const name of ["@jsquash/jpeg", "@jsquash/png", "@jsquash/webp"]) {
+          const expected = {
+            "@jsquash/jpeg": "1.6.0",
+            "@jsquash/png": "3.1.1",
+            "@jsquash/webp": "1.5.0"
+          };
+
+          for (const [name, version] of Object.entries(expected)) {
             const root = path.join(process.cwd(), "node_modules", ...name.split("/"));
             const pkg = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
-            console.log(name, "version:", pkg.version);
-            console.log(name, "exports:", JSON.stringify(pkg.exports ?? null));
+            if (pkg.version !== version) {
+              throw new Error(`${name}: expected ${version}, found ${pkg.version}`);
+            }
+
+            const decoderPath = path.join(root, "decode.js");
+            if (!fs.existsSync(decoderPath)) {
+              throw new Error(`${name}: decode.js is missing`);
+            }
+
             const wasmFiles = [];
             const visit = (dir) => {
               for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -52,7 +65,11 @@ jobs:
               }
             };
             visit(root);
-            console.log(name, "WASM files:", JSON.stringify(wasmFiles));
+            if (wasmFiles.length === 0) {
+              throw new Error(`${name}: no WASM assets found`);
+            }
+
+            console.log(`${name}@${version}: decoder entry exists; WASM assets: ${wasmFiles.join(", ")}`);
           }
           EOF
 
