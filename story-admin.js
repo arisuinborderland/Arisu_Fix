@@ -67,12 +67,28 @@
       else scheduleIdleLogout();
     }
   });
-  async function auth(path, payload) {
-    const response = await fetch(`${supabaseUrl}/auth/v1/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: window.SUPABASE_PUBLISHABLE_KEY || '' }, body: JSON.stringify(payload) });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.msg || data.message || data.error_description || 'Sign-in failed.');
-    return data;
+  
+async function auth(path, payload) {
+  const baseUrl = String(window.SUPABASE_URL || '').trim().replace(/\/$/, '');
+  if (!baseUrl) {
+    throw new Error('Story login configuration is missing. Please refresh and try again.');
   }
+
+  const response = await fetch(`${baseUrl}/auth/v1/${path}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      apikey: window.SUPABASE_PUBLISHABLE_KEY || ''
+    },
+    body: JSON.stringify(payload)
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data.msg || data.message || data.error_description || 'Sign-in failed.');
+  }
+  return data;
+}
   // Public key is intentionally injected by a deployment-time public config endpoint; without it, login stays unavailable.
   async function signIn(event) {
     event.preventDefault();
