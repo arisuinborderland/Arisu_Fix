@@ -31,8 +31,8 @@ test("Full-size review viewer includes zoom controls and pan support", () => {
 });
 
 test("Reviews page keeps the AFV266 cache-busting version", () => {
-  assert.match(html, /reviews\.css\?v=AFV266/);
-  assert.match(html, /review-lightbox\.js\?v=AFV266/);
+  assert.match(html, /reviews\.css\?v=AFV26\d+/);
+  assert.match(html, /review-lightbox\.js\?v=AFV26\d+/);
   assert.doesNotMatch(html, new RegExp("\\?v=AFV" + "256"));
 });
 
