@@ -10,9 +10,31 @@
   const SESSION_KEY = 'arisu_story_admin_refresh_token';
   const ACTIVITY_KEY = 'arisu_story_admin_last_activity';
   let supabaseUrl = '';
-  function say(message, isError = false) { status.textContent = message; status.style.color = isError ? '#b42335' : '#3454c9'; }
+  function say(message, isError = false) {
+    const target = !loginPanel.hidden ? $('loginStatus') : status;
+    if (!target) return;
+    target.textContent = message;
+    target.style.color = isError ? '#b42335' : '#3454c9';
+    target.dataset.error = isError ? 'true' : 'false';
+  }
+  function getSavedRefreshToken() {
+    try { return localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY) || ''; }
+    catch (_) { return ''; }
+  }
+  function saveRefreshToken(token) {
+    try {
+      localStorage.removeItem(SESSION_KEY);
+      sessionStorage.removeItem(SESSION_KEY);
+      if (!token) return;
+      if ($('rememberMe')?.checked) localStorage.setItem(SESSION_KEY, token);
+      else sessionStorage.setItem(SESSION_KEY, token);
+    } catch (_) { /* Private browsing may block storage; current-tab login can still work. */ }
+  }
   function clearSavedSession() {
-    try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+    try {
+      localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY);
+      sessionStorage.removeItem(SESSION_KEY);
+    } catch (_) {}
     accessToken = ''; refreshToken = ''; lastActivityAt = 0;
     if (idleTimer) clearTimeout(idleTimer);
     idleTimer = 0;
@@ -44,9 +66,23 @@
     }
   });
   async function auth(path, payload) {
-    const response = await fetch(`${supabaseUrl}/auth/v1/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: window.SUPABASE_PUBLISHABLE_KEY || '' }, body: JSON.stringify(payload) });
+    let response;
+    try {
+      response = await fetch(`${supabaseUrl}/auth/v1/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: window.SUPABASE_PUBLISHABLE_KEY || '' }, body: JSON.stringify(payload) });
+    } catch (_) {
+      throw new Error('Could not reach the authentication server. Check your internet connection and try again.');
+    }
     const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.msg || data.message || data.error_description || 'Sign-in failed.');
+    if (!response.ok) {
+      const detail = String(data.msg || data.message || data.error_description || data.error || '').toLowerCase();
+      if (response.status === 400 && /invalid login credentials|invalid_credentials|email not confirmed/.test(detail)) {
+        if (/email not confirmed/.test(detail)) throw new Error('Please confirm your admin email before signing in.');
+        throw new Error('Incorrect email or password. Please check both and try again.');
+      }
+      if (response.status === 429) throw new Error('Too many sign-in attempts. Please wait a few minutes and try again.');
+      if (response.status >= 500) throw new Error('The authentication service is temporarily unavailable. Please try again shortly.');
+      throw new Error(data.msg || data.message || data.error_description || 'Sign-in failed. Check your credentials and try again.');
+    }
     return data;
   }
   // Public key is intentionally injected by a deployment-time public config endpoint; without it, login stays unavailable.
@@ -54,16 +90,22 @@
     event.preventDefault();
     const button = $('loginForm').querySelector('button'); button.disabled = true; say('Signing in…');
     try {
-      const response = await fetch('/api/story-config', { cache: 'no-store' });
-      if (!response.ok) throw new Error('Story backend is not configured yet.');
-      const config = await response.json();
+      let response;
+      try { response = await fetch('/api/story-config', { cache: 'no-store' }); }
+      catch (_) { throw new Error('Could not reach the Story API. Check your internet connection and try again.'); }
+      if (!response.ok) {
+        if (response.status >= 500) throw new Error('The Story API is temporarily unavailable. Please try again shortly.');
+        throw new Error('The Story API returned an error (' + response.status + '). Please refresh and try again.');
+      }
+      let config;
+      try { config = await response.json(); } catch (_) { throw new Error('The Story API returned an invalid response. Please try again later.'); }
       if (!config.publishableKey) throw new Error('Story login is not configured yet.');
       if (!config.supabaseUrl) throw new Error('Supabase URL is missing from Story configuration.');
       supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       const data = await auth('token?grant_type=password', { email: $('email').value.trim(), password: $('password').value });
       accessToken = data.access_token; refreshToken = data.refresh_token || '';
-      try { localStorage.setItem(SESSION_KEY, refreshToken); } catch (_) {}
+      saveRefreshToken(refreshToken);
       saveActivity();
       $('password').value = ''; loginPanel.hidden = true; editorPanel.hidden = false; say('Signed in.'); await loadStories();
     } catch (e) { say(e.message, true); } finally { button.disabled = false; }
@@ -73,7 +115,7 @@
     const data = await auth('token?grant_type=refresh_token', { refresh_token: refreshToken });
     accessToken = data.access_token || '';
     refreshToken = data.refresh_token || refreshToken;
-    try { localStorage.setItem(SESSION_KEY, refreshToken); } catch (_) {}
+    saveRefreshToken(refreshToken);
     return accessToken;
   }
   async function api(url, options = {}) {
@@ -90,18 +132,23 @@
     if (restoring) return;
     restoring = true;
     try {
-      const savedToken = localStorage.getItem(SESSION_KEY) || '';
+      const savedToken = getSavedRefreshToken();
       const savedActivity = Number(localStorage.getItem(ACTIVITY_KEY) || 0);
       if (!savedToken) { loginPanel.hidden = false; editorPanel.hidden = true; return; }
+      // Existing remembered sessions are kept compatible with the previous version.
+      if (localStorage.getItem(SESSION_KEY)) $('rememberMe').checked = true;
       if (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS) {
         clearSavedSession();
         loginPanel.hidden = false; editorPanel.hidden = true;
         say('Session expired after 1 hour of inactivity. Please sign in again.');
         return;
       }
-      const response = await fetch('/api/story-config', { cache: 'no-store' });
-      if (!response.ok) throw new Error('Story backend is not configured yet.');
-      const config = await response.json();
+      let response;
+      try { response = await fetch('/api/story-config', { cache: 'no-store' }); }
+      catch (_) { throw new Error('Could not reach the Story API. Check your connection and refresh this page.'); }
+      if (!response.ok) throw new Error(response.status >= 500 ? 'The Story API is temporarily unavailable.' : 'The Story API returned an error (' + response.status + ').');
+      let config;
+      try { config = await response.json(); } catch (_) { throw new Error('The Story API returned an invalid response.'); }
       if (!config.publishableKey) throw new Error('Story login is not configured yet.');
       if (!config.supabaseUrl) throw new Error('Supabase URL is missing from Story configuration.');
       supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
