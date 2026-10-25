@@ -9205,10 +9205,22 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .topbar .arisu-verified-badge::after {
     animation: arisu-brand-badge-glow 2s ease-out infinite !important;
   }
+  /* Keep the check mark visible at all times while the badge itself animates. */
   html body.home-page .topbar .arisu-verified-badge svg path {
     stroke-dasharray: 24 !important;
-    stroke-dashoffset: 24 !important;
-    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+    animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before {
+    animation: wa-border-trace 2.8s linear infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::after {
+    animation: wa-border-trace-reverse 3.2s linear infinite !important;
   }
 }
 
