@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "node build.js",
-    "test": "node --test tests/cloudflare-functions.test.js",
+    "test": "node --test tests/cloudflare-functions.test.js"
   },
   "dependencies": {
     "sharp": "^0.35.5"
