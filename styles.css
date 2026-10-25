@@ -9933,3 +9933,54 @@ html body.about-page .about-page-footer > span {
     padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
   }
 }
+
+
+/* AFV targeted enhancement: slow cyan/blue/pink/purple profile gradient ring.
+   The ring rotates independently; the profile photo and verified badge remain still. */
+.topbar .profile-logo {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  background: transparent;
+  border-radius: 18px;
+  outline: none;
+  box-shadow: none;
+}
+.topbar .profile-logo::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #22d3ee 0deg,
+    #3b82f6 100deg,
+    #a855f7 190deg,
+    #ec4899 270deg,
+    #22d3ee 360deg
+  );
+  animation: arisu-profile-gradient-rotate 7s linear infinite;
+  will-change: transform;
+}
+.topbar .profile-logo img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  margin: 3px;
+  border-radius: calc(18px - 3px);
+  object-fit: cover;
+  outline: 2px solid rgba(255, 255, 255, .96);
+  box-shadow: 0 0 10px rgba(59, 130, 246, .16);
+}
+@keyframes arisu-profile-gradient-rotate {
+  to { transform: rotate(1turn); }
+}
+@media (max-width: 380px) {
+  .topbar .profile-logo img { border-radius: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar .profile-logo::before { animation: none; }
+}
