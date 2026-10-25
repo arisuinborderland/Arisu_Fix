@@ -9,7 +9,7 @@
 <main class="admin-shell">
   <a class="back-link" href="index.html">← Back to Arisu Fix</a>
   <header><span class="eyebrow">PRIVATE ADMIN AREA</span><h1>Recovery Stories</h1><p>Upload your own image from your phone. Stories expire after 24 hours; permanent Recovery Proofs remain unchanged.</p></header>
-  <section class="panel" id="loginPanel" hidden><h2>Admin sign in</h2><form id="loginForm"><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button type="submit">Sign in securely</button></form></section>
+  <section class="panel" id="loginPanel" hidden><h2>Admin sign in</h2><form id="loginForm"><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><label class="remember-toggle"><input id="rememberMe" type="checkbox" name="rememberMe"> <span>Remember me</span></label><p class="login-help">Keep me signed in on this device. Only select this on a device you trust.</p><button type="submit">Sign in securely</button></form><p id="loginStatus" class="login-status" role="status" aria-live="polite"></p></section>
   <section class="panel" id="editorPanel" hidden>
     <div class="panel-heading admin-top-heading"><h2>Story Admin</h2><button class="quiet" id="signOut" type="button">Sign out</button></div>
     <section class="admin-activity" aria-label="Story activity summary">
