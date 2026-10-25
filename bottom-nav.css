@@ -1,0 +1,239 @@
+/* Shared desktop floating navigation.
+   Keep every top-level page on the same home-page capsule, icon sizes, labels, and Stories ring. */
+@media (min-width: 701px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    box-sizing: border-box !important;
+    position: fixed !important;
+    inset: auto auto 16px 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147482500 !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: min(780px, calc(100vw - 64px)) !important;
+    max-width: 780px !important;
+    min-height: 86px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 10px 16px !important;
+    overflow: visible !important;
+    border: 1px solid rgba(167, 139, 250, .28) !important;
+    border-radius: 20px !important;
+    background: rgba(16, 24, 39, .97) !important;
+    box-shadow: 0 12px 34px rgba(5, 10, 22, .32) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(16px) !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 64px !important;
+    height: auto !important;
+    flex: initial !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 5px 8px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: transparent !important;
+    color: #F8FAFF !important;
+    font: 600 13px/1.2 "DM Sans", sans-serif !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    overflow: visible !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > svg {
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    flex: 0 0 40px !important;
+    padding: 7px !important;
+    border: 1px solid rgba(160, 184, 230, .25) !important;
+    border-radius: 50% !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    background: rgba(255, 255, 255, .055) !important;
+    filter: none !important;
+    overflow: visible !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(1) > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(1) > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(1) > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(1) > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(1) > svg {
+    color: #93C5FD !important;
+    background: rgba(59, 130, 246, .16) !important;
+    border-color: rgba(96, 165, 250, .42) !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(2) > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(2) > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(2) > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(2) > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(2) > svg {
+    color: #FCD34D !important;
+    background: rgba(234, 179, 8, .13) !important;
+    border-color: rgba(250, 204, 21, .35) !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(4) > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(4) > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(4) > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(4) > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(4) > svg {
+    color: #67E8F9 !important;
+    background: rgba(6, 182, 212, .13) !important;
+    border-color: rgba(103, 232, 249, .38) !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(5) > svg.whatsapp-nav-icon,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(5) > svg.whatsapp-nav-icon,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item:nth-child(5) > svg.whatsapp-nav-icon,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(5) > svg.whatsapp-nav-icon,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item:nth-child(5) > svg.whatsapp-nav-icon {
+    color: #4ADE80 !important;
+    background: rgba(37, 211, 102, .13) !important;
+    border-color: rgba(74, 222, 128, .34) !important;
+    fill: currentColor !important;
+    stroke: none !important;
+    stroke-width: 0 !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories) {
+    background: rgba(59, 130, 246, .14) !important;
+    color: #FFFFFF !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories {
+    position: relative !important;
+    color: #E9D5FF !important;
+    background: rgba(168, 85, 247, .075) !important;
+    gap: 4px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    position: relative !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 42px !important;
+    padding: 3px !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: conic-gradient(from 25deg, #FF3F91, #FFB347, #8B5CF6, #2778FF, #20D6C4, #FF3F91) !important;
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, .18), 0 0 14px rgba(168, 85, 247, .4) !important;
+    overflow: visible !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar img {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    padding: 0 !important;
+    border: 2px solid #101827 !important;
+    border-radius: 50% !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-count {
+    position: absolute !important;
+    top: -4px !important;
+    right: -5px !important;
+    display: grid !important;
+    place-items: center !important;
+    box-sizing: border-box !important;
+    min-width: 18px !important;
+    width: auto !important;
+    height: 18px !important;
+    padding: 0 4px !important;
+    border: 2px solid #101827 !important;
+    border-radius: 999px !important;
+    background: #A855F7 !important;
+    color: #FFFFFF !important;
+    font: 800 10px/1 Arial, sans-serif !important;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .24) !important;
+    z-index: 2 !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-item > span:not(.mobile-nav-story-avatar) {
+    display: block !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    color: inherit !important;
+  }
+}
+
+@media (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  html body.home-page nav.mobile-bottom-nav *,
+  html body.reviews-document nav.mobile-bottom-nav *,
+  html body.proofs-document nav.mobile-bottom-nav *,
+  html body.about-page nav.mobile-bottom-nav *,
+  html body.privacy-page nav.mobile-bottom-nav * {
+    transition: none !important;
+  }
+}

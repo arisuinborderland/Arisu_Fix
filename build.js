@@ -15,7 +15,7 @@ const releaseToken = `AFV${versionMatch[1]}`;
 // legacy Vercel configuration, SQL migrations, and documentation from public output.
 const publicRootFiles = new Set([
   "_headers", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
-  "styles.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css",
+  "styles.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
   "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
   "privacy-year.js", "proofs.js", "story-admin.js",
