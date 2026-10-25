@@ -297,5 +297,54 @@ jobs:
           console.log("Image-validation policy boundary tests passed");
           EOF
 
+      - name: Verify actual decoded dimensions and byte limits
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          import assert from "node:assert/strict";
+          import fs from "node:fs";
+          import { PNG } from "pngjs";
+
+          const png = new PNG({ width: 4097, height: 1 });
+          for (let x = 0; x < png.width; x++) {
+            const offset = x * 4;
+            png.data[offset] = 0;
+            png.data[offset + 1] = 0;
+            png.data[offset + 2] = 0;
+            png.data[offset + 3] = 0;
+          }
+          fs.writeFileSync("too-wide.png", PNG.sync.write(png));
+          const oversizedBytes = Buffer.alloc(3 * 1024 * 1024 + 1);
+          fs.writeFileSync("too-large.bin", oversizedBytes);
+          console.log("Generated a valid 4097x1 PNG fixture and a file exceeding 3 MiB");
+          EOF
+
+          node --input-type=module <<'EOF'
+          import assert from "node:assert/strict";
+          import fs from "node:fs";
+          import path from "node:path";
+          import decodePng, { init as initPng } from "@jsquash/png/decode.js";
+
+          const wasmPath = path.join(process.cwd(), "node_modules/@jsquash/png/codec/pkg/squoosh_png_bg.wasm");
+          await initPng(fs.readFileSync(wasmPath));
+          const bytes = fs.readFileSync("too-wide.png");
+          const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+          const decoded = await decodePng(buffer);
+          assert.equal(decoded.width, 4097);
+          assert.equal(decoded.height, 1);
+          const MAX_BYTES = 3 * 1024 * 1024;
+          const MAX_DIMENSION = 4096;
+          const MAX_PIXELS = 16_000_000;
+          const validateDecoded = ({ byteLength, width, height }) => {
+            if (byteLength > MAX_BYTES) return "file-too-large";
+            if (width > MAX_DIMENSION || height > MAX_DIMENSION || width * height > MAX_PIXELS) return "dimensions-too-large";
+            return "ok";
+          };
+          assert.equal(validateDecoded({ byteLength: bytes.length, width: decoded.width, height: decoded.height }), "dimensions-too-large");
+          assert.equal(validateDecoded({ byteLength: MAX_BYTES + 1, width: 1, height: 1 }), "file-too-large");
+          console.log("Actual decoded 4097px image rejected by dimension policy");
+          console.log("Actual byte count over 3 MiB rejected by file-size policy");
+          EOF
+
       - name: Record Wrangler version
         run: /tmp/jsquash-poc/node_modules/.bin/wrangler --version
