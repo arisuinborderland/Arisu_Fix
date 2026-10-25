@@ -29,7 +29,7 @@ jobs:
           mkdir -p /tmp/jsquash-poc
           cd /tmp/jsquash-poc
           npm init -y
-          npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler
+          npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler@4.152.0
 
       - name: Verify pinned package versions and discover decoder assets
         run: |
@@ -124,6 +124,109 @@ jobs:
             await assert.rejects(() => decode(toArrayBuffer(Buffer.from([1, 2, 3, 4]))), undefined,
               name + " decoder should reject invalid bytes");
             console.log(name + " invalid-input rejection passed");
+          }
+          EOF
+
+      - name: Verify Cloudflare Worker bundling and local runtime
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          import fs from "node:fs";
+
+          const fixtures = {
+            jpeg: fs.readFileSync("fixture.jpeg").toString("base64"),
+            png: fs.readFileSync("fixture.png").toString("base64"),
+            webp: fs.readFileSync("fixture.webp").toString("base64")
+          };
+          const source = `
+          import decodeJpeg, { init as initJpeg } from "@jsquash/jpeg/decode.js";
+          import decodePng, { init as initPng } from "@jsquash/png/decode.js";
+          import decodeWebp, { init as initWebp } from "@jsquash/webp/decode.js";
+          import JPEG_DEC_WASM from "./node_modules/@jsquash/jpeg/codec/dec/mozjpeg_dec.wasm";
+          import PNG_DEC_WASM from "./node_modules/@jsquash/png/codec/pkg/squoosh_png_bg.wasm";
+          import WEBP_DEC_WASM from "./node_modules/@jsquash/webp/codec/dec/webp_dec.wasm";
+
+          const fixtures = ${JSON.stringify(fixtures)};
+          const decoders = { jpeg: decodeJpeg, png: decodePng, webp: decodeWebp };
+          let initialization;
+          function initialize() {
+            if (!initialization) {
+              initialization = Promise.all([
+                initJpeg(JPEG_DEC_WASM),
+                initPng(PNG_DEC_WASM),
+                initWebp(WEBP_DEC_WASM)
+              ]).catch((error) => {
+                initialization = undefined;
+                throw error;
+              });
+            }
+            return initialization;
+          }
+          function fromBase64(value) {
+            const binary = atob(value);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+            return bytes.buffer;
+          }
+
+          export default {
+            async fetch(request) {
+              const parts = new URL(request.url).pathname.split("/").filter(Boolean);
+              if (parts[0] === "health") return new Response("ok");
+              const invalid = parts[0] === "invalid";
+              const codec = invalid ? parts[1] : parts[0];
+              const decode = decoders[codec];
+              if (!decode) return Response.json({ error: "unknown codec" }, { status: 404 });
+              try {
+                await initialize();
+                const bytes = invalid ? new Uint8Array([1, 2, 3, 4]).buffer : fromBase64(fixtures[codec]);
+                const image = await decode(bytes);
+                if (invalid) return Response.json({ error: "invalid input unexpectedly decoded" }, { status: 500 });
+                return Response.json({ codec, width: image.width, height: image.height, rgbaBytes: image.data.length });
+              } catch (error) {
+                return Response.json({ error: String(error?.message || error) }, { status: invalid ? 400 : 500 });
+              }
+            }
+          };
+          `;
+          fs.writeFileSync("worker.mjs", source);
+          fs.writeFileSync("wrangler.jsonc", JSON.stringify({
+            name: "jsquash-cloudflare-poc",
+            main: "worker.mjs",
+            compatibility_date: "2026-10-25"
+          }, null, 2));
+          EOF
+
+          ./node_modules/.bin/wrangler deploy --dry-run --outdir=./cloudflare-bundle
+
+          ./node_modules/.bin/wrangler dev --local --ip 127.0.0.1 --port 8797 > ./wrangler-dev.log 2>&1 &
+          wrangler_pid=$!
+          trap 'kill "$wrangler_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8797/health > /dev/null; then ready=1; break; fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat ./wrangler-dev.log
+            echo "Wrangler local runtime failed to start"
+            exit 1
+          fi
+
+          node --input-type=module <<'EOF'
+          import assert from "node:assert/strict";
+          for (const codec of ["jpeg", "png", "webp"]) {
+            const response = await fetch("http://127.0.0.1:8797/" + codec);
+            const result = await response.json();
+            assert.equal(response.status, 200, codec + " Cloudflare runtime decode failed: " + JSON.stringify(result));
+            assert.ok(result.width > 0 && result.height > 0, codec + " dimensions invalid");
+            assert.equal(result.rgbaBytes, result.width * result.height * 4, codec + " RGBA size invalid");
+            console.log("Cloudflare-compatible " + codec + " decode passed", result.width + "x" + result.height);
+          }
+          for (const codec of ["jpeg", "png", "webp"]) {
+            const response = await fetch("http://127.0.0.1:8797/invalid/" + codec);
+            assert.equal(response.status, 400, codec + " Cloudflare runtime should reject invalid data");
+            console.log("Cloudflare-compatible " + codec + " invalid input rejection passed");
           }
           EOF
 
