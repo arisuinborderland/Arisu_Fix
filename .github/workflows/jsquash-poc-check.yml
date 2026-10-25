@@ -92,9 +92,17 @@ jobs:
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
           import assert from "node:assert/strict";
-          import { decode as decodeJpeg } from "@jsquash/jpeg";
-          import { decode as decodePng } from "@jsquash/png";
-          import { decode as decodeWebp } from "@jsquash/webp";
+          import fs from "node:fs";
+          import path from "node:path";
+          import { decode as decodeJpeg, init as initJpeg } from "@jsquash/jpeg";
+          import { decode as decodePng, init as initPng } from "@jsquash/png";
+          import { decode as decodeWebp, init as initWebp } from "@jsquash/webp";
+
+          const root = path.join(process.cwd(), "node_modules", "@jsquash");
+          // Supply WASM bytes directly: Node's fetch() cannot resolve the package-relative URLs.
+          await initJpeg({ wasmBinary: fs.readFileSync(path.join(root, "jpeg/codec/dec/mozjpeg_dec.wasm")) });
+          await initPng(fs.readFileSync(path.join(root, "png/codec/pkg/squoosh_png_bg.wasm")));
+          await initWebp({ wasmBinary: fs.readFileSync(path.join(root, "webp/codec/dec/webp_dec.wasm")) });
 
           const fixtures = [
             ["JPEG", decodeJpeg, "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPwF//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPwF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQAGPwJ//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPyF//9oADAMBAAIAAwAAAB//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/EX//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/EX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/EX//2Q=="],
@@ -105,18 +113,10 @@ jobs:
 
           for (const [name, decode, base64] of fixtures) {
             const bytes = Buffer.from(base64, "base64");
-            try {
-              const decoded = await decode(toArrayBuffer(bytes));
-              assert.ok(decoded.width > 0 && decoded.height > 0, name + " dimensions should be positive");
-              assert.equal(decoded.data.length, decoded.width * decoded.height * 4, name + " should decode to RGBA data");
-              console.log(name + " decode smoke test passed", decoded.width + "x" + decoded.height);
-            } catch (error) {
-              if (name === "PNG" && /fetch failed|not implemented/i.test(String(error))) {
-                console.error("PNG WASM initialization requires a bundler-provided module URL in this Node test environment.");
-                throw error;
-              }
-              throw new Error(name + " decode failed: " + (error?.stack || error));
-            }
+            const decoded = await decode(toArrayBuffer(bytes));
+            assert.ok(decoded.width > 0 && decoded.height > 0, name + " dimensions should be positive");
+            assert.equal(decoded.data.length, decoded.width * decoded.height * 4, name + " should decode to RGBA data");
+            console.log(name + " decode smoke test passed", decoded.width + "x" + decoded.height);
           }
 
           for (const [name, decode] of [["JPEG", decodeJpeg], ["PNG", decodePng], ["WebP", decodeWebp]]) {
