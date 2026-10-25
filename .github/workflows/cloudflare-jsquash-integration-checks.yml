@@ -67,6 +67,8 @@ jobs:
           fs.writeFileSync("truncated.png", pngBytes.subarray(0, 30));
           const wide = new PNG({ width: 4097, height: 1 });
           fs.writeFileSync("too-wide.png", PNG.sync.write(wide));
+          const maxPixels = new PNG({ width: 4000, height: 4000 });
+          fs.writeFileSync("max-pixels.png", PNG.sync.write(maxPixels));
           fs.writeFileSync("too-large.bin", Buffer.alloc(3 * 1024 * 1024 + 1));
           console.log("Created pinned fixtures plus oversized, wide, and truncated test inputs.");
           EOF
