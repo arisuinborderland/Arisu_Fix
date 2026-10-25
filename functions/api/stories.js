@@ -1,4 +1,6 @@
 
+import { validateStoryImage, MAX_IMAGE_BYTES } from "../lib/story-image-jSquash.js";
+
 const VERCEL_ORIGIN = "https://arisufix.vercel.app";
 
 const JSON_HEADERS = {
@@ -22,6 +24,178 @@ async function proxyToVercel(request, url) {
     return json(502, {
       error: "Stories service is temporarily unavailable."
     });
+  }
+}
+
+async function postOnCloudflare(request, env) {
+  const supabaseUrl = String(env.SUPABASE_URL || "").replace(/\/$/, "");
+  const secretKey = String(env.SUPABASE_SECRET_KEY || "");
+  const publishableKey = String(env.SUPABASE_PUBLISHABLE_KEY || "");
+  const allowedId = String(env.STORY_ADMIN_USER_ID || "").trim();
+  const allowedEmail = String(env.STORY_ADMIN_EMAIL || "").trim().toLowerCase();
+  const maxRequestBytes = Math.ceil(MAX_IMAGE_BYTES / 3) * 4 + 8192;
+
+  if (!supabaseUrl || !secretKey || !publishableKey || (!allowedId && !allowedEmail)) {
+    return json(503, { error: "Story backend is not configured." });
+  }
+
+  const contentLength = Number(request.headers.get("Content-Length") || 0);
+  if (Number.isFinite(contentLength) && contentLength > maxRequestBytes) {
+    return json(413, { error: "Story image must be no larger than 3 MB." });
+  }
+
+  const auth = (request.headers.get("Authorization") || "").match(/^Bearer\s+(.+)$/i);
+  if (!auth) return json(401, { error: "Admin authentication required." });
+
+  try {
+    const authResponse = await fetch(`${supabaseUrl}/auth/v1/user`, {
+      headers: {
+        apikey: publishableKey,
+        Authorization: `Bearer ${auth[1]}`
+      }
+    });
+    if (!authResponse.ok) return json(401, { error: "Admin authentication required." });
+
+    const user = await authResponse.json();
+    const authorized = Boolean(
+      user?.id &&
+      (
+        (allowedId && user.id === allowedId) ||
+        (allowedEmail && String(user.email || "").toLowerCase() === allowedEmail)
+      )
+    );
+    if (!authorized) return json(401, { error: "Admin authentication required." });
+
+    let rawBody;
+    try {
+      rawBody = await request.text();
+    } catch {
+      return json(400, { error: "A valid JSON body is required." });
+    }
+    if (new TextEncoder().encode(rawBody).byteLength > maxRequestBytes) {
+      return json(413, { error: "Story image must be no larger than 3 MB." });
+    }
+
+    let body;
+    try {
+      body = JSON.parse(rawBody);
+    } catch {
+      return json(400, { error: "A valid JSON body is required." });
+    }
+
+    const caption = String(body?.caption || "").trim();
+    if (caption.length > 180) {
+      return json(400, { error: "Caption must be 180 characters or fewer." });
+    }
+
+    const mime = String(body?.mimeType || "").toLowerCase();
+    const match = String(body?.imageData || "").match(/^data:(image\/(?:jpeg|png|webp));base64,([A-Za-z0-9+/]+={0,2})$/i);
+    if (!match || String(match[1]).toLowerCase() !== mime) {
+      return json(400, { error: "Choose a valid JPEG, PNG, or WebP image." });
+    }
+    if (match[2].length > Math.ceil(MAX_IMAGE_BYTES / 3) * 4) {
+      return json(413, { error: "Story image must be no larger than 3 MB." });
+    }
+
+    let binary;
+    try {
+      binary = atob(match[2]);
+    } catch {
+      return json(400, { error: "Choose a valid JPEG, PNG, or WebP image." });
+    }
+    if (binary.length > MAX_IMAGE_BYTES) {
+      return json(413, { error: "Story image must be no larger than 3 MB." });
+    }
+
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index++) {
+      bytes[index] = binary.charCodeAt(index);
+    }
+
+    const imageCheck = await validateStoryImage(mime, bytes);
+    if (!imageCheck.ok) return json(imageCheck.status, { error: imageCheck.error });
+
+    const status = body.saveAsDraft === true ? "draft" : "active";
+    const ext = mime === "image/png" ? "png" : mime === "image/webp" ? "webp" : "jpg";
+    const storagePath = `stories/${crypto.randomUUID()}.${ext}`;
+    let storageUploaded = false;
+
+    try {
+      const storageResponse = await fetch(
+        `${supabaseUrl}/storage/v1/object/recovery-stories/${storagePath}`,
+        {
+          method: "POST",
+          headers: {
+            apikey: secretKey,
+            Authorization: `Bearer ${secretKey}`,
+            "Content-Type": mime,
+            "x-upsert": "false"
+          },
+          body: bytes
+        }
+      );
+      if (!storageResponse.ok) {
+        return json(503, { error: "Unable to upload the story image." });
+      }
+      storageUploaded = true;
+
+      const now = new Date();
+      const insertResponse = await fetch(
+        `${supabaseUrl}/rest/v1/recovery_stories?select=id,caption,published_at,expires_at,storage_path,admin_status,sort_order`,
+        {
+          method: "POST",
+          headers: {
+            apikey: secretKey,
+            Authorization: `Bearer ${secretKey}`,
+            "Content-Type": "application/json",
+            Prefer: "return=representation"
+          },
+          body: JSON.stringify({
+            caption,
+            storage_path: storagePath,
+            published_at: now.toISOString(),
+            expires_at: new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString(),
+            is_active: status === "active",
+            admin_status: status,
+            sort_order: 0
+          })
+        }
+      );
+
+      if (!insertResponse.ok) {
+        await fetch(`${supabaseUrl}/storage/v1/object/recovery-stories/${storagePath}`, {
+          method: "DELETE",
+          headers: { apikey: secretKey, Authorization: `Bearer ${secretKey}` }
+        }).catch(() => {});
+        return json(503, { error: "Unable to save the story record." });
+      }
+
+      let inserted;
+      try {
+        inserted = await insertResponse.json();
+      } catch {
+        inserted = null;
+      }
+      if (!Array.isArray(inserted) || !inserted[0]) {
+        await fetch(`${supabaseUrl}/storage/v1/object/recovery-stories/${storagePath}`, {
+          method: "DELETE",
+          headers: { apikey: secretKey, Authorization: `Bearer ${secretKey}` }
+        }).catch(() => {});
+        return json(503, { error: "Unable to save the story record." });
+      }
+
+      return json(201, { story: inserted[0] });
+    } catch {
+      if (storageUploaded) {
+        await fetch(`${supabaseUrl}/storage/v1/object/recovery-stories/${storagePath}`, {
+          method: "DELETE",
+          headers: { apikey: secretKey, Authorization: `Bearer ${secretKey}` }
+        }).catch(() => {});
+      }
+      return json(503, { error: "Stories service is temporarily unavailable." });
+    }
+  } catch {
+    return json(503, { error: "Stories service is temporarily unavailable." });
   }
 }
 
@@ -289,6 +463,10 @@ export async function onRequest({ request, env }) {
     const response = json(405, { error: "Method not allowed." });
     response.headers.set("Allow", "GET, POST, PATCH, DELETE");
     return response;
+  }
+
+  if (request.method === "POST" && String(env.STORY_UPLOAD_NATIVE_ENABLED || "") === "true") {
+    return postOnCloudflare(request, env);
   }
 
   if (request.method !== "GET") {
