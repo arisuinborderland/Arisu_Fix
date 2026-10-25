@@ -1135,3 +1135,23 @@ html body.proofs-document .proofs-footer { margin-top:10px; }
   html body.proofs-document .proof-album-card:hover,
   html body.proofs-document .proof-album-open:hover:not(:disabled) { transform:none; }
 }
+
+
+/* Full-height single proof images: preserve the complete uploaded graphic and all its details. */
+.proof-gallery-v2 .proof-image-link.proof-image-full {
+  position: relative;
+  display: block;
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0;
+  overflow: hidden;
+  background: #f5f7fb;
+}
+.proof-gallery-v2 .proof-image-link.proof-image-full > img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-height: none;
+  object-fit: contain !important;
+  object-position: center top;
+}
