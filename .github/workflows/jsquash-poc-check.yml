@@ -230,5 +230,44 @@ jobs:
           }
           EOF
 
+      - name: Verify image-validation policy boundaries
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          import assert from "node:assert/strict";
+
+          const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
+          const MAX_DIMENSION = 4096;
+          const MAX_PIXELS = 16_000_000;
+          const FORMATS = Object.freeze({ "image/jpeg": "jpeg", "image/png": "png", "image/webp": "webp" });
+
+          function validatePolicy({ mime, actualFormat, byteLength, width, height, decoded = true }) {
+            const expected = FORMATS[mime];
+            if (!expected) return { ok: false, reason: "mime-unsupported" };
+            if (byteLength < 1) return { ok: false, reason: "empty" };
+            if (byteLength > MAX_IMAGE_BYTES) return { ok: false, reason: "file-too-large" };
+            if (expected !== actualFormat) return { ok: false, reason: "mime-mismatch" };
+            if (!decoded) return { ok: false, reason: "decode-failed" };
+            if (!Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1 ||
+                width > MAX_DIMENSION || height > MAX_DIMENSION || width * height > MAX_PIXELS) {
+              return { ok: false, reason: "dimensions-too-large" };
+            }
+            return { ok: true };
+          }
+
+          const valid = { mime: "image/png", actualFormat: "png", byteLength: 1024, width: 100, height: 100 };
+          assert.deepEqual(validatePolicy(valid), { ok: true }, "normal image should pass");
+          assert.equal(validatePolicy({ ...valid, byteLength: MAX_IMAGE_BYTES }).ok, true, "exactly 3 MB should pass");
+          assert.equal(validatePolicy({ ...valid, byteLength: MAX_IMAGE_BYTES + 1 }).reason, "file-too-large");
+          assert.equal(validatePolicy({ ...valid, mime: "image/jpeg" }).reason, "mime-mismatch");
+          assert.equal(validatePolicy({ ...valid, mime: "image/gif" }).reason, "mime-unsupported");
+          assert.equal(validatePolicy({ ...valid, decoded: false }).reason, "decode-failed");
+          assert.equal(validatePolicy({ ...valid, width: MAX_DIMENSION, height: 1 }).ok, true, "dimension boundary should pass");
+          assert.equal(validatePolicy({ ...valid, width: MAX_DIMENSION + 1, height: 1 }).reason, "dimensions-too-large");
+          assert.equal(validatePolicy({ ...valid, width: 4000, height: 4000 }).reason, "dimensions-too-large");
+          assert.equal(validatePolicy({ ...valid, width: 4096, height: 3906 }).reason, "dimensions-too-large");
+          console.log("Image-validation policy boundary tests passed");
+          EOF
+
       - name: Record Wrangler version
         run: /tmp/jsquash-poc/node_modules/.bin/wrangler --version
