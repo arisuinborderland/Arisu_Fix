@@ -4,7 +4,7 @@ const recoveryProofs = [
   {
     category: "suspended",
     title: "Suspended Account — 180 Days",
-    image: "proofs/a_polished_professional_social_media_style_evide.png?v=AFV267",
+    image: "proofs/arisu-suspended-account-180-days.jpg?v=AFV267",
     alt: "Arisu Fix recovery proof collage showing a Facebook suspension notice and related social profile, with the supplied recovery-proof watermark",
     violation: "Account Integrity"
   },
