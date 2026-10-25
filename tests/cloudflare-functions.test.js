@@ -209,3 +209,51 @@ test('Cloudflare Stories Function: converts Supabase listing failures into a con
   assert.equal(response.status, 503);
   assert.match((await response.json()).error, /temporarily unavailable/i);
 });
+
+test('Cloudflare Stories Function: rejects an expired or invalid admin token', async (t) => {
+  const stories = await loadFunction('functions/api/stories.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    assert.match(String(input), /\/auth\/v1\/user$/);
+    return jsonResponse({ message: 'invalid token' }, 401);
+  };
+
+  const response = await stories.onRequest({
+    request: new Request('https://site.test/api/stories?admin=1', {
+      headers: { Authorization: 'Bearer expired-token' }
+    }),
+    env
+  });
+  assert.equal(response.status, 401);
+  assert.match((await response.json()).error, /Admin authentication required/i);
+});
+
+test('Cloudflare Story Views Admin Function: rejects an expired or invalid admin token', async (t) => {
+  const viewsAdmin = await loadFunction('functions/api/story-views-admin.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    assert.match(String(input), /\/auth\/v1\/user$/);
+    return jsonResponse({ message: 'invalid token' }, 401);
+  };
+
+  const response = await viewsAdmin.onRequest({
+    request: new Request('https://site.test/api/story-views-admin', {
+      headers: { Authorization: 'Bearer expired-token' }
+    }),
+    env
+  });
+  assert.equal(response.status, 401);
+  assert.match((await response.json()).error, /Admin authentication required/i);
+});
+
+test('Cloudflare Story Config Function: fails closed when required configuration is missing', async () => {
+  const config = await loadFunction('functions/api/story-config.js');
+  const response = await config.onRequest({
+    request: new Request('https://site.test/api/story-config'),
+    env: {}
+  });
+  assert.equal(response.status, 503);
+  assert.match((await response.json()).error, /not configured/i);
+});
