@@ -237,6 +237,7 @@ function renderRecoveryProofs() {
         media.appendChild(image);
       });
     } else {
+      imageFrame.classList.add("proof-image-full");
       media = document.createElement("img");
       media.src = proof.image;
       media.alt = proof.alt || proof.title;
@@ -254,33 +255,6 @@ function renderRecoveryProofs() {
 
     const copy = document.createElement("div");
     copy.className = "proof-card-copy";
-    const statusList = document.createElement("div");
-    statusList.className = "proof-status-list";
-    const makeStatus = (kind, label, value, svgMarkup) => {
-      const row = document.createElement("div");
-      row.className = `proof-status-item proof-status-${kind}`;
-      const icon = document.createElement("span");
-      icon.className = "proof-status-icon";
-      icon.setAttribute("aria-hidden", "true");
-      icon.innerHTML = svgMarkup;
-      const text = document.createElement("span");
-      text.className = "proof-status-text";
-      const small = document.createElement("span");
-      small.className = "proof-status-label";
-      small.textContent = label;
-      const strong = document.createElement("strong");
-      strong.textContent = value;
-      text.append(small, strong);
-      row.append(icon, text);
-      return row;
-    };
-    const lockIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14.5v2.5"/></svg>';
-    const shieldIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>';
-    statusList.append(
-      makeStatus(proof.category === "disabled" ? "disabled" : "suspended", "ACCOUNT STATUS", proof.title, lockIcon),
-      makeStatus("violation", "VIOLATION", proof.violation || "Not specified", shieldIcon)
-    );
-    copy.appendChild(statusList);
     if (proof.date) {
       const date = document.createElement("span");
       date.className = "proof-card-date";
