@@ -8,7 +8,8 @@ const source = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.js'), 'u
 test('Stories navigation stays visible when stories are empty or the API fails', () => {
   assert.doesNotMatch(source, /mobileStoriesButton\.hidden\s*=\s*true/);
   assert.match(source, /must never hide the bottom-navigation button/);
-  assert.match(source, /if \(!stories\.length\) await load\(\)/);
+  assert.match(source, /const refreshed = await load\(\)/);
+  assert.match(source, /if \(refreshed && stories\.length\) showAt\(0\)/);
 });
 
 

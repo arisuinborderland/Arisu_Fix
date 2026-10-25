@@ -135,8 +135,9 @@ test('Cloudflare Story Config Function: exposes public connection settings but n
   });
   assert.equal(response.status, 200);
   assert.match(response.headers.get('cache-control') || '', /no-store/i);
-  assert.deepEqual(await response.json(), { publishableKey: env.SUPABASE_PUBLISHABLE_KEY, supabaseUrl: env.SUPABASE_URL });
-  assert.doesNotMatch(await (async () => JSON.stringify(await response.clone().json()))(), /test-secret-key|SUPABASE_SECRET_KEY/);
+  const payload = await response.json();
+  assert.deepEqual(payload, { publishableKey: env.SUPABASE_PUBLISHABLE_KEY, supabaseUrl: env.SUPABASE_URL });
+  assert.doesNotMatch(JSON.stringify(payload), /test-secret-key|SUPABASE_SECRET_KEY/);
 });
 
 test('Cloudflare Story View Function: rejects malformed JSON without contacting Supabase', async (t) => {

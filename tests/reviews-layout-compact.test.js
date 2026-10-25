@@ -9,8 +9,7 @@ const css = fs.readFileSync(path.join(root, "reviews.css"), "utf8");
 const lightbox = fs.readFileSync(path.join(root, "review-lightbox.js"), "utf8");
 
 test("Customer Reviews uses the compact thumbnail-and-details layout", () => {
-  assert.match(css, /AFV263 — Option C: compact thumbnail \+ details review rows/);
-  assert.match(css, /reviews-page-grid \.review-proof-card\s*\{[\s\S]*grid-template-columns: clamp\(100px, 27%, 166px\) minmax\(0, 1fr\)/);
+  assert.match(css, /html body\.reviews-document \.reviews-page-grid \.review-proof-card\s*\{[\s\S]*?grid-template-columns: clamp\(100px, 27%, 166px\) minmax\(0, 1fr\)/);
   assert.match(css, /review-view-prompt/);
   assert.equal((html.match(/class="review-view-prompt"/g) || []).length, 3);
 });

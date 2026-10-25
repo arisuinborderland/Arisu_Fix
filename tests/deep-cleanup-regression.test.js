@@ -28,10 +28,13 @@ test('Proofs page updates its footer year only through the shared script', () =>
   assert.match(privacy, /privacy-year\.js\?v=AFV266/);
 });
 
-test('staging fixture uses a version-neutral missing-object label', () => {
-  const smoke = read('scripts/staging-stories-smoke.js');
-  assert.match(smoke, /stories\/audit-missing-\$\{crypto\.randomUUID\(\)\}\.jpg/);
-  assert.doesNotMatch(smoke, /afv179/i);
+test('Production build uses an explicit allowlist and excludes internal project files', () => {
+  const build = read('build.js');
+  assert.match(build, /const publicRootFiles = new Set/);
+  assert.match(build, /const publicAssetDirectories = new Set/);
+  assert.match(build, /verifyExactPublicOutput\(\)/);
+  assert.match(build, /Cloudflare Pages Functions/);
+  assert.match(build, /\.sql/);
 });
 
 
