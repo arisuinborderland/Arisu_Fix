@@ -32,7 +32,7 @@
       try { sessionStorage.setItem(TEMP_SESSION_KEY, token); sessionStorage.setItem(TEMP_ACTIVITY_KEY, String(activity)); } catch (_) {}
     }
   }
-  const supabaseUrl = 'https://glivqrmyqwtbmlffghjo.supabase.co';
+  let supabaseUrl = '';
   function say(message, isError = false) { status.textContent = message; status.style.color = isError ? '#b42335' : '#3454c9'; }
   function clearSavedSession() {
     try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
@@ -69,12 +69,11 @@
   });
   
 async function auth(path, payload) {
-  const baseUrl = String(window.SUPABASE_URL || '').trim().replace(/\/$/, '');
-  if (!baseUrl) {
+  if (!supabaseUrl) {
     throw new Error('Story login configuration is missing. Please refresh and try again.');
   }
 
-  const response = await fetch(`${baseUrl}/auth/v1/${path}`, {
+  const response = await fetch(`${supabaseUrl}/auth/v1/${path}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -97,7 +96,9 @@ async function auth(path, payload) {
       const response = await fetch('/api/story-config', { cache: 'no-store' });
       if (!response.ok) throw new Error('Story backend is not configured yet.');
       const config = await response.json();
-      if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      if (!config.publishableKey || !config.supabaseUrl) throw new Error('Story login is not configured yet.');
+      supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
+      if (!supabaseUrl) throw new Error('Story login configuration is missing.');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       const data = await auth('token?grant_type=password', { email: $('email').value.trim(), password: $('password').value });
       accessToken = data.access_token; refreshToken = data.refresh_token || '';
@@ -140,7 +141,9 @@ async function auth(path, payload) {
       const response = await fetch('/api/story-config', { cache: 'no-store' });
       if (!response.ok) throw new Error('Story backend is not configured yet.');
       const config = await response.json();
-      if (!config.publishableKey) throw new Error('Story login is not configured yet.');
+      if (!config.publishableKey || !config.supabaseUrl) throw new Error('Story login is not configured yet.');
+      supabaseUrl = String(config.supabaseUrl).trim().replace(/\/$/, '');
+      if (!supabaseUrl) throw new Error('Story login configuration is missing.');
       window.SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
       refreshToken = savedToken;
       await refreshAccessToken();
