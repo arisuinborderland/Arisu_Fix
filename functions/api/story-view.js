@@ -1,3 +1,4 @@
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export async function onRequest({ request, env }) {
   const headers = {
@@ -18,7 +19,7 @@ export async function onRequest({ request, env }) {
     );
   }
 
-  const supabaseUrl = String(env.SUPABASE_URL || "").replace(/\/$/, "");
+  const supabaseUrl = String(env.SUPABASE_URL || "").trim().replace(/\/$/, "");
   const secretKey = String(env.SUPABASE_SECRET_KEY || "");
 
   if (!supabaseUrl || !secretKey) {
@@ -36,17 +37,24 @@ export async function onRequest({ request, env }) {
     });
   }
 
-  const id = String(body?.id || "");
+  const id = String(body?.id || "").trim();
+  const sessionId = String(body?.sessionId || "").trim();
 
-  if (!/^[0-9a-f-]{36}$/i.test(id)) {
+  if (!UUID_RE.test(id)) {
     return json(400, {
       error: "A valid Story ID is required."
     });
   }
 
+  if (!UUID_RE.test(sessionId)) {
+    return json(400, {
+      error: "A valid viewer session ID is required."
+    });
+  }
+
   try {
     const response = await fetch(
-      `${supabaseUrl}/rest/v1/rpc/increment_recovery_story_view`,
+      `${supabaseUrl}/rest/v1/rpc/record_recovery_story_view`,
       {
         method: "POST",
         headers: {
@@ -54,7 +62,10 @@ export async function onRequest({ request, env }) {
           Authorization: `Bearer ${secretKey}`,
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ p_story_id: id })
+        body: JSON.stringify({
+          p_story_id: id,
+          p_session_id: sessionId
+        })
       }
     );
 
@@ -64,7 +75,8 @@ export async function onRequest({ request, env }) {
       });
     }
 
-    return json(200, { ok: true });
+    const counted = await response.json().catch(() => false);
+    return json(200, { ok: true, counted: counted === true });
   } catch {
     return json(503, {
       error: "View tracking temporarily unavailable."

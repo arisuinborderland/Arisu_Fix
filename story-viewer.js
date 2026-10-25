@@ -20,8 +20,66 @@
   let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false;
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
+  const STORY_VIEW_SESSION_KEY = 'arisuFixStoryViewSession.v1';
+  const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   const DURATION = 7000;
   const preloadedImages = new Map();
+
+  function createUuid() {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return crypto.randomUUID();
+    }
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    bytes[6] = (bytes[6] & 0x0f) | 0x40;
+    bytes[8] = (bytes[8] & 0x3f) | 0x80;
+    const hex = Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+    return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+  }
+
+  function loadStoryViewSession() {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(STORY_VIEW_SESSION_KEY) || 'null');
+      if (saved && UUID_RE.test(String(saved.sessionId || '')) && Array.isArray(saved.viewedStoryIds)) {
+        return {
+          sessionId: saved.sessionId,
+          viewedStoryIds: new Set(saved.viewedStoryIds.map(String).filter(id => UUID_RE.test(id)))
+        };
+      }
+    } catch { /* Storage can be unavailable in restricted browser contexts. */ }
+    return { sessionId: createUuid(), viewedStoryIds: new Set() };
+  }
+
+  const storyViewSession = loadStoryViewSession();
+  const pendingStoryViews = new Set();
+
+  function saveStoryViewSession() {
+    try {
+      sessionStorage.setItem(STORY_VIEW_SESSION_KEY, JSON.stringify({
+        sessionId: storyViewSession.sessionId,
+        viewedStoryIds: Array.from(storyViewSession.viewedStoryIds)
+      }));
+    } catch { /* Server-side deduplication remains authoritative when storage is unavailable. */ }
+  }
+
+  function recordStoryView(storyId) {
+    const id = String(storyId || '');
+    if (!UUID_RE.test(id) || !UUID_RE.test(storyViewSession.sessionId)) return;
+    if (storyViewSession.viewedStoryIds.has(id) || pendingStoryViews.has(id)) return;
+    pendingStoryViews.add(id);
+    fetch('/api/story-view', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, sessionId: storyViewSession.sessionId }),
+      keepalive: true
+    }).then(response => {
+      if (!response.ok) throw new Error('Story view tracking failed');
+      storyViewSession.viewedStoryIds.add(id);
+      saveStoryViewSession();
+    }).catch(() => {
+      // Do not block story playback; a later revisit can retry after transient failure.
+    }).finally(() => pendingStoryViews.delete(id));
+  }
   function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
   function preloadImage(url) {
     if (!url) return Promise.resolve(false);
@@ -97,9 +155,9 @@
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
     const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
-    // Count each story display (including revisits/automatic advances). Failure is silent
-    // and never delays rendering or the progress timer.
-    if (story.id) fetch('/api/story-view', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: story.id }), keepalive: true }).catch(() => {});
+    // Count a story at most once per browser-tab session. The server's unique
+    // (story_id, session_id) key is the final protection against duplicate requests.
+    if (story.id) recordStoryView(story.id);
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
     if (progressFills.length !== stories.length) renderProgressSegments();
     setProgress(0); viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();

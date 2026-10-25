@@ -263,7 +263,7 @@ test('Cloudflare Story View Function: converts Supabase RPC failures into a cont
   const previousFetch = global.fetch;
   t.after(() => { global.fetch = previousFetch; });
   global.fetch = async (input) => {
-    assert.match(String(input), /\/rest\/v1\/rpc\/increment_recovery_story_view$/);
+    assert.match(String(input), /\/rest\/v1\/rpc\/record_recovery_story_view$/);
     return jsonResponse({ message: 'RPC unavailable' }, 503);
   };
 
@@ -271,7 +271,7 @@ test('Cloudflare Story View Function: converts Supabase RPC failures into a cont
     request: new Request('https://site.test/api/story-view', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: '12345678-1234-4234-8234-123456789abc' })
+      body: JSON.stringify({ id: '12345678-1234-4234-8234-123456789abc', sessionId: '22345678-1234-4234-8234-123456789abc' })
     }),
     env
   });
