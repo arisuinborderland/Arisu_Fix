@@ -150,7 +150,6 @@
         countLoaded = true;
         countHasUsableValue = true;
         saveCachedCount(data.count);
-        mobileStoriesCount.dataset.countCache = response.headers.get('x-vercel-cache') || 'origin';
         mobileStoriesCount.setAttribute('aria-label', `${data.count} available stories`);
         setCountLoading(false);
         // Visible in browser Performance tools to distinguish browser/network
