@@ -258,3 +258,69 @@ form{gap:12px}
   #loginPanel #loginForm > label.remember-toggle{gap:9px!important}
   #loginPanel #loginForm > .login-help{margin-top:-6px!important}
 }
+
+
+/* AFV266 polish: compact mobile uploader, dashboard, and clear publishing states */
+.admin-top-heading{margin-bottom:10px}
+.admin-activity{gap:8px;margin-bottom:12px}
+.activity-card{padding:10px 12px;border-radius:13px}
+.activity-card strong{font-size:23px}
+.admin-tabs{margin-bottom:14px}
+.admin-tab{min-height:44px;padding:11px 8px}
+#uploadSection>h2{margin-bottom:10px}
+#publishForm{gap:10px}
+.upload-label{gap:5px}
+.file-picker-wrap{gap:6px;padding:8px;border-radius:13px}
+#storyImage{padding:8px;font-size:12px}
+#storyImage::file-selector-button{padding:8px 10px;margin-right:8px}
+.file-picker-hint{font-size:11px;line-height:1.35}
+.selection-summary{padding:7px 9px;font-size:11px}
+.image-preview{min-height:0;padding:7px;gap:7px}
+.preview-empty{min-height:76px;padding:9px 8px;gap:4px}
+.preview-empty-icon{width:30px;height:30px;font-size:21px}
+.preview-empty strong{font-size:12px}
+.preview-empty .muted{font-size:11px}
+.image-preview-card canvas{height:100px}
+.image-preview-card small{font-size:10px;line-height:1.35}
+#caption{min-height:74px;padding:10px 11px}
+.counter{font-size:12px}
+.draft-toggle{padding:8px 10px;font-size:13px}
+.notice{padding:9px 10px;font-size:11px;line-height:1.4}
+#publishButton{min-height:44px;padding:11px 13px;transition:background .18s ease,opacity .18s ease,transform .18s ease}
+#publishButton:not(:disabled):active{transform:translateY(1px)}
+#publishButton:disabled{background:#adb8d8;color:#fff;opacity:1;cursor:not-allowed}
+#publishButton[data-success="true"]{background:linear-gradient(135deg,#16845b,#23a477);color:#fff}
+#status{margin:7px 0 0;font-size:12px;line-height:1.45}
+#status[data-error="true"]{padding:8px 10px;background:#fff0f0;border:1px solid #f5d4d9;border-radius:10px}
+#status[data-error="false"]:not(:empty){padding:7px 0}
+.footnote{max-width:520px;margin:8px auto 0;line-height:1.45}
+@media(max-width:600px){
+ .admin-shell{margin-top:10px;margin-bottom:16px}
+ .admin-shell header{padding:10px 1px 8px}
+ .panel{padding:12px;margin:8px 0;border-radius:16px}
+ .admin-top-heading{margin-bottom:9px}
+ .admin-activity{gap:6px;margin-bottom:10px}
+ .activity-card{padding:8px 10px;border-radius:12px}
+ .activity-card span{font-size:10px}
+ .activity-card strong{margin-top:3px;font-size:20px}
+ .admin-tabs{gap:6px;margin-bottom:11px;padding:4px;border-radius:13px}
+ .admin-tab{min-height:40px;padding:9px 5px;font-size:12px}
+ #publishForm{gap:8px}
+ .file-picker-wrap{gap:5px;padding:7px}
+ #storyImage{padding:7px;font-size:11px}
+ #storyImage::file-selector-button{padding:7px 8px;margin-right:6px}
+ .file-picker-hint{font-size:10px}
+ .selection-summary{padding:5px 7px;font-size:10px}
+ .image-preview{padding:5px;gap:5px}
+ .preview-empty{min-height:58px;padding:6px;gap:3px}
+ .preview-empty-icon{width:25px;height:25px;font-size:18px}
+ .preview-empty strong{font-size:11px}
+ .preview-empty .muted{font-size:10px}
+ .image-preview-card canvas{height:84px}
+ #caption{min-height:64px;padding:9px 10px}
+ .draft-toggle{padding:8px 9px;font-size:12px}
+ .notice{padding:8px 9px;font-size:10px}
+ #publishButton{min-height:42px;padding:10px;font-size:13px}
+ #status{margin:5px 0 0;font-size:11px}
+ .footnote{padding:6px 3px;font-size:10px}
+}
