@@ -14,7 +14,7 @@ const releaseToken = `AFV${versionMatch[1]}`;
 // Keep canonical backend handlers under api/ and shared helpers under lib/ out of dist; also exclude build tooling,
 // package metadata, Vercel configuration, SQL migrations, and documentation out of dist/.
 const publicRootFiles = new Set([
-  "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
+  "_headers", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
   "styles.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css",
   "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
