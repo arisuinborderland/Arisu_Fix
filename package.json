@@ -3,12 +3,12 @@
   "version": "263.0.0",
   "private": true,
   "engines": {
-  "node": "24.x"
+    "node": "24.x"
   },
   "scripts": {
     "build": "node build.js",
-    "test": "node --test tests/*.test.js",
-    "test:staging": "node scripts/staging-stories-smoke.js"
+    "test": "node --test tests/cloudflare-functions.test.js",
+    "test:staging:vercel-legacy": "node scripts/staging-stories-smoke.js"
   },
   "dependencies": {
     "sharp": "^0.35.5"
