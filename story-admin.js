@@ -61,7 +61,7 @@
   activityEvents.forEach(name => window.addEventListener(name, () => { if (accessToken) saveActivity(); }, { passive: true }));
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible' && accessToken) {
-      if (Date.now() - (lastActivityAt || 0) >= IDLE_LIMIT_MS) showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.');
+      if (!$('rememberMe')?.checked && Date.now() - (lastActivityAt || 0) >= IDLE_LIMIT_MS) showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.');
       else scheduleIdleLogout();
     }
   });
