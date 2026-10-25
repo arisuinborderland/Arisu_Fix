@@ -154,3 +154,58 @@ test('Cloudflare Story View Function: rejects malformed JSON without contacting 
   assert.equal(response.status, 400);
   assert.match((await response.json()).error, /valid JSON/i);
 });
+
+test('Cloudflare Stories Function: rejects a non-admin bearer token', async (t) => {
+  const stories = await loadFunction('functions/api/stories.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    assert.match(String(input), /\/auth\/v1\/user$/);
+    return jsonResponse({ id: 'visitor-user', email: 'visitor@example.test' });
+  };
+
+  const response = await stories.onRequest({
+    request: new Request('https://site.test/api/stories?admin=1', {
+      headers: { Authorization: 'Bearer visitor-token' }
+    }),
+    env
+  });
+  assert.equal(response.status, 401);
+  assert.match((await response.json()).error, /Admin authentication required/i);
+});
+
+test('Cloudflare Story Views Admin Function: rejects a non-admin bearer token', async (t) => {
+  const viewsAdmin = await loadFunction('functions/api/story-views-admin.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    assert.match(String(input), /\/auth\/v1\/user$/);
+    return jsonResponse({ id: 'visitor-user', email: 'visitor@example.test' });
+  };
+
+  const response = await viewsAdmin.onRequest({
+    request: new Request('https://site.test/api/story-views-admin', {
+      headers: { Authorization: 'Bearer visitor-token' }
+    }),
+    env
+  });
+  assert.equal(response.status, 401);
+  assert.match((await response.json()).error, /Admin authentication required/i);
+});
+
+test('Cloudflare Stories Function: converts Supabase listing failures into a controlled 503', async (t) => {
+  const stories = await loadFunction('functions/api/stories.js');
+  const previousFetch = global.fetch;
+  t.after(() => { global.fetch = previousFetch; });
+  global.fetch = async (input) => {
+    assert.match(String(input), /\/rest\/v1\/recovery_stories\?/);
+    return jsonResponse({ message: 'database unavailable' }, 503);
+  };
+
+  const response = await stories.onRequest({
+    request: new Request('https://site.test/api/stories'),
+    env
+  });
+  assert.equal(response.status, 503);
+  assert.match((await response.json()).error, /temporarily unavailable/i);
+});
