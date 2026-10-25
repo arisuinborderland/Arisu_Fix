@@ -51,7 +51,7 @@
   }
   function scheduleIdleLogout() {
     if (idleTimer) clearTimeout(idleTimer);
-    if (!accessToken) return;
+    if (!accessToken || $('rememberMe')?.checked) return;
     const elapsed = Date.now() - (lastActivityAt || Date.now());
     const remaining = IDLE_LIMIT_MS - elapsed;
     if (remaining <= 0) { showSignedOut('Signed out after 1 hour of inactivity. Please sign in again.'); return; }
@@ -135,9 +135,10 @@
       const savedToken = getSavedRefreshToken();
       const savedActivity = Number(localStorage.getItem(ACTIVITY_KEY) || 0);
       if (!savedToken) { loginPanel.hidden = false; editorPanel.hidden = true; return; }
-      // Existing remembered sessions are kept compatible with the previous version.
-      if (localStorage.getItem(SESSION_KEY)) $('rememberMe').checked = true;
-      if (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS) {
+      // Existing persistent sessions are treated as remembered for compatibility.
+      const isRemembered = Boolean(localStorage.getItem(SESSION_KEY));
+      if (isRemembered) $('rememberMe').checked = true;
+      if (!isRemembered && (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS)) {
         clearSavedSession();
         loginPanel.hidden = false; editorPanel.hidden = true;
         say('Session expired after 1 hour of inactivity. Please sign in again.');
