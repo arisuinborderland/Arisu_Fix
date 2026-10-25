@@ -264,7 +264,7 @@ jobs:
           assert.equal(validatePolicy({ ...valid, decoded: false }).reason, "decode-failed");
           assert.equal(validatePolicy({ ...valid, width: MAX_DIMENSION, height: 1 }).ok, true, "dimension boundary should pass");
           assert.equal(validatePolicy({ ...valid, width: MAX_DIMENSION + 1, height: 1 }).reason, "dimensions-too-large");
-          assert.equal(validatePolicy({ ...valid, width: 4000, height: 4000 }).reason, "dimensions-too-large");
+          assert.equal(validatePolicy({ ...valid, width: 4001, height: 4000 }).reason, "dimensions-too-large");
           assert.equal(validatePolicy({ ...valid, width: 4096, height: 3907 }).reason, "dimensions-too-large");
           console.log("Image-validation policy boundary tests passed");
           EOF
