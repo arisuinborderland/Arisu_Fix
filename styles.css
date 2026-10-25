@@ -9609,3 +9609,155 @@ html body.home-page .purpose-card .purpose-signoff {
     background: rgba(59, 130, 246, .10) !important;
   }
 }
+
+
+/* Desktop footer v2: restore the full-width navy footer and an editorial desktop row.
+   The compact two-column link grid is retained only for mobile. */
+@media (min-width: 701px) {
+  html body.home-page .site-footer {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 18px 0 0 !important;
+    padding: 28px clamp(28px, 4vw, 48px) 124px !important;
+    background: #101827 !important;
+    color: #F8FAFF !important;
+    border-top: 1px solid rgba(167, 139, 250, .28) !important;
+    box-shadow: none !important;
+  }
+
+  html body.home-page .site-footer > .about-link-section {
+    box-sizing: border-box !important;
+    width: min(100%, 824px) !important;
+    max-width: 824px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    align-self: center !important;
+  }
+
+  html body.home-page .site-footer > .about-link-section .about-page-cta {
+    box-sizing: border-box !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  html body.home-page .site-footer > .footer-location {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px 10px !important;
+    width: min(100%, 1040px) !important;
+    max-width: 1040px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    color: #D9E3F5 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  html body.home-page .site-footer > .footer-location .footer-location-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    color: #D9E3F5 !important;
+  }
+
+  html body.home-page .site-footer > .footer-location .footer-location-item svg {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.7 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  html body.home-page .site-footer > .footer-location .footer-location-separator {
+    color: #8291AB !important;
+  }
+
+  /* Restore the five footer links to a horizontal desktop row. */
+  html body.home-page .site-footer > .footer-links {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px 22px !important;
+    width: min(100%, 1160px) !important;
+    max-width: 1160px !important;
+    margin: 4px auto 0 !important;
+    padding: 0 !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    min-height: 25px !important;
+    padding: 2px 0 !important;
+    margin: 0 !important;
+    color: #E2E8F0 !important;
+    font-size: 12px !important;
+    font-weight: 650 !important;
+    line-height: 1.35 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > a:hover,
+  html body.home-page .site-footer > .footer-links > a:focus-visible {
+    color: #D8C7FF !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > a svg {
+    display: block !important;
+    width: 14px !important;
+    height: 14px !important;
+    flex: 0 0 14px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > a span {
+    min-width: 0 !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > .footer-copyright {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-self: center !important;
+    justify-self: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 0 0 auto !important;
+    padding: 2px 0 !important;
+    border: 0 !important;
+    color: #A8B4C8 !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+  }
+}
