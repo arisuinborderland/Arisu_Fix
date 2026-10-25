@@ -332,12 +332,25 @@ updateActivitySummary(allStories);
   function updatePublishState() {
     const files = Array.from($('storyImage').files || []);
     const allowed = ['image/jpeg', 'image/png', 'image/webp'];
-    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3 * 1024 * 1024);
+    const invalid = files.filter(file => !allowed.includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024);
+    const valid = files.length > 0 && invalid.length === 0;
     const button = $('publishButton');
-    if (!button.dataset.busy) button.disabled = !valid;
     const draft = $('saveAsDraft').checked;
-    const label = draft ? 'Save Drafts' : 'Publish Stories';
-    button.textContent = files.length ? `${label} · ${files.length}` : (draft ? 'Save as Draft' : 'Publish Stories · 24 hours');
+    if (button.dataset.busy) return;
+    if (button.dataset.success === 'true') {
+      button.disabled = true;
+      return;
+    }
+    button.disabled = !valid;
+    if (!files.length) {
+      button.textContent = draft ? 'Select images to save draft' : 'Select images to publish';
+    } else if (invalid.length) {
+      button.textContent = 'Fix selected images to continue';
+    } else {
+      button.textContent = draft
+        ? `Save ${files.length} Draft${files.length === 1 ? '' : 's'}`
+        : `Publish ${files.length} Stor${files.length === 1 ? 'y' : 'ies'} · 24 hours`;
+    }
   }
   function renderImagePreviews() {
     const input = $('storyImage'); const preview = $('imagePreview'); preview.replaceChildren();
@@ -382,11 +395,11 @@ updateActivitySummary(allStories);
       }).catch(() => { name.textContent += ' · Could not decode image'; });
     });
   }
-  $('storyImage').addEventListener('change', renderImagePreviews);
-  $('saveAsDraft').addEventListener('change', updatePublishState);
+  $('storyImage').addEventListener('change', () => { delete $('publishButton').dataset.success; renderImagePreviews(); });
+  $('saveAsDraft').addEventListener('change', () => { delete $('publishButton').dataset.success; updatePublishState(); });
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
-    event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; button.disabled = true; button.textContent = 'Preparing upload…'; say('Preparing your Story images…');
+    event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; delete button.dataset.success; button.disabled = true; button.textContent = 'Publishing…'; say('Preparing your Story images…');
     try {
       const files = Array.from($('storyImage').files || []);
       if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
@@ -402,7 +415,7 @@ updateActivitySummary(allStories);
         await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value, saveAsDraft: draft }) });
         saved++; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
       }
-      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
+      $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').dataset.success = 'true'; $('publishButton').textContent = draft ? 'Drafts saved successfully' : 'Published successfully';
       $('imagePreview').replaceChildren(); renderImagePreviews(); $('uploadProgress').hidden = true;
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
