@@ -3,7 +3,7 @@ const JSON_HEADERS = {
   "Cache-Control": "no-store"
 };
 
-const MAX_IMAGE_BYTES = 3.5 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
 const MAX_DIMENSION = 4096;
 const MAX_PIXELS = 16_000_000;
 const JPEG_SOF_MARKERS = new Set([
@@ -192,7 +192,7 @@ function decodeImageData(imageData, mimeType) {
     return { ok: false, status: 415, error: "The uploaded image is empty or invalid." };
   }
   if (estimatedBytes > MAX_IMAGE_BYTES) {
-    return { ok: false, status: 413, error: "Story image must be no larger than 3.5 MiB." };
+    return { ok: false, status: 413, error: "Story image must be no larger than 3 MiB." };
   }
 
   try {
