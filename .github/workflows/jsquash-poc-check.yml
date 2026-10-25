@@ -87,5 +87,51 @@ jobs:
           }
           EOF
 
+      - name: Runtime smoke test for JPEG, PNG, WebP and invalid input
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          import assert from "node:assert/strict";
+          import { encode as encodeJpeg, decode as decodeJpeg } from "@jsquash/jpeg";
+          import { encode as encodePng, decode as decodePng } from "@jsquash/png";
+          import { encode as encodeWebp, decode as decodeWebp } from "@jsquash/webp";
+
+          // Tiny synthetic RGBA fixture: opaque red pixel plus transparent green pixel.
+          const width = 2;
+          const height = 1;
+          const pixels = new Uint8ClampedArray([
+            255, 0, 0, 255,
+            0, 255, 0, 0
+          ]);
+          const input = { data: pixels, width, height };
+          const toArrayBuffer = (bytes) => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+
+          for (const [name, encode, decode] of [
+            ["JPEG", encodeJpeg, decodeJpeg],
+            ["PNG", encodePng, decodePng],
+            ["WebP", encodeWebp, decodeWebp]
+          ]) {
+            const encoded = await encode(input);
+            const bytes = encoded instanceof ArrayBuffer
+              ? encoded
+              : toArrayBuffer(encoded);
+            assert.ok(bytes.byteLength > 0, name + " encoder returned empty bytes");
+            const decoded = await decode(bytes);
+            assert.equal(decoded.width, width, name + " decoded width mismatch");
+            assert.equal(decoded.height, height, name + " decoded height mismatch");
+            assert.equal(decoded.data.length, width * height * 4, name + " RGBA length mismatch");
+            console.log(name + " encode/decode smoke test passed", bytes.byteLength + " bytes");
+            if (name === "PNG") assert.equal(decoded.data[7], 0, "PNG transparency was not preserved");
+          }
+
+          for (const [name, decode] of [
+            ["JPEG", decodeJpeg], ["PNG", decodePng], ["WebP", decodeWebp]
+          ]) {
+            await assert.rejects(() => decode(new Uint8Array([1, 2, 3, 4]).buffer), undefined,
+              name + " decoder should reject invalid bytes");
+            console.log(name + " invalid-input rejection passed");
+          }
+          EOF
+
       - name: Record Wrangler version
         run: /tmp/jsquash-poc/node_modules/.bin/wrangler --version
