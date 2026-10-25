@@ -90,6 +90,10 @@ jobs:
       - name: Runtime smoke test for JPEG, PNG, WebP and invalid input
         run: |
           cd /tmp/jsquash-poc
+          fixture_ref="da47a2be3b302beb5a5ae164a2ab7aa21a041d90"
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/jamsinclair/jSquash/$fixture_ref/test/fixtures/test.jpeg" -o fixture.jpeg
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/jamsinclair/jSquash/$fixture_ref/test/fixtures/test.png" -o fixture.png
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/jamsinclair/jSquash/$fixture_ref/test/fixtures/test.webp" -o fixture.webp
           node --input-type=module <<'EOF'
           import assert from "node:assert/strict";
           import fs from "node:fs";
@@ -104,14 +108,14 @@ jobs:
           await initWebp({ wasmBinary: fs.readFileSync(path.join(root, "webp/codec/dec/webp_dec.wasm")) });
 
           const fixtures = [
-            ["JPEG", decodeJpeg, "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAgBAwEBPwF//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAgBAgEBPwF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAgBAQAGPwJ//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAgBAQABPyF//9oADAMBAAIAAwAAAB//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/EX//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/EX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/EX//2Q=="],
-            ["PNG", decodePng, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII="],
-            ["WebP", decodeWebp, "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEAAUAmJaQAA3AA/v89WAAAAA=="]
+            ["JPEG", decodeJpeg, "fixture.jpeg"],
+            ["PNG", decodePng, "fixture.png"],
+            ["WebP", decodeWebp, "fixture.webp"]
           ];
           const toArrayBuffer = (bytes) => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
 
-          for (const [name, decode, base64] of fixtures) {
-            const decoded = await decode(toArrayBuffer(Buffer.from(base64, "base64")));
+          for (const [name, decode, file] of fixtures) {
+            const decoded = await decode(toArrayBuffer(fs.readFileSync(file)));
             assert.ok(decoded.width > 0 && decoded.height > 0, name + " dimensions should be positive");
             assert.equal(decoded.data.length, decoded.width * decoded.height * 4, name + " should decode to RGBA data");
             console.log(name + " decode smoke test passed", decoded.width + "x" + decoded.height);
