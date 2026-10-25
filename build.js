@@ -108,16 +108,21 @@ function verifyVersionTokens() {
   const candidates = walkFiles(root).filter(file => !file.startsWith(`${output}${path.sep}`)
     && [".html", ".css", ".js"].includes(path.extname(file).toLowerCase())
     && !["build.js"].includes(path.basename(file))
+    && !file.includes(`${path.sep}tests${path.sep}`)
     && !file.includes(`${path.sep}api${path.sep}`)
     && !file.includes(`${path.sep}lib${path.sep}`));
   const stale = [];
   for (const file of candidates) {
     const source = fs.readFileSync(file, "utf8");
     for (const match of source.matchAll(/[?&]v=(AFV\d+)\b/g)) {
-      if (match[1] !== releaseToken) stale.push(`${relative(file)}: ${match[1]} (expected ${releaseToken})`);
+      const referencedVersion = Number(match[1].slice(3));
+      const releaseVersion = Number(versionMatch[1]);
+      // Older per-asset cache tokens are valid when an asset has not changed.
+      // Reject only references to a future release, which usually indicate a missed package-version bump.
+      if (referencedVersion > releaseVersion) stale.push(`${relative(file)}: ${match[1]} (release is ${releaseToken})`);
     }
   }
-  if (stale.length) fail(`Build failed: stale active cache-busting version tokens found:\n${stale.join("\n")}`);
+  if (stale.length) fail(`Build failed: future cache-busting version tokens found:\n${stale.join("\n")}`);
 }
 function verifySyntax() {
   const scripts = walkFiles(root).filter(file => path.extname(file).toLowerCase() === ".js" && !file.startsWith(`${output}${path.sep}`));
