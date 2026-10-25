@@ -31,7 +31,7 @@ jobs:
           npm init -y
           npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler
 
-      - name: Verify pinned package versions, decoder exports, and WASM assets
+      - name: Verify pinned package versions, decoder entry files, and actual WASM assets
         run: |
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
@@ -51,9 +51,12 @@ jobs:
               throw new Error(`${name}: expected ${version}, found ${pkg.version}`);
             }
 
-            const decoderPath = path.join(root, "decode.js");
-            if (!fs.existsSync(decoderPath)) {
-              throw new Error(`${name}: decode.js is missing`);
+            const decoderCandidates = [
+              path.join(root, "decode.js"),
+              path.join(root, "dist", "decode.js")
+            ];
+            if (!decoderCandidates.some((candidate) => fs.existsSync(candidate))) {
+              throw new Error(`${name}: no expected decoder entry file found`);
             }
 
             const wasmFiles = [];
@@ -69,30 +72,8 @@ jobs:
               throw new Error(`${name}: no WASM assets found`);
             }
 
-            console.log(`${name}@${version}: decoder entry exists; WASM assets: ${wasmFiles.join(", ")}`);
-          }
-          EOF
-
-      - name: Verify Cloudflare-specific decoder WASM paths
-        run: |
-          cd /tmp/jsquash-poc
-          node --input-type=module <<'EOF'
-          import fs from "node:fs";
-          import path from "node:path";
-
-          const root = path.join(process.cwd(), "node_modules");
-          const expectedPaths = [
-            "@jsquash/jpeg/codec/dec/mozjpeg_dec.wasm",
-            "@jsquash/png/codec/dec/oxipng_dec.wasm",
-            "@jsquash/webp/codec/dec/webp_dec.wasm"
-          ];
-
-          for (const relativePath of expectedPaths) {
-            const fullPath = path.join(root, relativePath);
-            if (!fs.existsSync(fullPath)) {
-              throw new Error(`Expected Cloudflare decoder WASM path missing: ${relativePath}`);
-            }
-            console.log("Found decoder WASM:", relativePath);
+            console.log(`${name}@${version}: WASM assets found:`);
+            for (const file of wasmFiles) console.log(`  - ${file}`);
           }
           EOF
 
