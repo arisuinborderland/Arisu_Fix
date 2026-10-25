@@ -11,6 +11,7 @@ const recoveryProofs = [
   {
     category: "suspended",
     title: "Suspended Account — Rejected ID",
+    showDate: false,
     image: "proofs/a_polished_professional_social_media_style_evide.png",
     alt: "Arisu Fix recovery proof collage showing a rejected Facebook ID verification attempt and associated profile; full name and Instagram username blurred, with Arisu Fix watermark and profile icon",
     date: "October 23, 2026",
@@ -255,12 +256,14 @@ function renderRecoveryProofs() {
 
     const copy = document.createElement("div");
     copy.className = "proof-card-copy";
-    if (proof.date) {
+    if (proof.date && proof.showDate !== false) {
       const date = document.createElement("span");
       date.className = "proof-card-date";
       date.textContent = proof.date;
       copy.appendChild(date);
     }
+    if (!copy.childElementCount) copy.hidden = true;
+
     const backButton = document.createElement("button");
     backButton.type = "button";
     backButton.className = "proof-album-back proof-album-back-inline";
