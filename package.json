@@ -8,7 +8,6 @@
   "scripts": {
     "build": "node build.js",
     "test": "node --test tests/cloudflare-functions.test.js",
-    "test:staging:vercel-legacy": "node scripts/staging-stories-smoke.js"
   },
   "dependencies": {
     "sharp": "^0.35.5"
