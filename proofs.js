@@ -9,6 +9,14 @@ const recoveryProofs = [
     violation: "Account Integrity"
   },
   {
+    category: "suspended",
+    title: "Suspended Account — Rejected ID",
+    image: "proofs/a_polished_professional_social_media_style_evide.png",
+    alt: "Arisu Fix recovery proof collage showing a rejected Facebook ID verification attempt and associated profile; full name and Instagram username blurred, with Arisu Fix watermark and profile icon",
+    date: "October 23, 2026",
+    violation: "Rejected ID Verification"
+  },
+  {
     category: "disabled",
     title: "Disabled Account",
     image: "proofs/disabled-account-integrity.jpg",
