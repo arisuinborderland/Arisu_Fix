@@ -29,7 +29,7 @@ jobs:
           mkdir -p /tmp/jsquash-poc
           cd /tmp/jsquash-poc
           npm init -y
-          npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler@4.152.0
+          npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 pngjs@7.0.0 wrangler@4.152.0
 
       - name: Verify pinned package versions and discover decoder assets
         run: |
@@ -132,11 +132,20 @@ jobs:
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
           import fs from "node:fs";
+          import { PNG } from "pngjs";
+
+          const transparent = new PNG({ width: 1, height: 1 });
+          transparent.data[0] = 255;
+          transparent.data[1] = 0;
+          transparent.data[2] = 0;
+          transparent.data[3] = 0;
+          fs.writeFileSync("transparent.png", PNG.sync.write(transparent));
 
           const fixtures = {
             jpeg: fs.readFileSync("fixture.jpeg").toString("base64"),
             png: fs.readFileSync("fixture.png").toString("base64"),
-            webp: fs.readFileSync("fixture.webp").toString("base64")
+            webp: fs.readFileSync("fixture.webp").toString("base64"),
+            transparentPng: fs.readFileSync("transparent.png").toString("base64")
           };
           const source = `
           import decodeJpeg, { init as initJpeg } from "@jsquash/jpeg/decode.js";
@@ -174,15 +183,26 @@ jobs:
               const parts = new URL(request.url).pathname.split("/").filter(Boolean);
               if (parts[0] === "health") return new Response("ok");
               const invalid = parts[0] === "invalid";
-              const codec = invalid ? parts[1] : parts[0];
+              const mismatch = parts[0] === "mismatch";
+              const transparentPng = parts[0] === "transparent-png";
+              const codec = invalid || mismatch ? parts[1] : transparentPng ? "png" : parts[0];
               const decode = decoders[codec];
               if (!decode) return Response.json({ error: "unknown codec" }, { status: 404 });
               try {
                 await initialize();
-                const bytes = invalid ? new Uint8Array([1, 2, 3, 4]).buffer : fromBase64(fixtures[codec]);
+                const bytes = invalid
+                  ? new Uint8Array([1, 2, 3, 4]).buffer
+                  : mismatch
+                    ? fromBase64(fixtures.png)
+                    : transparentPng
+                      ? fromBase64(fixtures.transparentPng)
+                      : fromBase64(fixtures[codec]);
                 const image = await decode(bytes);
-                if (invalid) return Response.json({ error: "invalid input unexpectedly decoded" }, { status: 500 });
-                return Response.json({ codec, width: image.width, height: image.height, rgbaBytes: image.data.length });
+                if (invalid || mismatch) {
+                  return Response.json({ error: "invalid or mismatched input unexpectedly decoded" }, { status: 500 });
+                }
+                const alpha = transparentPng ? image.data[3] : undefined;
+                return Response.json({ codec, width: image.width, height: image.height, rgbaBytes: image.data.length, alpha });
               } catch (error) {
                 return Response.json({ error: String(error?.message || error) }, { status: invalid ? 400 : 500 });
               }
@@ -228,6 +248,14 @@ jobs:
             assert.equal(response.status, 400, codec + " Cloudflare runtime should reject invalid data");
             console.log("Cloudflare-compatible " + codec + " invalid input rejection passed");
           }
+          const transparentResponse = await fetch("http://127.0.0.1:8797/transparent-png");
+          const transparentResult = await transparentResponse.json();
+          assert.equal(transparentResponse.status, 200, "transparent PNG should decode");
+          assert.equal(transparentResult.alpha, 0, "fully transparent PNG alpha should be preserved");
+          console.log("Cloudflare-compatible PNG transparency preservation passed");
+          const mismatchResponse = await fetch("http://127.0.0.1:8797/mismatch/jpeg");
+          assert.equal(mismatchResponse.status, 400, "JPEG decoder should reject PNG bytes as a MIME/format mismatch");
+          console.log("Cloudflare-compatible MIME/format mismatch rejection passed");
           EOF
 
       - name: Verify image-validation policy boundaries
