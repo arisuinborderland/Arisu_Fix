@@ -9291,3 +9291,58 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: wa-border-trace-reverse 3.2s linear infinite !important;
   }
 }
+
+
+/* High-saturation fuchsia and violet trails for desktop WhatsApp CTA.
+   Explicitly restore colored gradients and motion above reduced-motion fallbacks. */
+@media (min-width: 701px) {
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+    border: 1px solid rgba(255, 93, 220, .92) !important;
+    box-shadow:
+      0 7px 18px rgba(0, 168, 100, .24),
+      0 0 9px rgba(255, 47, 207, .22),
+      0 0 14px rgba(168, 85, 247, .18) !important;
+    animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before,
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::after {
+    padding: 4px !important;
+    opacity: 1 !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before {
+    background: conic-gradient(
+      from var(--wa-trace-angle),
+      transparent 0deg 7deg,
+      #ff2fcf 15deg,
+      #ff2fcf 55deg,
+      #f05be7 72deg,
+      #ffffff 76deg,
+      #e879f9 80deg,
+      #a855f7 102deg,
+      #a855f7 122deg,
+      transparent 150deg 360deg
+    ) !important;
+    filter:
+      drop-shadow(0 0 3px rgba(255, 47, 207, 1))
+      drop-shadow(0 0 7px rgba(255, 47, 207, .72)) !important;
+    animation: wa-border-trace 2.8s linear infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::after {
+    background: conic-gradient(
+      from var(--wa-trace-angle-reverse),
+      transparent 0deg 9deg,
+      #a855f7 18deg,
+      #a855f7 53deg,
+      #d946ef 70deg,
+      #ffffff 74deg,
+      #ff5bd8 78deg,
+      #ff2fcf 100deg,
+      #ff2fcf 124deg,
+      transparent 151deg 360deg
+    ) !important;
+    filter:
+      drop-shadow(0 0 3px rgba(168, 85, 247, 1))
+      drop-shadow(0 0 7px rgba(168, 85, 247, .72)) !important;
+    animation: wa-border-trace-reverse 3.2s linear infinite !important;
+  }
+}
