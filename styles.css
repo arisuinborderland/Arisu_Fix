@@ -9211,3 +9211,33 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
   }
 }
+
+
+/* Reduced-motion override for the two desktop accents explicitly requested by the site owner.
+   This intentionally animates only these badges when reduce motion is enabled; all other
+   reduced-motion rules remain intact. */
+@media (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  html body.home-page main > .compact-intro .eyebrow.premium-status {
+    animation: eyebrow-green-glow 3.6s ease-in-out infinite !important;
+    box-shadow: 0 0 0 1px rgba(43,190,105,.10),
+                0 0 16px rgba(37,211,102,.22),
+                0 0 28px rgba(37,211,102,.10) !important;
+  }
+  html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse {
+    animation: status-heartbeat 1.15s ease-in-out infinite !important;
+  }
+  html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse::after {
+    animation: status-ripple 1.5s ease-out infinite !important;
+  }
+  html body.home-page .topbar .arisu-verified-badge {
+    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
+  }
+  html body.home-page .topbar .arisu-verified-badge::after {
+    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
+  }
+  html body.home-page .topbar .arisu-verified-badge svg path {
+    stroke-dasharray: 24 !important;
+    stroke-dashoffset: 24 !important;
+    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+  }
+}
