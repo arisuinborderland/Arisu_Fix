@@ -237,3 +237,29 @@
     transition: none !important;
   }
 }
+
+
+/* Stories button: gentle neon pulse ring, without moving the bottom navigation layout. */
+@keyframes arcStoriesNeonPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(34, 211, 238, .32)) drop-shadow(0 0 4px rgba(139, 92, 246, .22));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(34, 211, 238, .68)) drop-shadow(0 0 10px rgba(217, 70, 239, .52));
+    transform: scale(1.035);
+  }
+}
+
+html body nav.mobile-bottom-nav .mobile-nav-story-avatar {
+  transform-origin: center;
+  animation: arcStoriesNeonPulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
