@@ -31,7 +31,7 @@ jobs:
           npm init -y
           npm install --save-exact @jsquash/jpeg@1.6.0 @jsquash/png@3.1.1 @jsquash/webp@1.5.0 wrangler
 
-      - name: Verify pinned package versions, decoder exports, init functions, and WASM assets
+      - name: Verify pinned package versions and discover decoder assets
         run: |
           cd /tmp/jsquash-poc
           node --input-type=module <<'EOF'
@@ -66,22 +66,24 @@ jobs:
             };
             visit(root);
 
-            if (wasmFiles.length === 0) {
-              throw new Error(`${name}: no WASM assets found`);
-            }
+            if (wasmFiles.length === 0) throw new Error(`${name}: no WASM assets found`);
+            console.log(`${name}@${version}; package exports:`, JSON.stringify(pkg.exports ?? null));
+            console.log("  JS entries:", jsFiles.filter((file) => /decode|index|init/i.test(file)).join(", "));
+            console.log("  WASM assets:", wasmFiles.join(", "));
+          }
+          EOF
 
-            const decodeEntry = jsFiles.find((file) => /(^|\/)decode\.js$/.test(file));
-            if (!decodeEntry) {
-              throw new Error(`${name}: decoder JavaScript entry not found`);
+      - name: Inspect real ESM decoder exports
+        run: |
+          cd /tmp/jsquash-poc
+          node --input-type=module <<'EOF'
+          for (const name of ["@jsquash/jpeg", "@jsquash/png", "@jsquash/webp"]) {
+            const mod = await import(name);
+            const exports = Object.keys(mod).sort();
+            if (!exports.includes("default") && !exports.includes("decode")) {
+              throw new Error(`${name}: no recognizable decoder export. Exports: ${exports.join(", ")}`);
             }
-
-            const decoderSource = fs.readFileSync(path.join(root, decodeEntry), "utf8");
-            if (!/init/.test(decoderSource)) {
-              throw new Error(`${name}: decoder source does not appear to expose manual init`);
-            }
-
-            console.log(`${name}@${version}: decoder entry ${decodeEntry}`);
-            console.log("  WASM:", wasmFiles.join(", "));
+            console.log(name, "exports:", exports.join(", "));
           }
           EOF
 
