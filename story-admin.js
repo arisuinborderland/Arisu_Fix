@@ -333,7 +333,7 @@ updateActivitySummary(allStories);
     const files = Array.from($('storyImage').files || []);
     const allowed = ['image/jpeg', 'image/png', 'image/webp'];
     const invalid = files.filter(file => !allowed.includes(file.type) || file.size < 1 || file.size > 3 * 1024 * 1024);
-    const valid = files.length > 0 && invalid.length === 0;
+    const valid = files.length > 0 && files.every(file => allowed.includes(file.type) && file.size >= 1 && file.size <= 3 * 1024 * 1024);
     const button = $('publishButton');
     const draft = $('saveAsDraft').checked;
     if (button.dataset.busy) return;
