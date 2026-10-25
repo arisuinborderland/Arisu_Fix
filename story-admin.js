@@ -17,24 +17,31 @@
     target.style.color = isError ? '#b42335' : '#3454c9';
     target.dataset.error = isError ? 'true' : 'false';
   }
+  function readStorage(storage, key) {
+    try { return storage.getItem(key) || ''; } catch (_) { return ''; }
+  }
+  function removeStorage(storage, key) {
+    try { storage.removeItem(key); } catch (_) {}
+  }
   function getSavedRefreshToken() {
-    try { return localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY) || ''; }
-    catch (_) { return ''; }
+    return readStorage(localStorage, SESSION_KEY) || readStorage(sessionStorage, SESSION_KEY);
   }
   function saveRefreshToken(token) {
-    try {
-      localStorage.removeItem(SESSION_KEY);
-      sessionStorage.removeItem(SESSION_KEY);
-      if (!token) return;
-      if ($('rememberMe')?.checked) localStorage.setItem(SESSION_KEY, token);
-      else sessionStorage.setItem(SESSION_KEY, token);
-    } catch (_) { /* Private browsing may block storage; current-tab login can still work. */ }
+    removeStorage(localStorage, SESSION_KEY);
+    removeStorage(sessionStorage, SESSION_KEY);
+    if (!token) return;
+    // Persist only the Supabase refresh token, never the user's password.
+    if ($('rememberMe')?.checked) {
+      try { localStorage.setItem(SESSION_KEY, token); return; } catch (_) {}
+    }
+    try { sessionStorage.setItem(SESSION_KEY, token); } catch (_) {
+      // If storage is blocked, the current tab can still stay signed in.
+    }
   }
   function clearSavedSession() {
-    try {
-      localStorage.removeItem(SESSION_KEY); localStorage.removeItem(ACTIVITY_KEY);
-      sessionStorage.removeItem(SESSION_KEY);
-    } catch (_) {}
+    removeStorage(localStorage, SESSION_KEY);
+    removeStorage(localStorage, ACTIVITY_KEY);
+    removeStorage(sessionStorage, SESSION_KEY);
     accessToken = ''; refreshToken = ''; lastActivityAt = 0;
     if (idleTimer) clearTimeout(idleTimer);
     idleTimer = 0;
@@ -46,7 +53,9 @@
   }
   function saveActivity() {
     lastActivityAt = Date.now();
-    try { localStorage.setItem(ACTIVITY_KEY, String(lastActivityAt)); } catch (_) {}
+    try { localStorage.setItem(ACTIVITY_KEY, String(lastActivityAt)); } catch (_) {
+      try { sessionStorage.setItem(ACTIVITY_KEY, String(lastActivityAt)); } catch (_) {}
+    }
     scheduleIdleLogout();
   }
   function scheduleIdleLogout() {
@@ -133,10 +142,10 @@
     restoring = true;
     try {
       const savedToken = getSavedRefreshToken();
-      const savedActivity = Number(localStorage.getItem(ACTIVITY_KEY) || 0);
+      const savedActivity = Number(readStorage(localStorage, ACTIVITY_KEY) || readStorage(sessionStorage, ACTIVITY_KEY) || 0);
       if (!savedToken) { loginPanel.hidden = false; editorPanel.hidden = true; return; }
       // Existing persistent sessions are treated as remembered for compatibility.
-      const isRemembered = Boolean(localStorage.getItem(SESSION_KEY));
+      const isRemembered = Boolean(readStorage(localStorage, SESSION_KEY));
       if (isRemembered) $('rememberMe').checked = true;
       if (!isRemembered && (!savedActivity || Date.now() - savedActivity >= IDLE_LIMIT_MS)) {
         clearSavedSession();
@@ -166,11 +175,17 @@
       // Only clear it when Supabase explicitly rejects the refresh token.
       const message = String(error && error.message || '');
       const invalidRefreshToken = /invalid refresh token|refresh token not found|already used|invalid_grant|refresh_token.*(expired|invalid)/i.test(message);
-      if (invalidRefreshToken) clearSavedSession();
-      loginPanel.hidden = false; editorPanel.hidden = true;
-      say(invalidRefreshToken
-        ? 'Your saved admin session has expired. Please sign in again.'
-        : 'Could not restore your session right now. Your saved session was kept; check your connection and refresh this page.', true);
+      if (invalidRefreshToken) {
+        clearSavedSession();
+        loginPanel.hidden = false; editorPanel.hidden = true;
+        say('Your saved admin session has expired. Please sign in again.', true);
+      } else {
+        // Keep the login form hidden while a saved session may still be valid.
+        // A temporary API/network issue must not look like a signed-out session.
+        loginPanel.hidden = true; editorPanel.hidden = false;
+        $('storyList').textContent = 'Could not restore the admin session right now. Check your connection, then refresh this page.';
+        say('Session restoration temporarily failed. Your saved session was kept; refresh to retry.', true);
+      }
     } finally { restoring = false; }
   }
   function updateActivitySummary(stories) {
