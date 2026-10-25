@@ -94,9 +94,9 @@ jobs:
           import assert from "node:assert/strict";
           import fs from "node:fs";
           import path from "node:path";
-          import { decode as decodeJpeg, init as initJpeg } from "@jsquash/jpeg/decode.js";
-          import { decode as decodePng, init as initPng } from "@jsquash/png/decode.js";
-          import { decode as decodeWebp, init as initWebp } from "@jsquash/webp/decode.js";
+          import decodeJpeg, { init as initJpeg } from "@jsquash/jpeg/decode.js";
+          import decodePng, { init as initPng } from "@jsquash/png/decode.js";
+          import decodeWebp, { init as initWebp } from "@jsquash/webp/decode.js";
 
           const root = path.join(process.cwd(), "node_modules", "@jsquash");
           await initJpeg({ wasmBinary: fs.readFileSync(path.join(root, "jpeg/codec/dec/mozjpeg_dec.wasm")) });
