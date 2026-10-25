@@ -9761,3 +9761,120 @@ html body.home-page .purpose-card .purpose-signoff {
     white-space: nowrap !important;
   }
 }
+
+
+/* Desktop refinement v3: close the gap after the final safety card, enlarge footer typography,
+   and scale up the floating quick-navigation without changing mobile/tablet rules. */
+@media (min-width: 701px) {
+  html body.home-page {
+    padding-bottom: 0 !important;
+  }
+
+  html body.home-page main {
+    padding-bottom: 12px !important;
+  }
+
+  html body.home-page .site-footer {
+    margin-top: 8px !important;
+    padding-bottom: 190px !important;
+  }
+
+  /* A more readable, balanced location/service-coverage line. */
+  html body.home-page .site-footer > .footer-location {
+    gap: 8px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Keep the footer links in one centered group and put copyright on a calm second row. */
+  html body.home-page .site-footer > .footer-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    column-gap: 24px !important;
+    row-gap: 10px !important;
+    width: min(100%, 1040px) !important;
+    max-width: 1040px !important;
+    margin: 5px auto 0 !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > a {
+    gap: 7px !important;
+    min-height: 28px !important;
+    font-size: 14px !important;
+    font-weight: 650 !important;
+    line-height: 1.4 !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > a svg {
+    width: 16px !important;
+    height: 16px !important;
+    flex-basis: 16px !important;
+  }
+
+  html body.home-page .site-footer > .footer-links > .footer-copyright {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex: 0 0 100% !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 5px 0 0 !important;
+    padding: 10px 0 0 !important;
+    border-top: 1px solid rgba(167, 139, 250, .20) !important;
+    color: #A8B4C8 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  /* Larger capsule, icons, labels, and Stories avatar for full-size desktop screens. */
+  html body.home-page nav.mobile-bottom-nav {
+    box-sizing: border-box !important;
+    width: min(780px, calc(100vw - 64px)) !important;
+    max-width: 780px !important;
+    min-height: 86px !important;
+    padding: 10px 16px !important;
+    gap: 10px !important;
+    border-radius: 20px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item {
+    min-height: 64px !important;
+    gap: 6px !important;
+    padding: 5px 8px !important;
+    border-radius: 14px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories) > svg {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+    padding: 7px !important;
+    border-radius: 50% !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 42px !important;
+    padding: 3px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count {
+    top: -4px !important;
+    right: -5px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    padding: 0 4px !important;
+    font-size: 10px !important;
+  }
+}
