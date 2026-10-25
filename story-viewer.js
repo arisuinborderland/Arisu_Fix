@@ -62,6 +62,11 @@
     } catch { /* Server-side deduplication remains authoritative when storage is unavailable. */ }
   }
 
+  // Persist the session ID immediately, before the first network request settles.
+  // Mobile browsers may background or reload the page before fetch's promise resolves.
+  // Reusing this ID lets the database deduplicate that request after a reload.
+  saveStoryViewSession();
+
   function recordStoryView(storyId) {
     const id = String(storyId || '');
     if (!UUID_RE.test(id) || !UUID_RE.test(storyViewSession.sessionId)) return;
