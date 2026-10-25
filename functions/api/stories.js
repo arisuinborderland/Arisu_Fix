@@ -1,6 +1,4 @@
 
-import { validateStoryImage, MAX_IMAGE_BYTES } from "../lib/story-image-jSquash.js";
-
 const VERCEL_ORIGIN = "https://arisufix.vercel.app";
 
 const JSON_HEADERS = {
@@ -28,6 +26,7 @@ async function proxyToVercel(request, url) {
 }
 
 async function postOnCloudflare(request, env) {
+  const { validateStoryImage, MAX_IMAGE_BYTES } = await import("../lib/story-image-jSquash.js");
   const supabaseUrl = String(env.SUPABASE_URL || "").replace(/\/$/, "");
   const secretKey = String(env.SUPABASE_SECRET_KEY || "");
   const publishableKey = String(env.SUPABASE_PUBLISHABLE_KEY || "");
