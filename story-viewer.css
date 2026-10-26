@@ -89,8 +89,6 @@ html body .story-viewer:not([hidden]) .story-viewer-nav:active {
 @media(max-width:600px) {
   html body .story-viewer:not([hidden]) .story-viewer-close { width:40px!important; height:40px!important; min-width:40px!important; min-height:40px!important; top:10px!important; right:10px!important; font-size:25px!important; }
   html body .story-viewer:not([hidden]) .story-viewer-nav { width:38px!important; height:46px!important; min-width:38px!important; min-height:46px!important; font-size:30px!important; }
-  html body .story-viewer:not([hidden]) .story-viewer-prev { left:8px!important; }
-  html body .story-viewer:not([hidden]) .story-viewer-next { right:8px!important; }
 }
 @media(prefers-reduced-motion:reduce) {
   html body .story-viewer:not([hidden]) .story-viewer-close,
