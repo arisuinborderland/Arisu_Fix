@@ -1,3 +1,8 @@
+AFV302 — 2026-10-27
+- Replaced the full-screen no-stories design with a compact premium empty-state modal (Option 1), keeping normal Story Viewer behavior unchanged.
+- Updated Story Viewer CSS/JS cache-busting references and made Stories navigation regression checks accept future AFV release numbers.
+- Preserved existing Story Viewer controls and story-view tracking flow.
+
 AFV301 — 2026-10-27
 - Adds a responsive branded empty state in the existing Story Viewer when the Stories API succeeds but returns no active stories. No view is recorded for the empty state; normal story playback and tracking remain unchanged.
 
