@@ -1,3 +1,8 @@
+AFV305 — 2026-10-27
+- Changed the no-stories description to English.
+- Applied requested refinements A, C, D: slightly smaller illustration, simpler Got It button without clock icon and softer glow, darker overlay with less blur.
+- Preserved modal position, width, story navigation, and story view tracking.
+
 AFV304 — 2026-10-27
 - Corrected the no-stories state to render as a compact Option 1 modal over a dimmed/blurred page instead of a full-screen viewer. Normal story playback remains unchanged.
 - Updated Story Viewer cache-busting references.

@@ -350,7 +350,7 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible {
 .story-viewer-empty:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse at 15% 0%,#a33bff16,transparent 42%),radial-gradient(ellipse at 100% 100%,#f04fe914,transparent 42%)}
 .story-viewer-empty:after{content:none}
 .story-viewer-empty-art{position:relative;width:min(42vw,150px);height:min(42vw,150px);max-height:20vh;flex:none;margin:0 auto 14px;display:grid;place-items:center}
-.story-viewer-empty-orbit{position:absolute;inset:5%;border:3px solid transparent;border-radius:50%;background:linear-gradient(#0b0b1b,#0b0b1b) padding-box,conic-gradient(from 30deg,#873aff,#f04fe9,#ffc18c,#5268ff,#873aff) border-box;box-shadow:0 0 22px #a12cff70,inset 0 0 20px #9b40ff25}
+.story-viewer-empty-orbit{position:absolute;inset:5%;border:3px solid transparent;border-radius:50%;background:linear-gradient(#0b0b1b,#0b0b1b) padding-box,conic-gradient(from 30deg,#873aff,#f04fe9,#ffc18c,#5268ff,#873aff) border-box;box-shadow:0 0 14px #a12cff45,inset 0 0 14px #9b40ff18}
 .story-viewer-empty-card{position:absolute;width:48%;height:62%;border:2px solid #c77aff;border-radius:14px;background:linear-gradient(145deg,#24204a,#0d1025);box-shadow:0 0 18px #9d42ff30}
 .story-viewer-empty-card-back{transform:translate(-13%,-4%) rotate(-8deg);opacity:.8}
 .story-viewer-empty-card-front{display:grid;place-items:center;transform:translate(5%,5%) rotate(8deg);border-color:#e18cff;background:linear-gradient(145deg,#28234d,#111128);box-shadow:0 0 24px #a344ff35}
@@ -359,7 +359,7 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible {
 .story-viewer-empty h2{position:relative;margin:0 0 10px;font:800 clamp(22px,5.5vw,28px)/1.15 Arial,sans-serif;letter-spacing:-.5px;color:#fff}
 .story-viewer-empty h2 span{background:linear-gradient(90deg,#b68aff,#f17ce8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .story-viewer-empty p{position:relative;max-width:330px;margin:0 0 20px;color:#c8c9e0;font:400 clamp(14px,3.8vw,16px)/1.5 Arial,sans-serif}
-.story-viewer-empty-done{position:relative;width:min(100%,280px);min-height:48px;border:1px solid #c9a1ff;border-radius:999px;background:linear-gradient(100deg,#4c5cff,#953cf0 58%,#e84ee8);box-shadow:0 8px 24px #8b3cff40,inset 0 1px #ffffff55;color:#fff;font:700 16px Arial,sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;touch-action:manipulation}
+.story-viewer-empty-done{position:relative;width:min(100%,280px);min-height:48px;border:1px solid #c9a1ff;border-radius:999px;background:linear-gradient(100deg,#4c5cff,#953cf0 58%,#e84ee8);box-shadow:0 5px 15px #8b3cff2b,inset 0 1px #ffffff45;color:#fff;font:700 16px Arial,sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;touch-action:manipulation}
 .story-viewer-empty-done span{font-size:22px;line-height:1}
 .story-viewer-empty-done:active{transform:scale(.985)}
 .story-viewer-empty-open{background:rgba(2,3,12,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
@@ -373,9 +373,9 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible {
 
 /* AFV304: make the no-stories state a true compact Option 1 modal over the site. */
 html body .story-viewer.story-viewer-empty-open:not([hidden]) {
-  background: rgba(4, 6, 18, .58) !important;
-  -webkit-backdrop-filter: blur(7px) !important;
-  backdrop-filter: blur(7px) !important;
+  background: rgba(4, 6, 18, .68) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  backdrop-filter: blur(4px) !important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-card {
   position: relative !important;
@@ -439,6 +439,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-c
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-child { display: none !important; }
 @media (max-height: 650px) {
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty { padding: 20px 18px 18px !important; }
-  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art { width: min(34vw, 112px) !important; height: min(34vw, 112px) !important; max-height: 16vh !important; margin-bottom: 10px !important; }
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art { width: min(30vw, 96px) !important; height: min(30vw, 96px) !important; max-height: 14vh !important; margin-bottom: 10px !important; }
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty p { margin-bottom: 14px !important; }
 }
