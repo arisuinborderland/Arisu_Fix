@@ -1,3 +1,8 @@
+AFV271 — 2026-10-26
+- Standardizes Privacy Policy and About button dimensions across all pages to match the homepage responsive sizing.
+- Keeps Privacy Policy dark blue with a white shield icon and About white with a blue document icon.
+- Aligns the Reviews header subtitle to Recovery Contact and refreshes CSS cache keys.
+
 AFV270 — 2026-10-26
 - Standardizes the Privacy Policy header button color and icon contrast across the homepage and inner pages.
 - Refreshes shared stylesheet cache keys so the updated header styling is loaded.
