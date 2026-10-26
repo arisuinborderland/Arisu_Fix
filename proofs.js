@@ -27,9 +27,11 @@ const recoveryProofs = [
   {
     category: "2fa",
     title: "Two Factor Authentication (2FA)",
-    image: "proofs/two-factor-authentication-01.jpg",
+    image: "proofs/file_00000000d2ec82119d478f27dc7e07cf.png",
+    coverImage: "proofs/file_00000000d2ec82119d478f27dc7e07cf.png",
     images: ["proofs/two-factor-authentication-01.jpg", "proofs/two-factor-authentication-02.jpg"],
-    alt: "Two related screenshots showing a Meta Advanced Protection identity-confirmation issue and the associated Facebook profile, presented together as one example",
+    alt: "Two-Factor Authentication case artwork with Arisu Fix branding, plus supporting screenshots of the Meta Advanced Protection identity-confirmation issue and associated Facebook profile",
+    date: "October 16, 2026",
     violation: "Two-Factor Authentication"
   }
 ];
@@ -89,8 +91,8 @@ function renderRecoveryProofs() {
       card.className = `proof-album-card proof-album-${album.icon}`;
       const cover = document.createElement("div");
       cover.className = "proof-album-cover";
-      const previewImages = album.icon === "2fa" && items[0]?.images?.length > 1
-        ? items[0].images.slice(0, 2)
+      const previewImages = album.icon === "2fa" && items[0]?.coverImage
+        ? [items[0].coverImage]
         : (items[0]?.image ? [items[0].image] : []);
       if (previewImages.length > 1) {
         const previewPair = document.createElement("div");
