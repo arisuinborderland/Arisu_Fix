@@ -10020,3 +10020,53 @@ html body.about-page .about-page-footer > span {
   }
 }
 
+/* Fix Customer Reviews CTA label alignment without changing its visual theme. */
+html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  align-items: center;
+  justify-items: center;
+  column-gap: 8px;
+  padding: 7px 10px;
+  text-align: center;
+}
+html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all .feedback-button-icon {
+  grid-column: 1;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all .view-button-label {
+  grid-column: 2;
+  justify-self: stretch;
+  min-width: 0;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.15;
+  overflow-wrap: normal;
+  font-size: clamp(12px, 3.4vw, 16px);
+  font-weight: 800;
+}
+html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all::after {
+  grid-column: 3;
+  position: static;
+  justify-self: center;
+  transform: none;
+  width: 28px;
+  height: 28px;
+  font-size: 27px;
+}
+@media (max-width: 600px) {
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+    grid-template-columns: 26px minmax(0, 1fr) 26px;
+    column-gap: 5px;
+    padding: 7px 8px;
+  }
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all::after {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+  }
+}
+
