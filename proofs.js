@@ -48,12 +48,9 @@ function renderRecoveryProofs() {
   if (!gallery || !empty || !pagination) return;
 
   const validProofs = recoveryProofs.filter((proof) => proof && proof.title && (proof.image || proof.video));
-  const normalizedSearch = proofSearchTerm.trim().toLocaleLowerCase();
-  const filtered = validProofs.filter((proof) => {
-    const categoryMatches = activeProofCategory === "all" || proof.category === activeProofCategory;
-    const searchable = [proof.title, proof.violation, proof.alt, proof.date, proof.category].filter(Boolean).join(" ").toLocaleLowerCase();
-    return categoryMatches && (!normalizedSearch || searchable.includes(normalizedSearch));
-  });
+  const filtered = validProofs.filter((proof) =>
+    activeProofCategory === "all" || proof.category === activeProofCategory
+  );
 
   const countFor = (category) => validProofs.filter((proof) => category === "all" || proof.category === category).length;
   [["allProofCount", "all"], ["suspendedProofCount", "suspended"], ["disabledProofCount", "disabled"], ["twoFaProofCount", "2fa"]].forEach(([id, category]) => {
@@ -62,7 +59,7 @@ function renderRecoveryProofs() {
   });
 
   // Album landing view: keep the page compact as more proof images are added.
-  const showAlbumOverview = !normalizedSearch && (activeProofCategory === "all" || showAlbumCardsForCategory);
+  const showAlbumOverview = activeProofCategory === "all" || showAlbumCardsForCategory;
   // Keep Back to site on the album landing view only, not beneath an open proof.
   const backToSiteLink = document.querySelector(".proofs-back-to-site");
   if (backToSiteLink) backToSiteLink.hidden = !showAlbumOverview;
@@ -265,24 +262,11 @@ function renderRecoveryProofs() {
     }
     if (!copy.childElementCount) copy.hidden = true;
 
-    const backButton = document.createElement("button");
-    backButton.type = "button";
-    backButton.className = "proof-album-back proof-album-back-inline";
-    backButton.textContent = "← Back to albums";
-    backButton.addEventListener("click", () => {
-      activeProofCategory = "all";
-      activeProofPage = 1;
-      proofSearchTerm = "";
-      const searchInput = document.getElementById("proofSearch");
-      if (searchInput) searchInput.value = "";
-      document.querySelectorAll("[data-proof-filter]").forEach((other) => {
-        const active = other.dataset.proofFilter === "all";
-        other.classList.toggle("is-active", active);
-        other.setAttribute("aria-pressed", String(active));
-      });
-      renderRecoveryProofs();
-      document.querySelector(".proof-browser")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    card.append(copy, imageFrame);
+    gallery.appendChild(card);
+  });
+
+  if (visibleProofs.length) {
     const updatesCard = document.createElement("section");
     updatesCard.className = "proof-updates-coming";
     updatesCard.setAttribute("aria-labelledby", "proof-updates-coming-title");
@@ -304,10 +288,26 @@ function renderRecoveryProofs() {
     updatesDescription.textContent = "New content and improvements are in progress. More recovery proofs and customer reviews will be added as they become available.";
     updatesCopy.append(updatesEyebrow, updatesHeading, updatesSubtitle, updatesDescription);
     updatesCard.append(updatesIcon, updatesCopy);
+    gallery.appendChild(updatesCard);
 
-    card.append(copy, imageFrame, updatesCard, backButton);
-    gallery.appendChild(card);
-  });
+    const backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.className = "proof-album-back proof-album-back-inline";
+    backButton.textContent = "← Back to albums";
+    backButton.addEventListener("click", () => {
+      activeProofCategory = "all";
+      activeProofPage = 1;
+      proofSearchTerm = "";
+      document.querySelectorAll("[data-proof-filter]").forEach((other) => {
+        const active = other.dataset.proofFilter === "all";
+        other.classList.toggle("is-active", active);
+        other.setAttribute("aria-pressed", String(active));
+      });
+      renderRecoveryProofs();
+      document.querySelector(".proof-browser")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    gallery.appendChild(backButton);
+  }
 
   pagination.replaceChildren();
   pagination.hidden = pageCount <= 1;
@@ -332,15 +332,6 @@ function renderRecoveryProofs() {
   }
 }
 
-const proofSearch = document.getElementById("proofSearch");
-if (proofSearch) {
-  proofSearch.addEventListener("input", () => {
-    proofSearchTerm = proofSearch.value;
-    showAlbumCardsForCategory = false;
-    activeProofPage = 1;
-    renderRecoveryProofs();
-  });
-}
 document.querySelectorAll("[data-proof-filter]").forEach((button) => {
   button.addEventListener("click", () => {
     activeProofCategory = button.dataset.proofFilter || "all";
