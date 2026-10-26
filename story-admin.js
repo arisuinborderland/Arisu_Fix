@@ -181,12 +181,23 @@ async function auth(path, payload) {
       say('Story order saved.');
     } catch (e) { say('Could not save the new order: ' + e.message, true); await loadStories(); }
   }
+  function updateActivityCards(stories, views, countsAvailable) {
+    const now = Date.now();
+    const active = stories.filter(story => (story.adminStatus || 'active') === 'active' && new Date(story.expiresAt || story.expires_at).getTime() > now);
+    const drafts = stories.filter(story => (story.adminStatus || 'active') === 'draft');
+    const expiring = active.filter(story => new Date(story.expiresAt || story.expires_at).getTime() - now <= 3 * 60 * 60 * 1000);
+    $('activityActive').textContent = active.length.toLocaleString();
+    $('activityDrafts').textContent = drafts.length.toLocaleString();
+    $('activityExpiring').textContent = expiring.length.toLocaleString();
+    $('activityViews').textContent = countsAvailable ? stories.reduce((sum, story) => sum + (Number(views[story.id]) || 0), 0).toLocaleString() : '—';
+  }
   async function loadStories() {
     const list = $('storyList'); list.textContent = 'Loading Stories…';
     try {
       const data = await api('/api/stories?admin=1');
       let views = {}; let countsAvailable = true;
       try { const countData = await api('/api/story-views-admin'); views = countData.views || {}; } catch { countsAvailable = false; }
+      updateActivityCards(data.stories || [], views, countsAvailable);
       list.replaceChildren();
       if (!countsAvailable) { const warning = document.createElement('p'); warning.className = 'muted'; warning.textContent = 'View counts need the Supabase database migration in supabase/recovery-story-views.sql.'; list.append(warning); }
       const filter = $('storyFilter')?.value || 'active';
@@ -293,8 +304,44 @@ async function auth(path, payload) {
     const label = draft ? 'Save Drafts' : 'Publish Stories';
     button.textContent = files.length ? `${label} · ${files.length}` : (draft ? 'Save as Draft' : 'Publish Stories · 24 hours');
   }
+  let previewFiles = [];
+  let previewIndex = 0;
+  let previewObjectUrl = '';
+  function closeStoryPreview() {
+    $('storyPreviewModal').hidden = true;
+    if (previewObjectUrl) { URL.revokeObjectURL(previewObjectUrl); previewObjectUrl = ''; }
+  }
+  function showStoryPreview(index) {
+    if (!previewFiles.length) return;
+    previewIndex = (index + previewFiles.length) % previewFiles.length;
+    if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
+    previewObjectUrl = URL.createObjectURL(previewFiles[previewIndex]);
+    $('storyPreviewImage').src = previewObjectUrl;
+    $('storyPreviewCaption').textContent = $('caption').value.trim();
+    $('storyPreviewCaption').hidden = !$('caption').value.trim();
+    $('storyPreviewPosition').textContent = `Image ${previewIndex + 1} of ${previewFiles.length} · Viewer preview only`;
+    $('storyPreviewPrev').hidden = previewFiles.length < 2;
+    $('storyPreviewNext').hidden = previewFiles.length < 2;
+    $('storyPreviewModal').hidden = false;
+  }
+  $('storyPreviewModal').querySelectorAll('[data-preview-close]').forEach(el => el.addEventListener('click', closeStoryPreview));
+  $('storyPreviewPrev').addEventListener('click', () => showStoryPreview(previewIndex - 1));
+  $('storyPreviewNext').addEventListener('click', () => showStoryPreview(previewIndex + 1));
+  document.addEventListener('keydown', event => {
+    if ($('storyPreviewModal').hidden) return;
+    if (event.key === 'Escape') closeStoryPreview();
+    if (event.key === 'ArrowLeft') showStoryPreview(previewIndex - 1);
+    if (event.key === 'ArrowRight') showStoryPreview(previewIndex + 1);
+  });
+  $('caption').addEventListener('input', () => {
+    if (!$('storyPreviewModal').hidden) {
+      $('storyPreviewCaption').textContent = $('caption').value.trim();
+      $('storyPreviewCaption').hidden = !$('caption').value.trim();
+    }
+  });
   function renderImagePreviews() {
     const input = $('storyImage'); const preview = $('imagePreview'); preview.replaceChildren();
+    previewFiles = Array.from(input.files || []);
     const files = Array.from(input.files || []);
     const summary = $('selectionSummary');
     const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
@@ -321,9 +368,10 @@ async function auth(path, payload) {
           input.files = transfer.files; renderImagePreviews();
         } catch (_) { say('This browser cannot remove a single selected file. Please reselect the images you want to upload.', true); }
       });
+      const view = document.createElement('button'); view.type = 'button'; view.className = 'preview-open'; view.textContent = 'Preview'; view.addEventListener('click', () => showStoryPreview(index));
       const name = document.createElement('small'); name.textContent = file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB';
       if (file.size > 3 * 1024 * 1024 || file.size < 1) { card.classList.add('preview-invalid'); name.textContent += ' · Too large or empty'; }
-      card.append(remove, name); preview.append(card);
+      card.append(remove, name, view); preview.append(card);
       if (typeof createImageBitmap !== 'function') { name.textContent += ' · Preview unsupported in this browser'; return; }
       createImageBitmap(file).then(bitmap => {
         const canvas = document.createElement('canvas'); const maxWidth = 320; const maxHeight = 240;
@@ -341,6 +389,7 @@ async function auth(path, payload) {
   $('storyFilter').addEventListener('change', loadStories);
   $('publishForm').addEventListener('submit', async event => {
     event.preventDefault(); const button = $('publishButton'); if (button.disabled || button.dataset.busy) return; button.dataset.busy = 'true'; button.disabled = true; button.textContent = 'Preparing upload…'; say('Preparing your Story images…');
+    let completedBeforeError = 0;
     try {
       const files = Array.from($('storyImage').files || []);
       if (!files.length) throw new Error('Please choose one or more images from your Gallery.');
@@ -354,14 +403,18 @@ async function auth(path, payload) {
         const currentLabel = (draft ? 'Saving draft ' : 'Publishing Story ') + (saved + 1) + ' of ' + files.length + '…'; say(currentLabel); progressText.textContent = currentLabel; progressFill.style.width = Math.round((saved / files.length) * 100) + '%';
         const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result || '')); reader.onerror = () => reject(new Error('Could not read ' + file.name + '.')); reader.readAsDataURL(file); });
         await api('/api/stories', { method: 'POST', body: JSON.stringify({ imageData: dataUrl, mimeType: file.type, fileName: file.name, caption: $('caption').value, saveAsDraft: draft }) });
-        saved++; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
+        saved++; completedBeforeError = saved; progressFill.style.width = Math.round((saved / files.length) * 100) + '%'; progressText.textContent = saved + ' of ' + files.length + ' ' + (draft ? 'drafts saved' : 'Stories published');
       }
       $('caption').value = ''; $('captionCount').textContent = '0'; $('storyImage').value = ''; $('saveAsDraft').checked = false; $('publishButton').textContent = 'Publish for 24 hours';
-      $('imagePreview').replaceChildren(); renderImagePreviews(); $('uploadProgress').hidden = true;
+      closeStoryPreview(); $('imagePreview').replaceChildren(); renderImagePreviews(); $('uploadProgress').hidden = true;
       $('storyFilter').value = draft ? 'draft' : 'active';
       say(saved + (saved === 1 ? ' Story ' : ' Stories ') + (draft ? 'saved as draft.' : 'published for 24 hours.')); await loadStories();
       showAdminTab('active');
-    } catch(e) { say(e.message, true); } finally { delete button.dataset.busy; updatePublishState(); if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
+    } catch(e) {
+      const partial = completedBeforeError > 0 ? ` ${completedBeforeError} item${completedBeforeError === 1 ? '' : 's'} already succeeded; check the Story Library before retrying to avoid duplicates.` : '';
+      say(e.message + partial, true);
+      if (completedBeforeError > 0) { $('uploadProgressText').textContent = 'Upload stopped · check Story Library before retrying'; $('uploadProgress').hidden = false; }
+    } finally { delete button.dataset.busy; updatePublishState(); if ($('uploadProgressFill').style.width === '100%') $('uploadProgress').hidden = true; }
   });
   $('refreshStories').addEventListener('click', loadStories);
   $('signOut').addEventListener('click', () => showSignedOut('Signed out.'));
