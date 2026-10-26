@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#eef2ff">
-<title>Story Admin — Arisu Fix</title><link rel="stylesheet" href="story-admin.css?v=remember-session-4">
+<title>Story Admin — Arisu Fix</title><link rel="stylesheet" href="story-admin.css?v=AFV270">
 </head>
 <body>
 <main class="admin-shell">
@@ -12,6 +12,12 @@
   <section class="panel" id="loginPanel" hidden><h2>Admin sign in</h2><form id="loginForm"><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><label class="remember-toggle" for="rememberMe"><input id="rememberMe" type="checkbox"><span>Remember me</span></label><p class="login-help">Keep me signed in on this device</p><button type="submit">Sign in securely</button></form></section>
   <section class="panel" id="editorPanel" hidden>
     <div class="panel-heading admin-top-heading"><h2>Story Admin</h2><button class="quiet" id="signOut" type="button">Sign out</button></div>
+    <div class="admin-activity" aria-label="Story overview">
+      <div class="activity-card"><span>Active stories</span><strong id="activityActive">—</strong></div>
+      <div class="activity-card"><span>Drafts</span><strong id="activityDrafts">—</strong></div>
+      <div class="activity-card"><span>Expiring soon</span><strong id="activityExpiring">—</strong></div>
+      <div class="activity-card"><span>Total views</span><strong id="activityViews">—</strong></div>
+    </div>
     <nav class="admin-tabs" aria-label="Story admin sections" role="tablist">
       <button class="admin-tab is-active" id="uploadTab" type="button" role="tab" aria-controls="uploadSection" aria-selected="true">Upload Stories</button>
       <button class="admin-tab" id="activeTab" type="button" role="tab" aria-controls="activeSection" aria-selected="false">Active Stories</button>
@@ -26,7 +32,15 @@
       <div id="storyList" class="story-list"><p class="muted">Sign in to load Stories.</p></div>
     </section>
   </section>
+  <div id="storyPreviewModal" class="story-preview-modal" hidden role="dialog" aria-modal="true" aria-labelledby="storyPreviewTitle">
+    <div class="story-preview-backdrop" data-preview-close></div>
+    <section class="story-preview-dialog">
+      <div class="story-preview-toolbar"><strong id="storyPreviewTitle">Story preview</strong><button type="button" class="story-preview-close" data-preview-close aria-label="Close story preview">×</button></div>
+      <div class="story-preview-stage"><div class="story-preview-progress"><span></span></div><div class="story-preview-head"><span class="story-preview-avatar">A</span><span>Arisu Fix · Preview</span></div><img id="storyPreviewImage" alt="Selected Story preview"><p id="storyPreviewCaption" class="story-preview-caption"></p><button type="button" id="storyPreviewPrev" class="story-preview-nav prev" aria-label="Previous image">‹</button><button type="button" id="storyPreviewNext" class="story-preview-nav next" aria-label="Next image">›</button></div>
+      <p id="storyPreviewPosition" class="story-preview-position" aria-live="polite"></p>
+    </section>
+  </div>
   <p class="footnote">If the backend is not configured, publishing remains unavailable. Never share your password or secret API key.</p>
 </main>
-<script src="story-admin.js?v=remember-session-4" defer></script>
+<script src="story-admin.js?v=AFV270" defer></script>
 </body></html>
