@@ -1,3 +1,17 @@
+AFV297 — 2026-10-26
+- Makes Privacy Policy and About header button width, height, icon size, spacing, typography, and breakpoints match the homepage on Recovery Proofs and Customer Reviews.
+- Moves the verified badge down by 1px to correct the remaining visual offset.
+- Refreshes active stylesheet cache keys and synchronizes package versions.
+
+AFV277 — 2026-10-26
+- Fixes narrow-phone header button width overrides on Recovery Proofs and Customer Reviews to match the homepage reference.
+- Keeps the verified badge centered with no artificial vertical offset.
+
+AFV275 — 2026-10-26
+- Corrects the verified badge vertical alignment beside the brand name.
+- Normalizes vertical padding and centering for the Privacy Policy and About header buttons while preserving their established dimensions and responsive sizing.
+- Refreshes stylesheet cache keys across public pages and synchronizes package and lockfile versions.
+
 AFV274 — 2026-10-26
 - Corrects the header button mismatch found in the review video by enforcing identical Privacy Policy and About button widths, heights, icon sizes, spacing, and typography across Homepage, Recovery Proofs, Customer Reviews, Privacy Policy, and About.
 - Preserves homepage button colors and responsive sizing; leaves unrelated page content and functionality unchanged.
@@ -646,3 +660,5 @@ AFV261 — 2026-10-23
 - Tightened the mobile Recovery Stories Admin upload form to reduce excess vertical space in the file picker and empty preview.
 - Compactened helper text, caption field, draft toggle, notice, and publish button while preserving upload validation and behavior.
 - Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV261 / 261.0.0.
+
+AFV297 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.

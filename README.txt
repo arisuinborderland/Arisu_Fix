@@ -1,16 +1,19 @@
 ARISU FIX — PROJECT README
-Version: AFV274
+Version: AFV297
 Updated: 2026-10-26
 
-Current release: AFV274
-Package version: 273.0.0
+Current release: AFV297
+Package version: 297.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV274 fixes the shared mobile header layout and refreshes the stylesheet cache keys across public pages.
-- AFV274 is the current project version recorded in package.json.
+- AFV297 makes Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.
+- AFV277 makes Privacy Policy and About button widths on narrow phones match the homepage reference, removing conflicting legacy breakpoint sizes on proofs and reviews pages.
+- AFV277 keeps the verified badge vertically centered without an artificial offset.
+- AFV277 updates package and lockfile versions; no deployment was performed.
+- AFV274 established the shared mobile header layout; AFV277 removes remaining content-page size discrepancies.
 - Production Stories API is implemented with Cloudflare Pages Functions under functions/api/.
 - Recovery Story views are deduplicated in the database by story and browser-tab session.
 - Story image URLs refresh when the viewer opens; signed URLs are issued for one hour.

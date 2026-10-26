@@ -10471,3 +10471,51 @@ html body .topbar > .header-meta > .about-header-link:focus-visible { outline:3p
     width:12px !important; height:12px !important; flex-basis:12px !important;
   }
 }
+
+
+/* AFV275 — final header alignment correction.
+   Keep the established homepage dimensions; normalize vertical button padding and center the verified badge. */
+html body .topbar > .header-meta > .privacy-link,
+html body .topbar > .header-meta > .about-header-link {
+  padding-block: 1px !important;
+  align-self: center !important;
+  vertical-align: middle !important;
+}
+html body .topbar > .brand .brand-name-row {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+}
+
+
+/* AFV276 — homepage-canonical header sizing; remove vertical padding drift. */
+html body .topbar > .header-meta > .privacy-link,
+html body .topbar > .header-meta > .about-header-link {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+/* AFV277 — keep the verified badge centered on the brand-name row. */
+html body .topbar > .brand .brand-name-row { align-items:center !important; }
+
+
+/* AFV288: fix badge top clipping without changing its original check/pulse animations. */
+html body .topbar,
+html body .topbar > .brand,
+html body .topbar > .brand .brand-copy,
+html body .topbar > .brand .brand-name-row {
+  overflow: visible !important;
+  clip-path: none !important;
+}
+html body .topbar > .brand .brand-name-row {
+  padding-block: 3px !important;
+}
+html body .topbar > .brand .brand-name-row > .arisu-verified-badge {
+  transform-origin: center center !important;
+  overflow: visible !important;
+  clip-path: none !important;
+}
+html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
+  overflow: visible !important;
+}
