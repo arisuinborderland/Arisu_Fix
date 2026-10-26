@@ -203,10 +203,6 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .section-heading h2{font-size:clamp(24px,6.4vw,30px);letter-spacing:-.7px}
  .section-heading p{font-size:14px}
  .step-card{padding:19px 17px;column-gap:13px}
- .step-card p,
- .safety-panel p,
- .about-card p,
- .terms-card p{font-size:14px;line-height:1.8}
  .step-card h3{font-size:16px}
 
  .safety-panel{padding:21px 17px}
