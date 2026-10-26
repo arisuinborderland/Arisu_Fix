@@ -1,5 +1,5 @@
 // Recovery proof gallery. Add only real examples that you have permission to publish.
-// Use category: "suspended", "disabled", or "2fa" for each item.
+// Use category: "suspended", "disabled", "2fa", or "instagram-hacked" for each item.
 const recoveryProofs = [
   {
     category: "suspended",
@@ -53,7 +53,7 @@ function renderRecoveryProofs() {
   );
 
   const countFor = (category) => validProofs.filter((proof) => category === "all" || proof.category === category).length;
-  [["allProofCount", "all"], ["suspendedProofCount", "suspended"], ["disabledProofCount", "disabled"], ["twoFaProofCount", "2fa"]].forEach(([id, category]) => {
+  [["allProofCount", "all"], ["suspendedProofCount", "suspended"], ["disabledProofCount", "disabled"], ["twoFaProofCount", "2fa"], ["instagramHackedProofCount", "instagram-hacked"]].forEach(([id, category]) => {
     const node = document.getElementById(id);
     if (node) node.textContent = String(countFor(category));
   });
@@ -76,7 +76,8 @@ function renderRecoveryProofs() {
     const albums = [
       { category: "suspended", title: "Suspended Accounts", description: "Suspension notices and related account-status examples.", icon: "suspended" },
       { category: "disabled", title: "Disabled Accounts", description: "Disabled-account notices and related case examples.", icon: "disabled" },
-      { category: "2fa", title: "Two Factor Authentication (2FA)", description: "Examples and updates related to two-factor authentication access issues.", icon: "2fa" }
+      { category: "2fa", title: "Two Factor Authentication (2FA)", description: "Examples and updates related to two-factor authentication access issues.", icon: "2fa" },
+      { category: "instagram-hacked", title: "Instagram Accounts Hacked", description: "Examples of hacked Instagram account recovery cases.", icon: "instagram-hacked", coverImage: "proofs/instagram-accounts-hacked-cover.svg" }
     ];
     const visibleAlbums = activeProofCategory === "all"
       ? albums
@@ -87,9 +88,11 @@ function renderRecoveryProofs() {
       card.className = `proof-album-card proof-album-${album.icon}`;
       const cover = document.createElement("div");
       cover.className = "proof-album-cover";
-      const previewImages = album.icon === "2fa" && items[0]?.coverImage
-        ? [items[0].coverImage]
-        : (items[0]?.image ? [items[0].image] : []);
+      const previewImages = album.coverImage
+        ? [album.coverImage]
+        : (album.icon === "2fa" && items[0]?.coverImage
+          ? [items[0].coverImage]
+          : (items[0]?.image ? [items[0].image] : []));
       if (previewImages.length > 1) {
         const previewPair = document.createElement("div");
         previewPair.className = "proof-album-preview-pair proof-album-preview-pair-2fa";
@@ -152,12 +155,14 @@ function renderRecoveryProofs() {
         ? "Examples for suspended Facebook accounts."
         : album.icon === "disabled"
           ? "Examples for disabled Facebook accounts."
-          : "Examples for 2FA and login-related cases.";
+          : album.icon === "2fa"
+            ? "Examples for 2FA and login-related cases."
+            : "Examples of hacked Instagram account recovery cases.";
       const button = document.createElement("button");
       button.type = "button";
       button.className = "proof-album-open";
       button.textContent = "View album →";
-      button.disabled = items.length === 0 && album.category !== "2fa";
+      button.disabled = items.length === 0 && !["2fa", "instagram-hacked"].includes(album.category);
       button.addEventListener("click", () => {
         activeProofCategory = album.category;
         showAlbumCardsForCategory = false;
@@ -188,9 +193,9 @@ function renderRecoveryProofs() {
   empty.hidden = filtered.length !== 0;
   const emptyHeading = empty.querySelector("h3");
   const emptyDescription = empty.querySelector("p");
-  if (activeProofCategory === "2fa" && !filtered.length && emptyHeading && emptyDescription) {
-    emptyHeading.textContent = "Two Factor Authentication (2FA)";
-    emptyDescription.textContent = "This album is ready. Add approved examples here when they are available.";
+  if (["2fa", "instagram-hacked"].includes(activeProofCategory) && !filtered.length && emptyHeading && emptyDescription) {
+    emptyHeading.textContent = activeProofCategory === "2fa" ? "Two Factor Authentication (2FA)" : "Instagram Accounts Hacked";
+    emptyDescription.textContent = "This album is ready. Add approved screenshots and customer-approved examples here when they are available.";
   } else if (emptyHeading && emptyDescription) {
     emptyHeading.textContent = "No matching proofs found";
     emptyDescription.textContent = "Try another search term or choose a different category.";
