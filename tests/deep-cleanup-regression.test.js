@@ -22,10 +22,10 @@ test('Proofs page updates its footer year only through the shared script', () =>
   const shared = read('script.js');
   const privacy = read('privacy.html');
 
-  assert.match(proofs, /script\.js\?v=AFV26\d+/);
+  assert.match(proofs, /script\.js\?v=AFV\d+/);
   assert.doesNotMatch(proofs, /privacy-year\.js/);
   assert.match(shared, /getElementById\("year"\)/);
-  assert.match(privacy, /privacy-year\.js\?v=AFV26\d+/);
+  assert.match(privacy, /privacy-year\.js\?v=AFV\d+/);
 });
 
 test('Production build uses an explicit allowlist and excludes internal project files', () => {

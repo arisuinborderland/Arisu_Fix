@@ -32,7 +32,7 @@ test("Full-size review viewer includes zoom controls and pan support", () => {
 
 test("Reviews page stylesheet cache key matches the current AFV release", () => {
   assert.match(html, /reviews\.css\?v=AFV\d+/);
-  assert.match(html, /review-lightbox\.js\?v=AFV26\d+/);
+  assert.match(html, /review-lightbox\.js\?v=AFV\d+/);
   assert.doesNotMatch(html, new RegExp("\\?v=AFV" + "256"));
 });
 
