@@ -1,3 +1,8 @@
+AFV272 — 2026-10-26
+- Fixes the shared mobile header overlap by restoring a single-row brand and action layout.
+- Applies final mobile header overrides to the homepage, Recovery Proofs, and Customer Reviews.
+- Refreshes shared stylesheet cache keys to force clients to load the corrected CSS.
+
 AFV271 — 2026-10-26
 - Standardizes Privacy Policy and About button dimensions across all pages to match the homepage responsive sizing.
 - Keeps Privacy Policy dark blue with a white shield icon and About white with a blue document icon.
