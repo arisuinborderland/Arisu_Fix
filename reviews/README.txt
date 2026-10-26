@@ -1,6 +1,6 @@
 ARISU FIX — CUSTOMER REVIEWS ASSET GUIDE
-Version: AFV261
-Updated: 2026-10-23
+Version: AFV268
+Updated: 2026-10-26
 
 The review-slot image files in this folder are display assets referenced by the
 site's review sections. To replace a slot, replace the corresponding image while
