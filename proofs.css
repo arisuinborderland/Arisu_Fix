@@ -1292,3 +1292,64 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
     width: 15px !important; height: 15px !important; flex-basis: 15px !important;
   }
 }
+
+
+/* AFV272 — final mobile header override; keep brand and actions in one aligned row. */
+@media (max-width: 700px) {
+  html body.proofs-document header.topbar,
+  html body.reviews-document header.topbar {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  html body.proofs-document header.topbar > .brand,
+  html body.reviews-document header.topbar > .brand {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    margin: 0 !important;
+  }
+  html body.proofs-document header.topbar > .brand .logo,
+  html body.reviews-document header.topbar > .brand .logo {
+    flex: 0 0 39px !important; width: 39px !important; height: 39px !important;
+  }
+  html body.proofs-document header.topbar > .brand .brand-copy,
+  html body.reviews-document header.topbar > .brand .brand-copy { flex: 1 1 auto !important; min-width: 0 !important; overflow: hidden !important; }
+  html body.proofs-document header.topbar > .brand small,
+  html body.reviews-document header.topbar > .brand small { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+  html body.proofs-document header.topbar > .header-meta,
+  html body.reviews-document header.topbar > .header-meta {
+    display: flex !important; flex: 0 0 auto !important; width: auto !important; min-width: 0 !important;
+    align-items: center !important; justify-content: flex-end !important; gap: 6px !important; margin: 0 !important;
+  }
+  html body.proofs-document header.topbar > .header-meta > .privacy-link,
+  html body.proofs-document header.topbar > .header-meta > .about-header-link,
+  html body.reviews-document header.topbar > .header-meta > .privacy-link,
+  html body.reviews-document header.topbar > .header-meta > .about-header-link {
+    flex: 0 0 auto !important; width: auto !important; min-width: 0 !important; max-width: none !important;
+    height: 36px !important; min-height: 36px !important; margin: 0 !important;
+    padding: 0 9px !important; gap: 5px !important; font-size: 10.5px !important;
+    line-height: 1 !important; white-space: nowrap !important; transform: none !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.proofs-document header.topbar,
+  html body.reviews-document header.topbar { padding-left: 8px !important; padding-right: 8px !important; gap: 5px !important; }
+  html body.proofs-document header.topbar > .header-meta,
+  html body.reviews-document header.topbar > .header-meta { gap: 4px !important; }
+  html body.proofs-document header.topbar > .header-meta > .privacy-link,
+  html body.reviews-document header.topbar > .header-meta > .privacy-link { padding: 0 6px !important; font-size: 9.5px !important; }
+  html body.proofs-document header.topbar > .header-meta > .about-header-link,
+  html body.reviews-document header.topbar > .header-meta > .about-header-link { padding: 0 6px !important; font-size: 9.5px !important; }
+}
