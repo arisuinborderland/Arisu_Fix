@@ -1157,7 +1157,26 @@ html body.proofs-document .proofs-footer { margin-top:10px; }
 }
 
 
-/* Shared Privacy Policy header button sizing — keep consistent across pages. */
+/* Shared Privacy Policy header button styling — consistent across pages. */
+html body .topbar > .header-meta > .privacy-link {
+  background: #173d78 !important;
+  border-color: #173d78 !important;
+  color: #ffffff !important;
+  box-shadow: 0 5px 14px rgba(23, 61, 120, .22) !important;
+}
+html body .topbar > .header-meta > .privacy-link .header-icon {
+  color: #ffffff !important;
+}
+html body .topbar > .header-meta > .privacy-link:hover {
+  background: #214f91 !important;
+  border-color: #214f91 !important;
+  color: #ffffff !important;
+}
+html body .topbar > .header-meta > .privacy-link:focus-visible {
+  outline: 3px solid #9bb5ff !important;
+  outline-offset: 2px !important;
+}
+
 html body .topbar > .header-meta > .privacy-link {
   box-sizing: border-box !important;
   display: inline-flex !important;
