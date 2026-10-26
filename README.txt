@@ -1,17 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV303
+Version: AFV304
 Updated: 2026-10-26
 
-Current release: AFV303
+Current release: AFV304
 Package version: 303.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV303 replaces the full-screen empty state with a compact premium modal (Option 1) inside the existing Story Viewer; normal story playback and view tracking are unchanged.
+- AFV304 replaces the full-screen empty state with a compact premium modal (Option 1) inside the existing Story Viewer; normal story playback and view tracking are unchanged.
 
-- AFV303 consolidates legacy homepage/global header CSS rules while preserving AFV297 layout and sizing. It also keeps Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.
+- AFV304 consolidates legacy homepage/global header CSS rules while preserving AFV297 layout and sizing. It also keeps Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.
 - AFV277 makes Privacy Policy and About button widths on narrow phones match the homepage reference, removing conflicting legacy breakpoint sizes on proofs and reviews pages.
 - AFV277 keeps the verified badge vertically centered without an artificial offset.
 - AFV277 updates package and lockfile versions; no deployment was performed.
