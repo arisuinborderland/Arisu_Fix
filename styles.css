@@ -10236,3 +10236,109 @@ html body .topbar > .header-meta > .about-header-link:hover { background: #f3f6f
     width: 15px !important; height: 15px !important; flex-basis: 15px !important;
   }
 }
+
+
+/* AFV272 — restore a single, non-overlapping mobile header layout across all pages.
+   Keep desktop rules untouched; mobile uses the homepage's compact Privacy + About actions. */
+@media (max-width: 700px) {
+  html body header.topbar,
+  html body .topbar {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+    overflow: visible !important;
+  }
+  html body .topbar > .brand {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    margin: 0 !important;
+  }
+  html body .topbar > .brand .logo {
+    flex: 0 0 39px !important;
+    width: 39px !important;
+    height: 39px !important;
+  }
+  html body .topbar > .brand .brand-copy {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  html body .topbar > .brand .brand-name-row,
+  html body .topbar > .brand b,
+  html body .topbar > .brand small {
+    max-width: 100% !important;
+    white-space: nowrap !important;
+  }
+  html body .topbar > .brand small {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  html body .topbar > .header-meta {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    margin: 0 !important;
+  }
+  html body .topbar > .header-meta > .privacy-link,
+  html body .topbar > .header-meta > .about-header-link {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    position: relative !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    margin: 0 !important;
+    padding: 0 9px !important;
+    gap: 5px !important;
+    border-radius: 12px !important;
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+  html body .topbar > .header-meta > .privacy-link .header-icon,
+  html body .topbar > .header-meta > .about-header-link .header-icon {
+    display: block !important;
+    flex: 0 0 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+  /* The homepage keeps the two primary actions in its header; secondary links remain accessible elsewhere. */
+  html body.home-page .topbar > .header-meta > .proofs-header-link,
+  html body.home-page .topbar > .header-meta > .webtools-header-link {
+    display: none !important;
+  }
+}
+@media (max-width: 380px) {
+  html body .topbar { padding-left: 8px !important; padding-right: 8px !important; gap: 5px !important; }
+  html body .topbar > .brand { gap: 5px !important; }
+  html body .topbar > .brand .logo { flex-basis: 35px !important; width: 35px !important; height: 35px !important; }
+  html body .topbar > .header-meta { gap: 4px !important; }
+  html body .topbar > .header-meta > .privacy-link,
+  html body .topbar > .header-meta > .about-header-link {
+    height: 34px !important; min-height: 34px !important; padding-left: 6px !important; padding-right: 6px !important; gap: 3px !important; font-size: 9.5px !important;
+  }
+  html body .topbar > .header-meta .header-icon { flex-basis: 12px !important; width: 12px !important; height: 12px !important; }
+}
