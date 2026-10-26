@@ -1,15 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV270
+Version: AFV271
 Updated: 2026-10-26
 
-Current release: AFV270
-Package version: 270.0.0
+Current release: AFV271
+Package version: 271.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV270 is the current project version recorded in package.json.
+- AFV271 is the current project version recorded in package.json.
 - Production Stories API is implemented with Cloudflare Pages Functions under functions/api/.
 - Recovery Story views are deduplicated in the database by story and browser-tab session.
 - Story image URLs refresh when the viewer opens; signed URLs are issued for one hour.
