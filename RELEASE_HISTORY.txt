@@ -1,3 +1,8 @@
+AFV270 — 2026-10-26
+- Standardizes the Privacy Policy header button color and icon contrast across the homepage and inner pages.
+- Refreshes shared stylesheet cache keys so the updated header styling is loaded.
+- Aligns package and lockfile versions with AFV270 cache-busting references.
+
 AFV266 — 2026-10-25
 - Refreshes the Stories API when the viewer opens, so stale signed image URLs are renewed after long idle periods.
 - Extends signed Story image URL TTL to one hour as a safety margin for long sessions.
