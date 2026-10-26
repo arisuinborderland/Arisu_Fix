@@ -1,10 +1,10 @@
 ARISU FIX — RECOVERY PROOFS ASSET GUIDE
-Version: AFV261
-Updated: 2026-10-23
+Version: AFV268
+Updated: 2026-10-26
 
 Place only authorized proof screenshots/images in this folder, then edit the
-recoveryProofs array in ../script.js. Supported fields are:
-- category: "suspended" or "disabled"
+recoveryProofs array in ../proofs.js. Supported fields are:
+- category: "suspended", "disabled", or "2fa"
 - title: the displayed account status/title
 - image: relative path such as "proofs/example.jpg"
 - alt: accessible description of the image
