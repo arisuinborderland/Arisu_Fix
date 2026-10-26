@@ -10068,176 +10068,6 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
 
 
 
-/* AFV269: apply clearer header action styling on mobile and desktop. */
-html body.home-page .topbar > .header-meta > .privacy-link {
-  background: #173d79 !important;
-  border-color: #173d79 !important;
-  color: #fff !important;
-  box-shadow: 0 4px 12px rgba(23, 61, 121, .2) !important;
-}
-html body.home-page .topbar > .header-meta > .privacy-link .header-icon {
-  color: #fff !important;
-}
-html body.home-page .topbar > .header-meta > .privacy-link:hover {
-  background: #102f61 !important;
-  border-color: #102f61 !important;
-  color: #fff !important;
-}
-html body.home-page .topbar > .header-meta > .about-header-link {
-  height: 44px !important;
-  min-height: 44px !important;
-  background: #fff !important;
-  border: 1px solid #6d8fe8 !important;
-  color: #2458b8 !important;
-  box-shadow: 0 4px 12px rgba(58, 76, 140, .09) !important;
-}
-html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
-  color: #2458b8 !important;
-}
-html body.home-page .topbar > .header-meta > .about-header-link:hover {
-  background: #f3f6ff !important;
-  border-color: #416ed0 !important;
-  color: #173d79 !important;
-}
-
-
-/* Shared Privacy Policy header button styling — consistent across pages. */
-html body .topbar > .header-meta > .privacy-link {
-  background: #173d78 !important;
-  border-color: #173d78 !important;
-  color: #ffffff !important;
-  box-shadow: 0 5px 14px rgba(23, 61, 120, .22) !important;
-}
-html body .topbar > .header-meta > .privacy-link .header-icon {
-  color: #ffffff !important;
-}
-html body .topbar > .header-meta > .privacy-link:hover {
-  background: #214f91 !important;
-  border-color: #214f91 !important;
-  color: #ffffff !important;
-}
-html body .topbar > .header-meta > .privacy-link:focus-visible {
-  outline: 3px solid #9bb5ff !important;
-  outline-offset: 2px !important;
-}
-
-html body .topbar > .header-meta > .privacy-link {
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 7px !important;
-  min-width: 0 !important;
-  width: auto !important;
-  min-height: 44px !important;
-  height: 44px !important;
-  padding: 0 14px !important;
-  border: 1px solid #cbd5e5 !important;
-  border-radius: 12px !important;
-  white-space: nowrap !important;
-  font-size: 12px !important;
-  line-height: 1 !important;
-  font-weight: 800 !important;
-}
-html body .topbar > .header-meta > .privacy-link .header-icon {
-  width: 16px !important;
-  height: 16px !important;
-  flex: 0 0 16px !important;
-}
-@media (max-width: 600px) {
-  html body .topbar > .header-meta > .privacy-link {
-    min-height: 40px !important;
-    height: 40px !important;
-    padding: 0 10px !important;
-    gap: 5px !important;
-    border-radius: 10px !important;
-    font-size: 10px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link .header-icon {
-    width: 14px !important;
-    height: 14px !important;
-    flex-basis: 14px !important;
-  }
-}
-@media (max-width: 380px) {
-  html body .topbar > .header-meta > .privacy-link {
-    min-height: 38px !important;
-    height: 38px !important;
-    padding: 0 7px !important;
-    gap: 4px !important;
-    font-size: 9px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link .header-icon {
-    width: 12px !important;
-    height: 12px !important;
-    flex-basis: 12px !important;
-  }
-}
-
-
-/* AFV271: use homepage header action sizing across every page. */
-html body .topbar > .header-meta > .privacy-link,
-html body .topbar > .header-meta > .about-header-link {
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 44px !important;
-  min-height: 44px !important;
-  padding: 0 15px !important;
-  gap: 7px !important;
-  border-radius: 15px !important;
-  font-size: 13px !important;
-  line-height: 1 !important;
-  font-weight: 800 !important;
-  white-space: nowrap !important;
-}
-html body .topbar > .header-meta > .privacy-link { 
-  min-width: 164px !important;
-  background: #173d79 !important;
-  border: 1px solid #173d79 !important;
-  color: #fff !important;
-  box-shadow: 0 4px 12px rgba(23, 61, 121, .2) !important;
-}
-html body .topbar > .header-meta > .privacy-link .header-icon {
-  width: 18px !important; height: 18px !important; flex: 0 0 18px !important; color: #fff !important;
-}
-html body .topbar > .header-meta > .about-header-link {
-  min-width: 124px !important;
-  background: #fff !important;
-  border: 1px solid #6d8fe8 !important;
-  color: #2458b8 !important;
-  box-shadow: 0 4px 12px rgba(58, 76, 140, .09) !important;
-}
-html body .topbar > .header-meta > .about-header-link .header-icon {
-  width: 18px !important; height: 18px !important; flex: 0 0 18px !important; color: #2458b8 !important;
-}
-html body .topbar > .header-meta > .privacy-link:hover { background: #102f61 !important; border-color: #102f61 !important; color: #fff !important; }
-html body .topbar > .header-meta > .about-header-link:hover { background: #f3f6ff !important; border-color: #416ed0 !important; color: #173d79 !important; }
-@media (max-width: 760px) {
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height: 44px !important; min-height: 44px !important; padding: 0 12px !important;
-    gap: 6px !important; border-radius: 15px !important; font-size: 12px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { min-width: 164px !important; }
-  html body .topbar > .header-meta > .about-header-link { min-width: 124px !important; }
-}
-@media (max-width: 390px) {
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height: 40px !important; min-height: 40px !important; padding: 0 8px !important;
-    gap: 4px !important; font-size: 10px !important; border-radius: 12px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { min-width: 126px !important; }
-  html body .topbar > .header-meta > .about-header-link { min-width: 98px !important; }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    width: 15px !important; height: 15px !important; flex-basis: 15px !important;
-  }
-}
-
-
 /* AFV272 — restore a single, non-overlapping mobile header layout across all pages.
    Keep desktop rules untouched; mobile uses the homepage's compact Privacy + About actions. */
 @media (max-width: 700px) {
@@ -10344,178 +10174,96 @@ html body .topbar > .header-meta > .about-header-link:hover { background: #f3f6f
 }
 
 
-/* AFV273 — canonical mobile header action sizing.
-   Match Privacy Policy and About buttons across Homepage, Proofs, and Reviews. */
-@media (max-width:700px) {
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    box-sizing:border-box !important;
-    flex:0 0 auto !important;
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    height:38px !important;
-    min-height:38px !important;
-    min-width:0 !important;
-    width:auto !important;
-    max-width:none !important;
-    margin:0 !important;
-    padding:0 9px !important;
-    gap:5px !important;
-    font-size:10.5px !important;
-    line-height:1 !important;
-    white-space:nowrap !important;
-    transform:none !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { width:128px !important; }
-  html body .topbar > .header-meta > .about-header-link { width:82px !important; }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    display:block !important;
-    flex:0 0 14px !important;
-    width:14px !important;
-    height:14px !important;
-  }
-}
-@media (max-width:380px) {
-  html body .topbar > .header-meta > .privacy-link { width:116px !important; }
-  html body .topbar > .header-meta > .about-header-link { width:76px !important; }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height:35px !important;
-    min-height:35px !important;
-    padding-left:6px !important;
-    padding-right:6px !important;
-    gap:3px !important;
-    font-size:9.5px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    flex-basis:12px !important;
-    width:12px !important;
-    height:12px !important;
-  }
-}
 
-
-/* AFV274 — canonical header action sizing. Homepage is the visual reference. */
-html body .topbar > .header-meta { align-items:center !important; gap:12px !important; }
+/* AFV300 — consolidated homepage-canonical header styling.
+   Replaces obsolete AFV269/271/273-277 overrides; keeps AFV272 mobile layout and AFV288 badge clipping fix.
+   Dimensions match the AFV297 homepage layout. */
+html body .topbar > .header-meta { align-items: center !important; gap: 12px !important; }
 html body .topbar > .header-meta > .privacy-link,
 html body .topbar > .header-meta > .about-header-link {
-  box-sizing:border-box !important;
-  display:inline-flex !important;
-  flex:0 0 auto !important;
-  align-items:center !important;
-  justify-content:center !important;
-  height:44px !important;
-  min-height:44px !important;
-  margin:0 !important;
-  padding:0 15px !important;
-  gap:7px !important;
-  border-radius:15px !important;
-  font-size:13px !important;
-  line-height:1 !important;
-  font-weight:800 !important;
-  white-space:nowrap !important;
-  transform:none !important;
-}
-html body .topbar > .header-meta > .privacy-link {
-  width:164px !important; min-width:164px !important;
-  background:#173d79 !important; border:1px solid #173d79 !important;
-  color:#fff !important; box-shadow:0 4px 12px rgba(23,61,121,.2) !important;
-}
-html body .topbar > .header-meta > .privacy-link .header-icon {
-  width:18px !important; height:18px !important; flex:0 0 18px !important; color:#fff !important;
-}
-html body .topbar > .header-meta > .about-header-link {
-  width:124px !important; min-width:124px !important;
-  background:#fff !important; border:1px solid #6d8fe8 !important;
-  color:#2458b8 !important; box-shadow:0 4px 12px rgba(58,76,140,.09) !important;
-}
-html body .topbar > .header-meta > .about-header-link .header-icon {
-  width:18px !important; height:18px !important; flex:0 0 18px !important; color:#2458b8 !important;
-}
-html body .topbar > .header-meta > .privacy-link:hover { background:#102f61 !important; border-color:#102f61 !important; color:#fff !important; }
-html body .topbar > .header-meta > .about-header-link:hover { background:#f3f6ff !important; border-color:#416ed0 !important; color:#173d79 !important; }
-html body .topbar > .header-meta > .privacy-link:focus-visible,
-html body .topbar > .header-meta > .about-header-link:focus-visible { outline:3px solid #9bb5ff !important; outline-offset:2px !important; }
-@media (max-width:760px) {
-  html body .topbar > .header-meta { gap:6px !important; }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height:38px !important; min-height:38px !important; padding:0 9px !important;
-    gap:5px !important; border-radius:12px !important; font-size:10.5px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { width:128px !important; min-width:128px !important; }
-  html body .topbar > .header-meta > .about-header-link { width:82px !important; min-width:82px !important; }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    width:14px !important; height:14px !important; flex-basis:14px !important;
-  }
-}
-@media (max-width:390px) {
-  html body .topbar > .header-meta > .privacy-link { width:126px !important; min-width:126px !important; }
-  html body .topbar > .header-meta > .about-header-link { width:98px !important; min-width:98px !important; }
-}
-@media (max-width:380px) {
-  html body .topbar > .header-meta { gap:4px !important; }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height:35px !important; min-height:35px !important; padding:0 6px !important;
-    gap:3px !important; border-radius:12px !important; font-size:9.5px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { width:116px !important; min-width:116px !important; }
-  html body .topbar > .header-meta > .about-header-link { width:76px !important; min-width:76px !important; }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    width:12px !important; height:12px !important; flex-basis:12px !important;
-  }
-}
-
-
-/* AFV275 — final header alignment correction.
-   Keep the established homepage dimensions; normalize vertical button padding and center the verified badge. */
-html body .topbar > .header-meta > .privacy-link,
-html body .topbar > .header-meta > .about-header-link {
-  padding-block: 1px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  margin: 0 !important;
+  padding: 0 15px !important;
+  gap: 7px !important;
+  border-radius: 15px !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  transform: none !important;
   align-self: center !important;
   vertical-align: middle !important;
 }
-html body .topbar > .brand .brand-name-row {
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
+html body .topbar > .header-meta > .privacy-link {
+  width: 164px !important; min-width: 164px !important;
+  background: #173d79 !important; border: 1px solid #173d79 !important;
+  color: #fff !important; box-shadow: 0 4px 12px rgba(23,61,121,.2) !important;
 }
-
-
-/* AFV276 — homepage-canonical header sizing; remove vertical padding drift. */
-html body .topbar > .header-meta > .privacy-link,
+html body .topbar > .header-meta > .privacy-link .header-icon {
+  width: 18px !important; height: 18px !important; flex: 0 0 18px !important; color: #fff !important;
+}
 html body .topbar > .header-meta > .about-header-link {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  width: 124px !important; min-width: 124px !important;
+  background: #fff !important; border: 1px solid #6d8fe8 !important;
+  color: #2458b8 !important; box-shadow: 0 4px 12px rgba(58,76,140,.09) !important;
 }
-
-
-/* AFV277 — keep the verified badge centered on the brand-name row. */
-html body .topbar > .brand .brand-name-row { align-items:center !important; }
-
-
-/* AFV288: fix badge top clipping without changing its original check/pulse animations. */
-html body .topbar,
-html body .topbar > .brand,
-html body .topbar > .brand .brand-copy,
-html body .topbar > .brand .brand-name-row {
-  overflow: visible !important;
-  clip-path: none !important;
+html body .topbar > .header-meta > .about-header-link .header-icon {
+  width: 18px !important; height: 18px !important; flex: 0 0 18px !important; color: #2458b8 !important;
+}
+html body .topbar > .header-meta > .privacy-link:hover { background: #102f61 !important; border-color: #102f61 !important; color: #fff !important; }
+html body .topbar > .header-meta > .about-header-link:hover { background: #f3f6ff !important; border-color: #416ed0 !important; color: #173d79 !important; }
+html body .topbar > .header-meta > .privacy-link:focus-visible,
+html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3px solid #9bb5ff !important; outline-offset: 2px !important; }
+@media (max-width: 760px) {
+  html body .topbar > .header-meta { gap: 6px !important; }
+  html body .topbar > .header-meta > .privacy-link,
+  html body .topbar > .header-meta > .about-header-link {
+    height: 38px !important; min-height: 38px !important; padding: 0 9px !important;
+    gap: 5px !important; border-radius: 12px !important; font-size: 10.5px !important;
+  }
+  html body .topbar > .header-meta > .privacy-link { width: 128px !important; min-width: 128px !important; }
+  html body .topbar > .header-meta > .about-header-link { width: 82px !important; min-width: 82px !important; }
+  html body .topbar > .header-meta > .privacy-link .header-icon,
+  html body .topbar > .header-meta > .about-header-link .header-icon {
+    width: 14px !important; height: 14px !important; flex-basis: 14px !important;
+  }
+}
+@media (max-width: 390px) {
+  html body .topbar > .header-meta > .privacy-link { width: 126px !important; min-width: 126px !important; }
+  html body .topbar > .header-meta > .about-header-link { width: 98px !important; min-width: 98px !important; }
+}
+@media (max-width: 380px) {
+  html body .topbar > .header-meta { gap: 4px !important; }
+  html body .topbar > .header-meta > .privacy-link,
+  html body .topbar > .header-meta > .about-header-link {
+    height: 35px !important; min-height: 35px !important; padding: 0 6px !important;
+    gap: 3px !important; border-radius: 12px !important; font-size: 9.5px !important;
+  }
+  html body .topbar > .header-meta > .privacy-link { width: 116px !important; min-width: 116px !important; }
+  html body .topbar > .header-meta > .about-header-link { width: 76px !important; min-width: 76px !important; }
+  html body .topbar > .header-meta > .privacy-link .header-icon,
+  html body .topbar > .header-meta > .about-header-link .header-icon {
+    width: 12px !important; height: 12px !important; flex-basis: 12px !important;
+  }
 }
 html body .topbar > .brand .brand-name-row {
+  display: inline-flex !important; align-items: center !important; vertical-align: middle !important;
   padding-block: 3px !important;
 }
 html body .topbar > .brand .brand-name-row > .arisu-verified-badge {
-  transform-origin: center center !important;
-  overflow: visible !important;
-  clip-path: none !important;
+  transform-origin: center center !important; overflow: visible !important; clip-path: none !important;
 }
+html body .topbar,
+html body .topbar > .brand,
+html body .topbar > .brand .brand-copy,
+html body .topbar > .brand .brand-name-row,
+html body .topbar > .brand .brand-name-row > .arisu-verified-badge,
 html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
-  overflow: visible !important;
+  overflow: visible !important; clip-path: none !important;
 }
