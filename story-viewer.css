@@ -266,7 +266,6 @@ html body .story-viewer .story-viewer-image {
   -webkit-touch-callout: none !important;
   user-select: none !important;
   -webkit-user-select: none !important;
-  -webkit-user-drag: none !important;
   pointer-events: auto !important;
 }
 html body .story-viewer .story-viewer-card {
