@@ -29,8 +29,7 @@ const recoveryProofs = [
     title: "Two Factor Authentication (2FA)",
     image: "proofs/file_00000000d2ec82119d478f27dc7e07cf.png",
     coverImage: "proofs/file_00000000d2ec82119d478f27dc7e07cf.png",
-    images: ["proofs/two-factor-authentication-01.jpg", "proofs/two-factor-authentication-02.jpg"],
-    alt: "Two-Factor Authentication case artwork with Arisu Fix branding, plus supporting screenshots of the Meta Advanced Protection identity-confirmation issue and associated Facebook profile",
+    alt: "Arisu Fix Two-Factor Authentication case artwork dated October 16, 2026",
     date: "October 16, 2026",
     violation: "Two-Factor Authentication"
   }
