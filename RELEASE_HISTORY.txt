@@ -1,3 +1,7 @@
+AFV273 — 2026-10-26
+- Standardizes mobile Privacy Policy and About button dimensions across the homepage, Recovery Proofs, and Customer Reviews.
+- Removes conflicting page-specific button minimum widths and synchronizes active stylesheet cache keys.
+
 AFV272 — 2026-10-26
 - Fixes the shared mobile header overlap by restoring a single-row brand and action layout.
 - Applies final mobile header overrides to the homepage, Recovery Proofs, and Customer Reviews.
