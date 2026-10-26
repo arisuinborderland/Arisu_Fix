@@ -10066,3 +10066,38 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
   }
 }
 
+
+
+/* AFV268: stronger home-header action contrast and slightly shorter About button. */
+@media (min-width: 601px) {
+  html body.home-page .topbar > .header-meta > .privacy-link {
+    background: #173d79 !important;
+    border-color: #173d79 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(23, 61, 121, .2) !important;
+  }
+  html body.home-page .topbar > .header-meta > .privacy-link .header-icon {
+    color: #fff !important;
+  }
+  html body.home-page .topbar > .header-meta > .privacy-link:hover {
+    background: #102f61 !important;
+    border-color: #102f61 !important;
+    color: #fff !important;
+  }
+  html body.home-page .topbar > .header-meta > .about-header-link {
+    height: 44px !important;
+    min-height: 44px !important;
+    background: #fff !important;
+    border: 1px solid #6d8fe8 !important;
+    color: #2458b8 !important;
+    box-shadow: 0 4px 12px rgba(58, 76, 140, .09) !important;
+  }
+  html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
+    color: #2458b8 !important;
+  }
+  html body.home-page .topbar > .header-meta > .about-header-link:hover {
+    background: #f3f6ff !important;
+    border-color: #416ed0 !important;
+    color: #173d79 !important;
+  }
+}
