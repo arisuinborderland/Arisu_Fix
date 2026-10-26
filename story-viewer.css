@@ -342,3 +342,29 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible {
   html body .story-viewer .story-viewer-image,
   html body .story-viewer:not([hidden]) .story-viewer-close { transition: none !important; }
 }
+
+
+/* AFV301: branded empty state inside the existing story viewer; does not alter normal story layout. */
+.story-viewer-empty[hidden]{display:none!important}
+.story-viewer-empty{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:76px 24px max(30px,env(safe-area-inset-bottom));overflow:hidden;text-align:center;background:radial-gradient(ellipse at 50% 42%,#1a103b 0%,#0a0b1b 52%,#050711 100%);color:#fff;isolation:isolate}
+.story-viewer-empty:before,.story-viewer-empty:after{content:"";position:absolute;left:-15%;right:-15%;height:24%;bottom:-9%;border-radius:50% 50% 0 0;background:linear-gradient(140deg,#27105a99,#701cbd40 48%,#142c7590);filter:blur(12px);transform:rotate(-5deg);z-index:-1;pointer-events:none}
+.story-viewer-empty:after{bottom:-14%;left:25%;right:-35%;height:19%;background:linear-gradient(130deg,#4e1b9d88,#141c5599);transform:rotate(8deg)}
+.story-viewer-empty-art{position:relative;width:min(62vw,230px);height:min(62vw,230px);max-height:25vh;flex:none;margin:0 auto clamp(18px,3vh,30px);display:grid;place-items:center}
+.story-viewer-empty-orbit{position:absolute;inset:5%;border:3px solid transparent;border-radius:50%;background:linear-gradient(#0b0b1b,#0b0b1b) padding-box,conic-gradient(from 30deg,#873aff,#f04fe9,#ffc18c,#5268ff,#873aff) border-box;box-shadow:0 0 22px #a12cff70,inset 0 0 20px #9b40ff25}
+.story-viewer-empty-card{position:absolute;width:48%;height:62%;border:2px solid #c77aff;border-radius:17px;background:linear-gradient(145deg,#24204a,#0d1025);box-shadow:0 0 18px #9d42ff30}
+.story-viewer-empty-card-back{transform:translate(-13%,-4%) rotate(-8deg);opacity:.8}
+.story-viewer-empty-card-front{display:grid;place-items:center;transform:translate(5%,5%) rotate(8deg);border-color:#e18cff;background:linear-gradient(145deg,#28234d,#111128);box-shadow:0 0 24px #a344ff35}
+.story-viewer-empty-play{font-size:clamp(30px,8vw,42px);color:#e78cff;text-shadow:0 0 18px #d14dff}
+.story-viewer-empty-mark{position:absolute;right:10%;bottom:11%;width:25%;aspect-ratio:1;display:grid;place-items:center;border:3px solid #e7b1ff;border-radius:50%;background:#111126;color:#f1c7ff;font-size:clamp(25px,6vw,34px);box-shadow:0 0 16px #a43cff70}
+.story-viewer-empty h2{margin:0 0 14px;font:800 clamp(24px,6vw,32px)/1.15 Arial,sans-serif;letter-spacing:-.6px;color:#fff}
+.story-viewer-empty h2 span{background:linear-gradient(90deg,#b68aff,#f17ce8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.story-viewer-empty p{max-width:330px;margin:0 0 clamp(25px,5vh,42px);color:#c8c9e0;font:400 clamp(15px,4vw,18px)/1.55 Arial,sans-serif}
+.story-viewer-empty-done{width:min(100%,300px);min-height:54px;border:1px solid #c9a1ff;border-radius:999px;background:linear-gradient(100deg,#4c5cff,#953cf0 58%,#e84ee8);box-shadow:0 8px 28px #8b3cff55,inset 0 1px #ffffff55;color:#fff;font:700 17px Arial,sans-serif;display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;touch-action:manipulation}
+.story-viewer-empty-done span{font-size:25px;line-height:1}
+.story-viewer-empty-done:active{transform:scale(.985)}
+.story-viewer-empty-open .story-viewer-card{background:#050711}
+.story-viewer-empty-open .story-viewer-close{width:38px;height:38px;border:1px solid #9b5cff;background:#111126cc;font-size:0}
+.story-viewer-empty-open .story-viewer-close span:first-child{font-size:26px}
+.story-viewer-empty-open .story-viewer-meta{pointer-events:none}
+@media(max-height:650px){.story-viewer-empty{padding-top:60px;padding-bottom:18px}.story-viewer-empty-art{width:min(42vw,160px);height:min(42vw,160px);margin-bottom:12px}.story-viewer-empty h2{font-size:23px;margin-bottom:8px}.story-viewer-empty p{font-size:14px;line-height:1.4;margin-bottom:16px}.story-viewer-empty-done{min-height:46px}}
+@media(prefers-reduced-motion:reduce){.story-viewer-empty-done{transition:none}}

@@ -1,4 +1,7 @@
-AFV297 — 2026-10-26
+AFV301 — 2026-10-27
+- Adds a responsive branded empty state in the existing Story Viewer when the Stories API succeeds but returns no active stories. No view is recorded for the empty state; normal story playback and tracking remain unchanged.
+
+AFV300 — 2026-10-26
 - Makes Privacy Policy and About header button width, height, icon size, spacing, typography, and breakpoints match the homepage on Recovery Proofs and Customer Reviews.
 - Moves the verified badge down by 1px to correct the remaining visual offset.
 - Refreshes active stylesheet cache keys and synchronizes package versions.
@@ -661,4 +664,4 @@ AFV261 — 2026-10-23
 - Compactened helper text, caption field, draft toggle, notice, and publish button while preserving upload validation and behavior.
 - Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV261 / 261.0.0.
 
-AFV297 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.
+AFV300 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.

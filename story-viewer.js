@@ -17,6 +17,8 @@
   const mobileStoriesButton = document.getElementById('mobileNavStories');
   const mobileStoriesCount = mobileStoriesButton?.querySelector('.mobile-nav-story-count');
   const timestamp = viewer.querySelector('.story-viewer-time');
+  const emptyState = viewer.querySelector('.story-viewer-empty');
+  const emptyDone = viewer.querySelector('.story-viewer-empty-done');
   let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false;
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -85,7 +87,8 @@
       // Do not block story playback; a later revisit can retry after transient failure.
     }).finally(() => pendingStoryViews.delete(id));
   }
-  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
+  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
+  function showEmptyState() { clearTimeout(timer); navigating = false; image.hidden = true; caption.hidden = true; progressTrack.hidden = true; viewer.querySelector('.story-viewer-meta').hidden = false; if (emptyState) emptyState.hidden = false; viewer.classList.add('story-viewer-empty-open'); viewer.hidden = false; document.body.classList.add('story-viewer-open'); }
   function preloadImage(url) {
     if (!url) return Promise.resolve(false);
     const cached = preloadedImages.get(url);
@@ -162,6 +165,7 @@
   function showAt(next) {
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
+    viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
     const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
     // Count a story at most once per browser-tab session. The server's unique
     // (story_id, session_id) key is the final protection against duplicate requests.
@@ -285,8 +289,10 @@
     // expired while the page stayed open in a background tab.
     const refreshed = await load();
     if (refreshed && stories.length) showAt(0);
+    else if (refreshed) showEmptyState();
   });
   close.addEventListener('click', hide);
+  emptyDone?.addEventListener('click', hide);
   // Instagram/Facebook-style navigation: tap the left or right half of the story image.
   viewer.addEventListener('click', event => {
     if (event.target === viewer) { hide(); return; }
