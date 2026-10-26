@@ -11,12 +11,12 @@ const lightbox = fs.readFileSync(path.join(root, "review-lightbox.js"), "utf8");
 test("Customer Reviews uses the compact thumbnail-and-details layout", () => {
   assert.match(css, /html body\.reviews-document \.reviews-page-grid \.review-proof-card\s*\{[\s\S]*?grid-template-columns: clamp\(100px, 27%, 166px\) minmax\(0, 1fr\)/);
   assert.match(css, /review-view-prompt/);
-  assert.equal((html.match(/class="review-view-prompt"/g) || []).length, 3);
+  assert.equal((html.match(/class="review-view-prompt"/g) || []).length, 4);
 });
 
 test("Review thumbnails and details can open the full-size screenshot", () => {
-  assert.equal((html.match(/class="review-image-hint">TAP TO VIEW/g) || []).length, 3);
-  assert.equal((html.match(/data-review-open tabindex="0" role="button"/g) || []).length, 3);
+  assert.equal((html.match(/class="review-image-hint">TAP TO VIEW/g) || []).length, 4);
+  assert.equal((html.match(/data-review-open tabindex="0" role="button"/g) || []).length, 4);
   assert.match(lightbox, /querySelectorAll\("\.review-proof-card \.review-proof-image img"\)/);
   assert.match(lightbox, /querySelectorAll\("\.review-proof-card \[data-review-open\]"\)/);
 });
