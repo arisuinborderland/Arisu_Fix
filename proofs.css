@@ -1353,3 +1353,38 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
   html body.proofs-document header.topbar > .header-meta > .about-header-link,
   html body.reviews-document header.topbar > .header-meta > .about-header-link { padding: 0 6px !important; font-size: 9.5px !important; }
 }
+
+
+/* AFV273 — final scoped reset: remove legacy per-page min-width differences. */
+@media (max-width:700px) {
+  html body.proofs-document .topbar > .header-meta > .privacy-link,
+  html body.proofs-document .topbar > .header-meta > .about-header-link,
+  html body.reviews-document .topbar > .header-meta > .privacy-link,
+  html body.reviews-document .topbar > .header-meta > .about-header-link {
+    min-width:0 !important;
+    width:auto !important;
+    max-width:none !important;
+    height:38px !important;
+    min-height:38px !important;
+    padding:0 9px !important;
+    gap:5px !important;
+    font-size:10.5px !important;
+    line-height:1 !important;
+  }
+  html body.proofs-document .topbar > .header-meta > .privacy-link,
+  html body.reviews-document .topbar > .header-meta > .privacy-link { width:128px !important; }
+  html body.proofs-document .topbar > .header-meta > .about-header-link,
+  html body.reviews-document .topbar > .header-meta > .about-header-link { width:82px !important; }
+  html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
+  html body.proofs-document .topbar > .header-meta > .about-header-link .header-icon,
+  html body.reviews-document .topbar > .header-meta > .privacy-link .header-icon,
+  html body.reviews-document .topbar > .header-meta > .about-header-link .header-icon {
+    flex-basis:14px !important;width:14px !important;height:14px !important;
+  }
+}
+@media (max-width:380px) {
+  html body.proofs-document .topbar > .header-meta > .privacy-link,
+  html body.reviews-document .topbar > .header-meta > .privacy-link { width:116px !important; }
+  html body.proofs-document .topbar > .header-meta > .about-header-link,
+  html body.reviews-document .topbar > .header-meta > .about-header-link { width:76px !important; }
+}
