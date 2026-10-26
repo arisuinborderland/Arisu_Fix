@@ -20,7 +20,7 @@ const recoveryProofs = [
   {
     category: "disabled",
     title: "Disabled Account",
-    image: "proofs/disabled-account-integrity.jpg",
+    image: "proofs/file_0000000089048211995f9a93297d1146.png",
     alt: "Public case example showing a disabled Facebook account notice and a related profile screenshot; personal details are blurred in the supplied image",
     violation: "Account Integrity"
   },
