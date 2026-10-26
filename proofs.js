@@ -32,6 +32,15 @@ const recoveryProofs = [
     alt: "Arisu Fix Two-Factor Authentication case artwork dated October 16, 2026",
     date: "October 16, 2026",
     violation: "Two-Factor Authentication"
+  },
+  {
+    category: "instagram-hacked",
+    title: "Instagram Account Hacked",
+    image: "proofs/ArisuFix_Instagram_Hacked_Preview_Footer_Refined.jpg?v=AFV268",
+    coverImage: "proofs/ArisuFix_Instagram_Hacked_Preview_Footer_Refined.jpg?v=AFV268",
+    showDate: false,
+    showWatermark: false,
+    alt: "Arisu Fix Instagram hacked account recovery proof collage with two screenshots and branded case footer"
   }
 ];
 
@@ -77,7 +86,7 @@ function renderRecoveryProofs() {
       { category: "suspended", title: "Suspended Accounts", description: "Suspension notices and related account-status examples.", icon: "suspended" },
       { category: "disabled", title: "Disabled Accounts", description: "Disabled-account notices and related case examples.", icon: "disabled" },
       { category: "2fa", title: "Two Factor Authentication (2FA)", description: "Examples and updates related to two-factor authentication access issues.", icon: "2fa" },
-      { category: "instagram-hacked", title: "Instagram Accounts Hacked", description: "Examples of hacked Instagram account recovery cases.", icon: "instagram-hacked", coverImage: "proofs/instagram-accounts-hacked-cover.svg" }
+      { category: "instagram-hacked", title: "Instagram Accounts Hacked", description: "Examples of hacked Instagram account recovery cases.", icon: "instagram-hacked", coverImage: "proofs/ArisuFix_Instagram_Hacked_Preview_Footer_Refined.jpg?v=AFV268" }
     ];
     const visibleAlbums = activeProofCategory === "all"
       ? albums
@@ -251,11 +260,15 @@ function renderRecoveryProofs() {
       media.addEventListener("error", () => { card.hidden = true; });
     }
 
-    const watermark = document.createElement("span");
-    watermark.className = "proof-watermark";
-    watermark.setAttribute("aria-hidden", "true");
-    watermark.textContent = "ARISU RECOVERY CONTACT  •  PUBLIC EXAMPLE";
-    imageFrame.append(media, watermark);
+    if (proof.showWatermark !== false) {
+      const watermark = document.createElement("span");
+      watermark.className = "proof-watermark";
+      watermark.setAttribute("aria-hidden", "true");
+      watermark.textContent = "ARISU RECOVERY CONTACT  •  PUBLIC EXAMPLE";
+      imageFrame.append(media, watermark);
+    } else {
+      imageFrame.appendChild(media);
+    }
 
     const copy = document.createElement("div");
     copy.className = "proof-card-copy";
