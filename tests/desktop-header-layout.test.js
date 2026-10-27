@@ -70,7 +70,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV323&proofalign=top1/);
+  assert.match(html, /styles\.css\?v=AFV324&proofgap=2/);
 });
 
 
