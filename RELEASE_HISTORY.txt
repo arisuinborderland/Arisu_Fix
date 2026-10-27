@@ -1,3 +1,8 @@
+AFV317 — 2026-10-27
+- Consolidated the empty-state background CSS instead of stacking repeated overrides.
+- Removed the dotted texture entirely and retained a smooth navy-to-blue gradient with restrained cyan light ribbons.
+- Updated the Story Viewer stylesheet cache token.
+
 AFV316 — 2026-10-27
 - Removed the repeated dotted texture from the Stories empty-state card.
 - Replaced it with a premium navy-to-blue gradient, restrained cyan corner glow, and smooth light ribbons inspired by the approved reference.
