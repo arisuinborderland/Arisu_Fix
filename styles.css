@@ -10267,3 +10267,101 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge,
 html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   overflow: visible !important; clip-path: none !important;
 }
+ 
+/* Desktop Recovery Proofs: use the two supplied proof images side by side.
+   Equal square frames show the full proof image. Mobile rules stay untouched. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase {
+    display: flex !important;
+    flex-direction: column !important;
+    align-self: start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 12px 1px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    gap: 0 !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    grid-auto-flow: row !important;
+    align-items: stretch !important;
+    align-content: stretch !important;
+    gap: 12px !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 1px 0 12px !important;
+    padding: 0 !important;
+    transform: none !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    display: block !important;
+    position: relative !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid #d8e2ff !important;
+    border-radius: 12px !important;
+    background: #f5f7ff !important;
+    box-shadow: 0 3px 10px rgba(45, 65, 130, .07) !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended {
+    grid-column: 1 !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled {
+    grid-column: 2 !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item picture {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: inherit !important;
+    background: #fff !important;
+    transform: none !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    display: flex !important;
+    align-self: stretch !important;
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    flex: 0 0 44px !important;
+    margin: 0 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+}
