@@ -10285,22 +10285,48 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
-/* AFV320 desktop proof previews: fill the full card with the screenshots.
-   This intentionally crops vertical edges rather than leaving large blank gutters. */
+/* AFV321 desktop proof previews: use taller rows for better screenshot legibility without side gutters.
+   Preserve the full side-by-side proof content as much as practical; mobile rules remain unchanged. */
 @media (min-width: 761px) {
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item {
-    background: #101827 !important;
-    overflow: hidden !important;
+  html body.home-page .social-collage > .recovery-proofs-showcase,
+  html body.home-page .social-collage > .social-feedback-card {
+    height: 690px !important;
+    min-height: 690px !important;
+    max-height: 690px !important;
   }
 
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item::before {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: minmax(0, 1fr) !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 1 1 auto !important;
+    margin: 4px 0 10px !important;
+    transform: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 2 / 1 !important;
+    overflow: hidden !important;
+    background: #101827 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item::before {
     content: none !important;
     display: none !important;
   }
 
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item > img {
     position: relative !important;
-    z-index: 1 !important;
     display: block !important;
     width: 100% !important;
     height: 100% !important;
