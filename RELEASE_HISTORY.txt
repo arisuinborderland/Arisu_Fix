@@ -1,3 +1,9 @@
+AFV307 — 2026-10-27
+- Replaced the simplified inline SVG with the detailed mascot image at /assets/afv306-mascot.jpg.
+- Added explicit image sizing and object-fit rules for mobile rendering.
+- Changed the empty-state close control to display an × while preserving its existing click handler.
+- Updated Story Viewer cache-busting references and release metadata.
+
 AFV306 — 2026-10-27
 - Reworked the no-stories empty state into a cyan/ice-blue glassmorphism card with a custom inline mascot illustration.
 - Preserved modal placement, responsive sizing, close/Got It behavior, and normal Story Viewer flow.
