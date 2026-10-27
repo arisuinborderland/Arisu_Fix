@@ -1,3 +1,8 @@
+AFV324 — 2026-10-27
+- Extended the desktop homepage Recovery Proof preview area so the two side-by-side thumbnails end 2px above the action button.
+- Kept the adjustment desktop-only; mobile layout and full-size proof files are unchanged.
+- Refreshed the homepage stylesheet cache key and synchronized package metadata.
+
 AFV323 — 2026-10-27
 - Refined the desktop homepage Recovery Proof preview cards to show the two square composite proof images side by side.
 - Used a presentation-only overlay to neutralize the embedded cyan frame rails in these homepage thumbnails; original proof images and the full Recovery Proofs page remain unchanged.
