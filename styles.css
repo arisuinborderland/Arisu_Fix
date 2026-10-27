@@ -10229,64 +10229,125 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
-/* Desktop-only Recovery Proofs redesign.
-   Desktop uses the new clean proof images; mobile retains the existing image sources and rules. */
+/* Desktop-only Recovery Proofs grid.
+   Mobile keeps the original two previews and their existing responsive layout.
+   The extra two previews appear only on desktop. */
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-only {
+  display: none !important;
+}
+
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase {
     display: flex !important;
     flex-direction: column !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     height: auto !important;
     min-height: 0 !important;
-    align-self: start !important;
-    padding-bottom: 18px !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
     overflow: hidden !important;
+    gap: 0 !important;
   }
+
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: auto auto !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, auto) !important;
+    grid-auto-flow: row !important;
+    align-items: stretch !important;
+    align-content: start !important;
+    gap: 10px !important;
     flex: 0 0 auto !important;
-    gap: 12px !important;
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     min-height: 0 !important;
-    margin: 14px 0 14px !important;
+    margin: 4px 0 14px !important;
+    padding: 0 !important;
     transform: none !important;
     overflow: visible !important;
+    box-sizing: border-box !important;
   }
-  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item,
-  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:nth-child(2) {
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
     display: block !important;
     position: relative !important;
     width: 100% !important;
-    height: auto !important;
     min-width: 0 !important;
     min-height: 0 !important;
-    aspect-ratio: auto !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow: hidden !important;
     border: 1px solid #d8e2ff !important;
     border-radius: 12px !important;
-    background: #fff !important;
-    box-shadow: none !important;
+    background: #f5f7ff !important;
+    box-shadow: 0 3px 10px rgba(45, 65, 130, .07) !important;
     transform: none !important;
+    box-sizing: border-box !important;
   }
-  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item picture {
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended-secondary {
     display: block !important;
-    width: 100% !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
   }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled-secondary {
+    display: block !important;
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item img {
     display: block !important;
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
+    max-width: none !important;
     max-height: none !important;
-    object-fit: contain !important;
+    object-fit: cover !important;
     object-position: center !important;
+    border-radius: inherit !important;
     transform: none !important;
   }
+
+  /* The disabled proof is a two-part collage; use complementary crops in the two tiles. */
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled img {
+    object-position: 50% 18% !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled-secondary img {
+    object-position: 50% 82% !important;
+  }
+
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    display: flex !important;
+    align-self: stretch !important;
     position: static !important;
     top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    flex: 0 0 44px !important;
+    margin: 0 !important;
     transform: none !important;
-    margin-top: 0 !important;
-    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
   }
 }
