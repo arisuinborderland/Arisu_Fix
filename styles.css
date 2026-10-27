@@ -3674,7 +3674,9 @@ html body #daily-bible-verse.daily-verse-card {
     border-radius: 14px !important;
   }
   .social-collage .recovery-proofs-showcase .recovery-proof-preview-item:first-child {
-    aspect-ratio: 3 / 5.1 !important;
+    height: calc((100vw - 2 * var(--desktop-page-gutter, 24px)) / 2 * 5 / 3 + 6px) !important;
+    aspect-ratio: auto !important;
+    flex: 0 0 auto !important;
   }
 }
 
