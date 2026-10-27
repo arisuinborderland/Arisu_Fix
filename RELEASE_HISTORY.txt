@@ -1,3 +1,8 @@
+AFV306 — 2026-10-27
+- Reworked the no-stories empty state into a cyan/ice-blue glassmorphism card with a custom inline mascot illustration.
+- Preserved modal placement, responsive sizing, close/Got It behavior, and normal Story Viewer flow.
+- Updated Story Viewer CSS/JS cache-busting references and release metadata.
+
 AFV305 — 2026-10-27
 - Changed the no-stories description to English.
 - Applied requested refinements A, C, D: slightly smaller illustration, simpler Got It button without clock icon and softer glow, darker overlay with less blur.
