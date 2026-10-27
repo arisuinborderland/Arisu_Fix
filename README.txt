@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV319
+Version: AFV320
 Updated: 2026-10-27
 
-Current release: AFV319
-Package version: 319.0.0
+Current release: AFV320
+Package version: 320.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV320 fills the desktop homepage Recovery Proofs preview cards with `object-fit: cover` to eliminate large blank side gutters. This intentionally crops some vertical content; the full proofs remain available by opening the Recovery Proofs page. Refreshes the homepage stylesheet cache token.
 - AFV319 adds the same empty-story modal markup to the proofs, about, privacy, and reviews pages so the shared Story Viewer can render the consistent gradient empty state outside the homepage. Refreshes Story Viewer asset cache tokens to AFV319.
 - AFV318 removes all empty-state decorative pseudo-element overlays that caused persistent dots and crossing lines, leaving a smooth navy-to-blue gradient with subtle radial color depth.
 - AFV317 consolidates the Stories empty-state background CSS into one clean rule set, removes dotted texture entirely, and uses a smooth navy-to-blue gradient with subtle cyan light ribbons. The PR preview must be redeployed before visual confirmation.
