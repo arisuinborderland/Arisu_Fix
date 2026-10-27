@@ -1,3 +1,8 @@
+AFV316 — 2026-10-27
+- Removed five exact repeated desktop footer CSS rule blocks from styles.css and one duplicate mobile footer padding rule from proofs.css.
+- Added regression tests for retained footer sizing and safe-area navigation clearance.
+- Audited page CSS, Story Viewer CSS, JavaScript, and HTML for further candidates; retained rules whose cascade or execution purpose could not be safely proven redundant.
+
 AFV315 — 2026-10-27
 - Synchronized all five public page references to story-viewer.css?v=AFV315 after the Deep Indigo + Ice Blue palette update.
 - Corrects the deployed-page mismatch found in the audit: Indigo CSS had shipped while HTML still requested the old AFV311 cache key, allowing stale blue-teal CSS to be reused.
