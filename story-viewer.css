@@ -552,3 +552,41 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{
     animation:none!important;
   }
 }
+
+
+/* AFV315: refine the reference background; keep dots peripheral and light streaks subtle. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+  background:
+    radial-gradient(ellipse at 50% 8%,rgba(18,77,157,.34) 0%,transparent 48%),
+    radial-gradient(ellipse at 3% 50%,rgba(0,112,196,.13) 0%,transparent 38%),
+    radial-gradient(ellipse at 98% 75%,rgba(0,150,206,.11) 0%,transparent 40%),
+    linear-gradient(145deg,rgba(15,55,111,.88) 0%,rgba(5,31,73,.94) 52%,rgba(3,22,52,.97) 100%)!important;
+  box-shadow:
+    0 0 0 1px rgba(127,211,255,.18),
+    0 0 22px rgba(28,133,255,.22),
+    0 18px 56px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(230,249,255,.48),
+    inset 0 0 25px rgba(28,133,255,.08),
+    inset 0 -1px 0 rgba(70,208,255,.26)!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{
+  background:
+    linear-gradient(153deg,transparent 0 13%,rgba(76,177,255,.0) 13.2%,rgba(76,177,255,.48) 13.35%,rgba(76,177,255,.10) 13.65%,transparent 14.1%),
+    linear-gradient(164deg,transparent 0 20%,rgba(76,177,255,.0) 20.2%,rgba(76,177,255,.32) 20.35%,rgba(76,177,255,.08) 20.6%,transparent 21%),
+    linear-gradient(26deg,transparent 0 76%,rgba(0,207,255,.0) 76.2%,rgba(0,207,255,.32) 76.35%,rgba(0,207,255,.08) 76.6%,transparent 77%),
+    radial-gradient(circle at 15% 19%,rgba(54,171,255,.54) 0 1.3px,transparent 3px),
+    radial-gradient(circle at 83% 20%,rgba(0,199,255,.48) 0 1.2px,transparent 3px),
+    radial-gradient(circle at 91% 46%,rgba(55,199,255,.52) 0 1.3px,transparent 3px),
+    radial-gradient(circle at 9% 74%,rgba(0,174,255,.42) 0 1.2px,transparent 3px),
+    radial-gradient(circle at 86% 83%,rgba(49,169,255,.38) 0 1.3px,transparent 3px),
+    linear-gradient(120deg,rgba(104,193,255,.08),transparent 45%)!important;
+  opacity:.9!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after{
+  background:
+    radial-gradient(circle,rgba(70,184,255,.40) .8px,transparent 1.5px) 0 0/10px 10px,
+    radial-gradient(circle,rgba(0,220,255,.42) .8px,transparent 1.6px) 5px 5px/14px 14px!important;
+  opacity:.38!important;
+  -webkit-mask-image:radial-gradient(ellipse 72% 35% at 50% 53%,#000 0%,rgba(0,0,0,.68) 45%,transparent 100%)!important;
+  mask-image:radial-gradient(ellipse 72% 35% at 50% 53%,#000 0%,rgba(0,0,0,.68) 45%,transparent 100%)!important;
+}
