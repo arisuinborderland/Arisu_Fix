@@ -70,7 +70,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV325&imageintegrity=1/);
+  assert.match(html, /styles\.css\?v=AFV326&desktoplayout=1/);
 });
 
 
@@ -86,7 +86,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV325&imageintegrity=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV326&desktoplayout=1/);
 });
 
 
@@ -102,5 +102,21 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV325&imageintegrity=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV326&desktoplayout=1/);
+});
+
+
+test('AFV326 desktop homepage uses matched fixed-height cards and constrains the reviews preview', () => {
+  const homeStyles = read('styles.css');
+  const desktopFix = homeStyles.split('AFV326 desktop layout correction: keep Recovery Proofs and Customer Feedback the same fixed height.')[1];
+  assert.ok(desktopFix, 'AFV326 desktop layout override must exist');
+  assert.match(desktopFix, /@media \(min-width: 1101px\)/);
+  assert.match(desktopFix, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\) !important/);
+  assert.match(desktopFix, /\.recovery-proofs-showcase,[\s\S]*?\.social-feedback-card\s*\{[\s\S]*?height:\s*376px !important;[\s\S]*?min-height:\s*376px !important;[\s\S]*?max-height:\s*376px !important/);
+  assert.match(desktopFix, /recovery-proofs-preview\s*\{[\s\S]*?flex:\s*1 1 auto !important;[\s\S]*?margin:\s*0 0 2px !important/);
+  assert.match(desktopFix, /\.social-feedback-card \.reviews-grid-featured[\s\S]*?max-height:\s*100% !important;[\s\S]*?overflow:\s*hidden !important/);
+  assert.match(desktopFix, /object-fit:\s*contain !important/);
+});
+test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
+  assert.match(read('index.html'), /styles\.css\?v=AFV326&desktoplayout=1/);
 });

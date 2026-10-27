@@ -10538,3 +10538,137 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     margin: 0 !important;
   }
 }
+
+
+/* AFV326 desktop layout correction: keep Recovery Proofs and Customer Feedback the same fixed height.
+   The previous auto-height override let the review preview expand vertically and made desktop content look mobile-sized.
+   Use one two-column desktop grid, keep the proof button at the bottom with a 2px gap, and constrain the review preview.
+   Mobile breakpoints and proofs.html are unchanged. */
+@media (min-width: 1101px) {
+  html body.home-page .social-collage {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+    width: min(100%, 1280px) !important;
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase,
+  html body.home-page .social-collage > .social-feedback-card {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    height: 376px !important;
+    min-height: 376px !important;
+    max-height: 376px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    align-items: stretch !important;
+    align-content: stretch !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 0 2px !important;
+    padding: 0 !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+    transform: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    position: relative !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item::before,
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item > img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    transform: none !important;
+    left: auto !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    box-sizing: border-box !important;
+    flex: 0 0 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card,
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    box-sizing: border-box !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+    display: block !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+  }
+}

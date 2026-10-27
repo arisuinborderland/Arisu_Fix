@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV325
+Version: AFV326
 Updated: 2026-10-27
 
-Current release: AFV325
-Package version: 325.0.0
+Current release: AFV326
+Package version: 326.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV326 restores a true desktop two-column layout on the homepage, gives Recovery Proofs and Customer Feedback equal fixed heights, and prevents the Reviews preview from growing vertically. Mobile behavior remains unchanged.
 - AFV325 fixes broken desktop Recovery Proof thumbnails by removing masking pseudo-element overlays, restoring full-source contain sizing, and keeping a 2px gap above the button. Applies to desktop homepage only.
 - AFV324 extends the two Recovery Proof preview frames on desktop homepage to end 2px above the View Recovery Proofs button; mobile layout is unchanged.
 - AFV323 polishes only the desktop homepage Recovery Proof thumbnails: square side-by-side previews, a restrained mask over the embedded cyan frame rails, and unchanged original proof assets / Recovery Proofs page. Mobile layout is untouched.

@@ -1,3 +1,10 @@
+AFV326 — 2026-10-27
+- Replaced the desktop homepage auto-height behavior that let the Customer Feedback/Reviews preview expand vertically.
+- Restored a two-column desktop grid with Recovery Proofs and Customer Feedback cards fixed to the same 376px height.
+- Constrained the review preview to its card and kept the Recovery Proofs button 2px below the preview area.
+- Applied only at desktop widths above 1100px; existing smaller-screen/mobile rules are untouched.
+- Refreshed the homepage CSS token and synchronized package/lockfile/docs.
+
 AFV325 — 2026-10-27
 - Follow-up: disabled the earlier thumbnail pseudo-element masks and restored contain sizing, so the complete original screenshot pixels remain visible instead of being covered or cropped.
 - Fixed broken desktop homepage proof thumbnails: the previous CSS pseudo-element masks covered large parts of the screenshots, and cover sizing cropped the composites.
