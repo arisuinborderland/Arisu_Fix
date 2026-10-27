@@ -58,3 +58,12 @@ test('Homepage cache-busts the shared stylesheet version that contains the deskt
   assert.match(html, /styles\.css\?v=AFV319/);
   assert.doesNotMatch(html, /styles\.css\?v=AFV300/);
 });
+
+test('Desktop proof previews fill side gutters with a blurred duplicate while preserving the whole original image', () => {
+  const homeStyles = read('styles.css');
+  assert.match(homeStyles, /AFV319 desktop proof previews: blur-fill side gutters while keeping complete originals visible/);
+  assert.match(homeStyles, /recovery-proof-preview-item:nth-child\(1\)::before[\s\S]*?background-image:\s*url\(["']?proofs\/arisu-suspended-account-180-days\.jpg/);
+  assert.match(homeStyles, /recovery-proof-preview-item:nth-child\(2\)::before[\s\S]*?background-image:\s*url\(["']?proofs\/file_0000000089048211995f9a93297d1146\.png/);
+  assert.match(homeStyles, /object-fit:\s*contain !important/);
+  assert.match(homeStyles, /filter:\s*blur\(12px\) brightness\(\.72\) saturate\(\.9\) !important/);
+});
