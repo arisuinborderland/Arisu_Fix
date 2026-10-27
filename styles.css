@@ -7520,9 +7520,9 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:first-child {
   transform: none !important;
 }
-/* move only the Disabled Accounts preview tile 2px further upward (4px total). */
+/* Move only the Disabled Accounts preview tile down 6px. */
 html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:nth-child(2) {
-  transform: translateY(-8px) !important;
+  transform: translateY(6px) !important;
 }
 /* Keep the Recovery Proofs button positioning and lift in one rule. */
 html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
