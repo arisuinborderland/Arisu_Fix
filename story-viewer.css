@@ -395,14 +395,16 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before {
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after {
   content:""!important; position:absolute!important; inset:0!important; border-radius:inherit!important;
-  pointer-events:none!important; z-index:0!important; opacity:.72!important;
+  pointer-events:none!important; z-index:0!important; opacity:1!important;
   background:
-    radial-gradient(circle,rgba(73,178,255,.30) 1px,transparent 1.8px) 0 0/13px 13px,
-    radial-gradient(circle,rgba(42,205,255,.7) 1.5px,transparent 3px) 18% 18%/170px 150px no-repeat,
-    radial-gradient(circle,rgba(42,205,255,.55) 2px,transparent 4px) 92% 76%/180px 160px no-repeat,
-    linear-gradient(155deg,transparent 0 13%,rgba(58,177,255,.20) 13.1%,transparent 13.35% 75%,rgba(58,177,255,.14) 75.1%,transparent 75.35%);
-  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 38%,transparent 70%,rgba(0,0,0,.65));
-  mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 38%,transparent 70%,rgba(0,0,0,.65));
+    radial-gradient(ellipse at 12% 8%,rgba(83,183,255,.30),transparent 36%),
+    radial-gradient(ellipse at 95% 24%,rgba(48,120,255,.23),transparent 34%),
+    radial-gradient(ellipse at 82% 96%,rgba(0,224,255,.20),transparent 37%),
+    radial-gradient(circle,rgba(130,210,255,.25) 1px,transparent 1.7px) 0 0/14px 14px,
+    linear-gradient(135deg,rgba(206,240,255,.12),transparent 32%,transparent 65%,rgba(40,170,255,.11))!important;
+  box-shadow:inset 0 0 0 1px rgba(190,231,255,.13),inset 0 0 42px rgba(73,172,255,.12)!important;
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.95),rgba(0,0,0,.55) 55%,rgba(0,0,0,.9));
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.95),rgba(0,0,0,.55) 55%,rgba(0,0,0,.9));
 }
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
@@ -441,31 +443,12 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done {
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:hover { filter:brightness(1.06)!important; }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active { transform:scale(.985)!important; }
 
-html body .story-viewer.story-viewer-empty-open .story-viewer-close { display:none!important; }
-/* Empty-state card layers remain decorative; content stays above them. */
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty > * {
-  z-index:1!important;
+/* Keep the empty-state dismissal control hidden; the Got It button closes this notice. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-close,
+html body .story-viewer.story-viewer-empty-open button.story-viewer-close {
+  display:none!important; visibility:hidden!important; pointer-events:none!important;
 }
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
-  position:relative!important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty-close-placeholder {
-  display:none!important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-close-unused {
-  display:none!important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-close {
-  position:absolute!important; top:10px!important; right:10px!important; bottom:auto!important; left:auto!important;
-  z-index:8!important; display:grid!important; place-items:center!important;
-  width:34px!important; min-width:34px!important; height:34px!important; min-height:34px!important;
-  padding:0!important; border:1px solid rgba(190,224,255,.7)!important; border-radius:50%!important;
-  background:rgba(9,24,47,.56)!important; color:#fff!important; box-shadow:0 4px 14px rgba(0,0,0,.2)!important;
-  font-size:0!important; -webkit-backdrop-filter:blur(10px)!important; backdrop-filter:blur(10px)!important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-close:before { content:"×"!important; display:block!important; font-size:26px!important; line-height:1!important; }
-html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child,
-html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-child { display:none!important; }
+
 
 @media(max-height:650px) {
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty { padding:16px 18px 17px!important; }
