@@ -367,14 +367,14 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
   align-items:center!important;justify-content:center!important;gap:0!important;width:100%!important;max-width:none!important;
   max-height:calc(100dvh - 40px)!important;margin:0!important;padding:25px 22px 23px!important;overflow-y:auto!important;
   box-sizing:border-box!important;border:1px solid rgba(173,220,255,.72)!important;border-radius:26px!important;
-  background:linear-gradient(145deg,rgba(127,177,230,.20),rgba(22,39,72,.64) 48%,rgba(9,18,38,.84))!important;
-  -webkit-backdrop-filter:blur(22px) saturate(145%)!important;backdrop-filter:blur(22px) saturate(145%)!important;
-  box-shadow:0 18px 55px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.25),0 0 25px rgba(82,173,255,.18)!important;
+  background:linear-gradient(135deg,rgba(93,166,225,.25) 0%,rgba(25,55,91,.43) 38%,rgba(7,20,43,.62) 100%)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(175%)!important;backdrop-filter:blur(30px) saturate(175%)!important;
+  box-shadow:0 22px 60px rgba(0,0,0,.34),inset 0 1px 0 rgba(235,249,255,.32),inset 0 -1px 0 rgba(87,185,255,.16),0 0 34px rgba(66,164,255,.20)!important;
   color:#f7fbff!important;text-align:center!important;isolation:isolate!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{
   content:""!important;position:absolute!important;inset:0!important;border-radius:inherit!important;pointer-events:none!important;
-  background:radial-gradient(ellipse at 50% 0%,rgba(95,184,255,.20),transparent 52%),linear-gradient(120deg,rgba(255,255,255,.08),transparent 45%)!important;
+  background:radial-gradient(ellipse at 50% 0%,rgba(101,199,255,.25),transparent 56%),radial-gradient(ellipse at 100% 100%,rgba(33,146,255,.10),transparent 48%),linear-gradient(120deg,rgba(255,255,255,.10),transparent 46%)!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after{content:none!important}
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
