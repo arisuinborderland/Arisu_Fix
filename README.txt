@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV315
+Version: AFV316
 Updated: 2026-10-27
 
-Current release: AFV315
-Package version: 315.0.0
+Current release: AFV316
+Package version: 316.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV316 removes the dotted texture from the Stories empty-state background and replaces it with a cleaner premium navy-to-blue gradient, soft cyan corner glow, and restrained flowing light accents.
 - AFV315 refines the Stories empty-state background to better match the reference, reducing the full-card dot density and making corner light streaks more subtle.
 
 - AFV314 updates the Stories empty-state background to match the blue neon reference: cyan glowing border, curved light streaks, dotted texture, and subtle blue particles. It removes the empty-state X control and updates the stylesheet cache token.
