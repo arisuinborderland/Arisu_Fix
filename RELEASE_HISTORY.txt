@@ -1,3 +1,7 @@
+AFV320 — 2026-10-27
+- Filled the two desktop homepage Recovery Proofs preview cards using cover sizing to remove blank side gutters. Some vertical cropping is intentional in the compact preview; the complete images remain available on the Recovery Proofs page.
+- Updated the homepage stylesheet cache token and synchronized package/lockfile versions.
+
 AFV319 — 2026-10-27
 - Fixed empty Story Viewer state on proofs, about, privacy, and reviews pages by adding the same empty-state markup used on the homepage. Previously those pages had the backdrop and viewer shell but no empty-state card content.
 - Updated Story Viewer CSS and JS cache tokens to AFV319 across pages that include the shared viewer.
