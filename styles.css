@@ -10372,3 +10372,26 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     transform: none !important;
   }
 }
+
+
+/* AFV323 desktop thumbnail top alignment: remove the extra top inset and align each source at the top.
+   Desktop homepage only; mobile rules and the full Recovery Proofs page are unchanged. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    align-items: start !important;
+    align-content: start !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    align-self: start !important;
+    justify-self: stretch !important;
+    margin-top: 0 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item > img {
+    object-position: top center !important;
+    vertical-align: top !important;
+  }
+}
