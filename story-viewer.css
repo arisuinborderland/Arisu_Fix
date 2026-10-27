@@ -118,15 +118,7 @@ html body .story-viewer .story-viewer-image {
   background: transparent !important;
   z-index: 1 !important;
 }
-@media (max-width: 600px) {
-  html body .story-viewer .story-viewer-image {
-    top: 58px !important;
-    bottom: 0 !important;
-    height: calc(100% - 58px) !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-  }
-}
+/* Removed superseded mobile image sizing; final responsive sizing is defined below. */
 
 
 /* Midnight Blue soft-glow background and slightly higher centered Story image. */
@@ -291,20 +283,7 @@ html body .story-viewer .story-viewer-image {
   background: transparent !important;
   transition: opacity 160ms ease, filter 180ms ease !important;
 }
-/* Landscape artwork remains fully visible and is centered in the usable viewing area. */
-html body .story-viewer.story-viewer-landscape .story-viewer-image {
-  object-fit: contain !important;
-  object-position: center center !important;
-}
-/* Portrait artwork uses the available height without cropping any poster content. */
-html body .story-viewer.story-viewer-portrait .story-viewer-image {
-  object-fit: contain !important;
-  object-position: center center !important;
-}
-html body .story-viewer.story-viewer-square .story-viewer-image {
-  object-fit: contain !important;
-  object-position: center center !important;
-}
+/* Landscape, portrait and square stories share the base contain/center image fit. */
 html body .story-viewer .story-viewer-meta {
   gap: 9px !important;
   align-items: center !important;
