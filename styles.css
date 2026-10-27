@@ -10285,35 +10285,17 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
-/* AFV319 desktop proof previews: blur-fill side gutters while keeping complete originals visible. */
+/* AFV320 desktop proof previews: fill the full card with the screenshots.
+   This intentionally crops vertical edges rather than leaving large blank gutters. */
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item {
-    isolation: isolate !important;
-    position: relative !important;
+    background: #101827 !important;
     overflow: hidden !important;
-    background: #e7edfb !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item::before {
-    content: "" !important;
-    position: absolute !important;
-    z-index: 0 !important;
-    inset: -14px !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: cover !important;
-    filter: blur(12px) brightness(.72) saturate(.9) !important;
-    transform: scale(1.06) !important;
-    opacity: .82 !important;
-    pointer-events: none !important;
-  }
-
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(1)::before {
-    background-image: url("proofs/arisu-suspended-account-180-days.jpg") !important;
-  }
-
-  html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(2)::before {
-    background-image: url("proofs/file_0000000089048211995f9a93297d1146.png") !important;
+    content: none !important;
+    display: none !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proof-preview-item img {
@@ -10324,8 +10306,8 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     height: 100% !important;
     max-width: none !important;
     max-height: none !important;
-    object-fit: contain !important;
-    object-position: center center !important;
+    object-fit: cover !important;
+    object-position: center 42% !important;
     background: transparent !important;
     transform: none !important;
   }
