@@ -10279,3 +10279,11 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     flex: 0 0 18px !important;
   }
 }
+
+/* AFV321: desktop-only 4px offset for View Recovery Proofs button */
+@media (min-width: 601px) {
+  .recovery-proofs-button {
+    position: relative;
+    top: 4px;
+  }
+}
