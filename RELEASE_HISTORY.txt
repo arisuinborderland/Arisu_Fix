@@ -1,3 +1,8 @@
+AFV322 — 2026-10-27
+- Changed the desktop homepage Recovery Proof preview images to a side-by-side layout with contain sizing and a tile ratio closer to the source composites.
+- Avoids the large blank side gutters from contain in a wide row and the severe vertical crop from cover. Mobile styles remain unchanged.
+- Updated the homepage stylesheet cache token and synchronized package/lockfile/docs.
+
 AFV321 — 2026-10-27
 - Increased desktop homepage Recovery Proof preview row height to reveal more of each screenshot while keeping both cards aligned.
 - Preserved the desktop full-card fill, removed blurred side gutters, and left mobile rules unchanged.
