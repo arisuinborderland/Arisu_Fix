@@ -276,8 +276,6 @@
   // and dragging, but cannot prevent screenshots or browser/devtools extraction.
   image.draggable = false;
   image.setAttribute('draggable', 'false');
-  image.addEventListener('contextmenu', event => event.preventDefault());
-  image.addEventListener('dragstart', event => event.preventDefault());
   viewer.addEventListener('contextmenu', event => {
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
