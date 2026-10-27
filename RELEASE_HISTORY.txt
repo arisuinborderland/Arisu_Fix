@@ -1,3 +1,8 @@
+AFV312 — 2026-10-27
+- Removed one duplicate 4px header gap declaration inside the narrow-mobile breakpoint in styles.css.
+- Kept the remaining responsive header sizing and spacing rules intact; no broad stylesheet refactor.
+- Updated the release version and styles.css cache tokens to AFV312.
+
 AFV311 — 2026-10-27
 - Removed superseded Story Viewer mobile image-sizing rules and redundant landscape/portrait/square fit rules.
 - Kept the shared contain/center behavior and the final responsive image dimensions intact.
