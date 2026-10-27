@@ -10239,7 +10239,6 @@ html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3
   html body .topbar > .header-meta > .about-header-link { width: 98px !important; min-width: 98px !important; }
 }
 @media (max-width: 380px) {
-  html body .topbar > .header-meta { gap: 4px !important; }
   html body .topbar > .header-meta > .privacy-link,
   html body .topbar > .header-meta > .about-header-link {
     height: 35px !important; min-height: 35px !important; padding: 0 6px !important;
