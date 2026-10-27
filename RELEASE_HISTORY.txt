@@ -1,3 +1,7 @@
+AFV314 — 2026-10-27
+- Applied the Deep Indigo + Ice Blue palette to the Stories empty-state background, border, glow, and heading accent.
+- Preserved modal layout, mascot, button behavior, and normal story playback; refreshed Story Viewer cache tokens.
+
 AFV313 — 2026-10-27
 - Removed superseded AFV271 and AFV273–AFV279 header button sizing/color overrides from proofs.css.
 - Retained AFV272 mobile header row layout and AFV300 consolidated header rules.
