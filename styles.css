@@ -10285,39 +10285,43 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
-/* AFV321 desktop proof previews: use taller rows for better screenshot legibility without side gutters.
-   Preserve the full side-by-side proof content as much as practical; mobile rules remain unchanged. */
+/* AFV322 desktop proof previews: show both complete composite images side by side.
+   Match the preview tile ratio to the source composite, avoiding both big gutters and extreme cropping.
+   Desktop homepage only; mobile styling stays unchanged. */
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase,
   html body.home-page .social-collage > .social-feedback-card {
-    height: 690px !important;
-    min-height: 690px !important;
-    max-height: 690px !important;
+    height: 410px !important;
+    min-height: 410px !important;
+    max-height: 410px !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-auto-rows: minmax(0, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, auto) !important;
     align-items: stretch !important;
     gap: 8px !important;
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
     margin: 4px 0 10px !important;
     transform: none !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
     box-sizing: border-box !important;
+    display: block !important;
     width: 100% !important;
+    min-width: 0 !important;
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    aspect-ratio: 2 / 1 !important;
+    aspect-ratio: 8 / 7 !important;
     overflow: hidden !important;
     background: #101827 !important;
+    border-radius: 12px !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item::before {
@@ -10330,10 +10334,10 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-    object-fit: cover !important;
-    object-position: center 42% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
     background: transparent !important;
     transform: none !important;
   }
