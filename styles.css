@@ -3673,13 +3673,8 @@ html body #daily-bible-verse.daily-verse-card {
     position: relative !important;
     border-radius: 14px !important;
   }
-  .social-collage .recovery-proofs-showcase .recovery-proof-preview-item img {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-height: none !important;
-    object-fit: cover !important;
-    object-position: center top !important;
+  .social-collage .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(3) img {
+    object-position: center 6px !important;
   }
 }
 
@@ -10285,12 +10280,5 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   .recovery-proofs-button {
     position: relative;
     top: 4px;
-  }
-}
-
-/* AFV323: shift the disabled-account preview card down 6px on desktop only */
-@media (min-width: 761px) {
-  .social-collage .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(3) {
-    transform: translateY(6px) !important;
   }
 }
