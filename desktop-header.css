@@ -107,3 +107,28 @@
     outline-offset: 3px !important;
   }
 }
+
+/* Keep header SVG icons visible on pale desktop buttons, overriding legacy page colors. */
+@media (min-width: 701px) {
+  html body header.topbar.topbar .header-meta a.privacy-link .header-icon,
+  html body header.topbar.topbar .header-meta a.about-header-link .header-icon,
+  html body header.topbar.topbar .header-meta a.proofs-header-link .header-icon,
+  html body header.topbar.topbar .header-meta a.webtools-header-link .header-icon,
+  html body.privacy-page header.topbar.topbar > a.privacy-about-link > svg {
+    color: #263a61 !important;
+    stroke: #263a61 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+  }
+
+  html body header.topbar.topbar .header-meta a.privacy-link .header-icon *,
+  html body header.topbar.topbar .header-meta a.about-header-link .header-icon *,
+  html body header.topbar.topbar .header-meta a.proofs-header-link .header-icon *,
+  html body header.topbar.topbar .header-meta a.webtools-header-link .header-icon *,
+  html body.privacy-page header.topbar.topbar > a.privacy-about-link > svg * {
+    stroke: #263a61 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
