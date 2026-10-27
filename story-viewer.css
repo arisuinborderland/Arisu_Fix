@@ -393,7 +393,17 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before {
   content:""!important; position:absolute!important; inset:0!important; border-radius:inherit!important; pointer-events:none!important;
   background:radial-gradient(ellipse at 0% 0%,rgba(143,210,255,.10),transparent 42%),radial-gradient(ellipse at 100% 100%,rgba(50,202,255,.08),transparent 43%),linear-gradient(118deg,rgba(255,255,255,.08),transparent 38%,transparent 70%,rgba(110,188,255,.045))!important;
 }
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after { content:none!important; }
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after {
+  content:""!important; position:absolute!important; inset:0!important; border-radius:inherit!important;
+  pointer-events:none!important; z-index:0!important; opacity:.72!important;
+  background:
+    radial-gradient(circle,rgba(73,178,255,.30) 1px,transparent 1.8px) 0 0/13px 13px,
+    radial-gradient(circle,rgba(42,205,255,.7) 1.5px,transparent 3px) 18% 18%/170px 150px no-repeat,
+    radial-gradient(circle,rgba(42,205,255,.55) 2px,transparent 4px) 92% 76%/180px 160px no-repeat,
+    linear-gradient(155deg,transparent 0 13%,rgba(58,177,255,.20) 13.1%,transparent 13.35% 75%,rgba(58,177,255,.14) 75.1%,transparent 75.35%);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 38%,transparent 70%,rgba(0,0,0,.65));
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 38%,transparent 70%,rgba(0,0,0,.65));
+}
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
   position:relative!important; display:grid!important; place-items:center!important;
@@ -431,6 +441,20 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done {
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:hover { filter:brightness(1.06)!important; }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active { transform:scale(.985)!important; }
 
+html body .story-viewer.story-viewer-empty-open .story-viewer-close { display:none!important; }
+/* Empty-state card layers remain decorative; content stays above them. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty > * {
+  z-index:1!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
+  position:relative!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-close-placeholder {
+  display:none!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close-unused {
+  display:none!important;
+}
 html body .story-viewer.story-viewer-empty-open .story-viewer-close {
   position:absolute!important; top:10px!important; right:10px!important; bottom:auto!important; left:auto!important;
   z-index:8!important; display:grid!important; place-items:center!important;
