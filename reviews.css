@@ -798,8 +798,6 @@ html body.reviews-document header.topbar > .brand .brand-name-row { display:inli
     height:35px !important; min-height:35px !important; padding:0 6px !important;
     gap:3px !important; border-radius:12px !important; font-size:9.5px !important;
   }
-  html body.reviews-document header.topbar > .header-meta > .privacy-link { width:116px !important; min-width:116px !important; }
-  html body.reviews-document header.topbar > .header-meta > .about-header-link { width:76px !important; min-width:76px !important; }
   html body.reviews-document header.topbar > .header-meta > .privacy-link .header-icon,
   html body.reviews-document header.topbar > .header-meta > .about-header-link .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
 }
@@ -900,10 +898,6 @@ html body.reviews-document header.topbar > .header-meta > a.about-header-link {
   }
 }
 @media (max-width: 380px) {
-  html body.proofs-document header.topbar > .header-meta,
-  html body.reviews-document header.topbar > .header-meta {
-    gap: 4px !important;
-  }
   html body.proofs-document header.topbar > .header-meta > .privacy-link,
   html body.proofs-document header.topbar > .header-meta > .about-header-link,
   html body.reviews-document header.topbar > .header-meta > .privacy-link,
