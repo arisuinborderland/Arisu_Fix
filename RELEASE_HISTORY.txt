@@ -1,3 +1,8 @@
+AFV321 — 2026-10-27
+- Increased desktop homepage Recovery Proof preview row height to reveal more of each screenshot while keeping both cards aligned.
+- Preserved the desktop full-card fill, removed blurred side gutters, and left mobile rules unchanged.
+- Updated the homepage stylesheet cache token and package metadata.
+
 AFV320 — 2026-10-27
 - Filled the two desktop homepage Recovery Proofs preview cards using cover sizing to remove blank side gutters. Some vertical cropping is intentional in the compact preview; the complete images remain available on the Recovery Proofs page.
 - Updated the homepage stylesheet cache token and synchronized package/lockfile versions.
