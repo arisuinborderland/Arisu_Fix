@@ -1,3 +1,8 @@
+AFV314 — 2026-10-27
+- Matched the Stories empty-state card background to the reference with a richer blue gradient, glowing cyan border, curved light streaks, dotted texture, and subtle particle highlights.
+- Removed the X button from the empty state; the existing Got It control remains available.
+- Updated the Story Viewer stylesheet cache-busting token and release metadata.
+
 AFV313 — 2026-10-27
 - Refined Stories glass card transparency and cyan edge lighting.
 - Synchronized release metadata with the AFV313 cache-busting token so production validation accepts the stylesheet version.
