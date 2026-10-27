@@ -1,3 +1,8 @@
+AFV308 — 2026-10-27
+- Replaced the temporary inline SVG mascot with the uploaded transparent PNG.
+- Added a narrowly scoped build allowlist for assets/story-viewer so the mascot is copied into production output without exposing all of assets/.
+- Consolidated the Stories empty-state CSS, refined navy/cyan glassmorphism, and restored the upper-right X close control.
+
 AFV306 — 2026-10-27
 - Reworked the no-stories empty state into a cyan/ice-blue glassmorphism card with a custom inline mascot illustration.
 - Preserved modal placement, responsive sizing, close/Got It behavior, and normal Story Viewer flow.
