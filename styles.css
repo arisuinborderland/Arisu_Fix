@@ -10219,11 +10219,12 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   }
 }
 
-/* AFV321: desktop-only 4px offset for View Recovery Proofs button */
-@media (min-width: 601px) {
-  .recovery-proofs-button {
-    position: relative;
-    top: 4px;
+/* Desktop Recovery Proofs button uses the card's normal flow; no legacy offset. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
   }
 }
 
