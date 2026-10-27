@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV322
+Version: AFV323
 Updated: 2026-10-27
 
-Current release: AFV322
-Package version: 322.0.0
+Current release: AFV323
+Package version: 323.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV323 polishes only the desktop homepage Recovery Proof thumbnails: square side-by-side previews, a restrained mask over the embedded cyan frame rails, and unchanged original proof assets / Recovery Proofs page. Mobile layout is untouched.
 - AFV322 presents both desktop homepage Recovery Proof composite previews side by side at a ratio closer to their source, so the complete proof images are easier to inspect without blank gutters or extreme cropping. Mobile layout is unchanged.
 - AFV321 improves the desktop homepage Recovery Proof preview legibility with taller image rows and a matched taller feedback card; the mobile layout is unchanged.
 - AFV320 fills the desktop homepage Recovery Proofs preview cards with `object-fit: cover` to eliminate large blank side gutters. This intentionally crops some vertical content; the full proofs remain available by opening the Recovery Proofs page. Refreshes the homepage stylesheet cache token.
