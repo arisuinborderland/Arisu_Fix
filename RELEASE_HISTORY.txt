@@ -1,3 +1,9 @@
+AFV311 — 2026-10-27
+- Reduced the Stories empty-state mascot size for a more balanced gap above the heading.
+- Constrained modal content widths and hid horizontal overflow to prevent the bottom horizontal bar.
+- Kept the card position, close-button placement, heading, description, and primary button styling unchanged.
+- Updated Story Viewer cache-busting references and release metadata.
+
 AFV310 — 2026-10-27
 - Switched the Stories empty-state mascot from the old JPG to the newly uploaded PNG asset in assets/story-viewer/.
 - Consolidated the earlier repeated mascot CSS overrides into one responsive rule set.
