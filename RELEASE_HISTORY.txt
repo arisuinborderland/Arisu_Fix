@@ -1,3 +1,8 @@
+AFV318 — 2026-10-27
+- Removed the empty-state pseudo-element overlays to eliminate dotted texture and diagonal crossing lines.
+- Kept the background as a clean, layered navy-to-royal-blue gradient with subtle radial cyan/blue depth and a restrained cyan border glow.
+- Updated the Story Viewer stylesheet cache token.
+
 AFV317 — 2026-10-27
 - Consolidated the empty-state background CSS instead of stacking repeated overrides.
 - Removed the dotted texture entirely and retained a smooth navy-to-blue gradient with restrained cyan light ribbons.
