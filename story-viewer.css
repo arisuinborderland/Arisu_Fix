@@ -475,7 +475,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-c
  }
 }
 @media(max-height:650px){
- html body .story-viewer.story-viewer-empty-open .story-viewer-empty{padding:17px 18px 16px!important}
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
    width:min(62vw,250px)!important;height:clamp(130px,22vh,175px)!important;margin-bottom:7px!important;
  }
