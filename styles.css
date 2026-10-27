@@ -10229,15 +10229,15 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
-/* Desktop-only Recovery Proofs preview redesign.
-   Stack the two existing original proof images vertically, remove portrait cropping,
-   and reset legacy desktop offsets. Mobile rules are intentionally untouched. */
+/* Desktop-only Recovery Proofs redesign.
+   Desktop uses the new clean proof images; mobile retains the existing image sources and rules. */
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase {
     display: flex !important;
     flex-direction: column !important;
     height: auto !important;
     min-height: 0 !important;
+    align-self: start !important;
     padding-bottom: 18px !important;
     overflow: hidden !important;
   }
@@ -10253,7 +10253,8 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     transform: none !important;
     overflow: visible !important;
   }
-  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item,
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:nth-child(2) {
     display: block !important;
     position: relative !important;
     width: 100% !important;
@@ -10267,6 +10268,10 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     background: #fff !important;
     box-shadow: none !important;
     transform: none !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item picture {
+    display: block !important;
+    width: 100% !important;
   }
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item img {
     display: block !important;
