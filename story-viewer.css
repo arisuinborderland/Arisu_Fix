@@ -590,3 +590,28 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after{
   -webkit-mask-image:radial-gradient(ellipse 72% 35% at 50% 53%,#000 0%,rgba(0,0,0,.68) 45%,transparent 100%)!important;
   mask-image:radial-gradient(ellipse 72% 35% at 50% 53%,#000 0%,rgba(0,0,0,.68) 45%,transparent 100%)!important;
 }
+
+
+/* AFV316: clean premium gradient background, with no dotted pattern. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+  background:
+    radial-gradient(ellipse at 4% 2%,rgba(0,125,255,.48) 0%,rgba(0,96,230,.18) 25%,transparent 48%),
+    radial-gradient(ellipse at 98% 88%,rgba(0,190,255,.20) 0%,transparent 38%),
+    radial-gradient(ellipse at 52% 46%,rgba(16,72,155,.24) 0%,transparent 58%),
+    linear-gradient(145deg,#092b64 0%,#071f4b 42%,#041632 76%,#062755 100%)!important;
+  border:1.5px solid rgba(94,190,255,.96)!important;
+  box-shadow:0 0 0 1px rgba(113,202,255,.16),0 0 24px rgba(19,118,255,.22),0 18px 56px rgba(0,0,0,.34),inset 0 1px 0 rgba(236,250,255,.42),inset 0 0 28px rgba(35,133,255,.10)!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{
+  background:
+    linear-gradient(151deg,transparent 0 12%,rgba(45,153,255,.0) 12.1%,rgba(45,153,255,.48) 12.3%,rgba(45,153,255,.12) 12.65%,transparent 13.2%),
+    linear-gradient(158deg,transparent 0 17%,rgba(63,170,255,.0) 17.1%,rgba(63,170,255,.28) 17.3%,rgba(63,170,255,.07) 17.65%,transparent 18.1%),
+    linear-gradient(326deg,transparent 0 16%,rgba(0,198,255,.0) 16.2%,rgba(0,198,255,.30) 16.4%,rgba(0,198,255,.08) 16.75%,transparent 17.2%),
+    radial-gradient(ellipse at 0% 50%,rgba(0,160,255,.12),transparent 36%),
+    radial-gradient(ellipse at 100% 70%,rgba(0,190,255,.09),transparent 34%)!important;
+  opacity:1!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after{
+  content:none!important;
+  display:none!important;
+}
