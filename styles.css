@@ -10287,3 +10287,13 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     top: 4px;
   }
 }
+
+/* AFV322: move disabled-account proof preview down 6px on desktop only */
+@media (min-width: 601px) {
+  .recovery-proofs-showcase .recovery-proof-preview-item:nth-child(3) img {
+    transform: translateY(6px);
+  }
+  .recovery-proofs-showcase:hover .recovery-proof-preview-item:nth-child(3) img {
+    transform: translateY(6px) scale(1.025);
+  }
+}
