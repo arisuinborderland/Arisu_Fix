@@ -10388,3 +10388,41 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     max-height: 543.33px !important;
   }
 }
+
+/* Desktop Recovery Proofs: fill unused tile space without cropping the proofs.
+   The same source image fills each tile behind a soft, blurred backdrop while
+   the complete, sharp original remains centered above it. */
+@media (min-width: 601px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended::before,
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled::before {
+    content: "" !important;
+    position: absolute !important;
+    z-index: 0 !important;
+    inset: -8px !important;
+    border-radius: inherit !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    filter: blur(8px) brightness(.86) saturate(.9) !important;
+    opacity: .92 !important;
+    transform: scale(1.04) !important;
+    pointer-events: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended::before {
+    background-image: url("proofs/desktop-suspended-preview.webp?v=AFV306&proofsource=3") !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled::before {
+    background-image: url("proofs/desktop-disabled-preview.webp?v=AFV306&proofsource=3") !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item picture {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item img {
+    background: transparent !important;
+  }
+}
