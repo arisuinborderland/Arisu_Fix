@@ -400,7 +400,8 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
   max-height:20vh!important; flex:none!important; margin:0 auto 6px!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-mascot {
-  display:block!important; width:100%!important; height:100%!important; overflow:visible!important;
+  display:block!important; width:100%!important; height:100%!important; max-width:100%!important; max-height:100%!important;
+  object-fit:contain!important; object-position:center center!important; background:transparent!important; border:0!important; border-radius:0!important;
   filter:drop-shadow(0 8px 16px rgba(52,148,255,.22))!important;
 }
 
