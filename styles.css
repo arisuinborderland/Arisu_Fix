@@ -10389,40 +10389,35 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   }
 }
 
-/* Desktop Recovery Proofs: fill unused tile space without cropping the proofs.
-   The same source image fills each tile behind a soft, blurred backdrop while
-   the complete, sharp original remains centered above it. */
+/* Desktop Recovery Proofs: make each original image fill its complete card.
+   No blurred duplicate background; the two tiles keep equal dimensions and the
+   entire source image is scaled into each tile. Mobile is unaffected. */
 @media (min-width: 601px) {
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended::before,
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled::before {
-    content: "" !important;
-    position: absolute !important;
-    z-index: 0 !important;
-    inset: -8px !important;
-    border-radius: inherit !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: cover !important;
-    filter: blur(8px) brightness(.86) saturate(.9) !important;
-    opacity: .92 !important;
-    transform: scale(1.04) !important;
-    pointer-events: none !important;
-  }
-
-  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended::before {
-    background-image: url("proofs/desktop-suspended-preview.webp?v=AFV306&proofsource=3") !important;
-  }
-
-  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled::before {
-    background-image: url("proofs/desktop-disabled-preview.webp?v=AFV306&proofsource=3") !important;
+    content: none !important;
+    display: none !important;
+    background-image: none !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item picture {
     position: relative !important;
     z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: fill !important;
+    object-position: center !important;
+    border-radius: inherit !important;
     background: transparent !important;
+    transform: none !important;
   }
 }
