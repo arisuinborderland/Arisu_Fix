@@ -352,9 +352,9 @@ html body .story-viewer.story-viewer-empty-open:not([hidden]) {
   position:fixed!important; inset:0!important;
   display:flex!important; align-items:center!important; justify-content:center!important;
   padding:20px 0!important; box-sizing:border-box!important;
-  background:rgba(4,10,24,.68)!important;
-  -webkit-backdrop-filter:blur(9px) saturate(115%)!important;
-  backdrop-filter:blur(9px) saturate(115%)!important;
+  background:rgba(4,10,24,.32)!important;
+  -webkit-backdrop-filter:blur(3px) saturate(108%)!important;
+  backdrop-filter:blur(3px) saturate(108%)!important;
 }
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-card {
@@ -377,7 +377,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
   display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important;
   gap:0!important; width:100%!important; max-width:none!important;
   max-height:calc(100dvh - 40px)!important; margin:0!important;
-  padding:25px 22px 23px!important; overflow-y:auto!important; box-sizing:border-box!important;
+  padding:20px 20px 19px!important; overflow-y:auto!important; box-sizing:border-box!important;
   border:1px solid rgba(190,224,255,.66)!important; border-radius:28px!important;
   background:
     radial-gradient(ellipse at 50% 0%,rgba(107,190,255,.22),transparent 48%),
@@ -396,8 +396,8 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after { cont
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
   position:relative!important; display:grid!important; place-items:center!important;
-  width:min(58vw,230px)!important; height:min(45vw,176px)!important;
-  max-height:23vh!important; flex:none!important; margin:0 auto 10px!important;
+  width:min(50vw,195px)!important; height:min(39vw,150px)!important;
+  max-height:20vh!important; flex:none!important; margin:0 auto 6px!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-mascot {
   display:block!important; width:100%!important; height:100%!important; overflow:visible!important;
@@ -405,7 +405,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-mascot {
 }
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2 {
-  position:relative!important; margin:0 0 10px!important;
+  position:relative!important; margin:0 0 8px!important;
   font:800 clamp(21px,5.4vw,27px)/1.15 Arial,sans-serif!important;
   letter-spacing:-.45px!important; color:#f8fbff!important; text-wrap:balance;
 }
@@ -414,7 +414,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2 span {
   -webkit-background-clip:text!important; background-clip:text!important; color:transparent!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty p {
-  position:relative!important; max-width:330px!important; margin:0 0 20px!important;
+  position:relative!important; max-width:330px!important; margin:0 0 15px!important;
   color:rgba(238,246,255,.9)!important; font:400 clamp(14px,3.8vw,16px)/1.5 Arial,sans-serif!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done {
@@ -432,9 +432,9 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active 
 html body .story-viewer.story-viewer-empty-open .story-viewer-close {
   position:absolute!important; top:10px!important; right:10px!important; bottom:auto!important; left:auto!important;
   z-index:8!important; display:grid!important; place-items:center!important;
-  width:38px!important; min-width:38px!important; height:38px!important; min-height:38px!important;
+  width:34px!important; min-width:34px!important; height:34px!important; min-height:34px!important;
   padding:0!important; border:1px solid rgba(190,224,255,.7)!important; border-radius:50%!important;
-  background:rgba(9,24,47,.68)!important; color:#fff!important; box-shadow:0 4px 14px rgba(0,0,0,.2)!important;
+  background:rgba(9,24,47,.56)!important; color:#fff!important; box-shadow:0 4px 14px rgba(0,0,0,.2)!important;
   font-size:0!important; -webkit-backdrop-filter:blur(10px)!important; backdrop-filter:blur(10px)!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child { font-size:24px!important; line-height:1!important; }
