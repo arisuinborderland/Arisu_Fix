@@ -1,3 +1,8 @@
+AFV310 — 2026-10-27
+- Strengthened the Midnight Blue + Electric Cyan empty-state palette with clearer blue glow, deeper navy shadows, and more visible cyan glass highlights.
+- Bumped package version and Stories stylesheet cache tokens to AFV310 so browsers request the updated stylesheet.
+- Preserved modal layout, mascot sizing, Got It action, and normal story playback.
+
 AFV309 — 2026-10-27
 - Rebuilt the Stories empty-state background with layered navy glass, cyan edge lighting, curved light trails, restrained particles, and stronger depth.
 - Removed the repeated dot-grid overlay and hid the close control in the empty-state modal as requested.
