@@ -1,14 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV314
+Version: AFV315
 Updated: 2026-10-27
 
-Current release: AFV314
-Package version: 314.0.0
+Current release: AFV315
+Package version: 315.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV315 synchronizes all public page references to the fresh Story Viewer CSS cache key after the Deep Indigo + Ice Blue palette update; no additional CSS override or layout change was added.
+
 - AFV314 applies the Deep Indigo + Ice Blue palette to the Stories empty-state card, border, glow, and heading accent while preserving layout and story behavior.
 
 - AFV313 removes superseded AFV271/273–279 header sizing overrides from proofs.css while retaining the AFV272 mobile header layout and AFV300 consolidated rules.

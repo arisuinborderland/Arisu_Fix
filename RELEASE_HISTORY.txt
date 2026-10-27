@@ -1,3 +1,8 @@
+AFV315 — 2026-10-27
+- Synchronized all five public page references to story-viewer.css?v=AFV315 after the Deep Indigo + Ice Blue palette update.
+- Prevents reuse of the older AFV311 cache key that could display the previous blue-teal palette.
+- No additional CSS override, layout, mascot, or Story Viewer behavior change.
+
 AFV314 — 2026-10-27
 - Applied the Deep Indigo + Ice Blue palette to the Stories empty-state background, border, glow, and heading accent.
 - Preserved modal layout, mascot, button behavior, and normal story playback; refreshed Story Viewer cache tokens.
