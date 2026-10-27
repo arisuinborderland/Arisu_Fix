@@ -3629,52 +3629,6 @@ html body #daily-bible-verse.daily-verse-card {
   }
 }
 
-/* desktop Recovery Proofs previews use portrait cards to match Customer Feedback.
- Mobile rules are intentionally left unchanged. */
-@media  (min-width: 761px)  {
-  .recovery-proofs-showcase .recovery-proofs-preview {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-    gap: 12px;
-  }
-  .recovery-proofs-showcase .recovery-proof-preview-item {
-    aspect-ratio: 3 / 5;
-    min-height: 0;
-    border-radius: 14px;
-  }
-  .recovery-proofs-showcase .recovery-proof-preview-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  .recovery-proofs-showcase .recovery-proof-preview-item > span {
-    font-size: 13px;
-    padding: 30px 10px 10px;
-  }
-}
-
-/* desktop fix — use higher-specificity selectors so the portrait
- preview ratio overrides the older 4:3 rule. Mobile styling remains unchanged. */
-@media  (min-width: 761px)  {
-  .social-collage .recovery-proofs-showcase .recovery-proofs-preview {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    align-items: stretch !important;
-    gap: 12px !important;
-  }
-  .social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    aspect-ratio: 3 / 5 !important;
-    height: auto !important;
-    overflow: hidden !important;
-    position: relative !important;
-    border-radius: 14px !important;
-  }
-}
-
 /* transparent service status panel inspired by the approved mockup. */
 .service-status-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:14px;margin:14px 0 18px;padding:16px;border:1px solid #d5e3ff;border-radius:20px;background:linear-gradient(125deg,rgba(239,247,255,.96),rgba(255,255,255,.94) 48%,rgba(245,239,255,.96));box-shadow:0 10px 28px rgba(61,81,150,.08);color:#19294c}
 .service-status-main{min-width:0;padding:3px 7px;display:flex;flex-direction:column;justify-content:center}
@@ -4316,13 +4270,6 @@ html body #daily-bible-verse.daily-verse-card {
     height: 48px !important;
     min-height: 48px !important;
     box-sizing: border-box !important;
-  }
-}
-
-/* add another 2px to the desktop-only Recovery Proofs bottom-button adjustment. */
-@media  (min-width: 1200px)  {
-  .social-collage > .recovery-proofs-showcase .recovery-proofs-button {
-    transform: translateY(8px) !important;
   }
 }
 
@@ -10277,5 +10224,44 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   .recovery-proofs-button {
     position: relative;
     top: 4px;
+  }
+}
+
+
+/* Recovery Proofs desktop layout: Suspended first, Disabled second.
+   This replaces the older two-column portrait-card rules. Mobile rules above remain untouched. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    gap: 10px !important;
+    margin: 12px 0 12px !important;
+    overflow: hidden !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    display: block !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    border-radius: 14px !important;
+    transform: none !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    transform: none !important;
   }
 }
