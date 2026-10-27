@@ -46,12 +46,13 @@ test('Mobile header styles are not declared in the desktop-only override', () =>
   assert.doesNotMatch(css, /@media\s*\(max-width:/);
 });
 
-test('Desktop homepage recovery-proof previews fill their card width using cover sizing', () => {
+test('Desktop homepage proof previews display both source composites side by side with contain sizing', () => {
   const homeStyles = read('styles.css');
-  assert.match(homeStyles, /AFV321 desktop proof previews: use taller rows for better screenshot legibility without side gutters/);
-  assert.match(homeStyles, /recovery-proofs-showcase > \.recovery-proofs-preview > \.recovery-proof-preview-item\s*\{[\s\S]*?aspect-ratio:\s*2 \/ 1 !important/);
-  assert.match(homeStyles, /recovery-proofs-preview > \.recovery-proof-preview-item > img\s*\{[\s\S]*?object-fit:\s*cover !important;[\s\S]*?object-position:\s*center 42% !important/);
-  assert.match(homeStyles, /social-collage > \.recovery-proofs-showcase,[\s\S]*?social-collage > \.social-feedback-card\s*\{[\s\S]*?height:\s*690px !important/);
+  assert.match(homeStyles, /AFV322 desktop proof previews: show both complete composite images side by side/);
+  assert.match(homeStyles, /recovery-proofs-preview\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\) !important/);
+  assert.match(homeStyles, /recovery-proofs-preview > \.recovery-proof-preview-item\s*\{[\s\S]*?aspect-ratio:\s*8 \/ 7 !important/);
+  assert.match(homeStyles, /recovery-proof-preview-item > img\s*\{[\s\S]*?object-fit:\s*contain !important/);
+  assert.match(homeStyles, /social-collage > \.recovery-proofs-showcase,[\s\S]*?social-collage > \.social-feedback-card\s*\{[\s\S]*?height:\s*410px !important/);
 });
 
 
