@@ -1,3 +1,8 @@
+AFV309 — 2026-10-27
+- Rebuilt the Stories empty-state background with layered navy glass, cyan edge lighting, curved light trails, restrained particles, and stronger depth.
+- Removed the repeated dot-grid overlay and hid the close control in the empty-state modal as requested.
+- Kept the transparent mascot asset, text, Got It action, and normal story playback separate from the background design.
+
 AFV308 — 2026-10-27
 - Replaced the temporary inline SVG mascot with the uploaded transparent PNG.
 - Added a narrowly scoped build allowlist for assets/story-viewer so the mascot is copied into production output without exposing all of assets/.
