@@ -1,3 +1,7 @@
+AFV315 — 2026-10-27
+- Refined the Stories empty-state background closer to the reference: deeper blue glass, lower dot density, peripheral particles, and subtle diagonal corner light streaks.
+- Updated the Story Viewer stylesheet cache-busting token.
+
 AFV314 — 2026-10-27
 - Matched the Stories empty-state card background to the reference with a richer blue gradient, glowing cyan border, curved light streaks, dotted texture, and subtle particle highlights.
 - Removed the X button from the empty state; the existing Got It control remains available.
