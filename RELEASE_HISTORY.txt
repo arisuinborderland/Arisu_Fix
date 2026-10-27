@@ -1,3 +1,8 @@
+AFV313 — 2026-10-27
+- Removed superseded AFV271 and AFV273–AFV279 header button sizing/color overrides from proofs.css.
+- Retained AFV272 mobile header row layout and AFV300 consolidated header rules.
+- Reduced proofs.css by 16,540 bytes and refreshed its cache token to AFV313.
+
 AFV312 — 2026-10-27
 - Removed one duplicate 4px header gap declaration inside the narrow-mobile breakpoint in styles.css.
 - Kept the remaining responsive header sizing and spacing rules intact; no broad stylesheet refactor.
