@@ -1,3 +1,7 @@
+AFV313 — 2026-10-27
+- Refined Stories glass card transparency and cyan edge lighting.
+- Synchronized release metadata with the AFV313 cache-busting token so production validation accepts the stylesheet version.
+
 AFV311 — 2026-10-27
 - Reduced the Stories empty-state mascot size for a more balanced gap above the heading.
 - Constrained modal content widths and hid horizontal overflow to prevent the bottom horizontal bar.
