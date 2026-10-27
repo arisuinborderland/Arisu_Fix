@@ -421,33 +421,41 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-ch
 }
 @media(prefers-reduced-motion:reduce){html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}}
 
-/* AFV308: detailed mascot asset sizing and empty-state close control. */
+/* AFV310: transparent mascot + integrated glassmorphism empty state. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:min(86vw,360px)!important;
+  height:clamp(190px, 30vh, 270px)!important;
+  max-height:none!important;
+  margin:0 auto 18px!important;
+  overflow:visible!important;
+}
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-viewer-mascot{
-  display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
-  object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important;
-  filter:drop-shadow(0 7px 14px rgba(52,148,255,.22))!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  mix-blend-mode:normal!important;
+  filter:drop-shadow(0 8px 18px rgba(32,151,255,.24))!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close{
+  left:auto!important;
+  right:18px!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-close:before{
   content:"×"!important;display:block!important;font-size:29px!important;font-weight:400!important;line-height:1!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child{display:none!important}
-
-/* AFV309 visual correction: keep the uploaded artwork clear of the title. */
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
-  width:min(76vw,320px)!important;
-  height:min(64vw,270px)!important;
-  max-height:34vh!important;
-  margin:0 auto 12px!important;
-  overflow:visible!important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-viewer-mascot{
-  width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
-  object-fit:contain!important;object-position:center!important;
-  mix-blend-mode:screen!important;
-  filter:drop-shadow(0 8px 18px rgba(40,150,255,.28))!important;
-}
 @media(max-height:650px){
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
-   width:min(62vw,230px)!important;height:min(48vw,185px)!important;max-height:27vh!important;margin-bottom:8px!important;
+   width:min(70vw,270px)!important;height:clamp(145px,25vh,200px)!important;margin-bottom:12px!important;
  }
 }
