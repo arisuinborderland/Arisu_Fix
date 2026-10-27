@@ -681,13 +681,6 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
 }
 
 
-/* trim the extra mobile footer tail without reducing clearance for the fixed navigation. */
-@media (max-width: 700px) {
-  html body.proofs-document .site-footer {
-    padding-bottom: 6px !important;
-  }
-}
-
 
 /* balance footer height with fixed bottom navigation; keep copyright visible. */
 @media (max-width: 700px) {
