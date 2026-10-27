@@ -72,3 +72,19 @@ test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
   assert.match(html, /styles\.css\?v=AFV323&proofalign=top1/);
 });
+
+
+test('AFV324 desktop proof preview cards stretch to 2px above the action button', () => {
+  const homeStyles = read('styles.css');
+  const desktopFix = homeStyles.split('AFV324 desktop proof thumbnails extend to 2px above the View Recovery Proofs button.')[1];
+  assert.ok(desktopFix, 'AFV324 desktop bottom-gap block must exist');
+  assert.match(desktopFix, /@media \(min-width: 761px\)/);
+  assert.match(desktopFix, /flex:\s*1 1 auto !important/);
+  assert.match(desktopFix, /grid-template-rows:\s*minmax\(0, 1fr\) !important/);
+  assert.match(desktopFix, /margin:\s*0 0 2px !important/);
+  assert.match(desktopFix, /aspect-ratio:\s*auto !important/);
+  assert.match(desktopFix, /object-fit:\s*cover !important/);
+});
+test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
+  assert.match(read('index.html'), /styles\.css\?v=AFV324&proofgap=2/);
+});
