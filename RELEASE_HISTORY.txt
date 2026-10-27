@@ -1,3 +1,8 @@
+AFV311 — 2026-10-27
+- Removed superseded Story Viewer mobile image-sizing rules and redundant landscape/portrait/square fit rules.
+- Kept the shared contain/center behavior and the final responsive image dimensions intact.
+- Refreshed the release version and stylesheet cache tokens to AFV311.
+
 AFV310 — 2026-10-27
 - Strengthened the Midnight Blue + Electric Cyan empty-state palette with clearer blue glow, deeper navy shadows, and more visible cyan glass highlights.
 - Bumped package version and Stories stylesheet cache tokens to AFV310 so browsers request the updated stylesheet.
