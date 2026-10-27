@@ -383,17 +383,15 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
   padding:24px 22px 22px!important; overflow-y:auto!important; box-sizing:border-box!important;
   border:1px solid rgba(157,213,255,.88)!important; border-radius:30px!important;
   background:
-    radial-gradient(ellipse at 8% 2%,rgba(59,153,255,.34) 0%,rgba(59,153,255,0) 43%),
-    radial-gradient(ellipse at 98% 58%,rgba(0,202,255,.17) 0%,rgba(0,202,255,0) 43%),
-    linear-gradient(145deg,rgba(25,72,132,.80) 0%,rgba(12,39,83,.91) 47%,rgba(4,16,42,.96) 100%)!important;
+    radial-gradient(ellipse at 50% 0%,rgba(31,112,211,.18) 0%,transparent 48%),
+    linear-gradient(145deg,#103d78 0%,#092b57 48%,#061b39 100%)!important;
   -webkit-backdrop-filter:blur(22px) saturate(155%)!important;
   backdrop-filter:blur(22px) saturate(155%)!important;
   box-shadow:
-    0 26px 70px rgba(0,0,0,.42),
-    0 0 0 1px rgba(116,190,255,.20),
-    0 0 32px rgba(34,135,255,.25),
-    inset 0 1px 0 rgba(245,252,255,.42),
-    inset 0 0 34px rgba(81,169,255,.13)!important;
+    0 22px 60px rgba(0,0,0,.34),
+    0 0 0 1px rgba(116,190,255,.18),
+    inset 0 1px 0 rgba(245,252,255,.28),
+    inset 0 0 26px rgba(35,150,255,.08)!important;
   color:#f7fbff!important; text-align:center!important; isolation:isolate!important;
 }
 
@@ -402,26 +400,13 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before {
   content:""!important; position:absolute!important; inset:0!important; z-index:0!important;
   border-radius:inherit!important; pointer-events:none!important;
   background:
-    radial-gradient(ellipse at 0% 0%,rgba(166,222,255,.24),transparent 36%),
-    radial-gradient(ellipse at 100% 100%,rgba(0,222,255,.14),transparent 37%),
-    linear-gradient(122deg,rgba(255,255,255,.13) 0%,transparent 25%,transparent 70%,rgba(90,183,255,.08) 100%)!important;
+    radial-gradient(ellipse at 0% 0%,rgba(132,203,255,.12),transparent 42%),
+    linear-gradient(120deg,rgba(255,255,255,.045),transparent 46%)!important;
   box-shadow:inset 0 0 0 1px rgba(202,235,255,.18),inset 0 0 42px rgba(87,172,255,.12)!important;
 }
 /* Light trails are curved gradient bands, not a repeated polka-dot overlay. */
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after {
-  content:""!important; position:absolute!important; inset:0!important; z-index:0!important;
-  border-radius:inherit!important; pointer-events:none!important;
-  background:
-    radial-gradient(ellipse 125% 42% at -8% 5%,transparent 57%,rgba(79,174,255,.52) 58%,rgba(79,174,255,.16) 58.5%,transparent 60%),
-    radial-gradient(ellipse 115% 38% at 108% 34%,transparent 61%,rgba(37,164,255,.40) 62%,rgba(37,164,255,.10) 62.7%,transparent 64%),
-    radial-gradient(ellipse 100% 34% at 42% 105%,transparent 62%,rgba(0,218,255,.35) 63%,rgba(0,218,255,.10) 63.7%,transparent 65%),
-    radial-gradient(circle at 9% 16%,rgba(54,169,255,.95) 0 1px,transparent 2.5px),
-    radial-gradient(circle at 92% 13%,rgba(76,210,255,.95) 0 1px,transparent 3px),
-    radial-gradient(circle at 87% 84%,rgba(47,153,255,.8) 0 1.5px,transparent 4px),
-    radial-gradient(circle at 13% 90%,rgba(0,222,255,.8) 0 1px,transparent 3px)!important;
-  opacity:.88!important;
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.72) 52%,#000 100%);
-  mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.72) 52%,#000 100%);
+  content:none!important;
 }
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty > * {
@@ -429,8 +414,8 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty > * {
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
   position:relative!important; display:grid!important; place-items:center!important;
-  width:min(62vw,245px)!important; height:min(48vw,190px)!important;
-  max-height:25vh!important; flex:none!important; margin:0 auto 7px!important;
+  width:min(56vw,218px)!important; height:min(45vw,174px)!important;
+  max-height:24vh!important; flex:none!important; margin:0 auto 8px!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-mascot {
   display:block!important; width:100%!important; height:100%!important; max-width:100%!important; max-height:100%!important;
@@ -473,31 +458,4 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active 
 }
 @media(prefers-reduced-motion:reduce) {
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done { transition:none!important; }
-}
-
-/* AFV312: match the approved clean navy/cyan empty-state reference.
-   Keep this scoped to empty mode; normal Story Viewer playback is unchanged. */
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(31,112,211,.18) 0%, transparent 48%),
-    linear-gradient(145deg, #103d78 0%, #092b57 48%, #061b39 100%) !important;
-  box-shadow:
-    0 22px 60px rgba(0,0,0,.34),
-    0 0 0 1px rgba(116,190,255,.18),
-    inset 0 1px 0 rgba(245,252,255,.28),
-    inset 0 0 26px rgba(35,150,255,.08) !important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before {
-  background:
-    radial-gradient(ellipse at 0% 0%, rgba(132,203,255,.12), transparent 42%),
-    linear-gradient(120deg, rgba(255,255,255,.045), transparent 46%) !important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after {
-  content: none !important;
-}
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
-  width: min(56vw, 218px) !important;
-  height: min(45vw, 174px) !important;
-  max-height: 24vh !important;
-  margin-bottom: 8px !important;
 }
