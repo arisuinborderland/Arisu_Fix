@@ -1,14 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV316
+Version: AFV317
 Updated: 2026-10-27
 
-Current release: AFV316
-Package version: 316.0.0
+Current release: AFV317
+Package version: 317.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV317 removes one redundant compact-header logo sizing declaration; the retained 600px rule already supplies the same 39px size at widths up to 420px. Added a regression test; no visual or behavior change intended.
+
 - AFV316 removes five verified repeated desktop footer rule blocks from styles.css and one duplicate mobile footer padding block from proofs.css. Responsive navigation clearance and footer layout declarations are retained.
 
 - AFV315 synchronizes all public page references to the fresh Story Viewer CSS cache key after the Deep Indigo + Ice Blue palette update; no additional CSS override or layout change was added.
