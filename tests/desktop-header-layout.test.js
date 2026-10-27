@@ -59,4 +59,16 @@ test('AFV323 desktop homepage proof previews mask cyan rails and keep square sou
 });
 
 
-
+test('Desktop homepage proof previews align at the top with no extra inset', () => {
+  const homeStyles = read('styles.css');
+  const alignFix = homeStyles.split('AFV323 desktop thumbnail top alignment: remove the extra top inset and align each source at the top.')[1];
+  assert.ok(alignFix, 'desktop-only proof thumbnail alignment block must exist');
+  assert.match(alignFix, /@media \(min-width: 761px\)/);
+  assert.match(alignFix, /align-items:\s*start !important/);
+  assert.match(alignFix, /margin-top:\s*0 !important/);
+  assert.match(alignFix, /object-position:\s*top center !important/);
+});
+test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
+  const html = read('index.html');
+  assert.match(html, /styles\.css\?v=AFV323&proofalign=top1/);
+});
