@@ -46,13 +46,15 @@ test('Mobile header styles are not declared in the desktop-only override', () =>
   assert.doesNotMatch(css, /@media\s*\(max-width:/);
 });
 
-test('Desktop homepage proof previews display both source composites side by side with contain sizing', () => {
+test('AFV323 desktop homepage proof previews mask cyan rails and keep square source composites intact', () => {
   const homeStyles = read('styles.css');
-  const desktopFix = homeStyles.split('AFV322 desktop proof previews: show both complete composite images side by side')[1];
-  assert.ok(desktopFix, 'AFV322 desktop proof preview block must exist');
-  assert.match(desktopFix, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\) !important/);
-  assert.match(desktopFix, /aspect-ratio:\s*8 \/ 7 !important/);
+  const desktopFix = homeStyles.split('AFV323 desktop-only preview polish.')[1];
+  assert.ok(desktopFix, 'AFV323 desktop preview block must exist');
+  assert.match(desktopFix, /@media \(min-width: 761px\)/);
+  assert.match(desktopFix, /aspect-ratio:\s*1 \/ 1 !important/);
   assert.match(desktopFix, /object-fit:\s*contain !important/);
+  assert.match(desktopFix, /recovery-proof-preview-item::after/);
+  assert.match(desktopFix, /background-size:\s*4\.2% 67%, 5\.5% 67%, 4\.2% 67%/);
   assert.match(desktopFix, /height:\s*410px !important/);
 });
 
