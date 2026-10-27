@@ -1,21 +1,21 @@
 ARISU FIX — PROJECT README
-Version: AFV311
+Version: AFV313
 Updated: 2026-10-27
 
-Current release: AFV311
-Package version: 311.0.0
+Current release: AFV313
+Package version: 313.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV311 replaces the full-screen empty state with a compact premium modal (Option 1) inside the existing Story Viewer; normal story playback and view tracking are unchanged.
+- AFV313 replaces the full-screen empty state with a compact premium modal (Option 1) inside the existing Story Viewer; normal story playback and view tracking are unchanged.
 
-- AFV311 consolidates legacy homepage/global header CSS rules while preserving AFV311 layout and sizing. It also keeps Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.
-- AFV311 makes Privacy Policy and About button widths on narrow phones match the homepage reference, removing conflicting legacy breakpoint sizes on proofs and reviews pages.
-- AFV311 keeps the verified badge vertically centered without an artificial offset.
-- AFV311 updates package and lockfile versions; no deployment was performed.
-- AFV311 established the shared mobile header layout; AFV311 removes remaining content-page size discrepancies.
+- AFV313 consolidates legacy homepage/global header CSS rules while preserving AFV313 layout and sizing. It also keeps Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.
+- AFV313 makes Privacy Policy and About button widths on narrow phones match the homepage reference, removing conflicting legacy breakpoint sizes on proofs and reviews pages.
+- AFV313 keeps the verified badge vertically centered without an artificial offset.
+- AFV313 updates package and lockfile versions; no deployment was performed.
+- AFV313 established the shared mobile header layout; AFV313 removes remaining content-page size discrepancies.
 - Production Stories API is implemented with Cloudflare Pages Functions under functions/api/.
 - Recovery Story views are deduplicated in the database by story and browser-tab session.
 - Story image URLs refresh when the viewer opens; signed URLs are issued for one hour.
