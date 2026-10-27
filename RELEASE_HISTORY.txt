@@ -1,3 +1,8 @@
+AFV309 — 2026-10-27
+- Corrected production build asset allowlist to include the root assets/ directory, so assets/story-viewer/afv306-mascot.jpg is copied to dist/assets/story-viewer/.
+- Updated Story Viewer cache-busting references and package/release metadata to AFV309.
+- This fixes the AFV308 build failure where the nested image was referenced by HTML but excluded from production output.
+
 AFV308 — 2026-10-27
 - Replaced the simplified Stories empty-state SVG with the detailed anime mascot asset.
 - Added assets/story-viewer to the production build's public asset allowlist so the image is copied into dist.
