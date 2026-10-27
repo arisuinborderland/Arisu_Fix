@@ -387,7 +387,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
     radial-gradient(ellipse at 98% 58%,rgba(0,202,255,.17) 0%,rgba(0,202,255,0) 43%),
     linear-gradient(145deg,rgba(25,72,132,.80) 0%,rgba(12,39,83,.91) 47%,rgba(4,16,42,.96) 100%)!important;
   -webkit-backdrop-filter:blur(22px) saturate(155%)!important;
-  backdrop-filter:blur(24px) saturate(155%)!important;
+  backdrop-filter:blur(22px) saturate(155%)!important;
   box-shadow:
     0 26px 70px rgba(0,0,0,.42),
     0 0 0 1px rgba(116,190,255,.20),
