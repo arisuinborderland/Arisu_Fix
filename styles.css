@@ -10267,3 +10267,19 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge,
 html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   overflow: visible !important; clip-path: none !important;
 }
+
+
+/* AFV319 desktop recovery-proof previews: show the complete source screenshots without cropping. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
+    background: #f1f5ff !important;
+  }
+
+  html body.home-page .social-collage .recovery-proofs-showcase .recovery-proof-preview-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+}
