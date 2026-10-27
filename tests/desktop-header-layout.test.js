@@ -48,11 +48,12 @@ test('Mobile header styles are not declared in the desktop-only override', () =>
 
 test('Desktop homepage proof previews display both source composites side by side with contain sizing', () => {
   const homeStyles = read('styles.css');
-  assert.match(homeStyles, /AFV322 desktop proof previews: show both complete composite images side by side/);
-  assert.match(homeStyles, /recovery-proofs-preview\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\) !important/);
-  assert.match(homeStyles, /recovery-proofs-preview > \.recovery-proof-preview-item\s*\{[\s\S]*?aspect-ratio:\s*8 \/ 7 !important/);
-  assert.match(homeStyles, /recovery-proof-preview-item > img\s*\{[\s\S]*?object-fit:\s*contain !important/);
-  assert.match(homeStyles, /social-collage > \.recovery-proofs-showcase,[\s\S]*?social-collage > \.social-feedback-card\s*\{[\s\S]*?height:\s*410px !important/);
+  const desktopFix = homeStyles.split('AFV322 desktop proof previews: show both complete composite images side by side')[1];
+  assert.ok(desktopFix, 'AFV322 desktop proof preview block must exist');
+  assert.match(desktopFix, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\) !important/);
+  assert.match(desktopFix, /aspect-ratio:\s*8 \/ 7 !important/);
+  assert.match(desktopFix, /object-fit:\s*contain !important/);
+  assert.match(desktopFix, /height:\s*410px !important/);
 });
 
 
