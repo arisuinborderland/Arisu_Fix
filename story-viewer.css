@@ -474,3 +474,30 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active 
 @media(prefers-reduced-motion:reduce) {
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done { transition:none!important; }
 }
+
+/* AFV312: match the approved clean navy/cyan empty-state reference.
+   Keep this scoped to empty mode; normal Story Viewer playback is unchanged. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(31,112,211,.18) 0%, transparent 48%),
+    linear-gradient(145deg, #103d78 0%, #092b57 48%, #061b39 100%) !important;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.34),
+    0 0 0 1px rgba(116,190,255,.18),
+    inset 0 1px 0 rgba(245,252,255,.28),
+    inset 0 0 26px rgba(35,150,255,.08) !important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(132,203,255,.12), transparent 42%),
+    linear-gradient(120deg, rgba(255,255,255,.045), transparent 46%) !important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after {
+  content: none !important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art {
+  width: min(56vw, 218px) !important;
+  height: min(45vw, 174px) !important;
+  max-height: 24vh !important;
+  margin-bottom: 8px !important;
+}
