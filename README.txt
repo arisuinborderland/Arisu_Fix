@@ -1,14 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV311
+Version: AFV312
 Updated: 2026-10-27
 
-Current release: AFV311
-Package version: 311.0.0
+Current release: AFV312
+Package version: 312.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV312 removes a duplicate narrow-mobile header gap declaration from styles.css; no layout rules were broadly refactored.
+
 - AFV311 removes superseded Story Viewer image-sizing rules while retaining the shared contain/center behavior and responsive final sizing.
 
 - AFV310 strengthens the Midnight Blue + Electric Cyan Stories empty-state palette and refreshes story-viewer.css cache tokens; modal layout and story behavior remain unchanged.
