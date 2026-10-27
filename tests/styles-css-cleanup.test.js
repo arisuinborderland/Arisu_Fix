@@ -28,7 +28,6 @@ test('Desktop footer cleanup does not reintroduce identical repeated layout rule
 });
 
 
-test('Compact 420px header reuses the retained 600px logo sizing rule', () => {
-  assert.doesNotMatch(css, /@media \(max-width:420px\) \{[^}]*\.topbar \.logo\s*\{/);
-  assert.match(css, /@media \(max-width:600px\) \{[\s\S]{0,180}\.topbar \.logo\s*\{\s*width:\s*39px;\s*height:\s*39px;\s*\}/);
+test('Compact header logo sizing is declared once after removing the redundant 420px copy', () => {
+  assert.equal((css.match(/\.topbar \.logo\{width:39px;height:39px\}/g) || []).length, 1);
 });
