@@ -352,8 +352,8 @@ html body .story-viewer.story-viewer-empty-open:not([hidden]) {
   position:fixed!important; inset:0!important;
   display:flex!important; align-items:center!important; justify-content:center!important;
   padding:20px 0!important; box-sizing:border-box!important;
-  background:rgba(4,10,24,.32)!important;
-  -webkit-backdrop-filter:blur(3px) saturate(108%)!important;
+  background:rgba(4,10,24,.22)!important;
+  -webkit-backdrop-filter:blur(2px) saturate(108%)!important;
   backdrop-filter:blur(3px) saturate(108%)!important;
 }
 
@@ -382,9 +382,9 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
   background:
     radial-gradient(ellipse at 8% 0%,rgba(79,170,255,.18),transparent 44%),
     radial-gradient(ellipse at 100% 100%,rgba(27,174,238,.08),transparent 42%),
-    linear-gradient(145deg,rgba(42,86,137,.36) 0%,rgba(17,42,77,.50) 44%,rgba(4,13,29,.76) 100%)!important;
-  -webkit-backdrop-filter:blur(20px) saturate(145%)!important;
-  backdrop-filter:blur(20px) saturate(145%)!important;
+    linear-gradient(145deg,rgba(42,86,137,.54) 0%,rgba(17,42,77,.72) 44%,rgba(4,13,29,.88) 100%)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(135%)!important;
+  backdrop-filter:blur(12px) saturate(135%)!important;
   box-shadow:0 24px 65px rgba(0,0,0,.38),inset 0 1px 0 rgba(235,249,255,.27),inset 0 0 24px rgba(140,204,255,.045),0 0 28px rgba(64,157,255,.16)!important;
   color:#f7fbff!important; text-align:center!important; isolation:isolate!important;
 }
@@ -439,7 +439,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close {
   background:rgba(9,24,47,.56)!important; color:#fff!important; box-shadow:0 4px 14px rgba(0,0,0,.2)!important;
   font-size:0!important; -webkit-backdrop-filter:blur(10px)!important; backdrop-filter:blur(10px)!important;
 }
-html body .story-viewer.story-viewer-empty-open .story-viewer-close:before { content:"\\00d7"!important; display:block!important; font-size:26px!important; line-height:1!important; }
+html body .story-viewer.story-viewer-empty-open .story-viewer-close:before { content:"×"!important; display:block!important; font-size:26px!important; line-height:1!important; }
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child,
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-child { display:none!important; }
 
