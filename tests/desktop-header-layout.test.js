@@ -70,7 +70,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV324&proofgap=2/);
+  assert.match(html, /styles\.css\?v=AFV325&imageintegrity=1/);
 });
 
 
@@ -86,5 +86,21 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV324&proofgap=2/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV325&imageintegrity=1/);
+});
+
+
+test('AFV325 desktop homepage previews do not mask source pixels and show complete images', () => {
+  const homeStyles = read('styles.css');
+  const desktopFix = homeStyles.split('AFV325 desktop homepage proof-image integrity.')[1];
+  assert.ok(desktopFix, 'AFV325 desktop image-integrity block must exist');
+  assert.match(desktopFix, /@media \(min-width: 761px\)/);
+  assert.match(desktopFix, /aspect-ratio:\s*1 \/ 1 !important/);
+  assert.match(desktopFix, /object-fit:\s*contain !important/);
+  assert.match(desktopFix, /\.recovery-proof-preview-item::before,[\s\S]*?\.recovery-proof-preview-item::after\s*\{[\s\S]*?content: none !important;[\s\S]*?display: none !important/);
+  assert.match(desktopFix, /margin:\s*0 0 2px !important/);
+  assert.match(desktopFix, /height:\s*48px !important/);
+});
+test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
+  assert.match(read('index.html'), /styles\.css\?v=AFV325&imageintegrity=1/);
 });
