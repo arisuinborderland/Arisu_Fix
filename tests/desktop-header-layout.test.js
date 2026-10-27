@@ -48,8 +48,10 @@ test('Mobile header styles are not declared in the desktop-only override', () =>
 
 test('Desktop homepage recovery-proof previews fill their card width using cover sizing', () => {
   const homeStyles = read('styles.css');
-  assert.match(homeStyles, /AFV320 desktop proof previews: fill the full card with the screenshots/);
-  assert.match(homeStyles, /html body\.home-page \.social-collage > \.recovery-proofs-showcase \.recovery-proof-preview-item img\s*\{[\s\S]*?object-fit:\s*cover !important;[\s\S]*?object-position:\s*center 42% !important/);
+  assert.match(homeStyles, /AFV321 desktop proof previews: use taller rows for better screenshot legibility without side gutters/);
+  assert.match(homeStyles, /recovery-proofs-showcase > \.recovery-proofs-preview > \.recovery-proof-preview-item\s*\{[\s\S]*?aspect-ratio:\s*2 \/ 1 !important/);
+  assert.match(homeStyles, /recovery-proofs-preview > \.recovery-proof-preview-item > img\s*\{[\s\S]*?object-fit:\s*cover !important;[\s\S]*?object-position:\s*center 42% !important/);
+  assert.match(homeStyles, /social-collage > \.recovery-proofs-showcase,[\s\S]*?social-collage > \.social-feedback-card\s*\{[\s\S]*?height:\s*690px !important/);
 });
 
 
