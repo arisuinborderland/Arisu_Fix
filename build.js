@@ -23,7 +23,7 @@ const publicRootFiles = new Set([
   "verse-lake-photo.jpg", "tiktok-profile-preview.jpg", "social-preview.jpg",
   "arisu-profile.jpg", "facebook-page-preview.jpg"
 ]);
-const publicAssetDirectories = new Set(["reviews", "proofs"]);
+const publicAssetDirectories = new Set(["reviews", "proofs", "story-viewer"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
 const requiredFunctionFiles = [
   "functions/api/stories.js", "functions/api/story-count.js", "functions/api/story-config.js",
