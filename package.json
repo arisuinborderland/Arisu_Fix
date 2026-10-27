@@ -1,6 +1,6 @@
 {
   "name": "arisu-fix",
-  "version": "311.0.0",
+  "version": "313.0.0",
   "private": true,
   "engines": {
     "node": "24.x"
