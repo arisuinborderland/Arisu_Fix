@@ -1,14 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV312
+Version: AFV313
 Updated: 2026-10-27
 
-Current release: AFV312
-Package version: 312.0.0
+Current release: AFV313
+Package version: 313.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV313 removes superseded AFV271/273–279 header sizing overrides from proofs.css while retaining the AFV272 mobile header layout and AFV300 consolidated rules.
+
 - AFV312 removes a duplicate narrow-mobile header gap declaration from styles.css; no layout rules were broadly refactored.
 
 - AFV311 removes superseded Story Viewer image-sizing rules while retaining the shared contain/center behavior and responsive final sizing.
