@@ -52,3 +52,9 @@ test('Desktop homepage recovery-proof previews show complete source images witho
   assert.match(homeStyles, /@media\s*\(min-width:\s*761px\)\s*\{[\s\S]*?recovery-proof-preview-item img\s*\{[\s\S]*?object-fit:\s*contain !important/);
   assert.match(homeStyles, /html body\.home-page \.social-collage \.recovery-proofs-showcase \.recovery-proof-preview-item img/);
 });
+
+test('Homepage cache-busts the shared stylesheet version that contains the desktop proof-preview fix', () => {
+  const html = read('index.html');
+  assert.match(html, /styles\.css\?v=AFV319/);
+  assert.doesNotMatch(html, /styles\.css\?v=AFV300/);
+});
