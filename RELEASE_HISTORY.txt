@@ -1,3 +1,8 @@
+AFV319 — 2026-10-27
+- Fixed empty Story Viewer state on proofs, about, privacy, and reviews pages by adding the same empty-state markup used on the homepage. Previously those pages had the backdrop and viewer shell but no empty-state card content.
+- Updated Story Viewer CSS and JS cache tokens to AFV319 across pages that include the shared viewer.
+- Preserved the homepage empty-state markup and design.
+
 AFV318 — 2026-10-27
 - Removed the empty-state pseudo-element overlays to eliminate dotted texture and diagonal crossing lines.
 - Kept the background as a clean, layered navy-to-royal-blue gradient with subtle radial cyan/blue depth and a restrained cyan border glow.
