@@ -10389,15 +10389,19 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   }
 }
 
-/* Desktop Recovery Proofs: make each original image fill its complete card.
-   No blurred duplicate background; the two tiles keep equal dimensions and the
-   entire source image is scaled into each tile. Mobile is unaffected. */
+/* Desktop Recovery Proofs: preserve original image proportions and text clarity.
+   Each full source image remains visible in its equal-sized desktop tile.
+   The tiles keep matching dimensions; mobile CSS remains untouched. */
 @media (min-width: 601px) {
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-suspended::before,
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .desktop-proof-disabled::before {
     content: none !important;
     display: none !important;
     background-image: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    background: #f5f7ff !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item picture {
@@ -10414,8 +10418,8 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     height: 100% !important;
     max-width: none !important;
     max-height: none !important;
-    object-fit: fill !important;
-    object-position: center !important;
+    object-fit: contain !important;
+    object-position: center center !important;
     border-radius: inherit !important;
     background: transparent !important;
     transform: none !important;
