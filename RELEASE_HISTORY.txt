@@ -1,3 +1,7 @@
+AFV317 — 2026-10-27
+- Removed one redundant 39px logo-size declaration from the 420px breakpoint; the existing 600px breakpoint already applies the same size at narrower widths.
+- Added a regression test confirming the compact breakpoint relies on the retained rule. No other CSS, JavaScript, HTML, or layout behavior was changed.
+
 AFV316 — 2026-10-27
 - Removed five exact repeated desktop footer CSS rule blocks from styles.css and one duplicate mobile footer padding rule from proofs.css.
 - Added regression tests for retained footer sizing and safe-area navigation clearance.
