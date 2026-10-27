@@ -1,3 +1,9 @@
+AFV310 — 2026-10-27
+- Switched the Stories empty-state mascot from the old JPG to the newly uploaded PNG asset in assets/story-viewer/.
+- Consolidated the earlier repeated mascot CSS overrides into one responsive rule set.
+- Added transparent-background handling, safer artwork spacing, and top-right close-button positioning.
+- Updated Story Viewer cache-busting references and release metadata to AFV310.
+
 AFV309 — 2026-10-27
 - Corrected production build asset allowlist to include the root assets/ directory, so assets/story-viewer/afv306-mascot.jpg is copied to dist/assets/story-viewer/.
 - Updated Story Viewer cache-busting references and package/release metadata to AFV309.
