@@ -380,17 +380,18 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty {
   padding:20px 20px 19px!important; overflow-y:auto!important; box-sizing:border-box!important;
   border:1px solid rgba(190,224,255,.66)!important; border-radius:28px!important;
   background:
-    radial-gradient(ellipse at 50% 0%,rgba(107,190,255,.22),transparent 48%),
-    linear-gradient(145deg,rgba(146,194,245,.24) 0%,rgba(41,73,119,.32) 42%,rgba(7,19,40,.66) 100%)!important;
-  -webkit-backdrop-filter:blur(28px) saturate(165%)!important;
-  backdrop-filter:blur(28px) saturate(165%)!important;
-  box-shadow:0 24px 70px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.24),inset 0 0 28px rgba(140,204,255,.055),0 0 30px rgba(64,157,255,.13)!important;
+    radial-gradient(ellipse at 8% 0%,rgba(79,170,255,.18),transparent 44%),
+    radial-gradient(ellipse at 100% 100%,rgba(27,174,238,.08),transparent 42%),
+    linear-gradient(145deg,rgba(42,86,137,.36) 0%,rgba(17,42,77,.50) 44%,rgba(4,13,29,.76) 100%)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(145%)!important;
+  backdrop-filter:blur(20px) saturate(145%)!important;
+  box-shadow:0 24px 65px rgba(0,0,0,.38),inset 0 1px 0 rgba(235,249,255,.27),inset 0 0 24px rgba(140,204,255,.045),0 0 28px rgba(64,157,255,.16)!important;
   color:#f7fbff!important; text-align:center!important; isolation:isolate!important;
 }
 
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before {
   content:""!important; position:absolute!important; inset:0!important; border-radius:inherit!important; pointer-events:none!important;
-  background:linear-gradient(118deg,rgba(255,255,255,.095),transparent 38%,transparent 70%,rgba(110,188,255,.055))!important;
+  background:radial-gradient(ellipse at 0% 0%,rgba(143,210,255,.10),transparent 42%),radial-gradient(ellipse at 100% 100%,rgba(50,202,255,.08),transparent 43%),linear-gradient(118deg,rgba(255,255,255,.08),transparent 38%,transparent 70%,rgba(110,188,255,.045))!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after { content:none!important; }
 
@@ -438,7 +439,8 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close {
   background:rgba(9,24,47,.56)!important; color:#fff!important; box-shadow:0 4px 14px rgba(0,0,0,.2)!important;
   font-size:0!important; -webkit-backdrop-filter:blur(10px)!important; backdrop-filter:blur(10px)!important;
 }
-html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child { font-size:24px!important; line-height:1!important; }
+html body .story-viewer.story-viewer-empty-open .story-viewer-close:before { content:"\\00d7"!important; display:block!important; font-size:26px!important; line-height:1!important; }
+html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child,
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-child { display:none!important; }
 
 @media(max-height:650px) {
