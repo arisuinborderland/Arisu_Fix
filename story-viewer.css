@@ -480,3 +480,75 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-c
    width:min(62vw,250px)!important;height:clamp(130px,22vh,175px)!important;margin-bottom:7px!important;
  }
 }
+
+
+/* AFV314: reference-matched Story Viewer empty-state background; remove the empty-state X control. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+  border:1.5px solid rgba(91,190,255,.94)!important;
+  background:
+    radial-gradient(ellipse at 48% 4%,rgba(28,119,245,.42) 0%,rgba(20,77,164,.22) 34%,transparent 62%),
+    radial-gradient(ellipse at 0% 58%,rgba(0,157,255,.20) 0%,transparent 43%),
+    radial-gradient(ellipse at 100% 82%,rgba(0,215,255,.18) 0%,transparent 44%),
+    linear-gradient(150deg,rgba(11,58,126,.78) 0%,rgba(6,34,79,.89) 48%,rgba(3,22,53,.91) 100%)!important;
+  box-shadow:
+    0 0 0 1px rgba(127,211,255,.22),
+    0 0 30px rgba(28,133,255,.30),
+    0 18px 56px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(230,249,255,.48),
+    inset 0 0 34px rgba(28,133,255,.12),
+    inset 0 -1px 0 rgba(70,208,255,.30)!important;
+  isolation:isolate!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty > *{
+  position:relative!important;
+  z-index:2!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(ellipse 112% 58% at -7% -8%,transparent 60.7%,rgba(67,174,255,.58) 61.1%,rgba(67,174,255,.12) 61.8%,transparent 62.5%),
+    radial-gradient(ellipse 125% 68% at -6% -12%,transparent 63.2%,rgba(53,145,255,.36) 63.5%,transparent 64.2%),
+    radial-gradient(ellipse 95% 48% at 103% 107%,transparent 61%,rgba(0,209,255,.28) 61.4%,transparent 62.2%),
+    radial-gradient(circle at 14% 15%,rgba(42,161,255,.42) 0 1.5px,transparent 3px),
+    radial-gradient(circle at 76% 15%,rgba(0,199,255,.44) 0 1.2px,transparent 3px),
+    radial-gradient(circle at 93% 37%,rgba(55,199,255,.58) 0 1.5px,transparent 3px),
+    radial-gradient(circle at 8% 73%,rgba(0,174,255,.50) 0 1.4px,transparent 3px),
+    radial-gradient(circle at 88% 79%,rgba(49,169,255,.44) 0 1.5px,transparent 3px),
+    linear-gradient(120deg,rgba(104,193,255,.11),transparent 45%)!important;
+  opacity:1!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(circle,rgba(68,184,255,.48) 1px,transparent 1.7px) 0 0/9px 9px,
+    radial-gradient(circle,rgba(0,220,255,.55) 1px,transparent 1.8px) 4px 4px/13px 13px,
+    radial-gradient(ellipse at 50% 47%,rgba(0,129,255,.14),transparent 62%)!important;
+  opacity:.62!important;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 20%,rgba(0,0,0,.92) 37%,rgba(0,0,0,.78) 55%,transparent 72%)!important;
+  mask-image:linear-gradient(to bottom,transparent 20%,rgba(0,0,0,.92) 37%,rgba(0,0,0,.78) 55%,transparent 72%)!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close{
+  display:none!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{
+  box-shadow:
+    0 0 0 1px rgba(84,204,255,.23),
+    0 8px 24px rgba(0,112,255,.32),
+    inset 0 1px 0 rgba(255,255,255,.56)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before,
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty:after{
+    animation:none!important;
+  }
+}
