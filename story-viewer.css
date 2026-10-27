@@ -420,3 +420,14 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-ch
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{min-height:43px!important}
 }
 @media(prefers-reduced-motion:reduce){html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}}
+
+/* AFV308: detailed mascot asset sizing and empty-state close control. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-viewer-mascot{
+  display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+  object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important;
+  filter:drop-shadow(0 7px 14px rgba(52,148,255,.22))!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close:before{
+  content:"×"!important;display:block!important;font-size:29px!important;font-weight:400!important;line-height:1!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child{display:none!important}
