@@ -25,6 +25,8 @@ test('Desktop header actions share the same size, palette, icon dimensions, and 
   assert.match(css, /background:\s*linear-gradient\(135deg, rgba\(255,255,255,\.98\), rgba\(239,243,255,\.96\)\) !important/);
   assert.match(css, /width:\s*18px !important;\s*height:\s*18px !important;\s*flex:\s*0 0 18px !important/);
   assert.match(css, /:focus-visible/);
+  assert.match(css, /header SVG icons visible on pale desktop buttons/);
+  assert.match(css, /\.header-icon \*[,\s\S]*stroke: #263a61 !important/);
 });
 
 test('All public pages load the shared header stylesheet after page-specific stylesheets', () => {
