@@ -10445,3 +10445,96 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     margin-top: 0 !important;
   }
 }
+
+
+/* AFV325 desktop homepage proof-image integrity.
+   Earlier ::before/::after overlays were masking large parts of the screenshots and cover sizing cropped both composites.
+   Disable the overlays, show each full source composite in a square frame, and keep only a 2px gap above the button.
+   Desktop homepage only; mobile and proofs.html are not changed. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage {
+    align-items: start !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase,
+  html body.home-page .social-collage > .social-feedback-card {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    align-self: start !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: auto !important;
+    align-items: start !important;
+    align-content: start !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 0 2px !important;
+    padding: 0 !important;
+    gap: 8px !important;
+    transform: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item {
+    position: relative !important;
+    align-self: start !important;
+    justify-self: stretch !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 1 / 1 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    background: #101827 !important;
+    border: 1px solid rgba(205, 216, 239, .95) !important;
+    border-radius: 12px !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item::before,
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item > img {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    transform: none !important;
+    left: auto !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    box-sizing: border-box !important;
+    flex: 0 0 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    margin: 0 !important;
+  }
+}
