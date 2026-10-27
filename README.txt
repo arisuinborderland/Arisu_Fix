@@ -1,14 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV309
+Version: AFV310
 Updated: 2026-10-27
 
-Current release: AFV309
-Package version: 309.0.0
+Current release: AFV310
+Package version: 310.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV310 strengthens the Midnight Blue + Electric Cyan Stories empty-state palette and refreshes story-viewer.css cache tokens; modal layout and story behavior remain unchanged.
+
 - AFV306 replaces the full-screen empty state with a compact premium modal (Option 1) inside the existing Story Viewer; normal story playback and view tracking are unchanged.
 
 - AFV306 consolidates legacy homepage/global header CSS rules while preserving AFV297 layout and sizing. It also keeps Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.
