@@ -9207,11 +9207,6 @@ html body.home-page .purpose-card .purpose-signoff {
     stroke-dashoffset: 0 !important;
     animation: none !important;
   }
-
-  /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
-  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
-    animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
-  }
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before {
     animation: wa-border-trace 2.8s linear infinite !important;
   }
@@ -9627,23 +9622,6 @@ html body.home-page .purpose-card .purpose-signoff {
     box-shadow: none !important;
   }
 
-  html body.home-page .site-footer > .about-link-section {
-    box-sizing: border-box !important;
-    width: min(100%, 824px) !important;
-    max-width: 824px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    align-self: center !important;
-  }
-
-  html body.home-page .site-footer > .about-link-section .about-page-cta {
-    box-sizing: border-box !important;
-    display: flex !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-  }
-
   html body.home-page .site-footer > .footer-location {
     box-sizing: border-box !important;
     display: flex !important;
@@ -9669,18 +9647,6 @@ html body.home-page .purpose-card .purpose-signoff {
     min-width: 0 !important;
     white-space: nowrap !important;
     color: #D9E3F5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
   }
 
   html body.home-page .site-footer > .footer-location .footer-location-separator {
@@ -9723,22 +9689,6 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .site-footer > .footer-links > a:hover,
   html body.home-page .site-footer > .footer-links > a:focus-visible {
     color: #D8C7FF !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a span {
-    min-width: 0 !important;
   }
 
   html body.home-page .site-footer > .footer-links > .footer-copyright {
@@ -10155,11 +10105,6 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
     width: 14px !important;
     height: 14px !important;
   }
-  /* The homepage keeps the two primary actions in its header; secondary links remain accessible elsewhere. */
-  html body.home-page .topbar > .header-meta > .proofs-header-link,
-  html body.home-page .topbar > .header-meta > .webtools-header-link {
-    display: none !important;
-  }
 }
 @media (max-width: 380px) {
   html body .topbar { padding-left: 8px !important; padding-right: 8px !important; gap: 5px !important; }
@@ -10239,7 +10184,6 @@ html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3
   html body .topbar > .header-meta > .about-header-link { width: 98px !important; min-width: 98px !important; }
 }
 @media (max-width: 380px) {
-  html body .topbar > .header-meta { gap: 4px !important; }
   html body .topbar > .header-meta > .privacy-link,
   html body .topbar > .header-meta > .about-header-link {
     height: 35px !important; min-height: 35px !important; padding: 0 6px !important;
