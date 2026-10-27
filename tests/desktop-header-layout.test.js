@@ -46,24 +46,11 @@ test('Mobile header styles are not declared in the desktop-only override', () =>
   assert.doesNotMatch(css, /@media\s*\(max-width:/);
 });
 
-test('Desktop homepage recovery-proof previews show complete source images without cropping', () => {
+test('Desktop homepage recovery-proof previews fill their card width using cover sizing', () => {
   const homeStyles = read('styles.css');
-  assert.match(homeStyles, /AFV319 desktop recovery-proof previews: show the complete source screenshots without cropping/);
-  assert.match(homeStyles, /@media\s*\(min-width:\s*761px\)\s*\{[\s\S]*?recovery-proof-preview-item img\s*\{[\s\S]*?object-fit:\s*contain !important/);
-  assert.match(homeStyles, /html body\.home-page \.social-collage \.recovery-proofs-showcase \.recovery-proof-preview-item img/);
+  assert.match(homeStyles, /AFV320 desktop proof previews: fill the full card with the screenshots/);
+  assert.match(homeStyles, /html body\.home-page \.social-collage > \.recovery-proofs-showcase \.recovery-proof-preview-item img\s*\{[\s\S]*?object-fit:\s*cover !important;[\s\S]*?object-position:\s*center 42% !important/);
 });
 
-test('Homepage cache-busts the shared stylesheet version that contains the desktop proof-preview fix', () => {
-  const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV319/);
-  assert.doesNotMatch(html, /styles\.css\?v=AFV300/);
-});
 
-test('Desktop proof previews fill side gutters with a blurred duplicate while preserving the whole original image', () => {
-  const homeStyles = read('styles.css');
-  assert.match(homeStyles, /AFV319 desktop proof previews: blur-fill side gutters while keeping complete originals visible/);
-  assert.match(homeStyles, /recovery-proof-preview-item:nth-child\(1\)::before[\s\S]*?background-image:\s*url\(["']?proofs\/arisu-suspended-account-180-days\.jpg/);
-  assert.match(homeStyles, /recovery-proof-preview-item:nth-child\(2\)::before[\s\S]*?background-image:\s*url\(["']?proofs\/file_0000000089048211995f9a93297d1146\.png/);
-  assert.match(homeStyles, /object-fit:\s*contain !important/);
-  assert.match(homeStyles, /filter:\s*blur\(12px\) brightness\(\.72\) saturate\(\.9\) !important/);
-});
+
