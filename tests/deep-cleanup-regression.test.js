@@ -55,3 +55,9 @@ test('Proofs CSS retains one copy of exact duplicate declarations', () => {
   assert.equal(css.includes(redundantPairRule), false);
   assert.equal((css.match(/@media\(max-width:600px\)\{\.proof-image-pair\{gap:2px\}\}/g) || []).length, 0);
 });
+
+test('Proofs mobile footer padding is declared once alongside navigation clearance', () => {
+  const css = fs.readFileSync(path.join(root, 'proofs.css'), 'utf8');
+  assert.equal((css.match(/html body\.proofs-document \.site-footer\s*\{\s*padding-bottom: 6px !important;\s*\}/g) || []).length, 1);
+  assert.match(css, /@media \(max-width: 700px\) \{\s*html body\.proofs-document \{\s*padding-bottom: calc\(88px \+ env\(safe-area-inset-bottom\)\) !important;\s*\}\s*html body\.proofs-document \.site-footer \{\s*padding-bottom: 6px !important;\s*\}/);
+});

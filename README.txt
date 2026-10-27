@@ -1,14 +1,30 @@
 ARISU FIX — PROJECT README
-Version: AFV306
+Version: AFV317
 Updated: 2026-10-27
 
-Current release: AFV306
-Package version: 303.0.0
+Current release: AFV317
+Package version: 317.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV317 removes one redundant compact-header logo sizing declaration; the retained 600px rule already supplies the same 39px size at widths up to 420px. Added a regression test; no visual or behavior change intended.
+
+- AFV316 removes five verified repeated desktop footer rule blocks from styles.css and one duplicate mobile footer padding block from proofs.css. Responsive navigation clearance and footer layout declarations are retained.
+
+- AFV315 synchronizes all public page references to the fresh Story Viewer CSS cache key after the Deep Indigo + Ice Blue palette update; no additional CSS override or layout change was added.
+
+- AFV314 applies the Deep Indigo + Ice Blue palette to the Stories empty-state card, border, glow, and heading accent while preserving layout and story behavior.
+
+- AFV313 removes superseded AFV271/273–279 header sizing overrides from proofs.css while retaining the AFV272 mobile header layout and AFV300 consolidated rules.
+
+- AFV312 removes a duplicate narrow-mobile header gap declaration from styles.css; no layout rules were broadly refactored.
+
+- AFV311 removes superseded Story Viewer image-sizing rules while retaining the shared contain/center behavior and responsive final sizing.
+
+- AFV310 strengthens the Midnight Blue + Electric Cyan Stories empty-state palette and refreshes story-viewer.css cache tokens; modal layout and story behavior remain unchanged.
+
 - AFV306 replaces the full-screen empty state with a compact premium modal (Option 1) inside the existing Story Viewer; normal story playback and view tracking are unchanged.
 
 - AFV306 consolidates legacy homepage/global header CSS rules while preserving AFV297 layout and sizing. It also keeps Recovery Proofs and Customer Reviews header button dimensions match the homepage at desktop, standard mobile, and narrow-phone breakpoints; corrects the verified badge vertical offset and bumps cache keys.

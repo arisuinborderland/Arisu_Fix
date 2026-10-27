@@ -1,3 +1,51 @@
+AFV317 — 2026-10-27
+- Removed one redundant 39px logo-size declaration from the 420px breakpoint; the existing 600px breakpoint already applies the same size at narrower widths.
+- Added a regression test confirming the compact breakpoint relies on the retained rule. No other CSS, JavaScript, HTML, or layout behavior was changed.
+
+AFV316 — 2026-10-27
+- Removed five exact repeated desktop footer CSS rule blocks from styles.css and one duplicate mobile footer padding rule from proofs.css.
+- Added regression tests for retained footer sizing and safe-area navigation clearance.
+- Audited page CSS, Story Viewer CSS, JavaScript, and HTML for further candidates; retained rules whose cascade or execution purpose could not be safely proven redundant.
+
+AFV315 — 2026-10-27
+- Synchronized all five public page references to story-viewer.css?v=AFV315 after the Deep Indigo + Ice Blue palette update.
+- Corrects the deployed-page mismatch found in the audit: Indigo CSS had shipped while HTML still requested the old AFV311 cache key, allowing stale blue-teal CSS to be reused.
+- No additional CSS override, layout, mascot, or Story Viewer behavior change.
+
+AFV314 — 2026-10-27
+- Applied the Deep Indigo + Ice Blue palette to the Stories empty-state background, border, glow, and heading accent.
+- Preserved modal layout, mascot, button behavior, and normal story playback; refreshed Story Viewer cache tokens.
+
+AFV313 — 2026-10-27
+- Removed superseded AFV271 and AFV273–AFV279 header button sizing/color overrides from proofs.css.
+- Retained AFV272 mobile header row layout and AFV300 consolidated header rules.
+- Reduced proofs.css by 16,540 bytes and refreshed its cache token to AFV313.
+
+AFV312 — 2026-10-27
+- Removed one duplicate 4px header gap declaration inside the narrow-mobile breakpoint in styles.css.
+- Kept the remaining responsive header sizing and spacing rules intact; no broad stylesheet refactor.
+- Updated the release version and styles.css cache tokens to AFV312.
+
+AFV311 — 2026-10-27
+- Removed superseded Story Viewer mobile image-sizing rules and redundant landscape/portrait/square fit rules.
+- Kept the shared contain/center behavior and the final responsive image dimensions intact.
+- Refreshed the release version and stylesheet cache tokens to AFV311.
+
+AFV310 — 2026-10-27
+- Strengthened the Midnight Blue + Electric Cyan empty-state palette with clearer blue glow, deeper navy shadows, and more visible cyan glass highlights.
+- Bumped package version and Stories stylesheet cache tokens to AFV310 so browsers request the updated stylesheet.
+- Preserved modal layout, mascot sizing, Got It action, and normal story playback.
+
+AFV309 — 2026-10-27
+- Rebuilt the Stories empty-state background with layered navy glass, cyan edge lighting, curved light trails, restrained particles, and stronger depth.
+- Removed the repeated dot-grid overlay and hid the close control in the empty-state modal as requested.
+- Kept the transparent mascot asset, text, Got It action, and normal story playback separate from the background design.
+
+AFV308 — 2026-10-27
+- Replaced the temporary inline SVG mascot with the uploaded transparent PNG.
+- Added a narrowly scoped build allowlist for assets/story-viewer so the mascot is copied into production output without exposing all of assets/.
+- Consolidated the Stories empty-state CSS, refined navy/cyan glassmorphism, and restored the upper-right X close control.
+
 AFV306 — 2026-10-27
 - Reworked the no-stories empty state into a cyan/ice-blue glassmorphism card with a custom inline mascot illustration.
 - Preserved modal placement, responsive sizing, close/Got It behavior, and normal Story Viewer flow.

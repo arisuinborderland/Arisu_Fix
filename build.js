@@ -24,6 +24,8 @@ const publicRootFiles = new Set([
   "arisu-profile.jpg", "facebook-page-preview.jpg"
 ]);
 const publicAssetDirectories = new Set(["reviews", "proofs"]);
+// Explicit nested public assets: only the Story Viewer mascot is copied from assets/.
+const publicNestedAssetDirectories = new Set(["assets/story-viewer"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
 const requiredFunctionFiles = [
   "functions/api/stories.js", "functions/api/story-count.js", "functions/api/story-config.js",
@@ -72,6 +74,36 @@ function copyAllowedPublicFiles() {
       }
     }
   }
+  // Copy explicitly allowlisted nested public assets without exposing every file under assets/.
+  for (const dir of publicNestedAssetDirectories) {
+    let source = root;
+    let validDirectory = true;
+    for (const segment of dir.split("/")) {
+      source = path.join(source, segment);
+      if (!fs.existsSync(source)) {
+        fail("Build failed: allowlisted public asset directory is missing: " + dir);
+        validDirectory = false;
+        break;
+      }
+      const stat = fs.lstatSync(source);
+      if (stat.isSymbolicLink()) throw new Error("Symlink at allowlisted public asset path is not allowed: " + dir);
+      if (!stat.isDirectory()) {
+        fail("Build failed: allowlisted public asset path is not a directory: " + dir);
+        validDirectory = false;
+        break;
+      }
+    }
+    if (!validDirectory) continue;
+    const destination = path.join(output, dir);
+    fs.mkdirSync(destination, { recursive: true });
+    for (const file of walkFiles(source)) {
+      const ext = path.extname(file).toLowerCase();
+      if (!publicAssetExtensions.has(ext)) continue;
+      const target = path.join(destination, path.relative(source, file));
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.copyFileSync(file, target);
+    }
+  }
 }
 function verifyBackendLayout() {
   for (const name of requiredFunctionFiles) {
@@ -91,6 +123,11 @@ function verifyExactPublicOutput() {
   }
   for (const dir of publicAssetDirectories) {
     for (const file of walkFiles(path.join(root, dir))) {
+      if (publicAssetExtensions.has(path.extname(file).toLowerCase())) expected.push(relative(file));
+    }
+  }
+  for (const dir of publicNestedAssetDirectories) {
+    for (const file of walkFiles(path.join(root, ...dir.split("/")))) {
       if (publicAssetExtensions.has(path.extname(file).toLowerCase())) expected.push(relative(file));
     }
   }
