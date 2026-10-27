@@ -10425,3 +10425,11 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     transform: none !important;
   }
 }
+ 
+/* Desktop Recovery Proofs: lower the inner rounded preview border by 4px.
+   The Customer Reviews outer card remains the height/position reference. */
+@media (min-width: 601px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    margin: 5px 0 12px !important;
+  }
+}
