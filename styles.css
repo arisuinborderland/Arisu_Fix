@@ -10229,18 +10229,21 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
-/* Desktop-only Recovery Proofs grid using the two original proof images.
-   Mobile retains its existing two-image layout and responsive rules. */
+/* Desktop Recovery Proofs: two original proof images, side by side.
+   Keep the card content-sized so there is no empty vertical gap.
+   Only the desktop layout is changed; mobile rules remain untouched. */
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase {
     display: flex !important;
     flex-direction: column !important;
-    align-self: stretch !important;
+    align-self: start !important;
+    justify-self: stretch !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
     padding: 0 12px 2px !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
@@ -10250,16 +10253,17 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-template-rows: auto !important;
+    grid-template-rows: minmax(0, 1fr) !important;
     grid-auto-flow: row !important;
     align-items: stretch !important;
-    align-content: start !important;
+    align-content: stretch !important;
     gap: 12px !important;
     flex: 0 0 auto !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
     min-height: 0 !important;
+    height: auto !important;
     margin: 1px 0 12px !important;
     padding: 0 !important;
     transform: none !important;
@@ -10275,7 +10279,7 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     min-width: 0 !important;
     min-height: 0 !important;
     height: auto !important;
-    aspect-ratio: 16 / 10 !important;
+    aspect-ratio: 1 / 1 !important;
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
@@ -10301,9 +10305,10 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     height: 100% !important;
     max-width: none !important;
     max-height: none !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     object-position: center !important;
     border-radius: inherit !important;
+    background: #fff !important;
     transform: none !important;
   }
 
@@ -10319,7 +10324,7 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     min-height: 44px !important;
     max-height: 44px !important;
     flex: 0 0 44px !important;
-    margin: auto 0 0 !important;
+    margin: 0 !important;
     transform: none !important;
     box-sizing: border-box !important;
   }
