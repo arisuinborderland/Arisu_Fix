@@ -45,3 +45,10 @@ test('Production build allowlist includes the shared header stylesheet', () => {
 test('Mobile header styles are not declared in the desktop-only override', () => {
   assert.doesNotMatch(css, /@media\s*\(max-width:/);
 });
+
+test('Desktop homepage recovery-proof previews show complete source images without cropping', () => {
+  const homeStyles = read('styles.css');
+  assert.match(homeStyles, /AFV319 desktop recovery-proof previews: show the complete source screenshots without cropping/);
+  assert.match(homeStyles, /@media\s*\(min-width:\s*761px\)\s*\{[\s\S]*?recovery-proof-preview-item img\s*\{[\s\S]*?object-fit:\s*contain !important/);
+  assert.match(homeStyles, /html body\.home-page \.social-collage \.recovery-proofs-showcase \.recovery-proof-preview-item img/);
+});
