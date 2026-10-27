@@ -9,9 +9,9 @@ const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 const css = read('desktop-header.css');
 const pages = ['index.html', 'reviews.html', 'proofs.html', 'privacy.html', 'about.html'];
 
-test('Shared desktop header rules use one centered 1080px content alignment', () => {
+test('Desktop header spans the viewport with responsive outer gutters', () => {
   assert.match(css, /@media\s*\(min-width:\s*701px\)/);
-  assert.match(css, /padding:\s*18px max\(22px, calc\(\(100% - 1080px\) \/ 2\)\) !important/);
+  assert.match(css, /padding:\s*8px clamp\(20px, 2vw, 36px\) !important/);
   for (const pageClass of ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page']) {
     assert.match(css, new RegExp('body\\.' + pageClass + ' header\\.topbar'));
   }
