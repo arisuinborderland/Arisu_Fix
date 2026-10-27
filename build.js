@@ -74,13 +74,26 @@ function copyAllowedPublicFiles() {
       }
     }
   }
-  // Copy explicitly allowlisted nested public asset directories without exposing all of assets/.
+  // Copy explicitly allowlisted nested public assets without exposing every file under assets/.
   for (const dir of publicNestedAssetDirectories) {
-    const source = path.join(root, ...dir.split("/"));
-    if (!fs.existsSync(source) || !fs.statSync(source).isDirectory()) {
-      fail(`Build failed: allowlisted public asset directory is missing: ${dir}`);
-      continue;
+    let source = root;
+    let validDirectory = true;
+    for (const segment of dir.split("/")) {
+      source = path.join(source, segment);
+      if (!fs.existsSync(source)) {
+        fail("Build failed: allowlisted public asset directory is missing: " + dir);
+        validDirectory = false;
+        break;
+      }
+      const stat = fs.lstatSync(source);
+      if (stat.isSymbolicLink()) throw new Error("Symlink at allowlisted public asset path is not allowed: " + dir);
+      if (!stat.isDirectory()) {
+        fail("Build failed: allowlisted public asset path is not a directory: " + dir);
+        validDirectory = false;
+        break;
+      }
     }
+    if (!validDirectory) continue;
     const destination = path.join(output, dir);
     fs.mkdirSync(destination, { recursive: true });
     for (const file of walkFiles(source)) {
