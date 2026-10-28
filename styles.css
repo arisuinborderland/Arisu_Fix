@@ -10674,6 +10674,11 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 }
 
 
+/* Keep the composite hidden by default so mobile continues using the two original thumbnails. */
+html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-composite {
+  display: none !important;
+}
+
 /* AFV327 desktop-only composite recovery preview.
    Keep the two original proof thumbnails for mobile; use the supplied single composite image on desktop. */
 @media (min-width: 761px) {
