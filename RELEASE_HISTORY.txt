@@ -1,3 +1,8 @@
+AFV327 — 2026-10-28
+- Removed the obsolete AFV300 button-style override block from reviews.css and proofs.css so both pages inherit the canonical Privacy Policy/About button colors and desktop dimensions from styles.css.
+- Kept the page-specific brand-row and verified-badge alignment rules; removed duplicate page-specific button geometry, icon-size, and gradient rules.
+- Refreshed the styles.css and page CSS query tokens in reviews.html and proofs.html to AFV327 so cached AFV300 styles cannot mask the correction.
+
 AFV326 — 2026-10-27
 - Replaced the desktop homepage auto-height behavior that let the Customer Feedback/Reviews preview expand vertically.
 - Restored a two-column desktop grid with Recovery Proofs and Customer Feedback cards fixed to the same 376px height.
