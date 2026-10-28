@@ -10761,7 +10761,7 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-composite {
     display: block !important;
     width: 100% !important;
-    height: calc(100% - 4px) !important;
+    height: calc(100% - 2px) !important;
     margin-top: 4px !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
