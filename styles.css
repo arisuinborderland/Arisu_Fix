@@ -9627,22 +9627,7 @@ html body.home-page .purpose-card .purpose-signoff {
     box-shadow: none !important;
   }
 
-  html body.home-page .site-footer > .about-link-section {
-    box-sizing: border-box !important;
-    width: min(100%, 824px) !important;
-    max-width: 824px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    align-self: center !important;
-  }
 
-  html body.home-page .site-footer > .about-link-section .about-page-cta {
-    box-sizing: border-box !important;
-    display: flex !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-  }
 
   html body.home-page .site-footer > .footer-location {
     box-sizing: border-box !important;
@@ -10155,17 +10140,11 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
     width: 14px !important;
     height: 14px !important;
   }
-  /* The homepage keeps the two primary actions in its header; secondary links remain accessible elsewhere. */
-  html body.home-page .topbar > .header-meta > .proofs-header-link,
-  html body.home-page .topbar > .header-meta > .webtools-header-link {
-    display: none !important;
-  }
 }
 @media (max-width: 380px) {
   html body .topbar { padding-left: 8px !important; padding-right: 8px !important; gap: 5px !important; }
   html body .topbar > .brand { gap: 5px !important; }
   html body .topbar > .brand .logo { flex-basis: 35px !important; width: 35px !important; height: 35px !important; }
-  html body .topbar > .header-meta { gap: 4px !important; }
   html body .topbar > .header-meta > .privacy-link,
   html body .topbar > .header-meta > .about-header-link {
     height: 34px !important; min-height: 34px !important; padding-left: 6px !important; padding-right: 6px !important; gap: 3px !important; font-size: 9.5px !important;

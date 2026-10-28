@@ -1,3 +1,8 @@
+AFV328 — 2026-10-28
+- Removes verified duplicate declarations from proofs.css, story-admin.css, story-viewer.css, and styles.css.
+- Preserves the existing narrow-mobile Privacy Policy and About button dimensions.
+- Refreshes cache-busting tokens for the modified stylesheets and synchronizes package metadata and homepage cache-key test assertions.
+
 AFV327 — 2026-10-28
 - Removed the obsolete AFV300 button-style override block from reviews.css and proofs.css so both pages inherit the canonical Privacy Policy/About button colors and desktop dimensions from styles.css.
 - Kept the page-specific brand-row and verified-badge alignment rules; removed duplicate page-specific button geometry, icon-size, and gradient rules.

@@ -413,7 +413,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close{
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-child{font-size:24px!important;line-height:1!important}
 html body .story-viewer.story-viewer-empty-open .story-viewer-close span:last-child{display:none!important}
 @media(max-height:650px){
- html body .story-viewer.story-viewer-empty-open .story-viewer-empty{padding:17px 18px 16px!important}
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{width:min(42vw,150px)!important;height:min(34vw,126px)!important;max-height:18vh!important;margin-bottom:6px!important}
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2{font-size:21px!important;margin-bottom:7px!important}
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{font-size:14px!important;line-height:1.4!important;margin-bottom:12px!important}

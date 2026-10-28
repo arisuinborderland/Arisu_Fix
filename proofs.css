@@ -694,9 +694,6 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
   html body.proofs-document {
     padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
   }
-  html body.proofs-document .site-footer {
-    padding-bottom: 6px !important;
-  }
 }
 
 
