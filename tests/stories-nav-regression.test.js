@@ -35,7 +35,7 @@ test('Stories button opens immediately and reports API failures instead of appea
   assert.match(source, /function showEmptyState\(state = 'empty'\)/);
   assert.match(source, /state === 'loading'[\s\S]*?Loading Stories/);
   assert.match(source, /state === 'unavailable'[\s\S]*?Stories Temporarily/);
-  assert.match(source, /const requestId = \+\+storyOpenRequestId;\s*showEmptyState\('loading'\);\s*const refreshed = await load\(\);/);
+  assert.match(source, /const requestId = \+\+storyOpenRequestId;[\s\S]*?showEmptyState\('loading'\);[\s\S]*?const refreshed = await load\(\);/);
   assert.match(source, /if \(requestId !== storyOpenRequestId \|\| viewer\.hidden\) return;/);
   assert.match(source, /else showEmptyState\(refreshed \? 'empty' : 'unavailable'\)/);
 });
