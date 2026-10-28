@@ -19,7 +19,11 @@
   const timestamp = viewer.querySelector('.story-viewer-time');
   const emptyState = viewer.querySelector('.story-viewer-empty');
   const emptyDone = viewer.querySelector('.story-viewer-empty-done');
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false;
+  const emptyTitle = emptyState?.querySelector('h2');
+  const emptyMessage = emptyState?.querySelector('p');
+  const defaultEmptyTitleMarkup = emptyTitle?.innerHTML || '';
+  const defaultEmptyMessageText = emptyMessage?.textContent || '';
+  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0;
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
   const STORY_VIEW_SESSION_KEY = 'arisuFixStoryViewSession.v1';
@@ -87,8 +91,29 @@
       // Do not block story playback; a later revisit can retry after transient failure.
     }).finally(() => pendingStoryViews.delete(id));
   }
-  function hide() { viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
-  function showEmptyState() { clearTimeout(timer); navigating = false; image.hidden = true; caption.hidden = true; progressTrack.hidden = true; viewer.querySelector('.story-viewer-meta').hidden = false; if (emptyState) emptyState.hidden = false; viewer.classList.add('story-viewer-empty-open'); viewer.hidden = false; document.body.classList.add('story-viewer-open'); }
+  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
+  function showEmptyState(state = 'empty') {
+    clearTimeout(timer);
+    navigating = false;
+    image.hidden = true;
+    caption.hidden = true;
+    progressTrack.hidden = true;
+    viewer.querySelector('.story-viewer-meta').hidden = false;
+    if (emptyState) emptyState.hidden = false;
+    if (emptyTitle) {
+      if (state === 'loading') emptyTitle.textContent = 'Loading Stories';
+      else if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
+      else emptyTitle.innerHTML = defaultEmptyTitleMarkup;
+    }
+    if (emptyMessage) {
+      if (state === 'loading') emptyMessage.textContent = 'Loading the latest recovery stories…';
+      else if (state === 'unavailable') emptyMessage.textContent = 'Could not connect to the Stories service. Please try again shortly.';
+      else emptyMessage.textContent = defaultEmptyMessageText;
+    }
+    viewer.classList.add('story-viewer-empty-open');
+    viewer.hidden = false;
+    document.body.classList.add('story-viewer-open');
+  }
   function preloadImage(url) {
     if (!url) return Promise.resolve(false);
     const cached = preloadedImages.get(url);
@@ -285,11 +310,17 @@
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
   mobileStoriesButton?.addEventListener('click', async () => {
+    // Open feedback immediately so a slow or failing preview API never makes
+    // the Stories control appear unresponsive.
+    const requestId = ++storyOpenRequestId;
+    showEmptyState('loading');
+
     // Fetch fresh signed image URLs each time the viewer opens. URLs may have
     // expired while the page stayed open in a background tab.
     const refreshed = await load();
+    if (requestId !== storyOpenRequestId || viewer.hidden) return;
     if (refreshed && stories.length) showAt(0);
-    else if (refreshed) showEmptyState();
+    else showEmptyState(refreshed ? 'empty' : 'unavailable');
   });
   close.addEventListener('click', hide);
   emptyDone?.addEventListener('click', hide);
