@@ -131,5 +131,5 @@ test('AFV327 desktop homepage uses the single composite recovery preview while m
   assert.match(desktopFix, /@media \(min-width: 761px\)/);
   assert.match(desktopFix, /recovery-proof-preview-item:not\(\.recovery-proof-preview-composite\)[\s\S]*?display: none !important/);
   assert.match(desktopFix, /\.recovery-proof-preview-composite[\s\S]*?display: block !important/);
-  assert.match(read("build.js"), /"60309\\.png"/);
+  assert.match(read("build.js"), /"60309\.png"/);
 });
