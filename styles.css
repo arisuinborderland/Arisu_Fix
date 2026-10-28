@@ -10778,3 +10778,51 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     object-position: center center !important;
   }
 }
+
+
+/* Equalize both rows of the homepage social collage on desktop.
+   Let CSS Grid size both rows from the taller row; do not cap only the bottom pair at 376px. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage {
+    grid-auto-rows: 1fr !important;
+    align-items: stretch !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase,
+  html body.home-page .social-collage > .facebook-showcase,
+  html body.home-page .social-collage > .recovery-proofs-showcase,
+  html body.home-page .social-collage > .social-feedback-card {
+    box-sizing: border-box !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    align-self: stretch !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase,
+  html body.home-page .social-collage > .facebook-showcase,
+  html body.home-page .social-collage > .recovery-proofs-showcase,
+  html body.home-page .social-collage > .social-feedback-card {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase > .social-profile-preview,
+  html body.home-page .social-collage > .facebook-showcase > .social-profile-preview {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase > .social-profile-preview > img,
+  html body.home-page .social-collage > .facebook-showcase > .social-profile-preview > img {
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview,
+  html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+  }
+}
