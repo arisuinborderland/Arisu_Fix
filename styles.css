@@ -10679,6 +10679,74 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   display: none !important;
 }
 
+/* Keep the proof and review cards aligned at tablet/compact-desktop widths too.
+   The earlier fixed-height alignment started at 1101px, leaving this two-column range content-sized. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  html body.home-page .social-collage {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase,
+  html body.home-page .social-collage > .social-feedback-card {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    height: 376px !important;
+    min-height: 376px !important;
+    max-height: 376px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+    margin: 0 0 2px !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    box-sizing: border-box !important;
+    flex: 0 0 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card > .windows-feedback-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-card,
+  html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+
 /* AFV327 desktop-only composite recovery preview.
    Keep the two original proof thumbnails for mobile; use the supplied single composite image on desktop. */
 @media (min-width: 761px) {
