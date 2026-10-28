@@ -145,12 +145,12 @@ test('Desktop homepage Recovery Proofs button is visually 42px tall without chan
 });
 
 
-test('Desktop homepage composite Recovery Proofs card starts 4px lower without cropping the image content', () => {
+test('Desktop homepage composite Recovery Proofs card starts 4px lower and extends 2px farther at the bottom', () => {
   const homeStyles = read('styles.css');
   const desktopFix = homeStyles.split('AFV327 desktop-only composite recovery preview.')[1];
   assert.ok(desktopFix, 'desktop composite preview rule must exist');
   assert.match(desktopFix, /@media \(min-width: 761px\)/);
-  assert.match(desktopFix, /\.recovery-proof-preview-composite\s*\{[\s\S]*?height:\s*calc\(100% - 4px\) !important;[\s\S]*?margin-top:\s*4px !important/);
+  assert.match(desktopFix, /\.recovery-proof-preview-composite\s*\{[\s\S]*?height:\s*calc\(100% - 2px\) !important;[\s\S]*?margin-top:\s*4px !important/);
   assert.doesNotMatch(desktopFix, /clip-path:\s*inset\(/);
   assert.match(desktopFix, /\.recovery-proofs-button\s*\{[\s\S]*?flex:\s*0 0 48px !important/);
 });
