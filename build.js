@@ -21,7 +21,7 @@ const publicRootFiles = new Set([
   "privacy-year.js", "proofs.js", "story-admin.js",
   "favicon.ico", "favicon-16.png", "favicon-32.png", "favicon-48.png", "apple-touch-icon.png",
   "verse-lake-photo.jpg", "tiktok-profile-preview.jpg", "social-preview.jpg",
-  "arisu-profile.jpg", "facebook-page-preview.jpg"
+  "arisu-profile.jpg", "facebook-page-preview.jpg", "60309.png"
 ]);
 const publicAssetDirectories = new Set(["reviews", "proofs", "assets"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
