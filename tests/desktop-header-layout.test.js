@@ -141,5 +141,5 @@ test('Desktop homepage Recovery Proofs button aligns with Customer Reviews butto
   const baselineFix = homeStyles.split('Align the homepage Recovery Proofs CTA baseline with Customer Reviews on desktop.')[1];
   assert.ok(baselineFix, 'desktop CTA baseline alignment rule must exist');
   assert.match(baselineFix, /@media \(min-width: 761px\)/);
-  assert.match(baselineFix, /\.recovery-proofs-showcase > \.recovery-proofs-button\s*\{[\s\S]*?transform:\s*translateY\(7px\) !important/);
+  assert.match(baselineFix, /\.recovery-proofs-showcase > \.recovery-proofs-button\s*\{[\s\S]*?transform:\s*translateY\(3px\) !important/);
 });
