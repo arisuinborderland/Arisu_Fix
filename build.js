@@ -15,15 +15,15 @@ const releaseToken = `AFV${versionMatch[1]}`;
 // legacy Vercel configuration, SQL migrations, and documentation from public output.
 const publicRootFiles = new Set([
   "_headers", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
-  "styles.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
+  "styles.css", "desktop-header.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
   "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
   "privacy-year.js", "proofs.js", "story-admin.js",
   "favicon.ico", "favicon-16.png", "favicon-32.png", "favicon-48.png", "apple-touch-icon.png",
   "verse-lake-photo.jpg", "tiktok-profile-preview.jpg", "social-preview.jpg",
-  "arisu-profile.jpg", "facebook-page-preview.jpg"
+  "arisu-profile.jpg", "facebook-page-preview.jpg", "60309.png"
 ]);
-const publicAssetDirectories = new Set(["reviews", "proofs"]);
+const publicAssetDirectories = new Set(["reviews", "proofs", "assets"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
 const requiredFunctionFiles = [
   "functions/api/stories.js", "functions/api/story-count.js", "functions/api/story-config.js",

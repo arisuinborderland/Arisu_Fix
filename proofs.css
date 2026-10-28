@@ -694,9 +694,6 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
   html body.proofs-document {
     padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
   }
-  html body.proofs-document .site-footer {
-    padding-bottom: 6px !important;
-  }
 }
 
 
@@ -1572,36 +1569,8 @@ html body.proofs-document header.topbar > .brand .brand-name-row { display:inlin
   html body.proofs-document header.topbar > .header-meta > .about-header-link .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
 }
 
-
-/* AFV300 — consolidated final header rules. Preserves AFV297 layout and sizing. */
-html body.proofs-document header.topbar > .header-meta > .privacy-link,
-html body.proofs-document header.topbar > .header-meta > .about-header-link,
-html body.reviews-document header.topbar > .header-meta > .privacy-link,
-html body.reviews-document header.topbar > .header-meta > .about-header-link {
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  padding: 0 14px !important;
-  gap: 7px !important;
-  border-radius: 12px !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  flex: 0 0 auto !important;
-  vertical-align: middle !important;
-  transform: none !important;
-}
-html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
-html body.proofs-document header.topbar > .header-meta > .about-header-link .header-icon,
-html body.reviews-document header.topbar > .header-meta > .privacy-link .header-icon,
-html body.reviews-document header.topbar > .header-meta > .about-header-link .header-icon {
-  width: 16px !important;
-  height: 16px !important;
-  flex: 0 0 16px !important;
-}
+/* Preserve the Reviews/Proofs brand-row and verified-badge alignment.
+   Button geometry and colors are inherited from the canonical shared styles.css rules. */
 html body.proofs-document header.topbar > .brand .brand-name-row,
 html body.reviews-document header.topbar > .brand .brand-name-row {
   display: inline-flex !important;
@@ -1616,90 +1585,4 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   align-self: center !important;
   margin-block: 0 !important;
   vertical-align: middle !important;
-}
-html body.proofs-document header.topbar > .header-meta > a.privacy-link,
-html body.reviews-document header.topbar > .header-meta > a.privacy-link {
-  width: 128px !important;
-  min-width: 128px !important;
-  max-width: 128px !important;
-}
-html body.proofs-document header.topbar > .header-meta > a.about-header-link,
-html body.reviews-document header.topbar > .header-meta > a.about-header-link {
-  width: 82px !important;
-  min-width: 82px !important;
-  max-width: 82px !important;
-}
-@media (max-width: 600px) {
-  html body.proofs-document header.topbar > .header-meta,
-  html body.reviews-document header.topbar > .header-meta {
-    gap: 6px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > .privacy-link,
-  html body.proofs-document header.topbar > .header-meta > .about-header-link,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link,
-  html body.reviews-document header.topbar > .header-meta > .about-header-link {
-    height: 36px !important;
-    min-height: 36px !important;
-    padding: 0 10px !important;
-    gap: 5px !important;
-    border-radius: 10px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
-  html body.proofs-document header.topbar > .header-meta > .about-header-link .header-icon,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link .header-icon,
-  html body.reviews-document header.topbar > .header-meta > .about-header-link .header-icon {
-    width: 14px !important;
-    height: 14px !important;
-    flex-basis: 14px !important;
-  }
-}
-@media (max-width: 390px) {
-  html body.proofs-document header.topbar > .header-meta > a.privacy-link,
-  html body.reviews-document header.topbar > .header-meta > a.privacy-link {
-    width: 126px !important;
-    min-width: 126px !important;
-    max-width: 126px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > a.about-header-link,
-  html body.reviews-document header.topbar > .header-meta > a.about-header-link {
-    width: 98px !important;
-    min-width: 98px !important;
-    max-width: 98px !important;
-  }
-}
-@media (max-width: 380px) {
-  html body.proofs-document header.topbar > .header-meta,
-  html body.reviews-document header.topbar > .header-meta {
-    gap: 4px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > .privacy-link,
-  html body.proofs-document header.topbar > .header-meta > .about-header-link,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link,
-  html body.reviews-document header.topbar > .header-meta > .about-header-link {
-    height: 34px !important;
-    min-height: 34px !important;
-    padding: 0 7px !important;
-    gap: 4px !important;
-    font-size: 10px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > a.privacy-link,
-  html body.reviews-document header.topbar > .header-meta > a.privacy-link {
-    width: 116px !important;
-    min-width: 116px !important;
-    max-width: 116px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > a.about-header-link,
-  html body.reviews-document header.topbar > .header-meta > a.about-header-link {
-    width: 76px !important;
-    min-width: 76px !important;
-    max-width: 76px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
-  html body.proofs-document header.topbar > .header-meta > .about-header-link .header-icon,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link .header-icon,
-  html body.reviews-document header.topbar > .header-meta > .about-header-link .header-icon {
-    width: 12px !important;
-    height: 12px !important;
-    flex-basis: 12px !important;
-  }
 }

@@ -1,3 +1,107 @@
+AFV328 — 2026-10-28
+- Removes verified duplicate declarations from proofs.css, story-admin.css, story-viewer.css, and styles.css.
+- Preserves the existing narrow-mobile Privacy Policy and About button dimensions.
+- Refreshes cache-busting tokens for the modified stylesheets and synchronizes package metadata and homepage cache-key test assertions.
+
+AFV327 — 2026-10-28
+- Removed the obsolete AFV300 button-style override block from reviews.css and proofs.css so both pages inherit the canonical Privacy Policy/About button colors and desktop dimensions from styles.css.
+- Kept the page-specific brand-row and verified-badge alignment rules; removed duplicate page-specific button geometry, icon-size, and gradient rules.
+- Refreshed the styles.css and page CSS query tokens in reviews.html and proofs.html to AFV327 so cached AFV300 styles cannot mask the correction.
+
+AFV326 — 2026-10-27
+- Replaced the desktop homepage auto-height behavior that let the Customer Feedback/Reviews preview expand vertically.
+- Restored a two-column desktop grid with Recovery Proofs and Customer Feedback cards fixed to the same 376px height.
+- Constrained the review preview to its card and kept the Recovery Proofs button 2px below the preview area.
+- Applied only at desktop widths above 1100px; existing smaller-screen/mobile rules are untouched.
+- Refreshed the homepage CSS token and synchronized package/lockfile/docs.
+
+AFV325 — 2026-10-27
+- Follow-up: disabled the earlier thumbnail pseudo-element masks and restored contain sizing, so the complete original screenshot pixels remain visible instead of being covered or cropped.
+- Fixed broken desktop homepage proof thumbnails: the previous CSS pseudo-element masks covered large parts of the screenshots, and cover sizing cropped the composites.
+- Disabled those overlays in desktop homepage thumbnails, restored contain sizing in square frames, and kept a 2px gap above the action button.
+- Mobile styles, original proof image files, and the full Recovery Proofs page remain unchanged.
+- Updated the homepage stylesheet cache token and package/lockfile/docs.
+
+AFV324 — 2026-10-27
+- Extended the desktop homepage Recovery Proof preview area so the two side-by-side thumbnails end 2px above the action button.
+- Kept the adjustment desktop-only; mobile layout and full-size proof files are unchanged.
+- Refreshed the homepage stylesheet cache key and synchronized package metadata.
+
+AFV323 — 2026-10-27
+- Refined the desktop homepage Recovery Proof preview cards to show the two square composite proof images side by side.
+- Used a presentation-only overlay to neutralize the embedded cyan frame rails in these homepage thumbnails; original proof images and the full Recovery Proofs page remain unchanged.
+- Kept the change scoped to desktop widths (761px and wider), updated the homepage cache token, and synchronized package/lockfile/docs.
+
+AFV322 — 2026-10-27
+- Changed the desktop homepage Recovery Proof preview images to a side-by-side layout with contain sizing and a tile ratio closer to the source composites.
+- Avoids the large blank side gutters from contain in a wide row and the severe vertical crop from cover. Mobile styles remain unchanged.
+- Updated the homepage stylesheet cache token and synchronized package/lockfile/docs.
+
+AFV321 — 2026-10-27
+- Increased desktop homepage Recovery Proof preview row height to reveal more of each screenshot while keeping both cards aligned.
+- Preserved the desktop full-card fill, removed blurred side gutters, and left mobile rules unchanged.
+- Updated the homepage stylesheet cache token and package metadata.
+
+AFV320 — 2026-10-27
+- Filled the two desktop homepage Recovery Proofs preview cards using cover sizing to remove blank side gutters. Some vertical cropping is intentional in the compact preview; the complete images remain available on the Recovery Proofs page.
+- Updated the homepage stylesheet cache token and synchronized package/lockfile versions.
+
+AFV319 — 2026-10-27
+- Fixed empty Story Viewer state on proofs, about, privacy, and reviews pages by adding the same empty-state markup used on the homepage. Previously those pages had the backdrop and viewer shell but no empty-state card content.
+- Updated Story Viewer CSS and JS cache tokens to AFV319 across pages that include the shared viewer.
+- Preserved the homepage empty-state markup and design.
+
+AFV318 — 2026-10-27
+- Removed the empty-state pseudo-element overlays to eliminate dotted texture and diagonal crossing lines.
+- Kept the background as a clean, layered navy-to-royal-blue gradient with subtle radial cyan/blue depth and a restrained cyan border glow.
+- Updated the Story Viewer stylesheet cache token.
+
+AFV317 — 2026-10-27
+- Consolidated the empty-state background CSS instead of stacking repeated overrides.
+- Removed the dotted texture entirely and retained a smooth navy-to-blue gradient with restrained cyan light ribbons.
+- Updated the Story Viewer stylesheet cache token.
+
+AFV316 — 2026-10-27
+- Removed the repeated dotted texture from the Stories empty-state card.
+- Replaced it with a premium navy-to-blue gradient, restrained cyan corner glow, and smooth light ribbons inspired by the approved reference.
+- Updated the Story Viewer stylesheet cache token.
+
+AFV315 — 2026-10-27
+- Refined the Stories empty-state background closer to the reference: deeper blue glass, lower dot density, peripheral particles, and subtle diagonal corner light streaks.
+- Updated the Story Viewer stylesheet cache-busting token.
+
+AFV314 — 2026-10-27
+- Matched the Stories empty-state card background to the reference with a richer blue gradient, glowing cyan border, curved light streaks, dotted texture, and subtle particle highlights.
+- Removed the X button from the empty state; the existing Got It control remains available.
+- Updated the Story Viewer stylesheet cache-busting token and release metadata.
+
+AFV313 — 2026-10-27
+- Refined Stories glass card transparency and cyan edge lighting.
+- Synchronized release metadata with the AFV313 cache-busting token so production validation accepts the stylesheet version.
+
+AFV311 — 2026-10-27
+- Reduced the Stories empty-state mascot size for a more balanced gap above the heading.
+- Constrained modal content widths and hid horizontal overflow to prevent the bottom horizontal bar.
+- Kept the card position, close-button placement, heading, description, and primary button styling unchanged.
+- Updated Story Viewer cache-busting references and release metadata.
+
+AFV310 — 2026-10-27
+- Switched the Stories empty-state mascot from the old JPG to the newly uploaded PNG asset in assets/story-viewer/.
+- Consolidated the earlier repeated mascot CSS overrides into one responsive rule set.
+- Added transparent-background handling, safer artwork spacing, and top-right close-button positioning.
+- Updated Story Viewer cache-busting references and release metadata to AFV310.
+
+AFV309 — 2026-10-27
+- Corrected production build asset allowlist to include the root assets/ directory, so assets/story-viewer/afv306-mascot.jpg is copied to dist/assets/story-viewer/.
+- Updated Story Viewer cache-busting references and package/release metadata to AFV309.
+- This fixes the AFV308 build failure where the nested image was referenced by HTML but excluded from production output.
+
+AFV308 — 2026-10-27
+- Replaced the simplified Stories empty-state SVG with the detailed anime mascot asset.
+- Added assets/story-viewer to the production build's public asset allowlist so the image is copied into dist.
+- Added explicit image sizing and an × close icon in empty-state mode.
+- Updated Story Viewer cache-busting references and package metadata to AFV308.
+
 AFV306 — 2026-10-27
 - Reworked the no-stories empty state into a cyan/ice-blue glassmorphism card with a custom inline mascot illustration.
 - Preserved modal placement, responsive sizing, close/Got It behavior, and normal Story Viewer flow.

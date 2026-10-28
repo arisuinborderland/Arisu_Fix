@@ -29,3 +29,22 @@ test('Story navigation never wraps from the final story back to the first', () =
   assert.doesNotMatch(source, /const targetIndex = \(index \+ direction \+ stories\.length\) % stories\.length/);
   assert.match(source, /const nextIndex = fromIndex \+ 1;\s*if \(nextIndex >= stories\.length\) return;/);
 });
+
+
+test('Stories button opens immediately and reports API failures instead of appearing unclickable', () => {
+  assert.match(source, /function showEmptyState\(state = 'empty'\)/);
+  assert.match(source, /state === 'loading'[\s\S]*?Loading Stories/);
+  assert.match(source, /state === 'unavailable'[\s\S]*?Stories Temporarily/);
+  assert.match(source, /const requestId = \+\+storyOpenRequestId;[\s\S]*?showEmptyState\('loading'\);[\s\S]*?const refreshed = await load\(\);/);
+  assert.match(source, /if \(requestId !== storyOpenRequestId \|\| viewer\.hidden\) return;/);
+  assert.match(source, /else showEmptyState\(refreshed \? 'empty' : 'unavailable'\)/);
+});
+
+
+test('Desktop empty-state Story Viewer is centered and width-constrained', () => {
+  const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
+  const desktopFix = css.split('Desktop empty-state Story Viewer: constrain the modal width instead of stretching across the screen.')[1];
+  assert.ok(desktopFix, 'desktop empty-state width rule must exist');
+  assert.match(desktopFix, /@media \(min-width: 701px\)/);
+  assert.match(desktopFix, /\.story-viewer\.story-viewer-empty-open \.story-viewer-card\s*\{[\s\S]*?width:\s*min\(560px, calc\(100vw - 48px\)\) !important;[\s\S]*?max-width:\s*560px !important;[\s\S]*?margin-inline:\s*auto !important/);
+});
