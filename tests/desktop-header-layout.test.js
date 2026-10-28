@@ -126,7 +126,7 @@ test('AFV327 desktop homepage uses the single composite recovery preview while m
   const html = read("index.html");
   const homeStyles = read("styles.css");
   assert.match(html, /recovery-proof-preview-composite[^>]*>\s*<img src="60309\.png\?v=AFV327"/);
-  assert.match(homeStyles, /Keep the composite hidden by default[\\s\\S]*?recovery-proof-preview-composite\\s*\\{\\s*display: none !important;/);
+  assert.match(homeStyles, /Keep the composite hidden by default[\s\S]*?recovery-proof-preview-composite\s*\{\s*display: none !important;/);
   const desktopFix = homeStyles.split("AFV327 desktop-only composite recovery preview.")[1];
   assert.ok(desktopFix, "desktop-only composite preview rules must exist");
   assert.match(desktopFix, /@media \(min-width: 761px\)/);
