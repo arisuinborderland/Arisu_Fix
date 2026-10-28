@@ -158,9 +158,9 @@ test('Desktop homepage composite Recovery Proofs card starts 4px lower and exten
 
 test('Desktop Customer Reviews CTA is visually shortened at top and bottom without changing its layout slot', () => {
   const homeStyles = read('styles.css');
-  const buttonFix = homeStyles.split('Visually shorten only the Customer Reviews CTA by 2px at top and bottom.')[1];
+  const buttonFix = homeStyles.split('Visually shorten the Customer Reviews CTA by another 2px at top and bottom.')[1];
   assert.ok(buttonFix, 'desktop Customer Reviews CTA sizing rule must exist');
   assert.match(buttonFix, /@media \(min-width: 761px\)/);
-  assert.match(buttonFix, /\.social-feedback-view-all\s*\{[\s\S]*?transform:\s*scaleY\(0\.92\) !important;[\s\S]*?transform-origin:\s*center center !important/);
-  assert.match(buttonFix, /\.social-feedback-view-all:hover,[\s\S]*?transform:\s*translateY\(-2px\) scaleY\(0\.92\) !important/);
+  assert.match(buttonFix, /\.social-feedback-view-all\s*\{[\s\S]*?transform:\s*scaleY\(0\.84\) !important;[\s\S]*?transform-origin:\s*center center !important/);
+  assert.match(buttonFix, /\.social-feedback-view-all:hover,[\s\S]*?transform:\s*translateY\(-2px\) scaleY\(0\.84\) !important/);
 });
