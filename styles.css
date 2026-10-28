@@ -10781,14 +10781,15 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 
 
 /* Align the homepage Recovery Proofs CTA with Customer Reviews on desktop.
-   Shorten the button from its bottom edge by 4px while preserving its top position. */
+   Keep the original 48px flex slot so the preview image does not grow; visually shorten only the CTA to 42px. */
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
     box-sizing: border-box !important;
-    flex: 0 0 42px !important;
-    height: 42px !important;
-    min-height: 42px !important;
+    flex: 0 0 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
     margin-bottom: 4px !important;
-    transform: translateY(1px) !important;
+    transform: translateY(7px) scaleY(0.875) !important;
+    transform-origin: top center !important;
   }
 }
