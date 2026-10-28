@@ -10796,3 +10796,18 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     transform-origin: top center !important;
   }
 }
+
+
+/* Visually shorten only the Customer Reviews CTA by 2px at top and bottom.
+   Keep its layout slot unchanged so the review screenshot and card height do not grow. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all {
+    transform: scaleY(0.92) !important;
+    transform-origin: center center !important;
+  }
+
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all:hover,
+  html body.home-page .social-collage > .social-feedback-card .social-feedback-view-all:focus-visible {
+    transform: translateY(-2px) scaleY(0.92) !important;
+  }
+}
