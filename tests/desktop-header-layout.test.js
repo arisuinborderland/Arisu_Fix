@@ -143,3 +143,13 @@ test('Desktop homepage Recovery Proofs button is visually 42px tall without chan
   assert.match(baselineFix, /@media \(min-width: 761px\)/);
   assert.match(baselineFix, /\.recovery-proofs-showcase > \.recovery-proofs-button\s*\{[\s\S]*?flex:\s*0 0 48px !important;[\s\S]*?height:\s*48px !important;[\s\S]*?transform:\s*translateY\(7px\) scaleY\(0\.875\) !important;[\s\S]*?transform-origin:\s*top center !important/);
 });
+
+
+test('Desktop homepage composite Recovery Proofs image has 4px inset top and bottom without moving the button', () => {
+  const homeStyles = read('styles.css');
+  const desktopFix = homeStyles.split('AFV327 desktop-only composite recovery preview.')[1];
+  assert.ok(desktopFix, 'desktop composite preview rule must exist');
+  assert.match(desktopFix, /@media \(min-width: 761px\)/);
+  assert.match(desktopFix, /\.recovery-proof-preview-composite > img\s*\{[\s\S]*?height:\s*calc\(100% - 8px\) !important;[\s\S]*?margin-block:\s*4px !important/);
+  assert.match(desktopFix, /\.recovery-proofs-button\s*\{[\s\S]*?flex:\s*0 0 48px !important/);
+});
