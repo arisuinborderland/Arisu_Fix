@@ -10771,8 +10771,9 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-composite > img {
     display: block !important;
     width: 100% !important;
-    height: calc(100% - 8px) !important;
-    margin-block: 4px !important;
+    height: calc(100% - 4px) !important;
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
     max-width: 100% !important;
     max-height: 100% !important;
     object-fit: contain !important;
