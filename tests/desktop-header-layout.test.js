@@ -141,5 +141,5 @@ test('Desktop homepage Recovery Proofs button is 4px shorter from the bottom and
   const baselineFix = homeStyles.split('Align the homepage Recovery Proofs CTA with Customer Reviews on desktop.')[1];
   assert.ok(baselineFix, 'desktop CTA alignment rule must exist');
   assert.match(baselineFix, /@media \(min-width: 761px\)/);
-  assert.match(baselineFix, /\.recovery-proofs-showcase > \.recovery-proofs-button\s*\{[\s\S]*?flex:\s*0 0 40px !important;[\s\S]*?height:\s*40px !important;[\s\S]*?margin-bottom:\s*4px !important;[\s\S]*?transform:\s*translateY\(-1px\) !important/);
+  assert.match(baselineFix, /\.recovery-proofs-showcase > \.recovery-proofs-button\s*\{[\s\S]*?flex:\s*0 0 42px !important;[\s\S]*?height:\s*42px !important;[\s\S]*?margin-bottom:\s*4px !important;[\s\S]*?transform:\s*translateY\(1px\) !important/);
 });
