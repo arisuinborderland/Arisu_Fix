@@ -29,3 +29,13 @@ test('Story navigation never wraps from the final story back to the first', () =
   assert.doesNotMatch(source, /const targetIndex = \(index \+ direction \+ stories\.length\) % stories\.length/);
   assert.match(source, /const nextIndex = fromIndex \+ 1;\s*if \(nextIndex >= stories\.length\) return;/);
 });
+
+
+test('Stories button opens immediately and reports API failures instead of appearing unclickable', () => {
+  assert.match(source, /function showEmptyState\(state = 'empty'\)/);
+  assert.match(source, /state === 'loading'[\s\S]*?Loading Stories/);
+  assert.match(source, /state === 'unavailable'[\s\S]*?Stories Temporarily/);
+  assert.match(source, /const requestId = \+\+storyOpenRequestId;\s*showEmptyState\('loading'\);\s*const refreshed = await load\(\);/);
+  assert.match(source, /if \(requestId !== storyOpenRequestId \|\| viewer\.hidden\) return;/);
+  assert.match(source, /else showEmptyState\(refreshed \? 'empty' : 'unavailable'\)/);
+});
