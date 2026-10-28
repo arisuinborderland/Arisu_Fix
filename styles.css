@@ -10778,3 +10778,12 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     object-position: center center !important;
   }
 }
+
+
+/* Align the homepage Recovery Proofs CTA baseline with Customer Reviews on desktop.
+   The review card keeps 8px inner padding, while the proof preview reserves only a 2px gap. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
+    transform: translateY(7px) !important;
+  }
+}
