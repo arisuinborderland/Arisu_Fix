@@ -10672,3 +10672,36 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     object-position: top center !important;
   }
 }
+
+
+/* AFV327 desktop-only composite recovery preview.
+   Keep the two original proof thumbnails for mobile; use the supplied single composite image on desktop. */
+@media (min-width: 761px) {
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-item:not(.recovery-proof-preview-composite) {
+    display: none !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-composite {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    align-self: stretch !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-composite > img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
