@@ -120,3 +120,16 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
   assert.match(read('index.html'), /styles\.css\?v=AFV326&desktoplayout=1/);
 });
+
+
+test('AFV327 desktop homepage uses the single composite recovery preview while mobile retains original previews', () => {
+  const html = read("index.html");
+  const homeStyles = read("styles.css");
+  assert.match(html, /recovery-proof-preview-composite[^>]*>\s*<img src="60309\.png\?v=AFV327"/);
+  const desktopFix = homeStyles.split("AFV327 desktop-only composite recovery preview.")[1];
+  assert.ok(desktopFix, "desktop-only composite preview rules must exist");
+  assert.match(desktopFix, /@media \(min-width: 761px\)/);
+  assert.match(desktopFix, /recovery-proof-preview-item:not\(\.recovery-proof-preview-composite\)[\s\S]*?display: none !important/);
+  assert.match(desktopFix, /\.recovery-proof-preview-composite[\s\S]*?display: block !important/);
+  assert.match(read("build.js"), /"60309\\.png"/);
+});
