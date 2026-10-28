@@ -112,7 +112,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.ok(desktopFix, 'AFV326 desktop layout override must exist');
   assert.match(desktopFix, /@media \(min-width: 1101px\)/);
   assert.match(desktopFix, /grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\) !important/);
-  assert.match(desktopFix, /\.recovery-proofs-showcase,[\s\S]*?\.social-feedback-card\s*\{[\s\S]*?height:\s*376px !important;[\s\S]*?min-height:\s*376px !important;[\s\S]*?max-height:\s*376px !important/);
+  assert.match(desktopFix, /\.recovery-proofs-showcase,[\s\S]*?\.social-feedback-card\s*\{[\s\S]*?height:\s*446px !important;[\s\S]*?min-height:\s*446px !important;[\s\S]*?max-height:\s*446px !important/);
   assert.match(desktopFix, /recovery-proofs-preview\s*\{[\s\S]*?flex:\s*1 1 auto !important;[\s\S]*?margin:\s*0 0 2px !important/);
   assert.match(desktopFix, /\.social-feedback-card \.reviews-grid-featured[\s\S]*?max-height:\s*100% !important;[\s\S]*?overflow:\s*hidden !important/);
   assert.match(desktopFix, /object-fit:\s*contain !important/);
