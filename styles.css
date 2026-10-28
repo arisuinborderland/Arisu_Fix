@@ -10785,10 +10785,10 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-button {
     box-sizing: border-box !important;
-    flex: 0 0 40px !important;
-    height: 40px !important;
-    min-height: 40px !important;
+    flex: 0 0 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
     margin-bottom: 4px !important;
-    transform: translateY(-1px) !important;
+    transform: translateY(1px) !important;
   }
 }
