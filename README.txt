@@ -1,9 +1,9 @@
 ARISU FIX — PROJECT README
-Version: AFV326
-Updated: 2026-10-27
+Version: AFV327
+Updated: 2026-10-28
 
-Current release: AFV326
-Package version: 326.0.0
+Current release: AFV327
+Package version: 327.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
