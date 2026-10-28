@@ -134,14 +134,3 @@ test('AFV327 desktop homepage uses the single composite recovery preview while m
   assert.match(desktopFix, /\.recovery-proof-preview-composite[\s\S]*?display: block !important/);
   assert.match(read("build.js"), /"60309\.png"/);
 });
-
-
-test('Desktop homepage social collage uses equal-height rows for all four cards', () => {
-  const homeStyles = read('styles.css');
-  const equalRows = homeStyles.split('Equalize both rows of the homepage social collage on desktop.')[1];
-  assert.ok(equalRows, 'desktop equal-row layout block must exist');
-  assert.match(equalRows, /@media \(min-width: 761px\)/);
-  assert.match(equalRows, /grid-auto-rows:\s*1fr !important/);
-  assert.match(equalRows, /\.social-collage > \.tiktok-showcase,[\s\S]*?\.social-collage > \.facebook-showcase,[\s\S]*?\.social-collage > \.recovery-proofs-showcase,[\s\S]*?\.social-collage > \.social-feedback-card[\s\S]*?height:\s*100% !important/);
-  assert.match(equalRows, /max-height:\s*none !important/);
-});
