@@ -134,3 +134,12 @@ test('AFV327 desktop homepage uses the single composite recovery preview while m
   assert.match(desktopFix, /\.recovery-proof-preview-composite[\s\S]*?display: block !important/);
   assert.match(read("build.js"), /"60309\.png"/);
 });
+
+
+test('Desktop homepage Recovery Proofs button aligns with Customer Reviews button baseline', () => {
+  const homeStyles = read('styles.css');
+  const baselineFix = homeStyles.split('Align the homepage Recovery Proofs CTA baseline with Customer Reviews on desktop.')[1];
+  assert.ok(baselineFix, 'desktop CTA baseline alignment rule must exist');
+  assert.match(baselineFix, /@media \(min-width: 761px\)/);
+  assert.match(baselineFix, /\.recovery-proofs-showcase > \.recovery-proofs-button\s*\{[\s\S]*?transform:\s*translateY\(7px\) !important/);
+});
