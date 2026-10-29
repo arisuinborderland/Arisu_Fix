@@ -623,8 +623,7 @@ html body.reviews-document .review-view-prompt{margin-top:10px}
 
 
 /* AFV274 — force the exact homepage header button metrics after legacy page styles. */
-html body.proofs-document header.topbar > .header-meta,
-html body.reviews-document header.topbar > .header-meta { align-items:center !important; gap:12px !important; }
+html body.proofs-document header.topbar > .header-meta { align-items:center !important; gap:12px !important; }
 html body.proofs-document header.topbar > .header-meta > .privacy-link,
 html body.proofs-document header.topbar > .header-meta > .about-header-link,
 html body.reviews-document header.topbar > .header-meta > .privacy-link,
