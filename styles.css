@@ -655,10 +655,11 @@ main{padding-top:0}
     max-width: 100% !important;
     min-width: 0 !important;
     padding: 0 8px !important;
-    font-size: 10px !important;
+    font-size: 10.5px !important;
     white-space: nowrap !important;
     flex: initial !important;
   }
+  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
   body .topbar > .header-meta > .webtools-header-link { grid-column: 1 !important; grid-row: 2 !important; }
   body .topbar > .header-meta > .proofs-header-link { grid-column: 2 !important; grid-row: 2 !important; }
   body .topbar > .header-meta > .webtools-header-link,
@@ -680,9 +681,18 @@ main{padding-top:0}
   body .topbar > .brand .logo { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
   body .topbar > .brand b { font-size: 13px !important; }
   body .topbar > .brand small { font-size: 9px !important; }
-  body .topbar > .header-meta > .privacy-link { font-size: 10px !important; padding: 0 6px !important; }
+  body .topbar > .header-meta > .privacy-link { font-size: 9.5px !important; padding: 0 6px !important; }
+  body .topbar > .header-meta > .about-header-link { font-size: 9.5px !important; padding: 0 6px !important; }
+  body .topbar .header-icon { width: 12px !important; height: 12px !important; flex: 0 0 12px !important; }
   body .topbar > .header-meta > .webtools-header-link,
   body .topbar > .header-meta > .proofs-header-link { font-size: 10px !important; padding: 0 4px !important; gap: 3px !important; }
+}
+
+/* Match homepage header text/icon sizing to Reviews and Proofs at 601–700px. */
+@media (min-width: 601px) and (max-width: 700px) {
+  body .topbar > .header-meta > .privacy-link,
+  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
+  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
 }
 
 /* make the About section brand title more noticeable */
