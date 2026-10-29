@@ -46,6 +46,16 @@ test('Story progress continues animating after background refresh and avatar sta
   assert.match(css, /\.story-viewer-avatar \{ width: 46px !important; height: 46px !important; min-width: 46px !important; \}/);
 });
 
+test('Story images reuse recent signed URLs across reloads and wait for refreshed images before swapping', () => {
+  assert.match(source, /const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList\\.v1';/);
+  assert.match(source, /const STORY_SIGNED_URL_REUSE_MS = 40 \\* 60 \\* 1000;/);
+  assert.match(source, /function readCachedStories\\(\\)/);
+  assert.match(source, /function mergeFreshStories\\(freshStories, previousStories, fetchedAt = Date\\.now\\(\\)\\)/);
+  assert.match(source, /stories = readCachedStories\\(\\);[\\s\\S]*?stories\\.slice\\(0, 2\\)\\.forEach\\(story => preloadImage\\(story\\.imageUrl\\)\\);[\\s\\S]*?loadCount\\(\\);[\\s\\S]*?load\\(\\);/);
+  assert.match(source, /preloadImage\\(refreshedImageUrl\\)\\.then\\(ready =>/);
+  assert.match(source, /Keep the visible image on screen until a renewed signed URL is ready/);
+});
+
 test('Desktop empty-state Story Viewer is centered and width-constrained', () => {
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
   const desktopFix = css.split('Desktop empty-state Story Viewer: constrain the modal width instead of stretching across the screen.')[1];
