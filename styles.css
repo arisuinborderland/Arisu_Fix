@@ -10280,9 +10280,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
 @media (min-width: 761px) {
   html body.home-page .social-collage > .recovery-proofs-showcase,
   html body.home-page .social-collage > .social-feedback-card {
-    height: 410px !important;
-    min-height: 410px !important;
-    max-height: 410px !important;
   }
 
   html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview {
