@@ -44,7 +44,29 @@ test('Story Admin keeps one global story-view-label font-size declaration', () =
   assert.equal(matches.length, 1);
 });
 
-test('Proofs header gap is declared once across mobile breakpoints', () => {
+test('Proofs CSS keeps one narrow topbar horizontal-padding declaration', () => {
+  const css = read('proofs.css');
+  const rule = /html body\.proofs-document \.topbar\s*\{\s*padding-left:\s*9px;\s*padding-right:\s*9px;\s*\}/g;
+  assert.equal([...css.matchAll(rule)].length, 1);
+});
+
+  const css = read('proofs.css');
+  const selector = /html body\.proofs-document \.topbar > \.header-meta\s*\{\s*gap:\s*6px !important;\s*\}/g;
+  assert.equal([...css.matchAll(selector)].length, 1);
+});
+
+test('Proofs CSS retains one copy of exact duplicate declarations', () => {
+  const css = read('proofs.css');
+  const hiddenRule = '.button.secondary.proofs-back-to-site[hidden]{display:none!important}';
+  const pairBaseRule = '.proof-image-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:2px;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;background:#e8edf5}';
+  const redundantPairRule = '.proof-image-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:2px;width:100%;height:100%;overflow:hidden}';
+
+  assert.equal(css.split(hiddenRule).length - 1, 1);
+  assert.equal(css.split(pairBaseRule).length - 1, 1);
+  assert.equal(css.includes(redundantPairRule), false);
+  assert.equal((css.match(/@media\(max-width:600px\)\{\.proof-image-pair\{gap:2px\}\}/g) || []).length, 0);
+});
+
   const css = read('proofs.css');
   const selector = /html body\.proofs-document \.topbar > \.header-meta\s*\{\s*gap:\s*6px !important;\s*\}/g;
   assert.equal([...css.matchAll(selector)].length, 1);
