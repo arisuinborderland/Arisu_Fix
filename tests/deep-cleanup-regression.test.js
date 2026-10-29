@@ -50,6 +50,7 @@ test('Proofs CSS keeps one narrow topbar horizontal-padding declaration', () => 
   assert.equal([...css.matchAll(rule)].length, 1);
 });
 
+test('Proofs header gap is declared once across mobile breakpoints', () => {
   const css = read('proofs.css');
   const selector = /html body\.proofs-document \.topbar > \.header-meta\s*\{\s*gap:\s*6px !important;\s*\}/g;
   assert.equal([...css.matchAll(selector)].length, 1);
