@@ -9817,43 +9817,43 @@ html body.home-page .purpose-card .purpose-signoff {
     white-space: nowrap !important;
   }
 
-  /* Larger capsule, icons, labels, and Stories avatar for full-size desktop screens. */
+    /* Compact desktop floating navigation. */
   html body.home-page nav.mobile-bottom-nav {
     box-sizing: border-box !important;
-    width: min(780px, calc(100vw - 64px)) !important;
-    max-width: 780px !important;
-    min-height: 86px !important;
-    padding: 10px 16px !important;
-    gap: 10px !important;
+    width: min(680px, calc(100vw - 64px)) !important;
+    max-width: 680px !important;
+    min-height: 72px !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
     border-radius: 20px !important;
   }
 
   html body.home-page nav.mobile-bottom-nav > .mobile-nav-item {
-    min-height: 64px !important;
-    gap: 6px !important;
-    padding: 5px 8px !important;
+    min-height: 54px !important;
+    gap: 5px !important;
+    padding: 4px 6px !important;
     border-radius: 14px !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     line-height: 1.2 !important;
   }
 
   html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories) > svg {
-    width: 40px !important;
-    height: 40px !important;
-    flex: 0 0 40px !important;
-    padding: 7px !important;
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+    padding: 6px !important;
     border-radius: 50% !important;
   }
 
   html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-    height: 42px !important;
-    min-height: 42px !important;
-    max-height: 42px !important;
-    flex: 0 0 42px !important;
-    padding: 3px !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    flex: 0 0 34px !important;
+    padding: 2px !important;
   }
 
   html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count {
