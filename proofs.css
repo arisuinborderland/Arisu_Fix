@@ -880,7 +880,6 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
 }
 @media (max-width: 380px) {
   html body.proofs-document .topbar { padding-left: 9px; padding-right: 9px; }
-  html body.proofs-document .topbar > .header-meta { gap: 6px !important; }
   html body.proofs-document .topbar > .header-meta > .privacy-link,
   html body.proofs-document .topbar > .header-meta > .about-header-link {
     min-height: 34px !important;
