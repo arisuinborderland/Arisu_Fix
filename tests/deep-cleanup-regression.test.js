@@ -46,7 +46,7 @@ test('Story Admin keeps one global story-view-label font-size declaration', () =
 
 test('Proofs header gap is declared once across mobile breakpoints', () => {
   const css = read('proofs.css');
-  const selector = /html body\\.proofs-document \\.topbar > \\.header-meta\\s*\\{\\s*gap:\\s*6px !important;\\s*\\}/g;
+  const selector = /html body\.proofs-document \.topbar > \.header-meta\s*\{\s*gap:\s*6px !important;\s*\}/g;
   assert.equal([...css.matchAll(selector)].length, 1);
 });
 
