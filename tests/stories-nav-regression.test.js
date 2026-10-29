@@ -40,6 +40,12 @@ test('Stories button opens cached stories immediately and never displays a loadi
   assert.doesNotMatch(source, /state === ['"]loading['"][\s\S]*?Loading Stories/);
 });
 
+test('Story progress continues animating after background refresh and avatar stays compact on mobile', () => {
+  assert.match(source, /const elapsed = Math\.min\(DURATION, Math\.max\(0, Date\.now\(\) - started\)\);[\s\S]*?const remaining = Math\.max\(0, DURATION - elapsed\);[\s\S]*?setProgress\(elapsed \/ DURATION \* 100, remaining > 0, remaining \|\| DURATION\);/);
+  const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
+  assert.match(css, /\.story-viewer-avatar \{ width: 46px !important; height: 46px !important; min-width: 46px !important; \}/);
+});
+
 test('Desktop empty-state Story Viewer is centered and width-constrained', () => {
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
   const desktopFix = css.split('Desktop empty-state Story Viewer: constrain the modal width instead of stretching across the screen.')[1];
