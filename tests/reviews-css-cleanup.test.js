@@ -32,3 +32,12 @@ test('Reviews page loads the current release CSS and script cache tokens', () =>
   assert.match(html, /story-viewer\.js\?v=AFV\d+/);
   assert.doesNotMatch(html, new RegExp('\\?v=AFV' + '251'));
 });
+
+test('Reviews CSS removes superseded legacy button widths while preserving AFV279 canonical sizing', () => {
+  const legacy = css.slice(0, css.indexOf('/* AFV261 — Option C'));
+  assert.doesNotMatch(legacy, /width:102px !important|width:96px !important/);
+  assert.doesNotMatch(legacy, /width:70px !important/);
+  const canonical = css.slice(css.indexOf('/* AFV279 — final canonical header sizing'));
+  assert.match(canonical, /width:128px !important; min-width:128px !important/);
+  assert.match(canonical, /width:82px !important; min-width:82px !important/);
+});
