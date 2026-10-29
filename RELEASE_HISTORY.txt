@@ -1,3 +1,8 @@
+AFV346 — 2026-10-29
+- Reuses recent signed Story image URLs across reloads so browser image caching remains effective for up to 40 minutes of the one-hour URL lifetime.
+- Seeds the Story Viewer from valid local cached Stories and keeps the current image visible until any renewed URL is fully preloaded.
+- Refreshes Story Viewer JavaScript cache-busting tokens and synchronizes package metadata.
+
 AFV328 — 2026-10-28
 - Removes verified duplicate declarations from proofs.css, story-admin.css, story-viewer.css, and styles.css.
 - Preserves the existing narrow-mobile Privacy Policy and About button dimensions.

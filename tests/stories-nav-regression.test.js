@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV\d+/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV346/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -44,6 +44,17 @@ test('Story progress continues animating after background refresh and avatar sta
   assert.match(source, /const elapsed = Math\.min\(DURATION, Math\.max\(0, Date\.now\(\) - started\)\);[\s\S]*?const remaining = Math\.max\(0, DURATION - elapsed\);[\s\S]*?setProgress\(elapsed \/ DURATION \* 100, remaining > 0, remaining \|\| DURATION\);/);
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
   assert.match(css, /\.story-viewer-avatar \{ width: 46px !important; height: 46px !important; min-width: 46px !important; \}/);
+});
+
+test('Story images reuse recent signed URLs across reloads and wait for refreshed images before swapping', () => {
+  assert.ok(source.includes("const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList.v1';"));
+  assert.ok(source.includes("const STORY_SIGNED_URL_REUSE_MS = 40 * 60 * 1000;"));
+  assert.ok(source.includes("function readCachedStories()"));
+  assert.ok(source.includes("function mergeFreshStories(freshStories, previousStories, fetchedAt = Date.now())"));
+  assert.ok(source.includes("stories = readCachedStories();"));
+  assert.ok(source.includes("stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));"));
+  assert.ok(source.includes("preloadImage(refreshedImageUrl).then(ready =>"));
+  assert.ok(source.includes("Keep the visible image on screen until a renewed signed URL is ready"));
 });
 
 test('Desktop empty-state Story Viewer is centered and width-constrained', () => {
