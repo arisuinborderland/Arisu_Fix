@@ -31,15 +31,14 @@ test('Story navigation never wraps from the final story back to the first', () =
 });
 
 
-test('Stories button opens immediately and reports API failures instead of appearing unclickable', () => {
-  assert.match(source, /function showEmptyState\(state = 'empty'\)/);
-  assert.match(source, /state === 'loading'[\s\S]*?Loading Stories/);
-  assert.match(source, /state === 'unavailable'[\s\S]*?Stories Temporarily/);
-  assert.match(source, /const requestId = \+\+storyOpenRequestId;[\s\S]*?showEmptyState\('loading'\);[\s\S]*?const refreshed = await load\(\);/);
-  assert.match(source, /if \(requestId !== storyOpenRequestId \|\| viewer\.hidden\) return;/);
+test('Stories button opens cached stories immediately and never displays a loading modal', () => {
+  assert.match(source, /if \(stories\.length\) \{\s*showAt\(0\);/);
+  assert.match(source, /load\(\)\.then\(refreshed =>/);
+  assert.match(source, /const refreshed = await load\(\);\s*if \(requestId !== storyOpenRequestId\) return;\s*if \(refreshed && stories\.length\) showAt\(0\);/);
   assert.match(source, /else showEmptyState\(refreshed \? 'empty' : 'unavailable'\)/);
+  assert.doesNotMatch(source, /showEmptyState\(['"]loading['"]\)/);
+  assert.doesNotMatch(source, /state === ['"]loading['"][\s\S]*?Loading Stories/);
 });
-
 
 test('Desktop empty-state Story Viewer is centered and width-constrained', () => {
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
