@@ -900,9 +900,6 @@ main{padding-top:0}
   flex-direction: column;
 }
 .social-collage > .facebook-showcase .facebook-profile-button,
-.social-collage > .recovery-proofs-showcase .recovery-proofs-button {
-  margin-top: auto;
-}
 .social-feedback-card {
   display: flex;
   flex-direction: column;
