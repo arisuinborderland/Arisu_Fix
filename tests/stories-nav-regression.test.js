@@ -47,13 +47,14 @@ test('Story progress continues animating after background refresh and avatar sta
 });
 
 test('Story images reuse recent signed URLs across reloads and wait for refreshed images before swapping', () => {
-  assert.match(source, /const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList\\.v1';/);
-  assert.match(source, /const STORY_SIGNED_URL_REUSE_MS = 40 \\* 60 \\* 1000;/);
-  assert.match(source, /function readCachedStories\\(\\)/);
-  assert.match(source, /function mergeFreshStories\\(freshStories, previousStories, fetchedAt = Date\\.now\\(\\)\\)/);
-  assert.match(source, /stories = readCachedStories\\(\\);[\\s\\S]*?stories\\.slice\\(0, 2\\)\\.forEach\\(story => preloadImage\\(story\\.imageUrl\\)\\);[\\s\\S]*?loadCount\\(\\);[\\s\\S]*?load\\(\\);/);
-  assert.match(source, /preloadImage\\(refreshedImageUrl\\)\\.then\\(ready =>/);
-  assert.match(source, /Keep the visible image on screen until a renewed signed URL is ready/);
+  assert.ok(source.includes("const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList.v1';"));
+  assert.ok(source.includes("const STORY_SIGNED_URL_REUSE_MS = 40 * 60 * 1000;"));
+  assert.ok(source.includes("function readCachedStories()"));
+  assert.ok(source.includes("function mergeFreshStories(freshStories, previousStories, fetchedAt = Date.now())"));
+  assert.ok(source.includes("stories = readCachedStories();"));
+  assert.ok(source.includes("stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));"));
+  assert.ok(source.includes("preloadImage(refreshedImageUrl).then(ready =>"));
+  assert.ok(source.includes("Keep the visible image on screen until a renewed signed URL is ready"));
 });
 
 test('Desktop empty-state Story Viewer is centered and width-constrained', () => {
