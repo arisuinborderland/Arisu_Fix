@@ -9408,18 +9408,6 @@ html body.home-page .purpose-card .purpose-signoff {
     color: #263654 !important;
   }
 
-  html body.home-page .site-footer > .footer-location .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
   html body.home-page .site-footer > .footer-location .footer-location-separator {
     color: #8a95a6 !important;
   }
@@ -9458,22 +9446,6 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .site-footer > .footer-links > a:hover,
   html body.home-page .site-footer > .footer-links > a:focus-visible {
     color: #4f46e5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a span {
-    min-width: 0 !important;
   }
 
   /* Copyright shares the last grid row with Contact, just like mobile. */
