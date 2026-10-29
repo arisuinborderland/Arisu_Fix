@@ -223,20 +223,20 @@ html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
     padding-left: 10px !important;
     padding-right: 10px !important;
     border-radius: 12px !important;
-    font-size: 13px !important;
-    gap: 7px !important;
+    font-size: 10.5px !important;
+    gap: 5px !important;
   }
   html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
   html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
-    width: 17px !important;
-    height: 17px !important;
-    flex-basis: 17px !important;
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px !important;
   }
 }
 @media (max-width: 600px) {
   html body.home-page .topbar > .header-meta > .privacy-link,
   html body.home-page .topbar > .header-meta > .about-header-link {
-    font-size: 12px !important;
+    font-size: 10.5px !important;
     gap: 5px !important;
   }
   html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
@@ -254,7 +254,7 @@ html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
     padding-left: 7px !important;
     padding-right: 7px !important;
     gap: 4px !important;
-    font-size: 11px !important;
+    font-size: 9.5px !important;
   }
   html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
   html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
