@@ -26,6 +26,8 @@
   let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '';
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
+  const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList.v1';
+  const STORY_SIGNED_URL_REUSE_MS = 40 * 60 * 1000;
   const STORY_VIEW_SESSION_KEY = 'arisuFixStoryViewSession.v1';
   const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   const DURATION = 7000;
@@ -221,6 +223,58 @@
     try { localStorage.setItem(STORY_COUNT_CACHE_KEY, JSON.stringify({ count, savedAt: Date.now() })); }
     catch { /* The live API response remains authoritative if browser storage is unavailable. */ }
   }
+  function isReusableStoryImage(story, now = Date.now()) {
+    if (!story || typeof story !== 'object') return false;
+    const id = String(story.id || '');
+    const imageUrl = String(story.imageUrl || '');
+    const fetchedAt = Number(story.imageUrlFetchedAt);
+    const expiresAt = Date.parse(story.expiresAt || story.expires_at || '');
+    return UUID_RE.test(id)
+      && /^https:\/\//i.test(imageUrl)
+      && Number.isFinite(fetchedAt)
+      && fetchedAt <= now
+      && now - fetchedAt < STORY_SIGNED_URL_REUSE_MS
+      && Number.isFinite(expiresAt)
+      && expiresAt > now;
+  }
+
+  function readCachedStories() {
+    try {
+      const cached = JSON.parse(localStorage.getItem(STORY_LIST_CACHE_KEY) || 'null');
+      if (!Array.isArray(cached?.stories)) return [];
+      return cached.stories
+        .filter(story => isReusableStoryImage(story))
+        .map(story => ({ ...story }));
+    } catch {
+      return [];
+    }
+  }
+
+  function saveCachedStories() {
+    try {
+      localStorage.setItem(STORY_LIST_CACHE_KEY, JSON.stringify({
+        stories: stories.filter(story => isReusableStoryImage(story))
+      }));
+    } catch {
+      /* Live API data remains available when browser storage is unavailable. */
+    }
+  }
+
+  function mergeFreshStories(freshStories, previousStories, fetchedAt = Date.now()) {
+    const previousById = new Map(previousStories.map(story => [String(story.id || ''), story]));
+    return freshStories
+      .filter(story => story && typeof story.imageUrl === 'string' && /^https:\/\//i.test(story.imageUrl))
+      .map(story => {
+        const previous = previousById.get(String(story.id || ''));
+        const reusePreviousUrl = isReusableStoryImage(previous, fetchedAt);
+        return {
+          ...story,
+          imageUrl: reusePreviousUrl ? previous.imageUrl : story.imageUrl,
+          imageUrlFetchedAt: reusePreviousUrl ? Number(previous.imageUrlFetchedAt) : fetchedAt
+        };
+      });
+  }
+
   async function loadCount() {
     if (!mobileStoriesCount) return;
     const requestStarted = performance.now();
@@ -265,11 +319,14 @@
     }
   }
   async function load() {
+    const previouslyKnownStories = stories.slice();
     try {
       const response = await fetch('/api/stories', { cache: 'no-store' });
       if (!response.ok) throw new Error('Stories API request failed');
       const data = await response.json();
-      stories = Array.isArray(data.stories) ? data.stories : [];
+      const fetchedStories = Array.isArray(data.stories) ? data.stories : [];
+      stories = mergeFreshStories(fetchedStories, previouslyKnownStories, Date.now());
+      saveCachedStories();
       // Fallback to the loaded public list if the lightweight count endpoint is unavailable.
       if (mobileStoriesCount && !countLoaded && !countHasUsableValue) {
         mobileStoriesCount.textContent = String(stories.length);
@@ -277,7 +334,8 @@
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
         setCountLoading(false);
       }
-      // Refresh signed image URLs before opening the viewer, and warm the next image.
+      // Reuse recent signed URLs so reloads can hit the browser's cached image bytes.
+      // Warm the first two images in the background without delaying page rendering.
       stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
       // Keep the Stories navigation item mounted even when the API temporarily
       // returns an empty list. The button must not disappear/reappear as requests resolve.
@@ -322,7 +380,15 @@
         if (freshIndex < 0) return;
         index = freshIndex;
         const story = stories[index];
-        image.src = story.imageUrl;
+        if (image.src !== story.imageUrl) {
+          const refreshedImageUrl = story.imageUrl;
+          const refreshedStoryId = String(story.id || '');
+          // Keep the visible image on screen until a renewed signed URL is ready.
+          preloadImage(refreshedImageUrl).then(ready => {
+            if (!ready || viewer.hidden || requestId !== storyOpenRequestId || activeStoryId !== refreshedStoryId) return;
+            if (String(stories[index]?.id || '') === refreshedStoryId) image.src = refreshedImageUrl;
+          });
+        }
         caption.textContent = story.caption || '';
         timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
         renderProgressSegments();
@@ -353,6 +419,10 @@
   viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
   viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
+  // Seed the viewer from recent local data before the network request finishes.
+  // Keep signed URLs only for 40 minutes; Supabase issues them for one hour.
+  stories = readCachedStories();
+  stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
   loadCount();
   load();
 })();
