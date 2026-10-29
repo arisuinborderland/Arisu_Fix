@@ -23,7 +23,7 @@
   const emptyMessage = emptyState?.querySelector('p');
   const defaultEmptyTitleMarkup = emptyTitle?.innerHTML || '';
   const defaultEmptyMessageText = emptyMessage?.textContent || '';
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0;
+  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '';
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
   const STORY_VIEW_SESSION_KEY = 'arisuFixStoryViewSession.v1';
@@ -101,13 +101,11 @@
     viewer.querySelector('.story-viewer-meta').hidden = false;
     if (emptyState) emptyState.hidden = false;
     if (emptyTitle) {
-      if (state === 'loading') emptyTitle.textContent = 'Loading Stories';
-      else if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
+      if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
       else emptyTitle.innerHTML = defaultEmptyTitleMarkup;
     }
     if (emptyMessage) {
-      if (state === 'loading') emptyMessage.textContent = 'Loading the latest recovery stories…';
-      else if (state === 'unavailable') emptyMessage.textContent = 'Could not connect to the Stories service. Please try again shortly.';
+      if (state === 'unavailable') emptyMessage.textContent = 'Could not connect to the Stories service. Please try again shortly.';
       else emptyMessage.textContent = defaultEmptyMessageText;
     }
     viewer.classList.add('story-viewer-empty-open');
@@ -191,7 +189,9 @@
     if (!stories.length) return hide();
     index = (next + stories.length) % stories.length;
     viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
-    const story = stories[index]; image.src = story.imageUrl; warmNextImage(index); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
+    const story = stories[index];
+    activeStoryId = String(story.id || '');
+    image.src = story.imageUrl; warmNextImage(index); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
     // Count a story at most once per browser-tab session. The server's unique
     // (story_id, session_id) key is the final protection against duplicate requests.
     if (story.id) recordStoryView(story.id);
@@ -310,15 +310,30 @@
     if (event.target.closest('.story-viewer-image, .story-viewer-card')) event.preventDefault();
   });
   mobileStoriesButton?.addEventListener('click', async () => {
-    // Open feedback immediately so a slow or failing preview API never makes
-    // the Stories control appear unresponsive.
     const requestId = ++storyOpenRequestId;
-    showEmptyState('loading');
 
-    // Fetch fresh signed image URLs each time the viewer opens. URLs may have
-    // expired while the page stayed open in a background tab.
+    // Use stories already fetched during page startup immediately. Refresh signed
+    // image URLs in the background so the viewer never has to show a loading modal.
+    if (stories.length) {
+      showAt(0);
+      load().then(refreshed => {
+        if (!refreshed || requestId !== storyOpenRequestId || viewer.hidden || !activeStoryId) return;
+        const freshIndex = stories.findIndex(story => String(story.id || '') === activeStoryId);
+        if (freshIndex < 0) return;
+        index = freshIndex;
+        const story = stories[index];
+        image.src = story.imageUrl;
+        caption.textContent = story.caption || '';
+        timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
+        renderProgressSegments();
+        setProgress(Math.min(DURATION, Date.now() - started) / DURATION * 100);
+      });
+      return;
+    }
+
+    // On a cold start, fetch silently and open directly as soon as data arrives.
     const refreshed = await load();
-    if (requestId !== storyOpenRequestId || viewer.hidden) return;
+    if (requestId !== storyOpenRequestId) return;
     if (refreshed && stories.length) showAt(0);
     else showEmptyState(refreshed ? 'empty' : 'unavailable');
   });
