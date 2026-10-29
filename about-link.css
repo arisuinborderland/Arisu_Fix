@@ -251,42 +251,42 @@ html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
   }
 }
 
-/* reduce only the header About button by 2px at the top and bottom. */
+/* add 1px to the top and bottom of the homepage About button. */
 html body.home-page .topbar > .header-meta > .about-header-link {
-  min-height: 44px !important;
-  height: 44px !important;
+  min-height: 46px !important;
+  height: 46px !important;
 }
 @media (max-width: 700px) {
+  html body.home-page .topbar > .header-meta > .about-header-link {
+    min-height: 38px !important;
+    height: 38px !important;
+  }
+}
+@media (max-width: 380px) {
   html body.home-page .topbar > .header-meta > .about-header-link {
     min-height: 36px !important;
     height: 36px !important;
   }
 }
-@media (max-width: 380px) {
-  html body.home-page .topbar > .header-meta > .about-header-link {
-    min-height: 34px !important;
-    height: 34px !important;
-  }
-}
 
 
-/* reduce Privacy Policy button height by 2px at the top and bottom, matching About. */
+/* add 1px to the top and bottom of the homepage Privacy Policy button. */
 html body.home-page .topbar > .header-meta > .privacy-link {
-  min-height: 44px !important;
-  height: 44px !important;
+  min-height: 46px !important;
+  height: 46px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   transform: none !important;
 }
 @media (max-width: 700px) {
   html body.home-page .topbar > .header-meta > .privacy-link {
-    min-height: 36px !important;
-    height: 36px !important;
+    min-height: 38px !important;
+    height: 38px !important;
   }
 }
 @media (max-width: 380px) {
   html body.home-page .topbar > .header-meta > .privacy-link {
-    min-height: 34px !important;
-    height: 34px !important;
+    min-height: 36px !important;
+    height: 36px !important;
   }
 }
