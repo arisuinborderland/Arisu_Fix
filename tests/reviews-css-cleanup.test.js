@@ -22,6 +22,12 @@ test('Reviews CSS keeps one compact logo sizing rule for the 380px breakpoint', 
   assert.equal([...css.matchAll(block)].length, 1);
 });
 
+test('Reviews CSS does not retain superseded AFV277 narrow-width overrides', () => {
+  assert.doesNotMatch(css, /AFV277 — use homepage-canonical header button widths at narrow phone sizes/);
+  assert.match(css, /@media \\(max-width:760px\\)[\\s\\S]*?html body\\.reviews-document header\\.topbar > \\.header-meta > \\.privacy-link \\{ width:128px !important; min-width:128px !important; \\}/);
+  assert.match(css, /@media \\(max-width:380px\\)[\\s\\S]*?html body\\.reviews-document header\\.topbar > \\.header-meta > \\.privacy-link \\{ width:116px !important; min-width:116px !important; \\}/);
+});
+
 test('Reviews page loads the current release CSS and script cache tokens', () => {
   assert.match(html, /reviews\.css\?v=AFV\d+/);
   assert.match(html, /story-viewer\.js\?v=AFV\d+/);
