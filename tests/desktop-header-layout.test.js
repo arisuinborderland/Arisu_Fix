@@ -55,7 +55,8 @@ test('AFV323 desktop homepage proof previews mask cyan rails and keep square sou
   assert.match(desktopFix, /object-fit:\s*contain !important/);
   assert.match(desktopFix, /recovery-proof-preview-item::after/);
   assert.match(desktopFix, /background-size:\s*4\.2% 67%, 5\.5% 67%, 4\.2% 67%/);
-  assert.match(desktopFix, /height:\s*410px !important/);
+  const afv323Block = desktopFix.split('AFV323 desktop thumbnail top alignment:')[0];
+  assert.doesNotMatch(afv323Block, /(?:height|min-height|max-height):\s*410px !important/);
 });
 
 
