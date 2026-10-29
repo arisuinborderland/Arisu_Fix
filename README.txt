@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV328
-Updated: 2026-10-28
+Version: AFV346
+Updated: 2026-10-29
 
-Current release: AFV328
-Package version: 328.0.0
+Current release: AFV346
+Package version: 346.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV346 improves Story image loading by reusing recent signed URLs across reloads for up to 40 minutes, warming the first images early, and keeping the visible image in place while a renewed URL loads.
 - AFV328 removes verified duplicate CSS declarations from proofs.css, story-admin.css, story-viewer.css, and styles.css while preserving the compact mobile header dimensions.
 - AFV328 refreshes cache-busting tokens for the modified stylesheets; unchanged asset and historical release tokens are retained.
 - AFV327 restores a true desktop two-column layout on the homepage, gives Recovery Proofs and Customer Feedback equal fixed heights, and prevents the Reviews preview from growing vertically. Mobile behavior remains unchanged.
