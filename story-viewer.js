@@ -326,7 +326,9 @@
         caption.textContent = story.caption || '';
         timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
         renderProgressSegments();
-        setProgress(Math.min(DURATION, Date.now() - started) / DURATION * 100);
+        const elapsed = Math.min(DURATION, Math.max(0, Date.now() - started));
+        const remaining = Math.max(0, DURATION - elapsed);
+        setProgress(elapsed / DURATION * 100, remaining > 0, remaining || DURATION);
       });
       return;
     }

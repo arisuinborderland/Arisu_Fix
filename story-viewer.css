@@ -248,7 +248,7 @@ html body .story-viewer:not([hidden]) .story-viewer-close:active {
 @media screen and (max-width: 600px) {
   html body .story-viewer .story-viewer-progress-track { top: 10px !important; left: 8px !important; right: 8px !important; }
   html body .story-viewer .story-viewer-meta { top: 25px !important; left: 14px !important; right: 14px !important; gap: 8px !important; }
-  html body .story-viewer .story-viewer-avatar { width: 52px !important; height: 52px !important; min-width: 52px !important; }
+  html body .story-viewer .story-viewer-avatar { width: 46px !important; height: 46px !important; min-width: 46px !important; }
   html body .story-viewer .story-viewer-name { font-size: 15px !important; max-width: 48% !important; }
   html body .story-viewer .story-viewer-time { font-size: 14px !important; margin-left: 0 !important; }
   html body .story-viewer .story-viewer-image { top: 88px !important; bottom: 72px !important; height: calc(100% - 160px) !important; object-fit: contain !important; }
