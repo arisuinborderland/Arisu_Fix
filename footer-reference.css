@@ -75,3 +75,25 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
     width: calc(100% - 16px) !important;
   }
 }
+
+
+/* AFV374 — remove the mobile-only reserved gap before the homepage About card.
+   The social destination can retain layout space even when its mobile content is hidden.
+   Keep its children intact; collapse only the wrapper box and enforce the requested 4px/2px rhythm. */
+@media (max-width: 700px) {
+  html body.home-page .desktop-social-destination {
+    display: contents !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  html body.home-page .about-link-section {
+    margin-top: 4px !important;
+    margin-bottom: 2px !important;
+  }
+  html body.home-page .site-footer.footer-reference {
+    margin-top: 2px !important;
+  }
+}
