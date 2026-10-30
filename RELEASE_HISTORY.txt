@@ -1,8 +1,13 @@
-AFV368 — Unified Responsive Footer Across Pages
-- Standardizes location and worldwide assistance details across Home, Reviews, Recovery Proofs, and About.
-- Adds consistent two-column footer links, aligned icons, refined card styling, and clear copyright spacing.
-- Adds responsive desktop and small-screen rules while leaving fixed bottom navigation styling intact.
-- Synchronizes styles.css cache-busting tokens and package metadata to AFV368 / 368.0.0.
+AFV369 — Page-Specific Footer Reference Layouts
+- Homepage footer matches the reference with location/service cards, grouped two-column navigation links, and centered copyright.
+- Reviews footer adds a customer-feedback feature panel while preserving honest, non-fabricated copy.
+- Recovery Proofs footer adds a proof-preview strip and call-to-action.
+- About footer adds an AF shield/mission/signature panel.
+- Uses shared link-card styling and responsive rules across all four pages.
+
+AFV368 — Initial Unified Footer Pass
+- Added shared footer styling and mobile-friendly layout; superseded by AFV369 reference-specific layouts.
+
 
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
