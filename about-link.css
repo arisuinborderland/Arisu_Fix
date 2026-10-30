@@ -303,3 +303,68 @@ html body.home-page .topbar > .header-meta > .privacy-link {
     height: 36px !important;
   }
 }
+
+/* AFV376: match the approved compact mobile homepage About card reference.
+   This section is a sibling of the footer, so scope it directly instead of
+   changing footer tiles or other pages. */
+@media (max-width: 600px) {
+  html body.home-page > section.about-link-section {
+    box-sizing: border-box !important;
+    width: calc(100% - 28px) !important;
+    max-width: 824px !important;
+    margin: 2px auto 2px !important;
+    padding: 0 !important;
+  }
+  html body.home-page > section.about-link-section > .about-page-cta {
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 8px 12px !important;
+    border-radius: 22px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-profile {
+    flex: 0 0 58px !important;
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 14px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-copy {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    gap: 3px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-eyebrow {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 1.1px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-title {
+    font-size: clamp(15px, 4.2vw, 17px) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -.25px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-description {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-action {
+    margin-top: 3px !important;
+    padding: 7px 10px !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-arrow {
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+@media (min-width: 381px) and (max-width: 600px) {
+  html body.home-page > section.about-link-section .about-cta-title {
+    white-space: nowrap !important;
+  }
+}
