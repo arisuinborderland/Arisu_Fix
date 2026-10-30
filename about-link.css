@@ -49,7 +49,7 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
     min-height: 0 !important;
     height: auto !important;
     gap: 10px !important;
-    padding: 12px 12px !important;
+    padding: 8px 12px !important;
     border-radius: 18px !important;
   }
   html body.home-page footer.site-footer .about-cta-profile {
