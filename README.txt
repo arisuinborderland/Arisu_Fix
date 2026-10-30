@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV356
+Version: AFV357
 Updated: 2026-10-30
 
-Current release: AFV356
-Package version: 356.0.0
+Current release: AFV357
+Package version: 357.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV357 preloads the Daily Bible Verse banner background image with high fetch priority and keeps the above-the-fold verse visible for first paint. Its scroll-reveal animation remains active when scrolling away and back; no CSS layout, mobile styling, Stories, Reviews, Proofs, WhatsApp, or backend behavior is changed.
 - AFV356 adds a valid root-level robots.txt to the production build allowlist. It allows public site crawling and disallows the story-admin page from crawler access. Cloudflare's automatic noindex header remains intact on preview deployments.
 - AFV355 generates seven responsive WebP variants from existing original images during the production build. Homepage profile, social, recovery-proof, and review images use smaller delivery files; the review lightbox loads the full-resolution WebP only when opened. The latest AFV346 Stories signed-URL caching behavior and singular WhatsApp CTA are preserved.
 - AFV346 improves Story image loading by reusing recent signed URLs across reloads for up to 40 minutes, warming the first images early, and keeping the visible image in place while a renewed URL loads.

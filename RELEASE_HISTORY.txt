@@ -1,3 +1,10 @@
+AFV357 — LCP First-Paint Optimization
+- Adds an early high-priority preload for the existing Daily Bible Verse banner background image so the browser can discover it from the initial HTML rather than waiting for CSS discovery.
+- Keeps the above-the-fold Daily Bible Verse card visible for the initial paint while preserving its existing scroll-out / scroll-in reveal behavior.
+- Updates the homepage scroll-reveal script cache token and package metadata to AFV357 / 357.0.0.
+- Adds regression tests for the preload attributes and first-paint visibility behavior.
+- Leaves styles.css and all layout rules untouched; Stories, Reviews, Proofs, WhatsApp CTA, and backend features remain unchanged.
+
 AFV356 — SEO robots.txt Fix
 - Adds a valid root-level robots.txt with public-site crawling allowed and the Story Admin page disallowed for crawlers.
 - Includes robots.txt in the production build allowlist so Cloudflare Pages serves the text file instead of falling back to index.html.
