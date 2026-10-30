@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV346/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV357/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -52,7 +52,9 @@ test('Story images reuse recent signed URLs across reloads and wait for refreshe
   assert.ok(source.includes("function readCachedStories()"));
   assert.ok(source.includes("function mergeFreshStories(freshStories, previousStories, fetchedAt = Date.now())"));
   assert.ok(source.includes("stories = readCachedStories();"));
-  assert.ok(source.includes("stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));"));
+  assert.doesNotMatch(source, /stories\\.slice\\(0, 2\\)\\.forEach\\(story => preloadImage\\(story\\.imageUrl\\)\\)/, 'Story media must not preload during page startup');
+  assert.match(source, /await preloadImage\\(stories\\[0\\]\\.imageUrl\\);[\\s\\S]*?showAt\\(0\\)/, 'the first Story is prepared when the viewer is opened');
+  assert.match(source, /image\\.src = story\\.imageUrl; warmNextImage\\(index\\)/, 'next-Story warming remains active');
   assert.ok(source.includes("preloadImage(refreshedImageUrl).then(ready =>"));
   assert.ok(source.includes("Keep the visible image on screen until a renewed signed URL is ready"));
 });
