@@ -45,3 +45,13 @@ test('AFV355 review lightbox loads the full-size source and latest main features
   assert.ok(index.includes('Message Me on WhatsApp'), 'latest singular WhatsApp CTA must remain');
   assert.ok(index.includes('story-viewer.js?v=AFV346'), 'latest AFV346 Stories Viewer must remain');
 });
+
+test('AFV356 ships a valid plain-text robots.txt instead of the homepage fallback', () => {
+  const build = read('build.js');
+  const robots = read('robots.txt');
+  assert.match(build, /"_headers", "robots\.txt", "index\.html"/);
+  assert.match(robots, /^User-agent: \*\s*$/m);
+  assert.match(robots, /^Allow: \/\s*$/m);
+  assert.match(robots, /^Disallow: \/story-admin\.html\s*$/m);
+  assert.doesNotMatch(robots, /<!doctype html|<html/i);
+});

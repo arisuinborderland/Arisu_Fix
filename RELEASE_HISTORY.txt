@@ -1,3 +1,10 @@
+AFV356 — SEO robots.txt Fix
+- Adds a valid root-level robots.txt with public-site crawling allowed and the Story Admin page disallowed for crawlers.
+- Includes robots.txt in the production build allowlist so Cloudflare Pages serves the text file instead of falling back to index.html.
+- Adds regression coverage for the allowlist entry and plain-text robots directives.
+- Preserves Cloudflare's automatic X-Robots-Tag: noindex behavior on preview deployments; production indexing is not blocked by this preview-only header.
+- Synchronizes package metadata to AFV356 / 356.0.0.
+
 AFV355 — Targeted Image Delivery Optimization
 - Generates seven WebP variants during the production build from original images using the existing sharp dependency.
 - Updates homepage profile, social-preview, recovery-proof preview, and review-card image sources to use delivery-sized WebP assets.

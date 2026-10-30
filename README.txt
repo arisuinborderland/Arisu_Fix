@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV355
-Updated: 2026-10-29
+Version: AFV356
+Updated: 2026-10-30
 
-Current release: AFV355
-Package version: 355.0.0
+Current release: AFV356
+Package version: 356.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV356 adds a valid root-level robots.txt to the production build allowlist. It allows public site crawling and disallows the story-admin page from crawler access. Cloudflare's automatic noindex header remains intact on preview deployments.
 - AFV355 generates seven responsive WebP variants from existing original images during the production build. Homepage profile, social, recovery-proof, and review images use smaller delivery files; the review lightbox loads the full-resolution WebP only when opened. The latest AFV346 Stories signed-URL caching behavior and singular WhatsApp CTA are preserved.
 - AFV346 improves Story image loading by reusing recent signed URLs across reloads for up to 40 minutes, warming the first images early, and keeping the visible image in place while a renewed URL loads.
 - AFV328 removes verified duplicate CSS declarations from proofs.css, story-admin.css, story-viewer.css, and styles.css while preserving the compact mobile header dimensions.
