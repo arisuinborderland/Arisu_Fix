@@ -37,11 +37,11 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 
 
 /* AFV373 — mobile-only homepage About card sizing/spacing correction.
-   The card sits inside a padded main container; percentage width was calculated from
-   the narrowed inner box, creating an unintended second inset. Restore viewport width. */
+   The max-width: 430px override had reduced the card to viewport minus 52px, while the footer
+   remained wider. Restore the original near-footer width without changing card internals. */
 @media (max-width: 700px) {
   html body.home-page .about-link-section {
-    width: min(calc(100vw - 52px), 960px) !important;
+    width: min(calc(100vw - 28px), 960px) !important;
     max-width: 960px !important;
     position: relative !important;
     left: 50% !important;
@@ -59,7 +59,7 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 }
 @media (max-width: 430px) {
   html body.home-page .about-link-section {
-    width: calc(100vw - 52px) !important;
+    width: calc(100vw - 28px) !important;
     margin: 4px 0 2px !important;
   }
   html body.home-page .site-footer.footer-reference {
@@ -69,7 +69,7 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 }
 @media (max-width: 340px) {
   html body.home-page .about-link-section {
-    width: calc(100vw - 40px) !important;
+    width: calc(100vw - 24px) !important;
   }
   html body.home-page .site-footer.footer-reference {
     width: calc(100% - 16px) !important;
