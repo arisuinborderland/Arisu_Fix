@@ -111,10 +111,12 @@
     pendingNavigation = [];
     if (emptyTitle) {
       if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
+      else if (state === 'loading') emptyTitle.textContent = 'Loading Stories…';
       else emptyTitle.innerHTML = defaultEmptyTitleMarkup;
     }
     if (emptyMessage) {
       if (state === 'unavailable') emptyMessage.textContent = 'Could not connect to the Stories service. Please try again shortly.';
+      else if (state === 'loading') emptyMessage.textContent = 'Preparing the latest stories…';
       else emptyMessage.textContent = defaultEmptyMessageText;
     }
     viewer.classList.add('story-viewer-empty-open');
@@ -420,13 +422,9 @@
   mobileStoriesButton?.addEventListener('click', async () => {
     const requestId = ++storyOpenRequestId;
 
-    // Use cached Stories immediately when available; otherwise fetch on demand.
-    // Refresh signed image URLs in the background without a loading modal.
+    // Open the viewer immediately. Let the browser load the image in-place
+    // instead of making the visitor wait for preload/decode to finish.
     if (stories.length) {
-      // Load the first Story only after an explicit open action so it cannot
-      // compete with the homepage's initial render and LCP resources.
-      await preloadImage(stories[0].imageUrl);
-      if (requestId !== storyOpenRequestId) return;
       showAt(0);
       load().then(refreshed => {
         if (!refreshed || requestId !== storyOpenRequestId || viewer.hidden || !activeStoryId) return;
@@ -454,12 +452,13 @@
       return;
     }
 
-    // On a cold start, fetch silently and open directly as soon as data arrives.
+    // On a first visit, show feedback on the tap immediately while the list API
+    // resolves. Once data arrives, showAt() assigns the image URL directly and
+    // the browser paints it as soon as it is available.
+    showEmptyState('loading');
     const refreshed = await load();
     if (requestId !== storyOpenRequestId) return;
     if (refreshed && stories.length) {
-      await preloadImage(stories[0].imageUrl);
-      if (requestId !== storyOpenRequestId) return;
       showAt(0);
     } else {
       showEmptyState(refreshed ? 'empty' : 'unavailable');
@@ -511,27 +510,35 @@
     resumeStoryProgress();
   });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
-  // Seed the viewer and count from recent local data without starting network
-  // requests on the homepage's initial critical path.
+  // Seed the viewer and count from recent local data without blocking the
+  // homepage's critical render. Start fetching the lightweight Story list as
+  // soon as the page load event fires, rather than waiting for idle time; this
+  // avoids a 1.2–2.5s cold-start penalty when a visitor taps Stories.
+  // Keep the count request idle-scheduled because it is not needed to open Stories.
   // Keep signed URLs only for 40 minutes; Supabase issues them for one hour.
   function scheduleInitialDataLoad() {
-    const scheduleIdleWork = () => {
-      const runInitialDataLoad = () => {
-        loadCount();
-        // A visitor who opens Stories before idle already triggers load() on demand.
-        if (!storyListLoadRequested) load();
-      };
+    const scheduleCountLoad = () => {
+      const runCountLoad = () => loadCount();
       if (typeof window.requestIdleCallback === 'function') {
-        window.requestIdleCallback(runInitialDataLoad, { timeout: 2500 });
+        window.requestIdleCallback(runCountLoad, { timeout: 2500 });
       } else {
-        window.setTimeout(runInitialDataLoad, 1200);
+        window.setTimeout(runCountLoad, 1200);
       }
     };
 
+    const runStoryListLoad = () => {
+      // A visitor who opens Stories first already triggered load() on demand.
+      if (!storyListLoadRequested) load();
+    };
+
     if (document.readyState === 'complete') {
-      scheduleIdleWork();
+      runStoryListLoad();
+      scheduleCountLoad();
     } else {
-      window.addEventListener('load', scheduleIdleWork, { once: true });
+      window.addEventListener('load', () => {
+        runStoryListLoad();
+        scheduleCountLoad();
+      }, { once: true });
     }
   }
 

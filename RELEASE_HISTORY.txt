@@ -1,3 +1,10 @@
+AFV366 — Reduce Recovery Stories First-Open Delay
+- Starts the public Story-list request immediately after the window load event instead of waiting for requestIdleCallback or the 1.2-second fallback, reducing the cold first-open delay.
+- Keeps the Stories count request idle-scheduled because it is not required to open the viewer.
+- Preserves the on-demand load guard to avoid duplicate Story-list requests if a visitor opens Stories before scheduled loading begins.
+- Refreshes Story Viewer cache-busting tokens to AFV366 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package.json, package-lock.json, README, and release metadata to AFV366 / 366.0.0.
+
 AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)
 - Replaces the full-width solid purple Back to Site control with a compact centered dark-glass pill.
 - Uses translucent dark violet, subtle violet border, soft glow, backdrop blur, white label, and soft-violet arrow.
