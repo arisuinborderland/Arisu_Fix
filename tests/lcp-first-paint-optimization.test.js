@@ -39,9 +39,14 @@ test('AFV357 release metadata is synchronized', () => {
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
   const styles = read('styles.css');
-  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?arisu-brand-badge-pop 2s ease-in-out infinite !important/);
-  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?status-heartbeat 1\\.15s ease-in-out infinite !important/);
-  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?wa-border-trace 2\\.8s linear infinite !important/);
-  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?wa-border-trace-reverse 3\\.2s linear infinite !important/);
-  assert.match(styles, /AFV357 — restore the three branded motion accents/);
+  const mobileBlockStart = styles.indexOf('/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.');
+  assert.notEqual(mobileBlockStart, -1, 'mobile animation restoration block must exist');
+  const mobileBlock = styles.slice(mobileBlockStart);
+  assert.ok(mobileBlock.startsWith('/* AFV357'), 'mobile block must be appended at the end of the stylesheet');
+  assert.ok(mobileBlock.includes('@media (max-width: 700px)'), 'mobile-only media query must be scoped to 700px and below');
+  assert.ok(mobileBlock.includes('arisu-brand-badge-pop 2s ease-in-out infinite !important'));
+  assert.ok(mobileBlock.includes('status-heartbeat 1.15s ease-in-out infinite !important'));
+  assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
+  assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
+  assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
 });
