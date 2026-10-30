@@ -6683,7 +6683,7 @@ html body.home-page .why-arisu-card > .process-heading-band p {
 @media (max-width: 640px) {
   html body.home-page .why-arisu-card > .process-heading-band {
     width: calc(100% + 28px) !important;
-    margin-top: 2px !important;
+    margin-top: 4px !important;
     margin-bottom: 14px !important;
     margin-left: -14px !important;
     margin-right: -14px !important;
