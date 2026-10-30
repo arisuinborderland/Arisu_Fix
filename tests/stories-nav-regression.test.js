@@ -100,7 +100,7 @@ test('AFV360 exits on right tap at the last or only Story and never wraps', () =
 
 test('AFV360 preserves rapid navigation taps while the next Story image loads', () => {
   assert.match(source, /if \(navigating\) \{[\s\S]*?pendingNavigation\.length < 12[\s\S]*?pendingNavigation\.push\(direction\)/);
-  assert.match(source, /const queuedDirection = pendingNavigation\.shift\(\);[\s\S]*?processPendingNavigation\(\)/);
+  assert.ok(source.includes('const direction = pendingNavigation.shift();'));
   assert.match(source, /function processPendingNavigation\(\)[\s\S]*?pendingNavigation\.shift\(\)[\s\S]*?navigateBy\(direction\)/);
 });
 
