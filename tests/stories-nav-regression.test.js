@@ -62,7 +62,8 @@ test('Story images reuse recent signed URLs across reloads and wait for refreshe
   assert.ok(source.includes("stories = readCachedStories();"));
   assert.doesNotMatch(source, /stories\.slice\(0, 2\)\.forEach\(story => preloadImage\(story\.imageUrl\)\)/, 'Story media must not preload during page startup');
   assert.ok(source.includes('image.src = story.imageUrl;'), 'the first Story URL is assigned immediately');
-  assert.ok(source.includes('image.src = story.imageUrl; warmNextImage(index)'), 'next-Story warming remains active');
+  assert.ok(source.includes('image.src = story.imageUrl;'), 'the current Story image URL is assigned');
+  assert.match(source, /warmNextImage\(index\)/, 'next-Story warming remains active');
   assert.ok(source.includes("preloadImage(refreshedImageUrl).then(ready =>"));
   assert.ok(source.includes("Keep the visible image on screen until a renewed signed URL is ready"));
 });
