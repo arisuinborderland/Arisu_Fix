@@ -1,3 +1,9 @@
+AFV370 — Footer Navigation and Tagline Refinement
+- Removes the small About This Website link from the shared footer on every page while retaining the large About CTA card on the homepage.
+- Reorders footer links so Terms sits above Contact, with Contact beside Privacy Policy on the next row.
+- Replaces the duplicate location-based footer tagline with “Built on trust. Focused on recovery.”
+- Refreshes footer stylesheet cache tokens and synchronizes release metadata.
+
 AFV369 — Restore Homepage About CTA
 - Restores the prominent “Learn More About Arisu Fix” card above the compact footer on the homepage.
 - Keeps the compact shared footer link grid and removes the Reviews stars and Recovery Proofs preview CTA from the footer.
