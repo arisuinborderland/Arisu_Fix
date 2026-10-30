@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV378/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV367/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -76,7 +76,7 @@ test('Desktop empty-state Story Viewer is centered and width-constrained', () =>
   assert.match(desktopFix, /\.story-viewer\.story-viewer-empty-open \.story-viewer-card\s*\{[\s\S]*?width:\s*min\(560px, calc\(100vw - 48px\)\) !important;[\s\S]*?max-width:\s*560px !important;[\s\S]*?margin-inline:\s*auto !important/);
 });
 
-test('AFV378 starts the Story list request after load without an idle delay', () => {
+test('AFV367 starts the Story list request after load without an idle delay', () => {
   assert.match(source, /function scheduleInitialDataLoad\(\)/);
   assert.match(source, /window\.addEventListener\('load', \(\) => \{[\s\S]*?runStoryListLoad\(\);[\s\S]*?scheduleCountLoad\(\);[\s\S]*?\}, \{ once: true \}\)/);
   assert.match(source, /window\.requestIdleCallback\(runCountLoad, \{ timeout: 2500 \}\)/);
@@ -103,7 +103,7 @@ test('AFV360 exits on right tap at the last or only Story and never wraps', () =
   assert.doesNotMatch(source, /index = \(next \+ stories\.length\) % stories\.length/);
 });
 
-test('AFV378 navigates immediately while preserving rapid taps', () => {
+test('AFV367 navigates immediately while preserving rapid taps', () => {
   assert.match(source, /if \(navigating\) \{[\s\S]*?pendingNavigation\.length < 12[\s\S]*?pendingNavigation\.push\(direction\)/);
   assert.ok(source.includes('const direction = pendingNavigation.shift();'));
   assert.match(source, /showAt\(targetIndex\);[\s\S]*?requestAnimationFrame\(\(\) => \{[\s\S]*?navigating = false;/);
