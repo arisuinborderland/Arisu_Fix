@@ -112,8 +112,7 @@ html body .site-footer.footer-reference .footer-reference-copyright small {
   font-size: 13px;
 }
 html body.home-page .site-footer.footer-reference {
-  /* Preserve the existing mobile flow compensation for the visually shifted final card. */
-  margin-top: -62px !important;
+  margin-top: 2px !important;
   padding-top: 0 !important;
 }
 html body.home-page .site-footer.footer-reference > .about-link-section {
