@@ -535,3 +535,13 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{
     margin-inline: auto !important;
   }
 }
+
+
+/* AFV365: compact glassmorphism Back to Site control, consistent on mobile and desktop. */
+html body .story-viewer:not([hidden]) .story-viewer-close { left:50%!important;right:auto!important;width:min(250px,calc(100vw - 64px))!important;min-width:0!important;height:50px!important;min-height:50px!important;padding:0 20px!important;transform:translateX(-50%)!important;color:#fff!important;background:linear-gradient(135deg,rgba(36,27,61,.78),rgba(20,25,48,.72))!important;border:1px solid rgba(155,107,255,.82)!important;box-shadow:0 6px 22px rgba(82,42,156,.18),inset 0 1px 0 rgba(255,255,255,.16)!important;-webkit-backdrop-filter:blur(14px) saturate(135%)!important;backdrop-filter:blur(14px) saturate(135%)!important;font-size:14px!important;font-weight:650!important;letter-spacing:.1px!important;}
+html body .story-viewer:not([hidden]) .story-viewer-close span:first-child{color:#c4a5ff!important;}
+html body .story-viewer:not([hidden]) .story-viewer-close:hover{background:linear-gradient(135deg,rgba(68,42,105,.88),rgba(27,38,68,.84))!important;border-color:rgba(196,165,255,.96)!important;box-shadow:0 8px 26px rgba(112,65,199,.25),inset 0 1px 0 rgba(255,255,255,.2)!important;}
+html body .story-viewer:not([hidden]) .story-viewer-close:active{transform:translateX(-50%) scale(.98)!important;}
+html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible{outline:2px solid #c4a5ff!important;outline-offset:3px!important;}
+@media(min-width:701px){html body .story-viewer:not([hidden]) .story-viewer-close{width:260px!important;height:50px!important;min-height:50px!important;}}
+@media(max-width:380px){html body .story-viewer:not([hidden]) .story-viewer-close{width:min(230px,calc(100vw - 48px))!important;padding-inline:14px!important;}}
