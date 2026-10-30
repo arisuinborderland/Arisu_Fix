@@ -1,3 +1,9 @@
+AFV364 — Restore Essential Story Progress Under Reduced Motion
+- Removes reduced-motion CSS overrides that forced the Story progress fill transition to none, which made the active segment jump to full width.
+- Keeps the 7-second progress animation and Story advance timer visible and aligned, while still disabling the decorative moving light sheen under reduced-motion preferences.
+- Refreshes the Story Viewer CSS and JavaScript cache tokens to AFV364 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata and release notes to AFV364 / 364.0.0.
+
 AFV363 — Animated Story Progress and Oldest-First Ordering
 - Adds an animated purple-pink-cyan gradient Story progress fill with a subtle moving light sheen.
 - Adds an accessible current/total Story counter and keeps it synchronized during navigation and background refresh.

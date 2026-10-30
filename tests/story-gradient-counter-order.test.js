@@ -10,8 +10,8 @@ test('all Story Viewer pages expose an accessible current/total counter', () => 
   for (const page of ['index.html', 'about.html', 'privacy.html', 'proofs.html', 'reviews.html']) {
     const html = read(page);
     assert.match(html, /class="story-viewer-counter"[^>]*aria-live="polite"/, page);
-    assert.match(html, /story-viewer\.css\?v=AFV363/, page);
-    assert.match(html, /story-viewer\.js\?v=AFV363/, page);
+    assert.match(html, /story-viewer\.css\?v=AFV364/, page);
+    assert.match(html, /story-viewer\.js\?v=AFV364/, page);
   }
 });
 
@@ -22,6 +22,8 @@ test('Story progress uses the animated gradient sheen and respects reduced motio
   assert.match(css, /story-viewer-progress-sheen/);
   assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
   assert.ok(css.includes('.story-viewer-progress-fill::after{animation:none!important;opacity:0!important}'));
+  assert.ok(!css.includes('.story-viewer-progress-fill{transition:none!important}.story-viewer-progress-fill::after'));
+  assert.ok(!css.includes('html body .story-viewer .story-viewer-progress-fill{transition:none!important}'));
   assert.match(js, /segment\.classList\.toggle\('is-active', fillIndex === index\)/);
 });
 

@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV363
+Version: AFV364
 Updated: 2026-10-30
 
-Current release: AFV363
-Package version: 363.0.0
+Current release: AFV364
+Package version: 364.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV364 fixes Story progress when the operating system requests reduced motion: the essential 7-second progress transition remains visible, while only the decorative moving sheen is suppressed.
 - AFV363 adds an animated purple-pink-cyan Story progress line with a subtle moving light sheen and an accessible current/total counter that updates during navigation and background refresh. Reduced-motion preferences suppress the sheen animation.
 - AFV363 orders Stories oldest-first within saved sort positions. New uploads and newly published drafts receive the next sort position and appear after existing Stories; Admin drag-and-drop ordering remains supported.
 - AFV361 changes Story progress fills from width transitions to left-origin transform scale animations, retaining the existing 7-second duration while avoiding layout-width changes. Refreshes Story Viewer CSS/JS cache tokens across all pages.
