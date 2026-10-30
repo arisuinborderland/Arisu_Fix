@@ -10,8 +10,8 @@ test('all Story Viewer pages expose an accessible current/total counter', () => 
   for (const page of ['index.html', 'about.html', 'privacy.html', 'proofs.html', 'reviews.html']) {
     const html = read(page);
     assert.match(html, /class="story-viewer-counter"[^>]*aria-live="polite"/, page);
-    assert.match(html, /story-viewer\.css\?v=AFV366/, page);
-    assert.match(html, /story-viewer\.js\?v=AFV366/, page);
+    assert.match(html, /story-viewer\.css\?v=AFV367/, page);
+    assert.match(html, /story-viewer\.js\?v=AFV367/, page);
   }
 });
 
