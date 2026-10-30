@@ -1,3 +1,9 @@
+AFV367 — Prevent Partial Image Rendering on First Story
+- Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
+- Starts the viewing progress timer only after the image is ready to display.
+- Refreshes story-viewer.js cache-busting tokens to AFV367 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata and README to AFV367 / 367.0.0.
+
 AFV366 — Reduce Recovery Stories First-Open Delay
 - Starts the public Story-list request immediately after the window load event instead of waiting for requestIdleCallback or the 1.2-second fallback, reducing the cold first-open delay.
 - Keeps the Stories count request idle-scheduled because it is not required to open the viewer.
