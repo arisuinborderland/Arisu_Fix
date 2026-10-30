@@ -38,9 +38,11 @@ test('Stories opens immediately and waits for image readiness before starting pr
   assert.match(source, /if \(stories\.length\) \{\s*showAt\(0\);\s*load\(\)\.then\(refreshed =>/);
   assert.match(source, /showEmptyState\('loading'\)/);
   assert.match(source, /if \(refreshed && stories\.length\) \{\s*showAt\(0\);/);
+  assert.match(source, /image\.hidden = true;[\s\S]*?image\.onload = startStoryProgress/);
   assert.match(source, /image\.onload = startStoryProgress/);
   assert.match(source, /image\.onerror = startStoryProgress/);
-  assert.match(source, /if \(image\.complete\) startStoryProgress\(\)/);
+  assert.match(source, /progressStarted = true;\s*image\.hidden = false;/);
+  assert.match(source, /if \(image\.complete && image\.naturalWidth > 0\) startStoryProgress\(\)/);
   assert.match(source, /progressStarted \|\| viewer\.hidden \|\| activeStoryId !== storyId/);
 });
 
