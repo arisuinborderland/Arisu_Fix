@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV371 release metadata is synchronized', () => {
+test('AFV372 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '371.0.0');
-  assert.equal(lock.version, '371.0.0');
-  assert.equal(lock.packages[''].version, '371.0.0');
-  assert.ok(readme.includes('Current release: AFV371'));
-  assert.ok(history.startsWith('AFV371 — Homepage About Card and Footer Spacing Fix'));
+  assert.equal(pkg.version, '372.0.0');
+  assert.equal(lock.version, '372.0.0');
+  assert.equal(lock.packages[''].version, '372.0.0');
+  assert.ok(readme.includes('Current release: AFV372'));
+  assert.ok(history.startsWith('AFV372 — Mobile Homepage About Card Placement Fix'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
@@ -54,4 +54,15 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
+});
+
+
+test('AFV372 places the homepage About card after the safety card and limits spacing changes to mobile', () => {
+  const index = read('index.html');
+  const styles = read('footer-reference.css');
+  const mainClose = index.indexOf('</main>');
+  const aboutCard = index.indexOf('class="site-section about-link-section"');
+  assert.ok(aboutCard > -1 && aboutCard < mainClose, 'About card must be inside main, before the page navigation and footer');
+  assert.ok(styles.includes('@media (max-width: 700px)'), 'spacing correction must be mobile-only');
+  assert.ok(styles.includes('margin: 4px auto 2px !important'), 'About card must have a 4px top and 2px bottom margin on mobile');
 });
