@@ -511,27 +511,35 @@
     resumeStoryProgress();
   });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
-  // Seed the viewer and count from recent local data without starting network
-  // requests on the homepage's initial critical path.
+  // Seed the viewer and count from recent local data without blocking the
+  // homepage's critical render. Start fetching the lightweight Story list as
+  // soon as the page load event fires, rather than waiting for idle time; this
+  // avoids a 1.2–2.5s cold-start penalty when a visitor taps Stories.
+  // Keep the count request idle-scheduled because it is not needed to open Stories.
   // Keep signed URLs only for 40 minutes; Supabase issues them for one hour.
   function scheduleInitialDataLoad() {
-    const scheduleIdleWork = () => {
-      const runInitialDataLoad = () => {
-        loadCount();
-        // A visitor who opens Stories before idle already triggers load() on demand.
-        if (!storyListLoadRequested) load();
-      };
+    const scheduleCountLoad = () => {
+      const runCountLoad = () => loadCount();
       if (typeof window.requestIdleCallback === 'function') {
-        window.requestIdleCallback(runInitialDataLoad, { timeout: 2500 });
+        window.requestIdleCallback(runCountLoad, { timeout: 2500 });
       } else {
-        window.setTimeout(runInitialDataLoad, 1200);
+        window.setTimeout(runCountLoad, 1200);
       }
     };
 
+    const runStoryListLoad = () => {
+      // A visitor who opens Stories first already triggered load() on demand.
+      if (!storyListLoadRequested) load();
+    };
+
     if (document.readyState === 'complete') {
-      scheduleIdleWork();
+      runStoryListLoad();
+      scheduleCountLoad();
     } else {
-      window.addEventListener('load', scheduleIdleWork, { once: true });
+      window.addEventListener('load', () => {
+        runStoryListLoad();
+        scheduleCountLoad();
+      }, { once: true });
     }
   }
 
