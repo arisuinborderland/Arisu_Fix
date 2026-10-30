@@ -1,3 +1,13 @@
+AFV360 — Story Navigation and Progress Polish
+- Right tap advances to the next Story; on the last or only Story, right tap closes the viewer and returns to the site. Left tap on the first Story remains on that Story; no wrapping is introduced.
+- Queues up to 12 rapid navigation taps while a destination image is prepared, so taps are not silently dropped during the transition.
+- Quick taps no longer pause/restart the progress bar. Progress pauses only after a 160 ms press-and-hold and resumes from the elapsed position on release/cancel.
+- Uses strict Story index bounds in showAt() so invalid indices cannot wrap to another Story.
+- Background Story-list refresh rebuilds progress segments only when the Story count changes, avoiding needless progress animation restarts.
+- Refreshes Story Viewer cache-busting tokens across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata to AFV360 / 360.0.0.
+- Preserves AFV359 deferred API startup, Google Fonts preconnects, AFV358 WebP banner, signed-URL reuse/refresh, view deduplication, and existing UI styling.
+
 AFV359 — Defer Non-Critical Startup Requests
 - Adds early preconnect hints for fonts.googleapis.com and fonts.gstatic.com before stylesheets, reducing connection setup time for the existing DM Sans and Manrope font imports.
 - Moves automatic Stories count and public Story list API requests off the homepage's initial critical path. The requests now start after the window load event and browser idle time, with a bounded timeout and a fallback for browsers without requestIdleCallback.

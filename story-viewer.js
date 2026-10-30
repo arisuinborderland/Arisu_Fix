@@ -23,7 +23,7 @@
   const emptyMessage = emptyState?.querySelector('p');
   const defaultEmptyTitleMarkup = emptyTitle?.innerHTML || '';
   const defaultEmptyMessageText = emptyMessage?.textContent || '';
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '', storyListLoadRequested = false;
+  let stories = [], index = 0, timer = 0, holdPauseTimer = 0, started = 0, navigating = false, progressPaused = false, pausedElapsed = 0, pendingNavigation = [], countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '', storyListLoadRequested = false;
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
   const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList.v1';
@@ -93,7 +93,7 @@
       // Do not block story playback; a later revisit can retry after transient failure.
     }).finally(() => pendingStoryViews.delete(id));
   }
-  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
+  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0; pendingNavigation = []; navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
   function showEmptyState(state = 'empty') {
     clearTimeout(timer);
     navigating = false;
@@ -102,6 +102,11 @@
     progressTrack.hidden = true;
     viewer.querySelector('.story-viewer-meta').hidden = false;
     if (emptyState) emptyState.hidden = false;
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    progressPaused = false;
+    pausedElapsed = 0;
+    pendingNavigation = [];
     if (emptyTitle) {
       if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
       else emptyTitle.innerHTML = defaultEmptyTitleMarkup;
@@ -140,20 +145,43 @@
     preloadImage(stories[nextIndex].imageUrl);
   }
   function navigateBy(direction) {
-    if (viewer.hidden || navigating || !stories.length) return;
+    if (viewer.hidden || !stories.length || (direction !== -1 && direction !== 1)) return;
+    if (navigating) {
+      // Preserve rapid repeated taps while the requested image is being prepared.
+      if (pendingNavigation.length < 12) pendingNavigation.push(direction);
+      return;
+    }
     const targetIndex = index + direction;
-    // Never wrap manual navigation: right advances forward, left moves backward.
-    if (targetIndex < 0 || targetIndex >= stories.length) return;
+    // Left on the first Story stays put. Right on the last (including a
+    // single-Story viewer) exits back to the site instead of becoming a dead tap.
+    if (targetIndex < 0) return;
+    if (targetIndex >= stories.length) { hide(); return; }
     navigating = true;
     clearTimeout(timer);
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    progressPaused = false;
+    pausedElapsed = 0;
     const targetUrl = stories[targetIndex].imageUrl;
     // The next image is warmed in the background while the current story is shown.
     // On a cold visit, wait only for the actual image readiness, not an artificial delay.
     preloadImage(targetUrl).then(() => {
-      if (viewer.hidden) { navigating = false; return; }
+      if (viewer.hidden) { navigating = false; pendingNavigation = []; return; }
       showAt(targetIndex);
-      requestAnimationFrame(() => { viewer.classList.remove('story-viewer-switching'); navigating = false; });
+      requestAnimationFrame(() => {
+        viewer.classList.remove('story-viewer-switching');
+        navigating = false;
+        processPendingNavigation();
+      });
     });
+  }
+  function processPendingNavigation() {
+    if (viewer.hidden || navigating || !pendingNavigation.length) return;
+    const direction = pendingNavigation.shift();
+    navigateBy(direction);
+    // A queued left tap at the first Story is a no-op; continue draining any
+    // later taps rather than leaving the navigation queue stuck.
+    if (!viewer.hidden && !navigating && pendingNavigation.length) processPendingNavigation();
   }
   function timeAgo(value) { const date = new Date(value); if (!value || Number.isNaN(date.getTime())) return ''; const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000)); if (seconds < 60) return 'Just now'; if (seconds < 3600) { const minutes = Math.floor(seconds / 60); return `${minutes} min${minutes === 1 ? '' : 's'} ago`; } if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; return `${Math.floor(seconds / 86400)}d ago`; }
   function renderProgressSegments() {
@@ -189,7 +217,9 @@
   }
   function showAt(next) {
     if (!stories.length) return hide();
-    index = (next + stories.length) % stories.length;
+    const targetIndex = Number(next);
+    if (!Number.isInteger(targetIndex) || targetIndex < 0 || targetIndex >= stories.length) return hide();
+    index = targetIndex;
     viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
     const story = stories[index];
     activeStoryId = String(story.id || '');
@@ -199,6 +229,7 @@
     if (story.id) recordStoryView(story.id);
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
     if (progressFills.length !== stories.length) renderProgressSegments();
+    clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0;
     setProgress(0); viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
     clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
     timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, DURATION);
@@ -400,7 +431,7 @@
         }
         caption.textContent = story.caption || '';
         timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
-        renderProgressSegments();
+        if (progressFills.length !== stories.length) renderProgressSegments();
         const elapsed = Math.min(DURATION, Math.max(0, Date.now() - started));
         const remaining = Math.max(0, DURATION - elapsed);
         setProgress(elapsed / DURATION * 100, remaining > 0, remaining || DURATION);
@@ -430,8 +461,40 @@
       navigateBy(event.clientX < midpoint ? -1 : 1);
     }
   });
-  viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
-  viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
+  function pauseStoryProgress() {
+    if (viewer.hidden || navigating || progressPaused) return;
+    progressPaused = true;
+    pausedElapsed = Math.min(DURATION, Math.max(0, Date.now() - started));
+    clearTimeout(timer);
+    setProgress(pausedElapsed / DURATION * 100);
+  }
+  function resumeStoryProgress() {
+    if (!progressPaused || viewer.hidden) return;
+    progressPaused = false;
+    const remaining = Math.max(0, DURATION - pausedElapsed);
+    started = Date.now() - pausedElapsed;
+    setProgress(pausedElapsed / DURATION * 100, true, remaining || DURATION);
+    timer = setTimeout(() => {
+      if (index + 1 < stories.length) showAt(index + 1);
+      else hide();
+    }, remaining);
+    pausedElapsed = 0;
+  }
+  viewer.addEventListener('pointerdown', event => {
+    if (event.target.closest('button') || viewer.hidden || navigating) return;
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = window.setTimeout(pauseStoryProgress, 160);
+  });
+  window.addEventListener('pointerup', () => {
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    resumeStoryProgress();
+  });
+  window.addEventListener('pointercancel', () => {
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    resumeStoryProgress();
+  });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
   // Seed the viewer and count from recent local data without starting network
   // requests on the homepage's initial critical path.

@@ -19,13 +19,16 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV359/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV360/, `${page} should load Story Viewer behavior`);
   }
 });
 
 test('Story navigation never wraps from the final story back to the first', () => {
   assert.match(source, /const targetIndex = index \+ direction;/);
-  assert.match(source, /if \(targetIndex < 0 \|\| targetIndex >= stories\.length\) return;/);
+  assert.match(source, /if \(targetIndex < 0\) return;/);
+  assert.match(source, /if \(targetIndex >= stories\.length\) \{ hide\(\); return; \}/);
+  assert.match(source, /index = targetIndex;/);
+  assert.doesNotMatch(source, /\(next \+ stories\.length\) % stories\.length/);
   assert.doesNotMatch(source, /const targetIndex = \(index \+ direction \+ stories\.length\) % stories\.length/);
   assert.match(source, /const nextIndex = fromIndex \+ 1;\s*if \(nextIndex >= stories\.length\) return;/);
 });
@@ -86,4 +89,41 @@ test('AFV359 preconnects to both existing Google Fonts origins before stylesheet
   assert.ok(home.includes(gstatic));
   assert.ok(home.indexOf(googleFonts) < home.indexOf('rel="stylesheet"'));
   assert.ok(home.indexOf(gstatic) < home.indexOf('rel="stylesheet"'));
+});
+
+test('AFV360 exits on right tap at the last or only Story and never wraps', () => {
+  assert.match(source, /if \(targetIndex >= stories\.length\) \{ hide\(\); return; \}/);
+  assert.match(source, /if \(targetIndex < 0\) return;/);
+  assert.match(source, /if \(!Number\.isInteger\(targetIndex\) \|\| targetIndex < 0 \|\| targetIndex >= stories\.length\) return hide\(\)/);
+  assert.doesNotMatch(source, /index = \(next \+ stories\.length\) % stories\.length/);
+});
+
+test('AFV360 preserves rapid navigation taps while the next Story image loads', () => {
+  assert.match(source, /if \(navigating\) \{[\s\S]*?pendingNavigation\.length < 12[\s\S]*?pendingNavigation\.push\(direction\)/);
+  assert.match(source, /const queuedDirection = pendingNavigation\.shift\(\);[\s\S]*?processPendingNavigation\(\)/);
+  assert.match(source, /function processPendingNavigation\(\)[\s\S]*?pendingNavigation\.shift\(\)[\s\S]*?navigateBy\(direction\)/);
+});
+
+test('AFV360 quick taps do not pause progress; only a 160ms hold pauses and resumes it', () => {
+  assert.match(source, /holdPauseTimer = window\.setTimeout\(pauseStoryProgress, 160\)/);
+  assert.match(source, /function pauseStoryProgress\(\)[\s\S]*?progressPaused = true;[\s\S]*?clearTimeout\(timer\)/);
+  assert.match(source, /function resumeStoryProgress\(\)[\s\S]*?started = Date\.now\(\) - pausedElapsed;[\s\S]*?setProgress\(pausedElapsed \/ DURATION \* 100, true, remaining \|\| DURATION\)/);
+  assert.match(source, /window\.addEventListener\('pointercancel',[\s\S]*?resumeStoryProgress\(\)/);
+  assert.doesNotMatch(source, /viewer\.addEventListener\('pointerdown', event => \{[^\n]*clearTimeout\(timer\)/);
+});
+
+test('AFV360 background Story refresh does not rebuild progress segments when count is unchanged', () => {
+  assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
+});
+
+test('AFV360 package metadata and release notes are synchronized', () => {
+  const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+  const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
+  const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
+  const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
+  assert.equal(pkg.version, '360.0.0');
+  assert.equal(lock.version, '360.0.0');
+  assert.equal(lock.packages[''].version, '360.0.0');
+  assert.ok(readme.includes('Current release: AFV360'));
+  assert.ok(history.startsWith('AFV360 — Story Navigation and Progress Polish'));
 });
