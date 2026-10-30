@@ -273,7 +273,7 @@
     };
     image.onload = startStoryProgress;
     image.onerror = startStoryProgress;
-    if (image.complete) startStoryProgress();
+    if (image.complete && image.naturalWidth > 0) startStoryProgress();
   }
   function setCountLoading(isLoading) {
     if (!mobileStoriesCount) return;
