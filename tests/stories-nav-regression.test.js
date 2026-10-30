@@ -121,11 +121,11 @@ test('AFV364 package metadata and release notes are synchronized', () => {
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '363.0.0');
-  assert.equal(lock.version, '363.0.0');
-  assert.equal(lock.packages[''].version, '363.0.0');
+  assert.equal(pkg.version, '364.0.0');
+  assert.equal(lock.version, '364.0.0');
+  assert.equal(lock.packages[''].version, '364.0.0');
   assert.ok(readme.includes('Current release: AFV364'));
-  assert.ok(history.startsWith('AFV364 — Animated Story Progress and Oldest-First Ordering'));
+  assert.ok(history.startsWith('AFV364 — Restore Essential Story Progress Under Reduced Motion'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
