@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV366
+Version: AFV367
 Updated: 2026-10-30
 
-Current release: AFV366
-Package version: 366.0.0
+Current release: AFV367
+Package version: 367.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
 - AFV365 fixes Story progress when the operating system requests reduced motion: the essential 7-second progress transition remains visible, while only the decorative moving sheen is suppressed.

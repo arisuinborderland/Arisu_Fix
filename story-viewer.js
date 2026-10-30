@@ -233,7 +233,7 @@
     if (!Number.isInteger(targetIndex) || targetIndex < 0 || targetIndex >= stories.length) return hide();
     index = targetIndex;
     updateStoryCounter();
-    viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
+    viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = true; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
     const story = stories[index];
     const storyId = String(story.id || '');
     activeStoryId = storyId;
@@ -257,12 +257,13 @@
     viewer.hidden = false;
     document.body.classList.add('story-viewer-open');
 
-    // Start the 7-second viewing timer only when the image is ready to display.
-    // This prevents a slow first download from consuming the viewer's progress time.
+    // Keep the image hidden until its full load completes, avoiding progressive partial rendering.
+    // Start the 7-second timer only once the image can be displayed in full.
     let progressStarted = false;
     const startStoryProgress = () => {
       if (progressStarted || viewer.hidden || activeStoryId !== storyId) return;
       progressStarted = true;
+      image.hidden = false;
       started = Date.now();
       requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
       timer = setTimeout(() => {
@@ -272,7 +273,7 @@
     };
     image.onload = startStoryProgress;
     image.onerror = startStoryProgress;
-    if (image.complete) startStoryProgress();
+    if (image.complete && image.naturalWidth > 0) startStoryProgress();
   }
   function setCountLoading(isLoading) {
     if (!mobileStoriesCount) return;

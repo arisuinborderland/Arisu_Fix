@@ -545,3 +545,7 @@ html body .story-viewer:not([hidden]) .story-viewer-close:active{transform:trans
 html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible{outline:2px solid #c4a5ff!important;outline-offset:3px!important;}
 @media(min-width:701px){html body .story-viewer:not([hidden]) .story-viewer-close{width:260px!important;height:50px!important;min-height:50px!important;}}
 @media(max-width:380px){html body .story-viewer:not([hidden]) .story-viewer-close{width:min(230px,calc(100vw - 48px))!important;padding-inline:14px!important;}}
+
+
+/* Keep the native hidden state effective despite the viewer's explicit display rule. */
+html body .story-viewer .story-viewer-image[hidden] { display: none !important; }
