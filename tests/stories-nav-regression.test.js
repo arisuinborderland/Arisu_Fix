@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV357/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV359/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -65,4 +65,25 @@ test('Desktop empty-state Story Viewer is centered and width-constrained', () =>
   assert.ok(desktopFix, 'desktop empty-state width rule must exist');
   assert.match(desktopFix, /@media \(min-width: 701px\)/);
   assert.match(desktopFix, /\.story-viewer\.story-viewer-empty-open \.story-viewer-card\s*\{[\s\S]*?width:\s*min\(560px, calc\(100vw - 48px\)\) !important;[\s\S]*?max-width:\s*560px !important;[\s\S]*?margin-inline:\s*auto !important/);
+});
+
+test('AFV359 defers automatic Stories API requests until after load and idle time', () => {
+  assert.match(source, /function scheduleInitialDataLoad\(\)/);
+  assert.match(source, /window\.addEventListener\('load', scheduleIdleWork, \{ once: true \}\)/);
+  assert.match(source, /window\.requestIdleCallback\(runInitialDataLoad, \{ timeout: 2500 \}\)/);
+  assert.match(source, /window\.setTimeout\(runInitialDataLoad, 1200\)/);
+  assert.match(source, /stories = readCachedStories\(\);\s*renderCachedCount\(\);\s*scheduleInitialDataLoad\(\);/);
+  assert.match(source, /if \(!storyListLoadRequested\) load\(\)/);
+  assert.match(source, /storyListLoadRequested = true;/);
+  assert.match(source, /await preloadImage\(stories\[0\]\.imageUrl\)/, 'opening Stories before idle still loads the first image on demand');
+});
+
+test('AFV359 preconnects to both existing Google Fonts origins before stylesheets', () => {
+  const home = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const googleFonts = '<link rel="preconnect" href="https://fonts.googleapis.com">';
+  const gstatic = '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+  assert.ok(home.includes(googleFonts));
+  assert.ok(home.includes(gstatic));
+  assert.ok(home.indexOf(googleFonts) < home.indexOf('rel="stylesheet"'));
+  assert.ok(home.indexOf(gstatic) < home.indexOf('rel="stylesheet"'));
 });

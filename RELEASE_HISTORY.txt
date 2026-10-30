@@ -1,3 +1,11 @@
+AFV359 — Defer Non-Critical Startup Requests
+- Adds early preconnect hints for fonts.googleapis.com and fonts.gstatic.com before stylesheets, reducing connection setup time for the existing DM Sans and Manrope font imports.
+- Moves automatic Stories count and public Story list API requests off the homepage's initial critical path. The requests now start after the window load event and browser idle time, with a bounded timeout and a fallback for browsers without requestIdleCallback.
+- Renders a valid cached Stories count immediately. If a visitor opens Stories before the deferred startup task runs, the existing click-to-load path fetches the Story list on demand and the scheduled task avoids starting a duplicate initial list request.
+- Refreshes Story Viewer script cache-busting tokens to AFV359 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package.json, package-lock.json, README, and release metadata to AFV359 / 359.0.0.
+- Preserves Story count fallback, cold-start open behavior, signed-URL reuse/refresh, image preloading after open, view-count deduplication, navigation, progress bar, and existing UI animations.
+
 AFV358 — Daily Verse LCP Image Delivery
 - Generates verse-lake-photo.webp from the original JPEG during the production build, capped at 1600px wide and encoded as WebP quality 78 to reduce the critical image payload.
 - Preloads the optimized WebP from the initial homepage HTML with high fetch priority and updates all Daily Bible Verse CSS background references to use the same cache-busted asset.

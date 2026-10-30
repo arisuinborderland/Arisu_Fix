@@ -44,7 +44,7 @@ test('AFV355 review lightbox loads the full-size source and latest main features
   const index = read('index.html');
   assert.match(lightbox, /image\.dataset\.fullSrc \|\| image\.currentSrc \|\| image\.src/);
   assert.ok(index.includes('Message Me on WhatsApp'), 'latest singular WhatsApp CTA must remain');
-  assert.ok(index.includes('story-viewer.js?v=AFV357'), 'latest AFV346 Stories Viewer must remain');
+  assert.ok(index.includes('story-viewer.js?v=AFV359'), 'latest AFV346 Stories Viewer must remain');
 });
 
 test('AFV356 ships a valid plain-text robots.txt instead of the homepage fallback', () => {

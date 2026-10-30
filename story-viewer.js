@@ -23,7 +23,7 @@
   const emptyMessage = emptyState?.querySelector('p');
   const defaultEmptyTitleMarkup = emptyTitle?.innerHTML || '';
   const defaultEmptyMessageText = emptyMessage?.textContent || '';
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '';
+  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '', storyListLoadRequested = false;
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
   const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList.v1';
@@ -275,12 +275,11 @@
       });
   }
 
-  async function loadCount() {
-    if (!mobileStoriesCount) return;
-    const requestStarted = performance.now();
+  function renderCachedCount() {
+    if (!mobileStoriesCount) return null;
     const cachedCount = readCachedCount();
     if (cachedCount !== null) {
-      // Paint the last known count before waiting on the network, then revalidate.
+      // Paint the last known count immediately while network revalidation is deferred.
       mobileStoriesCount.textContent = String(cachedCount);
       countHasUsableValue = true;
       mobileStoriesCount.setAttribute('aria-label', `${cachedCount} available stories`);
@@ -289,6 +288,13 @@
     } else {
       setCountLoading(true);
     }
+    return cachedCount;
+  }
+
+  async function loadCount() {
+    if (!mobileStoriesCount) return;
+    const requestStarted = performance.now();
+    const cachedCount = renderCachedCount();
     try {
       performance.mark('story-count-request-start');
       const response = await fetch('/api/story-count', { cache: 'no-store' });
@@ -319,6 +325,7 @@
     }
   }
   async function load() {
+    storyListLoadRequested = true;
     const previouslyKnownStories = stories.slice();
     try {
       const response = await fetch('/api/stories', { cache: 'no-store' });
@@ -368,8 +375,8 @@
   mobileStoriesButton?.addEventListener('click', async () => {
     const requestId = ++storyOpenRequestId;
 
-    // Use stories already fetched during page startup immediately. Refresh signed
-    // image URLs in the background so the viewer never has to show a loading modal.
+    // Use cached Stories immediately when available; otherwise fetch on demand.
+    // Refresh signed image URLs in the background without a loading modal.
     if (stories.length) {
       // Load the first Story only after an explicit open action so it cannot
       // compete with the homepage's initial render and LCP resources.
@@ -426,9 +433,31 @@
   viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
   viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
-  // Seed the viewer from recent local data before the network request finishes.
+  // Seed the viewer and count from recent local data without starting network
+  // requests on the homepage's initial critical path.
   // Keep signed URLs only for 40 minutes; Supabase issues them for one hour.
+  function scheduleInitialDataLoad() {
+    const scheduleIdleWork = () => {
+      const runInitialDataLoad = () => {
+        loadCount();
+        // A visitor who opens Stories before idle already triggers load() on demand.
+        if (!storyListLoadRequested) load();
+      };
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(runInitialDataLoad, { timeout: 2500 });
+      } else {
+        window.setTimeout(runInitialDataLoad, 1200);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      scheduleIdleWork();
+    } else {
+      window.addEventListener('load', scheduleIdleWork, { once: true });
+    }
+  }
+
   stories = readCachedStories();
-  loadCount();
-  load();
+  renderCachedCount();
+  scheduleInitialDataLoad();
 })();
