@@ -10789,3 +10789,71 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     transform: translateY(-2px) scaleY(0.84) !important;
   }
 }
+
+
+/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.
+   The site intentionally keeps these accents animated on desktop even when the OS
+   requests reduced motion; apply the same narrow-screen behavior for consistency.
+   Scope is limited to the verified badge, recovery-status pulse, and WhatsApp CTA. */
+@media (max-width: 700px) {
+  html body.home-page main > .compact-intro .eyebrow.premium-status {
+    animation: eyebrow-green-glow 3.6s ease-in-out infinite !important;
+    box-shadow: 0 0 0 1px rgba(43,190,105,.10),
+                0 0 16px rgba(37,211,102,.22),
+                0 0 28px rgba(37,211,102,.10) !important;
+  }
+  html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse {
+    animation: status-heartbeat 1.15s ease-in-out infinite !important;
+  }
+  html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse::after {
+    animation: status-ripple 1.5s ease-out infinite !important;
+  }
+
+  html body.home-page .topbar .arisu-verified-badge {
+    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
+  }
+  html body.home-page .topbar .arisu-verified-badge::after {
+    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
+  }
+  html body.home-page .topbar .arisu-verified-badge svg path {
+    stroke-dasharray: 24 !important;
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+    animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before {
+    background: conic-gradient(
+      from var(--wa-trace-angle),
+      transparent 0deg 20deg,
+      rgba(255, 61, 206, .28) 31deg,
+      rgba(255, 61, 206, .78) 43deg,
+      rgba(255, 255, 255, .98) 52deg,
+      #ffffff 59deg,
+      #ff3dce 64deg,
+      rgba(168, 85, 247, .88) 72deg,
+      transparent 84deg 360deg
+    ) !important;
+    filter: drop-shadow(0 0 4px rgba(255, 61, 206, .98)) !important;
+    animation: wa-border-trace 2.8s linear infinite !important;
+    opacity: 1 !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card .whatsapp-button::after {
+    background: conic-gradient(
+      from var(--wa-trace-angle-reverse),
+      transparent 0deg 23deg,
+      rgba(168, 85, 247, .28) 34deg,
+      rgba(168, 85, 247, .78) 45deg,
+      rgba(255, 255, 255, .98) 54deg,
+      #ffffff 60deg,
+      #a855f7 65deg,
+      rgba(255, 61, 206, .82) 73deg,
+      transparent 85deg 360deg
+    ) !important;
+    filter: drop-shadow(0 0 4px rgba(168, 85, 247, .98)) !important;
+    animation: wa-border-trace-reverse 3.2s linear infinite !important;
+    opacity: 1 !important;
+  }
+}

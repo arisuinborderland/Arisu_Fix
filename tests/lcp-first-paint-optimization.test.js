@@ -36,3 +36,12 @@ test('AFV357 release metadata is synchronized', () => {
   assert.ok(readme.includes('Current release: AFV357'));
   assert.ok(history.startsWith('AFV357 — LCP First-Paint Optimization'));
 });
+
+test('AFV357 restores the three branded animations at mobile widths', () => {
+  const styles = read('styles.css');
+  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?arisu-brand-badge-pop 2s ease-in-out infinite !important/);
+  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?status-heartbeat 1\\.15s ease-in-out infinite !important/);
+  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?wa-border-trace 2\\.8s linear infinite !important/);
+  assert.match(styles, /@media \\(max-width: 700px\\)[\\s\\S]*?wa-border-trace-reverse 3\\.2s linear infinite !important/);
+  assert.match(styles, /AFV357 — restore the three branded motion accents/);
+});

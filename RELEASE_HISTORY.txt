@@ -3,7 +3,8 @@ AFV357 — LCP First-Paint Optimization
 - Keeps the above-the-fold Daily Bible Verse card visible for the initial paint while preserving its existing scroll-out / scroll-in reveal behavior.
 - Updates the homepage scroll-reveal script cache token and package metadata to AFV357 / 357.0.0.
 - Adds regression tests for the preload attributes and first-paint visibility behavior.
-- Leaves styles.css and all layout rules untouched; Stories, Reviews, Proofs, WhatsApp CTA, and backend features remain unchanged.
+- Adds narrow-screen motion parity for the header verified badge, green Account Recovery Assistance pulse, and animated WhatsApp CTA border/glow, matching the existing desktop restoration behavior.
+- Refreshes the homepage styles.css cache token to AFV357. No layout geometry is changed; Stories, Reviews, Proofs, WhatsApp link behavior, and backend features remain unchanged.
 
 AFV356 — SEO robots.txt Fix
 - Adds a valid root-level robots.txt with public-site crawling allowed and the Story Admin page disallowed for crawlers.
