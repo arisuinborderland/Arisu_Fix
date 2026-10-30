@@ -39,6 +39,8 @@ test('Stories opens immediately and waits for image readiness before starting pr
   assert.match(source, /showEmptyState\('loading'\)/);
   assert.match(source, /if \(refreshed && stories\.length\) \{\s*showAt\(0\);/);
   assert.match(source, /image\.hidden = true;[\s\S]*?image\.onload = startStoryProgress/);
+  assert.ok(source.includes('image.hidden = true;'), 'the image stays hidden while downloading');
+  assert.ok(source.includes('progressStarted = true;\n      image.hidden = false;'), 'the image is revealed after it is ready');
   assert.match(source, /image\.onload = startStoryProgress/);
   assert.match(source, /image\.onerror = startStoryProgress/);
   assert.match(source, /progressStarted = true;\s*image\.hidden = false;/);
