@@ -62,7 +62,8 @@ test('AFV372 places the homepage About card after the safety card and limits spa
   const styles = read('footer-reference.css');
   const mainClose = index.indexOf('</main>');
   const aboutCard = index.indexOf('class="site-section about-link-section"');
-  assert.ok(aboutCard > -1 && aboutCard < mainClose, 'About card must be inside main, before the page navigation and footer');
+  const socialDestination = index.indexOf('id="desktopSocialDestination"');
+  assert.ok(aboutCard > socialDestination && aboutCard < mainClose, 'About card must be the final homepage content card, after the social destination and before page navigation/footer');
   assert.ok(styles.includes('@media (max-width: 700px)'), 'spacing correction must be mobile-only');
   assert.ok(styles.includes('margin: 4px auto 2px !important'), 'About card must have a 4px top and 2px bottom margin on mobile');
 });
