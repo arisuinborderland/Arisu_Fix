@@ -34,13 +34,14 @@ test('Story navigation never wraps from the final story back to the first', () =
 });
 
 
-test('Stories button opens cached stories immediately and never displays a loading modal', () => {
-  assert.match(source, /if \(stories\.length\) \{[\s\S]*?await preloadImage\(stories\[0\]\.imageUrl\);[\s\S]*?showAt\(0\);/);
-  assert.match(source, /load\(\)\.then\(refreshed =>/);
-  assert.match(source, /const refreshed = await load\(\);\s*if \(requestId !== storyOpenRequestId\) return;\s*if \(refreshed && stories\.length\) \{\s*await preloadImage\(stories\[0\]\.imageUrl\);\s*if \(requestId !== storyOpenRequestId\) return;\s*showAt\(0\);/);
-  assert.match(source, /else \{\s*showEmptyState\(refreshed \? 'empty' : 'unavailable'\);\s*\}/);
-  assert.doesNotMatch(source, /showEmptyState\(['"]loading['"]\)/);
-  assert.doesNotMatch(source, /state === ['"]loading['"][\s\S]*?Loading Stories/);
+test('Stories opens immediately and waits for image readiness before starting progress', () => {
+  assert.match(source, /if \(stories\.length\) \{\s*showAt\(0\);\s*load\(\)\.then\(refreshed =>/);
+  assert.match(source, /showEmptyState\('loading'\)/);
+  assert.match(source, /if \(refreshed && stories\.length\) \{\s*showAt\(0\);/);
+  assert.match(source, /image\.onload = startStoryProgress/);
+  assert.match(source, /image\.onerror = startStoryProgress/);
+  assert.match(source, /if \(image\.complete\) startStoryProgress\(\)/);
+  assert.match(source, /progressStarted \|\| viewer\.hidden \|\| activeStoryId !== storyId/);
 });
 
 test('Story progress continues animating after background refresh and avatar stays compact on mobile', () => {
@@ -56,7 +57,7 @@ test('Story images reuse recent signed URLs across reloads and wait for refreshe
   assert.ok(source.includes("function mergeFreshStories(freshStories, previousStories, fetchedAt = Date.now())"));
   assert.ok(source.includes("stories = readCachedStories();"));
   assert.doesNotMatch(source, /stories\.slice\(0, 2\)\.forEach\(story => preloadImage\(story\.imageUrl\)\)/, 'Story media must not preload during page startup');
-  assert.ok(source.includes('await preloadImage(stories[0].imageUrl);'), 'the first Story is prepared when the viewer is opened');
+  assert.ok(source.includes('image.src = story.imageUrl;'), 'the first Story URL is assigned immediately');
   assert.ok(source.includes('image.src = story.imageUrl; warmNextImage(index)'), 'next-Story warming remains active');
   assert.ok(source.includes("preloadImage(refreshedImageUrl).then(ready =>"));
   assert.ok(source.includes("Keep the visible image on screen until a renewed signed URL is ready"));
@@ -70,7 +71,7 @@ test('Desktop empty-state Story Viewer is centered and width-constrained', () =>
   assert.match(desktopFix, /\.story-viewer\.story-viewer-empty-open \.story-viewer-card\s*\{[\s\S]*?width:\s*min\(560px, calc\(100vw - 48px\)\) !important;[\s\S]*?max-width:\s*560px !important;[\s\S]*?margin-inline:\s*auto !important/);
 });
 
-test('AFV359 defers automatic Stories API requests until after load and idle time', () => {
+test('AFV366 starts the Story list request after load without an idle delay', () => {
   assert.match(source, /function scheduleInitialDataLoad\(\)/);
   assert.match(source, /window\.addEventListener\('load', scheduleIdleWork, \{ once: true \}\)/);
   assert.match(source, /window\.requestIdleCallback\(runInitialDataLoad, \{ timeout: 2500 \}\)/);
@@ -98,9 +99,11 @@ test('AFV360 exits on right tap at the last or only Story and never wraps', () =
   assert.doesNotMatch(source, /index = \(next \+ stories\.length\) % stories\.length/);
 });
 
-test('AFV360 preserves rapid navigation taps while the next Story image loads', () => {
+test('AFV367 navigates immediately while preserving rapid taps', () => {
   assert.match(source, /if \(navigating\) \{[\s\S]*?pendingNavigation\.length < 12[\s\S]*?pendingNavigation\.push\(direction\)/);
   assert.ok(source.includes('const direction = pendingNavigation.shift();'));
+  assert.match(source, /showAt\(targetIndex\);[\s\S]*?requestAnimationFrame\(\(\) => \{[\s\S]*?navigating = false;/);
+  assert.doesNotMatch(source.slice(source.indexOf('function navigateBy(direction)'), source.indexOf('function processPendingNavigation')), /preloadImage\(targetUrl\)\.then/);
   assert.match(source, /function processPendingNavigation\(\)[\s\S]*?pendingNavigation\.shift\(\)[\s\S]*?navigateBy\(direction\)/);
 });
 
@@ -116,16 +119,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV365 package metadata and release notes are synchronized', () => {
+test('AFV366 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '365.0.0');
-  assert.equal(lock.version, '365.0.0');
-  assert.equal(lock.packages[''].version, '365.0.0');
-  assert.ok(readme.includes('Current release: AFV365'));
-  assert.ok(history.startsWith('AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)'));
+  assert.equal(pkg.version, '366.0.0');
+  assert.equal(lock.version, '366.0.0');
+  assert.equal(lock.packages[''].version, '366.0.0');
+  assert.ok(readme.includes('Current release: AFV366'));
+  assert.ok(history.startsWith('AFV366 — Reduce Recovery Stories First-Open Delay'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
