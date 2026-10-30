@@ -1,5 +1,5 @@
 AFV373 — Restore Homepage About Card Width on Mobile
-- Root cause: the About card was inside the padded homepage main container, while its width was calculated as a percentage of that already narrowed content box, creating a second inset and causing the title to wrap.
+- Root cause: the max-width: 430px rule explicitly set the About card to viewport width minus 52px, making it much narrower than the footer and forcing the title onto two lines.
 - Uses viewport-based width only at mobile breakpoints to restore the original card size and alignment with the footer.
 - Keeps the 4px Remember-to-About gap and 2px About-to-footer gap; does not alter card padding, avatar, CTA, or desktop styling.
 - Refreshes footer-reference.css cache tokens and synchronizes release metadata.
