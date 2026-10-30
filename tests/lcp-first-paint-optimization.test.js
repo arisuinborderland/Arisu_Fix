@@ -7,11 +7,16 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV357 preloads the Daily Bible Verse background as a high-priority image', () => {
+test('AFV358 generates and preloads the optimized Daily Bible Verse WebP as a high-priority image', () => {
   const index = read('index.html');
-  const preloadTag = '<link rel="preload" as="image" href="/verse-lake-photo.jpg?v=AFV266" fetchpriority="high">';
+  const preloadTag = '<link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">';
   assert.ok(index.includes(preloadTag), 'homepage must preload the LCP banner image at high priority');
   assert.ok(index.indexOf(preloadTag) < index.indexOf('rel="stylesheet"'), 'preload must appear before stylesheet requests');
+  const build = read('build.js');
+  const styles = read('styles.css');
+  assert.ok(build.includes('output: "verse-lake-photo.webp"'), 'production build must generate the optimized LCP asset');
+  assert.ok(styles.includes('verse-lake-photo.webp?v=AFV358'), 'CSS must use the same optimized asset as the preload');
+  assert.ok(!styles.includes('verse-lake-photo.jpg?v=AFV266'), 'old JPEG background references must be replaced');
   assert.ok(index.includes('scroll-reveal.js?v=AFV357'), 'homepage must refresh the changed script cache token');
 });
 
@@ -25,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV357 release metadata is synchronized', () => {
+test('AFV358 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '357.0.0');
-  assert.equal(lock.version, '357.0.0');
-  assert.equal(lock.packages[''].version, '357.0.0');
-  assert.ok(readme.includes('Current release: AFV357'));
-  assert.ok(history.startsWith('AFV357 — LCP First-Paint Optimization'));
+  assert.equal(pkg.version, '358.0.0');
+  assert.equal(lock.version, '358.0.0');
+  assert.equal(lock.packages[''].version, '358.0.0');
+  assert.ok(readme.includes('Current release: AFV358'));
+  assert.ok(history.startsWith('AFV358 — Daily Verse LCP Image Delivery'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {

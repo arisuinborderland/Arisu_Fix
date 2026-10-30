@@ -34,7 +34,8 @@ const generatedImageAssets = [
   { source: "proofs/arisu-suspended-account-180-days.jpg", output: "proofs/arisu-suspended-account-180-days-preview.webp", resize: { width: 420, withoutEnlargement: true }, quality: 86 },
   { source: "proofs/file_0000000089048211995f9a93297d1146.png", output: "proofs/file_0000000089048211995f9a93297d1146-preview.webp", resize: { width: 420, withoutEnlargement: true }, quality: 86 },
   { source: "reviews/review-slot-1.jpg", output: "reviews/review-slot-1-thumb.webp", resize: { width: 344, withoutEnlargement: true }, quality: 80 },
-  { source: "reviews/review-slot-1.jpg", output: "reviews/review-slot-1.webp", resize: { withoutEnlargement: true }, quality: 88 }
+  { source: "reviews/review-slot-1.jpg", output: "reviews/review-slot-1.webp", resize: { withoutEnlargement: true }, quality: 88 },
+  { source: "verse-lake-photo.jpg", output: "verse-lake-photo.webp", resize: { width: 1600, withoutEnlargement: true }, quality: 78 }
 ];
 const requiredFunctionFiles = [
   "functions/api/stories.js", "functions/api/story-count.js", "functions/api/story-config.js",

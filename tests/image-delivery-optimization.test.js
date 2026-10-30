@@ -7,7 +7,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV355 production build generates all seven optimized WebP delivery assets', () => {
+test('AFV355 and AFV358 production build generate all eight optimized WebP delivery assets', () => {
   const build = read('build.js');
   const expected = [
     'assets/performance/arisu-profile-thumb.webp',
@@ -16,7 +16,8 @@ test('AFV355 production build generates all seven optimized WebP delivery assets
     'proofs/arisu-suspended-account-180-days-preview.webp',
     'proofs/file_0000000089048211995f9a93297d1146-preview.webp',
     'reviews/review-slot-1-thumb.webp',
-    'reviews/review-slot-1.webp'
+    'reviews/review-slot-1.webp',
+    'verse-lake-photo.webp'
   ];
   for (const output of expected) assert.ok(build.includes(output), `build must generate ${output}`);
   assert.match(build, /await sharp\(input\)[\s\S]*?\.webp\(/);

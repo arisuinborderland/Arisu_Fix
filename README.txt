@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV357
+Version: AFV358
 Updated: 2026-10-30
 
-Current release: AFV357
-Package version: 357.0.0
+Current release: AFV358
+Package version: 358.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV358 generates a delivery-sized WebP version of the Daily Bible Verse scenic banner during the production build, preloads that WebP at high priority, and updates all CSS background references to use it. The source JPEG remains unchanged; existing layout and animation behavior are preserved.
 - Defers Recovery Story image downloads until the visitor opens Stories; the first image is decoded before opening, while next-Story warming and signed-URL refresh remain active. This keeps non-critical Story media out of the homepage's initial network budget.
 - AFV357 preloads the Daily Bible Verse banner background image with high fetch priority and keeps the above-the-fold verse visible for first paint. Its scroll-reveal animation remains active when scrolling away and back; no CSS layout, mobile styling, Stories, Reviews, Proofs, WhatsApp, or backend behavior is changed.
 - AFV356 adds a valid root-level robots.txt to the production build allowlist. It allows public site crawling and disallows the story-admin page from crawler access. Cloudflare's automatic noindex header remains intact on preview deployments.

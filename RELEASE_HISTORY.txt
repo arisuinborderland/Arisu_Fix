@@ -1,3 +1,9 @@
+AFV358 — Daily Verse LCP Image Delivery
+- Generates verse-lake-photo.webp from the original JPEG during the production build, capped at 1600px wide and encoded as WebP quality 78 to reduce the critical image payload.
+- Preloads the optimized WebP from the initial homepage HTML with high fetch priority and updates all Daily Bible Verse CSS background references to use the same cache-busted asset.
+- Keeps the original JPEG untouched and leaves the existing AFV357 first-paint, mobile animation, Stories, Reviews, Proofs, WhatsApp, and backend behavior unchanged.
+- Adds regression assertions for the generated asset, early preload, and all CSS references.
+
 AFV357 — LCP First-Paint Optimization
 - Removes automatic first-two-Story image preloads from page startup. The first Story is loaded only after a visitor opens the viewer; next-Story preloading and AFV346 signed-URL reuse / safe refresh remain intact.
 - Adds an early high-priority preload for the existing Daily Bible Verse banner background image so the browser can discover it from the initial HTML rather than waiting for CSS discovery.
