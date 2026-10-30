@@ -1,3 +1,9 @@
+AFV372 — Mobile Homepage About Card Placement Fix
+- Moves the large About This Website card into the homepage content flow directly after the Remember safety card, rather than after the fixed bottom navigation in the document.
+- Applies the 4px safety-card-to-About gap and 2px About-to-footer gap only at mobile widths; desktop spacing rules are not changed.
+- Refreshes footer-reference.css cache tokens and synchronizes release metadata.
+
+
 AFV371 — Homepage About Card and Footer Spacing Fix
 - Sets a 4px gap between the homepage account-safety card and the large About This Website card.
 - Sets a 2px gap between the About card and footer, overriding the legacy negative margin that caused the footer's location and worldwide-assistance tiles to be obscured.
