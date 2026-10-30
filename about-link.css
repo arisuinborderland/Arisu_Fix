@@ -312,7 +312,9 @@ html body.home-page .topbar > .header-meta > .privacy-link {
     box-sizing: border-box !important;
     width: calc(100% - 28px) !important;
     max-width: 824px !important;
-    margin: 2px auto 2px !important;
+    /* Pull the About card and following footer up as one flow group,
+       leaving only a 4px visual gap after the Remember card. */
+    margin: -119px auto 2px !important;
     padding: 0 !important;
   }
   html body.home-page > section.about-link-section > .about-page-cta {
