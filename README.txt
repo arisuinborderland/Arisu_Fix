@@ -1,15 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV368
+Version: AFV369
 Updated: 2026-10-30
 
-Current release: AFV368
-Package version: 368.0.0
+Current release: AFV369
+Package version: 369.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV368 unifies the responsive footer across Home, Reviews, Recovery Proofs, and About with consistent location/service information, footer links, copyright spacing, and mobile-friendly layout.
+- AFV369 matches the supplied page-specific footer reference: Home location cards, Reviews feature panel, Recovery Proofs preview panel, About brand/mission panel, shared two-column navigation links, and aligned copyright layout.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
