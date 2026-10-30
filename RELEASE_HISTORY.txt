@@ -1,3 +1,10 @@
+AFV375 — Shared Reference Footer With Homepage About CTA Preserved
+- Applies the Image 1 footer design consistently across Home, Reviews, Recovery Proofs, and About: location/service tiles, icon-led two-column links, divider, and centered copyright/tagline.
+- Keeps the homepage About This Website card and Explore Our Story button as a separate element immediately above the footer; does not remove or resize the CTA.
+- Scopes new responsive styling to .site-footer.footer-reference and adds the stylesheet to the production build allowlist.
+- Updates cache-busting references and synchronizes package metadata.
+
+
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
