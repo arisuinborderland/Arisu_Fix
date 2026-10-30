@@ -36,15 +36,19 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 @media(max-width:480px){html body.home-page .about-link-section{width:calc(100% - 32px);margin:15px auto 12px!important}html body.home-page .about-link-section .about-page-cta{gap:12px;min-height:122px;padding:15px 12px;border-radius:24px}html body.home-page .about-link-section .about-cta-profile{width:68px;height:68px;flex-basis:68px;border-radius:17px}html body.home-page .about-link-section .about-cta-eyebrow{font-size:.68rem;letter-spacing:.09em}html body.home-page .about-link-section .about-cta-title{font-size:clamp(1rem,4.5vw,1.3rem)}html body.home-page .about-link-section .about-cta-description{font-size:.86rem}html body.home-page .about-link-section .about-cta-action{padding:8px 11px;font-size:.78rem}html body.home-page .about-link-section .about-cta-arrow{width:20px;height:20px;flex-basis:20px}}
 
 
-/* AFV372 — mobile-only homepage spacing correction.
-   The About card is now in the main content flow immediately after the safety card.
-   Keep exactly 4px above it and 2px between it and the footer. */
+/* AFV373 — mobile-only homepage About card sizing/spacing correction.
+   The card sits inside a padded main container; percentage width was calculated from
+   the narrowed inner box, creating an unintended second inset. Restore viewport width. */
 @media (max-width: 700px) {
   html body.home-page .about-link-section {
+    width: min(calc(100vw - 52px), 960px) !important;
+    max-width: 960px !important;
     position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     top: auto !important;
     translate: none !important;
-    margin: 4px auto 2px !important;
+    margin: 4px 0 2px !important;
   }
   html body.home-page .site-footer.footer-reference {
     position: relative !important;
