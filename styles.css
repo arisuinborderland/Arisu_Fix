@@ -11124,3 +11124,89 @@ html body.home-page .site-footer.unified-footer > .footer-copyright {
   html body .site-footer.unified-footer > .footer-links a,
   html body.home-page .site-footer.unified-footer > .footer-links a { gap: 6px !important; padding: 8px 7px !important; font-size: .77rem !important; }
 }
+
+
+/* AFV369 — page-specific footer layouts matching the approved visual reference. */
+html body .site-footer.unified-footer {
+ box-sizing:border-box!important; display:flex!important; flex-direction:column!important; gap:16px!important;
+ width:min(calc(100% - 32px),900px)!important; max-width:900px!important; margin:18px auto 24px!important;
+ padding:16px!important; color:#203253!important; text-align:left!important;
+ background:linear-gradient(135deg,rgba(239,248,255,.98),rgba(249,243,255,.98))!important;
+ border:1px solid rgba(84,145,226,.22)!important; border-radius:22px!important;
+ box-shadow:0 12px 28px rgba(54,91,153,.08)!important;
+}
+html body .site-footer.unified-footer .footer-location {display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin:0!important;padding:0 0 14px!important;border-bottom:1px solid #dce5f2!important}
+html body .site-footer.unified-footer .footer-location-item {display:flex!important;align-items:center!important;gap:9px!important;min-width:0!important;padding:10px!important;border:1px solid #dce7f5!important;border-radius:15px!important;background:rgba(255,255,255,.72)!important;white-space:normal!important}
+html body .site-footer.unified-footer .footer-location-item>svg {flex:0 0 34px!important;width:34px!important;height:34px!important;padding:7px!important;color:#2879e8!important;border-radius:12px!important;background:linear-gradient(135deg,#dff5ff,#e6e8ff)!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
+html body .site-footer.unified-footer .footer-location-item strong,html body .site-footer.unified-footer .footer-location-item small {display:block!important}
+html body .site-footer.unified-footer .footer-location-item strong {font-size:.88rem!important;line-height:1.3!important}
+html body .site-footer.unified-footer .footer-location-item small {margin-top:3px!important;color:#6d7b91!important;font-size:.76rem!important;line-height:1.3!important}
+html body .site-footer.unified-footer .footer-links {display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin:0!important;padding:0 0 14px!important;border-bottom:1px solid #dce5f2!important}
+html body .site-footer.unified-footer .footer-link-column {display:flex!important;flex-direction:column!important;min-width:0!important;border:1px solid #dce7f5!important;border-radius:16px!important;background:rgba(255,255,255,.48)!important;overflow:hidden!important}
+html body .site-footer.unified-footer .footer-link-column a {display:flex!important;align-items:center!important;gap:8px!important;min-width:0!important;min-height:62px!important;margin:0!important;padding:9px!important;border:0!important;border-bottom:1px solid #e7edf6!important;border-radius:0!important;background:transparent!important;color:#263958!important;text-decoration:none!important}
+html body .site-footer.unified-footer .footer-link-column a:last-child {border-bottom:0!important}
+html body .site-footer.unified-footer .footer-link-column a>svg {flex:0 0 34px!important;width:34px!important;height:34px!important;padding:7px!important;border-radius:12px!important;color:#286fe0!important;background:linear-gradient(135deg,#e0f7ff,#e8e7ff)!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
+html body .site-footer.unified-footer .footer-link-column a>span:nth-child(2) {display:flex!important;flex:1 1 auto!important;flex-direction:column!important;gap:3px!important;min-width:0!important}
+html body .site-footer.unified-footer .footer-link-column strong {font-size:.82rem!important;line-height:1.25!important}
+html body .site-footer.unified-footer .footer-link-column small {color:#748197!important;font-size:.72rem!important;line-height:1.3!important}
+html body .site-footer.unified-footer .footer-link-arrow {flex:0 0 auto!important;color:#5575ad!important;font-size:1.25rem!important;font-weight:700!important}
+html body .site-footer.unified-footer .footer-copyright {display:flex!important;flex-direction:column!important;align-items:center!important;gap:5px!important;margin:0!important;padding:0!important;text-align:center!important;color:#58667d!important;font-size:.82rem!important;line-height:1.4!important}
+html body .site-footer.unified-footer .footer-copyright small {font-size:.78rem!important}
+html body .site-footer.unified-footer .footer-copyright small span {color:#2879e8!important}
+html body .site-footer.unified-footer .footer-feature {display:grid!important;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)!important;gap:14px!important;align-items:center!important;padding:12px!important;border:1px solid #d8e6f7!important;border-radius:17px!important;background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(242,246,255,.86))!important}
+html body .site-footer.unified-footer .footer-feature-kicker {display:block!important;margin-bottom:6px!important;color:#4774b9!important;font-size:.68rem!important;font-weight:800!important;letter-spacing:.12em!important}
+html body .site-footer.unified-footer .footer-feature h2 {margin:0 0 5px!important;color:#233654!important;font-size:1rem!important;line-height:1.25!important}
+html body .site-footer.unified-footer .footer-feature p {margin:0 0 9px!important;color:#6b7890!important;font-size:.78rem!important;line-height:1.45!important}
+html body .site-footer.unified-footer .footer-feature a {display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:8px 11px!important;border-radius:999px!important;background:linear-gradient(110deg,#2495f2,#6551e8)!important;color:#fff!important;text-decoration:none!important;font-size:.76rem!important;font-weight:800!important;line-height:1.2!important}
+html body .site-footer.unified-footer .footer-story-art {display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;min-height:125px!important;padding:10px!important;border-radius:14px!important;background:linear-gradient(135deg,#e2f5ff,#f0eaff)!important;text-align:center!important}
+html body .site-footer.unified-footer .footer-chat-bubble {display:inline-flex!important;align-items:center!important;justify-content:center!important;width:38px!important;height:30px!important;margin:0 3px 8px!important;border-radius:10px!important;background:#fff!important;color:#3d7be8!important;box-shadow:0 5px 12px #9fb8e54d!important;font-weight:900!important}
+html body .site-footer.unified-footer .footer-chat-bubble.bubble-two {color:#8b4be8!important;transform:translateY(-5px)!important}
+html body .site-footer.unified-footer .footer-story-art strong {font-size:.9rem!important;line-height:1.25!important}
+html body .site-footer.unified-footer .footer-story-art small {margin-top:4px!important;color:#748197!important;font-size:.7rem!important}
+html body .site-footer.unified-footer .footer-proof-thumbnails {display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;min-width:0!important}
+html body .site-footer.unified-footer .footer-proof-thumbnails img {display:block!important;width:100%!important;height:105px!important;object-fit:cover!important;border:1px solid #d9e3f1!important;border-radius:9px!important;background:#edf3fb!important}
+html body .site-footer.unified-footer .footer-proof-copy {min-width:0!important}
+html body .site-footer.unified-footer .footer-about-feature {grid-template-columns:70px minmax(0,1fr) minmax(95px,.6fr)!important}
+html body .site-footer.unified-footer .footer-af-mark {display:flex!important;align-items:center!important;justify-content:center!important;width:64px!important;height:72px!important;border-radius:16px!important;background:linear-gradient(135deg,#21a9f4,#6239e9)!important;color:white!important;box-shadow:0 7px 14px #637fe64a!important}
+html body .site-footer.unified-footer .footer-af-mark svg {width:52px!important;height:60px!important}
+html body .site-footer.unified-footer .footer-about-message {margin:0!important;padding:0 10px!important;border-right:1px solid #d9e3f1!important;color:#687790!important;font-size:.75rem!important;line-height:1.5!important}
+html body .site-footer.unified-footer .footer-signature {display:flex!important;flex-direction:column!important;align-items:center!important;gap:5px!important;text-align:center!important}
+html body .site-footer.unified-footer .footer-signature>span {font-family:cursive!important;font-size:1.5rem!important;font-style:italic!important;color:#255bb7!important;white-space:nowrap!important}
+html body .site-footer.unified-footer .footer-signature small {font-size:.67rem!important;font-weight:700!important;line-height:1.3!important;color:#3e5e91!important}
+@media(min-width:700px){
+ html body .site-footer.unified-footer {padding:20px!important;gap:16px!important}
+ html body .site-footer.unified-footer .footer-location-item {padding:12px!important}
+ html body .site-footer.unified-footer .footer-link-column a {min-height:68px!important;padding:11px!important}
+ html body .site-footer.unified-footer .footer-feature {padding:16px!important}
+}
+@media(max-width:430px){
+ html body .site-footer.unified-footer {width:calc(100% - 24px)!important;padding:12px!important;gap:12px!important;border-radius:20px!important}
+ html body .site-footer.unified-footer .footer-location-item {align-items:flex-start!important;gap:6px!important;padding:8px 6px!important}
+ html body .site-footer.unified-footer .footer-location-item>svg,html body .site-footer.unified-footer .footer-link-column a>svg {flex-basis:30px!important;width:30px!important;height:30px!important;padding:6px!important}
+ html body .site-footer.unified-footer .footer-location-item strong {font-size:.76rem!important}
+ html body .site-footer.unified-footer .footer-location-item small {font-size:.68rem!important}
+ html body .site-footer.unified-footer .footer-link-column a {gap:6px!important;min-height:58px!important;padding:7px 6px!important}
+ html body .site-footer.unified-footer .footer-link-column strong {font-size:.72rem!important}
+ html body .site-footer.unified-footer .footer-link-column small {font-size:.65rem!important}
+ html body .site-footer.unified-footer .footer-link-arrow {font-size:1rem!important}
+ html body .site-footer.unified-footer .footer-feature {gap:8px!important;padding:9px!important}
+ html body .site-footer.unified-footer .footer-feature h2 {font-size:.86rem!important}
+ html body .site-footer.unified-footer .footer-feature p {font-size:.68rem!important}
+ html body .site-footer.unified-footer .footer-feature a {font-size:.66rem!important;padding:7px 8px!important}
+ html body .site-footer.unified-footer .footer-story-art {min-height:110px!important;padding:6px!important}
+ html body .site-footer.unified-footer .footer-chat-bubble {width:28px!important;height:24px!important;margin:0 1px 6px!important}
+ html body .site-footer.unified-footer .footer-story-art strong {font-size:.78rem!important}
+ html body .site-footer.unified-footer .footer-proof-thumbnails img {height:78px!important}
+ html body .site-footer.unified-footer .footer-about-feature {grid-template-columns:48px minmax(0,1fr) 76px!important}
+ html body .site-footer.unified-footer .footer-af-mark {width:44px!important;height:54px!important;border-radius:12px!important}
+ html body .site-footer.unified-footer .footer-af-mark svg {width:38px!important;height:45px!important}
+ html body .site-footer.unified-footer .footer-about-message {padding:0 6px!important;font-size:.64rem!important}
+ html body .site-footer.unified-footer .footer-signature>span {font-size:1rem!important}
+ html body .site-footer.unified-footer .footer-signature small {font-size:.57rem!important}
+}
+@media(max-width:350px){
+ html body .site-footer.unified-footer .footer-location {grid-template-columns:1fr!important}
+ html body .site-footer.unified-footer .footer-about-feature {grid-template-columns:46px minmax(0,1fr)!important}
+ html body .site-footer.unified-footer .footer-signature {grid-column:1/-1!important;flex-direction:row!important;justify-content:flex-end!important}
+ html body .site-footer.unified-footer .footer-about-message {border-right:0!important}
+}
