@@ -203,6 +203,10 @@ html body.home-page .topbar > .header-meta > .privacy-link {
    The section is a direct body child after main and the fixed mobile nav.
    Keep the approved reference sizing and use normal flow, not negative offsets. */
 @media (max-width: 600px) {
+  html body.home-page main {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
   html body.home-page > section.about-link-section {
     box-sizing: border-box !important;
     display: block !important;
