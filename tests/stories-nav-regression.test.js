@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV366/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV367/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -71,7 +71,7 @@ test('Desktop empty-state Story Viewer is centered and width-constrained', () =>
   assert.match(desktopFix, /\.story-viewer\.story-viewer-empty-open \.story-viewer-card\s*\{[\s\S]*?width:\s*min\(560px, calc\(100vw - 48px\)\) !important;[\s\S]*?max-width:\s*560px !important;[\s\S]*?margin-inline:\s*auto !important/);
 });
 
-test('AFV366 starts the Story list request after load without an idle delay', () => {
+test('AFV367 starts the Story list request after load without an idle delay', () => {
   assert.match(source, /function scheduleInitialDataLoad\(\)/);
   assert.match(source, /window\.addEventListener\('load', \(\) => \{[\s\S]*?runStoryListLoad\(\);[\s\S]*?scheduleCountLoad\(\);[\s\S]*?\}, \{ once: true \}\)/);
   assert.match(source, /window\.requestIdleCallback\(runCountLoad, \{ timeout: 2500 \}\)/);
@@ -118,16 +118,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV366 package metadata and release notes are synchronized', () => {
+test('AFV367 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '366.0.0');
-  assert.equal(lock.version, '366.0.0');
-  assert.equal(lock.packages[''].version, '366.0.0');
-  assert.ok(readme.includes('Current release: AFV366'));
-  assert.ok(history.startsWith('AFV366 — Reduce Recovery Stories First-Open Delay'));
+  assert.equal(pkg.version, '367.0.0');
+  assert.equal(lock.version, '367.0.0');
+  assert.equal(lock.packages[''].version, '367.0.0');
+  assert.ok(readme.includes('Current release: AFV367'));
+  assert.ok(history.startsWith('AFV367 — Prevent Partial Image Rendering on First Story'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
