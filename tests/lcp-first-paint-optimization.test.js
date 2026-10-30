@@ -36,8 +36,8 @@ test('AFV371 release metadata is synchronized', () => {
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
   assert.equal(pkg.version, '371.0.0');
-  assert.equal(lock.version, '370.0.0');
-  assert.equal(lock.packages[''].version, '370.0.0');
+  assert.equal(lock.version, '371.0.0');
+  assert.equal(lock.packages[''].version, '371.0.0');
   assert.ok(readme.includes('Current release: AFV371'));
   assert.ok(history.startsWith('AFV371 — Homepage About Card and Footer Spacing Fix'));
 });
