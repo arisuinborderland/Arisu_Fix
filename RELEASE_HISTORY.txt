@@ -1,3 +1,9 @@
+AFV368 — Unified Responsive Footer Across Pages
+- Standardizes location and worldwide assistance details across Home, Reviews, Recovery Proofs, and About.
+- Adds consistent two-column footer links, aligned icons, refined card styling, and clear copyright spacing.
+- Adds responsive desktop and small-screen rules while leaving fixed bottom navigation styling intact.
+- Synchronizes styles.css cache-busting tokens and package metadata to AFV368 / 368.0.0.
+
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
