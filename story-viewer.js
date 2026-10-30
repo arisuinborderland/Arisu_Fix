@@ -111,10 +111,12 @@
     pendingNavigation = [];
     if (emptyTitle) {
       if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
+      else if (state === 'loading') emptyTitle.textContent = 'Loading Stories…';
       else emptyTitle.innerHTML = defaultEmptyTitleMarkup;
     }
     if (emptyMessage) {
       if (state === 'unavailable') emptyMessage.textContent = 'Could not connect to the Stories service. Please try again shortly.';
+      else if (state === 'loading') emptyMessage.textContent = 'Preparing the latest stories…';
       else emptyMessage.textContent = defaultEmptyMessageText;
     }
     viewer.classList.add('story-viewer-empty-open');
@@ -420,13 +422,9 @@
   mobileStoriesButton?.addEventListener('click', async () => {
     const requestId = ++storyOpenRequestId;
 
-    // Use cached Stories immediately when available; otherwise fetch on demand.
-    // Refresh signed image URLs in the background without a loading modal.
+    // Open the viewer immediately. Let the browser load the image in-place
+    // instead of making the visitor wait for preload/decode to finish.
     if (stories.length) {
-      // Load the first Story only after an explicit open action so it cannot
-      // compete with the homepage's initial render and LCP resources.
-      await preloadImage(stories[0].imageUrl);
-      if (requestId !== storyOpenRequestId) return;
       showAt(0);
       load().then(refreshed => {
         if (!refreshed || requestId !== storyOpenRequestId || viewer.hidden || !activeStoryId) return;
@@ -454,12 +452,13 @@
       return;
     }
 
-    // On a cold start, fetch silently and open directly as soon as data arrives.
+    // On a first visit, show feedback on the tap immediately while the list API
+    // resolves. Once data arrives, showAt() assigns the image URL directly and
+    // the browser paints it as soon as it is available.
+    showEmptyState('loading');
     const refreshed = await load();
     if (requestId !== storyOpenRequestId) return;
     if (refreshed && stories.length) {
-      await preloadImage(stories[0].imageUrl);
-      if (requestId !== storyOpenRequestId) return;
       showAt(0);
     } else {
       showEmptyState(refreshed ? 'empty' : 'unavailable');
