@@ -1,15 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV373
+Version: AFV374
 Updated: 2026-10-30
 
-Current release: AFV373
-Package version: 373.0.0
+Current release: AFV374
+Package version: 374.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV373 restores the original full-width homepage About This Website card on mobile. The earlier 4px top and 2px footer spacing remains mobile-only; desktop layout is unchanged.
+- AFV374 fixes the mobile-only blank gap before the homepage About card by collapsing the reserved social-destination wrapper, while preserving the original card size and enforcing the 4px Remember-to-About and 2px About-to-footer spacing. Desktop layout is unchanged.
 - AFV370 removes the small About This Website footer link on all pages, keeps the large homepage About card, places Contact beside Privacy Policy beneath Terms, and replaces the footer tagline with “Built on trust. Focused on recovery.”
 - AFV370 restores the large homepage About This Website CTA above the compact shared footer; the compact footer remains unchanged.
 - AFV370 adds one compact shared mobile/desktop footer across Home, Reviews, Recovery Proofs, and About, without review-star/testimonial or proof-preview CTA panels.
