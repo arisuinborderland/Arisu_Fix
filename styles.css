@@ -10857,3 +10857,131 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV368 — unified responsive footer for Home, Reviews, Proofs, and About */
+.unified-footer,
+html body.home-page .site-footer.unified-footer {
+  display: block;
+  width: min(100% - 32px, 900px);
+  margin: 18px auto 24px;
+  padding: 18px 16px 16px;
+  box-sizing: border-box;
+  color: #1d2b4b;
+  background: linear-gradient(135deg, rgba(239,248,255,.96), rgba(248,242,255,.97));
+  border: 1px solid rgba(83,139,224,.28);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(48,83,150,.09);
+}
+.unified-footer .footer-location {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 16px;
+  border-bottom: 1px solid rgba(75,119,190,.2);
+}
+.unified-footer .footer-location-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 8px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.62);
+  color: #203153;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.unified-footer .footer-location-item + .footer-location-item { border-left: 1px solid rgba(75,119,190,.22); }
+.unified-footer .footer-location-item svg {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #286be8;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-top: 1px;
+}
+.unified-footer .footer-location-item span { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.unified-footer .footer-location-item strong { font-weight: 750; }
+.unified-footer .footer-location-item small { color: #66738b; font-size: .78rem; line-height: 1.35; }
+.unified-footer .footer-location-separator { display: none; }
+.unified-footer .footer-links {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(75,119,190,.2);
+}
+.unified-footer .footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 9px 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(83,139,224,.18);
+  border-radius: 14px;
+  background: rgba(255,255,255,.72);
+  color: #273858;
+  text-decoration: none;
+  font-size: .86rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: border-color .18s ease, transform .18s ease, background .18s ease;
+}
+.unified-footer .footer-links a:hover,
+.unified-footer .footer-links a:focus-visible {
+  border-color: rgba(40,107,232,.55);
+  background: #fff;
+  transform: translateY(-1px);
+}
+.unified-footer .footer-links a svg {
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: #286be8;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.unified-footer .footer-links a > span:nth-of-type(1) { flex: 1; min-width: 0; }
+.unified-footer .footer-links .footer-link-arrow { color: #4773c5; font-size: 1.35rem; font-weight: 500; line-height: 1; }
+.unified-footer .footer-copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 15px 4px 0;
+  color: #43516b;
+  text-align: center;
+  font-size: .82rem;
+  line-height: 1.45;
+}
+.unified-footer .footer-copyright small { color: #6c7890; font-size: .78rem; }
+.unified-footer .footer-copyright small span { color: #286be8; }
+.unified-footer .footer-note { margin: 0 0 14px; color: #66738b; font-size: .85rem; line-height: 1.5; }
+@media (min-width: 700px) {
+  .unified-footer,
+  html body.home-page .site-footer.unified-footer { padding: 22px 22px 18px; }
+  .unified-footer .footer-location-item { padding: 12px 14px; }
+  .unified-footer .footer-links { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .unified-footer .footer-links a { min-height: 48px; font-size: .9rem; }
+}
+@media (max-width: 360px) {
+  .unified-footer,
+  html body.home-page .site-footer.unified-footer { width: calc(100% - 20px); padding: 13px 10px; border-radius: 19px; }
+  .unified-footer .footer-location { gap: 5px; }
+  .unified-footer .footer-location-item { gap: 6px; padding: 8px 5px; font-size: .78rem; }
+  .unified-footer .footer-location-item svg { flex-basis: 18px; width: 18px; height: 18px; }
+  .unified-footer .footer-location-item small { font-size: .7rem; }
+  .unified-footer .footer-links { gap: 6px; }
+  .unified-footer .footer-links a { gap: 6px; padding: 8px 7px; font-size: .77rem; }
+}
