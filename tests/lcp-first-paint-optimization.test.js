@@ -9,22 +9,20 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
 test('AFV357 preloads the Daily Bible Verse background as a high-priority image', () => {
   const index = read('index.html');
-  const preload = index.match(/<link\\b(?=[^>]*rel="preload")(?=[^>]*as="image")[^>]*>/i);
-  assert.ok(preload, 'homepage must preload the LCP banner image');
-  assert.match(preload[0], /href="\\/verse-lake-photo\\.jpg\\?v=AFV266"/);
-  assert.match(preload[0], /fetchpriority="high"/i);
-  assert.ok(index.indexOf(preload[0]) < index.indexOf('rel="stylesheet"'), 'preload must appear before stylesheet requests');
-  assert.match(index, /scroll-reveal\\.js\\?v=AFV357/);
+  const preloadTag = '<link rel="preload" as="image" href="/verse-lake-photo.jpg?v=AFV266" fetchpriority="high">';
+  assert.ok(index.includes(preloadTag), 'homepage must preload the LCP banner image at high priority');
+  assert.ok(index.indexOf(preloadTag) < index.indexOf('rel="stylesheet"'), 'preload must appear before stylesheet requests');
+  assert.ok(index.includes('scroll-reveal.js?v=AFV357'), 'homepage must refresh the changed script cache token');
 });
 
 test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll reveal', () => {
   const reveal = read('scroll-reveal.js');
-  assert.match(reveal, /main > #daily-bible-verse/);
-  assert.match(reveal, /el\\.id === "daily-bible-verse"/);
-  assert.match(reveal, /el\\.getBoundingClientRect\\(\\)/);
-  assert.match(reveal, /el\\.classList\\.add\\("arc-scroll-reveal-visible"\\)/);
-  assert.match(reveal, /target\\.classList\\.remove\\("arc-scroll-reveal-visible"\\)/);
-  assert.match(reveal, /target\\.classList\\.add\\("arc-scroll-reveal-visible"\\)/);
+  assert.ok(reveal.includes('"main > #daily-bible-verse"'), 'the verse remains a scroll-reveal target');
+  assert.ok(reveal.includes('el.id === "daily-bible-verse"'), 'the initial-paint exception is scoped to the verse');
+  assert.ok(reveal.includes('const rect = el.getBoundingClientRect();'), 'initial viewport visibility is checked before reveal is enabled');
+  assert.ok(reveal.includes('el.classList.add("arc-scroll-reveal-visible")'), 'the initially visible verse is not hidden on first paint');
+  assert.ok(reveal.includes('target.classList.remove("arc-scroll-reveal-visible")'), 'the observer can still hide it after scrolling away');
+  assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
 test('AFV357 release metadata is synchronized', () => {
@@ -35,6 +33,6 @@ test('AFV357 release metadata is synchronized', () => {
   assert.equal(pkg.version, '357.0.0');
   assert.equal(lock.version, '357.0.0');
   assert.equal(lock.packages[''].version, '357.0.0');
-  assert.match(readme, /Current release: AFV357/);
-  assert.match(history, /^AFV357 — LCP First-Paint Optimization/);
+  assert.ok(readme.includes('Current release: AFV357'));
+  assert.ok(history.startsWith('AFV357 — LCP First-Paint Optimization'));
 });
