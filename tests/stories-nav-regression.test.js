@@ -123,22 +123,22 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV373 package metadata and release notes are synchronized', () => {
+test('AFV374 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '373.0.0');
-  assert.equal(lock.version, '373.0.0');
-  assert.equal(lock.packages[''].version, '373.0.0');
-  assert.ok(readme.includes('Current release: AFV373'));
-  assert.ok(history.startsWith('AFV373 — Restore Homepage About Card Width on Mobile'));
+  assert.equal(pkg.version, '374.0.0');
+  assert.equal(lock.version, '374.0.0');
+  assert.equal(lock.packages[''].version, '374.0.0');
+  assert.ok(readme.includes('Current release: AFV374'));
+  assert.ok(history.startsWith('AFV374 — Fix Mobile Homepage About Card Spacing'));
 });
 
 
-test('AFV373 preserves homepage About card width while limiting spacing changes to mobile', () => {
+test('AFV374 preserves homepage About card width while limiting spacing changes to mobile', () => {
   const css = fs.readFileSync(path.join(__dirname, '..', 'footer-reference.css'), 'utf8');
-  const mobileFix = css.split('AFV373 — mobile-only homepage About card sizing/spacing correction.')[1];
+  const mobileFix = css.split('AFV374 — mobile-only homepage About card sizing/spacing correction.')[1];
   assert.ok(mobileFix, 'mobile About card width correction must exist');
   assert.match(mobileFix, /@media \(max-width: 700px\)/);
   assert.match(mobileFix, /width: min\(calc\(100vw - 28px\), 960px\) !important/);
