@@ -334,9 +334,7 @@
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
         setCountLoading(false);
       }
-      // Reuse recent signed URLs so reloads can hit the browser's cached image bytes.
-      // Warm the first two images in the background without delaying page rendering.
-      stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
+      // Story media is deferred until the visitor explicitly opens Stories.
       // Keep the Stories navigation item mounted even when the API temporarily
       // returns an empty list. The button must not disappear/reappear as requests resolve.
       if (!stories.length && mobileStoriesCount && !countHasUsableValue) {
@@ -373,6 +371,10 @@
     // Use stories already fetched during page startup immediately. Refresh signed
     // image URLs in the background so the viewer never has to show a loading modal.
     if (stories.length) {
+      // Load the first Story only after an explicit open action so it cannot
+      // compete with the homepage's initial render and LCP resources.
+      await preloadImage(stories[0].imageUrl);
+      if (requestId !== storyOpenRequestId) return;
       showAt(0);
       load().then(refreshed => {
         if (!refreshed || requestId !== storyOpenRequestId || viewer.hidden || !activeStoryId) return;
@@ -402,8 +404,13 @@
     // On a cold start, fetch silently and open directly as soon as data arrives.
     const refreshed = await load();
     if (requestId !== storyOpenRequestId) return;
-    if (refreshed && stories.length) showAt(0);
-    else showEmptyState(refreshed ? 'empty' : 'unavailable');
+    if (refreshed && stories.length) {
+      await preloadImage(stories[0].imageUrl);
+      if (requestId !== storyOpenRequestId) return;
+      showAt(0);
+    } else {
+      showEmptyState(refreshed ? 'empty' : 'unavailable');
+    }
   });
   close.addEventListener('click', hide);
   emptyDone?.addEventListener('click', hide);
@@ -422,7 +429,6 @@
   // Seed the viewer from recent local data before the network request finishes.
   // Keep signed URLs only for 40 minutes; Supabase issues them for one hour.
   stories = readCachedStories();
-  stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
   loadCount();
   load();
 })();
