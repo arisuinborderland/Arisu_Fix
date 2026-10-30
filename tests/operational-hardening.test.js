@@ -21,7 +21,7 @@ test('Story Admin upload cap matches server-side 3 MiB validation', () => {
 test('Story Viewer refreshes signed image URLs before opening', () => {
   const viewer = read('story-viewer.js');
   const api = read('functions/api/stories.js');
-  assert.match(viewer, /const refreshed = await load\(\);[\s\S]*?if \(refreshed && stories\.length\) showAt\(0\);/);
+  assert.match(viewer, /const refreshed = await load\(\);[\s\S]*?if \(refreshed && stories\.length\) \{[\s\S]*?await preloadImage\(stories\[0\]\.imageUrl\);[\s\S]*?showAt\(0\);/);
   assert.match(viewer, /fetch\('\/api\/stories', \{ cache: 'no-store' \}\)/);
   assert.match(api, /expiresIn: 3600/);
 });

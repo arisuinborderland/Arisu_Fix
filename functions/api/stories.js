@@ -213,6 +213,23 @@ async function readJson(response) {
   try { return JSON.parse(text); } catch { return text; }
 }
 
+
+async function getNextStorySortOrder(config, excludeId = "") {
+  const params = new URLSearchParams({
+    select: "sort_order",
+    order: "sort_order.desc",
+    limit: "1"
+  });
+  if (excludeId) params.set("id", `neq.${excludeId}`);
+  const response = await fetch(`${config.supabaseUrl}/rest/v1/recovery_stories?${params}`, {
+    headers: { apikey: config.secretKey, Authorization: `Bearer ${config.secretKey}` }
+  });
+  const rows = await readJson(response);
+  if (!response.ok || !Array.isArray(rows)) throw new Error("Unable to determine the next Story position.");
+  const maximum = Number(rows[0]?.sort_order);
+  return rows.length && Number.isSafeInteger(maximum) && maximum >= 0 ? maximum + 1 : 0;
+}
+
 function isMissingStorageObject(status, body) {
   if (status === 404) return true;
   if (status !== 400 && status !== 409) return false;
@@ -230,6 +247,10 @@ async function uploadStory(request, config) {
 
   const decoded = decodeImageData(body?.imageData, body?.mimeType);
   if (!decoded.ok) return json(decoded.status, { error: decoded.error });
+
+  let nextSortOrder;
+  try { nextSortOrder = await getNextStorySortOrder(config); }
+  catch { return json(503, { error: "Unable to determine the next Story position. Please try again." }); }
 
   const extension = decoded.mime === "image/png" ? "png" : decoded.mime === "image/webp" ? "webp" : "jpg";
   const storagePath = `stories/${crypto.randomUUID()}.${extension}`;
@@ -265,7 +286,7 @@ async function uploadStory(request, config) {
     expires_at: new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString(),
     is_active: status === "active",
     admin_status: status,
-    sort_order: 0
+    sort_order: nextSortOrder
   };
 
   try {
@@ -315,6 +336,8 @@ async function updateStory(request, config) {
     patch = { admin_status: status, is_active: status === "active" };
     if (status === "active") {
       const now = new Date();
+      try { patch.sort_order = await getNextStorySortOrder(config, id); }
+      catch { return json(503, { error: "Unable to determine the next Story position. Please try again." }); }
       patch.published_at = now.toISOString();
       patch.expires_at = new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString();
     }
@@ -397,8 +420,8 @@ async function listStories(request, config, url) {
 
   const cutoff = encodeURIComponent(new Date().toISOString());
   const query = adminMode
-    ? `${config.supabaseUrl}/rest/v1/recovery_stories?select=id,caption,storage_path,published_at,expires_at,admin_status,sort_order,is_active&order=sort_order.asc,published_at.desc`
-    : `${config.supabaseUrl}/rest/v1/recovery_stories?select=id,caption,storage_path,published_at,expires_at,admin_status,sort_order&admin_status=eq.active&is_active=eq.true&expires_at=gt.${cutoff}&order=sort_order.asc,published_at.desc`;
+    ? `${config.supabaseUrl}/rest/v1/recovery_stories?select=id,caption,storage_path,published_at,expires_at,admin_status,sort_order,is_active&order=sort_order.asc,published_at.asc,id.asc`
+    : `${config.supabaseUrl}/rest/v1/recovery_stories?select=id,caption,storage_path,published_at,expires_at,admin_status,sort_order&admin_status=eq.active&is_active=eq.true&expires_at=gt.${cutoff}&order=sort_order.asc,published_at.asc,id.asc`;
 
   try {
     const response = await fetch(query, {

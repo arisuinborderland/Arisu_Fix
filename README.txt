@@ -1,14 +1,23 @@
 ARISU FIX — PROJECT README
-Version: AFV356
+Version: AFV364
 Updated: 2026-10-30
 
-Current release: AFV356
-Package version: 356.0.0
+Current release: AFV364
+Package version: 364.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV364 fixes Story progress when the operating system requests reduced motion: the essential 7-second progress transition remains visible, while only the decorative moving sheen is suppressed.
+- AFV363 adds an animated purple-pink-cyan Story progress line with a subtle moving light sheen and an accessible current/total counter that updates during navigation and background refresh. Reduced-motion preferences suppress the sheen animation.
+- AFV363 orders Stories oldest-first within saved sort positions. New uploads and newly published drafts receive the next sort position and appear after existing Stories; Admin drag-and-drop ordering remains supported.
+- AFV361 changes Story progress fills from width transitions to left-origin transform scale animations, retaining the existing 7-second duration while avoiding layout-width changes. Refreshes Story Viewer CSS/JS cache tokens across all pages.
+- AFV360 advances to the next Story on right tap and closes the viewer on the last/only Story; left tap on the first Story stays put. Rapid navigation taps are queued while a destination image loads. Progress only pauses on a 160 ms long-press, not on quick taps, and background refresh no longer rebuilds progress segments when the Story count is unchanged.
+- AFV359 preconnects to Google Fonts origins and defers automatic Stories count/list API requests until after page load and browser idle time. Cached Stories count remains visible immediately; opening Stories before idle still fetches data on demand.
+- AFV358 generates a delivery-sized WebP version of the Daily Bible Verse scenic banner during the production build, preloads that WebP at high priority, and updates all CSS background references to use it. The source JPEG remains unchanged; existing layout and animation behavior are preserved.
+- Defers Recovery Story image downloads until the visitor opens Stories; the first image is decoded before opening, while next-Story warming and signed-URL refresh remain active. This keeps non-critical Story media out of the homepage's initial network budget.
+- AFV357 preloads the Daily Bible Verse banner background image with high fetch priority and keeps the above-the-fold verse visible for first paint. Its scroll-reveal animation remains active when scrolling away and back; no CSS layout, mobile styling, Stories, Reviews, Proofs, WhatsApp, or backend behavior is changed.
 - AFV356 adds a valid root-level robots.txt to the production build allowlist. It allows public site crawling and disallows the story-admin page from crawler access. Cloudflare's automatic noindex header remains intact on preview deployments.
 - AFV355 generates seven responsive WebP variants from existing original images during the production build. Homepage profile, social, recovery-proof, and review images use smaller delivery files; the review lightbox loads the full-resolution WebP only when opened. The latest AFV346 Stories signed-URL caching behavior and singular WhatsApp CTA are preserved.
 - AFV346 improves Story image loading by reusing recent signed URLs across reloads for up to 40 minutes, warming the first images early, and keeping the visible image in place while a renewed URL loads.

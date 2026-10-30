@@ -17,13 +17,14 @@
   const mobileStoriesButton = document.getElementById('mobileNavStories');
   const mobileStoriesCount = mobileStoriesButton?.querySelector('.mobile-nav-story-count');
   const timestamp = viewer.querySelector('.story-viewer-time');
+  const storyCounter = viewer.querySelector('.story-viewer-counter');
   const emptyState = viewer.querySelector('.story-viewer-empty');
   const emptyDone = viewer.querySelector('.story-viewer-empty-done');
   const emptyTitle = emptyState?.querySelector('h2');
   const emptyMessage = emptyState?.querySelector('p');
   const defaultEmptyTitleMarkup = emptyTitle?.innerHTML || '';
   const defaultEmptyMessageText = emptyMessage?.textContent || '';
-  let stories = [], index = 0, timer = 0, started = 0, navigating = false, countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '';
+  let stories = [], index = 0, timer = 0, holdPauseTimer = 0, started = 0, navigating = false, progressPaused = false, pausedElapsed = 0, pendingNavigation = [], countLoaded = false, countHasUsableValue = false, storyOpenRequestId = 0, activeStoryId = '', storyListLoadRequested = false;
   const STORY_COUNT_CACHE_KEY = 'arisuFixStoriesCount.v1';
   const STORY_COUNT_CACHE_TTL_MS = 10 * 60 * 1000;
   const STORY_LIST_CACHE_KEY = 'arisuFixStoriesList.v1';
@@ -93,15 +94,21 @@
       // Do not block story playback; a later revisit can retry after transient failure.
     }).finally(() => pendingStoryViews.delete(id));
   }
-  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
+  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0; pendingNavigation = []; navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; if (storyCounter) storyCounter.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
   function showEmptyState(state = 'empty') {
     clearTimeout(timer);
     navigating = false;
     image.hidden = true;
     caption.hidden = true;
     progressTrack.hidden = true;
+    if (storyCounter) storyCounter.hidden = true;
     viewer.querySelector('.story-viewer-meta').hidden = false;
     if (emptyState) emptyState.hidden = false;
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    progressPaused = false;
+    pausedElapsed = 0;
+    pendingNavigation = [];
     if (emptyTitle) {
       if (state === 'unavailable') emptyTitle.innerHTML = 'Stories Temporarily <span>Unavailable</span>';
       else emptyTitle.innerHTML = defaultEmptyTitleMarkup;
@@ -140,22 +147,53 @@
     preloadImage(stories[nextIndex].imageUrl);
   }
   function navigateBy(direction) {
-    if (viewer.hidden || navigating || !stories.length) return;
+    if (viewer.hidden || !stories.length || (direction !== -1 && direction !== 1)) return;
+    if (navigating) {
+      // Preserve rapid repeated taps while the requested image is being prepared.
+      if (pendingNavigation.length < 12) pendingNavigation.push(direction);
+      return;
+    }
     const targetIndex = index + direction;
-    // Never wrap manual navigation: right advances forward, left moves backward.
-    if (targetIndex < 0 || targetIndex >= stories.length) return;
+    // Left on the first Story stays put. Right on the last (including a
+    // single-Story viewer) exits back to the site instead of becoming a dead tap.
+    if (targetIndex < 0) return;
+    if (targetIndex >= stories.length) { hide(); return; }
     navigating = true;
     clearTimeout(timer);
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    progressPaused = false;
+    pausedElapsed = 0;
     const targetUrl = stories[targetIndex].imageUrl;
     // The next image is warmed in the background while the current story is shown.
     // On a cold visit, wait only for the actual image readiness, not an artificial delay.
     preloadImage(targetUrl).then(() => {
-      if (viewer.hidden) { navigating = false; return; }
+      if (viewer.hidden) { navigating = false; pendingNavigation = []; return; }
       showAt(targetIndex);
-      requestAnimationFrame(() => { viewer.classList.remove('story-viewer-switching'); navigating = false; });
+      requestAnimationFrame(() => {
+        viewer.classList.remove('story-viewer-switching');
+        navigating = false;
+        processPendingNavigation();
+      });
     });
   }
+  function processPendingNavigation() {
+    if (viewer.hidden || navigating || !pendingNavigation.length) return;
+    const direction = pendingNavigation.shift();
+    navigateBy(direction);
+    // A queued left tap at the first Story is a no-op; continue draining any
+    // later taps rather than leaving the navigation queue stuck.
+    if (!viewer.hidden && !navigating && pendingNavigation.length) processPendingNavigation();
+  }
   function timeAgo(value) { const date = new Date(value); if (!value || Number.isNaN(date.getTime())) return ''; const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000)); if (seconds < 60) return 'Just now'; if (seconds < 3600) { const minutes = Math.floor(seconds / 60); return `${minutes} min${minutes === 1 ? '' : 's'} ago`; } if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; return `${Math.floor(seconds / 86400)}d ago`; }
+  function updateStoryCounter() {
+    if (!storyCounter) return;
+    const total = stories.length;
+    storyCounter.textContent = total ? `${index + 1} / ${total}` : '';
+    storyCounter.hidden = total === 0;
+    storyCounter.setAttribute('aria-label', total ? `Story ${index + 1} of ${total}` : 'No Stories');
+  }
+
   function renderProgressSegments() {
     progressTrack.replaceChildren();
     progressFills = stories.map((story, segmentIndex) => {
@@ -170,26 +208,32 @@
     });
   }
   function setProgress(percent, animate = false, duration = DURATION) {
+    const clamped = Math.max(0, Math.min(100, percent)) / 100;
     progressFills.forEach((fill, fillIndex) => {
       const segment = fill.parentElement;
       fill.style.transition = 'none';
       segment.classList.toggle('is-complete', fillIndex < index);
-      if (fillIndex < index) fill.style.width = '100%';
-      else if (fillIndex > index) fill.style.width = '0%';
+      segment.classList.toggle('is-active', fillIndex === index);
+      if (fillIndex < index) fill.style.transform = 'scaleX(1)';
+      else if (fillIndex > index) fill.style.transform = 'scaleX(0)';
       else {
-        fill.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+        fill.style.transform = `scaleX(${clamped})`;
         if (animate) {
-          // Force the starting width to apply before animating the active segment.
+          // Animate the compositor-friendly transform instead of changing layout width.
+          // Force the starting transform to apply before starting the linear progress.
           void fill.offsetWidth;
-          fill.style.transition = `width ${duration}ms linear`;
-          fill.style.width = '100%';
+          fill.style.transition = `transform ${Math.max(0, duration)}ms linear`;
+          fill.style.transform = 'scaleX(1)';
         }
       }
     });
   }
   function showAt(next) {
     if (!stories.length) return hide();
-    index = (next + stories.length) % stories.length;
+    const targetIndex = Number(next);
+    if (!Number.isInteger(targetIndex) || targetIndex < 0 || targetIndex >= stories.length) return hide();
+    index = targetIndex;
+    updateStoryCounter();
     viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
     const story = stories[index];
     activeStoryId = String(story.id || '');
@@ -199,6 +243,7 @@
     if (story.id) recordStoryView(story.id);
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
     if (progressFills.length !== stories.length) renderProgressSegments();
+    clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0;
     setProgress(0); viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
     clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
     timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, DURATION);
@@ -275,12 +320,11 @@
       });
   }
 
-  async function loadCount() {
-    if (!mobileStoriesCount) return;
-    const requestStarted = performance.now();
+  function renderCachedCount() {
+    if (!mobileStoriesCount) return null;
     const cachedCount = readCachedCount();
     if (cachedCount !== null) {
-      // Paint the last known count before waiting on the network, then revalidate.
+      // Paint the last known count immediately while network revalidation is deferred.
       mobileStoriesCount.textContent = String(cachedCount);
       countHasUsableValue = true;
       mobileStoriesCount.setAttribute('aria-label', `${cachedCount} available stories`);
@@ -289,6 +333,13 @@
     } else {
       setCountLoading(true);
     }
+    return cachedCount;
+  }
+
+  async function loadCount() {
+    if (!mobileStoriesCount) return;
+    const requestStarted = performance.now();
+    const cachedCount = renderCachedCount();
     try {
       performance.mark('story-count-request-start');
       const response = await fetch('/api/story-count', { cache: 'no-store' });
@@ -319,6 +370,7 @@
     }
   }
   async function load() {
+    storyListLoadRequested = true;
     const previouslyKnownStories = stories.slice();
     try {
       const response = await fetch('/api/stories', { cache: 'no-store' });
@@ -334,9 +386,7 @@
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
         setCountLoading(false);
       }
-      // Reuse recent signed URLs so reloads can hit the browser's cached image bytes.
-      // Warm the first two images in the background without delaying page rendering.
-      stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
+      // Story media is deferred until the visitor explicitly opens Stories.
       // Keep the Stories navigation item mounted even when the API temporarily
       // returns an empty list. The button must not disappear/reappear as requests resolve.
       if (!stories.length && mobileStoriesCount && !countHasUsableValue) {
@@ -370,15 +420,20 @@
   mobileStoriesButton?.addEventListener('click', async () => {
     const requestId = ++storyOpenRequestId;
 
-    // Use stories already fetched during page startup immediately. Refresh signed
-    // image URLs in the background so the viewer never has to show a loading modal.
+    // Use cached Stories immediately when available; otherwise fetch on demand.
+    // Refresh signed image URLs in the background without a loading modal.
     if (stories.length) {
+      // Load the first Story only after an explicit open action so it cannot
+      // compete with the homepage's initial render and LCP resources.
+      await preloadImage(stories[0].imageUrl);
+      if (requestId !== storyOpenRequestId) return;
       showAt(0);
       load().then(refreshed => {
         if (!refreshed || requestId !== storyOpenRequestId || viewer.hidden || !activeStoryId) return;
         const freshIndex = stories.findIndex(story => String(story.id || '') === activeStoryId);
         if (freshIndex < 0) return;
         index = freshIndex;
+        updateStoryCounter();
         const story = stories[index];
         if (image.src !== story.imageUrl) {
           const refreshedImageUrl = story.imageUrl;
@@ -391,7 +446,7 @@
         }
         caption.textContent = story.caption || '';
         timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
-        renderProgressSegments();
+        if (progressFills.length !== stories.length) renderProgressSegments();
         const elapsed = Math.min(DURATION, Math.max(0, Date.now() - started));
         const remaining = Math.max(0, DURATION - elapsed);
         setProgress(elapsed / DURATION * 100, remaining > 0, remaining || DURATION);
@@ -402,8 +457,13 @@
     // On a cold start, fetch silently and open directly as soon as data arrives.
     const refreshed = await load();
     if (requestId !== storyOpenRequestId) return;
-    if (refreshed && stories.length) showAt(0);
-    else showEmptyState(refreshed ? 'empty' : 'unavailable');
+    if (refreshed && stories.length) {
+      await preloadImage(stories[0].imageUrl);
+      if (requestId !== storyOpenRequestId) return;
+      showAt(0);
+    } else {
+      showEmptyState(refreshed ? 'empty' : 'unavailable');
+    }
   });
   close.addEventListener('click', hide);
   emptyDone?.addEventListener('click', hide);
@@ -416,13 +476,66 @@
       navigateBy(event.clientX < midpoint ? -1 : 1);
     }
   });
-  viewer.addEventListener('pointerdown', event => { if (event.target.closest('button')) return; clearTimeout(timer); const elapsed = Math.min(DURATION, Date.now() - started); setProgress(elapsed / DURATION * 100); });
-  viewer.addEventListener('pointerup', event => { if (event.target.closest('button') || viewer.hidden) return; const elapsed = Math.min(DURATION, Date.now() - started); const remaining = Math.max(250, DURATION - elapsed); setProgress(elapsed / DURATION * 100, true, remaining); timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, remaining); });
+  function pauseStoryProgress() {
+    if (viewer.hidden || navigating || progressPaused) return;
+    progressPaused = true;
+    pausedElapsed = Math.min(DURATION, Math.max(0, Date.now() - started));
+    clearTimeout(timer);
+    setProgress(pausedElapsed / DURATION * 100);
+  }
+  function resumeStoryProgress() {
+    if (!progressPaused || viewer.hidden) return;
+    progressPaused = false;
+    const remaining = Math.max(0, DURATION - pausedElapsed);
+    started = Date.now() - pausedElapsed;
+    setProgress(pausedElapsed / DURATION * 100, true, remaining || DURATION);
+    timer = setTimeout(() => {
+      if (index + 1 < stories.length) showAt(index + 1);
+      else hide();
+    }, remaining);
+    pausedElapsed = 0;
+  }
+  viewer.addEventListener('pointerdown', event => {
+    if (event.target.closest('button') || viewer.hidden || navigating) return;
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = window.setTimeout(pauseStoryProgress, 160);
+  });
+  window.addEventListener('pointerup', () => {
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    resumeStoryProgress();
+  });
+  window.addEventListener('pointercancel', () => {
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    resumeStoryProgress();
+  });
   document.addEventListener('keydown', event => { if (viewer.hidden) return; if (event.key === 'Escape') hide(); if (event.key === 'ArrowRight') navigateBy(1); if (event.key === 'ArrowLeft') navigateBy(-1); });
-  // Seed the viewer from recent local data before the network request finishes.
+  // Seed the viewer and count from recent local data without starting network
+  // requests on the homepage's initial critical path.
   // Keep signed URLs only for 40 minutes; Supabase issues them for one hour.
+  function scheduleInitialDataLoad() {
+    const scheduleIdleWork = () => {
+      const runInitialDataLoad = () => {
+        loadCount();
+        // A visitor who opens Stories before idle already triggers load() on demand.
+        if (!storyListLoadRequested) load();
+      };
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(runInitialDataLoad, { timeout: 2500 });
+      } else {
+        window.setTimeout(runInitialDataLoad, 1200);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      scheduleIdleWork();
+    } else {
+      window.addEventListener('load', scheduleIdleWork, { once: true });
+    }
+  }
+
   stories = readCachedStories();
-  stories.slice(0, 2).forEach(story => preloadImage(story.imageUrl));
-  loadCount();
-  load();
+  renderCachedCount();
+  scheduleInitialDataLoad();
 })();

@@ -42,6 +42,16 @@
     uniqueTargets.forEach((el, index) => {
       el.classList.add("arc-scroll-reveal");
       el.classList.remove("arc-scroll-reveal-visible");
+
+      // Keep the above-the-fold Bible Verse visible for the initial paint.
+      // Its observer still hides/reveals it on later scroll-out/scroll-in transitions.
+      if (el.id === "daily-bible-verse") {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("arc-scroll-reveal-visible");
+        }
+      }
+
       // Very short stagger: enough depth without a slow cascade on desktop.
       el.style.setProperty("--arc-reveal-delay", `${(index % 3) * 28}ms`);
     });

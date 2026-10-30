@@ -1,3 +1,57 @@
+AFV364 — Restore Essential Story Progress Under Reduced Motion
+- Removes reduced-motion CSS overrides that forced the Story progress fill transition to none, which made the active segment jump to full width.
+- Keeps the 7-second progress animation and Story advance timer visible and aligned, while still disabling the decorative moving light sheen under reduced-motion preferences.
+- Refreshes the Story Viewer CSS and JavaScript cache tokens to AFV364 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata and release notes to AFV364 / 364.0.0.
+
+AFV363 — Animated Story Progress and Oldest-First Ordering
+- Adds an animated purple-pink-cyan gradient Story progress fill with a subtle moving light sheen.
+- Adds an accessible current/total Story counter and keeps it synchronized during navigation and background refresh.
+- Orders Stories by saved sort position, then oldest published timestamp and stable ID; new uploads and newly published drafts append at the end.
+- Preserves manual Admin drag-and-drop ordering, AFV361 compositor-friendly scaleX progress, AFV360 navigation safeguards, and existing view-count deduplication.
+- Updates Story Viewer cache-busting tokens and release metadata to AFV363 / 363.0.0.
+
+AFV361 — Smooth Story Progress Indicator
+- Replaces width-based Story progress fill transitions with compositor-friendly transform: scaleX() animations anchored at the left edge.
+- Keeps the existing 7-second Story playback timer and progress animation duration aligned; pause/resume continues from the elapsed position.
+- Updates reduced-motion rules to target the progress fill directly.
+- Refreshes Story Viewer CSS and JavaScript cache-busting tokens to AFV361 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata, README, and release history to AFV361 / 361.0.0.
+- Preserves AFV360 last/only-Story right-tap exit, left boundary behavior, rapid-tap queue, 160ms long-press pause/resume, AFV359 deferred API startup, and existing layout and branding.
+
+AFV360 — Story Navigation and Progress Polish
+- Right tap advances to the next Story; on the last or only Story, right tap closes the viewer and returns to the site. Left tap on the first Story remains on that Story; no wrapping is introduced.
+- Queues up to 12 rapid navigation taps while a destination image is prepared, so taps are not silently dropped during the transition.
+- Quick taps no longer pause/restart the progress bar. Progress pauses only after a 160 ms press-and-hold and resumes from the elapsed position on release/cancel.
+- Uses strict Story index bounds in showAt() so invalid indices cannot wrap to another Story.
+- Background Story-list refresh rebuilds progress segments only when the Story count changes, avoiding needless progress animation restarts.
+- Refreshes Story Viewer cache-busting tokens across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata to AFV360 / 360.0.0.
+- Preserves AFV359 deferred API startup, Google Fonts preconnects, AFV358 WebP banner, signed-URL reuse/refresh, view deduplication, and existing UI styling.
+
+AFV359 — Defer Non-Critical Startup Requests
+- Adds early preconnect hints for fonts.googleapis.com and fonts.gstatic.com before stylesheets, reducing connection setup time for the existing DM Sans and Manrope font imports.
+- Moves automatic Stories count and public Story list API requests off the homepage's initial critical path. The requests now start after the window load event and browser idle time, with a bounded timeout and a fallback for browsers without requestIdleCallback.
+- Renders a valid cached Stories count immediately. If a visitor opens Stories before the deferred startup task runs, the existing click-to-load path fetches the Story list on demand and the scheduled task avoids starting a duplicate initial list request.
+- Refreshes Story Viewer script cache-busting tokens to AFV359 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package.json, package-lock.json, README, and release metadata to AFV359 / 359.0.0.
+- Preserves Story count fallback, cold-start open behavior, signed-URL reuse/refresh, image preloading after open, view-count deduplication, navigation, progress bar, and existing UI animations.
+
+AFV358 — Daily Verse LCP Image Delivery
+- Generates verse-lake-photo.webp from the original JPEG during the production build, capped at 1600px wide and encoded as WebP quality 78 to reduce the critical image payload.
+- Preloads the optimized WebP from the initial homepage HTML with high fetch priority and updates all Daily Bible Verse CSS background references to use the same cache-busted asset.
+- Keeps the original JPEG untouched and leaves the existing AFV357 first-paint, mobile animation, Stories, Reviews, Proofs, WhatsApp, and backend behavior unchanged.
+- Adds regression assertions for the generated asset, early preload, and all CSS references.
+
+AFV357 — LCP First-Paint Optimization
+- Removes automatic first-two-Story image preloads from page startup. The first Story is loaded only after a visitor opens the viewer; next-Story preloading and AFV346 signed-URL reuse / safe refresh remain intact.
+- Adds an early high-priority preload for the existing Daily Bible Verse banner background image so the browser can discover it from the initial HTML rather than waiting for CSS discovery.
+- Keeps the above-the-fold Daily Bible Verse card visible for the initial paint while preserving its existing scroll-out / scroll-in reveal behavior.
+- Updates the homepage scroll-reveal script cache token and package metadata to AFV357 / 357.0.0.
+- Adds regression tests for the preload attributes and first-paint visibility behavior.
+- Adds narrow-screen motion parity for the header verified badge, green Account Recovery Assistance pulse, and animated WhatsApp CTA border/glow, matching the existing desktop restoration behavior.
+- Refreshes the homepage styles.css cache token to AFV357. No layout geometry is changed; Stories, Reviews, Proofs, WhatsApp link behavior, and backend features remain unchanged.
+
 AFV356 — SEO robots.txt Fix
 - Adds a valid root-level robots.txt with public-site crawling allowed and the Story Admin page disallowed for crawlers.
 - Includes robots.txt in the production build allowlist so Cloudflare Pages serves the text file instead of falling back to index.html.
