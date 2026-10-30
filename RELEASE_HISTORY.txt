@@ -1,3 +1,9 @@
+AFV371 — Homepage About Card and Footer Spacing Fix
+- Sets a 4px gap between the homepage account-safety card and the large About This Website card.
+- Sets a 2px gap between the About card and footer, overriding the legacy negative margin that caused the footer's location and worldwide-assistance tiles to be obscured.
+- Keeps the change scoped to the homepage and refreshes the footer-reference.css cache token.
+
+
 AFV370 — Footer Navigation and Tagline Refinement
 - Removes the small About This Website link from the shared footer on every page while retaining the large About CTA card on the homepage.
 - Reorders footer links so Terms sits above Contact, with Contact beside Privacy Policy on the next row.
