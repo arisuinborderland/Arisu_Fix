@@ -36,3 +36,11 @@ html body.home-page > .site-footer.footer-reference,
 html body > .site-footer.footer-reference {
   border-top: 1px solid rgba(125, 163, 229, 0.34) !important;
 }
+
+
+/* Canonical mobile footer gap after the homepage About card. */
+@media (max-width: 600px) {
+  html body.home-page > .site-footer.footer-reference {
+    margin-top: 4px !important;
+  }
+}
