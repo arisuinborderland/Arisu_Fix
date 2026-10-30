@@ -160,23 +160,20 @@
     // single-Story viewer) exits back to the site instead of becoming a dead tap.
     if (targetIndex < 0) return;
     if (targetIndex >= stories.length) { hide(); return; }
+
+    // Switch immediately. showAt() assigns the target URL directly; the browser
+    // paints it when ready, while the progress timer waits for image readiness.
     navigating = true;
     clearTimeout(timer);
     clearTimeout(holdPauseTimer);
     holdPauseTimer = 0;
     progressPaused = false;
     pausedElapsed = 0;
-    const targetUrl = stories[targetIndex].imageUrl;
-    // The next image is warmed in the background while the current story is shown.
-    // On a cold visit, wait only for the actual image readiness, not an artificial delay.
-    preloadImage(targetUrl).then(() => {
-      if (viewer.hidden) { navigating = false; pendingNavigation = []; return; }
-      showAt(targetIndex);
-      requestAnimationFrame(() => {
-        viewer.classList.remove('story-viewer-switching');
-        navigating = false;
-        processPendingNavigation();
-      });
+    showAt(targetIndex);
+    requestAnimationFrame(() => {
+      viewer.classList.remove('story-viewer-switching');
+      navigating = false;
+      processPendingNavigation();
     });
   }
   function processPendingNavigation() {
@@ -238,17 +235,44 @@
     updateStoryCounter();
     viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
     const story = stories[index];
-    activeStoryId = String(story.id || '');
-    image.src = story.imageUrl; warmNextImage(index); image.alt = 'Temporary Recovery Story'; caption.textContent = story.caption || '';
+    const storyId = String(story.id || '');
+    activeStoryId = storyId;
+    image.onload = null;
+    image.onerror = null;
+    image.src = story.imageUrl;
+    warmNextImage(index);
+    image.alt = 'Temporary Recovery Story';
+    caption.textContent = story.caption || '';
     // Count a story at most once per browser-tab session. The server's unique
     // (story_id, session_id) key is the final protection against duplicate requests.
     if (story.id) recordStoryView(story.id);
     timestamp.textContent = timeAgo(story.publishedAt || story.published_at);
     if (progressFills.length !== stories.length) renderProgressSegments();
-    clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0;
-    setProgress(0); viewer.hidden = false; document.body.classList.add('story-viewer-open'); started = Date.now();
-    clearTimeout(timer); requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
-    timer = setTimeout(() => { if (index + 1 < stories.length) showAt(index + 1); else hide(); }, DURATION);
+    clearTimeout(timer);
+    clearTimeout(holdPauseTimer);
+    holdPauseTimer = 0;
+    progressPaused = false;
+    pausedElapsed = 0;
+    setProgress(0);
+    viewer.hidden = false;
+    document.body.classList.add('story-viewer-open');
+
+    // Start the 7-second viewing timer only when the image is ready to display.
+    // This prevents a slow first download from consuming the viewer's progress time.
+    let progressStarted = false;
+    const startStoryProgress = () => {
+      if (progressStarted || viewer.hidden || activeStoryId !== storyId) return;
+      progressStarted = true;
+      started = Date.now();
+      requestAnimationFrame(() => requestAnimationFrame(() => setProgress(0, true, DURATION)));
+      timer = setTimeout(() => {
+        if (index + 1 < stories.length) showAt(index + 1);
+        else hide();
+      }, DURATION);
+    };
+    image.onload = startStoryProgress;
+    image.onerror = startStoryProgress;
+    if (image.complete) startStoryProgress();
   }
   function setCountLoading(isLoading) {
     if (!mobileStoriesCount) return;
