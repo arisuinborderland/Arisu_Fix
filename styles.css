@@ -909,8 +909,7 @@ main{padding-top:0}
   display: flex;
   flex-direction: column;
 }
-.social-collage > .facebook-showcase .facebook-profile-button,
-.social-collage > .recovery-proofs-showcase .recovery-proofs-button {
+.social-collage > .facebook-showcase .facebook-profile-button {
   margin-top: auto;
 }
 .social-feedback-card {
