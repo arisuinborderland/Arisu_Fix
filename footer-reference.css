@@ -28,7 +28,7 @@ html body .site-footer.footer-reference .footer-reference-copyright small{font-s
  */
 @media (max-width: 700px) {
   html body.home-page main {
-    margin-bottom: -128px !important;
+    margin-bottom: -64px !important;
   }
   html body.home-page > .about-link-section {
     margin: 4px auto 2px !important;
