@@ -1,8 +1,3 @@
-AFV368 — Set Homepage Footer Gap to 2px
-- Replaces the existing homepage footer top margin with 2px instead of a negative margin.
-- Refreshes the homepage stylesheet cache-busting token to AFV368.
-- Synchronizes package metadata, README, and version regression tests to AFV368 / 368.0.0.
-
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
