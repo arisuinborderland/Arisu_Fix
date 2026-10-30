@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV360 release metadata is synchronized', () => {
+test('AFV361 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '360.0.0');
-  assert.equal(lock.version, '360.0.0');
-  assert.equal(lock.packages[''].version, '360.0.0');
-  assert.ok(readme.includes('Current release: AFV360'));
-  assert.ok(history.startsWith('AFV360 — Story Navigation and Progress Polish'));
+  assert.equal(pkg.version, '361.0.0');
+  assert.equal(lock.version, '361.0.0');
+  assert.equal(lock.packages[''].version, '361.0.0');
+  assert.ok(readme.includes('Current release: AFV361'));
+  assert.ok(history.startsWith('AFV361 — Smooth Story Progress Indicator'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {

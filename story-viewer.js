@@ -198,19 +198,21 @@
     });
   }
   function setProgress(percent, animate = false, duration = DURATION) {
+    const clamped = Math.max(0, Math.min(100, percent)) / 100;
     progressFills.forEach((fill, fillIndex) => {
       const segment = fill.parentElement;
       fill.style.transition = 'none';
       segment.classList.toggle('is-complete', fillIndex < index);
-      if (fillIndex < index) fill.style.width = '100%';
-      else if (fillIndex > index) fill.style.width = '0%';
+      if (fillIndex < index) fill.style.transform = 'scaleX(1)';
+      else if (fillIndex > index) fill.style.transform = 'scaleX(0)';
       else {
-        fill.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+        fill.style.transform = `scaleX(${clamped})`;
         if (animate) {
-          // Force the starting width to apply before animating the active segment.
+          // Animate the compositor-friendly transform instead of changing layout width.
+          // Force the starting transform to apply before starting the linear progress.
           void fill.offsetWidth;
-          fill.style.transition = `width ${duration}ms linear`;
-          fill.style.width = '100%';
+          fill.style.transition = `transform ${Math.max(0, duration)}ms linear`;
+          fill.style.transform = 'scaleX(1)';
         }
       }
     });

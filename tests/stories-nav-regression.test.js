@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV360/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV361/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -126,4 +126,16 @@ test('AFV360 package metadata and release notes are synchronized', () => {
   assert.equal(lock.packages[''].version, '360.0.0');
   assert.ok(readme.includes('Current release: AFV360'));
   assert.ok(history.startsWith('AFV360 — Story Navigation and Progress Polish'));
+});
+
+test('AFV361 progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
+  assert.match(source, /fill\.style\.transform = `scaleX\(\$\{clamped\}\)`/);
+  assert.match(source, /fill\.style\.transition = `transform \$\{Math\.max\(0, duration\)\}ms linear`/);
+  assert.match(source, /fill\.style\.transform = 'scaleX\(1\)'/);
+  assert.match(source, /requestAnimationFrame\(\(\) => requestAnimationFrame\(\(\) => setProgress\(0, true, DURATION\)\)\)/);
+  assert.match(source, /timer = setTimeout\(\(\) => \{ if \(index \+ 1 < stories\.length\) showAt\(index \+ 1\); else hide\(\); \}, DURATION\)/);
+  assert.doesNotMatch(source, /fill\.style\.transition = `width \$\{duration\}ms linear`/);
+  const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
+  assert.match(css, /\.story-viewer-progress-fill\{[^}]*transform:scaleX\(0\)[^}]*transform-origin:left center[^}]*will-change:transform/);
+  assert.match(css, /\.story-viewer-progress-segment\.is-complete \.story-viewer-progress-fill\{transform:scaleX\(1\)\}/);
 });

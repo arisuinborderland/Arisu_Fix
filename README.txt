@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV360
+Version: AFV361
 Updated: 2026-10-30
 
-Current release: AFV360
-Package version: 360.0.0
+Current release: AFV361
+Package version: 361.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV361 changes Story progress fills from width transitions to left-origin transform scale animations, retaining the existing 7-second duration while avoiding layout-width changes. Refreshes Story Viewer CSS/JS cache tokens across all pages.
 - AFV360 advances to the next Story on right tap and closes the viewer on the last/only Story; left tap on the first Story stays put. Rapid navigation taps are queued while a destination image loads. Progress only pauses on a 160 ms long-press, not on quick taps, and background refresh no longer rebuilds progress segments when the Story count is unchanged.
 - AFV359 preconnects to Google Fonts origins and defers automatic Stories count/list API requests until after page load and browser idle time. Cached Stories count remains visible immediately; opening Stories before idle still fetches data on demand.
 - AFV358 generates a delivery-sized WebP version of the Daily Bible Verse scenic banner during the production build, preloads that WebP at high priority, and updates all CSS background references to use it. The source JPEG remains unchanged; existing layout and animation behavior are preserved.

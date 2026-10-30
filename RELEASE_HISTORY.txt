@@ -1,3 +1,11 @@
+AFV361 — Smooth Story Progress Indicator
+- Replaces width-based Story progress fill transitions with compositor-friendly transform: scaleX() animations anchored at the left edge.
+- Keeps the existing 7-second Story playback timer and progress animation duration aligned; pause/resume continues from the elapsed position.
+- Updates reduced-motion rules to target the progress fill directly.
+- Refreshes Story Viewer CSS and JavaScript cache-busting tokens to AFV361 across Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata, README, and release history to AFV361 / 361.0.0.
+- Preserves AFV360 last/only-Story right-tap exit, left boundary behavior, rapid-tap queue, 160ms long-press pause/resume, AFV359 deferred API startup, and existing layout and branding.
+
 AFV360 — Story Navigation and Progress Polish
 - Right tap advances to the next Story; on the last or only Story, right tap closes the viewer and returns to the site. Left tap on the first Story remains on that Story; no wrapping is introduced.
 - Queues up to 12 rapid navigation taps while a destination image is prepared, so taps are not silently dropped during the transition.
