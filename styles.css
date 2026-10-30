@@ -6391,8 +6391,8 @@ body.home-page .purpose-card .purpose-kicker {
 /* bring the footer closer to the Legitimate Account Recovery card on mobile.
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media  (max-width: 600px)  {
-  html body.home-page main { padding-bottom: 8px !important; }
-  html body.home-page .site-footer { margin-top: 4px !important; }
+  html body.home-page main { padding-bottom: 0 !important; }
+  html body.home-page .site-footer { margin-top: 2px !important; }
 }
 
 /* consolidate repeated mobile WhatsApp spacing adjustments.
@@ -8153,10 +8153,6 @@ html body.home-page .why-arisu-section > .why-arisu-card {
 }
 
 
-html body.home-page .site-footer {
-  margin-top: -62px !important;
-}
-
 
 
 /* retain the text offsets, but collapse the creator block's reserved space. */
@@ -8676,7 +8672,7 @@ html body.home-page .purpose-card .purpose-signoff {
   }
   html body.home-page .site-footer {
     padding-bottom: 120px !important;
-    margin-top: 24px !important;
+    margin-top: 2px !important;
   }
   html body.home-page nav.mobile-bottom-nav {
     position: fixed !important;
@@ -8841,92 +8837,141 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* balance the compact mobile footer and preserve clearance for fixed bottom navigation. */
-@media (max-width: 700px) {
-  html body.home-page .site-footer {
-    padding-bottom: 6px !important;
-  }
-  html body.home-page {
-    padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
-  }
-}
-
-
-/* place copyright beside Contact in the compact mobile footer. */
-@media (max-width:760px) {
-  .site-footer {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    row-gap: 10px;
-  }
-  .site-footer > .about-link-section,
-  .site-footer > .footer-location {
-    grid-column: 1 / -1;
-  }
-  .site-footer > .footer-links {
-    display: contents;
-  }
-  .site-footer > .footer-links a {
-    min-width: 0;
-    justify-self: start;
-    padding: 2px 0;
-  }
-  .site-footer > .footer-copyright {
-    grid-column: 2;
-    grid-row: auto;
-    align-self: center;
-    justify-self: start;
-    border-top: 0;
-    padding-top: 2px;
-    white-space: nowrap;
-  }
-}
-
-
-/* place copyright in the final mobile footer grid cell beside Contact. */
-@media (max-width: 760px) {
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 7px !important;
-  }
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    align-self: center !important;
-    justify-self: start !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-    color: #8a95a6 !important;
-  }
-}
-@media (min-width: 761px) {
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    margin-left: auto;
-    border: 0;
-    padding-top: 0;
-    white-space: nowrap;
-  }
-}
-
-
-/* reduce only the remaining space below the compact footer on mobile. */
+/* Homepage mobile footer: full-bleed surface, compact link grid, centered copyright. */
 @media (max-width: 700px) {
   html body.home-page {
     padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important;
   }
+  html body.home-page main {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  html body.home-page .site-footer {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 2px 0 0 !important;
+    padding: 16px 22px calc(24px + env(safe-area-inset-bottom)) !important;
+    background: linear-gradient(180deg, #F8FBFF 0%, #F4F7FF 100%) !important;
+    color: #263654 !important;
+    border: 0 !important;
+    border-top: 1px solid #DCE6F5 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  html body.home-page .site-footer > .about-link-section {
+    box-sizing: border-box !important;
+    width: min(100%, 824px) !important;
+    max-width: 824px !important;
+    margin: 0 auto 2px !important;
+    padding: 0 !important;
+  }
+  html body.home-page .site-footer > .about-link-section .about-page-cta {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  html body.home-page .site-footer > .footer-location {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px 10px !important;
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    color: #263654 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  html body.home-page .site-footer > .footer-location .footer-location-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    color: inherit !important;
+  }
+  html body.home-page .site-footer > .footer-location .footer-location-item svg {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.7 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.home-page .site-footer > .footer-location .footer-location-separator {
+    color: #8A95A6 !important;
+  }
+  html body.home-page .site-footer > .footer-links {
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    align-items: center !important;
+    gap: 8px 12px !important;
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+  html body.home-page .site-footer > .footer-links > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    min-height: 28px !important;
+    margin: 0 !important;
+    padding: 3px 0 !important;
+    color: #65738A !important;
+    font-size: 13px !important;
+    font-weight: 650 !important;
+    line-height: 1.4 !important;
+    text-decoration: none !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+  html body.home-page .site-footer > .footer-links > a svg {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.home-page .site-footer > .footer-links > .footer-copyright {
+    box-sizing: border-box !important;
+    display: flex !important;
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 4px 0 0 !important;
+    padding: 12px 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid #DCE4F0 !important;
+    color: #8A95A6 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
 }
-
 
 /* use a clean, solid WhatsApp brand glyph in the bottom Contact navigation item. */
 @media screen and (max-width:700px) {
@@ -9867,21 +9912,31 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* Desktop spacing correction v4.
-   The Why Choose card is visually shifted up by 50px; reclaim that reserved flow space.
-   Also trim the excessive footer tail while leaving the floating nav clear of the copyright. */
-@media (min-width: 701px) {
-  html body.home-page #desktopSocialDestination > #why-choose-arisu {
-    margin-bottom: -50px !important;
-  }
+/* Reclaim the 50px of normal-flow space left by the translated Why Choose Arisu card.
+   The section is not a child of #desktopSocialDestination, so target its actual class instead.
+   Apply on mobile and desktop because the -50px visual translation is global. */
+html body.home-page .why-arisu-section {
+  margin-bottom: -50px !important;
+}
 
+/* Desktop footer surface and bottom-navigation clearance. */
+@media (min-width: 701px) {
   html body.home-page main {
     padding-bottom: 0 !important;
   }
 
   html body.home-page .site-footer {
-    margin-top: 2px !important;
-    padding-bottom: 120px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 2px 0 0 !important;
+    padding: 28px clamp(28px, 4vw, 48px) 120px !important;
+    background: #101827 !important;
+    color: #F8FAFF !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(167, 139, 250, .28) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
 }
 

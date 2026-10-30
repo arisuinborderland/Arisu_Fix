@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV367
-Updated: 2026-10-30
+Version: AFV378
+Updated: 2026-10-31
 
-Current release: AFV367
-Package version: 367.0.0
+Current release: AFV378
+Package version: 378.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV378 removes the legacy negative homepage footer offset and sets the gap above the outer footer to 2px on mobile and desktop. Footer content, card dimensions, and unrelated page sections remain unchanged.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.

@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV367 package metadata and release notes are synchronized', () => {
+test('AFV378 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '367.0.0');
-  assert.equal(lock.version, '367.0.0');
-  assert.equal(lock.packages[''].version, '367.0.0');
-  assert.ok(readme.includes('Current release: AFV367'));
-  assert.ok(history.startsWith('AFV367 — Prevent Partial Image Rendering on First Story'));
+  assert.equal(pkg.version, '378.0.0');
+  assert.equal(lock.version, '378.0.0');
+  assert.equal(lock.packages[''].version, '378.0.0');
+  assert.ok(readme.includes('Current release: AFV378'));
+  assert.ok(history.startsWith('AFV378 — Set Homepage Footer Gap to 2px'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
