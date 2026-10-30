@@ -1,4 +1,4 @@
-/* AFV370 — compact shared footer, based on the approved mobile/desktop reference */
+/* AFV373 — restore original homepage About card dimensions and correct mobile spacing */
 html body .site-footer.footer-reference{box-sizing:border-box;width:min(100% - 32px,1120px);margin:28px auto 24px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:14px;border:1px solid rgba(201,218,244,.95);border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(243,246,255,.96) 58%,rgba(250,242,255,.94));box-shadow:0 12px 34px rgba(48,91,158,.10),inset 0 1px 0 rgba(255,255,255,.95);color:#263954;font-family:inherit}
 html body .site-footer.footer-reference *{box-sizing:border-box}
 html body .site-footer.footer-reference .footer-reference-location{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -55,8 +55,8 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 }
 @media (max-width: 430px) {
   html body.home-page .about-link-section {
-    width: calc(100% - 32px) !important;
-    margin: 4px auto 2px !important;
+    width: calc(100vw - 52px) !important;
+    margin: 4px 0 2px !important;
   }
   html body.home-page .site-footer.footer-reference {
     width: calc(100% - 24px) !important;
@@ -65,7 +65,7 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 }
 @media (max-width: 340px) {
   html body.home-page .about-link-section {
-    width: calc(100% - 24px) !important;
+    width: calc(100vw - 40px) !important;
   }
   html body.home-page .site-footer.footer-reference {
     width: calc(100% - 16px) !important;
