@@ -36,6 +36,9 @@ html body .site-footer.footer-reference .footer-reference-copyright small{font-s
     margin-bottom: 0 !important;
   }
   html body.home-page > .about-link-section {
+    box-sizing: border-box !important;
+    width: calc(100% - 32px) !important;
+    max-width: 1120px !important;
     margin: -62px auto 2px !important;
   }
   html body.home-page > .site-footer.footer-reference {
