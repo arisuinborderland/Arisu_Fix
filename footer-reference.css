@@ -36,26 +36,27 @@ html body.home-page .about-link-section .about-cta-arrow{width:25px;height:25px;
 @media(max-width:480px){html body.home-page .about-link-section{width:calc(100% - 32px);margin:15px auto 12px!important}html body.home-page .about-link-section .about-page-cta{gap:12px;min-height:122px;padding:15px 12px;border-radius:24px}html body.home-page .about-link-section .about-cta-profile{width:68px;height:68px;flex-basis:68px;border-radius:17px}html body.home-page .about-link-section .about-cta-eyebrow{font-size:.68rem;letter-spacing:.09em}html body.home-page .about-link-section .about-cta-title{font-size:clamp(1rem,4.5vw,1.3rem)}html body.home-page .about-link-section .about-cta-description{font-size:.86rem}html body.home-page .about-link-section .about-cta-action{padding:8px 11px;font-size:.78rem}html body.home-page .about-link-section .about-cta-arrow{width:20px;height:20px;flex-basis:20px}}
 
 
-/* AFV371 — homepage-only spacing correction.
-   Keep the About card in normal flow: 4px below the safety card, then 2px before
-   the footer. Override the legacy negative footer margin that caused the location
-   tiles to sit underneath the prominent About card. */
-html body.home-page .about-link-section {
-  position: relative !important;
-  top: auto !important;
-  translate: none !important;
-  margin: 4px auto 0 !important;
-}
-html body.home-page .site-footer.footer-reference {
-  position: relative !important;
-  top: auto !important;
-  translate: none !important;
-  margin: 2px auto 24px !important;
+/* AFV372 — mobile-only homepage spacing correction.
+   The About card is now in the main content flow immediately after the safety card.
+   Keep exactly 4px above it and 2px between it and the footer. */
+@media (max-width: 700px) {
+  html body.home-page .about-link-section {
+    position: relative !important;
+    top: auto !important;
+    translate: none !important;
+    margin: 4px auto 2px !important;
+  }
+  html body.home-page .site-footer.footer-reference {
+    position: relative !important;
+    top: auto !important;
+    translate: none !important;
+    margin: 2px auto 20px !important;
+  }
 }
 @media (max-width: 430px) {
   html body.home-page .about-link-section {
     width: calc(100% - 32px) !important;
-    margin: 4px auto 0 !important;
+    margin: 4px auto 2px !important;
   }
   html body.home-page .site-footer.footer-reference {
     width: calc(100% - 24px) !important;
