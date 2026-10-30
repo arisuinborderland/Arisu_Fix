@@ -303,8 +303,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
     padding:0 8px !important; margin:0 !important; gap:5px !important; border-radius:12px !important;
     font-size:10.5px !important; line-height:1 !important; white-space:nowrap !important;
   }
-  html body.reviews-document .topbar > .header-meta > .privacy-link { width:102px !important; }
-  html body.reviews-document .topbar > .header-meta > .about-header-link { width:76px !important; }
   html body.reviews-document .topbar > .header-meta .header-icon { width:14px !important; height:14px !important; flex:0 0 14px !important; }
 }
 @media (max-width: 380px) {
@@ -313,8 +311,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
   html body.reviews-document .topbar > .brand b { font-size:13px !important; }
   html body.reviews-document .topbar > .brand small { font-size:9.5px !important; }
   html body.reviews-document .topbar > .header-meta { gap:4px !important; }
-  html body.reviews-document .topbar > .header-meta > .privacy-link { width:96px !important; padding:0 6px !important; font-size:9.5px !important; }
-  html body.reviews-document .topbar > .header-meta > .about-header-link { width:70px !important; padding:0 5px !important; font-size:9.5px !important; }
   html body.reviews-document .topbar > .header-meta .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
 }
 
@@ -727,26 +723,6 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
   margin: 0 !important;
   line-height: 1 !important;
   transform: none !important;
-}
-
-
-/* AFV277 — use homepage-canonical header button widths at narrow phone sizes.
-   Earlier legacy max-width:390px rules changed these dimensions on content pages. */
-@media (max-width:390px) {
-  html body.reviews-document header.topbar > .header-meta > .privacy-link {
-    width:128px !important; min-width:128px !important;
-  }
-  html body.reviews-document header.topbar > .header-meta > .about-header-link {
-    width:82px !important; min-width:82px !important;
-  }
-}
-@media (max-width:380px) {
-  html body.reviews-document header.topbar > .header-meta > .privacy-link {
-    width:116px !important; min-width:116px !important;
-  }
-  html body.reviews-document header.topbar > .header-meta > .about-header-link {
-    width:76px !important; min-width:76px !important;
-  }
 }
 
 

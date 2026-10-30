@@ -44,6 +44,18 @@ test('Story Admin keeps one global story-view-label font-size declaration', () =
   assert.equal(matches.length, 1);
 });
 
+test('Proofs CSS keeps one narrow topbar horizontal-padding declaration', () => {
+  const css = read('proofs.css');
+  const rule = /html body\.proofs-document \.topbar\s*\{\s*padding-left:\s*9px;\s*padding-right:\s*9px;\s*\}/g;
+  assert.equal([...css.matchAll(rule)].length, 1);
+});
+
+test('Proofs header gap is declared once across mobile breakpoints', () => {
+  const css = read('proofs.css');
+  const selector = /html body\.proofs-document \.topbar > \.header-meta\s*\{\s*gap:\s*6px !important;\s*\}/g;
+  assert.equal([...css.matchAll(selector)].length, 1);
+});
+
 test('Proofs CSS retains one copy of exact duplicate declarations', () => {
   const css = read('proofs.css');
   const hiddenRule = '.button.secondary.proofs-back-to-site[hidden]{display:none!important}';
@@ -54,4 +66,15 @@ test('Proofs CSS retains one copy of exact duplicate declarations', () => {
   assert.equal(css.split(pairBaseRule).length - 1, 1);
   assert.equal(css.includes(redundantPairRule), false);
   assert.equal((css.match(/@media\(max-width:600px\)\{\.proof-image-pair\{gap:2px\}\}/g) || []).length, 0);
+});
+
+
+test('Proofs CSS removes superseded AFV277 width overrides and retains canonical AFV279 sizing', () => {
+  const css = read('proofs.css');
+  assert.doesNotMatch(css, /AFV277 — use homepage-canonical header button widths at narrow phone sizes/);
+  const canonical = css.slice(css.indexOf('/* AFV279 — final canonical header sizing'));
+  assert.match(canonical, /width:128px !important; min-width:128px !important/);
+  assert.match(canonical, /width:82px !important; min-width:82px !important/);
+  assert.match(canonical, /width:116px !important; min-width:116px !important/);
+  assert.match(canonical, /width:76px !important; min-width:76px !important/);
 });
