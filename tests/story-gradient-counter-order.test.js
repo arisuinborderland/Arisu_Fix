@@ -20,7 +20,7 @@ test('Story progress uses the animated gradient sheen and respects reduced motio
   const js = read('story-viewer.js');
   assert.match(css, /linear-gradient\(90deg,#7c3aed 0%,#d946ef 52%,#22d3ee 100%\)/);
   assert.match(css, /story-viewer-progress-sheen/);
-  assert.match(css, /prefers-reduced-motion:reduce[^}]*animation:none!important/);
+  assert.match(css, /@media\\(prefers-reduced-motion:reduce\\)/);\n  assert.match(css, /\\.story-viewer-progress-fill::after\\{animation:none!important;opacity:0!important\\}/);
   assert.match(js, /segment\.classList\.toggle\('is-active', fillIndex === index\)/);
 });
 
