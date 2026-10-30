@@ -35,11 +35,11 @@ test('AFV367 release metadata is synchronized', () => {
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '368.0.0');
-  assert.equal(lock.version, '368.0.0');
-  assert.equal(lock.packages[''].version, '368.0.0');
-  assert.ok(readme.includes('Current release: AFV368'));
-  assert.ok(history.startsWith('AFV368 — Set Homepage Footer Gap to 2px'));
+  assert.equal(pkg.version, '367.0.0');
+  assert.equal(lock.version, '367.0.0');
+  assert.equal(lock.packages[''].version, '367.0.0');
+  assert.ok(readme.includes('Current release: AFV367'));
+  assert.ok(history.startsWith('AFV367 — Prevent Partial Image Rendering on First Story'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
