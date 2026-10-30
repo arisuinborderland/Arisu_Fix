@@ -210,9 +210,9 @@ html body.home-page .site-footer.footer-reference > .about-link-section .about-p
   html body .site-footer.footer-reference .footer-reference-link:hover { transform: none; }
 }
 
-/* Mobile homepage: reclaim the translated main-card flow space so the visual gap is 2px. */
+/* Compensate for the preceding card's upward visual offset; target a 2px visible gap. */
 @media (max-width: 600px) {
   html body.home-page .site-footer.footer-reference {
-    margin-top: -118px !important;
+    margin-top: -60px !important;
   }
 }
