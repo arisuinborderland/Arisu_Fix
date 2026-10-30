@@ -8855,7 +8855,7 @@ html body.home-page .purpose-card .purpose-signoff {
     width: 100% !important;
     max-width: none !important;
     margin: 2px 0 0 !important;
-    padding: 16px 22px calc(24px + env(safe-area-inset-bottom)) !important;
+    padding: 2px 22px calc(24px + env(safe-area-inset-bottom)) !important;
     background: linear-gradient(180deg, #F8FBFF 0%, #F4F7FF 100%) !important;
     color: #263654 !important;
     border: 0 !important;
