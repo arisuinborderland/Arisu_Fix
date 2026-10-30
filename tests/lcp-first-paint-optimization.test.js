@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV373 release metadata is synchronized', () => {
+test('AFV374 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '373.0.0');
-  assert.equal(lock.version, '373.0.0');
-  assert.equal(lock.packages[''].version, '373.0.0');
-  assert.ok(readme.includes('Current release: AFV373'));
-  assert.ok(history.startsWith('AFV373 — Restore Homepage About Card Width on Mobile'));
+  assert.equal(pkg.version, '374.0.0');
+  assert.equal(lock.version, '374.0.0');
+  assert.equal(lock.packages[''].version, '374.0.0');
+  assert.ok(readme.includes('Current release: AFV374'));
+  assert.ok(history.startsWith('AFV374 — Fix Mobile Homepage About Card Spacing'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
@@ -57,7 +57,7 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
 });
 
 
-test('AFV373 places the homepage About card after the safety card and limits spacing changes to mobile', () => {
+test('AFV374 places the homepage About card after the safety card and limits spacing changes to mobile', () => {
   const index = read('index.html');
   const styles = read('footer-reference.css');
   const mainClose = index.indexOf('</main>');
@@ -66,4 +66,15 @@ test('AFV373 places the homepage About card after the safety card and limits spa
   assert.ok(aboutCard > socialDestination && aboutCard < mainClose, 'About card must be the final homepage content card, after the social destination and before page navigation/footer');
   assert.ok(styles.includes('@media (max-width: 700px)'), 'spacing correction must be mobile-only');
   assert.ok(styles.includes('margin: 4px 0 2px !important'), 'About card must have a 4px top and 2px bottom margin on mobile');
+});
+
+
+test('AFV374 collapses the mobile social-destination wrapper so About spacing is visible', () => {
+  const css = read('footer-reference.css');
+  const fix = css.split('AFV374 — remove the mobile-only reserved gap before the homepage About card.')[1];
+  assert.ok(fix, 'AFV374 mobile gap correction must exist');
+  assert.match(fix, /@media \(max-width: 700px\)/);
+  assert.match(fix, /\.desktop-social-destination\s*\{[^}]*display: contents !important/s);
+  assert.match(fix, /\.about-link-section\s*\{[^}]*margin-top: 4px !important;[^}]*margin-bottom: 2px !important/s);
+  assert.match(fix, /\.site-footer\.footer-reference\s*\{[^}]*margin-top: 2px !important/s);
 });
