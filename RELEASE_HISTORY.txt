@@ -1,3 +1,8 @@
+AFV379 — Reduce Mobile Homepage Footer Top Inset to 2px
+- Reduces only the mobile homepage footer top padding from 16px to 2px so the About This Website card sits 14px closer to the preceding content.
+- Preserves the About card's own dimensions, footer links, copyright divider, desktop styles, and unrelated page sections.
+- Updates homepage stylesheet cache-busting and package metadata to AFV379 / 379.0.0.
+
 AFV378 — Set Homepage Footer Gap to 2px
 - Removes the legacy -62px homepage footer offset that overrode normal document flow.
 - Sets the gap above the outer homepage footer to 2px for mobile and desktop while preserving footer content and inner card dimensions.
