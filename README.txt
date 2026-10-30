@@ -12,7 +12,7 @@ RELEASE NOTES
 - AFV370 removes the small About This Website footer link on all pages, keeps the large homepage About card, places Contact beside Privacy Policy beneath Terms, and replaces the footer tagline with “Built on trust. Focused on recovery.”
 - AFV370 restores the large homepage About This Website CTA above the compact shared footer; the compact footer remains unchanged.
 - AFV370 adds one compact shared mobile/desktop footer across Home, Reviews, Recovery Proofs, and About, without review-star/testimonial or proof-preview CTA panels.
-- AFV370 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
+- AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
 - AFV365 fixes Story progress when the operating system requests reduced motion: the essential 7-second progress transition remains visible, while only the decorative moving sheen is suppressed.
