@@ -2,6 +2,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
+const sharp = require("sharp");
 
 const root = __dirname;
 const output = path.join(root, "dist");
@@ -25,6 +26,16 @@ const publicRootFiles = new Set([
 ]);
 const publicAssetDirectories = new Set(["reviews", "proofs", "assets"]);
 const publicAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg", ".avif"]);
+// Build delivery-sized WebP variants from existing originals. Generated files live in dist.
+const generatedImageAssets = [
+  { source: "arisu-profile.jpg", output: "assets/performance/arisu-profile-thumb.webp", resize: { width: 128, height: 128, fit: "inside" }, quality: 84 },
+  { source: "tiktok-profile-preview.jpg", output: "assets/performance/tiktok-profile-preview.webp", resize: { width: 360, withoutEnlargement: true }, quality: 84 },
+  { source: "facebook-page-preview.jpg", output: "assets/performance/facebook-page-preview.webp", resize: { width: 360, withoutEnlargement: true }, quality: 84 },
+  { source: "proofs/arisu-suspended-account-180-days.jpg", output: "proofs/arisu-suspended-account-180-days-preview.webp", resize: { width: 420, withoutEnlargement: true }, quality: 86 },
+  { source: "proofs/file_0000000089048211995f9a93297d1146.png", output: "proofs/file_0000000089048211995f9a93297d1146-preview.webp", resize: { width: 420, withoutEnlargement: true }, quality: 86 },
+  { source: "reviews/review-slot-1.jpg", output: "reviews/review-slot-1-thumb.webp", resize: { width: 344, withoutEnlargement: true }, quality: 80 },
+  { source: "reviews/review-slot-1.jpg", output: "reviews/review-slot-1.webp", resize: { withoutEnlargement: true }, quality: 88 }
+];
 const requiredFunctionFiles = [
   "functions/api/stories.js", "functions/api/story-count.js", "functions/api/story-config.js",
   "functions/api/story-view.js", "functions/api/story-views-admin.js", "functions/api/cleanup-stories.js",
@@ -73,6 +84,16 @@ function copyAllowedPublicFiles() {
     }
   }
 }
+async function generateOptimizedImages() {
+  for (const asset of generatedImageAssets) {
+    const input = path.join(output, asset.source);
+    const destination = path.join(output, asset.output);
+    if (!fs.existsSync(input) || !fs.statSync(input).isFile()) throw new Error(`Build failed: optimized image source is missing: ${asset.source}`);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    await sharp(input).rotate().resize(asset.resize).webp({ quality: asset.quality, effort: 5 }).toFile(destination);
+  }
+}
+
 function verifyBackendLayout() {
   for (const name of requiredFunctionFiles) {
     const file = path.join(root, name);
@@ -94,6 +115,7 @@ function verifyExactPublicOutput() {
       if (publicAssetExtensions.has(path.extname(file).toLowerCase())) expected.push(relative(file));
     }
   }
+  expected.push(...generatedImageAssets.map(asset => asset.output));
   expected.sort();
   const unexpected = actual.filter(file => !expected.includes(file));
   const missing = expected.filter(file => !actual.includes(file));
@@ -155,14 +177,15 @@ function verifyLocalReferences() {
   if (issues.length) fail(`Build failed: broken local references:\n${issues.join("\n")}`);
 }
 
-copyAllowedPublicFiles();
-verifyBackendLayout();
-verifyExactPublicOutput();
-verifyVersionTokens();
-verifySyntax();
-verifyLocalReferences();
-if (process.exitCode) {
-  console.error("Production build validation failed.");
-} else {
-  console.log(`Production build passed for ${releaseToken}: ${walkFiles(output).length} allowlisted public files; Cloudflare Functions layout, output allowlist, cache-busting tokens, JavaScript syntax, and local references validated.`);
+async function runBuild() {
+  copyAllowedPublicFiles();
+  await generateOptimizedImages();
+  verifyBackendLayout();
+  verifyExactPublicOutput();
+  verifyVersionTokens();
+  verifySyntax();
+  verifyLocalReferences();
+  if (process.exitCode) console.error("Production build validation failed.");
+  else console.log(`Production build passed for ${releaseToken}: ${walkFiles(output).length} allowlisted public files; generated ${generatedImageAssets.length} WebP variants; Cloudflare Functions layout, output allowlist, cache-busting tokens, JavaScript syntax, and local references validated.`);
 }
+runBuild().catch(error => { console.error(error); process.exitCode = 1; });

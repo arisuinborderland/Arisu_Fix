@@ -1,3 +1,11 @@
+AFV355 — Targeted Image Delivery Optimization
+- Generates seven WebP variants during the production build from original images using the existing sharp dependency.
+- Updates homepage profile, social-preview, recovery-proof preview, and review-card image sources to use delivery-sized WebP assets.
+- Keeps the full-resolution review screenshot available to the lightbox; the full image is loaded only when the viewer opens.
+- Preserves the latest AFV346 Stories signed-URL caching behavior and the singular “Message Me on WhatsApp” CTA from main.
+- Keeps generated binary derivatives in dist, avoiding duplicate image files in Git source; production output validation explicitly allowlists the generated variants.
+- Synchronizes package metadata to AFV355 / 355.0.0.
+
 AFV346 — 2026-10-29
 - Reuses recent signed Story image URLs across reloads so browser image caching remains effective for up to 40 minutes of the one-hour URL lifetime.
 - Seeds the Story Viewer from valid local cached Stories and keeps the current image visible until any renewed URL is fully preloaded.
