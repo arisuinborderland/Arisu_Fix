@@ -19,7 +19,7 @@ test('every page with Stories navigation loads the viewer stylesheet and script'
     assert.match(html, /id="mobileNavStories"/, `${page} should have Stories navigation`);
     assert.match(html, /id="recoveryStoryViewer"/, `${page} should have the Story Viewer markup`);
     assert.match(html, /story-viewer\.css\?v=AFV\d+/, `${page} should load Story Viewer styles`);
-    assert.match(html, /story-viewer\.js\?v=AFV364/, `${page} should load Story Viewer behavior`);
+    assert.match(html, /story-viewer\.js\?v=AFV365/, `${page} should load Story Viewer behavior`);
   }
 });
 
@@ -116,16 +116,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV364 package metadata and release notes are synchronized', () => {
+test('AFV365 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '364.0.0');
-  assert.equal(lock.version, '364.0.0');
-  assert.equal(lock.packages[''].version, '364.0.0');
-  assert.ok(readme.includes('Current release: AFV364'));
-  assert.ok(history.startsWith('AFV364 — Restore Essential Story Progress Under Reduced Motion'));
+  assert.equal(pkg.version, '365.0.0');
+  assert.equal(lock.version, '365.0.0');
+  assert.equal(lock.packages[''].version, '365.0.0');
+  assert.ok(readme.includes('Current release: AFV365'));
+  assert.ok(history.startsWith('AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {

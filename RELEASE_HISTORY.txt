@@ -1,3 +1,10 @@
+AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)
+- Replaces the full-width solid purple Back to Site control with a compact centered dark-glass pill.
+- Uses translucent dark violet, subtle violet border, soft glow, backdrop blur, white label, and soft-violet arrow.
+- Responsive sizing: 230–250 px on mobile and 260 px on desktop, with a 50 px height.
+- Refreshes Story Viewer CSS/JS cache tokens to AFV365 on Home, About, Privacy, Proofs, and Reviews.
+- Synchronizes package metadata and README to AFV365 / 365.0.0.
+
 AFV364 — Restore Essential Story Progress Under Reduced Motion
 - Removes reduced-motion CSS overrides that forced the Story progress fill transition to none, which made the active segment jump to full width.
 - Keeps the 7-second progress animation and Story advance timer visible and aligned, while still disabling the decorative moving light sheen under reduced-motion preferences.
