@@ -112,7 +112,8 @@ html body .site-footer.footer-reference .footer-reference-copyright small {
   font-size: 13px;
 }
 html body.home-page .site-footer.footer-reference {
-  margin-top: 6px !important;
+  /* Keep the homepage footer/About card exactly 2px below the preceding card. */
+  margin-top: 2px !important;
   padding-top: 0 !important;
 }
 html body.home-page .site-footer.footer-reference > .about-link-section {
