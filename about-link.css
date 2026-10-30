@@ -304,12 +304,16 @@ html body.home-page .topbar > .header-meta > .privacy-link {
   }
 }
 
-/* Restore larger mobile About card sizing from the reference screenshot. */
+/* AFV376: match the approved compact mobile homepage About card reference.
+   This section is a sibling of the footer, so scope it directly instead of
+   changing footer tiles or other pages. */
 @media (max-width: 600px) {
   html body.home-page > section.about-link-section {
     box-sizing: border-box !important;
-    width: calc(100% - 52px) !important;
+    width: calc(100% - 28px) !important;
     max-width: 824px !important;
+    /* Pull the About card and following footer up as one flow group,
+       leaving only a 4px visual gap after the Remember card. */
     margin: -80px auto 4px !important;
     padding: 0 !important;
   }
@@ -317,25 +321,49 @@ html body.home-page .topbar > .header-meta > .privacy-link {
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 10px !important;
     width: 100% !important;
     min-height: 0 !important;
     height: auto !important;
-    padding: 16px 18px !important;
+    padding: 8px 12px !important;
     border-radius: 22px !important;
   }
   html body.home-page > section.about-link-section .about-cta-profile {
-    flex: 0 0 96px !important;
-    width: 96px !important;
-    height: 96px !important;
-    border-radius: 18px !important;
+    flex: 0 0 58px !important;
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 14px !important;
   }
-  html body.home-page > section.about-link-section .about-cta-copy { flex: 1 1 0 !important; min-width: 0 !important; gap: 5px !important; }
-  html body.home-page > section.about-link-section .about-cta-eyebrow { font-size: 13px !important; line-height: 1.2 !important; letter-spacing: 1.5px !important; }
-  html body.home-page > section.about-link-section .about-cta-title { font-size: clamp(19px, 4.7vw, 25px) !important; line-height: 1.2 !important; letter-spacing: -.35px !important; white-space: normal !important; }
-  html body.home-page > section.about-link-section .about-cta-description { font-size: 16px !important; line-height: 1.4 !important; }
-  html body.home-page > section.about-link-section .about-cta-action { margin-top: 3px !important; padding: 9px 14px !important; font-size: 18px !important; line-height: 1.15 !important; }
-  html body.home-page > section.about-link-section .about-cta-arrow { flex: 0 0 20px !important; width: 20px !important; height: 20px !important; }
+  html body.home-page > section.about-link-section .about-cta-copy {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    gap: 3px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-eyebrow {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 1.1px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-title {
+    font-size: clamp(15px, 4.2vw, 17px) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -.25px !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-description {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-action {
+    margin-top: 3px !important;
+    padding: 7px 10px !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+  }
+  html body.home-page > section.about-link-section .about-cta-arrow {
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
 }
 @media (min-width: 381px) and (max-width: 600px) {
   html body.home-page > section.about-link-section .about-cta-title {
