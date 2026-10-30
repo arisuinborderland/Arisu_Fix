@@ -20,26 +20,10 @@ html body .site-footer.footer-reference .footer-reference-copyright small{font-s
 @media(max-width:430px){html body.home-page .site-footer.footer-reference,html body .site-footer.footer-reference{width:calc(100% - 24px)!important;margin:22px auto 20px!important;padding:12px!important;gap:11px!important;border-radius:20px!important}html body .site-footer.footer-reference .footer-reference-location{gap:7px}html body .site-footer.footer-reference .footer-reference-tile{align-items:flex-start;gap:6px;min-height:74px;padding:8px 6px;border-radius:13px}html body .site-footer.footer-reference .footer-reference-tile>svg{width:30px;height:30px;flex-basis:30px;padding:6px;border-radius:11px}html body .site-footer.footer-reference .footer-reference-tile strong{font-size:.72rem;line-height:1.25}html body .site-footer.footer-reference .footer-reference-tile small{font-size:.64rem;line-height:1.25}html body .site-footer.footer-reference .footer-reference-links{gap:7px;padding-bottom:11px}html body .site-footer.footer-reference .footer-reference-links a{gap:6px;min-height:52px;padding:6px;border-radius:13px}html body .site-footer.footer-reference .footer-reference-links a>svg{width:30px;height:30px;flex-basis:30px;padding:6px;border-radius:10px}html body .site-footer.footer-reference .footer-reference-links strong{font-size:.7rem;line-height:1.2}html body .site-footer.footer-reference .footer-reference-links small{font-size:.61rem;line-height:1.25}html body .site-footer.footer-reference .footer-reference-arrow{font-size:1rem}html body .site-footer.footer-reference .footer-reference-copyright{font-size:.72rem;gap:4px}html body .site-footer.footer-reference .footer-reference-copyright small{font-size:.68rem}}
 @media(max-width:340px){html body.home-page .site-footer.footer-reference,html body .site-footer.footer-reference{width:calc(100% - 16px)!important;margin:18px auto 18px!important;padding:9px!important}html body .site-footer.footer-reference .footer-reference-tile{gap:4px;padding:6px 4px}html body .site-footer.footer-reference .footer-reference-tile>svg{width:26px;height:26px;flex-basis:26px;padding:5px}html body .site-footer.footer-reference .footer-reference-tile strong{font-size:.66rem}html body .site-footer.footer-reference .footer-reference-tile small{font-size:.59rem}html body .site-footer.footer-reference .footer-reference-links a>svg{width:27px;height:27px;flex-basis:27px}html body .site-footer.footer-reference .footer-reference-links strong{font-size:.65rem}html body .site-footer.footer-reference .footer-reference-links small{font-size:.57rem}}
 
-/*
- * AFV375 mobile homepage spacing correction.
- * The safety card is visually offset inside the existing main flow, leaving
- * its reserved trailing space before the separate About CTA. Reclaim that
- * trailing flow space only; do not resize or restyle the CTA or footer tiles.
- */
+/* AFV376: keep the homepage About card's spacing in about-link.css only. */
 @media (max-width: 700px) {
-  /*
-   * The final homepage card is visually shifted upward while its original
-   * layout space remains. Reclaim only that trailing space at the About CTA,
-   * preserving the CTA's own dimensions and moving the footer with it.
-   */
   html body.home-page main {
     margin-bottom: 0 !important;
-  }
-  html body.home-page > .about-link-section {
-    box-sizing: border-box !important;
-    width: calc(100% - 32px) !important;
-    max-width: 1120px !important;
-    margin: -62px auto 2px !important;
   }
   html body.home-page > .site-footer.footer-reference {
     margin: 0 auto 20px !important;
