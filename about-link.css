@@ -314,7 +314,7 @@ html body.home-page .topbar > .header-meta > .privacy-link {
     max-width: 824px !important;
     /* Pull the About card and following footer up as one flow group,
        leaving only a 4px visual gap after the Remember card. */
-    margin: -80px auto 4px !important;
+    margin: 103px auto 4px !important;
     padding: 0 !important;
   }
   html body.home-page > section.about-link-section > .about-page-cta {
