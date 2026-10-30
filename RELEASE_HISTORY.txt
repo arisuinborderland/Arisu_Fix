@@ -1,3 +1,10 @@
+AFV373 — Restore Homepage About Card Width on Mobile
+- Root cause: the About card was inside the padded homepage main container, while its width was calculated as a percentage of that already narrowed content box, creating a second inset and causing the title to wrap.
+- Uses viewport-based width only at mobile breakpoints to restore the original card size and alignment with the footer.
+- Keeps the 4px Remember-to-About gap and 2px About-to-footer gap; does not alter card padding, avatar, CTA, or desktop styling.
+- Refreshes footer-reference.css cache tokens and synchronizes release metadata.
+
+
 AFV372 — Mobile Homepage About Card Placement Fix
 - Moves the large About This Website card into the homepage content flow directly after the Remember safety card, rather than after the fixed bottom navigation in the document.
 - Applies the 4px safety-card-to-About gap and 2px About-to-footer gap only at mobile widths; desktop spacing rules are not changed.
