@@ -370,3 +370,12 @@ html body.home-page .topbar > .header-meta > .privacy-link {
     white-space: nowrap !important;
   }
 }
+
+
+/* Restore the previously accepted mobile About-card position; preserve card sizing. */
+@media (max-width: 768px) {
+  html body.home-page .about-link-section {
+    margin-top: -164px !important;
+    margin-bottom: 4px !important;
+  }
+}
