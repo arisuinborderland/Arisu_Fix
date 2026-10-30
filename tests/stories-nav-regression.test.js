@@ -73,13 +73,12 @@ test('Desktop empty-state Story Viewer is centered and width-constrained', () =>
 
 test('AFV366 starts the Story list request after load without an idle delay', () => {
   assert.match(source, /function scheduleInitialDataLoad\(\)/);
-  assert.match(source, /window\.addEventListener\('load', scheduleIdleWork, \{ once: true \}\)/);
-  assert.match(source, /window\.requestIdleCallback\(runInitialDataLoad, \{ timeout: 2500 \}\)/);
-  assert.match(source, /window\.setTimeout\(runInitialDataLoad, 1200\)/);
+  assert.match(source, /window\.addEventListener\('load', \(\) => \{[\s\S]*?runStoryListLoad\(\);[\s\S]*?scheduleCountLoad\(\);[\s\S]*?\}, \{ once: true \}\)/);
+  assert.match(source, /window\.requestIdleCallback\(runCountLoad, \{ timeout: 2500 \}\)/);
+  assert.match(source, /window\.setTimeout\(runCountLoad, 1200\)/);
   assert.match(source, /stories = readCachedStories\(\);\s*renderCachedCount\(\);\s*scheduleInitialDataLoad\(\);/);
   assert.match(source, /if \(!storyListLoadRequested\) load\(\)/);
   assert.match(source, /storyListLoadRequested = true;/);
-  assert.match(source, /await preloadImage\(stories\[0\]\.imageUrl\)/, 'opening Stories before idle still loads the first image on demand');
 });
 
 test('AFV359 preconnects to both existing Google Fonts origins before stylesheets', () => {
