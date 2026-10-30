@@ -6391,8 +6391,8 @@ body.home-page .purpose-card .purpose-kicker {
 /* bring the footer closer to the Legitimate Account Recovery card on mobile.
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media  (max-width: 600px)  {
-  html body.home-page main { padding-bottom: 8px !important; }
-  html body.home-page .site-footer { margin-top: 4px !important; }
+  html body.home-page main { padding-bottom: 0 !important; }
+  html body.home-page .site-footer { margin-top: 2px !important; }
 }
 
 /* consolidate repeated mobile WhatsApp spacing adjustments.
@@ -8153,10 +8153,6 @@ html body.home-page .why-arisu-section > .why-arisu-card {
 }
 
 
-html body.home-page .site-footer {
-  margin-top: -62px !important;
-}
-
 
 
 /* retain the text offsets, but collapse the creator block's reserved space. */
@@ -8676,7 +8672,7 @@ html body.home-page .purpose-card .purpose-signoff {
   }
   html body.home-page .site-footer {
     padding-bottom: 120px !important;
-    margin-top: 24px !important;
+    margin-top: 2px !important;
   }
   html body.home-page nav.mobile-bottom-nav {
     position: fixed !important;
