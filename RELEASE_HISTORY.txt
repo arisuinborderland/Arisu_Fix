@@ -1,3 +1,10 @@
+AFV363 — Animated Story Progress and Oldest-First Ordering
+- Adds an animated purple-pink-cyan gradient Story progress fill with a subtle moving light sheen.
+- Adds an accessible current/total Story counter and keeps it synchronized during navigation and background refresh.
+- Orders Stories by saved sort position, then oldest published timestamp and stable ID; new uploads and newly published drafts append at the end.
+- Preserves manual Admin drag-and-drop ordering, AFV361 compositor-friendly scaleX progress, AFV360 navigation safeguards, and existing view-count deduplication.
+- Updates Story Viewer cache-busting tokens and release metadata to AFV363 / 363.0.0.
+
 AFV361 — Smooth Story Progress Indicator
 - Replaces width-based Story progress fill transitions with compositor-friendly transform: scaleX() animations anchored at the left edge.
 - Keeps the existing 7-second Story playback timer and progress animation duration aligned; pause/resume continues from the elapsed position.

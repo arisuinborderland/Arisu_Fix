@@ -17,6 +17,7 @@
   const mobileStoriesButton = document.getElementById('mobileNavStories');
   const mobileStoriesCount = mobileStoriesButton?.querySelector('.mobile-nav-story-count');
   const timestamp = viewer.querySelector('.story-viewer-time');
+  const storyCounter = viewer.querySelector('.story-viewer-counter');
   const emptyState = viewer.querySelector('.story-viewer-empty');
   const emptyDone = viewer.querySelector('.story-viewer-empty-done');
   const emptyTitle = emptyState?.querySelector('h2');
@@ -93,13 +94,14 @@
       // Do not block story playback; a later revisit can retry after transient failure.
     }).finally(() => pendingStoryViews.delete(id));
   }
-  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0; pendingNavigation = []; navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
+  function hide() { storyOpenRequestId++; viewer.hidden = true; document.body.classList.remove('story-viewer-open'); clearTimeout(timer); clearTimeout(holdPauseTimer); holdPauseTimer = 0; progressPaused = false; pausedElapsed = 0; pendingNavigation = []; navigating = false; viewer.classList.remove('story-viewer-switching'); viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; if (storyCounter) storyCounter.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false; progressFills.forEach(fill => { fill.style.transition = 'none'; }); }
   function showEmptyState(state = 'empty') {
     clearTimeout(timer);
     navigating = false;
     image.hidden = true;
     caption.hidden = true;
     progressTrack.hidden = true;
+    if (storyCounter) storyCounter.hidden = true;
     viewer.querySelector('.story-viewer-meta').hidden = false;
     if (emptyState) emptyState.hidden = false;
     clearTimeout(holdPauseTimer);
@@ -184,6 +186,14 @@
     if (!viewer.hidden && !navigating && pendingNavigation.length) processPendingNavigation();
   }
   function timeAgo(value) { const date = new Date(value); if (!value || Number.isNaN(date.getTime())) return ''; const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000)); if (seconds < 60) return 'Just now'; if (seconds < 3600) { const minutes = Math.floor(seconds / 60); return `${minutes} min${minutes === 1 ? '' : 's'} ago`; } if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; return `${Math.floor(seconds / 86400)}d ago`; }
+  function updateStoryCounter() {
+    if (!storyCounter) return;
+    const total = stories.length;
+    storyCounter.textContent = total ? `${index + 1} / ${total}` : '';
+    storyCounter.hidden = total === 0;
+    storyCounter.setAttribute('aria-label', total ? `Story ${index + 1} of ${total}` : 'No Stories');
+  }
+
   function renderProgressSegments() {
     progressTrack.replaceChildren();
     progressFills = stories.map((story, segmentIndex) => {
@@ -203,6 +213,7 @@
       const segment = fill.parentElement;
       fill.style.transition = 'none';
       segment.classList.toggle('is-complete', fillIndex < index);
+      segment.classList.toggle('is-active', fillIndex === index);
       if (fillIndex < index) fill.style.transform = 'scaleX(1)';
       else if (fillIndex > index) fill.style.transform = 'scaleX(0)';
       else {
@@ -222,6 +233,7 @@
     const targetIndex = Number(next);
     if (!Number.isInteger(targetIndex) || targetIndex < 0 || targetIndex >= stories.length) return hide();
     index = targetIndex;
+    updateStoryCounter();
     viewer.classList.remove('story-viewer-empty-open'); if (emptyState) emptyState.hidden = true; image.hidden = false; caption.hidden = false; progressTrack.hidden = false; viewer.querySelector('.story-viewer-meta').hidden = false;
     const story = stories[index];
     activeStoryId = String(story.id || '');
@@ -421,6 +433,7 @@
         const freshIndex = stories.findIndex(story => String(story.id || '') === activeStoryId);
         if (freshIndex < 0) return;
         index = freshIndex;
+        updateStoryCounter();
         const story = stories[index];
         if (image.src !== story.imageUrl) {
           const refreshedImageUrl = story.imageUrl;
