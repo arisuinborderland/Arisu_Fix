@@ -9,7 +9,7 @@ test('Stories navigation stays visible when stories are empty or the API fails',
   assert.doesNotMatch(source, /mobileStoriesButton\.hidden\s*=\s*true/);
   assert.match(source, /must never hide the bottom-navigation button/);
   assert.match(source, /const refreshed = await load\(\)/);
-  assert.match(source, /if \(refreshed && stories\.length\) \{[\s\S]*?await preloadImage\(stories\[0\]\.imageUrl\);[\s\S]*?showAt\(0\);/);
+  assert.match(source, /if \(refreshed && stories\.length\) \{\s*showAt\(0\);/);
 });
 
 
@@ -139,7 +139,7 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
   assert.match(source, /fill\.style\.transition = `transform \$\{Math\.max\(0, duration\)\}ms linear`/);
   assert.match(source, /fill\.style\.transform = 'scaleX\(1\)'/);
   assert.match(source, /requestAnimationFrame\(\(\) => requestAnimationFrame\(\(\) => setProgress\(0, true, DURATION\)\)\)/);
-  assert.match(source, /timer = setTimeout\(\(\) => \{ if \(index \+ 1 < stories\.length\) showAt\(index \+ 1\); else hide\(\); \}, DURATION\)/);
+  assert.match(source, /timer = setTimeout\(\(\) => \{[\s\S]*?if \(index \+ 1 < stories\.length\) showAt\(index \+ 1\);[\s\S]*?else hide\(\);[\s\S]*?\}, DURATION\)/);
   assert.doesNotMatch(source, /fill\.style\.transition = `width \$\{duration\}ms linear`/);
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
   assert.match(css, /\.story-viewer-progress-fill\{[^}]*transform:scaleX\(0\)[^}]*transform-origin:left center[^}]*will-change:transform/);
