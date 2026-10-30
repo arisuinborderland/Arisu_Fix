@@ -1,3 +1,8 @@
+AFV378 — Set Homepage Footer Gap to 2px
+- Removes the legacy -62px homepage footer offset that overrode normal document flow.
+- Sets the gap above the outer homepage footer to 2px for mobile and desktop while preserving footer content and inner card dimensions.
+- Updates the homepage stylesheet cache-busting token and package metadata to AFV378 / 378.0.0.
+
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
