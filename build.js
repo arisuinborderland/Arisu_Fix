@@ -12,11 +12,12 @@ if (!versionMatch) throw new Error("package.json must use a numeric semantic ver
 const releaseToken = `AFV${versionMatch[1]}`;
 
 // Explicit root-level allowlist: anything not listed here is never copied to public output.
+// AFV375: footer-reference.css is an allowlisted public stylesheet referenced by all four main pages.
 // Keep Cloudflare Pages Functions outside dist; also exclude build tooling, package metadata,
 // legacy Vercel configuration, SQL migrations, and documentation from public output.
 const publicRootFiles = new Set([
   "_headers", "robots.txt", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
-  "styles.css", "desktop-header.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
+  "styles.css", "footer-reference.css", "desktop-header.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
   "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
   "privacy-year.js", "proofs.js", "story-admin.js",

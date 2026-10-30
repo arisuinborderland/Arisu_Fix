@@ -1,0 +1,47 @@
+/* AFV375 — shared footer reference design; footer-only scope */
+html body.home-page .site-footer.footer-reference,html body .site-footer.footer-reference{box-sizing:border-box!important;width:min(calc(100% - 32px),1120px)!important;max-width:1120px!important;margin:28px auto 24px!important;padding:18px!important;display:grid!important;position:relative!important;inset:auto!important;transform:none!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important;border:1px solid rgba(201,218,244,.95)!important;border-radius:24px!important;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(243,246,255,.96) 58%,rgba(250,242,255,.94))!important;box-shadow:0 12px 34px rgba(48,91,158,.10),inset 0 1px 0 rgba(255,255,255,.95)!important;color:#263954!important;font-family:inherit!important;float:none!important;clear:both!important;z-index:1!important}
+html body .site-footer.footer-reference *{box-sizing:border-box}
+html body .site-footer.footer-reference .footer-reference-location{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+html body .site-footer.footer-reference .footer-reference-tile{min-width:0;min-height:68px;display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #dce8f7;border-radius:16px;background:linear-gradient(135deg,rgba(239,250,255,.92),rgba(247,246,255,.92))}
+html body .site-footer.footer-reference svg{width:38px;height:38px;flex:0 0 38px;padding:8px;overflow:visible;color:#1768df;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none;border:1px solid #d9e9ff;border-radius:13px;background:linear-gradient(135deg,#dff6ff,#e7e7ff)}
+html body .site-footer.footer-reference .footer-reference-tile span,html body .site-footer.footer-reference .footer-reference-links a>span:nth-child(2){display:flex;min-width:0;flex:1 1 auto;flex-direction:column;gap:3px}
+html body .site-footer.footer-reference strong{color:#273b5a;font-size:.88rem;font-weight:800;line-height:1.25}
+html body .site-footer.footer-reference small{color:#728097;font-size:.76rem;line-height:1.3}
+html body .site-footer.footer-reference .footer-reference-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 10px;padding-bottom:14px;border-bottom:1px solid #dbe3f0}
+html body .site-footer.footer-reference .footer-reference-links a{display:flex;align-items:center;gap:9px;min-width:0;min-height:62px;padding:9px;border:1px solid #dce5f1;border-radius:15px;background:rgba(255,255,255,.72);text-decoration:none;color:#273b5a;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+html body .site-footer.footer-reference .footer-reference-links a:hover{background:#fff;border-color:#a9cdf9;transform:translateY(-1px)}
+html body .site-footer.footer-reference .footer-reference-links a>svg{width:34px;height:34px;flex:0 0 34px;padding:7px;border-radius:12px}
+html body .site-footer.footer-reference .footer-reference-links strong{font-size:.8rem}
+html body .site-footer.footer-reference .footer-reference-links small{font-size:.69rem}
+html body .site-footer.footer-reference .footer-reference-arrow{flex:0 0 auto;color:#5577b3;font-size:1.25rem;font-weight:800;line-height:1}
+html body .site-footer.footer-reference .footer-reference-copyright{display:flex;flex-direction:column;align-items:center;gap:5px;margin:0;padding:0;text-align:center;color:#59677e;font-size:.82rem;line-height:1.4}
+html body .site-footer.footer-reference .footer-reference-copyright small{font-size:.76rem}
+@media(min-width:760px){html body.home-page .site-footer.footer-reference,html body .site-footer.footer-reference{margin:28px auto 24px!important;padding:20px!important;gap:12px!important}html body .site-footer.footer-reference .footer-reference-location{gap:12px}html body .site-footer.footer-reference .footer-reference-tile{min-height:74px;padding:12px}html body .site-footer.footer-reference .footer-reference-links{gap:8px 12px}html body .site-footer.footer-reference .footer-reference-links a{min-height:58px;padding:9px 12px}}
+@media(max-width:430px){html body.home-page .site-footer.footer-reference,html body .site-footer.footer-reference{width:calc(100% - 24px)!important;margin:22px auto 20px!important;padding:12px!important;gap:11px!important;border-radius:20px!important}html body .site-footer.footer-reference .footer-reference-location{gap:7px}html body .site-footer.footer-reference .footer-reference-tile{align-items:flex-start;gap:6px;min-height:74px;padding:8px 6px;border-radius:13px}html body .site-footer.footer-reference .footer-reference-tile>svg{width:30px;height:30px;flex-basis:30px;padding:6px;border-radius:11px}html body .site-footer.footer-reference .footer-reference-tile strong{font-size:.72rem;line-height:1.25}html body .site-footer.footer-reference .footer-reference-tile small{font-size:.64rem;line-height:1.25}html body .site-footer.footer-reference .footer-reference-links{gap:7px;padding-bottom:11px}html body .site-footer.footer-reference .footer-reference-links a{gap:6px;min-height:52px;padding:6px;border-radius:13px}html body .site-footer.footer-reference .footer-reference-links a>svg{width:30px;height:30px;flex-basis:30px;padding:6px;border-radius:10px}html body .site-footer.footer-reference .footer-reference-links strong{font-size:.7rem;line-height:1.2}html body .site-footer.footer-reference .footer-reference-links small{font-size:.61rem;line-height:1.25}html body .site-footer.footer-reference .footer-reference-arrow{font-size:1rem}html body .site-footer.footer-reference .footer-reference-copyright{font-size:.72rem;gap:4px}html body .site-footer.footer-reference .footer-reference-copyright small{font-size:.68rem}}
+@media(max-width:340px){html body.home-page .site-footer.footer-reference,html body .site-footer.footer-reference{width:calc(100% - 16px)!important;margin:18px auto 18px!important;padding:9px!important}html body .site-footer.footer-reference .footer-reference-tile{gap:4px;padding:6px 4px}html body .site-footer.footer-reference .footer-reference-tile>svg{width:26px;height:26px;flex-basis:26px;padding:5px}html body .site-footer.footer-reference .footer-reference-tile strong{font-size:.66rem}html body .site-footer.footer-reference .footer-reference-tile small{font-size:.59rem}html body .site-footer.footer-reference .footer-reference-links a>svg{width:27px;height:27px;flex-basis:27px}html body .site-footer.footer-reference .footer-reference-links strong{font-size:.65rem}html body .site-footer.footer-reference .footer-reference-links small{font-size:.57rem}}
+
+/*
+ * AFV375 mobile homepage spacing correction.
+ * The safety card is visually offset inside the existing main flow, leaving
+ * its reserved trailing space before the separate About CTA. Reclaim that
+ * trailing flow space only; do not resize or restyle the CTA or footer tiles.
+ */
+@media (max-width: 700px) {
+  /*
+   * The final homepage card is visually shifted upward while its original
+   * layout space remains. Reclaim only that trailing space at the About CTA,
+   * preserving the CTA's own dimensions and moving the footer with it.
+   */
+  html body.home-page main {
+    margin-bottom: 0 !important;
+  }
+  html body.home-page > .about-link-section {
+    box-sizing: border-box !important;
+    width: calc(100% - 32px) !important;
+    max-width: 1120px !important;
+    margin: -62px auto 2px !important;
+  }
+  html body.home-page > .site-footer.footer-reference {
+    margin: 0 auto 20px !important;
+  }
+}
