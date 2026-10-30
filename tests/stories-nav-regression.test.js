@@ -135,6 +135,18 @@ test('AFV372 package metadata and release notes are synchronized', () => {
   assert.ok(history.startsWith('AFV372 — Mobile Homepage About Card Placement Fix'));
 });
 
+
+test('AFV373 preserves homepage About card width while limiting spacing changes to mobile', () => {
+  const css = fs.readFileSync(path.join(__dirname, '..', 'footer-reference.css'), 'utf8');
+  const mobileFix = css.split('AFV373 — mobile-only homepage About card sizing/spacing correction.')[1];
+  assert.ok(mobileFix, 'mobile About card width correction must exist');
+  assert.match(mobileFix, /@media \(max-width: 700px\)/);
+  assert.match(mobileFix, /width: min\(calc\(100vw - 52px\), 960px\) !important/);
+  assert.match(mobileFix, /margin: 4px 0 2px !important/);
+  assert.match(mobileFix, /\.about-page-cta\s*\{/);
+  assert.doesNotMatch(mobileFix.split('@media (min-width: 760px)')[0], /\.about-page-cta\s*\{[^}]*width:\s*[^;]*!/);
+});
+
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
   assert.match(source, /fill\.style\.transform = `scaleX\(\$\{clamped\}\)`/);
   assert.match(source, /fill\.style\.transition = `transform \$\{Math\.max\(0, duration\)\}ms linear`/);
