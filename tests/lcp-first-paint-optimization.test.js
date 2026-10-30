@@ -39,7 +39,7 @@ test('AFV373 release metadata is synchronized', () => {
   assert.equal(lock.version, '373.0.0');
   assert.equal(lock.packages[''].version, '373.0.0');
   assert.ok(readme.includes('Current release: AFV373'));
-  assert.ok(history.startsWith('AFV373 — Mobile Homepage About Card Placement Fix'));
+  assert.ok(history.startsWith('AFV373 — Restore Homepage About Card Width on Mobile'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
