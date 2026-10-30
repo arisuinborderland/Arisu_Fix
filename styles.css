@@ -7069,35 +7069,6 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 /* reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
 
 
-/* lift the Honest-through-Remember card group by another 2px on mobile. */
-@media  (max-width: 640px)  {
-  html body.home-page .why-arisu-card > .why-arisu-grid {
-    transform: translateY(-6px) !important;
-  }
-  html body.home-page .why-arisu-section .why-arisu-note {
-    transform: translateY(-10px) !important;
-  }
-  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
-    transform: translateY(-14px) !important;
-  }
-}
-
-/* reduce only the bottom padding of the Why Choose Arisu outer card by 8px on mobile. */
-@media  (max-width: 640px)  {
-  html body.home-page .why-arisu-section .why-arisu-card {
-    padding-bottom: 2px !important; /* previous effective value: 10px */
-  }
-}
-
-/* reduce the outer card bottom spacing after Remember by another 2px on mobile. */
-@media  (max-width: 640px)  {
-  html body.home-page .why-arisu-card > .safety-section-inline {
-    margin-bottom: -10px !important;
-  }
-}
-
-
-
 /* reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
 
 @media  (max-width: 380px)  {
@@ -8113,10 +8084,12 @@ html body.home-page .services-section > .services-grid > .service-card.deletion-
   top: auto !important;
   translate: 0 -46px !important;
 }
-html body.home-page .why-arisu-section > .why-arisu-card {
-  position: relative !important;
-  top: auto !important;
-  translate: 0 -50px !important;
+@media (min-width: 701px) {
+  html body.home-page .why-arisu-section > .why-arisu-card {
+    position: relative !important;
+    top: auto !important;
+    translate: 0 -50px !important;
+  }
 }
 /* Desktop-only outer-card spacing: keep a consistent 12px visual gap through Purpose, Terms, and About.
    Use one matching card offset plus one section margin rule; tablet/mobile positioning remains unchanged. */
@@ -10855,5 +10828,27 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     filter: drop-shadow(0 0 4px rgba(168, 85, 247, .98)) !important;
     animation: wa-border-trace-reverse 3.2s linear infinite !important;
     opacity: 1 !important;
+  }
+}
+
+
+/* Canonical mobile spacing: restore normal flow from Remember to About to footer.
+   Do not visually translate cards; those transforms leave blank space in document flow. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section > .why-arisu-card {
+    position: relative !important;
+    top: auto !important;
+    translate: none !important;
+    transform: none !important;
+    padding-bottom: 19px !important;
+  }
+  html body.home-page .why-arisu-card > .why-arisu-grid,
+  html body.home-page .why-arisu-section .why-arisu-note,
+  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
+    transform: none !important;
+    translate: none !important;
+  }
+  html body.home-page .why-arisu-card > .safety-section-inline {
+    margin-bottom: 0 !important;
   }
 }
