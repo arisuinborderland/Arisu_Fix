@@ -34,13 +34,12 @@ test('Story navigation never wraps from the final story back to the first', () =
 });
 
 
-test('Stories button opens cached stories immediately and never displays a loading modal', () => {
-  assert.match(source, /if \(stories\.length\) \{[\s\S]*?await preloadImage\(stories\[0\]\.imageUrl\);[\s\S]*?showAt\(0\);/);
-  assert.match(source, /load\(\)\.then\(refreshed =>/);
-  assert.match(source, /const refreshed = await load\(\);\s*if \(requestId !== storyOpenRequestId\) return;\s*if \(refreshed && stories\.length\) \{\s*await preloadImage\(stories\[0\]\.imageUrl\);\s*if \(requestId !== storyOpenRequestId\) return;\s*showAt\(0\);/);
+test('Stories button opens immediately and shows loading only when data is not cached', () => {
+  assert.match(source, /if \(stories\.length\) \{[\s\S]*?showAt\(0\);[\s\S]*?load\(\)\.then\(refreshed =>/);
+  assert.match(source, /showEmptyState\('loading'\)/);
+  assert.match(source, /Loading Stories/);
+  assert.match(source, /const refreshed = await load\(\);[\s\S]*?if \(refreshed && stories\.length\) \{\s*showAt\(0\);/);
   assert.match(source, /else \{\s*showEmptyState\(refreshed \? 'empty' : 'unavailable'\);\s*\}/);
-  assert.doesNotMatch(source, /showEmptyState\(['"]loading['"]\)/);
-  assert.doesNotMatch(source, /state === ['"]loading['"][\s\S]*?Loading Stories/);
 });
 
 test('Story progress continues animating after background refresh and avatar stays compact on mobile', () => {
@@ -70,15 +69,13 @@ test('Desktop empty-state Story Viewer is centered and width-constrained', () =>
   assert.match(desktopFix, /\.story-viewer\.story-viewer-empty-open \.story-viewer-card\s*\{[\s\S]*?width:\s*min\(560px, calc\(100vw - 48px\)\) !important;[\s\S]*?max-width:\s*560px !important;[\s\S]*?margin-inline:\s*auto !important/);
 });
 
-test('AFV359 defers automatic Stories API requests until after load and idle time', () => {
+test('AFV366 starts the Story list request immediately after page load', () => {
   assert.match(source, /function scheduleInitialDataLoad\(\)/);
-  assert.match(source, /window\.addEventListener\('load', scheduleIdleWork, \{ once: true \}\)/);
-  assert.match(source, /window\.requestIdleCallback\(runInitialDataLoad, \{ timeout: 2500 \}\)/);
-  assert.match(source, /window\.setTimeout\(runInitialDataLoad, 1200\)/);
+  assert.match(source, /window\.addEventListener\('load', \(\) => \{[\s\S]*?runStoryListLoad\(\);[\s\S]*?scheduleCountLoad\(\);[\s\S]*?\}, \{ once: true \}\)/);
+  assert.match(source, /const runStoryListLoad = \(\) => \{[\s\S]*?if \(!storyListLoadRequested\) load\(\);?[\s\S]*?\};/);
   assert.match(source, /stories = readCachedStories\(\);\s*renderCachedCount\(\);\s*scheduleInitialDataLoad\(\);/);
   assert.match(source, /if \(!storyListLoadRequested\) load\(\)/);
   assert.match(source, /storyListLoadRequested = true;/);
-  assert.match(source, /await preloadImage\(stories\[0\]\.imageUrl\)/, 'opening Stories before idle still loads the first image on demand');
 });
 
 test('AFV359 preconnects to both existing Google Fonts origins before stylesheets', () => {
@@ -116,16 +113,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV365 package metadata and release notes are synchronized', () => {
+test('AFV366 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '365.0.0');
-  assert.equal(lock.version, '365.0.0');
-  assert.equal(lock.packages[''].version, '365.0.0');
-  assert.ok(readme.includes('Current release: AFV365'));
-  assert.ok(history.startsWith('AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)'));
+  assert.equal(pkg.version, '366.0.0');
+  assert.equal(lock.version, '366.0.0');
+  assert.equal(lock.packages[''].version, '366.0.0');
+  assert.ok(readme.includes('Current release: AFV366'));
+  assert.ok(history.startsWith('AFV366 — Reduce Recovery Stories First-Open Delay'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
