@@ -125,7 +125,7 @@ test('AFV365 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '365.0.0');
   assert.equal(lock.packages[''].version, '365.0.0');
   assert.ok(readme.includes('Current release: AFV365'));
-  assert.ok(history.startsWith('AFV365 — Restore Essential Story Progress Under Reduced Motion'));
+  assert.ok(history.startsWith('AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {

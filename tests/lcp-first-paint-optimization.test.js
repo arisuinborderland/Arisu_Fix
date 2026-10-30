@@ -39,7 +39,7 @@ test('AFV365 release metadata is synchronized', () => {
   assert.equal(lock.version, '365.0.0');
   assert.equal(lock.packages[''].version, '365.0.0');
   assert.ok(readme.includes('Current release: AFV365'));
-  assert.ok(history.startsWith('AFV365 — Restore Essential Story Progress Under Reduced Motion'));
+  assert.ok(history.startsWith('AFV365 — Compact Glassmorphism Back to Site Button (Mobile + Desktop)'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
