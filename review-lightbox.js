@@ -67,7 +67,7 @@
   function openReviewImage(image, trigger) {
     if (!image) return;
     triggerBeforeOpen = trigger || image.closest("button") || null;
-    const imageUrl = image.currentSrc || image.src;
+    const imageUrl = image.dataset.fullSrc || image.currentSrc || image.src;
     if (!imageUrl) return;
     viewer.style.backgroundImage = `url("${imageUrl.replace(/["\\]/g, "\\$&")}")`;
     viewer.style.backgroundSize = "contain";
