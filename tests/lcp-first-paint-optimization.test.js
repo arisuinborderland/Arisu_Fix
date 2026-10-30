@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV372 release metadata is synchronized', () => {
+test('AFV373 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '372.0.0');
-  assert.equal(lock.version, '372.0.0');
-  assert.equal(lock.packages[''].version, '372.0.0');
-  assert.ok(readme.includes('Current release: AFV372'));
-  assert.ok(history.startsWith('AFV372 — Mobile Homepage About Card Placement Fix'));
+  assert.equal(pkg.version, '373.0.0');
+  assert.equal(lock.version, '373.0.0');
+  assert.equal(lock.packages[''].version, '373.0.0');
+  assert.ok(readme.includes('Current release: AFV373'));
+  assert.ok(history.startsWith('AFV373 — Mobile Homepage About Card Placement Fix'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
@@ -57,7 +57,7 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
 });
 
 
-test('AFV372 places the homepage About card after the safety card and limits spacing changes to mobile', () => {
+test('AFV373 places the homepage About card after the safety card and limits spacing changes to mobile', () => {
   const index = read('index.html');
   const styles = read('footer-reference.css');
   const mainClose = index.indexOf('</main>');
@@ -65,5 +65,5 @@ test('AFV372 places the homepage About card after the safety card and limits spa
   const socialDestination = index.indexOf('id="desktopSocialDestination"');
   assert.ok(aboutCard > socialDestination && aboutCard < mainClose, 'About card must be the final homepage content card, after the social destination and before page navigation/footer');
   assert.ok(styles.includes('@media (max-width: 700px)'), 'spacing correction must be mobile-only');
-  assert.ok(styles.includes('margin: 4px auto 2px !important'), 'About card must have a 4px top and 2px bottom margin on mobile');
+  assert.ok(styles.includes('margin: 4px 0 2px !important'), 'About card must have a 4px top and 2px bottom margin on mobile');
 });
