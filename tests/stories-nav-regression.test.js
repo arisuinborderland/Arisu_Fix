@@ -143,8 +143,8 @@ test('AFV373 preserves homepage About card width while limiting spacing changes 
   assert.match(mobileFix, /@media \(max-width: 700px\)/);
   assert.match(mobileFix, /width: min\(calc\(100vw - 52px\), 960px\) !important/);
   assert.match(mobileFix, /margin: 4px 0 2px !important/);
-  assert.match(mobileFix, /\.about-page-cta\s*\{/);
-  assert.doesNotMatch(mobileFix.split('@media (min-width: 760px)')[0], /\.about-page-cta\s*\{[^}]*width:\s*[^;]*!/);
+  assert.match(css, /about-link-section \.about-cta-profile\{width:68px;height:68px;flex-basis:68px/);
+  assert.match(css, /about-link-section \.about-cta-title\{font-size:clamp\(1rem,4\.5vw,1\.3rem\)/);
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
