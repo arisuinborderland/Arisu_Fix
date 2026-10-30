@@ -1,3 +1,8 @@
+AFV369 — Restore Homepage About CTA
+- Restores the prominent “Learn More About Arisu Fix” card above the compact footer on the homepage.
+- Keeps the compact shared footer link grid and removes the Reviews stars and Recovery Proofs preview CTA from the footer.
+- Refreshes footer stylesheet cache tokens and synchronizes release metadata.
+
 AFV368 — Compact Shared Footer
 - Replaces page-specific footer layouts with one consistent, compact responsive footer across Home, Reviews, Recovery Proofs, and About.
 - Uses inline SVG icons, two location/service tiles, a two-column link grid, and centered copyright details.
