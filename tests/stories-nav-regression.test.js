@@ -141,7 +141,7 @@ test('AFV373 preserves homepage About card width while limiting spacing changes 
   const mobileFix = css.split('AFV373 — mobile-only homepage About card sizing/spacing correction.')[1];
   assert.ok(mobileFix, 'mobile About card width correction must exist');
   assert.match(mobileFix, /@media \(max-width: 700px\)/);
-  assert.match(mobileFix, /width: min\(calc\(100vw - 52px\), 960px\) !important/);
+  assert.match(mobileFix, /width: min\(calc\(100vw - 28px\), 960px\) !important/);
   assert.match(mobileFix, /margin: 4px 0 2px !important/);
   assert.match(css, /about-link-section \.about-cta-profile\{width:68px;height:68px;flex-basis:68px/);
   assert.match(css, /about-link-section \.about-cta-title\{font-size:clamp\(1rem,4\.5vw,1\.3rem\)/);
