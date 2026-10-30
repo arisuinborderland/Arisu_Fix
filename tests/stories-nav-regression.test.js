@@ -9,7 +9,7 @@ test('Stories navigation stays visible when stories are empty or the API fails',
   assert.doesNotMatch(source, /mobileStoriesButton\.hidden\s*=\s*true/);
   assert.match(source, /must never hide the bottom-navigation button/);
   assert.match(source, /const refreshed = await load\(\)/);
-  assert.match(source, /if \(refreshed && stories\.length\) showAt\(0\)/);
+  assert.match(source, /if \(refreshed && stories\.length\) \{[\s\S]*?await preloadImage\(stories\[0\]\.imageUrl\);[\s\S]*?showAt\(0\);/);
 });
 
 
@@ -32,10 +32,10 @@ test('Story navigation never wraps from the final story back to the first', () =
 
 
 test('Stories button opens cached stories immediately and never displays a loading modal', () => {
-  assert.match(source, /if \(stories\.length\) \{\s*showAt\(0\);/);
+  assert.match(source, /if \(stories\.length\) \{[\s\S]*?await preloadImage\(stories\[0\]\.imageUrl\);[\s\S]*?showAt\(0\);/);
   assert.match(source, /load\(\)\.then\(refreshed =>/);
-  assert.match(source, /const refreshed = await load\(\);\s*if \(requestId !== storyOpenRequestId\) return;\s*if \(refreshed && stories\.length\) showAt\(0\);/);
-  assert.match(source, /else showEmptyState\(refreshed \? 'empty' : 'unavailable'\)/);
+  assert.match(source, /const refreshed = await load\(\);\s*if \(requestId !== storyOpenRequestId\) return;\s*if \(refreshed && stories\.length\) \{\s*await preloadImage\(stories\[0\]\.imageUrl\);\s*if \(requestId !== storyOpenRequestId\) return;\s*showAt\(0\);/);
+  assert.match(source, /else \{\s*showEmptyState\(refreshed \? 'empty' : 'unavailable'\);\s*\}/);
   assert.doesNotMatch(source, /showEmptyState\(['"]loading['"]\)/);
   assert.doesNotMatch(source, /state === ['"]loading['"][\s\S]*?Loading Stories/);
 });
