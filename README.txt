@@ -1,3 +1,9 @@
+AFV375 — Additional Homepage Leftover CSS Cleanup
+- Removed nine empty media-query blocks and their stale comments from styles.css; they contained no active declarations.
+- Removed obsolete homepage inline About CTA styles targeting `.about-link-section` / `.about-page-cta`; the live footer uses `.reference-about-section` / `.reference-about-cta` instead.
+- Simplified stylesheet cache-busting URLs for styles.css and footer-reference.css to the AFV375 version token.
+- Preserved the live Remember outer-card inset and the approved shared footer styling.
+
 AFV375 — Homepage-only dead footer CSS cleanup
 - Removed 77 legacy homepage `.site-footer` rules because the live Homepage uses `.reference-footer` markup.
 - Kept the approved Remember card, shared reference footer, desktop styles, and other pages intact.
