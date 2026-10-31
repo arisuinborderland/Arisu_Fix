@@ -1,3 +1,9 @@
+AFV368 — Match Shared Footer to Approved Reference
+- Replaces inconsistent footer markup across Homepage, Reviews, Proofs, and About with one shared, isolated footer component.
+- Matches the approved mobile reference: About This Website CTA, six two-column navigation cards, divider, copyright, and tagline.
+- Adds footer-reference.css to the production build allowlist and scopes its styles to the footer component so page content and fixed bottom navigation are not restyled.
+- Synchronizes package metadata and release documentation to AFV368 / 368.0.0.
+
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
