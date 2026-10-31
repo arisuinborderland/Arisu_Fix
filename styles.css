@@ -10872,11 +10872,4 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 }
 
 
-/* AFV372 spacing correction: target the actual nested Homepage section.
-   The previous main > .site-section selector did not match this markup.
-   Reduce the mobile-only gap after Remember by 91px; keep desktop unchanged. */
-@media (max-width: 600px) {
-  html body.home-page .why-arisu-section {
-    margin-bottom: -91px !important;
-  }
-}
+/* AFV372: removed the -91px mobile override because it caused the About section to overlap the Remember card. */
