@@ -15,3 +15,11 @@ test('Homepage mobile footer padding is declared once in the adjacent 700px medi
 test('Homepage mobile footer cleanup retains safe-area bottom navigation clearance', () => {
   assert.match(css, /@media \(max-width: 700px\) \{\s*html body\.home-page \.site-footer \{\s*padding-bottom: 6px !important;\s*\}\s*html body\.home-page \{\s*padding-bottom: calc\(88px \+ env\(safe-area-inset-bottom\)\) !important;/);
 });
+
+
+test('Homepage mobile footer spacing is consolidated instead of stacked as overrides', () => {
+  assert.match(css, /@media\s+\(max-width:\s*600px\)\s*\{[\s\S]*?html body\.home-page \.why-arisu-section > \.why-arisu-card\s*\{\s*margin-bottom:\s*-50px !important;/);
+  assert.match(css, /html body\.home-page main \{ padding-bottom: 0 !important; \}\s*html body\.home-page \.site-footer \{ margin-top: 2px !important; \}/);
+  assert.equal((css.match(/html body\.home-page \.site-footer \{ margin-top: 2px !important; \}/g) || []).length, 1);
+  assert.doesNotMatch(css, /html body\.home-page \.site-footer \{\s*margin-top: -62px !important;/);
+});
