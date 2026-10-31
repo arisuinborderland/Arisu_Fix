@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV369
+Version: AFV370
 Updated: 2026-10-31
 
-Current release: AFV369
-Package version: 369.0.0
+Current release: AFV370
+Package version: 370.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV370 increases mobile footer bottom clearance on Homepage, Reviews, and Proofs so the “Built on trust. Focused on recovery.” tagline remains visible above fixed bottom navigation; refreshes the three page-specific stylesheet cache tokens. Desktop styles and footer card sizing are unchanged.
 - AFV369 sets the homepage mobile About eyebrow 2px below its top border, targets a 4px Remember-to-About gap, and compacts the mobile About section/profile while changing the CTA to “Explore My Story”. Changes are limited to mobile spacing and relevant cache tokens; desktop layout and other card dimensions are preserved.
 - AFV368 replaces the inconsistent footer markup on Homepage, Reviews, Proofs, and About with one scoped, responsive footer matching the approved mobile reference: About CTA, six two-column link cards, divider, copyright, and tagline. The footer stylesheet is isolated from page content and bottom navigation.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
