@@ -140,7 +140,7 @@
    on Homepage, Reviews, and Proofs. Do not change other header spacing. */
 /* Mainpage only: 6px effective gap (12px header gap minus 6px margin). */
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: -6px !important;
+  margin-left: -2px !important;
 }
 
 /* Preserve the existing spacing on Reviews and Proofs. */
