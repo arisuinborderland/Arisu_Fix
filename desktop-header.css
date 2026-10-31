@@ -204,3 +204,42 @@ html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a
     max-width: 108px !important;
   }
 }
+
+
+/* Reviews and Proofs: match the homepage Privacy Policy card reduction (4px per side). */
+@media (min-width: 701px) {
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible {
+    width: 156px !important;
+    min-width: 156px !important;
+    max-width: 156px !important;
+  }
+}
+@media (max-width: 760px) {
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+  }
+}
+@media (max-width: 390px) {
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
+    width: 118px !important;
+    min-width: 118px !important;
+    max-width: 118px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
+    width: 108px !important;
+    min-width: 108px !important;
+    max-width: 108px !important;
+  }
+}
