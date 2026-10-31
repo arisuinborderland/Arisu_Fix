@@ -134,17 +134,25 @@
 }
 
 
-/* AFV378 approved header-only refinement: tighten the two buttons and underline About. */
+/* AFV378 header refinement: keep the two buttons close on all three pages.
+   Underline About once on the homepage only; Reviews and Proofs stay un-underlined. */
 html body.home-page header.topbar.topbar > div.header-meta.header-meta,
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta {
   gap: 2px !important;
 }
 
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span,
-html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span,
-html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
-  text-decoration: underline !important;
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
+  text-decoration: none !important;
+}
+
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
+  text-decoration-line: underline !important;
   text-underline-offset: 3px !important;
   text-decoration-thickness: 1px !important;
+}
+
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
+  text-decoration: none !important;
 }
