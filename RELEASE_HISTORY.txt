@@ -1,3 +1,8 @@
+AFV382 — Reviews + Proofs mobile outer-card inset
+- Applied the homepage-proven outer-card sizing pattern: width calc(100% - 4px), centered with auto side margins, yielding a 2px viewport inset.
+- Removed the horizontal padding from the mobile main containers so it does not stack with the 2px card inset.
+- Kept the change mobile-only; inner card padding and desktop layout remain unchanged.
+
 AFV381 — Restore 2px Mobile Outer Margins on Reviews and Proofs
 - Changed only the existing mobile horizontal padding on the Reviews and Proofs main wrappers to 2px.
 - Preserved inner card padding, desktop layout, header button styling, and shared footer styling.
