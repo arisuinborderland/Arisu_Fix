@@ -524,3 +524,12 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
     line-height: 1.5;
   }
 }
+
+
+/* TEMP TEST — homepage mobile outer Learn More card width minus 4px; remove if preview does not match. */
+@media (max-width: 600px) {
+  html body.home-page .reference-footer .reference-about-cta {
+    width: calc(100% - 4px) !important;
+    margin-inline: auto !important;
+  }
+}
