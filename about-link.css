@@ -451,3 +451,96 @@ html body.home-page .topbar > .header-meta > .privacy-link {
     white-space: nowrap !important;
   }
 }
+
+
+/* Reference correction: use an explicit mobile footer grid so links do not wrap into tall rows. */
+@media (max-width: 600px) {
+  html body.home-page footer.site-footer {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    row-gap: 0 !important;
+    column-gap: 12px !important;
+    padding: 0 16px calc(34px + env(safe-area-inset-bottom, 0px)) !important;
+    margin: 0 !important;
+  }
+
+  html body.home-page footer.site-footer > section.about-link-section {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    margin: 0 0 2px !important;
+    justify-self: stretch !important;
+  }
+
+  html body.home-page footer.site-footer > .footer-location {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin: 0 0 22px !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  html body.home-page footer.site-footer > .footer-links {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: repeat(3, auto) !important;
+    grid-auto-flow: row !important;
+    align-items: center !important;
+    justify-items: start !important;
+    gap: 20px 10px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body.home-page footer.site-footer > .footer-links > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+  }
+
+  html body.home-page footer.site-footer > .footer-links > a > svg {
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px !important;
+  }
+
+  html body.home-page footer.site-footer > .footer-links > a > span {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+  }
+
+  html body.home-page footer.site-footer > .footer-links > a:nth-of-type(1) { grid-column: 1 !important; grid-row: 1 !important; }
+  html body.home-page footer.site-footer > .footer-links > a:nth-of-type(2) { grid-column: 2 !important; grid-row: 1 !important; }
+  html body.home-page footer.site-footer > .footer-links > a:nth-of-type(3) { grid-column: 1 !important; grid-row: 2 !important; }
+  html body.home-page footer.site-footer > .footer-links > a:nth-of-type(4) { grid-column: 2 !important; grid-row: 2 !important; }
+  html body.home-page footer.site-footer > .footer-links > a:nth-of-type(5) { grid-column: 1 !important; grid-row: 3 !important; }
+
+  html body.home-page footer.site-footer > .footer-links > .footer-copyright {
+    display: inline-flex !important;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    align-self: center !important;
+    justify-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+  }
+}
