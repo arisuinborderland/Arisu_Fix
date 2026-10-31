@@ -440,7 +440,6 @@ html body.reviews-document .review-view-prompt {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  margin-top: 9px;
   color: #4169d8;
   font-size: 10px;
   line-height: 1.35;
@@ -821,11 +820,6 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   margin-block: 0 !important;
   vertical-align: middle !important;
 }
-
-
-/* AFV376: Reviews page only — close the gap between the Reviews outer card and the shared Learn More footer card.
-   The screenshot shows about 49 CSS px; reduce that flow gap by 47px to leave the requested 2px.
-   Keep mobile-only and do not alter the announcement card's internal spacing. */
 @media (max-width: 700px) {
   html body.reviews-document .reviews-page-main {
     margin-bottom: -47px !important;
