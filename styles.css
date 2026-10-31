@@ -10870,3 +10870,13 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     margin-right: auto !important;
   }
 }
+
+
+/* AFV372: remove 91px of excess space after the Remember card on mobile.
+   The footer should begin about 2px below the visible Remember outer card.
+   Desktop layout is unaffected. */
+@media (max-width: 600px) {
+  html body.home-page main > .site-section.why-arisu-section {
+    margin-bottom: -91px !important;
+  }
+}
