@@ -411,3 +411,16 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     margin-right: auto !important;
   }
 }
+
+
+/* AFV372: close the vertical gap between the final Remember section and the shared footer on mobile.
+   Scope to Homepage only; preserve the footer's internal spacing and all desktop layouts. */
+@media (max-width: 600px) {
+  html body.home-page main {
+    padding-bottom: 0 !important;
+  }
+  html body.home-page .reference-footer {
+    margin-top: 2px !important;
+    padding-top: 0 !important;
+  }
+}
