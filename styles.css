@@ -10859,18 +10859,14 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 }
 
 
-/* Mobile homepage: set Remember panel to a 2px inset from the Why Choose Arisu outer card.
-   Refresh styles.css cache token in index.html whenever this rule changes. */
+/* Mobile homepage: set the Remember outer card itself to a 2px viewport inset.
+   This targets the enclosing Why Arisu card, not the inner safety panel. */
 @media screen and (max-width: 640px) {
-  html body.home-page .why-arisu-card > .safety-section-inline {
+  html body.home-page .why-arisu-section > .why-arisu-card {
     box-sizing: border-box !important;
-    width: calc(100% + 24px) !important;
+    width: calc(100% - 4px) !important;
     max-width: none !important;
-    margin-left: -12px !important;
-    margin-right: -12px !important;
-  }
-  html body.home-page .why-arisu-card > .safety-section-inline > .safety-panel {
-    box-sizing: border-box !important;
-    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
