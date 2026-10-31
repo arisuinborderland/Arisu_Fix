@@ -146,11 +146,7 @@ html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about
   text-decoration: none !important;
 }
 
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
-  text-decoration-line: underline !important;
-  text-underline-offset: 3px !important;
-  text-decoration-thickness: 1px !important;
-}
+/* Saved-layout follow-up: keep the homepage About label un-underlined. */
 
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
