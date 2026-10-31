@@ -68,9 +68,9 @@
   html body header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
   html body header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
   html body header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible {
-    width: 164px !important;
-    min-width: 164px !important;
-    max-width: 164px !important;
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
   }
 
   html body header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
