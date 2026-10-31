@@ -348,3 +348,16 @@ body.about-page .mobile-bottom-nav { display:none; }
   html body.about-page .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon { fill:currentColor; stroke:none; stroke-width:0; }
 }
 @media (prefers-reduced-motion:reduce) { html body.about-page .mobile-bottom-nav * { transition:none !important; animation:none !important; } }
+
+/* AFV375 — compact About-page footer spacing only; preserve the approved shared footer design. */
+html body.about-page > footer.site-footer.footer-reference {
+  margin-top: 2px !important;
+}
+@media (max-width: 700px) {
+  html body.about-page .about-page-main {
+    padding-bottom: 0 !important;
+  }
+  html body.about-page > footer.site-footer.footer-reference {
+    margin-top: 2px !important;
+  }
+}
