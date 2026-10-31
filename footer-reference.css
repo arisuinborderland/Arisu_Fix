@@ -15,7 +15,7 @@
   box-shadow: none;
   font-family: Manrope, Arial, sans-serif;
 }
-body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
+body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !important; }
 .reference-footer *,
 .reference-footer *::before,
 .reference-footer *::after { box-sizing: border-box; }
