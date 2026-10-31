@@ -134,9 +134,12 @@
 }
 
 
-/* AFV380 — effective 2px gap between Privacy Policy and About.
-   header-meta uses a 12px flex gap, so -10px margin gives 2px effective spacing. */
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
+/* Homepage: preserve its already-approved 2px spacing. */
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+  margin-left: 2px !important;
+}
+
+/* Reviews and Proofs: 12px flex gap minus 10px margin = 2px effective gap. */
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
   margin-left: -10px !important;
