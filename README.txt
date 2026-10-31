@@ -1,3 +1,8 @@
+AFV375 — Final homepage cascade double-check
+- Removed the unused `about-link.css` stylesheet link from the homepage; its selectors target old `.site-footer` / `.about-link-section` markup absent from the current homepage HTML.
+- Removed the duplicate inline Remember inset rule. The same rule remains in `styles.css` and covers the full mobile range through 640px, preserving the approved 2px inset without duplicate declarations.
+- Kept the `about-link.css` file itself untouched as a legacy asset; no other checked page loads it.
+
 AFV375 — Additional homepage spacing-override cleanup
 - Removed the obsolete 5px mobile top-padding / 10px heading-margin block; later homepage-specific rules already win in the cascade.
 - Removed superseded 0px top-padding and 10px bottom-padding declarations from the mobile outer-card rule; retained the active 2px bottom padding and -53px flow adjustment.
