@@ -15,3 +15,10 @@ test('Homepage mobile footer padding is declared once in the adjacent 700px medi
 test('Homepage mobile footer cleanup retains safe-area bottom navigation clearance', () => {
   assert.match(css, /@media \(max-width: 700px\) \{\s*html body\.home-page \.site-footer \{\s*padding-bottom: 6px !important;\s*\}\s*html body\.home-page \{\s*padding-bottom: calc\(88px \+ env\(safe-area-inset-bottom\)\) !important;/);
 });
+
+
+test('AFV368 mobile footer cancels the translated homepage card flow space and uses a 2px gap', () => {
+  assert.match(css, /html body\.home-page main > section#why-choose-arisu > \.why-arisu-card\s*\{\s*margin-bottom: -50px !important;/);
+  assert.match(css, /html body\.home-page main\s*\{\s*padding-bottom: 0 !important;/);
+  assert.match(css, /html body\.home-page \.site-footer\s*\{\s*margin-top: 2px !important;/);
+});
