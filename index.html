@@ -41,6 +41,14 @@
 <script src="header-scroll.js?v=AFV267" defer></script>
  <link rel="stylesheet" href="footer-reference.css?v=AFV375">
  <link rel="stylesheet" href="desktop-header.css?v=AFV319">
+<!-- Homepage-only fix: remove underline from the About header button text without changing layout. -->
+<style>
+  html body.home-page .topbar > .header-meta > .about-header-link,
+  html body.home-page .topbar > .header-meta > .about-header-link span {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+  }
+</style>
 </head>
 <body class="home-page" id="top">
 <header class="topbar">
