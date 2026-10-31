@@ -143,17 +143,10 @@ html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.priva
   margin-left: 2px !important;
 }
 
-/* Preserve the existing spacing on Reviews and Proofs. */
+/* Reviews and Proofs: match the requested 2px About-button margin. */
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: 6px !important;
-}
-
-@media screen and (max-width: 700px) {
-  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
-  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-    margin-left: 12px !important;
-  }
+  margin-left: 2px !important;
 }
 
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
