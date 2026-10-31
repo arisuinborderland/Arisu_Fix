@@ -384,3 +384,18 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     line-height: 1.5;
   }
 }
+
+/* Keep compact footer text above the fixed mobile navigation without adding a large visible footer gap. */
+@media screen and (max-width: 600px) {
+  html body.home-page,
+  html body.reviews-document,
+  html body.proofs-document {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body.home-page .reference-footer .reference-footer-legal,
+  html body.reviews-document .reference-footer .reference-footer-legal,
+  html body.proofs-document .reference-footer .reference-footer-legal {
+    padding-bottom: 12px !important;
+  }
+}
