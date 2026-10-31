@@ -1,3 +1,8 @@
+AFV384 — Reviews footer 2px mobile inset
+- Set the Reviews page shared footer outer container to width calc(100% - 4px), centered, at viewport widths up to 600px.
+- No inner tile padding, other pages, or desktop rules changed.
+- Updated reviews.css cache token and package metadata to AFV384 / 384.0.0.
+
 AFV383 — Force homepage-style 2px mobile outer-card inset
 - Matched the homepage sizing rule, including !important on box-sizing, width calc(100% - 4px), max-width, and centered side margins.
 - Limited to Reviews and Proofs outer cards on mobile; inner padding and desktop layout unchanged.
