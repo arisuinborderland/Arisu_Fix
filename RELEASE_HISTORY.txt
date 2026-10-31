@@ -1,3 +1,7 @@
+AFV375 — Additional homepage spacing-override cleanup
+- Removed mobile spacing declarations already superseded by later, more-specific homepage rules (5px top padding, 10px heading margin, duplicate 0px top padding, and 10px bottom padding).
+- Preserved the active 2px bottom padding and -53px flow-space adjustment used by the approved layout.
+
 AFV375 — Additional Homepage Leftover CSS Cleanup
 - Removed 9 empty media-query blocks and stale comments from styles.css.
 - Removed obsolete inline homepage About CTA CSS because those selectors do not exist in the current homepage markup.
