@@ -7089,10 +7089,10 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   }
 }
 
-/* reduce the outer card bottom spacing after Remember by another 2px on mobile. */
+/* test: remove the negative bottom margin after Remember on mobile. */
 @media  (max-width: 640px)  {
   html body.home-page .why-arisu-card > .safety-section-inline {
-    margin-bottom: -10px !important;
+    margin-bottom: 0px !important;
   }
 }
 
