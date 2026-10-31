@@ -1,3 +1,8 @@
+AFV383 — Force homepage-style 2px mobile outer-card inset
+- Matched the homepage sizing rule, including !important on box-sizing, width calc(100% - 4px), max-width, and centered side margins.
+- Limited to Reviews and Proofs outer cards on mobile; inner padding and desktop layout unchanged.
+- Refreshed page-specific CSS cache tokens.
+
 AFV382 — Reviews + Proofs mobile outer-card inset
 - Applied the homepage-proven outer-card sizing pattern: width calc(100% - 4px), centered with auto side margins, yielding a 2px viewport inset.
 - Removed the horizontal padding from the mobile main containers so it does not stack with the 2px card inset.
