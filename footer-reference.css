@@ -269,13 +269,13 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
   }
 }
 
-/* AFV369: homepage mobile About eyebrow sits 2px below the top border. */
+/* AFV369: move the entire mobile About content 2px down from its top border. */
 @media (max-width: 600px) {
   body.home-page .reference-footer .reference-about-section {
-    padding-top: 0;
+    padding-top: 2px;
   }
   body.home-page .reference-footer .reference-about-cta {
-    padding-top: 2px;
+    padding-top: 0;
   }
 }
 
