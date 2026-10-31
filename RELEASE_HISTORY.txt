@@ -1,5 +1,5 @@
 AFV369 — Set Mobile About Top Gap to 2px
-- Sets the homepage mobile About section spacing so the “ABOUT THIS WEBSITE” eyebrow sits 2px below the top border.
+- Sets the homepage mobile About eyebrow 2px below its top border and targets a 2px gap between the Remember outer card and the About footer.
 - Refreshes the footer-reference.css cache-busting token to AFV369.
 - Synchronizes package.json, package-lock.json, and README to AFV369 / 369.0.0.
 
