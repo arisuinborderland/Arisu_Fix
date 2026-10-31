@@ -10857,3 +10857,13 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV368 — Homepage footer container gap.
+   The outer footer begins 2px after the Remember card on mobile.
+   Keep inner card sizing and footer contents unchanged. */
+@media (max-width: 700px) {
+  html body.home-page > footer.site-footer {
+    margin-top: 2px !important;
+  }
+}
