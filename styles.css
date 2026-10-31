@@ -10857,3 +10857,15 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* Mobile homepage: bring the Remember panel to a 2px inset from the surrounding card. */
+@media screen and (max-width: 640px) {
+  html body.home-page .why-arisu-card > .safety-section-inline {
+    box-sizing: border-box !important;
+    width: calc(100% + 52px) !important;
+    max-width: none !important;
+    margin-left: -26px !important;
+    margin-right: -26px !important;
+  }
+}
