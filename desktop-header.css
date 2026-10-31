@@ -132,3 +132,19 @@
     visibility: visible !important;
   }
 }
+
+/* AFV380 spacing-only carryover for main: preserve all button dimensions and page layout. */
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+  margin-left: 4px !important;
+}
+
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+  margin-left: -10px !important;
+}
+
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
+  text-decoration: none !important;
+}
