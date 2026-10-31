@@ -743,12 +743,12 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
 /* AFV370: keep the mobile footer tagline clear of fixed navigation on the three compact pages. */
 @media screen and (max-width: 600px) {
   body.home-page footer.reference-footer .reference-footer-legal {
-    padding-bottom: 100px !important;
+    padding-bottom: 22px !important;
   }
   body.reviews-document footer.reference-footer .reference-footer-legal {
-    padding-bottom: 100px !important;
+    padding-bottom: 22px !important;
   }
   body.proofs-document footer.reference-footer .reference-footer-legal {
-    padding-bottom: 100px !important;
+    padding-bottom: 22px !important;
   }
 }
