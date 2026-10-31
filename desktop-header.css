@@ -134,25 +134,19 @@
 }
 
 
-/* AFV378 header refinement: keep the two buttons close on all three pages.
-   Underline About once on the homepage only; Reviews and Proofs stay un-underlined. */
+/* AFV378 targeted header fix: 4px gap; no About underline on any page. */
 html body.home-page header.topbar.topbar > div.header-meta.header-meta,
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta {
-  gap: 2px !important;
+  gap: 4px !important;
 }
 
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
-  text-decoration: none !important;
-}
-
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
-  text-decoration-line: underline !important;
-  text-underline-offset: 3px !important;
-  text-decoration-thickness: 1px !important;
-}
-
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span,
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
-html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
   text-decoration: none !important;
+  text-decoration-line: none !important;
 }
