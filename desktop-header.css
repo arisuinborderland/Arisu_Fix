@@ -146,11 +146,8 @@ html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about
   text-decoration: none !important;
 }
 
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
-  text-decoration-line: underline !important;
-  text-underline-offset: 3px !important;
-  text-decoration-thickness: 1px !important;
-}
+/* AFV378 follow-up: removed the homepage-only span underline override.
+   The About header button and label should remain un-underlined. */
 
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
