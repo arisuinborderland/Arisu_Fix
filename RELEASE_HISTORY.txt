@@ -1,3 +1,7 @@
+AFV374 — Add 4px to Remember-to-About Mobile Gap
+- Changed the Homepage-only mobile Remember card margin-bottom from -57px to -53px to increase the external vertical gap by 4px.
+- Updated cache-busting and package metadata to AFV374 / 374.0.0.
+
 AFV373 — Homepage Mobile Gap +4px
 - Increased the Homepage-only mobile margin between the Remember section and About This Website footer card from 2px to 6px.
 - Updated the Homepage stylesheet cache token and package metadata to AFV373 / 373.0.0.
