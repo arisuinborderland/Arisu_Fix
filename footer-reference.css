@@ -378,3 +378,87 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     padding-bottom: 9px;
   }
 }
+
+/* AFV369: apply the approved compact About/footer layout to Reviews on mobile only. */
+@media (max-width: 600px) {
+  body.reviews-document .reference-footer {
+    margin-top: 0;
+  }
+  body.reviews-document .reference-footer .reference-about-section {
+    padding: 6px 16px 9px;
+  }
+  body.reviews-document .reference-footer .reference-about-cta {
+    gap: 10px;
+    padding: 2px 0;
+  }
+  body.reviews-document .reference-footer .reference-about-profile {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+  }
+  body.reviews-document .reference-footer .reference-about-copy {
+    gap: 4px;
+  }
+  body.reviews-document .reference-footer .reference-about-title {
+    font-size: clamp(17px, 4.7vw, 20px);
+    line-height: 1.22;
+  }
+  body.reviews-document .reference-footer .reference-about-description {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  body.reviews-document .reference-footer .reference-about-action {
+    min-height: 30px;
+    margin-top: 2px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  body.reviews-document .reference-footer .reference-about-action svg {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+  body.reviews-document .reference-footer .reference-footer-grid {
+    gap: 7px;
+    padding: 8px 16px 10px;
+  }
+  body.reviews-document .reference-footer .reference-footer-card {
+    grid-template-columns: 36px minmax(0, 1fr) 8px;
+    gap: 7px;
+    min-height: 64px;
+    padding: 7px;
+    border-radius: 13px;
+  }
+  body.reviews-document .reference-footer .reference-footer-icon {
+    width: 36px;
+    height: 36px;
+  }
+  body.reviews-document .reference-footer .reference-footer-icon svg {
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
+  }
+  body.reviews-document .reference-footer .reference-footer-copy {
+    gap: 2px;
+  }
+  body.reviews-document .reference-footer .reference-footer-copy strong {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  body.reviews-document .reference-footer .reference-footer-copy > span {
+    font-size: 10.5px;
+    line-height: 1.25;
+  }
+  body.reviews-document .reference-footer .reference-footer-arrow {
+    width: 8px;
+    height: 13px;
+  }
+  body.reviews-document .reference-footer .reference-footer-legal {
+    width: calc(100% - 32px);
+    padding: 8px 0 38px;
+  }
+  body.reviews-document .reference-footer .reference-footer-legal p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
