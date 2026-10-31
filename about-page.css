@@ -320,7 +320,7 @@ body.about-page .about-floating-home { display:none !important; }
 body.about-page { padding-bottom:0; }
 body.about-page .mobile-bottom-nav { display:none; }
 @media screen and (max-width:700px) {
-  html body.about-page { padding-bottom:calc(84px + env(safe-area-inset-bottom,0px)) !important; }
+  html body.about-page { padding-bottom:calc(72px + env(safe-area-inset-bottom,0px)) !important; }
   html body.about-page .mobile-bottom-nav {
     -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
     position:fixed; left:0; right:0; bottom:0; z-index:2147482500;
