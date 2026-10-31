@@ -1,3 +1,8 @@
+AFV375 — Final homepage cascade double-check
+- Removed the homepage link to the unused legacy `about-link.css` stylesheet.
+- Removed the duplicate inline Remember inset block; the canonical rule in `styles.css` remains active for mobile up to 640px.
+- No approved layout dimensions or spacing values changed.
+
 AFV375 — Additional homepage spacing-override cleanup
 - Removed mobile spacing declarations already superseded by later, more-specific homepage rules (5px top padding, 10px heading margin, duplicate 0px top padding, and 10px bottom padding).
 - Preserved the active 2px bottom padding and -53px flow-space adjustment used by the approved layout.
