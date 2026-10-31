@@ -1,3 +1,8 @@
+AFV375 — Additional homepage spacing-override cleanup
+- Removed the obsolete 5px mobile top-padding / 10px heading-margin block; later homepage-specific rules already win in the cascade.
+- Removed superseded 0px top-padding and 10px bottom-padding declarations from the mobile outer-card rule; retained the active 2px bottom padding and -53px flow adjustment.
+- No target spacing values or approved layout dimensions were changed.
+
 AFV375 — Additional Homepage Leftover CSS Cleanup
 - Removed nine empty media-query blocks and their stale comments from styles.css; they contained no active declarations.
 - Removed obsolete homepage inline About CTA styles targeting `.about-link-section` / `.about-page-cta`; the live footer uses `.reference-about-section` / `.reference-about-cta` instead.
