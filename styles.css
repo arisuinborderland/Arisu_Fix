@@ -3432,9 +3432,6 @@ body.home-page .safety-panel,
 body.home-page .terms-card {
   margin-top: 0 !important;
 }
-body.home-page .site-footer {
-  margin-top: 18px !important;
-}
 @media  (min-width: 601px)  {
   body.home-page .site-section { margin-top: 28px !important; }
   body.home-page .social-collage { gap: 12px !important; }
@@ -3455,7 +3452,6 @@ body.home-page .site-footer {
   body.home-page .about-card,
   body.home-page .safety-panel,
   body.home-page .terms-card { padding-top: 14px !important; padding-bottom: 14px !important; }
-  body.home-page .site-footer { margin-top: 12px !important; }
 }
 @media  (max-width: 380px)  {
   body.home-page .social-collage { gap: 7px !important; }
@@ -6388,11 +6384,14 @@ body.home-page .purpose-card .purpose-kicker {
   }
 }
 
-/* bring the footer closer to the Legitimate Account Recovery card on mobile.
-   Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
+/* Homepage mobile footer spacing: reclaim the translated card's flow space once,
+   then use a single 2px gap before the footer. Preserve bottom-nav safe-area padding. */
 @media  (max-width: 600px)  {
-  html body.home-page main { padding-bottom: 8px !important; }
-  html body.home-page .site-footer { margin-top: 4px !important; }
+  html body.home-page .why-arisu-section > .why-arisu-card {
+    margin-bottom: -50px !important;
+  }
+  html body.home-page main { padding-bottom: 0 !important; }
+  html body.home-page .site-footer { margin-top: 2px !important; }
 }
 
 /* consolidate repeated mobile WhatsApp spacing adjustments.
@@ -8150,11 +8149,6 @@ html body.home-page .why-arisu-section > .why-arisu-card {
     top: auto !important;
     translate: 0 -70px !important;
   }
-}
-
-
-html body.home-page .site-footer {
-  margin-top: -62px !important;
 }
 
 
