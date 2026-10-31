@@ -10857,3 +10857,12 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* TEMP TEST — homepage mobile outer Remember card width minus 4px; remove if preview does not match. */
+@media (max-width: 600px) {
+  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
+    width: calc(100% - 4px) !important;
+    margin-inline: auto !important;
+  }
+}
