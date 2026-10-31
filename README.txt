@@ -9,7 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV368 fixes the mobile homepage footer gap by collapsing the 50px layout space left behind by the visually lifted Why Choose Arisu card, preserving the card itself and setting the footer's top gap to 2px.
+- AFV368 fixes the mobile homepage footer gap by offsetting the Why Choose Arisu card's existing 50px upward translation in the parent section's normal flow, setting the mobile main bottom padding to 0 and the footer top margin to 2px. Inner card dimensions, footer content, bottom-navigation clearance, and desktop spacing remain unchanged.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
