@@ -271,7 +271,6 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
   }
 }
 @media (max-width: 380px) {
-  html body.proofs-document .topbar { padding-left: 9px; padding-right: 9px; }
   html body.proofs-document .topbar > .brand { gap: 7px; }
   html body.proofs-document .topbar > .brand .logo {
     width: 39px; height: 39px; flex-basis: 39px;
