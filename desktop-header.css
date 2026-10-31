@@ -150,3 +150,11 @@ html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a
   text-decoration: none !important;
   text-decoration-line: none !important;
 }
+
+
+/* AFV378: reduce only Privacy Policy button horizontal padding to 12px on every page. */
+html body header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+html body.privacy-page header.topbar.topbar > a.privacy-about-link.privacy-about-link {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
