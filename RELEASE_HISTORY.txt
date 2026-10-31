@@ -1,3 +1,13 @@
+AFV370 — Keep Mobile Footer Tagline Visible
+- Adds bottom clearance to the shared footer legal block on Homepage, Reviews, and Proofs so the tagline stays above the fixed mobile navigation.
+- Refreshes footer-reference.css cache-busting tokens on index.html, reviews.html, and proofs.html.
+- Synchronizes package.json, package-lock.json, and README to AFV370 / 370.0.0.
+
+AFV369 — Set Mobile About Top Gap to 2px
+- Sets the homepage mobile About eyebrow 2px below its top border and targets a 4px gap between the Remember outer card and the About footer.
+- Refreshes the footer-reference.css cache-busting token to AFV369.
+- Synchronizes package.json, package-lock.json, and README to AFV369 / 369.0.0.
+
 AFV368 — Match Shared Footer to Approved Reference
 - Replaces inconsistent footer markup across Homepage, Reviews, Proofs, and About with one shared, isolated footer component.
 - Matches the approved mobile reference: About This Website CTA, six two-column navigation cards, divider, copyright, and tagline.

@@ -24,7 +24,7 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
   width: 100%;
   margin: 0;
   padding: 14px 22px 10px;
-  border-top: 1px solid #a9d9ff;
+  border-top: 0;
   border-bottom: 1px solid #d8e5f5;
   background: linear-gradient(115deg, #eef8ff 0%, #f4f7ff 54%, #f9f5ff 100%);
 }
@@ -225,8 +225,530 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
   .reference-footer .reference-footer-copy > span { font-size: 10px; }
   .reference-footer .reference-footer-arrow { width: 7px; height: 13px; }
 }
+/* AFV369: compact mobile About section and profile while preserving desktop sizing. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-section {
+    padding: 6px 16px 7px;
+  }
+  body.home-page .reference-footer .reference-about-cta {
+    gap: 12px;
+    padding: 2px 0;
+  }
+  body.home-page .reference-footer .reference-about-profile {
+    flex-basis: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+  }
+  body.home-page .reference-footer .reference-about-copy {
+    gap: 3px;
+  }
+  body.home-page .reference-footer .reference-about-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.1px;
+  }
+  body.home-page .reference-footer .reference-about-title {
+    font-size: clamp(16px, 4.4vw, 19px);
+    line-height: 1.2;
+  }
+  body.home-page .reference-footer .reference-about-description {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  body.home-page .reference-footer .reference-about-action {
+    min-height: 28px;
+    margin-top: 2px;
+    padding: 5px 13px;
+    gap: 7px;
+    font-size: 12px;
+  }
+  body.home-page .reference-footer .reference-about-action svg {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+}
+
+/* AFV369: move the entire mobile About content 2px down from its top border. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-section {
+    padding-top: 2px;
+  }
+  body.home-page .reference-footer .reference-about-cta {
+    padding-top: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reference-footer .reference-footer-card,
   .reference-footer .reference-about-action { transition: none; }
   .reference-footer .reference-footer-card:hover { transform: none; }
+}
+
+/* AFV369: compact the footer link cards on mobile without changing desktop sizing. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-footer-grid {
+    gap: 7px;
+    padding: 8px 16px 10px;
+  }
+  body.home-page .reference-footer .reference-footer-card {
+    grid-template-columns: 36px minmax(0, 1fr) 8px;
+    gap: 7px;
+    min-height: 64px;
+    padding: 7px 7px;
+    border-radius: 13px;
+  }
+  body.home-page .reference-footer .reference-footer-icon {
+    width: 36px;
+    height: 36px;
+  }
+  body.home-page .reference-footer .reference-footer-icon svg {
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
+  }
+  body.home-page .reference-footer .reference-footer-copy {
+    gap: 2px;
+  }
+  body.home-page .reference-footer .reference-footer-copy strong {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  body.home-page .reference-footer .reference-footer-copy > span {
+    font-size: 10.5px;
+    line-height: 1.25;
+  }
+  body.home-page .reference-footer .reference-footer-arrow {
+    width: 8px;
+    height: 13px;
+  }
+  body.home-page .reference-footer .reference-footer-legal {
+    width: calc(100% - 32px);
+    padding: 8px 0 38px;
+  }
+  body.home-page .reference-footer .reference-footer-legal p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
+
+/* AFV369: slightly enlarge the compact mobile About block for readability. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-cta {
+    gap: 10px;
+  }
+  body.home-page .reference-footer .reference-about-profile {
+    flex-basis: 64px;
+    width: 64px;
+    height: 64px;
+  }
+  body.home-page .reference-footer .reference-about-copy {
+    gap: 4px;
+  }
+  body.home-page .reference-footer .reference-about-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.15px;
+  }
+  body.home-page .reference-footer .reference-about-title {
+    font-size: clamp(17px, 4.7vw, 20px);
+    line-height: 1.22;
+  }
+  body.home-page .reference-footer .reference-about-description {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  body.home-page .reference-footer .reference-about-action {
+    min-height: 30px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  body.home-page .reference-footer .reference-about-action svg {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+}
+
+/* AFV369: hide the redundant About eyebrow on mobile for a tighter approved layout. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-eyebrow {
+    display: none;
+  }
+  body.home-page .reference-footer .reference-about-section {
+    padding-bottom: 9px;
+  }
+}
+
+/* AFV369: apply the approved compact About/footer layout to Reviews on mobile only. */
+@media (max-width: 600px) {
+  body.reviews-document .reference-footer {
+    margin-top: 0;
+  }
+  body.reviews-document .reference-footer .reference-about-section {
+    padding: 6px 16px 9px;
+  }
+  body.reviews-document .reference-footer .reference-about-cta {
+    gap: 10px;
+    padding: 2px 0;
+  }
+  body.reviews-document .reference-footer .reference-about-profile {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+  }
+  body.reviews-document .reference-footer .reference-about-copy {
+    gap: 4px;
+  }
+  body.reviews-document .reference-footer .reference-about-title {
+    font-size: clamp(17px, 4.7vw, 20px);
+    line-height: 1.22;
+  }
+  body.reviews-document .reference-footer .reference-about-description {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  body.reviews-document .reference-footer .reference-about-action {
+    min-height: 30px;
+    margin-top: 2px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  body.reviews-document .reference-footer .reference-about-action svg {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+  body.reviews-document .reference-footer .reference-footer-grid {
+    gap: 7px;
+    padding: 8px 16px 10px;
+  }
+  body.reviews-document .reference-footer .reference-footer-card {
+    grid-template-columns: 36px minmax(0, 1fr) 8px;
+    gap: 7px;
+    min-height: 64px;
+    padding: 7px;
+    border-radius: 13px;
+  }
+  body.reviews-document .reference-footer .reference-footer-icon {
+    width: 36px;
+    height: 36px;
+  }
+  body.reviews-document .reference-footer .reference-footer-icon svg {
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
+  }
+  body.reviews-document .reference-footer .reference-footer-copy {
+    gap: 2px;
+  }
+  body.reviews-document .reference-footer .reference-footer-copy strong {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  body.reviews-document .reference-footer .reference-footer-copy > span {
+    font-size: 10.5px;
+    line-height: 1.25;
+  }
+  body.reviews-document .reference-footer .reference-footer-arrow {
+    width: 8px;
+    height: 13px;
+  }
+  body.reviews-document .reference-footer .reference-footer-legal {
+    width: calc(100% - 32px);
+    padding: 8px 0 38px;
+  }
+  body.reviews-document .reference-footer .reference-footer-legal p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
+
+/* AFV369 follow-up: force Reviews mobile footer to use the same compact sizing as Homepage. */
+@media screen and (max-width: 600px) {
+  html body.reviews-document footer.reference-footer > section.reference-about-section {
+    padding: 6px 16px 9px !important;
+    margin: 0 !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-about-cta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-about-profile {
+    flex: 0 0 64px !important;
+    width: 64px !important;
+    height: 64px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-about-copy {
+    gap: 4px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-about-title {
+    font-size: clamp(17px, 4.7vw, 20px) !important;
+    line-height: 1.22 !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-about-description {
+    font-size: 13px !important;
+    line-height: 1.38 !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-about-action {
+    min-height: 30px !important;
+    margin-top: 2px !important;
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+  }
+  html body.reviews-document footer.reference-footer nav.reference-footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    padding: 8px 16px 10px !important;
+    margin: 0 !important;
+  }
+  html body.reviews-document footer.reference-footer nav.reference-footer-grid > a.reference-footer-card {
+    display: grid !important;
+    grid-template-columns: 36px minmax(0, 1fr) 8px !important;
+    align-items: center !important;
+    gap: 7px !important;
+    min-height: 64px !important;
+    height: auto !important;
+    padding: 7px !important;
+    border-radius: 13px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-icon {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-icon svg {
+    width: 21px !important;
+    height: 21px !important;
+    flex-basis: 21px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-copy {
+    min-width: 0 !important;
+    gap: 2px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-copy strong {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-copy > span {
+    font-size: 10.5px !important;
+    line-height: 1.25 !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-arrow {
+    width: 8px !important;
+    height: 13px !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-legal {
+    width: calc(100% - 32px) !important;
+    padding: 8px 0 38px !important;
+    margin: 0 auto !important;
+  }
+  html body.reviews-document footer.reference-footer .reference-footer-legal p {
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+    margin: 0 0 4px !important;
+  }
+}
+
+/* AFV369 compact pass 2: tighten the full Reviews footer to match Homepage mobile proportions. */
+@media screen and (max-width: 600px) {
+  body.reviews-document footer.reference-footer > section.reference-about-section {
+    padding: 2px 16px 7px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-cta {
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-profile {
+    flex: 0 0 60px !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 14px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-copy {
+    gap: 3px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-title {
+    font-size: clamp(16px, 4.4vw, 19px) !important;
+    line-height: 1.2 !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-description {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-action {
+    min-height: 28px !important;
+    margin-top: 2px !important;
+    padding: 5px 13px !important;
+    font-size: 12px !important;
+    gap: 7px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-about-action svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px !important;
+  }
+  body.reviews-document footer.reference-footer nav.reference-footer-grid {
+    gap: 6px !important;
+    padding: 7px 16px 8px !important;
+  }
+  body.reviews-document footer.reference-footer nav.reference-footer-grid > a.reference-footer-card {
+    grid-template-columns: 32px minmax(0, 1fr) 7px !important;
+    gap: 6px !important;
+    min-height: 56px !important;
+    padding: 6px !important;
+    border-radius: 12px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+    flex-basis: 19px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-copy {
+    gap: 1px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-copy strong {
+    font-size: 11.5px !important;
+    line-height: 1.18 !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-copy > span {
+    font-size: 10px !important;
+    line-height: 1.22 !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-arrow {
+    width: 7px !important;
+    height: 12px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-legal {
+    width: calc(100% - 32px) !important;
+    padding: 7px 0 22px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-legal p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-legal p + p {
+    margin-top: 1px !important;
+  }
+}
+
+/* AFV369: compact Proofs-page footer on mobile to match the approved Homepage reference. */
+@media screen and (max-width: 600px) {
+  body.proofs-document footer.reference-footer {
+    margin-top: 0 !important;
+  }
+  body.proofs-document footer.reference-footer > section.reference-about-section {
+    padding: 4px 16px 7px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-eyebrow {
+    display: none !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-cta {
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-profile {
+    flex: 0 0 60px !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 14px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-copy {
+    gap: 3px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-title {
+    font-size: clamp(16px, 4.4vw, 19px) !important;
+    line-height: 1.2 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-description {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-action {
+    min-height: 28px !important;
+    margin-top: 2px !important;
+    padding: 5px 13px !important;
+    font-size: 12px !important;
+    gap: 7px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-action svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-arrow {
+    flex-basis: 15px !important;
+    width: 15px !important;
+    height: 15px !important;
+  }
+  body.proofs-document footer.reference-footer nav.reference-footer-grid {
+    gap: 6px !important;
+    padding: 7px 16px 8px !important;
+  }
+  body.proofs-document footer.reference-footer nav.reference-footer-grid > a.reference-footer-card {
+    grid-template-columns: 32px minmax(0, 1fr) 7px !important;
+    gap: 6px !important;
+    min-height: 56px !important;
+    padding: 6px !important;
+    border-radius: 12px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+    flex-basis: 19px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-copy {
+    gap: 1px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-copy strong {
+    font-size: 11.5px !important;
+    line-height: 1.18 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-copy > span {
+    font-size: 10px !important;
+    line-height: 1.22 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-arrow {
+    width: 7px !important;
+    height: 12px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal {
+    width: calc(100% - 32px) !important;
+    padding: 7px 0 22px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal p + p {
+    margin-top: 1px !important;
+  }
+}
+
+
+/* AFV370: keep the mobile footer tagline clear of fixed navigation on the three compact pages. */
+@media screen and (max-width: 600px) {
+  body.home-page footer.reference-footer .reference-footer-legal {
+    padding-bottom: 100px !important;
+  }
+  body.reviews-document footer.reference-footer .reference-footer-legal {
+    padding-bottom: 100px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal {
+    padding-bottom: 100px !important;
+  }
 }
