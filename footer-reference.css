@@ -331,3 +331,40 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     line-height: 1.45;
   }
 }
+
+/* AFV369: slightly enlarge the compact mobile About block for readability. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-cta {
+    gap: 10px;
+  }
+  body.home-page .reference-footer .reference-about-profile {
+    flex-basis: 64px;
+    width: 64px;
+    height: 64px;
+  }
+  body.home-page .reference-footer .reference-about-copy {
+    gap: 4px;
+  }
+  body.home-page .reference-footer .reference-about-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.15px;
+  }
+  body.home-page .reference-footer .reference-about-title {
+    font-size: clamp(17px, 4.7vw, 20px);
+    line-height: 1.22;
+  }
+  body.home-page .reference-footer .reference-about-description {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  body.home-page .reference-footer .reference-about-action {
+    min-height: 30px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  body.home-page .reference-footer .reference-about-action svg {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+}
