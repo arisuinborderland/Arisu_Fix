@@ -1247,7 +1247,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link {
   white-space: nowrap !important;
 }
 html body.proofs-document .topbar > .header-meta > .privacy-link { 
-  min-width: 160px !important;
+  min-width: 156px !important;
   background: #173d79 !important;
   border: 1px solid #173d79 !important;
   color: #fff !important;
@@ -1274,7 +1274,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
     height: 44px !important; min-height: 44px !important; padding: 0 12px !important;
     gap: 6px !important; border-radius: 15px !important; font-size: 12px !important;
   }
-  html body.proofs-document .topbar > .header-meta > .privacy-link { min-width: 160px !important; }
+  html body.proofs-document .topbar > .header-meta > .privacy-link { min-width: 156px !important; }
   html body.proofs-document .topbar > .header-meta > .about-header-link { min-width: 124px !important; }
 }
 @media (max-width: 390px) {
@@ -1283,7 +1283,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
     height: 40px !important; min-height: 40px !important; padding: 0 8px !important;
     gap: 4px !important; font-size: 10px !important; border-radius: 12px !important;
   }
-  html body.proofs-document .topbar > .header-meta > .privacy-link { min-width: 122px !important; }
+  html body.proofs-document .topbar > .header-meta > .privacy-link { min-width: 118px !important; }
   html body.proofs-document .topbar > .header-meta > .about-header-link { min-width: 98px !important; }
   html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
   html body.proofs-document .topbar > .header-meta > .about-header-link .header-icon {
@@ -1370,7 +1370,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
     line-height:1 !important;
   }
   html body.proofs-document .topbar > .header-meta > .privacy-link,
-  html body.reviews-document .topbar > .header-meta > .privacy-link { width: 124px !important; }
+  html body.reviews-document .topbar > .header-meta > .privacy-link { width: 120px !important; }
   html body.proofs-document .topbar > .header-meta > .about-header-link,
   html body.reviews-document .topbar > .header-meta > .about-header-link { width:82px !important; }
   html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
@@ -1382,7 +1382,7 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
 }
 @media (max-width:380px) {
   html body.proofs-document .topbar > .header-meta > .privacy-link,
-  html body.reviews-document .topbar > .header-meta > .privacy-link { width: 112px !important; }
+  html body.reviews-document .topbar > .header-meta > .privacy-link { width: 108px !important; }
   html body.proofs-document .topbar > .header-meta > .about-header-link,
   html body.reviews-document .topbar > .header-meta > .about-header-link { width:76px !important; }
 }
@@ -1404,7 +1404,7 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
 }
 html body.proofs-document header.topbar > .header-meta > .privacy-link,
 html body.reviews-document header.topbar > .header-meta > .privacy-link {
-  width: 160px !important; min-width: 160px !important;
+  width: 156px !important; min-width: 156px !important;
   background:#173d79 !important; border:1px solid #173d79 !important;
   color:#fff !important; box-shadow:0 4px 12px rgba(23,61,121,.2) !important;
 }
@@ -1435,7 +1435,7 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link .he
     gap:5px !important; border-radius:12px !important; font-size:10.5px !important;
   }
   html body.proofs-document header.topbar > .header-meta > .privacy-link,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link { width: 124px !important; min-width: 124px !important; }
+  html body.reviews-document header.topbar > .header-meta > .privacy-link { width: 120px !important; min-width: 120px !important; }
   html body.proofs-document header.topbar > .header-meta > .about-header-link,
   html body.reviews-document header.topbar > .header-meta > .about-header-link { width:82px !important; min-width:82px !important; }
   html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
@@ -1447,7 +1447,7 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link .he
 }
 @media (max-width:390px) {
   html body.proofs-document header.topbar > .header-meta > .privacy-link,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link { width: 122px !important; min-width: 122px !important; }
+  html body.reviews-document header.topbar > .header-meta > .privacy-link { width: 118px !important; min-width: 118px !important; }
   html body.proofs-document header.topbar > .header-meta > .about-header-link,
   html body.reviews-document header.topbar > .header-meta > .about-header-link { width:98px !important; min-width:98px !important; }
 }
@@ -1462,7 +1462,7 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link .he
     gap:3px !important; border-radius:12px !important; font-size:9.5px !important;
   }
   html body.proofs-document header.topbar > .header-meta > .privacy-link,
-  html body.reviews-document header.topbar > .header-meta > .privacy-link { width: 112px !important; min-width: 112px !important; }
+  html body.reviews-document header.topbar > .header-meta > .privacy-link { width: 108px !important; min-width: 108px !important; }
   html body.proofs-document header.topbar > .header-meta > .about-header-link,
   html body.reviews-document header.topbar > .header-meta > .about-header-link { width:76px !important; min-width:76px !important; }
   html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
@@ -1500,7 +1500,7 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
    Earlier legacy max-width:390px rules changed these dimensions on content pages. */
 @media (max-width:390px) {
   html body.proofs-document header.topbar > .header-meta > .privacy-link {
-    width: 124px !important; min-width: 124px !important;
+    width: 120px !important; min-width: 120px !important;
   }
   html body.proofs-document header.topbar > .header-meta > .about-header-link {
     width:82px !important; min-width:82px !important;
@@ -1508,7 +1508,7 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
 }
 @media (max-width:380px) {
   html body.proofs-document header.topbar > .header-meta > .privacy-link {
-    width: 112px !important; min-width: 112px !important;
+    width: 108px !important; min-width: 108px !important;
   }
   html body.proofs-document header.topbar > .header-meta > .about-header-link {
     width:76px !important; min-width:76px !important;
@@ -1529,7 +1529,7 @@ html body.proofs-document header.topbar > .header-meta > .about-header-link {
   transform:none !important; vertical-align:middle !important;
 }
 html body.proofs-document header.topbar > .header-meta > .privacy-link {
-  width: 160px !important; min-width: 160px !important; background:#173d79 !important;
+  width: 156px !important; min-width: 156px !important; background:#173d79 !important;
   border:1px solid #173d79 !important; color:#fff !important;
   box-shadow:0 4px 12px rgba(23,61,121,.2) !important;
 }
@@ -1552,7 +1552,7 @@ html body.proofs-document header.topbar > .brand .brand-name-row { display:inlin
     height:38px !important; min-height:38px !important; padding:0 9px !important;
     gap:5px !important; border-radius:12px !important; font-size:10.5px !important;
   }
-  html body.proofs-document header.topbar > .header-meta > .privacy-link { width: 124px !important; min-width: 124px !important; }
+  html body.proofs-document header.topbar > .header-meta > .privacy-link { width: 120px !important; min-width: 120px !important; }
   html body.proofs-document header.topbar > .header-meta > .about-header-link { width:82px !important; min-width:82px !important; }
   html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
   html body.proofs-document header.topbar > .header-meta > .about-header-link .header-icon { width:14px !important; height:14px !important; flex-basis:14px !important; }
@@ -1564,7 +1564,7 @@ html body.proofs-document header.topbar > .brand .brand-name-row { display:inlin
     height:35px !important; min-height:35px !important; padding:0 6px !important;
     gap:3px !important; border-radius:12px !important; font-size:9.5px !important;
   }
-  html body.proofs-document header.topbar > .header-meta > .privacy-link { width: 112px !important; min-width: 112px !important; }
+  html body.proofs-document header.topbar > .header-meta > .privacy-link { width: 108px !important; min-width: 108px !important; }
   html body.proofs-document header.topbar > .header-meta > .about-header-link { width:76px !important; min-width:76px !important; }
   html body.proofs-document header.topbar > .header-meta > .privacy-link .header-icon,
   html body.proofs-document header.topbar > .header-meta > .about-header-link .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
