@@ -639,3 +639,102 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     margin-top: 1px !important;
   }
 }
+
+/* AFV369: compact Proofs-page footer on mobile to match the approved Homepage reference. */
+@media screen and (max-width: 600px) {
+  body.proofs-document footer.reference-footer {
+    margin-top: 0 !important;
+  }
+  body.proofs-document footer.reference-footer > section.reference-about-section {
+    padding: 4px 16px 7px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-eyebrow {
+    display: none !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-cta {
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-profile {
+    flex: 0 0 60px !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 14px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-copy {
+    gap: 3px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-title {
+    font-size: clamp(16px, 4.4vw, 19px) !important;
+    line-height: 1.2 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-description {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-action {
+    min-height: 28px !important;
+    margin-top: 2px !important;
+    padding: 5px 13px !important;
+    font-size: 12px !important;
+    gap: 7px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-action svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-about-arrow {
+    flex-basis: 15px !important;
+    width: 15px !important;
+    height: 15px !important;
+  }
+  body.proofs-document footer.reference-footer nav.reference-footer-grid {
+    gap: 6px !important;
+    padding: 7px 16px 8px !important;
+  }
+  body.proofs-document footer.reference-footer nav.reference-footer-grid > a.reference-footer-card {
+    grid-template-columns: 32px minmax(0, 1fr) 7px !important;
+    gap: 6px !important;
+    min-height: 56px !important;
+    padding: 6px !important;
+    border-radius: 12px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+    flex-basis: 19px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-copy {
+    gap: 1px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-copy strong {
+    font-size: 11.5px !important;
+    line-height: 1.18 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-copy > span {
+    font-size: 10px !important;
+    line-height: 1.22 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-arrow {
+    width: 7px !important;
+    height: 12px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal {
+    width: calc(100% - 32px) !important;
+    padding: 7px 0 22px !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+  body.proofs-document footer.reference-footer .reference-footer-legal p + p {
+    margin-top: 1px !important;
+  }
+}
