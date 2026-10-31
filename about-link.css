@@ -48,37 +48,49 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
   html body.home-page footer.site-footer .about-page-cta {
     min-height: 0 !important;
     height: auto !important;
-    gap: 10px !important;
-    padding: 12px 12px !important;
-    border-radius: 18px !important;
+    gap: 8px !important;
+    padding: 10px 10px !important;
+    border-radius: 16px !important;
   }
   html body.home-page footer.site-footer .about-cta-profile {
-    flex: 0 0 58px !important;
-    width: 58px !important;
-    height: 58px !important;
-    border-radius: 14px !important;
+    flex: 0 0 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 12px !important;
   }
   html body.home-page footer.site-footer .about-cta-copy {
-    gap: 3px !important;
+    gap: 2px !important;
   }
   html body.home-page footer.site-footer .about-cta-eyebrow {
-    font-size: 10px !important;
-    line-height: 1.2 !important;
-    letter-spacing: 1.1px !important;
+    font-size: 9px !important;
+    line-height: 1.15 !important;
+    letter-spacing: .9px !important;
   }
   html body.home-page footer.site-footer .about-cta-title {
-    font-size: clamp(15px, 4.2vw, 18px) !important;
-    line-height: 1.18 !important;
-    letter-spacing: -.25px !important;
+    font-size: clamp(14px, 3.8vw, 16px) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -.2px !important;
   }
   html body.home-page footer.site-footer .about-cta-description {
-    font-size: 12px !important;
-    line-height: 1.32 !important;
+    font-size: 11px !important;
+    line-height: 1.28 !important;
+  }
+  html body.home-page footer.site-footer .about-cta-action {
+    gap: 5px !important;
+    margin-top: 4px !important;
+    padding: 6px 9px !important;
+    font-size: .74rem !important;
+    line-height: 1.1 !important;
+  }
+  html body.home-page footer.site-footer .about-cta-action svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-basis: 12px !important;
   }
   html body.home-page footer.site-footer .about-cta-arrow {
-    flex: 0 0 17px !important;
-    width: 17px !important;
-    height: 17px !important;
+    flex: 0 0 15px !important;
+    width: 15px !important;
+    height: 15px !important;
   }
   html body.home-page footer.site-footer > .footer-location {
     margin-top: 0 !important;
