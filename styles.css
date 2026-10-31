@@ -10858,10 +10858,10 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   }
 }
 
-/* AFV369: make the visual gap from the Remember outer card to the About footer exactly 2px on mobile. */
+/* AFV369: target a 4px visual gap from the Remember outer card to the About footer on mobile. */
 @media (max-width: 600px) {
   html body.home-page .why-arisu-section > .why-arisu-card {
-    margin-bottom: -50px !important;
+    margin-bottom: -48px !important;
   }
   html body.home-page main {
     padding-bottom: 0 !important;
