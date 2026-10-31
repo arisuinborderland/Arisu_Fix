@@ -136,7 +136,7 @@
 
 /* Homepage: increase the approved Privacy Policy–About gap by 1px. */
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: 3px !important;
+  margin-left: 4px !important;
 }
 
 /* Reviews and Proofs: 12px flex gap minus 10px margin = 2px effective gap. */
