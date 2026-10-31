@@ -1,3 +1,43 @@
+AFV383 — Force homepage-style 2px mobile outer-card inset
+- Matched the homepage sizing rule, including !important on box-sizing, width calc(100% - 4px), max-width, and centered side margins.
+- Limited to Reviews and Proofs outer cards on mobile; inner padding and desktop layout unchanged.
+- Refreshed page-specific CSS cache tokens.
+
+AFV382 — Reviews + Proofs mobile outer-card inset
+- Applied the homepage-proven outer-card sizing pattern: width calc(100% - 4px), centered with auto side margins, yielding a 2px viewport inset.
+- Removed the horizontal padding from the mobile main containers so it does not stack with the 2px card inset.
+- Kept the change mobile-only; inner card padding and desktop layout remain unchanged.
+
+AFV381 — Restore 2px Mobile Outer Margins on Reviews and Proofs
+- Changed only the existing mobile horizontal padding on the Reviews and Proofs main wrappers to 2px.
+- Preserved inner card padding, desktop layout, header button styling, and shared footer styling.
+- Updated the two page stylesheet cache tokens and synchronized package metadata to AFV381 / 381.0.0.
+
+AFV380 — Homepage Header Button Spacing and About Underline Fix
+- Restored Homepage-only header action widths and spacing after removal of the unused legacy About CTA stylesheet.
+- Applied `text-decoration: none` to the About header link to prevent an unintended underline.
+- Updated the homepage stylesheet cache token and synchronized package/lockfile metadata to AFV380 / 380.0.0.
+- Reviews, Proofs, and shared footer stylesheets are unchanged.
+
+AFV375 — Final homepage cascade double-check
+- Removed the homepage link to the unused legacy `about-link.css` stylesheet.
+- Removed the duplicate inline Remember inset block; the canonical rule in `styles.css` remains active for mobile up to 640px.
+- No approved layout dimensions or spacing values changed.
+
+AFV375 — Additional homepage spacing-override cleanup
+- Removed mobile spacing declarations already superseded by later, more-specific homepage rules (5px top padding, 10px heading margin, duplicate 0px top padding, and 10px bottom padding).
+- Preserved the active 2px bottom padding and -53px flow-space adjustment used by the approved layout.
+
+AFV375 — Additional Homepage Leftover CSS Cleanup
+- Removed 9 empty media-query blocks and stale comments from styles.css.
+- Removed obsolete inline homepage About CTA CSS because those selectors do not exist in the current homepage markup.
+- Simplified styles.css and footer-reference.css cache tokens; no layout values were changed.
+
+AFV375 — Homepage-only Dead Footer CSS Cleanup
+- Removed 77 obsolete `body.home-page .site-footer` rules; current Homepage markup uses `.reference-footer`.
+- Removed the dead `.site-footer > .about-link-section` selector from the inline mobile inset rule while retaining the active Remember card inset.
+- Updated the stylesheet cache token to AFV375 and synchronized package metadata.
+
 AFV374 — Add 4px to Remember-to-About Mobile Gap
 - Changed the Homepage-only mobile Remember card margin-bottom from -57px to -53px to increase the external vertical gap by 4px.
 - Updated cache-busting and package metadata to AFV374 / 374.0.0.

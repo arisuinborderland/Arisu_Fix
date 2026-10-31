@@ -1,17 +1,48 @@
-AFV374 — Add 4px to Remember-to-About mobile gap
+AFV383 — Restore 2px mobile outer margins on Reviews and Proofs
+- Changed only the existing mobile horizontal padding on the Reviews and Proofs main wrappers to 2px; inner card padding and desktop layout remain unchanged.
+- Updated reviews.css and proofs.css cache tokens to AFV383 and synchronized release metadata to 383.0.0.
+
+AFV380 — Homepage header button spacing and About underline fix
+- Restored Homepage-only header action widths and spacing after removing the unused legacy About CTA stylesheet.
+- Removed underline from the About header link.
+- Updated homepage styles.css cache-busting token and synchronized release metadata to AFV380 / 380.0.0.
+- No Reviews or Proofs stylesheets were changed.
+
+AFV375 — Final homepage cascade double-check
+- Removed the unused `about-link.css` stylesheet link from the homepage; its selectors target old `.site-footer` / `.about-link-section` markup absent from the current homepage HTML.
+- Removed the duplicate inline Remember inset rule. The same rule remains in `styles.css` and covers the full mobile range through 640px, preserving the approved 2px inset without duplicate declarations.
+- Kept the `about-link.css` file itself untouched as a legacy asset; no other checked page loads it.
+
+AFV375 — Additional homepage spacing-override cleanup
+- Removed the obsolete 5px mobile top-padding / 10px heading-margin block; later homepage-specific rules already win in the cascade.
+- Removed superseded 0px top-padding and 10px bottom-padding declarations from the mobile outer-card rule; retained the active 2px bottom padding and -53px flow adjustment.
+- No target spacing values or approved layout dimensions were changed.
+
+AFV375 — Additional Homepage Leftover CSS Cleanup
+- Removed nine empty media-query blocks and their stale comments from styles.css; they contained no active declarations.
+- Removed obsolete homepage inline About CTA styles targeting `.about-link-section` / `.about-page-cta`; the live footer uses `.reference-about-section` / `.reference-about-cta` instead.
+- Simplified stylesheet cache-busting URLs for styles.css and footer-reference.css to the AFV375 version token.
+- Preserved the live Remember outer-card inset and the approved shared footer styling.
+
+AFV375 — Homepage-only dead footer CSS cleanup
+- Removed 77 legacy homepage `.site-footer` rules because the live Homepage uses `.reference-footer` markup.
+- Kept the approved Remember card, shared reference footer, desktop styles, and other pages intact.
+- Updated the Homepage stylesheet cache token and package metadata to AFV375 / 375.0.0.
+
+AFV375 — Add 4px to Remember-to-About mobile gap
 - Adjusted the Homepage mobile Remember card flow spacing from margin-bottom -57px to -53px, adding 4px to the visible gap before About This Website.
 - Desktop and other pages are unchanged.
 
-AFV374 — Homepage Mobile Remember-to-About Gap +4px
+AFV375 — Homepage Mobile Remember-to-About Gap +4px
 - Increased the Homepage-only mobile gap above the shared footer from 2px to 6px (+4px).
 - Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
 
 ARISU FIX — PROJECT README
-Version: AFV374
+Version: AFV383
 Updated: 2026-10-31
 
-Current release: AFV374
-Package version: 374.0.0
+Current release: AFV383
+Package version: 383.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
