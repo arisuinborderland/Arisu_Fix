@@ -6391,7 +6391,7 @@ body.home-page .purpose-card .purpose-kicker {
 /* bring the footer closer to the Legitimate Account Recovery card on mobile.
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media  (max-width: 600px)  {
-  html body.home-page main { padding-bottom: 8px !important; }
+  html body.home-page main { padding-bottom: 0 !important; }
   html body.home-page .site-footer { margin-top: 4px !important; }
 }
 
@@ -7078,7 +7078,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
     transform: translateY(-10px) !important;
   }
   html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
-    transform: translateY(-14px) !important;
+    transform: translateY(-12px) !important;
   }
 }
 
