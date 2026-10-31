@@ -1,14 +1,23 @@
+AFV374 — Add 4px to Remember-to-About mobile gap
+- Adjusted the Homepage mobile Remember card flow spacing from margin-bottom -57px to -53px, adding 4px to the visible gap before About This Website.
+- Desktop and other pages are unchanged.
+
+AFV374 — Homepage Mobile Remember-to-About Gap +4px
+- Increased the Homepage-only mobile gap above the shared footer from 2px to 6px (+4px).
+- Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
+
 ARISU FIX — PROJECT README
-Version: AFV368
+Version: AFV374
 Updated: 2026-10-31
 
-Current release: AFV368
-Package version: 368.0.0
+Current release: AFV374
+Package version: 374.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV372 targets the actual Homepage Remember and About This Website outer-card selectors and applies a 2px mobile inset to each. Desktop styling and other pages are unchanged; visual confirmation is pending a successful preview build.
 - AFV368 replaces the inconsistent footer markup on Homepage, Reviews, Proofs, and About with one scoped, responsive footer matching the approved mobile reference: About CTA, six two-column link cards, divider, copyright, and tagline. The footer stylesheet is isolated from page content and bottom navigation.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.

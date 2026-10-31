@@ -1,3 +1,17 @@
+AFV374 — Add 4px to Remember-to-About Mobile Gap
+- Changed the Homepage-only mobile Remember card margin-bottom from -57px to -53px to increase the external vertical gap by 4px.
+- Updated cache-busting and package metadata to AFV374 / 374.0.0.
+
+AFV373 — Homepage Mobile Gap +4px
+- Increased the Homepage-only mobile margin between the Remember section and About This Website footer card from 2px to 6px.
+- Updated the Homepage stylesheet cache token and package metadata to AFV373 / 373.0.0.
+
+AFV372 — Fix Homepage Outer-Card 2px Inset
+- Targets the actual Homepage Remember outer card and About This Website outer card selectors at mobile widths up to 600px.
+- Sets each outer card to a centered width of calc(100% - 4px), creating a 2px inset on each side without changing inner-card styling or other pages.
+- Synchronizes package metadata and README to AFV372 / 372.0.0 so the production build accepts the AFV372 cache-busting token.
+- Visual validation is pending a successful Cloudflare preview build.
+
 AFV368 — Match Shared Footer to Approved Reference
 - Replaces inconsistent footer markup across Homepage, Reviews, Proofs, and About with one shared, isolated footer component.
 - Matches the approved mobile reference: About This Website CTA, six two-column navigation cards, divider, copyright, and tagline.
