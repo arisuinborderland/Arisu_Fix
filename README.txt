@@ -1,3 +1,8 @@
+AFV384 — Reviews footer 2px mobile inset
+- Scoped the 2px outer inset to the Reviews page shared footer at mobile widths only.
+- Left footer tile padding, other pages, and desktop layout unchanged.
+- Refreshed the reviews.css cache token and synchronized package metadata to 384.0.0.
+
 AFV383 — Restore 2px mobile outer margins on Reviews and Proofs
 - Changed only the existing mobile horizontal padding on the Reviews and Proofs main wrappers to 2px; inner card padding and desktop layout remain unchanged.
 - Updated reviews.css and proofs.css cache tokens to AFV383 and synchronized release metadata to 383.0.0.
