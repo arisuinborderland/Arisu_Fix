@@ -10234,3 +10234,42 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     margin-bottom: -53px !important;
   }
 }
+
+
+/* AFV380 — restore homepage header action sizing after removing legacy About CTA stylesheet.
+   Keep this scoped to the Homepage; match the approved Reviews/Proofs mobile header metrics. */
+html body.home-page header.topbar > .header-meta > .about-header-link {
+  text-decoration: none !important;
+}
+@media (max-width: 700px) {
+  html body.home-page header.topbar > .header-meta {
+    gap: 6px !important;
+  }
+  html body.home-page header.topbar > .header-meta > .privacy-link {
+    width: 128px !important;
+    min-width: 128px !important;
+    max-width: 128px !important;
+    text-decoration: none !important;
+  }
+  html body.home-page header.topbar > .header-meta > .about-header-link {
+    width: 82px !important;
+    min-width: 82px !important;
+    max-width: 82px !important;
+    text-decoration: none !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page header.topbar > .header-meta {
+    gap: 4px !important;
+  }
+  html body.home-page header.topbar > .header-meta > .privacy-link {
+    width: 116px !important;
+    min-width: 116px !important;
+    max-width: 116px !important;
+  }
+  html body.home-page header.topbar > .header-meta > .about-header-link {
+    width: 76px !important;
+    min-width: 76px !important;
+    max-width: 76px !important;
+  }
+}
