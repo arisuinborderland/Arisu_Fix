@@ -1,9 +1,13 @@
+AFV373 — Homepage Mobile Remember-to-About Gap +4px
+- Increased the Homepage-only mobile gap above the shared footer from 2px to 6px (+4px).
+- Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
+
 ARISU FIX — PROJECT README
-Version: AFV372
+Version: AFV373
 Updated: 2026-10-31
 
-Current release: AFV372
-Package version: 372.0.0
+Current release: AFV373
+Package version: 373.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
