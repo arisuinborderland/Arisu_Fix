@@ -1,3 +1,8 @@
+AFV375 — Additional Homepage Leftover CSS Cleanup
+- Removed 9 empty media-query blocks and stale comments from styles.css.
+- Removed obsolete inline homepage About CTA CSS because those selectors do not exist in the current homepage markup.
+- Simplified styles.css and footer-reference.css cache tokens; no layout values were changed.
+
 AFV375 — Homepage-only Dead Footer CSS Cleanup
 - Removed 77 obsolete `body.home-page .site-footer` rules; current Homepage markup uses `.reference-footer`.
 - Removed the dead `.site-footer > .about-link-section` selector from the inline mobile inset rule while retaining the active Remember card inset.
