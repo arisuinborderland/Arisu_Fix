@@ -424,3 +424,103 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     padding-top: 0 !important;
   }
 }
+
+
+/* AFV377 — About-page-only compact mobile footer, based on approved homepage proportions.
+   Deliberately does not target Homepage, Reviews, Proofs, or desktop layouts. */
+@media screen and (max-width: 600px) {
+  html body.about-page .reference-footer {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  html body.about-page .reference-footer .reference-about-section {
+    padding: 8px 12px 7px;
+  }
+
+  html body.about-page .reference-footer .reference-about-cta {
+    gap: 10px;
+    padding: 3px 0;
+  }
+
+  html body.about-page .reference-footer .reference-about-profile {
+    flex-basis: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+  }
+
+  html body.about-page .reference-footer .reference-about-copy { gap: 3px; }
+  html body.about-page .reference-footer .reference-about-eyebrow { display: none; }
+  html body.about-page .reference-footer .reference-about-title { font-size: 16px; line-height: 1.22; }
+  html body.about-page .reference-footer .reference-about-description { font-size: 12px; line-height: 1.35; }
+
+  html body.about-page .reference-footer .reference-about-action {
+    min-height: 29px;
+    margin-top: 2px;
+    padding: 5px 12px;
+    gap: 7px;
+    font-size: 12px;
+  }
+
+  html body.about-page .reference-footer .reference-about-action svg {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+
+  html body.about-page .reference-footer .reference-about-arrow {
+    flex-basis: 15px;
+    width: 15px;
+    height: 15px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-grid {
+    gap: 7px;
+    padding: 8px 10px 10px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-card {
+    grid-template-columns: 34px minmax(0, 1fr) 7px;
+    gap: 6px;
+    min-height: 52px;
+    padding: 7px 6px;
+    border-radius: 13px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-icon svg {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-copy strong {
+    font-size: 11.5px;
+    line-height: 1.22;
+  }
+
+  html body.about-page .reference-footer .reference-footer-copy > span {
+    font-size: 10px;
+    line-height: 1.28;
+  }
+
+  html body.about-page .reference-footer .reference-footer-arrow {
+    width: 7px;
+    height: 13px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-legal {
+    width: calc(100% - 40px);
+    padding: 8px 0 12px;
+  }
+
+  html body.about-page .reference-footer .reference-footer-legal p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
