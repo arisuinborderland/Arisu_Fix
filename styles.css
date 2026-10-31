@@ -5393,14 +5393,7 @@ body.home-page .terms-card .terms-security-copy p {
   position: static !important;
   top: auto !important;
 }
-@media  (max-width: 640px)  {
-  .why-arisu-section .why-arisu-card {
-    padding-top: 5px !important;
-  }
-  .why-arisu-section .why-arisu-heading {
-    margin-bottom: 10px !important;
-  }
-}
+
 
 /* targeted compact spacing for the Why Choose Arisu section only.
  Keep outer border, radius, background, and horizontal padding unchanged. */
@@ -5691,10 +5684,6 @@ body.home-page .why-arisu-section .why-arisu-note {
 /* extra-compact mobile spacing for Why Choose Arisu.
  Preserve the outer card border, radius, background, horizontal inset, and type/icon sizes. */
 @media  (max-width: 640px)  {
-  body.home-page .why-arisu-section .why-arisu-card {
-    padding-top: 0 !important;
-    padding-bottom: 10px !important;
-  }
   body.home-page .why-arisu-section .why-arisu-heading {
     margin-bottom: 4px !important;
   }
@@ -6937,7 +6926,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 /* reduce only the bottom padding of the Why Choose Arisu outer card by 8px on mobile. */
 @media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-card {
-    padding-bottom: 2px !important; /* previous effective value: 10px */
+    padding-bottom: 2px !important; /* final mobile value; supersedes the old 10px override */
   }
 }
 
