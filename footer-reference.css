@@ -230,3 +230,11 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
   .reference-footer .reference-about-action { transition: none; }
   .reference-footer .reference-footer-card:hover { transform: none; }
 }
+
+/* About page: match the homepage's compact mobile footer spacing. */
+@media (max-width: 600px) {
+  body.about-page .reference-footer {
+    margin-top: 0;
+    padding-top: 2px;
+  }
+}
