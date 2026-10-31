@@ -402,9 +402,10 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
 
 
 
-/* Homepage mobile: the footer About section follows the page's existing 2px inset. */
+/* Homepage mobile: set the About This Website outer card to a 2px inset. */
 @media screen and (max-width: 600px) {
   html body.home-page .reference-footer .reference-about-section {
+    box-sizing: border-box !important;
     width: calc(100% - 4px) !important;
     margin-left: auto !important;
     margin-right: auto !important;
