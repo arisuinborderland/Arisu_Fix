@@ -9,7 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV369 sets the homepage mobile About eyebrow 2px below its top border and targets a 4px gap between the Remember outer card and the About footer. Changes are limited to mobile spacing and relevant cache tokens; desktop layout and other card dimensions are preserved.
+- AFV369 sets the homepage mobile About eyebrow 2px below its top border, targets a 4px Remember-to-About gap, and compacts the mobile About section/profile while changing the CTA to “Explore My Story”. Changes are limited to mobile spacing and relevant cache tokens; desktop layout and other card dimensions are preserved.
 - AFV368 replaces the inconsistent footer markup on Homepage, Reviews, Proofs, and About with one scoped, responsive footer matching the approved mobile reference: About CTA, six two-column link cards, divider, copyright, and tagline. The footer stylesheet is isolated from page content and bottom navigation.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
