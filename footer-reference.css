@@ -368,3 +368,13 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
     flex-basis: 15px;
   }
 }
+
+/* AFV369: hide the redundant About eyebrow on mobile for a tighter approved layout. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-eyebrow {
+    display: none;
+  }
+  body.home-page .reference-footer .reference-about-section {
+    padding-bottom: 9px;
+  }
+}
