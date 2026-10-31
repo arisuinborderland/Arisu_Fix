@@ -1,3 +1,9 @@
+AFV380 — Homepage header button spacing and About underline fix
+- Restored Homepage-only header action widths and spacing after removing the unused legacy About CTA stylesheet.
+- Removed underline from the About header link.
+- Updated homepage styles.css cache-busting token and synchronized release metadata to AFV380 / 380.0.0.
+- No Reviews or Proofs stylesheets were changed.
+
 AFV375 — Final homepage cascade double-check
 - Removed the unused `about-link.css` stylesheet link from the homepage; its selectors target old `.site-footer` / `.about-link-section` markup absent from the current homepage HTML.
 - Removed the duplicate inline Remember inset rule. The same rule remains in `styles.css` and covers the full mobile range through 640px, preserving the approved 2px inset without duplicate declarations.
@@ -28,11 +34,11 @@ AFV375 — Homepage Mobile Remember-to-About Gap +4px
 - Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
 
 ARISU FIX — PROJECT README
-Version: AFV375
+Version: AFV380
 Updated: 2026-10-31
 
-Current release: AFV375
-Package version: 375.0.0
+Current release: AFV380
+Package version: 380.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
