@@ -125,7 +125,7 @@ main{max-width:1040px;padding:30px 22px 72px}
 
 .tiktok-profile-button,.facebook-profile-button{border-radius:12px;pointer-events:none}
 
-.site-section{margin:48px auto 0;max-width:960px;scroll-margin-top:112px}
+.site-section{margin:46px auto 0;max-width:960px;scroll-margin-top:112px}
 .section-heading{text-align:center;margin:0 auto 23px;max-width:640px}
 .section-kicker{display:inline-block;line-height:1.3}
 .section-heading h2,.about-card h2,.terms-card h2{font:800 clamp(24px,3.6vw,32px)/1.2 Manrope,sans-serif;letter-spacing:-1px;color:var(--ink);margin:8px 0 8px}
