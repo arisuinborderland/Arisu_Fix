@@ -7078,7 +7078,7 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
     transform: translateY(-10px) !important;
   }
   html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
-    transform: translateY(-14px) !important;
+    transform: translateY(-12px) !important;
   }
 }
 
