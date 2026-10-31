@@ -8672,7 +8672,7 @@ html body.home-page .purpose-card .purpose-signoff {
     transform: translateY(0) !important;
     transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
   }
-  html body.home-page .topbar > .header-meta > .privacy-link { min-width: 160px !important; }
+  html body.home-page .topbar > .header-meta > .privacy-link { min-width: 156px !important; }
   html body.home-page .topbar > .header-meta > .about-header-link { min-width: 124px !important; }
   html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
   html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
@@ -9541,7 +9541,7 @@ html body .topbar > .header-meta > .about-header-link {
   vertical-align: middle !important;
 }
 html body .topbar > .header-meta > .privacy-link {
-  width: 160px !important; min-width: 160px !important;
+  width: 156px !important; min-width: 156px !important;
   background: #173d79 !important; border: 1px solid #173d79 !important;
   color: #fff !important; box-shadow: 0 4px 12px rgba(23,61,121,.2) !important;
 }
@@ -9567,7 +9567,7 @@ html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3
     height: 38px !important; min-height: 38px !important; padding: 0 9px !important;
     gap: 5px !important; border-radius: 12px !important; font-size: 10.5px !important;
   }
-  html body .topbar > .header-meta > .privacy-link { width: 124px !important; min-width: 124px !important; }
+  html body .topbar > .header-meta > .privacy-link { width: 120px !important; min-width: 120px !important; }
   html body .topbar > .header-meta > .about-header-link { width: 82px !important; min-width: 82px !important; }
   html body .topbar > .header-meta > .privacy-link .header-icon,
   html body .topbar > .header-meta > .about-header-link .header-icon {
@@ -9575,7 +9575,7 @@ html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3
   }
 }
 @media (max-width: 390px) {
-  html body .topbar > .header-meta > .privacy-link { width: 122px !important; min-width: 122px !important; }
+  html body .topbar > .header-meta > .privacy-link { width: 118px !important; min-width: 118px !important; }
   html body .topbar > .header-meta > .about-header-link { width: 98px !important; min-width: 98px !important; }
 }
 @media (max-width: 380px) {
@@ -9585,7 +9585,7 @@ html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3
     height: 35px !important; min-height: 35px !important; padding: 0 6px !important;
     gap: 3px !important; border-radius: 12px !important; font-size: 9.5px !important;
   }
-  html body .topbar > .header-meta > .privacy-link { width: 112px !important; min-width: 112px !important; }
+  html body .topbar > .header-meta > .privacy-link { width: 108px !important; min-width: 108px !important; }
   html body .topbar > .header-meta > .about-header-link { width: 76px !important; min-width: 76px !important; }
   html body .topbar > .header-meta > .privacy-link .header-icon,
   html body .topbar > .header-meta > .about-header-link .header-icon {
