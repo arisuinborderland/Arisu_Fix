@@ -10857,3 +10857,19 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV368 — Reconcile the mobile footer with the visually lifted Why Choose Arisu card.
+   That card is translated upward by 50px elsewhere in this stylesheet; collapse the
+   matching reserved flow space on its section, then keep a 2px gap before the footer. */
+@media (max-width: 700px) {
+  html body.home-page main > section.site-section.why-arisu-section {
+    margin-bottom: -50px !important;
+  }
+  html body.home-page main {
+    padding-bottom: 0 !important;
+  }
+  html body.home-page > footer.site-footer {
+    margin-top: 2px !important;
+  }
+}
