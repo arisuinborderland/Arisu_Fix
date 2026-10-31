@@ -170,3 +170,14 @@ html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > 
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
   text-decoration: none !important;
 }
+
+@media (min-width: 701px) {
+  /* Homepage: reduce the Privacy Policy card width by 4px on each side; keep label centered. */
+  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
+  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible {
+    width: 156px !important;
+    min-width: 156px !important;
+    max-width: 156px !important;
+  }
+}
