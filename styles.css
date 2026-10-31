@@ -10234,3 +10234,11 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     margin-bottom: -53px !important;
   }
 }
+
+
+/* AFV378 — remove underline from the homepage header About button only.
+   Keep dimensions, spacing, icon, border, and all other links unchanged. */
+html body.home-page .topbar > .header-meta > .about-header-link,
+html body.home-page .topbar > .header-meta > .about-header-link span {
+  text-decoration: none !important;
+}
