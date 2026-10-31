@@ -138,9 +138,9 @@
    Underline About once on the homepage only; Reviews and Proofs stay un-underlined. */
 /* AFV380 — keep only the Privacy Policy ↔ About button spacing at 2px
    on Homepage, Reviews, and Proofs. Do not change other header spacing. */
-/* Mainpage only: 6px effective gap (12px header gap minus 6px margin). */
+/* Mainpage only: apply exactly 2px left margin to About after Privacy Policy. */
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: -2px !important;
+  margin-left: 2px !important;
 }
 
 /* Preserve the existing spacing on Reviews and Proofs. */
