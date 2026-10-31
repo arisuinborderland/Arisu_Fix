@@ -10872,4 +10872,10 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 }
 
 
-/* AFV372: removed the -91px mobile override because it caused the About section to overlap the Remember card. */
+/* AFV372: reduce the flow-space after the transformed Remember card without moving its content.
+   The card is visually lifted by an existing translateY, so reduce its layout footprint instead. */
+@media (max-width: 640px) {
+  html body.home-page .why-arisu-section .why-arisu-card {
+    margin-bottom: -89px !important;
+  }
+}
