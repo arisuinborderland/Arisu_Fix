@@ -1,0 +1,232 @@
+/* AFV368 — Shared footer matching the approved About-to-Footer mobile reference.
+   Intentionally scoped to the footer component; does not style page content or bottom navigation. */
+.reference-footer {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 24px 0 0;
+  padding: 0;
+  overflow: clip;
+  box-sizing: border-box;
+  color: #172b52;
+  background: linear-gradient(180deg, #fbfcff 0%, #f8fbff 100%);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: Manrope, Arial, sans-serif;
+}
+body.home-page .reference-footer { margin-top: 0; }
+.reference-footer *,
+.reference-footer *::before,
+.reference-footer *::after { box-sizing: border-box; }
+
+.reference-footer .reference-about-section {
+  width: 100%;
+  margin: 2px 0 0;
+  padding: 14px 22px 10px;
+  border-top: 1px solid #a9d9ff;
+  border-bottom: 1px solid #d8e5f5;
+  background: linear-gradient(115deg, #eef8ff 0%, #f4f7ff 54%, #f9f5ff 100%);
+}
+.reference-footer .reference-about-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 8px 0;
+  color: #172b52;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.reference-footer .reference-about-profile {
+  display: block;
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid #fff;
+  border-radius: 17px;
+  box-shadow: 0 3px 10px rgba(35, 70, 130, .18);
+}
+.reference-footer .reference-about-copy {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 5px;
+}
+.reference-footer .reference-about-eyebrow {
+  display: block;
+  color: #2d68c7;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 1.35px;
+  text-transform: uppercase;
+}
+.reference-footer .reference-about-title {
+  display: block;
+  color: #172b52;
+  font-size: clamp(17px, 4.7vw, 21px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -.35px;
+}
+.reference-footer .reference-about-description {
+  display: block;
+  color: #5c6b83;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.reference-footer .reference-about-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 31px;
+  margin-top: 3px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(105deg, #1686ee 0%, #4d55ee 58%, #7445e8 100%);
+  box-shadow: 0 5px 12px rgba(48, 91, 210, .2);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.reference-footer .reference-about-action svg { width: 16px; height: 16px; flex: 0 0 16px; }
+.reference-footer .reference-about-arrow { display: block; flex: 0 0 19px; width: 19px; height: 19px; color: #2468d7; }
+.reference-footer .reference-about-cta:focus-visible,
+.reference-footer .reference-footer-card:focus-visible { outline: 3px solid #4285ef; outline-offset: 3px; }
+.reference-footer .reference-about-cta:hover .reference-about-action { filter: brightness(1.04); }
+
+.reference-footer .reference-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 22px 14px;
+  border: 0;
+  background: transparent;
+}
+.reference-footer .reference-footer-card {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 9px;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 58px;
+  margin: 0;
+  padding: 8px 8px;
+  border: 1px solid #e0e7f0;
+  border-radius: 15px;
+  color: #172b52;
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(249,251,255,.96));
+  box-shadow: 0 2px 7px rgba(31, 59, 103, .025);
+  text-decoration: none;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.reference-footer .reference-footer-card:hover {
+  border-color: #b8d2f6;
+  box-shadow: 0 4px 12px rgba(31, 76, 145, .08);
+}
+.reference-footer .reference-footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #1269e9;
+  background: #e5f1ff;
+}
+.reference-footer .reference-footer-icon svg { display: block; width: 24px; height: 24px; flex: 0 0 24px; }
+.reference-footer .reference-footer-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.reference-footer .reference-footer-copy strong {
+  display: block;
+  color: #172b52;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.reference-footer .reference-footer-copy > span {
+  display: block;
+  color: #65738a;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.32;
+  overflow-wrap: anywhere;
+}
+.reference-footer .reference-footer-arrow { display: block; width: 9px; height: 15px; fill: none; stroke: #1769e8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.reference-footer .reference-footer-legal {
+  width: calc(100% - 44px);
+  max-width: 1056px;
+  margin: 0 auto;
+  padding: 10px 0 16px;
+  border-top: 1px solid #c8d0dc;
+  color: #4f6d96;
+  text-align: center;
+}
+.reference-footer .reference-footer-legal p {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+.reference-footer .reference-footer-legal p + p { margin-top: 1px; }
+@media (min-width: 601px) {
+  .reference-footer .reference-about-section { padding: 22px max(24px, calc((100% - 1056px) / 2)) 18px; }
+  .reference-footer .reference-about-cta { gap: 20px; padding: 4px 0; }
+  .reference-footer .reference-about-profile { flex-basis: 88px; width: 88px; height: 88px; border-radius: 20px; }
+  .reference-footer .reference-about-eyebrow { font-size: 13px; letter-spacing: 1.6px; }
+  .reference-footer .reference-about-title { font-size: clamp(21px, 2.3vw, 28px); letter-spacing: -.55px; }
+  .reference-footer .reference-about-description { font-size: 16px; }
+  .reference-footer .reference-about-action { min-height: 38px; padding: 8px 18px; font-size: 15px; }
+  .reference-footer .reference-about-action svg { width: 18px; height: 18px; flex-basis: 18px; }
+  .reference-footer .reference-about-arrow { width: 23px; height: 23px; flex-basis: 23px; }
+  .reference-footer .reference-footer-grid { gap: 10px; padding: 14px 24px 18px; }
+  .reference-footer .reference-footer-card { grid-template-columns: 58px minmax(0, 1fr) 12px; gap: 13px; min-height: 92px; padding: 12px 14px; border-radius: 18px; }
+  .reference-footer .reference-footer-icon { width: 58px; height: 58px; }
+  .reference-footer .reference-footer-icon svg { width: 30px; height: 30px; flex-basis: 30px; }
+  .reference-footer .reference-footer-copy strong { font-size: 16px; }
+  .reference-footer .reference-footer-copy > span { font-size: 14px; }
+  .reference-footer .reference-footer-arrow { width: 12px; height: 18px; }
+  .reference-footer .reference-footer-legal { padding: 14px 0 22px; }
+  .reference-footer .reference-footer-legal p { font-size: 14px; }
+}
+@media (max-width: 380px) {
+  .reference-footer .reference-about-section { padding-left: 12px; padding-right: 12px; }
+  .reference-footer .reference-about-cta { gap: 10px; }
+  .reference-footer .reference-about-profile { flex-basis: 60px; width: 60px; height: 60px; border-radius: 14px; }
+  .reference-footer .reference-about-title { font-size: 16px; }
+  .reference-footer .reference-about-description { font-size: 12px; }
+  .reference-footer .reference-about-arrow { flex-basis: 15px; width: 15px; height: 15px; }
+  .reference-footer .reference-footer-grid { gap: 7px; padding-left: 10px; padding-right: 10px; }
+  .reference-footer .reference-footer-card { grid-template-columns: 34px minmax(0, 1fr) 7px; gap: 6px; padding: 7px 6px; }
+  .reference-footer .reference-footer-icon { width: 34px; height: 34px; }
+  .reference-footer .reference-footer-icon svg { width: 20px; height: 20px; flex-basis: 20px; }
+  .reference-footer .reference-footer-copy strong { font-size: 11.5px; }
+  .reference-footer .reference-footer-copy > span { font-size: 10px; }
+  .reference-footer .reference-footer-arrow { width: 7px; height: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-footer .reference-footer-card,
+  .reference-footer .reference-about-action { transition: none; }
+  .reference-footer .reference-footer-card:hover { transform: none; }
+}
