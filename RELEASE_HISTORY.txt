@@ -1,3 +1,8 @@
+AFV368 — Homepage Footer Container Gap
+- Sets the homepage outer footer container to begin 2px below the Remember card on viewports up to 700px.
+- Leaves footer card sizing, location coverage, navigation links, copyright, desktop spacing, and unrelated page footers unchanged.
+- Refreshes the homepage styles.css cache token and synchronizes package metadata and README to AFV368 / 368.0.0.
+
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
