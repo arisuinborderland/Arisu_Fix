@@ -1,3 +1,10 @@
+AFV376 — Refresh Homepage Stylesheet Cache References and Preserve Layout
+- Synchronizes package.json and package-lock.json to 376.0.0.
+- Refreshes the homepage about-link.css and footer-reference.css cache-busting tokens to AFV376 so the current stylesheet versions are requested.
+- Restores the About-page cache query label to bottomspace=84, matching the verified CSS rule.
+- No legacy layout CSS removed; cleanup requires confirming selectors are unused to avoid regressions.
+
+
 AFV375 — Shared Reference Footer With Homepage About CTA Preserved
 - Applies the Image 1 footer design consistently across Home, Reviews, Recovery Proofs, and About: location/service tiles, icon-led two-column links, divider, and centered copyright/tagline.
 - Keeps the homepage About This Website card and Explore Our Story button as a separate element immediately above the footer; does not remove or resize the CTA.
