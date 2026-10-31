@@ -1,3 +1,7 @@
+AFV373 — Homepage Mobile Gap +4px
+- Increased the Homepage-only mobile margin between the Remember section and About This Website footer card from 2px to 6px.
+- Updated the Homepage stylesheet cache token and package metadata to AFV373 / 373.0.0.
+
 AFV372 — Fix Homepage Outer-Card 2px Inset
 - Targets the actual Homepage Remember outer card and About This Website outer card selectors at mobile widths up to 600px.
 - Sets each outer card to a centered width of calc(100% - 4px), creating a 2px inset on each side without changing inner-card styling or other pages.
