@@ -6407,10 +6407,8 @@ body.home-page .purpose-card .purpose-kicker {
   }
 }
 
-/* repair desktop footer location icons and alignment.
-   The SVGs previously had no desktop size/stroke rules, so their paths rendered as huge black shapes. */
-@media  (min-width: 601px)  {
-}
+
+
 
 /* desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
    Desktop-only refinements preserve the mobile card stack and spacing. */
@@ -8343,9 +8341,8 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* apply the Deep Black-Navy + Violet footer style on desktop too. */
-@media (min-width: 701px) {
-}
+
+
 
 
 /* desktop version of the five-item bottom navigation. */
@@ -8578,16 +8575,13 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* compact mobile footer links and reduce excess vertical spacing. */
-@media (max-width: 600px) {
-}
 
 
-/* compact footer links with small inline icons for clearer scanning. */
-@media (max-width: 600px) {
-}
-@media (min-width: 601px) {
-}
+
+
+
+
+
 
 
 /* balance the compact mobile footer and preserve clearance for fixed bottom navigation. */
@@ -8629,11 +8623,9 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* place copyright in the final mobile footer grid cell beside Contact. */
-@media (max-width: 760px) {
-}
-@media (min-width: 761px) {
-}
+
+
+
 
 
 /* reduce only the remaining space below the compact footer on mobile. */
@@ -9066,10 +9058,8 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* Desktop footer: use the same clear vertical order as mobile.
-   Keep the About card, location, link grid, and copyright on separate rows. */
-@media (min-width: 701px) {
-}
+
+
 
 
 /* Desktop floating navigation: distinct, readable icon discs and a vivid Stories ring. */
@@ -9183,10 +9173,8 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 
-/* Desktop footer v2: restore the full-width navy footer and an editorial desktop row.
-   The compact two-column link grid is retained only for mobile. */
-@media (min-width: 701px) {
-}
+
+
 
 
 /* Desktop refinement v3: close the gap after the final safety card, enlarge footer typography,
