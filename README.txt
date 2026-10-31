@@ -28,16 +28,17 @@ AFV375 — Homepage Mobile Remember-to-About Gap +4px
 - Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
 
 ARISU FIX — PROJECT README
-Version: AFV376
+Version: AFV377
 Updated: 2026-10-31
 
-Current release: AFV376
-Package version: 375.0.0
+Current release: AFV377
+Package version: 377.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV377 removes nonfunctional explanatory comments around the Reviews spacing rule; the active -47px mobile rule is unchanged. Saved AFV376 layout snapshot in branch `afv376-reviews-layout-approved-backup`.
 - AFV376 targets the mobile Reviews page outer-card gap: reduce the flow gap between the Reviews card and Learn More footer card by 47px, aiming for a 2px visible gap. Scoped to Reviews page only; preview validation required.
 - AFV372 targets the actual Homepage Remember and About This Website outer-card selectors and applies a 2px mobile inset to each. Desktop styling and other pages are unchanged; visual confirmation is pending a successful preview build.
 - AFV368 replaces the inconsistent footer markup on Homepage, Reviews, Proofs, and About with one scoped, responsive footer matching the approved mobile reference: About CTA, six two-column link cards, divider, copyright, and tagline. The footer stylesheet is isolated from page content and bottom navigation.
