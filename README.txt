@@ -9,8 +9,8 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV376 refreshes homepage stylesheet cache-busting references and synchronizes package metadata; preserves the verified 84px About-page bottom clearance. No legacy stylesheet is deleted without selector-usage verification.
-- AFV376 applies the Image 1 shared footer layout to Home, Reviews, Proofs, and About while keeping the homepage About This Website card and Explore Our Story button separate and unchanged above the footer. Footer-only CSS is scoped to the shared footer.
+- AFV376 refreshes homepage stylesheet cache-busting references and preserves the verified 84px About-page bottom clearance. No legacy stylesheet was deleted.
+- AFV375 applies the Image 1 shared footer layout to Home, Reviews, Proofs, and About while keeping the homepage About This Website card and Explore Our Story button separate and unchanged above the footer. Footer-only CSS is scoped to the shared footer.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
