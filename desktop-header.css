@@ -136,13 +136,13 @@
 
 /* Homepage: increase the approved Privacy Policy–About gap by 1px. */
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: 5px !important;
+  margin-left: 4.5px !important;
 }
 
 /* Explicit mobile override: keep the homepage buttons visibly separated. */
 @media (max-width: 700px) {
   html body.home-page header.topbar > div.header-meta > a.privacy-link + a.about-header-link {
-    margin-left: 5px !important;
+    margin-left: 4.5px !important;
   }
 }
 
