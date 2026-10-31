@@ -10857,3 +10857,16 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* Mobile homepage: set the Remember outer card itself to a 2px viewport inset.
+   This targets the enclosing Why Arisu card, not the inner safety panel. */
+@media screen and (max-width: 640px) {
+  html body.home-page .why-arisu-section > .why-arisu-card {
+    box-sizing: border-box !important;
+    width: calc(100% - 4px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
