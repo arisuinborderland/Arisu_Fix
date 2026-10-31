@@ -134,19 +134,12 @@
 }
 
 
-/* AFV378 header refinement: keep the two buttons close on all three pages.
-   Underline About once on the homepage only; Reviews and Proofs stay un-underlined. */
-/* AFV380 — keep only the Privacy Policy ↔ About button spacing at 2px
-   on Homepage, Reviews, and Proofs. Do not change other header spacing. */
-/* Mainpage only: apply exactly 2px left margin to About after Privacy Policy. */
-html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: 2px !important;
-}
-
-/* Reviews and Proofs: increase the About-button margin slightly to 4px. */
+/* AFV380 — effective 2px gap between Privacy Policy and About.
+   header-meta uses a 12px flex gap, so -10px margin gives 2px effective spacing. */
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
 html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-  margin-left: 4px !important;
+  margin-left: -10px !important;
 }
 
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
