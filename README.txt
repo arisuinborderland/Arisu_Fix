@@ -1,17 +1,22 @@
-AFV374 — Add 4px to Remember-to-About mobile gap
+AFV375 — Homepage-only dead footer CSS cleanup
+- Removed 77 legacy homepage `.site-footer` rules because the live Homepage uses `.reference-footer` markup.
+- Kept the approved Remember card, shared reference footer, desktop styles, and other pages intact.
+- Updated the Homepage stylesheet cache token and package metadata to AFV375 / 375.0.0.
+
+AFV375 — Add 4px to Remember-to-About mobile gap
 - Adjusted the Homepage mobile Remember card flow spacing from margin-bottom -57px to -53px, adding 4px to the visible gap before About This Website.
 - Desktop and other pages are unchanged.
 
-AFV374 — Homepage Mobile Remember-to-About Gap +4px
+AFV375 — Homepage Mobile Remember-to-About Gap +4px
 - Increased the Homepage-only mobile gap above the shared footer from 2px to 6px (+4px).
 - Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
 
 ARISU FIX — PROJECT README
-Version: AFV374
+Version: AFV375
 Updated: 2026-10-31
 
-Current release: AFV374
-Package version: 374.0.0
+Current release: AFV375
+Package version: 375.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
