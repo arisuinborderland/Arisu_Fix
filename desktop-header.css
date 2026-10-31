@@ -145,6 +145,14 @@ html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a
   margin-left: -10px !important;
 }
 
+/* Mobile header gap is 4px, so reduce it by 2px only on Reviews and Proofs. */
+@media (max-width: 700px) {
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+    margin-left: -2px !important;
+  }
+}
+
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
   text-decoration: none !important;
 }
