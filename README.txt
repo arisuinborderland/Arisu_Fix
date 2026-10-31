@@ -1,6 +1,6 @@
-AFV381 — Restore 2px mobile outer margins on Reviews and Proofs
+AFV382 — Restore 2px mobile outer margins on Reviews and Proofs
 - Changed only the existing mobile horizontal padding on the Reviews and Proofs main wrappers to 2px; inner card padding and desktop layout remain unchanged.
-- Updated reviews.css and proofs.css cache tokens to AFV381 and synchronized release metadata to 381.0.0.
+- Updated reviews.css and proofs.css cache tokens to AFV382 and synchronized release metadata to 382.0.0.
 
 AFV380 — Homepage header button spacing and About underline fix
 - Restored Homepage-only header action widths and spacing after removing the unused legacy About CTA stylesheet.
@@ -38,11 +38,11 @@ AFV375 — Homepage Mobile Remember-to-About Gap +4px
 - Kept the adjustment scoped to max-width 600px; desktop and other pages remain unchanged.
 
 ARISU FIX — PROJECT README
-Version: AFV381
+Version: AFV382
 Updated: 2026-10-31
 
-Current release: AFV381
-Package version: 381.0.0
+Current release: AFV382
+Package version: 382.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
