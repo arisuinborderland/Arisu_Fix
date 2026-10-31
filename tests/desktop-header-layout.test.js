@@ -34,7 +34,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     const html = read(page);
     const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
     const last = links.at(-1)?.[1];
-    assert.equal(last, 'desktop-header.css?v=AFV319', page + ' must load the common header stylesheet last');
+    assert.match(last || '', /^desktop-header\.css\?v=AFV319(?:&amp;|&)afv382=1$/, page + ' must load the common header stylesheet last with the AFV382 cache key');
   }
 });
 
