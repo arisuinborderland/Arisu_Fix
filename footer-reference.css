@@ -225,6 +225,16 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
   .reference-footer .reference-footer-copy > span { font-size: 10px; }
   .reference-footer .reference-footer-arrow { width: 7px; height: 13px; }
 }
+/* AFV369: homepage mobile About eyebrow sits 2px below the top border. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-about-section {
+    padding-top: 0;
+  }
+  body.home-page .reference-footer .reference-about-cta {
+    padding-top: 2px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reference-footer .reference-footer-card,
   .reference-footer .reference-about-action { transition: none; }
