@@ -1,3 +1,8 @@
+AFV375 — Homepage-only Dead Footer CSS Cleanup
+- Removed 77 obsolete `body.home-page .site-footer` rules; current Homepage markup uses `.reference-footer`.
+- Removed the dead `.site-footer > .about-link-section` selector from the inline mobile inset rule while retaining the active Remember card inset.
+- Updated the stylesheet cache token to AFV375 and synchronized package metadata.
+
 AFV374 — Add 4px to Remember-to-About Mobile Gap
 - Changed the Homepage-only mobile Remember card margin-bottom from -57px to -53px to increase the external vertical gap by 4px.
 - Updated cache-busting and package metadata to AFV374 / 374.0.0.
