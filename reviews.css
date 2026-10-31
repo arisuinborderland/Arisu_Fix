@@ -14,7 +14,7 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 .proof-updates-coming h3{margin:0 0 7px;color:#4e6385;font-size:12px;font-weight:750;line-height:1.45}
 .proof-updates-coming p{margin:0;color:#68768b;font-size:12px;line-height:1.6}
 @media(max-width:600px){.proof-updates-coming{gap:11px;margin-top:13px;padding:14px 13px;border-radius:15px}.proof-updates-coming-icon{flex-basis:36px;width:36px;height:36px;border-radius:11px;font-size:20px}.proof-updates-coming h2{font-size:16px}.proof-updates-coming h3{font-size:11px}.proof-updates-coming p{font-size:11px;line-height:1.55}}
-.reviews-updates-coming{width:100%;box-sizing:border-box}
+.reviews-updates-coming{box-sizing:border-box!important;width:calc(100% - 4px)!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important}
 
 
 /* highlighted issue metadata for Screenshot 01 only */
