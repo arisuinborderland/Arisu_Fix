@@ -284,3 +284,50 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
   .reference-footer .reference-about-action { transition: none; }
   .reference-footer .reference-footer-card:hover { transform: none; }
 }
+
+/* AFV369: compact the footer link cards on mobile without changing desktop sizing. */
+@media (max-width: 600px) {
+  body.home-page .reference-footer .reference-footer-grid {
+    gap: 7px;
+    padding: 8px 16px 10px;
+  }
+  body.home-page .reference-footer .reference-footer-card {
+    grid-template-columns: 36px minmax(0, 1fr) 8px;
+    gap: 7px;
+    min-height: 64px;
+    padding: 7px 7px;
+    border-radius: 13px;
+  }
+  body.home-page .reference-footer .reference-footer-icon {
+    width: 36px;
+    height: 36px;
+  }
+  body.home-page .reference-footer .reference-footer-icon svg {
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
+  }
+  body.home-page .reference-footer .reference-footer-copy {
+    gap: 2px;
+  }
+  body.home-page .reference-footer .reference-footer-copy strong {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  body.home-page .reference-footer .reference-footer-copy > span {
+    font-size: 10.5px;
+    line-height: 1.25;
+  }
+  body.home-page .reference-footer .reference-footer-arrow {
+    width: 8px;
+    height: 13px;
+  }
+  body.home-page .reference-footer .reference-footer-legal {
+    width: calc(100% - 32px);
+    padding: 8px 0 10px;
+  }
+  body.home-page .reference-footer .reference-footer-legal p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
