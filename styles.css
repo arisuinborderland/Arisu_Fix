@@ -10876,6 +10876,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
    The card is visually lifted by an existing translateY, so reduce its layout footprint instead. */
 @media (max-width: 640px) {
   html body.home-page .why-arisu-section .why-arisu-card {
-    margin-bottom: -57px !important;
+    margin-bottom: -53px !important;
   }
 }
