@@ -138,12 +138,6 @@ html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.priva
   margin-left: 4px !important;
 }
 
-/* Explicit mobile override: keep the homepage buttons visibly separated. */
-@media (max-width: 700px) {
-  html body.home-page header.topbar > div.header-meta > a.privacy-link + a.about-header-link {
-    margin-left: 4px !important;
-  }
-}
 
 /* Reviews and Proofs: 12px flex gap minus 10px margin = 2px effective gap. */
 html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
@@ -151,13 +145,6 @@ html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a
   margin-left: -10px !important;
 }
 
-/* Mobile header gap is 4px, so reduce it by 2px only on Reviews and Proofs. */
-@media (max-width: 700px) {
-  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
-  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
-    margin-left: -2px !important;
-  }
-}
 
 html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
   text-decoration: none !important;
@@ -181,28 +168,6 @@ html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a
   }
 }
 
-/* Homepage mobile: narrow the Privacy Policy card by 4px on each side. */
-@media (max-width: 760px) {
-  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
-    width: 120px !important;
-    min-width: 120px !important;
-    max-width: 120px !important;
-  }
-}
-@media (max-width: 390px) {
-  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
-    width: 118px !important;
-    min-width: 118px !important;
-    max-width: 118px !important;
-  }
-}
-@media (max-width: 380px) {
-  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
-    width: 108px !important;
-    min-width: 108px !important;
-    max-width: 108px !important;
-  }
-}
 
 
 /* Reviews and Proofs: match the homepage Privacy Policy card reduction (4px per side). */
@@ -216,29 +181,5 @@ html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a
     width: 156px !important;
     min-width: 156px !important;
     max-width: 156px !important;
-  }
-}
-@media (max-width: 760px) {
-  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
-  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
-    width: 120px !important;
-    min-width: 120px !important;
-    max-width: 120px !important;
-  }
-}
-@media (max-width: 390px) {
-  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
-  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
-    width: 118px !important;
-    min-width: 118px !important;
-    max-width: 118px !important;
-  }
-}
-@media (max-width: 380px) {
-  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
-  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
-    width: 108px !important;
-    min-width: 108px !important;
-    max-width: 108px !important;
   }
 }
