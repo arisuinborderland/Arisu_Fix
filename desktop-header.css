@@ -132,3 +132,54 @@
     visibility: visible !important;
   }
 }
+
+/* Homepage: increase the approved Privacy Policy–About gap by 1px. */
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+  margin-left: 4px !important;
+}
+
+
+/* Reviews and Proofs: 12px flex gap minus 10px margin = 2px effective gap. */
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+  margin-left: -10px !important;
+}
+
+
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
+  text-decoration: none !important;
+}
+
+/* Saved-layout follow-up: keep the homepage About label un-underlined. */
+
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link {
+  text-decoration: none !important;
+}
+
+@media (min-width: 701px) {
+  /* Homepage: reduce the Privacy Policy card width by 4px on each side; keep label centered. */
+  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
+  html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible {
+    width: 156px !important;
+    min-width: 156px !important;
+    max-width: 156px !important;
+  }
+}
+
+
+
+/* Reviews and Proofs: match the homepage Privacy Policy card reduction (4px per side). */
+@media (min-width: 701px) {
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
+  html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:hover,
+  html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link:focus-visible {
+    width: 156px !important;
+    min-width: 156px !important;
+    max-width: 156px !important;
+  }
+}

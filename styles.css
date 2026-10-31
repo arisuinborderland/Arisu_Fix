@@ -10857,3 +10857,42 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV381 mobile header sizing stays in the responsive stylesheet, not the desktop-only override. */
+@media (max-width: 700px) {
+  html body.home-page.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+    margin-left: 4px !important;
+  }
+  html body.reviews-document.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link,
+  html body.proofs-document.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link + a.about-header-link {
+    margin-left: -2px !important;
+  }
+}
+@media (max-width: 760px) {
+  html body.home-page.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.reviews-document.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+  }
+}
+@media (max-width: 390px) {
+  html body.home-page.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.reviews-document.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
+    width: 118px !important;
+    min-width: 118px !important;
+    max-width: 118px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page.home-page header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.reviews-document.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+  html body.proofs-document.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link {
+    width: 108px !important;
+    min-width: 108px !important;
+    max-width: 108px !important;
+  }
+}
