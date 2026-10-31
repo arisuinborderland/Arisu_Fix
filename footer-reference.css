@@ -15,14 +15,14 @@
   box-shadow: none;
   font-family: Manrope, Arial, sans-serif;
 }
-body.home-page .reference-footer { margin-top: 0; }
+body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
 .reference-footer *,
 .reference-footer *::before,
 .reference-footer *::after { box-sizing: border-box; }
 
 .reference-footer .reference-about-section {
   width: 100%;
-  margin: 2px 0 0;
+  margin: 0;
   padding: 14px 22px 10px;
   border-top: 1px solid #a9d9ff;
   border-bottom: 1px solid #d8e5f5;
