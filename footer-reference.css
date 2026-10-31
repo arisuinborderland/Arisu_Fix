@@ -405,7 +405,8 @@ body.home-page .reference-footer { margin-top: 0; padding-top: 2px; }
 /* Homepage mobile: the footer About section follows the page's existing 2px inset. */
 @media screen and (max-width: 600px) {
   html body.home-page .reference-footer .reference-about-section {
-    width: 100% !important;
-    margin: 0 !important;
+    width: calc(100% - 4px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
