@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV368
+Version: AFV372
 Updated: 2026-10-31
 
-Current release: AFV368
-Package version: 368.0.0
+Current release: AFV372
+Package version: 372.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV372 targets the actual Homepage Remember and About This Website outer-card selectors and applies a 2px mobile inset to each. Desktop styling and other pages are unchanged; visual confirmation is pending a successful preview build.
 - AFV368 replaces the inconsistent footer markup on Homepage, Reviews, Proofs, and About with one scoped, responsive footer matching the approved mobile reference: About CTA, six two-column link cards, divider, copyright, and tagline. The footer stylesheet is isolated from page content and bottom navigation.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
