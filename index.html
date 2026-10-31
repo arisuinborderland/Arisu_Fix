@@ -33,118 +33,11 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
- <link rel="stylesheet" href="styles.css?v=AFV375&remember-gap=53px-v4&desktoplayout=1&outer-card-inset=2px-v4">
+ <link rel="stylesheet" href="styles.css?v=AFV375">
  <link rel="stylesheet" href="about-link.css?v=AFV341&homebtnpadding=1">
  <link rel="stylesheet" href="story-viewer.css?v=AFV367">
  <link rel="stylesheet" href="bottom-nav.css?v=AFV267&navsync=storiespulse2">
- <style id="about-cta-visibility-enhancement">
-  /* Targeted homepage-only enhancement: keep the existing destination and content. */
-  .home-page .about-link-section {
-    margin-top: 18px;
-    margin-bottom: 22px;
-  }
-  .home-page .about-page-cta {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 18px;
-    border: 1.5px solid rgba(59, 130, 246, .48);
-    border-radius: 30px;
-    background: linear-gradient(118deg, #edf8ff 0%, #f5f3ff 58%, #f1efff 100%);
-    box-shadow: 0 9px 26px rgba(47, 91, 177, .13), inset 0 1px 0 rgba(255,255,255,.95);
-    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .home-page .about-page-cta::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    border-left: 4px solid #3985f6;
-    pointer-events: none;
-    z-index: -1;
-  }
-  .home-page .about-cta-profile {
-    width: 82px;
-    height: 82px;
-    flex: 0 0 82px;
-    object-fit: cover;
-    border: 2px solid rgba(255,255,255,.95);
-    border-radius: 21px;
-    box-shadow: 0 4px 14px rgba(29, 62, 119, .2);
-  }
-  .home-page .about-cta-copy {
-    min-width: 0;
-    flex: 1 1 auto;
-    gap: 5px;
-  }
-  .home-page .about-cta-eyebrow {
-    color: #245ec5;
-    font-weight: 800;
-    letter-spacing: .13em;
-    text-shadow: none;
-  }
-  .home-page .about-cta-title {
-    color: #17294b;
-    font-weight: 800;
-    line-height: 1.2;
-    text-wrap: balance;
-  }
-  .home-page .about-cta-description {
-    color: #4b5b73;
-    line-height: 1.4;
-  }
-  .home-page .about-cta-action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    align-self: flex-start;
-    width: fit-content;
-    margin-top: 7px;
-    padding: 8px 12px;
-    border-radius: 999px;
-    color: #fff;
-    background: linear-gradient(100deg, #2879ec, #6254df);
-    box-shadow: 0 4px 11px rgba(58, 91, 205, .22);
-    font-size: .88rem;
-    font-weight: 750;
-    line-height: 1.15;
-  }
-  .home-page .about-cta-action svg { width: 15px; height: 15px; flex: 0 0 15px; transition: transform .2s ease; }
-  .home-page .about-cta-arrow {
-    width: 25px;
-    height: 25px;
-    flex: 0 0 25px;
-    color: #3267c5;
-    transition: transform .2s ease;
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .home-page .about-page-cta:hover {
-      transform: translateY(-2px);
-      border-color: rgba(37, 99, 235, .75);
-      box-shadow: 0 13px 30px rgba(47, 91, 177, .2), inset 0 1px 0 rgba(255,255,255,.98);
-    }
-    .home-page .about-page-cta:hover .about-cta-arrow { transform: translateX(4px); }
-    .home-page .about-page-cta:hover .about-cta-action svg { transform: translateX(3px); }
-  }
-  .home-page .about-page-cta:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
-  @media (max-width: 480px) {
-    .home-page .about-link-section { margin-top: 15px; margin-bottom: 18px; }
-    .home-page .about-page-cta { gap: 12px; padding: 17px 14px; border-radius: 27px; }
-    .home-page .about-cta-profile { width: 72px; height: 72px; flex-basis: 72px; border-radius: 18px; }
-    .home-page .about-cta-eyebrow { font-size: .76rem; letter-spacing: .1em; }
-    .home-page .about-cta-title { font-size: 1.12rem; }
-    .home-page .about-cta-description { font-size: .94rem; }
-    .home-page .about-cta-action { padding: 8px 10px; font-size: .82rem; }
-    .home-page .about-cta-arrow { width: 21px; height: 21px; flex-basis: 21px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .home-page .about-page-cta, .home-page .about-cta-arrow, .home-page .about-cta-action svg { transition: none !important; }
-  }
-
+ <style id="homepage-approved-layout-inset">
   /* AFV375: preserve the approved 2px mobile inset on the live Remember outer card. */
   @media screen and (max-width: 600px) {
     html body.home-page .why-arisu-section > .why-arisu-card {
@@ -159,7 +52,7 @@
  <!-- On explicit reload, return to the top; keep normal anchor navigation unchanged. -->
 <script src="scroll-restoration.js?v=AFV267" defer></script>
 <script src="header-scroll.js?v=AFV267" defer></script>
- <link rel="stylesheet" href="footer-reference.css?v=AFV375&amp;compact=footer-clear-2&amp;outer-card-margin=2px-v8&remember-gap=6px&amp;gapfix=91px-removed">
+ <link rel="stylesheet" href="footer-reference.css?v=AFV375">
  <link rel="stylesheet" href="desktop-header.css?v=AFV319">
 </head>
 <body class="home-page" id="top">
