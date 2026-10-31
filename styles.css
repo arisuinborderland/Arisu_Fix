@@ -6277,7 +6277,10 @@ html body.home-page main .purpose-card {
   gap: 9px !important;
 }
 @media  (max-width: 600px)  {
-  html body.home-page main > section.site-section.about-section,
+  html body.home-page main > section.site-section.about-section {
+    margin-block-start: -164px !important;
+    margin-block-end: 0 !important;
+  }
   html body.home-page main > section.site-section.purpose-section,
   html body.home-page main > section.site-section.safety-section,
   html body.home-page main > section.site-section.terms-section {
