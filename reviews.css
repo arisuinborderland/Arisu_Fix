@@ -821,3 +821,15 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   margin-block: 0 !important;
   vertical-align: middle !important;
 }
+
+
+/* AFV384 — Reviews page footer: 2px mobile outer inset only. */
+@media (max-width: 600px) {
+  html body.reviews-document > footer.reference-footer {
+    box-sizing: border-box !important;
+    width: calc(100% - 4px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
