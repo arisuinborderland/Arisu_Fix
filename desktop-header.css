@@ -132,3 +132,19 @@
     visibility: visible !important;
   }
 }
+
+
+/* AFV378 approved header-only refinement: tighten the two buttons and underline About. */
+html body.home-page header.topbar.topbar > div.header-meta.header-meta,
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta {
+  gap: 2px !important;
+}
+
+html body.home-page header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span,
+html body.reviews-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span,
+html body.proofs-document header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link > span {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 1px !important;
+}
