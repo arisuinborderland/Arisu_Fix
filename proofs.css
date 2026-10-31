@@ -1098,7 +1098,8 @@ html body.proofs-document .proof-album-disabled .proof-album-cover-shade { backg
 html body.proofs-document .proof-gallery-v2:not(.proof-album-grid) { gap:14px; }
 html body.proofs-document .proofs-footer { margin-top:10px; }
 @media(max-width:760px) {
-  html body.proofs-document main { padding:18px 12px 32px; }
+  html body.proofs-document main { padding:18px 12px 2px; }
+  html body.proofs-document .reference-footer { margin-top:0; }
   html body.proofs-document .proofs-page-card { padding:20px 14px; border-radius:18px; }
   html body.proofs-document .proofs-page-title { gap:12px; margin-bottom:20px; }
   .proofs-title-icon { width:46px; height:46px; flex-basis:46px; border-radius:14px; }
