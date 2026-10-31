@@ -1,3 +1,9 @@
+AFV380 — Homepage Header Button Spacing and About Underline Fix
+- Restored Homepage-only header action widths and spacing after removal of the unused legacy About CTA stylesheet.
+- Applied `text-decoration: none` to the About header link to prevent an unintended underline.
+- Updated the homepage stylesheet cache token and synchronized package/lockfile metadata to AFV380 / 380.0.0.
+- Reviews, Proofs, and shared footer stylesheets are unchanged.
+
 AFV375 — Final homepage cascade double-check
 - Removed the homepage link to the unused legacy `about-link.css` stylesheet.
 - Removed the duplicate inline Remember inset block; the canonical rule in `styles.css` remains active for mobile up to 640px.
