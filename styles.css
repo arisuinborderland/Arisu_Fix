@@ -10857,3 +10857,19 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV368 — Mobile footer must follow the visible Remember card, not its translated flow box.
+   The Why Choose Arisu card is shifted upward by 50px; cancel only that reserved flow space
+   on the card itself. Keep the inner Remember panel and card dimensions unchanged. */
+@media (max-width: 700px) {
+  html body.home-page main > section#why-choose-arisu > .why-arisu-card {
+    margin-bottom: -50px !important;
+  }
+  html body.home-page main {
+    padding-bottom: 0 !important;
+  }
+  html body.home-page .site-footer {
+    margin-top: 2px !important;
+  }
+}
