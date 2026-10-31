@@ -348,3 +348,132 @@ body.about-page .mobile-bottom-nav { display:none; }
   html body.about-page .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon { fill:currentColor; stroke:none; stroke-width:0; }
 }
 @media (prefers-reduced-motion:reduce) { html body.about-page .mobile-bottom-nav * { transition:none !important; animation:none !important; } }
+
+/* AFV367 — match the About-page footer to the approved homepage footer.
+   Scoped only to the About page; does not change homepage or Reviews spacing. */
+html body.about-page footer.site-footer.about-matched-footer {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 12px !important;
+  width: calc(100% - 44px) !important;
+  max-width: 960px !important;
+  margin: 12px auto 14px !important;
+  padding: 20px 20px 16px !important;
+  border: 1px solid rgba(154, 177, 222, .52) !important;
+  border-radius: 28px !important;
+  background: linear-gradient(145deg, rgba(248,251,255,.97), rgba(244,241,255,.96)) !important;
+  box-shadow: 0 10px 28px rgba(47,72,130,.08) !important;
+}
+html body.about-page footer.site-footer.about-matched-footer > .footer-location {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+html body.about-page footer.site-footer.about-matched-footer .footer-location-separator {
+  display: none !important;
+}
+html body.about-page footer.site-footer.about-matched-footer .footer-location-item {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  min-height: 88px !important;
+  padding: 14px 12px !important;
+  border: 1px solid rgba(180,197,227,.48) !important;
+  border-radius: 20px !important;
+  background: rgba(244,248,255,.68) !important;
+  color: #33445f !important;
+  font: 600 14px/1.35 "DM Sans", Arial, sans-serif !important;
+}
+html body.about-page footer.site-footer.about-matched-footer .footer-location-item svg {
+  display: block !important;
+  flex: 0 0 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: 1px !important;
+  fill: none !important;
+  stroke: #3977d5 !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+html body.about-page footer.site-footer.about-matched-footer > .footer-links {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+html body.about-page footer.site-footer.about-matched-footer > .footer-links > a {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  min-height: 76px !important;
+  padding: 12px !important;
+  border: 1px solid rgba(185,198,221,.56) !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.76) !important;
+  color: #2e405c !important;
+  text-decoration: none !important;
+  font: 700 14px/1.3 "DM Sans", Arial, sans-serif !important;
+  box-shadow: 0 2px 5px rgba(40,65,110,.025) !important;
+}
+html body.about-page footer.site-footer.about-matched-footer > .footer-links > a svg {
+  display: block !important;
+  flex: 0 0 22px !important;
+  width: 22px !important;
+  height: 22px !important;
+  fill: none !important;
+  stroke: #3977d5 !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+html body.about-page footer.site-footer.about-matched-footer > .footer-links > a > span {
+  min-width: 0 !important;
+}
+html body.about-page footer.site-footer.about-matched-footer > .footer-links > .footer-copyright {
+  grid-column: 1 / -1 !important;
+  display: block !important;
+  margin: 4px 0 0 !important;
+  padding: 14px 0 0 !important;
+  border-top: 1px solid rgba(175,190,220,.5) !important;
+  color: #62718a !important;
+  text-align: center !important;
+  font: 500 14px/1.55 "DM Sans", Arial, sans-serif !important;
+}
+@media (max-width: 600px) {
+  html body.about-page footer.site-footer.about-matched-footer {
+    width: calc(100% - 44px) !important;
+    margin: 12px auto 14px !important;
+    padding: 20px 20px 16px !important;
+    gap: 10px !important;
+    border-radius: 28px !important;
+  }
+  html body.about-page footer.site-footer.about-matched-footer .footer-location {
+    gap: 8px !important;
+  }
+  html body.about-page footer.site-footer.about-matched-footer .footer-location-item {
+    min-height: 88px !important;
+    padding: 14px 10px !important;
+    gap: 8px !important;
+    border-radius: 20px !important;
+    font-size: 13px !important;
+  }
+  html body.about-page footer.site-footer.about-matched-footer > .footer-links {
+    gap: 10px !important;
+  }
+  html body.about-page footer.site-footer.about-matched-footer > .footer-links > a {
+    min-height: 76px !important;
+    padding: 12px !important;
+    gap: 10px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+  }
+}
