@@ -1653,10 +1653,6 @@ summary:focus-visible {
     max-width: 1000px;
     margin-top: 36px;
   }
-  body.home-page .site-footer {
-    padding-left: max(32px, calc((100% - 1040px) / 2));
-    padding-right: max(32px, calc((100% - 1040px) / 2));
-  }
 }
 
 /* Premium green status badge styling */
@@ -3432,9 +3428,6 @@ body.home-page .safety-panel,
 body.home-page .terms-card {
   margin-top: 0 !important;
 }
-body.home-page .site-footer {
-  margin-top: 18px !important;
-}
 @media  (min-width: 601px)  {
   body.home-page .site-section { margin-top: 28px !important; }
   body.home-page .social-collage { gap: 12px !important; }
@@ -3455,7 +3448,6 @@ body.home-page .site-footer {
   body.home-page .about-card,
   body.home-page .safety-panel,
   body.home-page .terms-card { padding-top: 14px !important; padding-bottom: 14px !important; }
-  body.home-page .site-footer { margin-top: 12px !important; }
 }
 @media  (max-width: 380px)  {
   body.home-page .social-collage { gap: 7px !important; }
@@ -6225,15 +6217,6 @@ html body.home-page .floating-menu-item-icon.faq-shortcut { background: #e9efff 
 
 /* keep footer content in a single, readable mobile flow. */
 @media  (max-width: 600px)  {
-  body.home-page .site-footer {
-    grid-template-columns: minmax(0, 1fr) !important;
-    align-items: start !important;
-  }
-  body.home-page .site-footer > .footer-brand { grid-column: 1 !important; grid-row: 1 !important; }
-  body.home-page .site-footer > .footer-note { grid-column: 1 !important; grid-row: 2 !important; }
-  body.home-page .site-footer > .footer-location { grid-column: 1 !important; grid-row: 3 !important; min-width: 0; }
-  body.home-page .site-footer > .footer-links { grid-column: 1 !important; grid-row: 4 !important; }
-  body.home-page .site-footer > .footer-copyright { grid-column: 1 !important; grid-row: 5 !important; }
   body.home-page .footer-location-item { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
   body.home-page .footer-location-item svg { width: 16px; height: 16px; flex: 0 0 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
   body.home-page .footer-location { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
@@ -6392,7 +6375,6 @@ body.home-page .purpose-card .purpose-kicker {
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media  (max-width: 600px)  {
   html body.home-page main { padding-bottom: 8px !important; }
-  html body.home-page .site-footer { margin-top: 4px !important; }
 }
 
 /* consolidate repeated mobile WhatsApp spacing adjustments.
@@ -6428,42 +6410,6 @@ body.home-page .purpose-card .purpose-kicker {
 /* repair desktop footer location icons and alignment.
    The SVGs previously had no desktop size/stroke rules, so their paths rendered as huge black shapes. */
 @media  (min-width: 601px)  {
-  body.home-page .site-footer > .footer-location {
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px 8px !important;
-    min-width: 0 !important;
-    align-self: center !important;
-  }
-  body.home-page .site-footer .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap;
-  }
-  body.home-page .site-footer .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    max-width: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-  body.home-page .site-footer .footer-location-separator {
-    display: inline-block !important;
-    color: #7d899c !important;
-    line-height: 1 !important;
-  }
 }
 
 /* desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
@@ -6530,98 +6476,6 @@ body.home-page .purpose-card .purpose-kicker {
   html body.home-page .desktop-social-destination > .contact-divider {
     width: 100% !important;
     margin: 0 auto 10px !important;
-  }
-
-  /* Match the compact three-column desktop footer reference; links/copyright use lower rows. */
-  html body.home-page .site-footer {
-    width: 100% !important;
-    max-width: none !important;
-    display: grid !important;
-    grid-template-columns: minmax(180px, 0.9fr) minmax(260px, 1.1fr) minmax(280px, 1.4fr) !important;
-    grid-template-rows: auto auto auto !important;
-    align-items: center !important;
-    column-gap: 25px !important;
-    row-gap: 14px !important;
-    padding: 28px clamp(32px, 4.4vw, 52px) 22px !important;
-  }
-
-  html body.home-page .site-footer > .footer-brand {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: start !important;
-  }
-
-  html body.home-page .site-footer > .footer-note {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    align-self: center !important;
-    font-size: 14px !important;
-    line-height: 1.65 !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    hyphens: none !important;
-  }
-
-  html body.home-page .site-footer > .footer-location {
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px 8px !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    align-self: center !important;
-  }
-
-  html body.home-page .site-footer .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-  }
-
-  html body.home-page .site-footer .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    max-width: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer .footer-location-separator {
-    display: inline-block !important;
-    line-height: 1 !important;
-    color: #7d899c !important;
-  }
-
-  html body.home-page .site-footer > .footer-links {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
-    justify-content: flex-start !important;
-    gap: 16px !important;
-    margin: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-copyright {
-    grid-column: 1 / -1 !important;
-    grid-row: 3 !important;
-    width: min(100%, 1040px) !important;
-    margin: 0 !important;
-    padding-top: 13px !important;
-    border-top: 1px solid #edf0f5 !important;
   }
 }
 
@@ -8153,11 +8007,6 @@ html body.home-page .why-arisu-section > .why-arisu-card {
 }
 
 
-html body.home-page .site-footer {
-  margin-top: -62px !important;
-}
-
-
 
 /* retain the text offsets, but collapse the creator block's reserved space. */
 html body.home-page .purpose-card > h2 {
@@ -8496,32 +8345,6 @@ html body.home-page .purpose-card .purpose-signoff {
 
 /* apply the Deep Black-Navy + Violet footer style on desktop too. */
 @media (min-width: 701px) {
-  html body.home-page .site-footer {
-    background: #101827 !important;
-    color: #F8FAFF !important;
-    border-top: 1px solid rgba(167, 139, 250, .25) !important;
-  }
-  html body.home-page .site-footer .footer-brand,
-  html body.home-page .site-footer .footer-brand .brand-name-row,
-  html body.home-page .site-footer .footer-brand small,
-  html body.home-page .site-footer .footer-note,
-  html body.home-page .site-footer .footer-location,
-  html body.home-page .site-footer .footer-location-item,
-  html body.home-page .site-footer .footer-copyright {
-    color: #F8FAFF !important;
-  }
-  html body.home-page .site-footer .footer-links a {
-    color: #F8FAFF !important;
-    transition: color .2s ease, text-shadow .2s ease;
-  }
-  html body.home-page .site-footer .footer-links a:hover,
-  html body.home-page .site-footer .footer-links a:focus-visible {
-    color: #D8C7FF !important;
-    text-shadow: 0 0 10px rgba(167, 139, 250, .42);
-  }
-  html body.home-page .site-footer .footer-copyright {
-    border-top-color: rgba(167, 139, 250, .2) !important;
-  }
 }
 
 
@@ -8663,9 +8486,6 @@ html body.home-page .purpose-card .purpose-signoff {
     padding: 0 3px !important;
     font-size: 9px !important;
   }
-  html body.home-page .site-footer {
-    margin-top: 22px !important;
-  }
 }
 
 
@@ -8673,10 +8493,6 @@ html body.home-page .purpose-card .purpose-signoff {
 @media (min-width: 701px) {
   html body.home-page {
     padding-bottom: 150px !important;
-  }
-  html body.home-page .site-footer {
-    padding-bottom: 120px !important;
-    margin-top: 24px !important;
   }
   html body.home-page nav.mobile-bottom-nav {
     position: fixed !important;
@@ -8764,88 +8580,18 @@ html body.home-page .purpose-card .purpose-signoff {
 
 /* compact mobile footer links and reduce excess vertical spacing. */
 @media (max-width: 600px) {
-  html body.home-page .site-footer > .about-link-section {
-    margin-bottom: 4px !important;
-  }
-  html body.home-page .site-footer > .footer-location {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    row-gap: 4px !important;
-    column-gap: 8px !important;
-  }
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    justify-content: stretch !important;
-    align-items: start !important;
-    gap: 6px 12px !important;
-    margin-top: 8px !important;
-    margin-bottom: 0 !important;
-    width: 100% !important;
-  }
-  html body.home-page .site-footer > .footer-links a {
-    display: block !important;
-    min-width: 0 !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    overflow-wrap: anywhere;
-  }
-  html body.home-page .site-footer > .footer-copyright {
-    margin-top: 8px !important;
-    padding-top: 8px !important;
-    line-height: 1.35 !important;
-  }
 }
 
 
 /* compact footer links with small inline icons for clearer scanning. */
 @media (max-width: 600px) {
-  html body.home-page .site-footer > .footer-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 7px 10px !important;
-  }
-  html body.home-page .site-footer > .footer-links a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    min-height: 24px !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-  }
-  html body.home-page .site-footer > .footer-links a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-  html body.home-page .site-footer > .footer-links a span {
-    min-width: 0 !important;
-  }
 }
 @media (min-width: 601px) {
-  html body.home-page .site-footer > .footer-links a {
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  html body.home-page .site-footer > .footer-links a svg {
-    width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor;
-    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
-  }
 }
 
 
 /* balance the compact mobile footer and preserve clearance for fixed bottom navigation. */
 @media (max-width: 700px) {
-  html body.home-page .site-footer {
-    padding-bottom: 6px !important;
-  }
   html body.home-page {
     padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
   }
@@ -8885,38 +8631,8 @@ html body.home-page .purpose-card .purpose-signoff {
 
 /* place copyright in the final mobile footer grid cell beside Contact. */
 @media (max-width: 760px) {
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 7px !important;
-  }
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    align-self: center !important;
-    justify-self: start !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-    color: #8a95a6 !important;
-  }
 }
 @media (min-width: 761px) {
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    margin-left: auto;
-    border: 0;
-    padding-top: 0;
-    white-space: nowrap;
-  }
 }
 
 
@@ -9353,152 +9069,6 @@ html body.home-page .purpose-card .purpose-signoff {
 /* Desktop footer: use the same clear vertical order as mobile.
    Keep the About card, location, link grid, and copyright on separate rows. */
 @media (min-width: 701px) {
-  html body.home-page .site-footer {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 14px !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin-top: 18px !important;
-    padding: 22px clamp(28px, 4vw, 48px) 124px !important;
-    background: transparent !important;
-    color: #172447 !important;
-    border-top: 1px solid rgba(143, 172, 221, .22) !important;
-    box-shadow: none !important;
-  }
-
-  html body.home-page .site-footer > .about-link-section {
-    box-sizing: border-box !important;
-    width: min(100%, 824px) !important;
-    max-width: 824px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    align-self: center !important;
-  }
-
-  html body.home-page .site-footer > .about-link-section .about-page-cta {
-    box-sizing: border-box !important;
-    display: flex !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-  }
-
-  html body.home-page .site-footer > .footer-location {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px 10px !important;
-    width: min(100%, 824px) !important;
-    max-width: 824px !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    color: #263654 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-    color: #263654 !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-separator {
-    color: #8a95a6 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links {
-    box-sizing: border-box !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-items: center !important;
-    justify-content: stretch !important;
-    gap: 7px 12px !important;
-    width: min(100%, 620px) !important;
-    max-width: 620px !important;
-    margin: 2px auto 0 !important;
-    padding: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    min-height: 24px !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    color: #65738a !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    text-decoration: none !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a:hover,
-  html body.home-page .site-footer > .footer-links > a:focus-visible {
-    color: #4f46e5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a span {
-    min-width: 0 !important;
-  }
-
-  /* Copyright shares the last grid row with Contact, just like mobile. */
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    align-self: center !important;
-    justify-self: start !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    color: #8a95a6 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-  }
 }
 
 
@@ -9616,137 +9186,6 @@ html body.home-page .purpose-card .purpose-signoff {
 /* Desktop footer v2: restore the full-width navy footer and an editorial desktop row.
    The compact two-column link grid is retained only for mobile. */
 @media (min-width: 701px) {
-  html body.home-page .site-footer {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 15px !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 18px 0 0 !important;
-    padding: 28px clamp(28px, 4vw, 48px) 124px !important;
-    background: #101827 !important;
-    color: #F8FAFF !important;
-    border-top: 1px solid rgba(167, 139, 250, .28) !important;
-    box-shadow: none !important;
-  }
-
-
-
-  html body.home-page .site-footer > .footer-location {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px 10px !important;
-    width: min(100%, 1040px) !important;
-    max-width: 1040px !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    color: #D9E3F5 !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-    color: #D9E3F5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-separator {
-    color: #8291AB !important;
-  }
-
-  /* Restore the five footer links to a horizontal desktop row. */
-  html body.home-page .site-footer > .footer-links {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px 22px !important;
-    width: min(100%, 1160px) !important;
-    max-width: 1160px !important;
-    margin: 4px auto 0 !important;
-    padding: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    flex: 0 0 auto !important;
-    min-width: 0 !important;
-    min-height: 25px !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    color: #E2E8F0 !important;
-    font-size: 12px !important;
-    font-weight: 650 !important;
-    line-height: 1.35 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a:hover,
-  html body.home-page .site-footer > .footer-links > a:focus-visible {
-    color: #D8C7FF !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a span {
-    min-width: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    align-self: center !important;
-    justify-self: auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 0 0 auto !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    color: #A8B4C8 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-  }
 }
 
 
@@ -9759,62 +9198,6 @@ html body.home-page .purpose-card .purpose-signoff {
 
   html body.home-page main {
     padding-bottom: 12px !important;
-  }
-
-  html body.home-page .site-footer {
-    margin-top: 8px !important;
-    padding-bottom: 190px !important;
-  }
-
-  /* A more readable, balanced location/service-coverage line. */
-  html body.home-page .site-footer > .footer-location {
-    gap: 8px 12px !important;
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-  }
-
-  /* Keep the footer links in one centered group and put copyright on a calm second row. */
-  html body.home-page .site-footer > .footer-links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    column-gap: 24px !important;
-    row-gap: 10px !important;
-    width: min(100%, 1040px) !important;
-    max-width: 1040px !important;
-    margin: 5px auto 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a {
-    gap: 7px !important;
-    min-height: 28px !important;
-    font-size: 14px !important;
-    font-weight: 650 !important;
-    line-height: 1.4 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a svg {
-    width: 16px !important;
-    height: 16px !important;
-    flex-basis: 16px !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex: 0 0 100% !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 5px 0 0 !important;
-    padding: 10px 0 0 !important;
-    border-top: 1px solid rgba(167, 139, 250, .20) !important;
-    color: #A8B4C8 !important;
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
   }
 
     /* Compact desktop floating navigation. */
@@ -9877,11 +9260,6 @@ html body.home-page .purpose-card .purpose-signoff {
 
   html body.home-page main {
     padding-bottom: 0 !important;
-  }
-
-  html body.home-page .site-footer {
-    margin-top: 2px !important;
-    padding-bottom: 120px !important;
   }
 }
 
