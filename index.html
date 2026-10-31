@@ -33,7 +33,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
- <link rel="stylesheet" href="styles.css?v=AFV368&desktoplayout=1&outer-card-inset=2px-v3">
+ <link rel="stylesheet" href="styles.css?v=AFV372&desktoplayout=1&outer-card-inset=2px-v4">
  <link rel="stylesheet" href="about-link.css?v=AFV341&homebtnpadding=1">
  <link rel="stylesheet" href="story-viewer.css?v=AFV367">
  <link rel="stylesheet" href="bottom-nav.css?v=AFV267&navsync=storiespulse2">
@@ -143,6 +143,18 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .home-page .about-page-cta, .home-page .about-cta-arrow, .home-page .about-cta-action svg { transition: none !important; }
+  }
+
+  /* AFV372: apply the 2px mobile inset to the actual homepage outer-card selectors. */
+  @media screen and (max-width: 600px) {
+    html body.home-page .why-arisu-section > .why-arisu-card,
+    html body.home-page .site-footer > .about-link-section {
+      box-sizing: border-box !important;
+      width: calc(100% - 4px) !important;
+      max-width: none !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
   }
  </style>
  <!-- On explicit reload, return to the top; keep normal anchor navigation unchanged. -->
