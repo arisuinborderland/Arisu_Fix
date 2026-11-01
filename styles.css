@@ -22,27 +22,42 @@
 /* Mobile-first first-screen layout */
 @media  (max-width: 600px) {
   .topbar{height:58px;padding:0 16px;position:sticky;top:0;z-index:20}
+
   main{max-width:100%;padding:18px 14px 22px}
+
   .eyebrow{font-size:9px;letter-spacing:1.15px}
+
   .wizard-card{padding:18px 16px;border-radius:18px}
+
   .whatsapp-button{min-height:56px;padding:13px 12px;gap:9px;font-size:13px;border-radius:12px}
   .whatsapp-button .wa-icon,.whatsapp-button .wa-icon svg{width:23px;height:23px;flex-basis:23px}
+
   .contact-divider{margin:18px 0 12px}
+
   footer{padding:14px 16px}
 }
 @media  (max-width: 390px) {
   main{padding-left:11px;padding-right:11px}
+
   .wizard-card{padding:16px 13px}
+
   .whatsapp-button{font-size:12px;gap:7px}
+
 }
+
 /* High-visibility information panels */
+
 /* Direct-to-contact layout: remove hero spacing and lift the contact card */
 @media  (max-width:600px) {
   main{padding:12px 12px 18px}
   .wizard-card{padding:17px 14px}
+
   .whatsapp-button{min-height:54px}
+
   .contact-divider{margin:15px 0 10px}
+
 }
+
 /* Compact hero: keeps the requested headline without pushing contact options too far down */
 .compact-intro{text-align:center;margin:0 auto 16px}
 .compact-intro .eyebrow{font-weight:800;display:inline-flex;align-items:center;gap:8px}
@@ -57,28 +72,37 @@
  .compact-intro p{font-size:11px;max-width:350px}
 }
 @media (max-width:390px) {.compact-intro h1{font-size:25px}.compact-intro p{font-size:10.5px}}
+
 /* Privacy Policy link: improve visibility and tap target on mobile */
 footer .privacy-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;color:var(--blue);font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;position:relative;z-index:2;cursor:pointer;pointer-events:auto}footer .privacy-link:hover,footer .privacy-link:focus-visible{background:var(--pale);color:var(--blue-dark);outline:2px solid #b9caff;outline-offset:2px}
+
 /* Header layout update: Privacy Policy and copyright beside the brand; no bottom footer */
 .topbar{min-height:96px;height:auto;padding:18px max(22px,calc((100% - 1080px)/2));gap:24px}
 .topbar .logo{width:66px;height:66px;border-radius:18px}
 .topbar .brand{gap:16px}
 .topbar .brand small{margin-top:5px}
 .header-meta .privacy-link{border-radius:16px;text-decoration:none;transition:background .15s,border-color .15s}
+
 @media (max-width:600px) {.topbar .logo{border-radius:12px}.topbar .brand{min-width:0}.topbar .brand small{margin-top:3px}.header-meta .privacy-link{border-radius:10px;white-space:nowrap}}
 @media (max-width:380px) {.topbar{padding-left:9px;padding-right:9px}.topbar .brand{gap:6px}.topbar .logo{width:37px;height:37px}}
+
 /* Enhanced TikTok showcase: clear profile destination, no fabricated video previews */
 .tiktok-showcase{margin-top:13px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f8faff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
+
 .tiktok-showcase h3{font:800 17px/1.25 Manrope,sans-serif;letter-spacing:-.3px;margin:2px 0 2px;color:var(--ink)}
 .tiktok-profile-button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 14px;border-radius:10px;background:#11131b;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .tiktok-profile-button:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(17,19,27,.18)}
+
 @media (max-width:600px) {.tiktok-showcase{padding:14px;margin-top:11px;border-radius:13px}.tiktok-showcase h3{font-size:16px}.tiktok-profile-button{min-height:45px}}
+
 /* Facebook page card: placed directly below TikTok */
 .facebook-showcase{margin-top:12px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f6f9ff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
 .facebook-showcase h3{font:800 17px/1.25 Manrope,sans-serif;letter-spacing:-.3px;margin:0 0 3px;color:var(--ink)}
+
 .facebook-profile-button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 14px;border-radius:10px;background:#1877f2;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .facebook-profile-button:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(24,119,242,.2)}
 @media (max-width:600px) {.facebook-showcase{padding:14px;margin-top:11px;border-radius:13px}.facebook-showcase h3{font-size:16px}.facebook-profile-button{min-height:45px}}
+
 /* Premium complete-site refresh — layered on top of the original visual identity */
 html{scroll-padding-top:96px}
 .topbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(155%) blur(14px);background:rgba(255,255,255,.94);border-bottom-color:rgba(223,230,241,.9)}
@@ -89,14 +113,18 @@ main{max-width:1040px;padding:30px 22px 72px}
 .compact-intro .eyebrow{border-radius:999px;padding:8px 13px}
 .compact-intro p{max-width:600px}
 .wizard-card.contact-only{max-width:760px;border:1px solid rgba(220,228,241,.95);border-radius:25px;box-shadow:var(--soft-shadow);background:rgba(255,255,255,.96)}
+
 .whatsapp-button{box-shadow:0 8px 18px rgba(37,211,102,.16);border-radius:13px}
 .whatsapp-button:hover{transform:translateY(-1px);box-shadow:0 12px 22px rgba(37,211,102,.2)}
+
 .tiktok-showcase,.facebook-showcase{display:block;color:inherit;text-decoration:none;position:relative;overflow:hidden;border-radius:19px;padding:19px;border-color:#e1e7f1;background:linear-gradient(145deg,rgba(255,255,255,.99),rgba(247,249,255,.96));box-shadow:0 8px 22px rgba(35,54,94,.055);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .tiktok-showcase:before,.facebook-showcase:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#25f4ee,#fe2c55,#315eea);opacity:.8}
 .facebook-showcase:before{background:linear-gradient(90deg,#73a6ff,#1877f2)}
 .tiktok-showcase:hover,.facebook-showcase:hover{transform:translateY(-2px);border-color:#c8d5f0;box-shadow:0 14px 28px rgba(35,54,94,.09)}
 .tiktok-showcase:focus-visible,.facebook-showcase:focus-visible{outline:3px solid #9fb6ff;outline-offset:3px}
+
 .tiktok-profile-button,.facebook-profile-button{border-radius:12px;pointer-events:none}
+
 .site-section{margin:48px auto 0;max-width:960px;scroll-margin-top:112px}
 .section-heading{text-align:center;margin:0 auto 23px;max-width:640px}
 .section-kicker{display:inline-block;line-height:1.3}
@@ -107,6 +135,7 @@ main{max-width:1040px;padding:30px 22px 72px}
 .step-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(35,54,94,.075)}
 .step-card h3{font:800 16px/1.3 Manrope,sans-serif;letter-spacing:-.25px;margin:0 0 9px}
 .step-card p{font-size:12px;color:#69768b;margin:0}
+
 .safety-panel{display:grid;grid-template-columns:55px minmax(0,1fr);border:1px solid #c9d8ff;border-radius:22px;box-shadow:0 12px 30px rgba(42,72,148,.06)}
 .safety-panel-icon{width:52px;height:52px;border-radius:16px;background:#315eea;color:#fff;display:grid;place-items:center;font-size:26px;font-weight:800;box-shadow:0 8px 16px rgba(49,94,234,.18)}
 .safety-panel h2{font:800 clamp(22px,3.2vw,29px)/1.2 Manrope,sans-serif;letter-spacing:-.7px;margin:7px 0 9px}
@@ -117,6 +146,7 @@ main{max-width:1040px;padding:30px 22px 72px}
 .about-card p,.terms-card p{font-size:12px;line-height:1.85;color:#647189;margin:0 0 11px}
 .about-card .independent-note{color:#31507e;background:#f0f4ff;border-radius:10px;margin:8px 0 0}
 .terms-card{border:1px solid #e0e7f1;border-radius:20px;background:#fff;box-shadow:0 8px 24px rgba(35,54,94,.04)}
+
 .floating-whatsapp{position:fixed;z-index:25;right:max(18px,calc((100vw - 1080px)/2));display:flex;align-items:center;gap:9px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:linear-gradient(135deg,#27d96b,#16a85b);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 10px 25px rgba(20,156,85,.26);transition:transform .16s ease,box-shadow .16s ease}
 .floating-whatsapp-icon{width:21px;height:21px;flex:0 0 21px;display:block}.floating-whatsapp>span:first-child{font-size:19px}.floating-whatsapp:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,156,85,.32)}.floating-whatsapp:focus-visible{outline:3px solid #8ddcad;outline-offset:3px}
 .site-footer{max-width:none;display:grid;grid-template-columns:auto minmax(150px,1fr) auto;align-items:center;gap:14px 25px;padding:25px max(22px,calc((100% - 1040px)/2));background:rgba(255,255,255,.96);border-top:1px solid #e3e9f2}
@@ -129,6 +159,7 @@ main{max-width:1040px;padding:30px 22px 72px}
 }
 @media (max-width:420px) {.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.header-meta{gap:6px}.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}.footer-links{gap:12px}.footer-links a{font-size:10px}}
 @media (prefers-reduced-motion:reduce) {html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
 /* Premium Mobile Polish readability, touch targets and calmer spacing */
 :root{--body-size:16px;--body-leading:1.75}
 body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
@@ -138,8 +169,10 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .compact-intro p{font-size:16px;line-height:1.7}
 .wizard-card.contact-only{padding:30px}
 .whatsapp-button{font-size:16px;min-height:60px}
+
 .tiktok-showcase h3,.facebook-showcase h3{font-size:19px}
 .tiktok-profile-button,.facebook-profile-button{font-size:14px;min-height:52px}
+
 .section-heading h2,.about-card h2,.terms-card h2{line-height:1.2}
 .section-heading p{font-size:15px;line-height:1.75}
 .step-card p,
@@ -147,6 +180,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .about-card p,
 .terms-card p{font-size:14px;line-height:1.8}
 .step-card h3{font-size:17px}
+
 .floating-whatsapp{min-height:50px;padding:0 18px;font-size:14px;bottom:18px}
 .footer-links a{font-size:13px;padding:5px 0}
 .footer-copyright{font-size:12px}
@@ -159,8 +193,10 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .compact-intro h1{font-size:clamp(32px,8.2vw,42px);letter-spacing:-1.2px;line-height:1.12;margin:15px 0 11px}
  .compact-intro p{font-size:15px;line-height:1.7}
  .wizard-card.contact-only{padding:22px 18px;border-radius:22px}
+
  .tiktok-showcase,.facebook-showcase{padding:17px;border-radius:18px}
  .tiktok-showcase h3,.facebook-showcase h3{font-size:18px}
+
  .tiktok-profile-button,.facebook-profile-button{min-height:50px;font-size:14px}
  .site-section{margin-top:40px}
  .section-heading{margin-bottom:20px}
@@ -168,6 +204,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .section-heading p{font-size:14px}
  .step-card{padding:19px 17px;column-gap:13px}
  .step-card h3{font-size:16px}
+
  .safety-panel{padding:21px 17px}
  .safety-panel h2{font-size:23px}
  .about-card{padding:19px 16px;gap:14px}
@@ -178,11 +215,14 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 }
 @media (max-width:420px) {
  .header-meta .privacy-link{font-size:11px;min-height:40px;padding:0 10px}
+
  .compact-intro .eyebrow{font-size:9px;letter-spacing:.6px}
  .compact-intro h1{font-size:clamp(30px,8vw,36px)}
  .wizard-card.contact-only{padding:18px 13px}
+
  .tiktok-showcase,.facebook-showcase{padding:15px}
  .tiktok-showcase h3,.facebook-showcase h3{font-size:16px}
+
  .section-heading h2{font-size:24px}
  .step-card p,
  .safety-panel p,
@@ -191,12 +231,15 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .floating-whatsapp{right:10px;bottom:10px}
 }
 @media (hover:none) {.tiktok-showcase:hover,.facebook-showcase:hover,.step-card:hover{transform:none}}
+
 /* Recovery proof gallery */
+
 .proof-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
 .proof-card{overflow:hidden;min-width:0;background:rgba(255,255,255,.92);border:1px solid #dfe6f2;border-radius:20px;box-shadow:0 8px 24px rgba(26,48,86,.055);transition:transform .2s ease,box-shadow .2s ease}
 .proof-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(26,48,86,.10)}
 .proof-image-link{display:block;aspect-ratio:4/3;background:linear-gradient(135deg,#eef3ff,#f5f8fc);overflow:hidden}
 .proof-image-link img{display:block;width:100%;height:100%;object-fit:cover}
+
 .proof-card h3{margin:0 0 7px;color:#19243a;font-size:16px;line-height:1.35}
 .proof-card p{margin:0;color:#68758a;font-size:13px;line-height:1.65;overflow-wrap:anywhere}
 .proof-card-date{display:block;margin-top:10px;color:#8a95a6;font-size:11px}
@@ -206,9 +249,11 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .proof-empty h3{margin:3px 0 0;color:#1c2940;font-size:17px}
 .proof-empty p{max-width:560px;margin:0;color:#68758a;font-size:13px;line-height:1.7}
 .proof-empty code{padding:2px 5px;border-radius:5px;background:#e9eef8;color:#2d4f9f;font-size:.92em}
+
 @media (max-width:760px) {.proof-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proof-card{border-radius:16px}.proof-card h3{font-size:14px}.proof-card p{font-size:12px}}
 @media (max-width:460px) {.proof-gallery{grid-template-columns:1fr}.proof-image-link{aspect-ratio:16/10}.proof-empty{padding:24px 16px}}
 @media (hover:none) {.proof-card:hover{transform:none;box-shadow:0 8px 24px rgba(26,48,86,.055)}}
+
 /* Header shortcut to the Recovery Proofs gallery */
 .header-meta{display:flex;align-items:center;flex-shrink:0}
 .header-meta .proofs-header-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;text-decoration:none;white-space:nowrap;transition:background .18s,border-color .18s,transform .18s}
@@ -216,6 +261,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .header-meta .proofs-header-link:focus-visible,.header-meta .privacy-link:focus-visible{outline:3px solid #9bb5ff;outline-offset:2px}
 @media (max-width:600px) {.header-meta .proofs-header-link{min-height:38px;padding:0 9px;font-size:10px;border-radius:10px}.header-meta .privacy-link{min-height:38px;padding:0 9px;font-size:10px}}
 @media (max-width:380px) {.header-meta{gap:4px}.header-meta .proofs-header-link{padding:0 6px;font-size:9px;gap:3px}.header-meta .privacy-link{padding:0 6px;font-size:9px}}
+
 /* Header refinement: distinct, visible action buttons; copyright removed from header */
 .header-meta{gap:12px}
 .header-meta .proofs-header-link{min-height:48px;padding:0 17px;border:1px solid #2f5fe7;background:linear-gradient(135deg,#315fe8 0%,#547af3 100%);color:#fff;font-size:13px;font-weight:800;box-shadow:0 5px 14px rgba(49,94,232,.22)}
@@ -237,12 +283,16 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .header-meta{gap:7px}
  .header-meta .proofs-header-link,.header-meta .privacy-link{padding:0 10px;font-size:11px;min-height:41px}
 }
+
 /* Proof image display: show the entire uploaded screenshot without cropping. */
 .proof-image-protected{position:relative;aspect-ratio:auto;overflow:hidden;background:#edf2fa;user-select:none;-webkit-user-select:none}
 .proof-image-protected img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;pointer-events:none;user-select:none;-webkit-user-drag:none}
 .proof-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;color:rgba(255,255,255,.78);font-size:clamp(10px,1.8vw,17px);font-weight:900;letter-spacing:.12em;text-align:center;text-shadow:0 2px 5px rgba(0,0,0,.78);transform:rotate(-22deg);pointer-events:none;user-select:none;-webkit-user-select:none}
+
 /* Case metadata sits above the proof image for clearer context. */
+
 .proof-card .proof-image-link{border-top:1px solid #e8edf6}
+
 /* Premium case-status rows with inline SVG icons (HTML UI, not baked into proof image). */
 .proof-card-copy{padding:15px 15px 13px}
 .proof-status-list{display:grid;gap:9px;margin:0 0 14px}
@@ -259,6 +309,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .proof-status-violation .proof-status-icon{background:#ffebc7;color:#c8790a}
 .proof-status-violation .proof-status-label{color:#ad690b}
 @media (max-width:460px) {.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
+
 /* Compact Daily Bible Verse strip placed directly under the header */
 .daily-verse-card:before{content:"";position:absolute;top:-45px;right:-20px;width:100px;height:100px;border-radius:50%;pointer-events:none}
 .daily-verse-topline{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
@@ -269,8 +320,10 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .daily-verse-text{position:relative;max-width:680px;margin:0 auto 3px;font:600 14px/1.5 "DM Sans",sans-serif}
 .daily-verse-reference{position:relative;margin:0;font-size:10px;font-weight:800;letter-spacing:.2px}
 .daily-verse-translation{position:relative;margin:4px auto 0;max-width:680px;font-size:11px;line-height:1.45}
+
 .daily-verse-card button:focus-visible{outline:3px solid #b9caff;outline-offset:2px}
 @media (max-width:600px) {.daily-verse-card{margin:10px 0 5px;padding:11px 10px 10px;border-radius:13px}.daily-verse-topline{gap:5px}.daily-verse-label{font-size:8px;letter-spacing:.8px}.daily-verse-card h2{font-size:15px}.daily-verse-text{font-size:13px;line-height:1.45}.daily-verse-translation{font-size:10px}}
+
 /* Hybrid redesign: airy light page sections + readable deep-navy cards */
 :root{--soft-shadow:0 14px 36px rgba(19,35,66,.09)}
 .topbar,footer{background:rgba(255,255,255,.97);border-color:#dce4f0}
@@ -290,23 +343,30 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .daily-verse-text{color:#f4f7ff}
 .daily-verse-reference{color:#aebeff}
 .daily-verse-translation{color:#d0d9e9}
+
 footer>a:not(.brand),footer>span{color:#596980}
 @media (max-width:600px) {.daily-verse-card{box-shadow:0 8px 20px rgba(14,25,45,.16)}}
+
 /* Final spacing adjustment: place the Daily Bible Verse immediately below the header links. */
 main{padding-top:0}
 .daily-verse-card{margin-top:0}
 @media (max-width:600px) {main{padding-top:0}}
+
 /* Compact vertical rhythm: lift the WhatsApp contact panel and following content. */
 .compact-intro{margin-bottom:10px;padding-bottom:4px}
 .compact-intro h1{margin-bottom:7px}
+
 .wizard-card.contact-only{margin-top:0;padding-top:18px}
+
 @media (max-width:600px) {
   .compact-intro{margin-bottom:7px;padding-top:5px;padding-bottom:2px}
   .compact-intro h1{margin-top:10px;margin-bottom:5px}
   .compact-intro p{line-height:1.45}
   .wizard-card.contact-only{padding-top:15px;padding-bottom:16px}
+
   .site-section{margin-top:28px}
 }
+
 /* Adaptive Daily Bible Verse card: match the user's system/browser theme. */
 @media  (prefers-color-scheme: light)  {
   .daily-verse-card {
@@ -323,6 +383,7 @@ main{padding-top:0}
   .daily-verse-text { color: #202f4a; }
   .daily-verse-reference { color: #315eea; }
   .daily-verse-translation { color: #52627b; }
+
 }
 @media  (prefers-color-scheme: dark)  {
   .daily-verse-card {
@@ -338,7 +399,9 @@ main{padding-top:0}
   .daily-verse-text { color: #f4f7ff; }
   .daily-verse-reference { color: #c0ccff; }
   .daily-verse-translation { color: #e0e7f3; }
+
 }
+
 /* Stronger contrast for the main headline accent, distinct from the Bible verse card. */
 @media  (prefers-color-scheme: light)  {
   .compact-intro h1 em { color: #dc2626; }
@@ -348,6 +411,7 @@ main{padding-top:0}
   /* Keep the main headline readable because the page background remains light. */
   .compact-intro h1 { color: #192437 !important; -webkit-text-fill-color: #192437; }
 }
+
 /* Compact title-to-description spacing across content cards */
 .step-card h3,
 .tiktok-showcase h3,
@@ -376,9 +440,11 @@ main{padding-top:0}
 @media  (max-width: 760px)  {
   .step-card { padding-top: 15px; padding-bottom: 15px; }
   .step-card h3 { margin-top: 0; }
+
   .proof-card-copy { padding: 12px 14px 14px; }
   .about-card, .terms-card, .safety-panel { padding-top: 17px; padding-bottom: 17px; }
 }
+
 /* Final compact layout: only two process steps remain. */
 .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .step-card { min-height: 0; padding: 16px 17px; }
@@ -390,22 +456,27 @@ main{padding-top:0}
   .step-card h3 { margin-bottom: 4px; padding-bottom: 4px; }
   .step-card p { line-height: 1.6; }
 }
+
 /* clearer account-safety heading and tighter spacing. */
+
 /* Back-to-albums control shown while browsing an individual proof album */
 .proof-album-back{display:block;margin:0 0 14px;padding:10px 15px;border:1px solid #dce3ef;border-radius:12px;background:#fff;color:#344054;font:700 14px/1.2 inherit;cursor:pointer;box-shadow:0 2px 7px rgba(20,35,65,.04)}
 .proof-album-back:hover{border-color:#9db5f8;background:#f7f9ff}
 .proof-album-back:focus-visible{outline:3px solid rgba(49,95,225,.25);outline-offset:2px}
 .proof-album-back[hidden]{display:none}
+
 /* enforce a clear mobile proof order: status, proof image, then Back to albums. */
 .proof-card{display:flex;flex-direction:column}
 .proof-card .proof-card-copy{order:1}
 .proof-card .proof-image-link{order:2}
 .proof-card .proof-album-back-inline{order:3;position:relative;z-index:1}
 @media (max-width:600px) {.proof-card .proof-album-back-inline{min-height:48px;margin:12px auto 16px;font-size:14px}}
+
 /* album back button directly beneath the proof image */
 .proof-album-back-inline{display:block;width:calc(100% - 24px);min-height:43px;margin:12px auto 14px;padding:10px 16px;border:1px solid #315fe1;border-radius:12px;background:linear-gradient(120deg,#315fe1,#5479f3);color:#fff;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(49,95,225,.18)}
 .proof-album-back-inline:hover{filter:brightness(1.04)}
 .proof-album-back-inline:focus-visible{outline:3px solid rgba(49,95,225,.28);outline-offset:3px}
+
 /* Dedicated Recovery Proofs shortcut below the Facebook Page card */
 .recovery-proofs-showcase{display:block;position:relative;overflow:hidden;margin-top:13px;padding:18px;border:1px solid #d8e2ff;border-radius:18px;box-shadow:0 8px 22px rgba(49,94,234,.08);color:inherit;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .recovery-proofs-showcase:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#315eea,#7c9cff,#315eea)}
@@ -420,371 +491,9 @@ main{padding-top:0}
 .recovery-proofs-button{min-height:49px;display:flex;align-items:center;justify-content:center;gap:9px;padding:11px 14px;background:linear-gradient(100deg,#315eea,#4e72f0);color:#fff;font-size:13px;font-weight:800;transition:transform .15s,box-shadow .15s}
 .recovery-proofs-button:hover{box-shadow:0 9px 18px rgba(49,94,234,.24)}
 @media (max-width:600px) {.recovery-proofs-showcase{padding:15px;margin-top:11px;border-radius:15px}.recovery-proofs-showcase h3{font-size:16px}.recovery-proofs-preview{gap:7px;margin:12px 0}.recovery-proof-preview-item{border-radius:10px}.recovery-proof-preview-item>span{font-size:10px;padding:17px 6px 6px}.recovery-proofs-button{min-height:47px;font-size:12px}}
+
 /* bring the process section closer to Recovery Proofs and reduce mobile vertical waste. */
 @media  (max-width: 600px)  {
-  .wizard-card.contact-only {
-    padding-bottom: 8px;
-  }
-  .recovery-proofs-showcase {
-    padding-bottom: 11px;
-  }
-  .how-section {
-    margin-top: 8px;
-  }
-  .how-section .section-heading {
-    margin-bottom: 12px;
-  }
-  .how-section .section-kicker {
-    line-height: 1.15;
-  }
-  .how-section .section-heading h2 {
-    margin: 4px 0 5px;
-    font-size: clamp(22px, 5.8vw, 27px);
-    line-height: 1.16;
-  }
-  .how-section .section-heading p {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  .how-section .steps-grid {
-    gap: 8px;
-  }
-  .how-section .step-card {
-    padding: 12px 13px;
-    column-gap: 11px;
-    border-radius: 16px;
-  }
-  .how-section .step-card h3 {
-    margin: 0 22px 4px 0;
-    padding-bottom: 4px;
-    font-size: 15px;
-    line-height: 1.3;
-  }
-  .site-section:not(.how-section) {
-    margin-top: 21px;
-  }
-}
-@media  (max-width: 420px)  {
-  .wizard-card.contact-only {
-    padding-bottom: 7px;
-  }
-  .how-section .section-heading {
-    margin-bottom: 10px;
-  }
-}
-/* compact Remember, FAQ, About, Terms and footer spacing on mobile */
-@media  (max-width: 600px)  {
-  .site-section.safety-section { margin-top: 12px !important; }
-  .safety-panel { padding: 16px 14px !important; gap: 10px !important; border-radius: 20px; }
-  .safety-panel h2 { margin: 0 0 8px !important; font-size: clamp(20px, 5.4vw, 24px) !important; line-height: 1.18 !important; }
-  .safety-panel p { margin: 7px 0 0 !important; font-size: 13px !important; line-height: 1.48 !important; }
-  .safety-panel-icon { width: 42px !important; height: 42px !important; }
-  .site-section.about-section, .site-section.terms-section { margin-top: 16px !important; }
-  .about-card { padding: 15px 13px !important; gap: 10px !important; border-radius: 18px !important; }
-  .about-card h2 { margin: 4px 0 6px !important; font-size: 19px !important; line-height: 1.2 !important; }
-  .about-card p, .terms-card p { margin: 6px 0 0 !important; font-size: 12.5px !important; line-height: 1.5 !important; }
-  .terms-card { padding: 16px 14px !important; border-radius: 18px !important; }
-  .terms-card h2 { margin: 5px 0 2px !important; font-size: 19px !important; line-height: 1.2 !important; }
-  .site-footer { padding: 15px 14px !important; gap: 10px !important; }
-  .footer-brand img { width: 42px !important; height: 42px !important; }
-  .footer-note { margin: 0 !important; font-size: 11px !important; line-height: 1.45 !important; }
-  .footer-links { gap: 8px !important; }
-}
-@media  (max-width: 420px)  {
-  .site-section.safety-section { margin-top: 9px !important; }
-}
-/* improve readability of the three process descriptions */
-/* make the three process descriptions below their headings easier to read. */
-@media  (max-width: 600px)  {
-  .how-section .step-card p { font-size: 15px !important; line-height: 1.58 !important; }
-}
-@media  (max-width: 420px)  {
-  .how-section .step-card p { line-height: 1.55 !important; }
-}
-/* improve readability of About This Website and account-safety text */
-.about-card .section-kicker { font-size: 12px; line-height: 1.4; letter-spacing: 1.5px; }
-.about-card h2 { font-size: clamp(25px, 3.8vw, 32px); line-height: 1.25; }
-.about-card p { font-size: 16px; line-height: 1.75; }
-.about-card .independent-note { font-size: 15.5px; line-height: 1.7; }
-.safety-panel p { font-size: 16px; }
-.safety-panel p:last-child { font-weight: 800; font-size: 17px; color: #234fc5; }
-@media  (max-width: 760px)  {
- .about-card p, .about-card .independent-note { font-size: 15px !important; line-height: 1.7 !important; }
-}
-@media  (max-width: 420px)  {
- .about-card p, .about-card .independent-note { font-size: 14.5px !important; line-height: 1.65 !important; }
- .safety-panel p { font-size: 14.5px !important; line-height: 1.65 !important; }
- .safety-panel p:last-child { font-size: 16px !important; }
-}
-/* improve readability of Terms and footer text */
-.terms-card .section-kicker{font-size:14px !important;line-height:1.5 !important;letter-spacing:1.7px !important;font-weight:800 !important}
-.terms-card h2{font-size:clamp(24px,3vw,29px) !important;line-height:1.25 !important;margin:8px 0 0 !important}
-.terms-card p{font-size:clamp(16px,2vw,18px) !important;line-height:1.75 !important}
-.footer-brand b{font-size:18px !important;line-height:1.35 !important}
-.footer-brand small{font-size:14px !important;line-height:1.5 !important}
-.footer-note{font-size:15px !important;line-height:1.75 !important}
-@media (max-width:600px) {
- .terms-card .section-kicker{font-size:13px !important}
- .terms-card h2{font-size:24px !important}
- .terms-card p{font-size:16px !important;line-height:1.75 !important}
- .footer-brand b{font-size:17px !important}
- .footer-brand small{font-size:13px !important}
- .footer-note{font-size:14px !important;line-height:1.7 !important}
-}
-/* add a distinct Free Web Tools link to the top navigation */
-.header-meta .webtools-header-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:54px;padding:0 20px;border:1px solid #0f766e;border-radius:16px;background:linear-gradient(135deg,#0f766e 0%,#159b8c 100%);color:#fff;text-decoration:none;font-size:15px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px rgba(15,118,110,.18);transition:transform .16s,filter .16s,box-shadow .16s}
-.header-meta .webtools-header-link:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 7px 17px rgba(15,118,110,.22)}
-.header-meta .webtools-header-link:focus-visible{outline:3px solid #72d9cd;outline-offset:3px}
-@media (max-width:600px) {
- .header-meta{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;width:100%;}
- .header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{min-height:42px;padding:0 8px;font-size:11px;border-radius:11px;gap:5px;}
- .header-meta .webtools-header-link{grid-column:1 / -1;min-height:40px;}
-}
-@media (max-width:380px) {.header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{font-size:10px;padding:0 6px;gap:4px}}
-/* Consistent icons in all three header buttons */
-.header-meta .header-icon{width:18px;height:18px;flex:0 0 18px;display:inline-block;}
-@media (max-width:600px) {.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
-/* consolidated mobile header layout rule; desktop remains untouched. */
-@media  (max-width: 600px)  {
-  body .topbar {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    grid-template-rows: auto auto !important;
-    align-items: center !important;
-    justify-content: stretch !important;
-    column-gap: 4px !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-  body .topbar > .brand {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    width: auto !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    flex: initial !important;
-  }
-  body .topbar > .header-meta { display: contents !important; }
-  body .topbar > .header-meta > .privacy-link {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    justify-self: end !important;
-    align-self: center !important;
-    width: auto !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    padding: 0 8px !important;
-    font-size: 10.5px !important;
-    white-space: nowrap !important;
-    flex: initial !important;
-  }
-  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
-  body .topbar > .header-meta > .webtools-header-link { grid-column: 1 !important; grid-row: 2 !important; }
-  body .topbar > .header-meta > .proofs-header-link { grid-column: 2 !important; grid-row: 2 !important; }
-  body .topbar > .header-meta > .webtools-header-link,
-  body .topbar > .header-meta > .proofs-header-link {
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 6px !important;
-    gap: 4px !important;
-    justify-content: center !important;
-    font-size: 10px !important;
-    white-space: nowrap !important;
-    flex: initial !important;
-  }
-  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
-}
-@media  (max-width: 380px)  {
-  body .topbar > .brand { gap: 5px !important; }
-  body .topbar > .brand .logo { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
-  body .topbar > .brand b { font-size: 13px !important; }
-  body .topbar > .brand small { font-size: 9px !important; }
-  body .topbar > .header-meta > .privacy-link { font-size: 9.5px !important; padding: 0 6px !important; }
-  body .topbar > .header-meta > .about-header-link { font-size: 9.5px !important; padding: 0 6px !important; }
-  body .topbar .header-icon { width: 12px !important; height: 12px !important; flex: 0 0 12px !important; }
-  body .topbar > .header-meta > .webtools-header-link,
-  body .topbar > .header-meta > .proofs-header-link { font-size: 10px !important; padding: 0 4px !important; gap: 3px !important; }
-}
-/* Match homepage header text/icon sizing to Reviews and Proofs at 601–700px. */
-@media (min-width: 601px) and (max-width: 700px) {
-  body .topbar > .header-meta > .privacy-link,
-  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
-  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
-}
-/* make the About section brand title more noticeable */
-.about-card h2.about-brand-title { color: #315eea !important; text-shadow: 0 1px 0 rgba(49, 94, 234, 0.08); }
-/* compact review summary with owner-editable reviews behind a button */
-.view-reviews-button { display: inline-flex; align-items: center; gap: 8px; justify-content: center; border: 1px solid var(--border, #dce2ed); background: var(--card, #fff); color: var(--text, #202b40); font: inherit; font-weight: 700; cursor: pointer; }
-.view-reviews-button:hover { border-color: #4969b5;  }
-.view-reviews-button:focus-visible { outline: 3px solid rgba(73,105,181,.28); outline-offset: 2px; }
-.view-reviews-button span { font-size: 18px; transition: transform .2s ease; }
-.view-reviews-button[aria-expanded="true"] span { transform: rotate(180deg); }
-.reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
-.reviews-grid[hidden] { display: none; }
-.review-card { min-width: 0; padding: 18px; border: 1px solid var(--border, #dce2ed); border-radius: 18px; background: var(--card, #fff); box-shadow: 0 8px 22px rgba(26, 44, 82, .04); }
-@media  (max-width: 760px)  { .review-card { padding: 16px; border-radius: 16px; } }
-/* horizontal swipeable review cards on mobile */
-@media  (max-width: 760px)  {
-  .reviews-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: none;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 2px 2px 10px;
-    margin-right: -2px;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-  }
-  .reviews-grid .review-card {
-    width: 100%;
-    box-sizing: border-box;
-    scroll-snap-align: start;
-  }
-}
-/* screenshot-first customer review gallery */
-.view-reviews-button { white-space: nowrap; }
-.reviews-grid { align-items: stretch; }
-.review-proof-card { padding: 10px; overflow: hidden; }
-.review-proof-image { position: relative; display: block; width: 100%; aspect-ratio: auto; overflow: hidden; padding: 0; border: 0; border-radius: 12px; background: var(--surface, #f2f5fa); text-align: left; }
-.review-proof-image img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; object-position: center top; }
-.review-proof-image:not(:disabled) { cursor: zoom-in; }
-.review-proof-image:not(:disabled):focus-visible { outline: 3px solid rgba(73,105,181,.45); outline-offset: 3px; }
-.review-proof-image.is-placeholder { cursor: default; }
-.review-image-hint { position: absolute; left: 9px; bottom: 9px; padding: 5px 8px; border-radius: 8px; color: #fff; background: rgba(24, 34, 54, .78); font-size: 10px; line-height: 1.3; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-.review-proof-caption { padding: 11px 5px 5px; }
-.review-proof-status { display: block; margin-bottom: 5px; color: #5571ba; font-size: 10px; line-height: 1.4; font-weight: 800; letter-spacing: .08em; }
-.review-proof-caption strong { display: block; color: var(--text, #202b40); font-size: 14px; line-height: 1.35; }
-.review-proof-caption p { margin: 5px 0 0; color: var(--muted, #687386); font-size: 12px; line-height: 1.45; }
-.review-placeholder { border-style: solid; }
-.review-lightbox[hidden] { display: none; }
-.review-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 54px 18px 24px; background: rgba(7, 12, 24, .90); }
-.review-lightbox-image { display: block; width: min(100%, 1000px); height: min(72vh, 1000px); min-height: 220px; background-repeat: no-repeat; background-position: center; background-size: contain; border-radius: 10px; box-shadow: 0 20px 70px rgba(0,0,0,.3); -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
-.review-lightbox-close { position: absolute; top: 12px; right: 15px; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(255,255,255,.1); color: white; font-size: 30px; line-height: 1; cursor: pointer; }
-.review-lightbox-help { margin: 0; color: rgba(255,255,255,.78); text-align: center; font-size: 12px; }
-@media  (max-width: 760px)  {
-  .review-proof-card { border-radius: 15px; }
-  .review-proof-image { aspect-ratio: auto; border-radius: 10px; }
-  .review-proof-status { font-size: 9px; }
-}
-@media  (prefers-reduced-motion: reduce)  { .review-lightbox, .review-proof-image, .view-reviews-button span { transition: none !important; } }
-/* compact mobile review header and smaller screenshot cards */
-@media  (max-width: 760px)  {
-  .view-reviews-button { flex: 0 0 auto; }
-  .reviews-grid {
-    grid-auto-columns: 62%;
-    gap: 10px;
-    margin-top: 12px;
-  }
-  .review-proof-card { padding: 7px; }
-  .review-proof-image { height: 220px; display: flex; align-items: flex-start; justify-content: center; }
-  .review-proof-image img { width: 100%; height: 100%; object-fit: contain; object-position: top center; }
-  .review-proof-caption { padding: 8px 3px 3px; }
-  .review-proof-caption strong { font-size: 12px; }
-  .review-proof-caption p { font-size: 10px; line-height: 1.4; }
-}
-@media  (max-width: 390px)  {
-  .reviews-grid { grid-auto-columns: 66%; }
-  .review-proof-image { height: 200px; }
-}
-/* clearer Customer Feedback heading and balanced View All Reviews action */
-.view-reviews-button { min-height: 48px; padding: 12px 18px; font-size: 15px; line-height: 1.2; text-decoration: none; border-radius: 13px; }
-.view-reviews-button .view-button-label { font-size: inherit; }
-@media  (max-width: 760px)  {
-  .view-reviews-button { min-height: 44px; padding: 11px 14px; font-size: 14px; gap: 7px; }
-}
-@media  (max-width: 390px)  {
-  .view-reviews-button { min-height: 42px; padding: 10px 12px; font-size: 13px; }
-}
-/* Windows-style mini app windows for social links, proofs, and feedback. */
-.tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase {
-  padding: 18px;
-  border: 1px solid #cfd8e6;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 5px 17px rgba(31, 48, 79, .07);
-}
-.tiktok-showcase::before, .facebook-showcase::before, .recovery-proofs-showcase::before { display: none; }
-.recovery-proofs-showcase { background: #fff; border-color: #cfd8e6; }
-.recovery-proofs-showcase:hover { border-color: #aebbd2; box-shadow: 0 10px 22px rgba(31, 48, 79, .1); }
-.recovery-proofs-button { border-radius: 7px; box-shadow: none; }
-.tiktok-profile-button, .facebook-profile-button { border-radius: 7px; }
-.windows-feedback-window {
-  overflow: hidden;
-  border: 1px solid #cfd8e6;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 7px 22px rgba(31, 48, 79, .075);
-}
-.windows-feedback-content { padding: 12px 14px 14px; }
-.windows-feedback-content .view-reviews-button {
-  min-height: 42px;
-  padding: 9px 13px;
-  border-radius: 8px;
-  border-color: #cbd5e3;
-  font-size: 13px;
-  white-space: nowrap;
-}
-.windows-feedback-content .reviews-grid { margin-top: 2px; }
-.windows-feedback-content .review-proof-card { border-radius: 10px; box-shadow: 0 2px 7px rgba(31,48,79,.045); }
-@media  (max-width: 760px)  {
-  .tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase { padding: 14px; border-radius: 11px; }
-  .windows-feedback-window { border-radius: 11px; }
-  .windows-feedback-content { padding: 8px 10px 11px; }
-  .windows-feedback-content .view-reviews-button { min-height: 38px; padding: 8px 9px; gap: 5px; font-size: 11px; }
-  .windows-feedback-content .reviews-grid { grid-auto-columns: 62%; gap: 9px; padding-bottom: 8px; }
-  .windows-feedback-content .review-proof-card { padding: 6px; }
-  .windows-feedback-content .review-proof-image { height: 175px; }
-}
-@media  (max-width: 390px)  {
-  .windows-feedback-content .view-reviews-button { font-size: 12px; }
-  .windows-feedback-content .reviews-grid { grid-auto-columns: 70%; }
-}
-/* unified four-tile social collage; clean app-card styling without window controls. */
-.social-collage {
-  display: grid;
-  width: 100%;
-  margin-top: 18px;
-}
-.social-collage > .tiktok-showcase,
-.social-collage > .facebook-showcase,
-.social-collage > .recovery-proofs-showcase,
-.social-collage > .social-feedback-card {
-  min-width: 0;
-  width: auto;
-  margin: 0;
-}
-.social-collage > .tiktok-showcase,
-.social-collage > .facebook-showcase,
-.social-collage > .recovery-proofs-showcase {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #dce5f3;
-  background: linear-gradient(145deg, #ffffff 0%, #f6f9ff 100%);
-  box-shadow: 0 8px 24px rgba(35,54,94,.065);
-}
-.social-collage > .tiktok-showcase { background: linear-gradient(145deg,#fff8fb,#fff0f6); border-color:#f4d7e4; }
-.social-collage > .facebook-showcase { background: linear-gradient(145deg,#fff,#eff7ff); border-color:#d5e7ff; }
-.social-collage > .recovery-proofs-showcase { background: linear-gradient(145deg,#fbfaff,#f1efff); border-color:#e1dcff; }
-.social-collage .tiktok-profile-button,
-.social-collage .facebook-profile-button,
-.social-collage .recovery-proofs-button { margin-top: auto; }
-.social-feedback-card { overflow: hidden; border: 1px solid #cfeedd; background: linear-gradient(145deg,#f5fff9,#e7fff2); box-shadow: 0 8px 24px rgba(35,90,65,.065); }
-.social-feedback-card .view-reviews-button { min-height: 36px; padding: 7px 9px; font-size: 11px; border-radius: 9px; white-space: nowrap; }
-.social-feedback-card .reviews-grid { overflow-x: auto; }
-.social-feedback-card .review-image-hint { font-size: 9px; }
-@media  (max-width: 600px)  {
-  
-
-  
-  
-
-  
-
   .social-feedback-card .view-reviews-button { min-height: 34px; font-size: 10px; padding: 6px 8px; }
 }
 
