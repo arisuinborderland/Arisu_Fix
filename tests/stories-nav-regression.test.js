@@ -132,7 +132,7 @@ test('AFV387 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '387.0.0');
   assert.equal(lock.packages[''].version, '387.0.0');
   assert.ok(readme.includes('Current release: AFV387'));
-  assert.ok(history.startsWith('AFV387 — Smooth Loading Screen Fade In and Out'));
+  assert.ok(history.startsWith('AFV387 — Recovery Stories Empty-State Illustration Refinement'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
