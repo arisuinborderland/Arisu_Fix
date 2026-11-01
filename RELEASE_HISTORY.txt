@@ -1,3 +1,8 @@
+AFV376 — Minimal Neon-Pulse Bar and Three Initialization Checks
+- Replaces the liquid-wave bar with a slim blue-purple neon pulse (option C).
+- Removes the brand-assets row; keeps document preparation, stylesheet check, and finalization.
+- Homepage loading screen only.
+
 AFV375 — Liquid-Fill Loading Progress Bar
 - Replaces the plain gradient fill with a blue-purple liquid-style fill and subtle moving wave layers.
 - Keeps the existing consecutive 1–100% counter and compact homepage loading-card layout.
