@@ -1,3 +1,9 @@
+## AFV393 — Match Stories progress bar colors
+- Changed only the homepage loading bar fill gradient to purple, magenta, and cyan, matching the reference Stories progress bar.
+- Retained the soft glow and actual initialization progress width; no loading logic or layout changes.
+- Refreshed the stylesheet cache token and synchronized release metadata to AFV393 / 393.0.0.
+- Preview only; visual confirmation is required before merging.
+
 ## AFV392 — Unclip homepage loading bar neon glow
 - Changed the homepage progress track overflow from hidden to visible so the bar's outer cyan-blue-violet glow is not clipped by its parent track.
 - Preserved the progress percentage, actual progress width, colors, animation timing, and loading-screen layout.
