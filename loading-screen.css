@@ -323,7 +323,7 @@
 }
 
 
-/* AFV392 — Let the progress bar's outer neon glow remain visible. */
+/* AFV393 — Match the Stories progress bar's purple-magenta-cyan gradient. */
 #arisu-loading-screen .boot-progress-track {
   height: 6px;
   overflow: visible;
@@ -337,8 +337,8 @@
   overflow: hidden;
   min-width: 0;
   border-radius: inherit;
-  background: linear-gradient(90deg, #18c6e8 0%, #397cff 48%, #8748f4 100%);
-  box-shadow: 0 0 10px rgba(24, 198, 232, .62), 0 0 20px rgba(61, 126, 255, .42), 0 0 28px rgba(135, 72, 244, .28);
+  background: linear-gradient(90deg, #b86bff 0%, #e044f5 42%, #18c6e8 100%);
+  box-shadow: 0 0 10px rgba(224, 68, 245, .58), 0 0 20px rgba(184, 107, 255, .38), 0 0 28px rgba(24, 198, 232, .28);
   transition: width .18s linear;
   animation: boot-soft-neon-glow 1.8s ease-in-out infinite;
 }
@@ -350,11 +350,11 @@
 @keyframes boot-soft-neon-glow {
   0%, 100% {
     filter: brightness(1);
-    box-shadow: 0 0 10px rgba(24, 198, 232, .58), 0 0 18px rgba(61, 126, 255, .36), 0 0 24px rgba(135, 72, 244, .22);
+    box-shadow: 0 0 10px rgba(224, 68, 245, .52), 0 0 18px rgba(184, 107, 255, .34), 0 0 24px rgba(24, 198, 232, .20);
   }
   50% {
     filter: brightness(1.1);
-    box-shadow: 0 0 14px rgba(24, 198, 232, .72), 0 0 24px rgba(88, 91, 255, .58), 0 0 32px rgba(135, 72, 244, .32);
+    box-shadow: 0 0 14px rgba(224, 68, 245, .68), 0 0 24px rgba(184, 107, 255, .52), 0 0 32px rgba(24, 198, 232, .30);
   }
 }
 @media (prefers-reduced-motion: reduce) {
