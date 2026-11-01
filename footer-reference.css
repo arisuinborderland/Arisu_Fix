@@ -399,8 +399,6 @@
   }
 }
 
-
-
 /* Homepage mobile: set the About This Website outer card to a 2px inset. */
 @media screen and (max-width: 600px) {
   html body.home-page .reference-footer .reference-about-section {
