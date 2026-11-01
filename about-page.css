@@ -33,7 +33,6 @@
 .about-page-main > .about-terms-section .terms-intro{margin:0 0 12px}
 @media(max-width:600px){.about-page-main > .about-terms-section{margin:18px 0 16px}.about-page-main > .about-terms-section .terms-card{padding:17px 15px}.about-page-main > .about-terms-section .terms-card p{font-size:14px;line-height:1.65}}
 
-
 /* clean About header and add a persistent floating return button. */
 .about-topbar .about-back-link { display: none !important; }
 .about-home-cta { display: none !important; }
@@ -69,7 +68,6 @@
   .about-floating-home { transition: transform .18s ease, box-shadow .18s ease; }
   .about-floating-home:hover { transform: translateX(-50%) translateY(-2px); box-shadow: 0 11px 28px rgba(37,87,210,.34); }
 }
-
 
 /* compact About page section spacing; descriptions use 2px bottom margin. */
 .about-page-main > section,
@@ -113,7 +111,6 @@
   .about-page-main .about-value-card { padding-top: 15px; padding-bottom: 15px; }
 }
 
-
 /* remove the excess gradient gap after the About footer on mobile. */
 @media (max-width: 600px) {
   body.about-page {
@@ -124,7 +121,6 @@
     margin-bottom: 8px !important;
   }
 }
-
 
 /* consistent compact spacing across the About page on mobile. */
 @media (max-width: 600px) {
@@ -188,7 +184,6 @@
     padding: 10px 12px !important;
   }
 }
-
 
 /* lift Mission, Values, and Please Read; enforce 2px vertical gaps. */
 @media (max-width: 600px) {
