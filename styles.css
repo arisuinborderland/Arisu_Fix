@@ -887,13 +887,6 @@ main{padding-top:0}
 .social-feedback-card .reviews-grid { overflow-x: auto; }
 .social-feedback-card .review-image-hint { font-size: 9px; }
 @media  (max-width: 600px)  {
-  
-
-  
-  
-
-  
-
   .social-feedback-card .view-reviews-button { min-height: 34px; font-size: 10px; padding: 6px 8px; }
 }
 
