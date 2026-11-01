@@ -1,0 +1,98 @@
+/* AFV368 — Homepage-only terminal-style initialization overlay. */
+#arisu-loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: radial-gradient(ellipse at 12% 10%, rgba(190, 211, 255, .34), transparent 42%),
+              radial-gradient(ellipse at 90% 88%, rgba(215, 199, 255, .30), transparent 40%),
+              #f3f5f9;
+  color: #25314a;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .24s ease, visibility .24s ease;
+}
+#arisu-loading-screen.is-ready {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#arisu-loading-screen .boot-window {
+  width: min(100%, 430px);
+  overflow: hidden;
+  border: 1px solid rgba(116, 139, 190, .27);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 24px 70px rgba(56, 74, 117, .14), 0 3px 12px rgba(56, 74, 117, .06);
+  backdrop-filter: blur(12px);
+}
+#arisu-loading-screen .boot-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #e8ecf4;
+  background: linear-gradient(100deg, #f8faff, #f6f3ff);
+}
+#arisu-loading-screen .boot-dot { width: 8px; height: 8px; border-radius: 50%; background: #b8c3d8; }
+#arisu-loading-screen .boot-label {
+  margin-left: 5px;
+  color: #68758e;
+  font: 700 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .13em;
+}
+#arisu-loading-screen .boot-content { padding: 24px 21px 21px; }
+#arisu-loading-screen .boot-brand {
+  margin: 0;
+  color: #24365b;
+  font: 800 clamp(24px, 6vw, 30px)/1.1 Arial, sans-serif;
+  letter-spacing: -.045em;
+}
+#arisu-loading-screen .boot-brand span {
+  background: linear-gradient(100deg, #347de8, #7760d9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#arisu-loading-screen .boot-subtitle {
+  margin: 7px 0 23px;
+  color: #7b879d;
+  font: 600 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .12em;
+}
+#arisu-loading-screen .boot-section {
+  margin: 0 0 12px;
+  color: #6b70a1;
+  font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .1em;
+}
+#arisu-loading-screen .boot-log {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #5d6b83;
+  font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+#arisu-loading-screen .boot-log li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; align-items: start; gap: 7px; }
+#arisu-loading-screen .boot-log .boot-mark { color: #9ba8bc; }
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark,
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { color: #28886b; }
+#arisu-loading-screen .boot-log li[data-state="error"] .boot-mark,
+#arisu-loading-screen .boot-log li[data-state="error"] .boot-status { color: #b45353; }
+#arisu-loading-screen .boot-status { color: #98a3b5; font-weight: 800; white-space: nowrap; }
+#arisu-loading-screen .boot-progress-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; color: #78849b; font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+#arisu-loading-screen .boot-progress-track { height: 5px; margin-top: 9px; overflow: hidden; border-radius: 99px; background: #e9edf5; }
+#arisu-loading-screen .boot-progress-fill { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #4285ed, #8b6de1); transition: width .18s ease; }
+#arisu-loading-screen .boot-footnote { margin: 14px 0 0; color: #9aa4b5; font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+@media (max-width: 380px) {
+  #arisu-loading-screen { padding: 14px; }
+  #arisu-loading-screen .boot-content { padding: 21px 16px 17px; }
+  #arisu-loading-screen .boot-log { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen, #arisu-loading-screen .boot-progress-fill { transition: none; }
+}
