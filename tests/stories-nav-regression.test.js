@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV379 package metadata and release notes are synchronized', () => {
+test('AFV387 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '379.0.0');
-  assert.equal(lock.version, '379.0.0');
-  assert.equal(lock.packages[''].version, '379.0.0');
-  assert.ok(readme.includes('Current release: AFV379'));
-  assert.ok(history.startsWith('AFV379 — Smooth Loading Screen Fade In and Out'));
+  assert.equal(pkg.version, '387.0.0');
+  assert.equal(lock.version, '387.0.0');
+  assert.equal(lock.packages[''].version, '387.0.0');
+  assert.ok(readme.includes('Current release: AFV387'));
+  assert.ok(history.startsWith('AFV387 — Smooth Loading Screen Fade In and Out'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {

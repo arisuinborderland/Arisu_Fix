@@ -1,3 +1,8 @@
+AFV387 — Recovery Stories Empty-State Illustration Refinement
+- Enlarges the existing anime girl, robot, and floating story-card illustration responsively in the No Stories Yet empty state.
+- Refreshes Story Viewer stylesheet cache tokens across Homepage, About, Privacy, Proofs, and Reviews.
+- Keeps regular Story playback behavior unchanged.
+
 AFV379 — Smooth Loading Screen Fade In and Out
 - Follow-up: initialization messages now appear one at a time with a moderate typewriter pace and brief transitions; the blue-purple neon progress pulse remains active while progress advances.
 - Added a compact homepage-only loading overlay with the neon Arisu Fix logo, slim blue-purple progress indicator, and three initialization checks.
