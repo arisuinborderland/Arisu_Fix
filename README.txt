@@ -1,15 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV392
+Version: AFV393
 Updated: 2026-11-01
 
-Current release: AFV392
-Package version: 392.0.0
+Current release: AFV393
+Package version: 393.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV392 fixes progress-track clipping so the homepage loading bar's cyan-blue-violet neon glow can render outside the track; the actual progress width remains tied to initialization.
+- AFV393 updates the homepage loading bar to the Stories-style purple-magenta-cyan gradient while preserving real initialization progress and the neon glow.
 - AFV391 strengthens the homepage loading bar's cyan-blue-violet neon glow and refreshes its cache token; the displayed width remains tied to real initialization progress.
 - AFV390 introduces the homepage loading bar's soft cyan-blue-violet neon glow; the displayed width remains tied to real initialization progress.
 - AFV389 compacts the Recovery Stories empty-state popup on mobile, reducing artwork height, card padding, heading/message spacing, and button height while preserving desktop sizing.
