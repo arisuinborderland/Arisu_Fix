@@ -31,16 +31,6 @@
     }
   });
 
-  // Hide upcoming checks until their individual turn starts.
-  rows.forEach(row => {
-    const element = overlay.querySelector('[data-check="' + row.key + '"]');
-    if (element) {
-      element.dataset.state = "pending";
-      element.querySelector(".boot-mark").textContent = "○";
-      element.querySelector(".boot-status").textContent = "WAIT";
-    }
-  });
-
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
   const track = overlay.querySelector(".boot-progress-track");
@@ -100,15 +90,15 @@
       await waitForLoad();
       const ok = row.check();
       mark(row, ok, row.message);
-      // Complete the progress bar at the same moment the final status is reported.
+      // Show 100% with the final 200 OK, then hold briefly before fading out.
       if (row.key === "final") {
         setProgress(100);
-        finished = true;
+        await wait(200);
+      } else {
+        await wait(180);
       }
-      await wait(180);
     }
 
-    if (finished) return;
     await progressTask;
     setProgress(100);
     finished = true;
