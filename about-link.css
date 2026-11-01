@@ -38,7 +38,7 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
 /* compact footer About card and tighten mobile footer spacing. */
 @media (max-width: 600px) {
   html body.home-page footer.site-footer {
-    padding: 8px 14px calc(20px + env(safe-area-inset-bottom)) !important;
+    padding: 2px 14px calc(20px + env(safe-area-inset-bottom)) !important;
     row-gap: 7px !important;
   }
   html body.home-page footer.site-footer > section.about-link-section {
