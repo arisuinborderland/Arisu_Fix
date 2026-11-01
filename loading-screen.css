@@ -148,7 +148,7 @@
   #arisu-loading-screen .boot-log { font-size: 10px; }
 }
 
-/* AFV377 — Liquid-fill progress bar selected by the user. */
+/* AFV378 — Liquid-fill progress bar selected by the user. */
 #arisu-loading-screen .boot-progress-track {
   position: relative;
   isolation: isolate;
@@ -195,7 +195,7 @@
   #arisu-loading-screen .boot-progress-fill::after { animation: none; }
 }
 
-/* AFV377 — Minimal neon-pulse progress bar (option C). */
+/* AFV378 — Minimal neon-pulse progress bar (option C). */
 #arisu-loading-screen .boot-progress-track {
   height: 6px; border: 0; background: #e9edf5;
   box-shadow: inset 0 1px 2px rgba(50, 65, 110, .08);
@@ -217,7 +217,7 @@
   #arisu-loading-screen .boot-progress-fill { animation: none; }
 }
 
-/* AFV377 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
+/* AFV378 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
 #arisu-loading-screen {
   animation: arisu-loading-fade-in .38s cubic-bezier(.22, 1, .36, 1) both;
   will-change: opacity, backdrop-filter;
@@ -252,5 +252,38 @@
     animation: none !important;
     transition: none !important;
     transform: none !important;
+  }
+}
+
+/* AFV378 — Smooth fade-in and fade-out, synchronized with overlay removal. */
+#arisu-loading-screen {
+  animation: arisu-loading-fade-in .45s ease-out both;
+}
+#arisu-loading-screen .boot-window {
+  animation: arisu-loading-card-fade-in .45s ease-out both;
+}
+#arisu-loading-screen.is-ready {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .42s ease-in, visibility .42s ease-in;
+  pointer-events: none;
+}
+#arisu-loading-screen.is-ready .boot-window {
+  animation: arisu-loading-card-fade-out .42s ease-in both;
+}
+@keyframes arisu-loading-card-fade-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes arisu-loading-card-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen, #arisu-loading-screen .boot-window,
+  #arisu-loading-screen.is-ready .boot-window {
+    animation: none !important;
+    transition: none !important;
   }
 }
