@@ -524,3 +524,11 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
     line-height: 1.5;
   }
 }
+
+/* Reviews mobile only: bring Learn More section to a 2px visual gap below the updates card.
+   Keep the approved Homepage spacing untouched. */
+@media (max-width: 600px) {
+  html body.reviews-document .reference-footer {
+    margin-top: -60px !important;
+  }
+}
