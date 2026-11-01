@@ -147,3 +147,50 @@
   #arisu-loading-screen .boot-subtitle { font-size: 8px; }
   #arisu-loading-screen .boot-log { font-size: 10px; }
 }
+
+/* AFV375 — Liquid-fill progress bar selected by the user. */
+#arisu-loading-screen .boot-progress-track {
+  position: relative;
+  isolation: isolate;
+  height: 9px;
+  border: 1px solid rgba(119, 132, 174, .12);
+  background: linear-gradient(180deg, #e9edf7, #e1e7f3);
+  box-shadow: inset 0 1px 2px rgba(50, 65, 110, .08);
+}
+#arisu-loading-screen .boot-progress-fill {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  overflow: hidden;
+  background: linear-gradient(90deg, #168bff 0%, #5265ff 48%, #8b43f0 100%);
+  box-shadow: 0 0 9px rgba(92, 87, 240, .28);
+  transition: width .12s linear;
+}
+#arisu-loading-screen .boot-progress-fill::before,
+#arisu-loading-screen .boot-progress-fill::after {
+  content: "";
+  position: absolute;
+  left: -35%;
+  top: -8px;
+  width: 170%;
+  height: 18px;
+  border-radius: 42%;
+  pointer-events: none;
+}
+#arisu-loading-screen .boot-progress-fill::before {
+  background: rgba(255, 255, 255, .34);
+  animation: boot-liquid-wave 2.8s linear infinite;
+}
+#arisu-loading-screen .boot-progress-fill::after {
+  top: -10px;
+  background: rgba(255, 255, 255, .18);
+  animation: boot-liquid-wave 3.8s linear infinite reverse;
+}
+@keyframes boot-liquid-wave {
+  from { transform: translateX(-9%) rotate(0deg); }
+  to { transform: translateX(9%) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen .boot-progress-fill::before,
+  #arisu-loading-screen .boot-progress-fill::after { animation: none; }
+}
