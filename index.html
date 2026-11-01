@@ -152,9 +152,34 @@
 
 
   <link rel="stylesheet" href="footer-reference.css?v=AFV367">
+  <link rel="stylesheet" href="loading-screen.css?v=AFV379">
   <link rel="stylesheet" href="desktop-header.css?v=AFV319">
+  <script src="loading-screen.js?v=AFV379" defer></script>
 </head>
 <body class="home-page" id="top">
+<div id="arisu-loading-screen" role="status" aria-label="Loading Arisu Fix homepage">
+  <section class="boot-window" aria-labelledby="arisuBootTitle">
+    <div class="boot-titlebar" aria-hidden="true"><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-label">ARISU FIX / SYSTEM STARTUP</span></div>
+    <div class="boot-content">
+      <div class="boot-brand-row">
+        <img class="boot-logo" src="assets/images/arisu-fix-af-neon-logo.png?v=AFV379" alt="Arisu Fix crowned AF shield with playing cards and blue-purple energy ring" width="150" height="150">
+        <div class="boot-brand-copy"><h1 class="boot-brand" id="arisuBootTitle">Arisu <span>Fix</span></h1>
+        <p class="boot-subtitle">RECOVERY CONTACT &amp; ASSISTANCE</p></div>
+      </div>
+      <div class="boot-brand-divider" aria-hidden="true"></div>
+      <p class="boot-section">INITIALIZATION SEQUENCE</p>
+      <ul class="boot-log" aria-live="polite">
+        <li data-check="dom"><span class="boot-mark">○</span><span class="boot-message">Preparing homepage document</span><span class="boot-status">WAIT</span></li>
+        <li data-check="styles"><span class="boot-mark">○</span><span class="boot-message">Checking page stylesheets</span><span class="boot-status">WAIT</span></li>
+
+        <li data-check="final"><span class="boot-mark">○</span><span class="boot-message">Finalizing interface...</span><span class="boot-status">WAIT</span></li>
+      </ul>
+      <div class="boot-progress-row"><span>STARTUP PROGRESS</span><span class="boot-progress-value">0%</span></div>
+      <div class="boot-progress-track" role="progressbar" aria-label="Homepage initialization progress" aria-valuemin="0" aria-valuemax="100"><div class="boot-progress-fill"></div></div>
+      <p class="boot-footnote">Waiting for actual page readiness…</p>
+    </div>
+  </section>
+</div>
 <header class="topbar">
  <a class="brand" href="index.html"><span class="logo profile-logo"><img src="assets/performance/arisu-profile-thumb.webp?v=AFV355" alt="Arisu profile picture"></span><span class="brand-copy"><span class="brand-name-row"><b>Arisu</b><span class="arisu-verified-badge" role="img" aria-label="Arisu custom animated blue check badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.5 12.5 9.5 16.2 18.5 7.8"/></svg></span></span><small>Recovery Contact</small></span></a>
  <div class="header-meta"><a class="proofs-header-link" href="proofs.html" aria-label="Open Recovery Proofs page"><svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="15" rx="2"/><path d="M8 2h11a2 2 0 0 1 2 2v13"/><path d="M7 14l3-3 2 2 2-2"/></svg><span class="proofs-button-label">Recovery Proofs</span></a><a class="privacy-link" href="privacy.html" aria-label="Open Privacy Policy"><svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="m9 12 2 2 4-4"/></svg><span>Privacy Policy</span></a><a class="about-header-link" href="about.html" aria-label="About This Website"><svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg><span>About</span></a><a class="webtools-header-link" href="reviews.html" aria-label="Open Customer Reviews"><svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" focusable="false"><path d="m12 2.6 2.86 5.8 6.4.93-4.63 4.51 1.09 6.37L12 17.2l-5.72 3.01 1.09-6.37L2.74 9.33l6.4-.93L12 2.6Z"/></svg><span>Customer Reviews</span></a></div>

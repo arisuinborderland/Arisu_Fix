@@ -1,14 +1,24 @@
 ARISU FIX — PROJECT README
-Version: AFV367
-Updated: 2026-10-30
+Version: AFV379
+Updated: 2026-11-01
 
-Current release: AFV367
-Package version: 367.0.0
+Current release: AFV379
+Package version: 379.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV379 shows the homepage loading overlay once per browser tab session; reloads and in-site Home navigation do not replay it.
+- AFV379 adds smooth fade-in and fade-out transitions to the homepage loading overlay, with reduced-motion support.
+- AFV379 switches the homepage loading bar to a minimalist pulsing neon gradient and removes the brand-assets check, leaving three initialization rows. Homepage only.
+- AFV379 replaces the static gradient progress bar with a blue-purple liquid-fill bar and subtle animated wave layers. Homepage loading screen only.
+- AFV379 makes the homepage loading card wider and vertically more compact to match the approved mobile reference. Homepage-only CSS adjustment.
+- AFV379 replaces the inline loading-screen emblem with the dedicated transparent Arisu Fix logo asset in assets/images; preserves the approved blurred homepage overlay and reference layout.
+- AFV379 matches the approved loading-screen reference more closely: detailed playing-card/AF shield energy-ring emblem, larger brand lockup, divider, four status rows, and pill-shaped status badges. Homepage-only change.
+- AFV371 keeps the minimalist startup card while blurring and softly tinting the live homepage behind it. Adds an original AF/spade shield emblem beside the Arisu Fix title; homepage only.
+- AFV370 smooths the homepage loading progress bar with consecutive 1% increments through 99%, then shows 100% only after initialization checks finish. The counter runs quickly without skipping displayed values.
+- AFV369 improves the homepage-only terminal-style loading screen with sequential typewriter text, one-at-a-time 200 OK status lines, and an intentional 3–5 second minimum presentation. The overlay still waits for actual page load before reporting checks complete.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
@@ -58,6 +68,9 @@ RELEASE NOTES
 - Static public output is built through build.js using an explicit allowlist; backend code, tests, and documentation are not copied into dist/.
 - The generated dist/ directory is build output and should not be included in a source ZIP.
 - Obsolete Vercel API handlers and their legacy tests have been removed after review; production Story endpoints remain under functions/api/.
+
+RELEASE NOTES
+- AFV379 aligns the release version with the homepage loading-screen cache tokens and once-per-tab-session behavior.
 
 VALIDATION
 - GitHub Actions workflow: Cloudflare Project Validation.

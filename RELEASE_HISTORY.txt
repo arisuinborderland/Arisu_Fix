@@ -1,3 +1,68 @@
+AFV379 — Smooth Loading Screen Fade In and Out
+- Follow-up: initialization messages now appear one at a time with a moderate typewriter pace and brief transitions; the blue-purple neon progress pulse remains active while progress advances.
+- Added a compact homepage-only loading overlay with the neon Arisu Fix logo, slim blue-purple progress indicator, and three initialization checks.
+- Added smooth fade-in/fade-out transitions and once-per-tab-session behavior; refreshing or using the in-site Home button does not replay the screen.
+- Synchronized release metadata and cache-busting references to AFV379.
+
+AFV379 — Release Version Alignment
+- Synchronizes package.json and package-lock.json to 379.0.0, matching the AFV379 homepage cache tokens.
+- Keeps the once-per-tab-session loading-screen behavior.
+
+AFV379 — Once-Per-Tab-Session Homepage Loading Screen
+- Shows the loading overlay only on the first homepage load in a tab session.
+- Reloading or using the site's Home button does not show it again in that same tab session.
+- Uses sessionStorage; a newly opened tab has its own session. Homepage-only behavior.
+
+AFV378 — Smooth Loading Screen Fade In and Out
+- Adds smooth fade-in for the overlay and loading card.
+- Adds smooth fade-out and synchronizes overlay removal with the transition.
+- Honors prefers-reduced-motion; homepage loading screen only.
+
+AFV376 — Minimal Neon-Pulse Bar and Three Initialization Checks
+- Replaces the liquid-wave bar with a slim blue-purple neon pulse (option C).
+- Removes the brand-assets row; keeps document preparation, stylesheet check, and finalization.
+- Homepage loading screen only.
+
+AFV375 — Liquid-Fill Loading Progress Bar
+- Replaces the plain gradient fill with a blue-purple liquid-style fill and subtle moving wave layers.
+- Keeps the existing consecutive 1–100% counter and compact homepage loading-card layout.
+
+AFV374 — Wider, Compact Homepage Loading Card
+- Widens the loading card toward both screen edges and reduces vertical spacing to match the approved mobile reference.
+- Preserves the logo, blurred live homepage, terminal checks, and progress behavior. Homepage-only CSS adjustment.
+
+AFV373 — Dedicated Loading-Screen Logo Asset
+- Replaces the inline SVG emblem with assets/images/arisu-fix-af-neon-logo.png in the homepage loading card.
+- Keeps the approved reference layout, blurred homepage backdrop, terminal checks, and progress behavior.
+
+AFV372 — Reference-Matched Homepage Loading Screen
+- Reworks the inline emblem toward the approved playing-card + AF shield + blue-purple energy-ring concept.
+- Adds the brand divider, larger title treatment, fourth finalization row, and colored 200 OK / RUN / WAIT status badges.
+- Preserves blurred live homepage backdrop, sequential progress counting, and homepage-only scope.
+
+AFV371 — Blurred Homepage Startup Overlay and AF/Spade Logo
+- Keeps the existing minimalist loading card while revealing the live homepage behind a soft blur and translucent blue-purple tint.
+- Adds a compact original AF shield / spade-card emblem beside the Arisu Fix title; preserves initialization checks and sequential progress.
+- Homepage only; refreshes loading asset cache tokens and synchronizes release metadata.
+
+AFV370 — Smooth 1–100% Loading Progress
+- Progress counter increments sequentially by one percentage point, with no intentional jumps in the displayed value.
+- Counts quickly to 99% and holds there until the sequential initialization checks finish, then displays 100%.
+- Updates the loading JavaScript cache-busting token and synchronizes release metadata.
+
+AFV369 — Sequential Terminal Loading Animation
+- Displays initialization messages one at a time with a typewriter effect, followed by each individual 200 OK result.
+- Uses an intentional short 3–5 second presentation while waiting for actual page load before reporting checks complete; slower real loads may take longer.
+- Keeps the loading overlay scoped to the homepage and retains the light-gray surface with subtle blue-purple accents.
+- Updates homepage cache tokens and synchronizes package metadata.
+
+AFV368 — Add Homepage Terminal-Style Loading Screen
+- Adds a responsive terminal-style initialization overlay on the homepage only, using a light-gray surface and subtle blue-purple accents.
+- Reports document, stylesheet, and brand-image readiness checks; successful checks display 200 OK and unavailable resources show a warning state.
+- Automatically fades away when the page load event completes, without adding an artificial wait.
+- Adds isolated loading-screen.css and loading-screen.js assets and updates the production build allowlist.
+- Synchronizes package metadata and README to AFV368 / 368.0.0.
+
 AFV367 — Prevent Partial Image Rendering on First Story
 - Keeps a Story image hidden until the browser finishes loading it, so progressive image decoding does not show a partial image before the full frame is ready.
 - Starts the viewing progress timer only after the image is ready to display.
