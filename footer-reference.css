@@ -566,7 +566,7 @@ body.home-page .reference-footer {
    Homepage and About remain unchanged. */
 @media screen and (max-width: 600px) {
   html body.reviews-document .reference-footer {
-    margin-top: -50px !important;
+    margin-top: -38px !important;
     padding-top: 0 !important;
   }
 
