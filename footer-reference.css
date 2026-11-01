@@ -542,3 +542,11 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
     padding-bottom: 3px !important;
   }
 }
+
+
+/* Reviews page only: reduce the About This Website outer card's bottom by 4px. */
+@media screen and (max-width: 600px) {
+  html body.reviews-document .reference-footer .reference-about-section {
+    padding-bottom: 3px !important;
+  }
+}
