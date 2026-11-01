@@ -323,8 +323,7 @@
 }
 
 
-/* AFV390 — Soft Neon Glow loading bar.
-   Preserve the real progress width; animate only the decorative glow. */
+/* AFV391 — More visible soft neon glow; preserve real progress width. */
 #arisu-loading-screen .boot-progress-track {
   height: 6px;
   overflow: hidden;
@@ -339,7 +338,7 @@
   min-width: 0;
   border-radius: inherit;
   background: linear-gradient(90deg, #18c6e8 0%, #397cff 48%, #8748f4 100%);
-  box-shadow: 0 0 7px rgba(61, 126, 255, .42), 0 0 13px rgba(135, 72, 244, .2);
+  box-shadow: 0 0 10px rgba(24, 198, 232, .62), 0 0 20px rgba(61, 126, 255, .42), 0 0 28px rgba(135, 72, 244, .28);
   transition: width .18s linear;
   animation: boot-soft-neon-glow 1.8s ease-in-out infinite;
 }
@@ -351,11 +350,11 @@
 @keyframes boot-soft-neon-glow {
   0%, 100% {
     filter: brightness(1);
-    box-shadow: 0 0 6px rgba(24, 198, 232, .34), 0 0 10px rgba(61, 126, 255, .24);
+    box-shadow: 0 0 10px rgba(24, 198, 232, .58), 0 0 18px rgba(61, 126, 255, .36), 0 0 24px rgba(135, 72, 244, .22);
   }
   50% {
     filter: brightness(1.1);
-    box-shadow: 0 0 10px rgba(24, 198, 232, .48), 0 0 17px rgba(88, 91, 255, .4), 0 0 22px rgba(135, 72, 244, .18);
+    box-shadow: 0 0 14px rgba(24, 198, 232, .72), 0 0 24px rgba(88, 91, 255, .58), 0 0 32px rgba(135, 72, 244, .32);
   }
 }
 @media (prefers-reduced-motion: reduce) {
