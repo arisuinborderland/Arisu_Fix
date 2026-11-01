@@ -1,4 +1,4 @@
-/* AFV371 — Homepage overlay with blurred live page and compact AF/spade emblem. */
+/* AFV372 — Homepage overlay with blurred live page and compact AF/spade emblem. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -22,7 +22,7 @@
   pointer-events: none;
 }
 #arisu-loading-screen .boot-window {
-  width: min(100%, 430px);
+  width: min(100%, 470px);
   overflow: hidden;
   border: 1px solid rgba(116, 139, 190, .27);
   border-radius: 18px;
@@ -45,30 +45,31 @@
   font: 700 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: .13em;
 }
-#arisu-loading-screen .boot-content { padding: 24px 21px 21px; }
+#arisu-loading-screen .boot-content { padding: 24px 21px 22px; }
 #arisu-loading-screen .boot-brand-row { display: flex; align-items: center; gap: 13px; min-width: 0; }
-#arisu-loading-screen .boot-logo { display: block; width: 61px; height: 73px; flex: 0 0 61px; filter: drop-shadow(0 4px 7px rgba(74, 94, 195, .22)); }
+#arisu-loading-screen .boot-logo { display: block; width: 94px; height: 94px; flex: 0 0 94px; filter: drop-shadow(0 4px 7px rgba(74, 94, 195, .22)); }
 #arisu-loading-screen .boot-brand-copy { min-width: 0; }
 #arisu-loading-screen .boot-brand {
   margin: 0;
   color: #24365b;
-  font: 800 clamp(24px, 6vw, 30px)/1.1 Arial, sans-serif;
+  font: 800 clamp(29px, 7vw, 39px)/1.1 Arial, sans-serif;
   letter-spacing: -.045em;
 }
 #arisu-loading-screen .boot-brand span {
-  background: linear-gradient(100deg, #347de8, #7760d9);
+  background: linear-gradient(100deg, #287cf1, #7a35e8);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 #arisu-loading-screen .boot-subtitle {
-  margin: 7px 0 0;
+  margin: 8px 0 0;
   color: #7b879d;
-  font: 600 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font: 600 11px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: .12em;
 }
+#arisu-loading-screen .boot-brand-divider { height: 1px; margin: 16px 0 0; background: linear-gradient(90deg, rgba(113, 124, 174, .18), rgba(137, 103, 225, .22)); }
 #arisu-loading-screen .boot-section {
-  margin: 22px 0 12px;
+  margin: 19px 0 12px;
   color: #6b70a1;
   font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: .1em;
@@ -80,15 +81,17 @@
   padding: 0;
   list-style: none;
   color: #5d6b83;
-  font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-#arisu-loading-screen .boot-log li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; align-items: start; gap: 7px; }
+#arisu-loading-screen .boot-log li { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: start; gap: 7px; }
 #arisu-loading-screen .boot-log .boot-mark { color: #9ba8bc; }
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark,
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { color: #28886b; }
 #arisu-loading-screen .boot-log li[data-state="error"] .boot-mark,
 #arisu-loading-screen .boot-log li[data-state="error"] .boot-status { color: #b45353; }
-#arisu-loading-screen .boot-status { color: #98a3b5; font-weight: 800; white-space: nowrap; }
+#arisu-loading-screen .boot-status { color: #68758e; font-weight: 800; white-space: nowrap; padding: 2px 8px; border-radius: 7px; background: #eef0f8; }
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { background: #c8f5d7; color: #176b36; }
+#arisu-loading-screen .boot-log li[data-state="running"] .boot-status { background: #e8ddff; color: #6334d9; }
 #arisu-loading-screen .boot-progress-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; color: #78849b; font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 #arisu-loading-screen .boot-progress-track { height: 5px; margin-top: 9px; overflow: hidden; border-radius: 99px; background: #e9edf5; }
 #arisu-loading-screen .boot-progress-fill { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #4285ed, #8b6de1); transition: width .18s ease; }
@@ -97,9 +100,12 @@
   #arisu-loading-screen { padding: 14px; }
   #arisu-loading-screen .boot-content { padding: 21px 16px 17px; }
   #arisu-loading-screen .boot-brand-row { gap: 10px; }
-  #arisu-loading-screen .boot-logo { width: 50px; height: 61px; flex-basis: 50px; }
+  #arisu-loading-screen .boot-logo { width: 72px; height: 72px; flex-basis: 72px; }
   #arisu-loading-screen .boot-subtitle { font-size: 8px; letter-spacing: .08em; }
   #arisu-loading-screen .boot-log { font-size: 10px; }
+  #arisu-loading-screen .boot-brand { font-size: 28px; }
+  #arisu-loading-screen .boot-subtitle { font-size: 8px; }
+  #arisu-loading-screen .boot-status { padding: 2px 5px; }
 }
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen, #arisu-loading-screen .boot-progress-fill { transition: none; }
