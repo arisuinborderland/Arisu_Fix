@@ -57,9 +57,6 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 /* raise only the customer-feedback permission/disclaimer sentence by 4px. */
 .reviews-page-heading > p { transform: translateY(-4px); }
 
-
-
-
 /* Reviews page header uses the same Privacy Policy + About actions as the homepage. */
 html body.reviews-document .topbar .header-meta { display:flex; align-items:center; justify-content:flex-end; gap:10px; min-width:0; }
 html body.reviews-document .topbar .header-meta > .privacy-link,
