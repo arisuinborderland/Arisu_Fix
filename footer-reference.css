@@ -529,6 +529,6 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
    Keep the approved Homepage spacing untouched. */
 @media (max-width: 600px) {
   html body.reviews-document .reference-footer {
-    margin-top: -60px !important;
+    margin-top: -40px !important;
   }
 }
