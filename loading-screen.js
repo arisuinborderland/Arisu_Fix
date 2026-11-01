@@ -93,7 +93,7 @@
       // Show 100% with the final 200 OK, then hold briefly before fading out.
       if (row.key === "final") {
         setProgress(100);
-        await wait(300);
+        await wait(500);
       } else {
         await wait(180);
       }
