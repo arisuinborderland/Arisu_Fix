@@ -1,3 +1,9 @@
+AFV369 — Sequential Terminal Loading Animation
+- Displays initialization messages one at a time with a typewriter effect, followed by each individual 200 OK result.
+- Uses an intentional short 3–5 second presentation while waiting for actual page load before reporting checks complete; slower real loads may take longer.
+- Keeps the loading overlay scoped to the homepage and retains the light-gray surface with subtle blue-purple accents.
+- Updates homepage cache tokens and synchronizes package metadata.
+
 AFV368 — Add Homepage Terminal-Style Loading Screen
 - Adds a responsive terminal-style initialization overlay on the homepage only, using a light-gray surface and subtle blue-purple accents.
 - Reports document, stylesheet, and brand-image readiness checks; successful checks display 200 OK and unavailable resources show a warning state.
