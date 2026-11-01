@@ -27,7 +27,6 @@ body.story-viewer-open{overflow:hidden;overscroll-behavior:none}
 @media(max-width:600px){.story-bubble{right:12px;bottom:86px}.story-viewer{padding:5px 0}.story-viewer-card{width:100%;height:calc(100dvh - 10px);max-height:calc(100dvh - 10px);border-radius:12px}.story-viewer-progress-track{top:5px;left:8px;right:52px}.story-viewer-meta{top:14px;left:10px;gap:7px}.story-viewer-avatar{width:30px;height:30px}.story-viewer-image{top:53px;height:calc(100% - 53px)}.story-viewer-name{font-size:12px}.story-viewer-close{top:5px;right:5px;width:34px;height:34px}.story-viewer-caption{padding-left:14px;padding-right:14px;padding-bottom:max(10px,env(safe-area-inset-bottom))}.story-viewer-nav{width:30px;height:48px}}
 @media(prefers-reduced-motion:reduce){.story-viewer-progress-fill::after{animation:none!important;opacity:0!important}}
 
-
 /* mobile-first viewer sizing; prevents desktop-width media queries from shrinking phone viewers */
 html body .story-viewer[hidden]{display:none!important}
 html body .story-viewer:not([hidden]){position:fixed!important;inset:0!important;z-index:2147483000!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;overflow:hidden!important;box-sizing:border-box!important}
@@ -46,14 +45,12 @@ html body .story-viewer .story-viewer-image{max-width:100%!important;object-fit:
  html body .story-viewer .story-viewer-image{inset:58px 0 0!important;height:calc(100% - 58px)!important}
 }
 
-
 /* prioritize portrait/narrow viewport sizing even when Chrome reports a fine pointer. */
 @media screen and (max-width: 900px) and (orientation: portrait){
  html body .story-viewer:not([hidden]){position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;padding:0!important;margin:0!important;}
  html body .story-viewer .story-viewer-card{width:100vw!important;max-width:none!important;height:100vh!important;height:100dvh!important;max-height:none!important;min-height:0!important;border-radius:0!important;}
  html body .story-viewer .story-viewer-image{left:0!important;right:0!important;width:100%!important;max-width:none!important;object-fit:contain!important;}
 }
-
 
 /* trim matching space from the bottom of the displayed image on portrait phones. */
 @media screen and (max-width: 900px) and (orientation: portrait){
@@ -133,7 +130,6 @@ html body .story-viewer .story-viewer-image {
   }
 }
 
-
 /* Midnight Blue soft-glow background and slightly higher centered Story image. */
 html body .story-viewer:not([hidden]) {
   background: radial-gradient(ellipse at 50% 46%, #174EA6 0%, #10182F 47%, #07101F 100%) !important;
@@ -160,7 +156,6 @@ html body .story-viewer .story-viewer-image {
     object-position: center 46% !important;
   }
 }
-
 
 /* preload the destination image before completing the fade transition. */
 html body .story-viewer .story-viewer-image {
