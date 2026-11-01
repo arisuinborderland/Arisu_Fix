@@ -1,3 +1,7 @@
+AFV374 — Wider, Compact Homepage Loading Card
+- Widens the loading card toward both screen edges and reduces vertical spacing to match the approved mobile reference.
+- Preserves the logo, blurred live homepage, terminal checks, and progress behavior. Homepage-only CSS adjustment.
+
 AFV373 — Dedicated Loading-Screen Logo Asset
 - Replaces the inline SVG emblem with assets/images/arisu-fix-af-neon-logo.png in the homepage loading card.
 - Keeps the approved reference layout, blurred homepage backdrop, terminal checks, and progress behavior.
