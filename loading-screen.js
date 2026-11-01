@@ -31,6 +31,16 @@
     }
   });
 
+  // Hide upcoming checks until their individual turn starts.
+  rows.forEach(row => {
+    const element = overlay.querySelector('[data-check="' + row.key + '"]');
+    if (element) {
+      element.dataset.state = "pending";
+      element.querySelector(".boot-mark").textContent = "○";
+      element.querySelector(".boot-status").textContent = "WAIT";
+    }
+  });
+
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
   const track = overlay.querySelector(".boot-progress-track");
@@ -85,12 +95,12 @@
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
       if (!element) continue;
       await typeMessage(element, row.message);
-      await wait(260);
+      await wait(180);
       // Do not report success until the browser has completed loading the page resources.
       await waitForLoad();
       const ok = row.check();
       mark(row, ok, row.message);
-      await wait(260);
+      await wait(180);
     }
 
     if (finished) return;
