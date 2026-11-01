@@ -47,7 +47,7 @@
     const element = overlay.querySelector('[data-check="' + row.key + '"]');
     if (!element) return;
     element.dataset.state = ok ? "ok" : "error";
-    element.querySelector(".boot-mark").textContent = ok ? "✓" : "!";
+    element.querySelector(".boot-mark").textContent = ok ? ">" : "!";
     element.querySelector(".boot-status").textContent = ok ? "200 OK" : "CHECK";
     if (detail) element.querySelector(".boot-message").textContent = detail;
   }

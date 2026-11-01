@@ -1,3 +1,11 @@
+AFV402 — Terminal Prompt Loading Status
+
+## AFV402 — Replace loading success checkmarks
+- Replaced successful startup-row checkmarks with a cyan `>` terminal prompt.
+- Preserved green `200 OK` badges, startup checks, progress behavior, timing, and layout.
+- Synchronized package metadata to AFV402 / 402.0.0 and refreshed loading asset cache tokens.
+- Preview only; do not merge until visual validation is approved.
+
 AFV393 — Soft Neon Glow Loading Bar
 
 ## AFV393 — Match Stories progress bar colors
