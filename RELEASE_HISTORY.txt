@@ -1,3 +1,42 @@
+AFV393 — Soft Neon Glow Loading Bar
+
+## AFV393 — Match Stories progress bar colors
+- Changed only the homepage loading bar fill gradient to purple, magenta, and cyan, matching the reference Stories progress bar.
+- Retained the soft glow and actual initialization progress width; no loading logic or layout changes.
+- Refreshed the stylesheet cache token and synchronized release metadata to AFV393 / 393.0.0.
+- Preview only; visual confirmation is required before merging.
+
+## AFV392 — Unclip homepage loading bar neon glow
+- Changed the homepage progress track overflow from hidden to visible so the bar's outer cyan-blue-violet glow is not clipped by its parent track.
+- Preserved the progress percentage, actual progress width, colors, animation timing, and loading-screen layout.
+- Refreshed the stylesheet cache token and synchronized release metadata to AFV392 / 392.0.0.
+- Preview only; deployment and visual verification are still required before merging.
+
+## AFV391 — Strengthen homepage loading bar glow
+- Increased the visible cyan-blue-violet neon glow on the homepage loading bar while preserving the actual initialization progress width.
+- Kept the existing loading screen layout and behavior unchanged.
+- Updated the homepage stylesheet cache token and synchronized release metadata to AFV391 / 391.0.0.
+- Preview build must pass before visual approval; this change has not been merged.
+
+AFV390 — Soft Neon Glow Loading Bar
+- Replaces only the homepage loading bar styling with a cyan-blue-violet gradient and soft animated glow.
+- Preserves actual initialization progress, the percentage display, reduced-motion support, and the existing loading-screen layout.
+- Refreshes the homepage loading-screen stylesheet cache token and synchronizes release metadata.
+
+AFV389 — Compact Mobile No Stories Popup
+- Reduces mobile empty-state artwork height, popup padding, heading/message spacing, and Got It button height.
+- Adds a compact layout for short mobile screens while preserving desktop sizing.
+
+AFV388 — Approved Recovery Stories Mascot Artwork
+- Replaces the previous empty-state artwork with the approved anime girl, robot, and floating story-card illustration.
+- Adjusts mobile artwork sizing to preserve the character composition and avoid crowding the message or Got It button.
+- Refreshes Story Viewer stylesheet cache tokens across Homepage, About, Privacy, Proofs, and Reviews.
+
+AFV387 — Recovery Stories Empty-State Illustration Refinement
+- Enlarges the existing anime girl, robot, and floating story-card illustration responsively in the No Stories Yet empty state.
+- Refreshes Story Viewer stylesheet cache tokens across Homepage, About, Privacy, Proofs, and Reviews.
+- Keeps regular Story playback behavior unchanged.
+
 AFV379 — Smooth Loading Screen Fade In and Out
 - Follow-up: initialization messages now appear one at a time with a moderate typewriter pace and brief transitions; the blue-purple neon progress pulse remains active while progress advances.
 - Added a compact homepage-only loading overlay with the neon Arisu Fix logo, slim blue-purple progress indicator, and three initialization checks.

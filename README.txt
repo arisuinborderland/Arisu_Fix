@@ -1,14 +1,20 @@
 ARISU FIX — PROJECT README
-Version: AFV379
+Version: AFV393
 Updated: 2026-11-01
 
-Current release: AFV379
-Package version: 379.0.0
+Current release: AFV393
+Package version: 393.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV393 updates the homepage loading bar to the Stories-style purple-magenta-cyan gradient while preserving real initialization progress and the neon glow.
+- AFV391 strengthens the homepage loading bar's cyan-blue-violet neon glow and refreshes its cache token; the displayed width remains tied to real initialization progress.
+- AFV390 introduces the homepage loading bar's soft cyan-blue-violet neon glow; the displayed width remains tied to real initialization progress.
+- AFV389 compacts the Recovery Stories empty-state popup on mobile, reducing artwork height, card padding, heading/message spacing, and button height while preserving desktop sizing.
+- AFV389 replaces the Recovery Stories empty-state mascot with the approved girl, robot, and floating story-card illustration; updates responsive sizing and cache tokens.
+- AFV389 refines the Recovery Stories empty-state illustration sizing and refreshes the Story Viewer stylesheet cache token across the five Story Viewer pages.
 - AFV379 shows the homepage loading overlay once per browser tab session; reloads and in-site Home navigation do not replay it.
 - AFV379 adds smooth fade-in and fade-out transitions to the homepage loading overlay, with reduced-motion support.
 - AFV379 switches the homepage loading bar to a minimalist pulsing neon gradient and removes the brand-assets check, leaving three initialization rows. Homepage only.
