@@ -117,7 +117,7 @@
   .more-menu-popup {
     right: 12px;
     bottom: calc(82px + env(safe-area-inset-bottom, 0px));
-    width: min(180px, calc(100vw - 24px));
+    width: min(186px, calc(100vw - 24px));
     padding: 6px;
     border-radius: 15px;
   }
