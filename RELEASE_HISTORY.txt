@@ -1,3 +1,8 @@
+AFV370 — Smooth 1–100% Loading Progress
+- Progress counter increments sequentially by one percentage point, with no intentional jumps in the displayed value.
+- Counts quickly to 99% and holds there until the sequential initialization checks finish, then displays 100%.
+- Updates the loading JavaScript cache-busting token and synchronizes release metadata.
+
 AFV369 — Sequential Terminal Loading Animation
 - Displays initialization messages one at a time with a typewriter effect, followed by each individual 200 OK result.
 - Uses an intentional short 3–5 second presentation while waiting for actual page load before reporting checks complete; slower real loads may take longer.
