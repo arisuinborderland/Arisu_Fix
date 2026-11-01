@@ -1,9 +1,7 @@
 body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transparent 38rem),linear-gradient(180deg,#f9fbff,#f5f7fb 75%,#fff)}
 .reviews-page-main{max-width:1040px;margin:0 auto;padding:30px 18px 60px}.reviews-page-card{padding:clamp(20px,4vw,36px);border:1px solid #dfe5ef;border-radius:18px;background:#fff;box-shadow:0 16px 42px rgba(35,54,94,.07)}.reviews-page-heading{text-align:center;max-width:680px;margin:0 auto 26px}.reviews-page-heading .section-kicker{display:block;margin-bottom:10px}.reviews-page-heading h1{margin:0 0 10px;font-size:clamp(28px,5vw,40px);line-height:1.15;letter-spacing:-1px;color:#19243a}.reviews-page-heading p{margin:0;color:#687386;font-size:15px;line-height:1.65}.reviews-page-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.reviews-page-grid .review-card{min-width:0}.reviews-page-grid .review-proof-image img{width:100%;height:auto;object-fit:contain;object-position:top center}@media(max-width:760px){.reviews-page-grid{display:grid;grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;scroll-snap-type:none;padding:0;margin:0;gap:12px}}@media(max-width:600px){.reviews-page-main{padding:18px 12px 40px}.reviews-page-card{padding:19px 13px;border-radius:18px}.reviews-page-grid{grid-template-columns:1fr;gap:13px}.reviews-page-heading p{font-size:14px}}
 
-
 /* Compact soft-glass announcement for future proof/review updates. */
-
 
 /* Compact update announcement: intentionally matches the Recovery Proofs detail card. */
 .proof-updates-coming{position:relative;isolation:isolate;display:flex;align-items:flex-start;gap:14px;margin:16px 0 2px;padding:17px 18px;border:1px solid rgba(255,255,255,.94);border-radius:18px;background:radial-gradient(ellipse at 8% 12%,rgba(106,166,255,.19),transparent 48%),radial-gradient(ellipse at 94% 95%,rgba(232,153,235,.16),transparent 43%),linear-gradient(135deg,rgba(245,250,255,.97),rgba(255,255,255,.94) 55%,rgba(250,243,255,.96));box-shadow:0 8px 22px rgba(55,91,165,.075),inset 0 0 0 1px rgba(207,220,255,.42)}
@@ -15,7 +13,6 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 .proof-updates-coming p{margin:0;color:#68768b;font-size:12px;line-height:1.6}
 @media(max-width:600px){.proof-updates-coming{gap:11px;margin-top:13px;padding:14px 13px;border-radius:15px}.proof-updates-coming-icon{flex-basis:36px;width:36px;height:36px;border-radius:11px;font-size:20px}.proof-updates-coming h2{font-size:16px}.proof-updates-coming h3{font-size:11px}.proof-updates-coming p{font-size:11px;line-height:1.55}}
 .reviews-updates-coming{width:100%;box-sizing:border-box}
-
 
 /* highlighted issue metadata for Screenshot 01 only */
 .review-proof-card .review-proof-caption.issue-highlight{
@@ -53,12 +50,8 @@ body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transpar
 /* raise only the CUSTOMER FEEDBACK label by 4px; leave surrounding layout unchanged. */
 .reviews-page-heading .section-kicker { transform: translateY(-4px); }
 
-
 /* raise only the customer-feedback permission/disclaimer sentence by 4px. */
 .reviews-page-heading > p { transform: translateY(-4px); }
-
-
-
 
 /* Reviews page header uses the same Privacy Policy + About actions as the homepage. */
 html body.reviews-document .topbar .header-meta { display:flex; align-items:center; justify-content:flex-end; gap:10px; min-width:0; }
@@ -146,7 +139,6 @@ html body.reviews-document .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-
   html body.reviews-document .topbar > .header-meta > .about-header-link:hover { transform:translateY(-1px) !important; }
 }
 
-
 /* hard-hide legacy floating shortcuts on Customer Reviews only.
    The homepage keeps its floating menu and WhatsApp shortcut unchanged. */
 html body.reviews-document .floating-menu,
@@ -159,7 +151,6 @@ html body.reviews-document .proofs-back-to-site {
   opacity:0 !important;
   pointer-events:none !important;
 }
-
 
 /* match the homepage header action sizing and alignment. */
 html body.reviews-document .topbar > .header-meta > .privacy-link,
@@ -224,7 +215,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
   }
 }
 
-
 /* Keep the Stories item visually consistent with the homepage on every page. */
 @media (max-width: 700px) {
   html body.reviews-document nav.mobile-bottom-nav .mobile-nav-stories { gap: 2px !important; color: #D8C7FF !important; }
@@ -245,7 +235,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
     background: #A855F7 !important; color: #fff !important; font: 700 10px/1 Arial,sans-serif !important;
   }
 }
-
 
 /* Match the homepage profile header sizing and alignment on Customer Reviews. */
 @media (max-width: 700px) {
@@ -278,7 +267,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
   html body.reviews-document .topbar .header-meta > .privacy-link,
   html body.reviews-document .topbar .header-meta > .about-header-link { min-height: 37px !important; height: 37px !important; padding: 0 8px !important; font-size: 10px !important; }
 }
-
 
 /* match homepage mobile header geometry exactly; prevent the header from wrapping. */
 @media (max-width: 700px) {
@@ -317,7 +305,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
   html body.reviews-document .topbar > .header-meta > .about-header-link { width:70px !important; padding:0 5px !important; font-size:9.5px !important; }
   html body.reviews-document .topbar > .header-meta .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
 }
-
 
 /* AFV261 — Option C: compact thumbnail + details review rows. Scoped to reviews.html only. */
 html body.reviews-document .reviews-page-grid {
@@ -500,7 +487,6 @@ body.review-lightbox-open { overflow: hidden; }
   .review-lightbox-help { max-width: 290px; font-size: 11px; line-height: 1.45; }
 }
 
-
 /* Inner case-details panel matching the approved AFTER review-card design. */
 html body.reviews-document .review-case-meta-panel{
   display:flex;flex-direction:column;align-items:flex-start;gap:0;width:100%;min-width:0;box-sizing:border-box;
@@ -524,7 +510,6 @@ html body.reviews-document .review-view-prompt{margin-top:10px}
   html body.reviews-document .review-case-meta-panel{padding:7px}
   html body.reviews-document .review-case-meta-panel strong{font-size:13px}
 }
-
 
 /* AFV272 — final mobile header override; keep brand and actions in one aligned row. */
 @media (max-width: 700px) {
@@ -586,7 +571,6 @@ html body.reviews-document .review-view-prompt{margin-top:10px}
   html body.reviews-document header.topbar > .header-meta > .about-header-link { padding: 0 6px !important; font-size: 9.5px !important; }
 }
 
-
 /* AFV273 — final scoped reset: remove legacy per-page min-width differences. */
 @media (max-width:700px) {
   html body.proofs-document .topbar > .header-meta > .privacy-link,
@@ -620,7 +604,6 @@ html body.reviews-document .review-view-prompt{margin-top:10px}
   html body.proofs-document .topbar > .header-meta > .about-header-link,
   html body.reviews-document .topbar > .header-meta > .about-header-link { width:76px !important; }
 }
-
 
 /* AFV274 — force the exact homepage header button metrics after legacy page styles. */
 html body.proofs-document header.topbar > .header-meta,
@@ -707,7 +690,6 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link .he
   }
 }
 
-
 /* AFV276 — match homepage header action sizing exactly on content pages. */
 html body.proofs-document header.topbar > .header-meta,
 html body.reviews-document header.topbar > .header-meta {
@@ -729,7 +711,6 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
   transform: none !important;
 }
 
-
 /* AFV277 — use homepage-canonical header button widths at narrow phone sizes.
    Earlier legacy max-width:390px rules changed these dimensions on content pages. */
 @media (max-width:390px) {
@@ -748,7 +729,6 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
     width:76px !important; min-width:76px !important;
   }
 }
-
 
 /* AFV279 — final canonical header sizing copied from the homepage reference.
    This block intentionally comes last to override legacy page-specific breakpoints. */
