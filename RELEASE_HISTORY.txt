@@ -1,4 +1,5 @@
 AFV379 — Smooth Loading Screen Fade In and Out
+- Follow-up: initialization messages now appear one at a time with a moderate typewriter pace and brief transitions; the blue-purple neon progress pulse remains active while progress advances.
 - Added a compact homepage-only loading overlay with the neon Arisu Fix logo, slim blue-purple progress indicator, and three initialization checks.
 - Added smooth fade-in/fade-out transitions and once-per-tab-session behavior; refreshing or using the in-site Home button does not replay the screen.
 - Synchronized release metadata and cache-busting references to AFV379.
