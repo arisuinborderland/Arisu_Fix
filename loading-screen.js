@@ -1,8 +1,20 @@
 "use strict";
-/* AFV374 — Smooth, consecutive 1–100% progress counting. */
+/* AFV379 — Smooth, consecutive 1–100% progress counting. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
+
+  // Show once per tab session. Reloads and the site's Home button won't replay it.
+  const sessionKey = "arisuFixHomepageLoadingShown";
+  try {
+    if (window.sessionStorage.getItem(sessionKey) === "1") {
+      overlay.remove();
+      return;
+    }
+    window.sessionStorage.setItem(sessionKey, "1");
+  } catch (error) {
+    // If storage is unavailable, continue normally rather than blocking the homepage.
+  }
 
   const rows = [
     { key: "dom", message: "Preparing homepage document", check: () => document.readyState !== "loading" },
