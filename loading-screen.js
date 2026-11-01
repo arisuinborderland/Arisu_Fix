@@ -83,7 +83,7 @@
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
       overlay.setAttribute("aria-hidden", "true");
-      window.setTimeout(() => overlay.remove(), 280);
+      window.setTimeout(() => overlay.remove(), 440);
     });
   }
 
