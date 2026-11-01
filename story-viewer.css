@@ -549,3 +549,133 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible{outline:
 
 /* Keep the native hidden state effective despite the viewer's explicit display rule. */
 html body .story-viewer .story-viewer-image[hidden] { display: none !important; }
+
+
+/* AFV386: Reference-matched light lavender Recovery Stories empty-state card.
+   Scoped exclusively to empty mode; regular story playback keeps its existing design. */
+html body .story-viewer.story-viewer-empty-open:not([hidden]){
+  background:rgba(10,18,38,.58)!important;
+  -webkit-backdrop-filter:blur(9px) saturate(115%)!important;
+  backdrop-filter:blur(9px) saturate(115%)!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-card{
+  position:relative!important;display:block!important;
+  width:min(560px,calc(100vw - 34px))!important;max-width:560px!important;
+  height:auto!important;min-height:0!important;max-height:calc(100dvh - 36px)!important;
+  margin:0 auto!important;padding:0!important;overflow:visible!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-progress-track,
+html body .story-viewer.story-viewer-empty-open .story-viewer-meta,
+html body .story-viewer.story-viewer-empty-open .story-viewer-caption,
+html body .story-viewer.story-viewer-empty-open .story-viewer-image,
+html body .story-viewer.story-viewer-empty-open .story-viewer-nav{display:none!important}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+  position:relative!important;inset:auto!important;transform:none!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:0!important;width:100%!important;min-width:0!important;max-width:100%!important;
+  max-height:calc(100dvh - 36px)!important;margin:0!important;
+  box-sizing:border-box!important;overflow-y:auto!important;overflow-x:hidden!important;
+  padding:106px 28px 28px!important;border:1.5px solid rgba(255,255,255,.94)!important;
+  border-radius:clamp(30px,5vw,48px)!important;
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(90,155,255,.28) 0%,rgba(90,155,255,0) 35%),
+    linear-gradient(42deg,transparent 0 8%,rgba(111,145,255,.14) 8.2% 11%,transparent 11.2% 100%),
+    linear-gradient(225deg,rgba(159,110,255,.22) 0 10%,rgba(107,163,255,.17) 10.2% 17%,transparent 17.2% 100%),
+    linear-gradient(145deg,#fffaff 0%,#f1f2ff 48%,#eaf4ff 100%)!important;
+  box-shadow:0 24px 65px rgba(4,12,35,.38),inset 0 1px 0 #fff,inset 0 -2px 0 rgba(82,151,255,.20)!important;
+  color:#17213b!important;text-align:center!important;isolation:isolate!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{
+  content:"🛡  Arisu Fix\A Recovery Stories"!important;
+  white-space:pre!important;position:absolute!important;top:27px!important;left:27px!important;right:70px!important;
+  z-index:2!important;display:block!important;text-align:left!important;
+  font:800 clamp(20px,4.8vw,29px)/1.12 Arial,sans-serif!important;letter-spacing:-.45px!important;
+  color:#152544!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.8)!important;
+  pointer-events:none!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
+  position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  width:min(76vw,340px)!important;height:clamp(190px,27vh,270px)!important;max-width:100%!important;
+  max-height:none!important;flex:0 1 auto!important;margin:0 auto 14px!important;overflow:visible!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-viewer-mascot{
+  display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+  object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important;
+  background:transparent!important;filter:drop-shadow(0 9px 12px rgba(66,111,220,.18))!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2{
+  position:relative!important;display:block!important;width:100%!important;max-width:100%!important;
+  box-sizing:border-box!important;margin:0 0 18px!important;padding:13px 15px!important;
+  border:1px solid rgba(125,170,255,.25)!important;border-radius:999px!important;
+  background:linear-gradient(110deg,rgba(255,255,255,.95),rgba(244,247,255,.92))!important;
+  box-shadow:0 8px 22px rgba(69,115,220,.10),inset 0 1px 0 #fff!important;
+  font:800 clamp(23px,5.5vw,34px)/1.15 Arial,sans-serif!important;
+  letter-spacing:-.75px!important;color:#101a35!important;text-wrap:balance!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2 span{
+  background:linear-gradient(90deg,#2677ed,#5368ef)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{
+  position:relative!important;max-width:430px!important;margin:0 0 24px!important;
+  color:#4c566e!important;font:400 clamp(16px,3.8vw,20px)/1.48 Arial,sans-serif!important;
+  text-wrap:balance!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{
+  position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  width:min(100%,390px)!important;min-height:58px!important;margin:0!important;padding:0 22px!important;
+  border:1px solid rgba(255,255,255,.7)!important;border-radius:999px!important;
+  background:linear-gradient(105deg,#12c8e9 0%,#087df4 46%,#853cf1 100%)!important;
+  box-shadow:0 8px 22px rgba(62,93,238,.24),inset 0 1px 0 rgba(255,255,255,.55)!important;
+  color:#fff!important;font:750 20px Arial,sans-serif!important;cursor:pointer!important;
+  touch-action:manipulation!important;transition:filter .16s ease,transform .16s ease!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:before{
+  content:"✓"!important;display:inline-grid!important;place-items:center!important;width:25px!important;height:25px!important;
+  margin-right:13px!important;border:2px solid currentColor!important;border-radius:50%!important;
+  font:700 17px Arial,sans-serif!important;line-height:1!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:hover{filter:brightness(1.05)!important}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active{transform:scale(.985)!important}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close{
+  position:absolute!important;top:20px!important;right:20px!important;left:auto!important;bottom:auto!important;z-index:8!important;
+  display:grid!important;place-items:center!important;width:48px!important;min-width:48px!important;height:48px!important;min-height:48px!important;
+  padding:0!important;transform:none!important;border:1px solid rgba(255,255,255,.9)!important;border-radius:50%!important;
+  background:rgba(255,255,255,.88)!important;color:#33415e!important;
+  box-shadow:0 4px 13px rgba(29,53,100,.15)!important;font-size:0!important;
+  -webkit-backdrop-filter:blur(10px)!important;backdrop-filter:blur(10px)!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close:before{
+  content:"×"!important;display:block!important;font:400 36px/1 Arial,sans-serif!important;color:#34415c!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-close span{display:none!important}
+@media(max-width:480px){
+ html body .story-viewer.story-viewer-empty-open .story-viewer-card{width:calc(100vw - 32px)!important;max-width:420px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+   padding:96px 20px 22px!important;border-radius:32px!important;max-height:calc(100dvh - 32px)!important
+ }
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{
+   top:23px!important;left:20px!important;right:61px!important;font-size:clamp(18px,5vw,23px)!important
+ }
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
+   width:min(76vw,310px)!important;height:clamp(170px,24vh,220px)!important;margin-bottom:10px!important
+ }
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2{font-size:clamp(22px,6vw,29px)!important;padding:12px 10px!important;margin-bottom:16px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{font-size:clamp(15px,4.1vw,18px)!important;margin-bottom:22px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{min-height:54px!important;font-size:19px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-close{top:16px!important;right:15px!important;width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-close:before{font-size:31px!important}
+}
+@media(max-height:680px){
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty{padding-top:82px!important;padding-bottom:18px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty:before{top:19px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{height:clamp(135px,22vh,185px)!important;margin-bottom:7px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2{font-size:22px!important;padding:10px!important;margin-bottom:12px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{font-size:15px!important;line-height:1.4!important;margin-bottom:15px!important}
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{min-height:46px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}
+}
