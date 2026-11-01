@@ -85,7 +85,7 @@
 }
 #arisu-loading-screen .boot-log li { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: start; gap: 7px; }
 #arisu-loading-screen .boot-log .boot-mark { color: #9ba8bc; }
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark,
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark { color: #22b8cf; font-weight: 800; }
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { color: #28886b; }
 #arisu-loading-screen .boot-log li[data-state="error"] .boot-mark,
 #arisu-loading-screen .boot-log li[data-state="error"] .boot-status { color: #b45353; }
