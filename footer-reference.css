@@ -559,3 +559,12 @@ body.home-page .reference-footer {
     padding-top: 0 !important;
   }
 }
+
+
+/* AFV386 — Proofs and Reviews only: restore the requested 2px separation above the About section. */
+@media screen and (max-width: 600px) {
+  html body.proofs-document .reference-footer .reference-about-section,
+  html body.reviews-document .reference-footer .reference-about-section {
+    margin-top: 2px !important;
+  }
+}
