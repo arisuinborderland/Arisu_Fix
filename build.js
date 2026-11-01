@@ -19,7 +19,7 @@ const publicRootFiles = new Set([
   "styles.css", "loading-screen.css", "desktop-header.css", "footer-reference.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
   "script.js", "loading-screen.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
-  "privacy-year.js", "proofs.js", "story-admin.js",
+  "privacy-year.js", "proofs.js", "story-admin.js", "more-menu.js", "more-menu.css",
   "favicon.ico", "favicon-16.png", "favicon-32.png", "favicon-48.png", "apple-touch-icon.png",
   "verse-lake-photo.jpg", "tiktok-profile-preview.jpg", "social-preview.jpg",
   "arisu-profile.jpg", "facebook-page-preview.jpg", "60309.png"
