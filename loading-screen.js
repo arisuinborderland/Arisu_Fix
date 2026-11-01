@@ -1,5 +1,5 @@
 "use strict";
-/* AFV369 — Sequential terminal typing with a short, intentional 3–5 second minimum display. */
+/* AFV370 — Smooth, consecutive 1–100% progress counting. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -14,6 +14,7 @@
   const track = overlay.querySelector(".boot-progress-track");
   const footnote = overlay.querySelector(".boot-footnote");
   let finished = false;
+  let progressValue = 0;
 
   const wait = (ms) => new Promise(resolve => window.setTimeout(resolve, ms));
   const waitForLoad = () => document.readyState === "complete"
@@ -27,14 +28,21 @@
     element.querySelector(".boot-mark").textContent = ok ? "✓" : "!";
     element.querySelector(".boot-status").textContent = ok ? "200 OK" : "CHECK";
     if (detail) element.querySelector(".boot-message").textContent = detail;
-    const completed = rows.filter(item => {
-      const node = overlay.querySelector('[data-check="' + item.key + '"]');
-      return node && (node.dataset.state === "ok" || node.dataset.state === "error");
-    }).length;
-    const percent = Math.round(completed / rows.length * 100);
-    progress.style.width = percent + "%";
-    progressText.textContent = percent + "%";
-    if (track) track.setAttribute("aria-valuenow", String(percent));
+  }
+
+  function setProgress(value) {
+    progressValue = value;
+    progress.style.width = value + "%";
+    progressText.textContent = value + "%";
+    if (track) track.setAttribute("aria-valuenow", String(value));
+  }
+
+  async function countProgress() {
+    // Count every integer in order. Hold at 99% until the real checks finish.
+    while (progressValue < 99 && !finished) {
+      setProgress(progressValue + 1);
+      await wait(30);
+    }
   }
 
   async function typeMessage(element, message) {
@@ -49,6 +57,7 @@
   }
 
   async function runSequence() {
+    const progressTask = countProgress();
     for (const row of rows) {
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
       if (!element) continue;
@@ -62,6 +71,8 @@
     }
 
     if (finished) return;
+    await progressTask;
+    setProgress(100);
     finished = true;
     footnote.textContent = rows.every(row => {
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
