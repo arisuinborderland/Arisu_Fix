@@ -561,10 +561,17 @@ body.home-page .reference-footer {
 }
 
 
-/* AFV386 — Proofs and Reviews only: restore the requested 2px separation above the About section. */
+/* AFV386 — Match the 2px gap above the shared footer on mobile.
+   These page-specific offsets account for the existing end-of-content spacing;
+   Homepage and About remain unchanged. */
 @media screen and (max-width: 600px) {
-  html body.proofs-document .reference-footer .reference-about-section,
-  html body.reviews-document .reference-footer .reference-about-section {
-    margin-top: 2px !important;
+  html body.reviews-document .reference-footer {
+    margin-top: -78px !important;
+    padding-top: 0 !important;
+  }
+
+  html body.proofs-document .reference-footer {
+    margin-top: -38px !important;
+    padding-top: 0 !important;
   }
 }
