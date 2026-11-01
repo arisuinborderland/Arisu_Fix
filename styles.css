@@ -494,6 +494,399 @@ main{padding-top:0}
 
 /* bring the process section closer to Recovery Proofs and reduce mobile vertical waste. */
 @media  (max-width: 600px)  {
+  .wizard-card.contact-only {
+    padding-bottom: 8px;
+  }
+  .recovery-proofs-showcase {
+    padding-bottom: 11px;
+  }
+  .how-section {
+    margin-top: 8px;
+  }
+  .how-section .section-heading {
+    margin-bottom: 12px;
+  }
+  .how-section .section-kicker {
+    line-height: 1.15;
+  }
+  .how-section .section-heading h2 {
+    margin: 4px 0 5px;
+    font-size: clamp(22px, 5.8vw, 27px);
+    line-height: 1.16;
+  }
+  .how-section .section-heading p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .how-section .steps-grid {
+    gap: 8px;
+  }
+  .how-section .step-card {
+    padding: 12px 13px;
+    column-gap: 11px;
+    border-radius: 16px;
+  }
+  .how-section .step-card h3 {
+    margin: 0 22px 4px 0;
+    padding-bottom: 4px;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .site-section:not(.how-section) {
+    margin-top: 21px;
+  }
+}
+@media  (max-width: 420px)  {
+  .wizard-card.contact-only {
+    padding-bottom: 7px;
+  }
+  .how-section .section-heading {
+    margin-bottom: 10px;
+  }
+}
+
+/* compact Remember, FAQ, About, Terms and footer spacing on mobile */
+@media  (max-width: 600px)  {
+  .site-section.safety-section { margin-top: 12px !important; }
+  .safety-panel { padding: 16px 14px !important; gap: 10px !important; border-radius: 20px; }
+  .safety-panel h2 { margin: 0 0 8px !important; font-size: clamp(20px, 5.4vw, 24px) !important; line-height: 1.18 !important; }
+  .safety-panel p { margin: 7px 0 0 !important; font-size: 13px !important; line-height: 1.48 !important; }
+  .safety-panel-icon { width: 42px !important; height: 42px !important; }
+  .site-section.about-section, .site-section.terms-section { margin-top: 16px !important; }
+  .about-card { padding: 15px 13px !important; gap: 10px !important; border-radius: 18px !important; }
+  .about-card h2 { margin: 4px 0 6px !important; font-size: 19px !important; line-height: 1.2 !important; }
+  .about-card p, .terms-card p { margin: 6px 0 0 !important; font-size: 12.5px !important; line-height: 1.5 !important; }
+  .terms-card { padding: 16px 14px !important; border-radius: 18px !important; }
+  .terms-card h2 { margin: 5px 0 2px !important; font-size: 19px !important; line-height: 1.2 !important; }
+  .site-footer { padding: 15px 14px !important; gap: 10px !important; }
+  .footer-brand img { width: 42px !important; height: 42px !important; }
+  .footer-note { margin: 0 !important; font-size: 11px !important; line-height: 1.45 !important; }
+  .footer-links { gap: 8px !important; }
+}
+@media  (max-width: 420px)  {
+  .site-section.safety-section { margin-top: 9px !important; }
+}
+
+/* improve readability of the three process descriptions */
+
+/* make the three process descriptions below their headings easier to read. */
+@media  (max-width: 600px)  {
+  .how-section .step-card p { font-size: 15px !important; line-height: 1.58 !important; }
+}
+@media  (max-width: 420px)  {
+  .how-section .step-card p { line-height: 1.55 !important; }
+}
+
+/* improve readability of About This Website and account-safety text */
+.about-card .section-kicker { font-size: 12px; line-height: 1.4; letter-spacing: 1.5px; }
+.about-card h2 { font-size: clamp(25px, 3.8vw, 32px); line-height: 1.25; }
+.about-card p { font-size: 16px; line-height: 1.75; }
+.about-card .independent-note { font-size: 15.5px; line-height: 1.7; }
+.safety-panel p { font-size: 16px; }
+.safety-panel p:last-child { font-weight: 800; font-size: 17px; color: #234fc5; }
+@media  (max-width: 760px)  {
+ .about-card p, .about-card .independent-note { font-size: 15px !important; line-height: 1.7 !important; }
+}
+@media  (max-width: 420px)  {
+ .about-card p, .about-card .independent-note { font-size: 14.5px !important; line-height: 1.65 !important; }
+ .safety-panel p { font-size: 14.5px !important; line-height: 1.65 !important; }
+ .safety-panel p:last-child { font-size: 16px !important; }
+}
+
+/* improve readability of Terms and footer text */
+.terms-card .section-kicker{font-size:14px !important;line-height:1.5 !important;letter-spacing:1.7px !important;font-weight:800 !important}
+.terms-card h2{font-size:clamp(24px,3vw,29px) !important;line-height:1.25 !important;margin:8px 0 0 !important}
+.terms-card p{font-size:clamp(16px,2vw,18px) !important;line-height:1.75 !important}
+.footer-brand b{font-size:18px !important;line-height:1.35 !important}
+.footer-brand small{font-size:14px !important;line-height:1.5 !important}
+.footer-note{font-size:15px !important;line-height:1.75 !important}
+@media (max-width:600px) {
+ .terms-card .section-kicker{font-size:13px !important}
+ .terms-card h2{font-size:24px !important}
+ .terms-card p{font-size:16px !important;line-height:1.75 !important}
+ .footer-brand b{font-size:17px !important}
+ .footer-brand small{font-size:13px !important}
+ .footer-note{font-size:14px !important;line-height:1.7 !important}
+}
+
+/* add a distinct Free Web Tools link to the top navigation */
+.header-meta .webtools-header-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:54px;padding:0 20px;border:1px solid #0f766e;border-radius:16px;background:linear-gradient(135deg,#0f766e 0%,#159b8c 100%);color:#fff;text-decoration:none;font-size:15px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px rgba(15,118,110,.18);transition:transform .16s,filter .16s,box-shadow .16s}
+.header-meta .webtools-header-link:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 7px 17px rgba(15,118,110,.22)}
+.header-meta .webtools-header-link:focus-visible{outline:3px solid #72d9cd;outline-offset:3px}
+@media (max-width:600px) {
+ .header-meta{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;width:100%;}
+ .header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{min-height:42px;padding:0 8px;font-size:11px;border-radius:11px;gap:5px;}
+ .header-meta .webtools-header-link{grid-column:1 / -1;min-height:40px;}
+}
+@media (max-width:380px) {.header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{font-size:10px;padding:0 6px;gap:4px}}
+
+/* Consistent icons in all three header buttons */
+.header-meta .header-icon{width:18px;height:18px;flex:0 0 18px;display:inline-block;}
+@media (max-width:600px) {.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
+
+/* consolidated mobile header layout rule; desktop remains untouched. */
+@media  (max-width: 600px)  {
+  body .topbar {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    column-gap: 4px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  body .topbar > .brand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    flex: initial !important;
+  }
+  body .topbar > .header-meta { display: contents !important; }
+  body .topbar > .header-meta > .privacy-link {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 8px !important;
+    font-size: 10.5px !important;
+    white-space: nowrap !important;
+    flex: initial !important;
+  }
+  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
+  body .topbar > .header-meta > .webtools-header-link { grid-column: 1 !important; grid-row: 2 !important; }
+  body .topbar > .header-meta > .proofs-header-link { grid-column: 2 !important; grid-row: 2 !important; }
+  body .topbar > .header-meta > .webtools-header-link,
+  body .topbar > .header-meta > .proofs-header-link {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 6px !important;
+    gap: 4px !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    flex: initial !important;
+  }
+  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
+}
+@media  (max-width: 380px)  {
+  body .topbar > .brand { gap: 5px !important; }
+  body .topbar > .brand .logo { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
+  body .topbar > .brand b { font-size: 13px !important; }
+  body .topbar > .brand small { font-size: 9px !important; }
+  body .topbar > .header-meta > .privacy-link { font-size: 9.5px !important; padding: 0 6px !important; }
+  body .topbar > .header-meta > .about-header-link { font-size: 9.5px !important; padding: 0 6px !important; }
+  body .topbar .header-icon { width: 12px !important; height: 12px !important; flex: 0 0 12px !important; }
+  body .topbar > .header-meta > .webtools-header-link,
+  body .topbar > .header-meta > .proofs-header-link { font-size: 10px !important; padding: 0 4px !important; gap: 3px !important; }
+}
+
+/* Match homepage header text/icon sizing to Reviews and Proofs at 601–700px. */
+@media (min-width: 601px) and (max-width: 700px) {
+  body .topbar > .header-meta > .privacy-link,
+  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
+  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
+}
+
+/* make the About section brand title more noticeable */
+.about-card h2.about-brand-title { color: #315eea !important; text-shadow: 0 1px 0 rgba(49, 94, 234, 0.08); }
+
+/* compact review summary with owner-editable reviews behind a button */
+
+.view-reviews-button { display: inline-flex; align-items: center; gap: 8px; justify-content: center; border: 1px solid var(--border, #dce2ed); background: var(--card, #fff); color: var(--text, #202b40); font: inherit; font-weight: 700; cursor: pointer; }
+.view-reviews-button:hover { border-color: #4969b5;  }
+.view-reviews-button:focus-visible { outline: 3px solid rgba(73,105,181,.28); outline-offset: 2px; }
+.view-reviews-button span { font-size: 18px; transition: transform .2s ease; }
+.view-reviews-button[aria-expanded="true"] span { transform: rotate(180deg); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.reviews-grid[hidden] { display: none; }
+.review-card { min-width: 0; padding: 18px; border: 1px solid var(--border, #dce2ed); border-radius: 18px; background: var(--card, #fff); box-shadow: 0 8px 22px rgba(26, 44, 82, .04); }
+@media  (max-width: 760px)  { .review-card { padding: 16px; border-radius: 16px; } }
+
+/* horizontal swipeable review cards on mobile */
+@media  (max-width: 760px)  {
+  .reviews-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2px 2px 10px;
+    margin-right: -2px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .reviews-grid .review-card {
+    width: 100%;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+  }
+}
+
+/* screenshot-first customer review gallery */
+
+.view-reviews-button { white-space: nowrap; }
+.reviews-grid { align-items: stretch; }
+.review-proof-card { padding: 10px; overflow: hidden; }
+.review-proof-image { position: relative; display: block; width: 100%; aspect-ratio: auto; overflow: hidden; padding: 0; border: 0; border-radius: 12px; background: var(--surface, #f2f5fa); text-align: left; }
+.review-proof-image img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; object-position: center top; }
+.review-proof-image:not(:disabled) { cursor: zoom-in; }
+.review-proof-image:not(:disabled):focus-visible { outline: 3px solid rgba(73,105,181,.45); outline-offset: 3px; }
+.review-proof-image.is-placeholder { cursor: default; }
+.review-image-hint { position: absolute; left: 9px; bottom: 9px; padding: 5px 8px; border-radius: 8px; color: #fff; background: rgba(24, 34, 54, .78); font-size: 10px; line-height: 1.3; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.review-proof-caption { padding: 11px 5px 5px; }
+.review-proof-status { display: block; margin-bottom: 5px; color: #5571ba; font-size: 10px; line-height: 1.4; font-weight: 800; letter-spacing: .08em; }
+.review-proof-caption strong { display: block; color: var(--text, #202b40); font-size: 14px; line-height: 1.35; }
+.review-proof-caption p { margin: 5px 0 0; color: var(--muted, #687386); font-size: 12px; line-height: 1.45; }
+.review-placeholder { border-style: solid; }
+.review-lightbox[hidden] { display: none; }
+.review-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 54px 18px 24px; background: rgba(7, 12, 24, .90); }
+.review-lightbox-image { display: block; width: min(100%, 1000px); height: min(72vh, 1000px); min-height: 220px; background-repeat: no-repeat; background-position: center; background-size: contain; border-radius: 10px; box-shadow: 0 20px 70px rgba(0,0,0,.3); -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
+.review-lightbox-close { position: absolute; top: 12px; right: 15px; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(255,255,255,.1); color: white; font-size: 30px; line-height: 1; cursor: pointer; }
+.review-lightbox-help { margin: 0; color: rgba(255,255,255,.78); text-align: center; font-size: 12px; }
+@media  (max-width: 760px)  {
+
+  .review-proof-card { border-radius: 15px; }
+  .review-proof-image { aspect-ratio: auto; border-radius: 10px; }
+  .review-proof-status { font-size: 9px; }
+}
+
+@media  (prefers-reduced-motion: reduce)  { .review-lightbox, .review-proof-image, .view-reviews-button span { transition: none !important; } }
+
+/* compact mobile review header and smaller screenshot cards */
+@media  (max-width: 760px)  {
+
+  .view-reviews-button { flex: 0 0 auto; }
+  .reviews-grid {
+    grid-auto-columns: 62%;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .review-proof-card { padding: 7px; }
+  .review-proof-image { height: 220px; display: flex; align-items: flex-start; justify-content: center; }
+  .review-proof-image img { width: 100%; height: 100%; object-fit: contain; object-position: top center; }
+  .review-proof-caption { padding: 8px 3px 3px; }
+  .review-proof-caption strong { font-size: 12px; }
+  .review-proof-caption p { font-size: 10px; line-height: 1.4; }
+}
+@media  (max-width: 390px)  {
+
+  .reviews-grid { grid-auto-columns: 66%; }
+  .review-proof-image { height: 200px; }
+}
+
+/* clearer Customer Feedback heading and balanced View All Reviews action */
+
+.view-reviews-button { min-height: 48px; padding: 12px 18px; font-size: 15px; line-height: 1.2; text-decoration: none; border-radius: 13px; }
+.view-reviews-button .view-button-label { font-size: inherit; }
+@media  (max-width: 760px)  {
+
+  .view-reviews-button { min-height: 44px; padding: 11px 14px; font-size: 14px; gap: 7px; }
+}
+@media  (max-width: 390px)  {
+
+  .view-reviews-button { min-height: 42px; padding: 10px 12px; font-size: 13px; }
+}
+
+/* Windows-style mini app windows for social links, proofs, and feedback. */
+
+.tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase {
+  padding: 18px;
+  border: 1px solid #cfd8e6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 5px 17px rgba(31, 48, 79, .07);
+}
+.tiktok-showcase::before, .facebook-showcase::before, .recovery-proofs-showcase::before { display: none; }
+
+.recovery-proofs-showcase { background: #fff; border-color: #cfd8e6; }
+.recovery-proofs-showcase:hover { border-color: #aebbd2; box-shadow: 0 10px 22px rgba(31, 48, 79, .1); }
+.recovery-proofs-button { border-radius: 7px; box-shadow: none; }
+.tiktok-profile-button, .facebook-profile-button { border-radius: 7px; }
+
+.windows-feedback-window {
+  overflow: hidden;
+  border: 1px solid #cfd8e6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgba(31, 48, 79, .075);
+}
+
+.windows-feedback-content { padding: 12px 14px 14px; }
+
+.windows-feedback-content .view-reviews-button {
+  min-height: 42px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  border-color: #cbd5e3;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.windows-feedback-content .reviews-grid { margin-top: 2px; }
+.windows-feedback-content .review-proof-card { border-radius: 10px; box-shadow: 0 2px 7px rgba(31,48,79,.045); }
+@media  (max-width: 760px)  {
+
+  .tiktok-showcase, .facebook-showcase, .recovery-proofs-showcase { padding: 14px; border-radius: 11px; }
+
+  .windows-feedback-window { border-radius: 11px; }
+
+  .windows-feedback-content { padding: 8px 10px 11px; }
+
+  .windows-feedback-content .view-reviews-button { min-height: 38px; padding: 8px 9px; gap: 5px; font-size: 11px; }
+  .windows-feedback-content .reviews-grid { grid-auto-columns: 62%; gap: 9px; padding-bottom: 8px; }
+  .windows-feedback-content .review-proof-card { padding: 6px; }
+  .windows-feedback-content .review-proof-image { height: 175px; }
+}
+@media  (max-width: 390px)  {
+
+  .windows-feedback-content .view-reviews-button { font-size: 12px; }
+  .windows-feedback-content .reviews-grid { grid-auto-columns: 70%; }
+}
+
+/* unified four-tile social collage; clean app-card styling without window controls. */
+.social-collage {
+  display: grid;
+  width: 100%;
+  margin-top: 18px;
+}
+.social-collage > .tiktok-showcase,
+.social-collage > .facebook-showcase,
+.social-collage > .recovery-proofs-showcase,
+.social-collage > .social-feedback-card {
+  min-width: 0;
+  width: auto;
+  margin: 0;
+}
+.social-collage > .tiktok-showcase,
+.social-collage > .facebook-showcase,
+.social-collage > .recovery-proofs-showcase {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dce5f3;
+  background: linear-gradient(145deg, #ffffff 0%, #f6f9ff 100%);
+  box-shadow: 0 8px 24px rgba(35,54,94,.065);
+}
+.social-collage > .tiktok-showcase { background: linear-gradient(145deg,#fff8fb,#fff0f6); border-color:#f4d7e4; }
+.social-collage > .facebook-showcase { background: linear-gradient(145deg,#fff,#eff7ff); border-color:#d5e7ff; }
+.social-collage > .recovery-proofs-showcase { background: linear-gradient(145deg,#fbfaff,#f1efff); border-color:#e1dcff; }
+.social-collage .tiktok-profile-button,
+.social-collage .facebook-profile-button,
+.social-collage .recovery-proofs-button { margin-top: auto; }
+.social-feedback-card { overflow: hidden; border: 1px solid #cfeedd; background: linear-gradient(145deg,#f5fff9,#e7fff2); box-shadow: 0 8px 24px rgba(35,90,65,.065); }
+
+.social-feedback-card .view-reviews-button { min-height: 36px; padding: 7px 9px; font-size: 11px; border-radius: 9px; white-space: nowrap; }
+.social-feedback-card .reviews-grid { overflow-x: auto; }
+.social-feedback-card .review-image-hint { font-size: 9px; }
+@media  (max-width: 600px)  {
   .social-feedback-card .view-reviews-button { min-height: 34px; font-size: 10px; padding: 6px 8px; }
 }
 
