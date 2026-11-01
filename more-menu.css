@@ -18,7 +18,7 @@
   bottom: calc(106px + env(safe-area-inset-bottom, 0px));
   z-index: 2147482700;
   box-sizing: border-box;
-  width: min(200px, calc(100vw - 32px));
+  width: min(188px, calc(100vw - 32px));
   padding: 7px;
   border: 1px solid rgba(103, 232, 249, .56);
   border-radius: 17px;
@@ -120,7 +120,7 @@
   .more-menu-popup {
     right: 12px;
     bottom: calc(82px + env(safe-area-inset-bottom, 0px));
-    width: min(186px, calc(100vw - 32px));
+    width: min(174px, calc(100vw - 32px));
     padding: 6px;
     border-radius: 15px;
   }
