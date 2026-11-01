@@ -1,4 +1,4 @@
-/* AFV368 — Homepage-only terminal-style initialization overlay. */
+/* AFV371 — Homepage overlay with blurred live page and compact AF/spade emblem. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -6,9 +6,11 @@
   display: grid;
   place-items: center;
   padding: 22px;
-  background: radial-gradient(ellipse at 12% 10%, rgba(190, 211, 255, .34), transparent 42%),
-              radial-gradient(ellipse at 90% 88%, rgba(215, 199, 255, .30), transparent 40%),
-              #f3f5f9;
+  background: radial-gradient(ellipse at 12% 10%, rgba(190, 211, 255, .38), transparent 42%),
+              radial-gradient(ellipse at 90% 88%, rgba(215, 199, 255, .34), transparent 40%),
+              rgba(243, 245, 249, .54);
+  -webkit-backdrop-filter: blur(9px) saturate(.82);
+  backdrop-filter: blur(9px) saturate(.82);
   color: #25314a;
   opacity: 1;
   visibility: visible;
@@ -44,6 +46,9 @@
   letter-spacing: .13em;
 }
 #arisu-loading-screen .boot-content { padding: 24px 21px 21px; }
+#arisu-loading-screen .boot-brand-row { display: flex; align-items: center; gap: 13px; min-width: 0; }
+#arisu-loading-screen .boot-logo { display: block; width: 61px; height: 73px; flex: 0 0 61px; filter: drop-shadow(0 4px 7px rgba(74, 94, 195, .22)); }
+#arisu-loading-screen .boot-brand-copy { min-width: 0; }
 #arisu-loading-screen .boot-brand {
   margin: 0;
   color: #24365b;
@@ -57,13 +62,13 @@
   color: transparent;
 }
 #arisu-loading-screen .boot-subtitle {
-  margin: 7px 0 23px;
+  margin: 7px 0 0;
   color: #7b879d;
   font: 600 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: .12em;
 }
 #arisu-loading-screen .boot-section {
-  margin: 0 0 12px;
+  margin: 22px 0 12px;
   color: #6b70a1;
   font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: .1em;
@@ -91,6 +96,9 @@
 @media (max-width: 380px) {
   #arisu-loading-screen { padding: 14px; }
   #arisu-loading-screen .boot-content { padding: 21px 16px 17px; }
+  #arisu-loading-screen .boot-brand-row { gap: 10px; }
+  #arisu-loading-screen .boot-logo { width: 50px; height: 61px; flex-basis: 50px; }
+  #arisu-loading-screen .boot-subtitle { font-size: 8px; letter-spacing: .08em; }
   #arisu-loading-screen .boot-log { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
