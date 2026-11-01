@@ -6,14 +6,11 @@
 /* canvas-based local image preview */
 .image-preview-card canvas{display:block;width:100%;height:112px;object-fit:contain;background:#111827}
 
-
 /* clearer upload workflow, progress feedback, and Story library thumbnails */
 .upload-label{gap:8px}.field-help{display:block;font-weight:400;color:var(--muted);font-size:12px;line-height:1.45}.file-picker-wrap{display:grid;gap:8px;padding:12px;border:1px dashed #aebce9;border-radius:16px;background:linear-gradient(145deg,#f7f8ff,#eef2ff)}#storyImage{display:block;padding:10px;background:#fff;border:1px solid #dbe2f4;border-radius:11px;font-size:13px}.file-picker-hint{font-size:12px;font-weight:400;color:var(--muted)}#storyImage::file-selector-button{border:0;border-radius:9px;background:#e9edff;color:#304bc1;font-weight:700;padding:10px 12px;margin-right:10px;cursor:pointer}.image-preview{grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:12px;padding:12px;min-height:154px;align-content:start}.preview-empty{grid-column:1/-1;display:flex;min-height:126px;align-items:center;justify-content:center;flex-direction:column;gap:5px;text-align:center;padding:14px}.preview-empty-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:#e8edff;color:#365be8;font-size:25px;line-height:1}.preview-empty strong{font-size:13px}.preview-empty .muted{font-size:12px}.image-preview-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:5px}.image-preview-card canvas{width:100%;height:116px;object-fit:contain;border-radius:7px;background:#111827}.image-preview-card small{padding:7px 3px 3px;line-height:1.35}.preview-remove{position:absolute;top:8px;right:8px;width:30px;height:30px;padding:0;border:1px solid #fff;background:#17213a;color:#fff;border-radius:50%;font-size:19px;line-height:1;box-shadow:0 2px 8px #0003}.preview-remove:focus-visible,.admin-tab:focus-visible,.story-actions button:focus-visible{outline:3px solid #8ba5ff;outline-offset:2px}.upload-progress{display:grid;gap:7px;font-size:12px;color:#43517a}.upload-progress-track{height:8px;overflow:hidden;border-radius:99px;background:#e8ecf8}.upload-progress-track span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#365be8,#684ce5);transition:width .2s ease}.admin-tabs{gap:8px}.admin-tab{min-height:48px;transition:background .18s ease,box-shadow .18s ease,color .18s ease}.story-row{align-items:flex-start}.story-thumb{width:64px;height:76px;flex:0 0 64px;object-fit:contain;background:#111827;border-radius:10px;border:1px solid #e2e7f2}.story-info-wrap{display:flex;align-items:flex-start;gap:11px;min-width:0;flex:1}.story-info{min-width:0}.story-row .story-status{width:max-content}.story-actions{align-self:center}.story-row small.expiry-meta{overflow-wrap:anywhere}.story-row .story-info>strong{overflow-wrap:anywhere}@media(max-width:440px){.image-preview{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:9px}.image-preview-card canvas{height:108px}.story-row{gap:9px;padding:10px}.story-thumb{width:52px;height:66px;flex-basis:52px}.story-info-wrap{gap:8px;align-items:flex-start}.story-actions{width:100%;justify-content:flex-start;align-self:stretch}.story-actions button{min-height:36px}.story-row{flex-wrap:wrap}.story-actions .story-view-count{margin-left:auto}}
 
-
 /* compact Story library cards, clearer actions, expiry hints, and touch-friendly ordering */
 .story-list{gap:8px;margin-top:12px}.story-row{gap:10px;padding:10px 12px;border-radius:15px;align-items:center}.story-info-wrap{gap:9px;align-items:center}.story-thumb{width:58px;height:68px;flex-basis:58px}.story-info>strong{font-size:14px;line-height:1.3}.story-row small.expiry-meta{font-size:11px;line-height:1.35;margin-top:4px}.story-row .story-status{margin-top:5px;padding:3px 8px;font-size:10px}.story-reorder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:0 0 25px;color:#7b86a1}.story-drag-grip{font-size:20px;line-height:1;cursor:grab;user-select:none}.story-move-button{width:24px;min-height:23px!important;height:23px;padding:0!important;border-radius:7px!important;background:#f0f3ff!important;color:#4356a7!important;font-size:14px!important;line-height:1;border:1px solid #e0e6fa!important}.story-actions{gap:7px;align-items:center}.story-actions button{min-height:35px;padding:8px 10px;font-size:12px}.story-actions button.danger-action{background:#fff0f0;color:#a82134;border:1px solid #f7d9dd}.story-view-count{grid-template-columns:auto auto;min-width:55px;padding:5px 7px;border-radius:10px;column-gap:4px}.story-view-eye{font-size:11px}.story-view-number{font-size:14px!important}.story-row[draggable=true]:active{cursor:grabbing}.story-row .story-info{flex:1;min-width:0}@media(max-width:440px){.story-row{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:10px}.story-info-wrap{width:100%;gap:8px;align-items:center}.story-reorder{flex-basis:23px}.story-thumb{width:54px;height:64px;flex-basis:54px}.story-row .story-info>strong{font-size:13px}.story-row small.expiry-meta{font-size:10px}.story-actions{display:flex;width:100%;justify-content:flex-end;gap:6px;align-self:auto}.story-actions .story-view-count{margin-left:auto;order:0}.story-actions button{min-height:36px;padding:8px 9px;font-size:11px}.story-view-count{min-width:51px;padding:5px 6px}}
-
 
 /* tighter mobile Story Library cards */
 .story-list{gap:7px}
@@ -63,7 +60,6 @@ form{gap:12px}
  .image-preview{padding:7px;gap:7px}
  .preview-empty{min-height:94px;padding:14px 9px}
 }
-
 
 /* AFV263: tighter mobile upload workflow; scoped to Story Admin */
 @media (max-width: 600px) {
@@ -159,10 +155,8 @@ form{gap:12px}
   .footnote { padding: 7px 4px; font-size: 11px; }
 }
 
-
 /* Admin sign-in remember option and visible authentication feedback */
 .remember-toggle{display:flex;grid-template-columns:auto 1fr;align-items:center;gap:9px;font-size:14px;font-weight:600;margin-top:-3px}.remember-toggle input{width:18px;height:18px;min-width:18px;margin:0;accent-color:var(--blue)}.login-help{margin:-10px 0 0 27px;color:var(--muted);font-size:12px;line-height:1.45}.login-status{margin:12px 0 0;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.login-status:empty{display:none}
-
 
 /* AFV268: compact, reliably horizontal Remember me control */
 #loginForm label.remember-toggle{
@@ -206,7 +200,6 @@ form{gap:12px}
   #loginPanel h2{margin-bottom:14px}
   #loginForm{gap:13px}
 }
-
 
 /* AFV269: enforce a compact left-aligned Remember me row on mobile and desktop */
 #loginPanel #loginForm > label.remember-toggle{
@@ -258,7 +251,6 @@ form{gap:12px}
   #loginPanel #loginForm > label.remember-toggle{gap:9px!important}
   #loginPanel #loginForm > .login-help{margin-top:-6px!important}
 }
-
 
 /* AFV266 polish: compact mobile uploader, dashboard, and clear publishing states */
 .admin-top-heading{margin-bottom:10px}
@@ -324,7 +316,6 @@ form{gap:12px}
  #status{margin:5px 0 0;font-size:11px}
  .footnote{padding:6px 3px;font-size:10px}
 }
-
 
 /* AFV270: premium Story Admin overview and in-context Story Viewer preview */
 .admin-activity{margin:0 0 14px}

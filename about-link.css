@@ -20,7 +20,6 @@
 }
 @media(prefers-reduced-motion:reduce){.about-page-cta{transition:none}.about-page-cta:hover,.about-page-cta:focus-visible{transform:none}}
 
-
 /* keep the About CTA as the first, full-width card inside the site footer. */
 html body.home-page footer.site-footer > section.about-link-section{box-sizing:border-box;grid-column:1/-1;grid-row:1;width:100%;max-width:960px;margin:0 auto 8px;padding:0;justify-self:center;position:relative;z-index:1}
 html body.home-page footer.site-footer > section.about-link-section .about-page-cta{width:100%}
@@ -33,7 +32,6 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
  html body.home-page footer.site-footer > .footer-links{grid-column:1!important;grid-row:5!important}
  html body.home-page footer.site-footer > .footer-copyright{grid-column:1!important;grid-row:6!important}
 }
-
 
 /* compact footer About card and tighten mobile footer spacing. */
 @media (max-width: 600px) {
@@ -91,7 +89,6 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
   }
 }
 
-
 /* remove empty mobile footer grid rows and keep the location block 4px below the About card. */
 @media (max-width: 600px) {
   html body.home-page footer.site-footer {
@@ -115,7 +112,6 @@ html body.home-page footer.site-footer > section.about-link-section .about-page-
     margin: 0 !important;
   }
 }
-
 
 /* compact About link beside Privacy Policy in the homepage header. */
 html body.home-page .topbar .header-meta .about-header-link {
@@ -189,7 +185,6 @@ html body.home-page .topbar .header-meta .about-header-link:focus-visible {
   html body.home-page .topbar .header-meta .about-header-link { transition: none; }
   html body.home-page .topbar .header-meta .about-header-link:hover { transform: none; }
 }
-
 
 /* align About and Privacy Policy buttons precisely on the profile header row. */
 html body.home-page .topbar > .header-meta > .privacy-link,
@@ -281,7 +276,6 @@ html body.home-page .topbar > .header-meta > .about-header-link {
     height: 36px !important;
   }
 }
-
 
 /* add 1px to the top and bottom of the homepage Privacy Policy button. */
 html body.home-page .topbar > .header-meta > .privacy-link {

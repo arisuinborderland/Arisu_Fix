@@ -27,7 +27,6 @@ body.story-viewer-open{overflow:hidden;overscroll-behavior:none}
 @media(max-width:600px){.story-bubble{right:12px;bottom:86px}.story-viewer{padding:5px 0}.story-viewer-card{width:100%;height:calc(100dvh - 10px);max-height:calc(100dvh - 10px);border-radius:12px}.story-viewer-progress-track{top:5px;left:8px;right:52px}.story-viewer-meta{top:14px;left:10px;gap:7px}.story-viewer-avatar{width:30px;height:30px}.story-viewer-image{top:53px;height:calc(100% - 53px)}.story-viewer-name{font-size:12px}.story-viewer-close{top:5px;right:5px;width:34px;height:34px}.story-viewer-caption{padding-left:14px;padding-right:14px;padding-bottom:max(10px,env(safe-area-inset-bottom))}.story-viewer-nav{width:30px;height:48px}}
 @media(prefers-reduced-motion:reduce){.story-viewer-progress-fill::after{animation:none!important;opacity:0!important}}
 
-
 /* mobile-first viewer sizing; prevents desktop-width media queries from shrinking phone viewers */
 html body .story-viewer[hidden]{display:none!important}
 html body .story-viewer:not([hidden]){position:fixed!important;inset:0!important;z-index:2147483000!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;overflow:hidden!important;box-sizing:border-box!important}
@@ -46,14 +45,12 @@ html body .story-viewer .story-viewer-image{max-width:100%!important;object-fit:
  html body .story-viewer .story-viewer-image{inset:58px 0 0!important;height:calc(100% - 58px)!important}
 }
 
-
 /* prioritize portrait/narrow viewport sizing even when Chrome reports a fine pointer. */
 @media screen and (max-width: 900px) and (orientation: portrait){
  html body .story-viewer:not([hidden]){position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;padding:0!important;margin:0!important;}
  html body .story-viewer .story-viewer-card{width:100vw!important;max-width:none!important;height:100vh!important;height:100dvh!important;max-height:none!important;min-height:0!important;border-radius:0!important;}
  html body .story-viewer .story-viewer-image{left:0!important;right:0!important;width:100%!important;max-width:none!important;object-fit:contain!important;}
 }
-
 
 /* trim matching space from the bottom of the displayed image on portrait phones. */
 @media screen and (max-width: 900px) and (orientation: portrait){
@@ -100,7 +97,6 @@ html body .story-viewer:not([hidden]) .story-viewer-nav:active {
   html body .story-viewer:not([hidden]) .story-viewer-nav { transition:none!important; }
 }
 
-
 html body .story-viewer .story-viewer-progress-track,
 html body .story-viewer .story-viewer-meta,
 html body .story-viewer .story-viewer-close,
@@ -133,7 +129,6 @@ html body .story-viewer .story-viewer-image {
   }
 }
 
-
 /* Midnight Blue soft-glow background and slightly higher centered Story image. */
 html body .story-viewer:not([hidden]) {
   background: radial-gradient(ellipse at 50% 46%, #174EA6 0%, #10182F 47%, #07101F 100%) !important;
@@ -161,7 +156,6 @@ html body .story-viewer .story-viewer-image {
   }
 }
 
-
 /* preload the destination image before completing the fade transition. */
 html body .story-viewer .story-viewer-image {
   opacity: 1;
@@ -173,7 +167,6 @@ html body .story-viewer.story-viewer-switching .story-viewer-image {
 @media (prefers-reduced-motion: reduce) {
   html body .story-viewer .story-viewer-image { transition: none !important; }
 }
-
 
 /* Deep Purple Recovery Stories button, inline timestamp, and private view tracking */
 html body .story-bubble {
@@ -203,7 +196,6 @@ html body .story-viewer .story-viewer-time {
 @media (prefers-reduced-motion: reduce) {
   html body .story-bubble { transition: none !important; }
 }
-
 
 /* larger story header, full-width segmented progress, bottom Back to Site control. */
 html body .story-viewer .story-viewer-progress-track {
@@ -261,7 +253,6 @@ html body .story-viewer:not([hidden]) .story-viewer-close:active {
   html body .story-viewer:not([hidden]) .story-viewer-close { left: 16px !important; right: 16px !important; bottom: max(12px, env(safe-area-inset-bottom)) !important; width: auto !important; height: 44px !important; min-height: 44px !important; }
 }
 
-
 /* basic anti-save deterrents for the temporary Story Viewer.
    These discourage casual saving/dragging; they do not prevent screenshots. */
 html body .story-viewer .story-viewer-image {
@@ -275,7 +266,6 @@ html body .story-viewer .story-viewer-card {
   -webkit-touch-callout: none;
 }
 
-
 /* story navigation uses left/right image taps; remove the old visible arrow controls. */
 html body .story-viewer:not([hidden]) .story-viewer-nav {
   display: none !important;
@@ -284,7 +274,6 @@ html body .story-viewer .story-viewer-image {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-
 
 /* adaptive image orientation, refined story header and compact Back to Site control. */
 html body .story-viewer .story-viewer-card {
@@ -347,7 +336,6 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible {
   html body .story-viewer .story-viewer-image,
   html body .story-viewer:not([hidden]) .story-viewer-close { transition: none !important; }
 }
-
 
 /* AFV306: glassmorphism + mascot empty state. Scoped to empty mode; normal stories retain existing styling. */
 .story-viewer-empty[hidden]{display:none!important}
@@ -507,7 +495,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span:first-c
  }
 }
 
-
 /* AFV318: clean gradient-only empty state. Disable decorative pseudo layers to prevent dots and crossing lines. */
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
   border:1.5px solid rgba(105,199,255,.96)!important;
@@ -547,7 +534,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{
     inset 0 1px 0 rgba(255,255,255,.56)!important;
 }
 
-
 /* Desktop empty-state Story Viewer: constrain the modal width instead of stretching across the screen. */
 @media (min-width: 701px) {
   html body .story-viewer.story-viewer-empty-open .story-viewer-card {
@@ -558,7 +544,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{
   }
 }
 
-
 /* AFV365: compact glassmorphism Back to Site control, consistent on mobile and desktop. */
 html body .story-viewer:not([hidden]) .story-viewer-close { left:50%!important;right:auto!important;width:min(250px,calc(100vw - 64px))!important;min-width:0!important;height:50px!important;min-height:50px!important;padding:0 20px!important;transform:translateX(-50%)!important;color:#fff!important;background:linear-gradient(135deg,rgba(36,27,61,.78),rgba(20,25,48,.72))!important;border:1px solid rgba(155,107,255,.82)!important;box-shadow:0 6px 22px rgba(82,42,156,.18),inset 0 1px 0 rgba(255,255,255,.16)!important;-webkit-backdrop-filter:blur(14px) saturate(135%)!important;backdrop-filter:blur(14px) saturate(135%)!important;font-size:14px!important;font-weight:650!important;letter-spacing:.1px!important;}
 html body .story-viewer:not([hidden]) .story-viewer-close span:first-child{color:#c4a5ff!important;}
@@ -568,10 +553,8 @@ html body .story-viewer:not([hidden]) .story-viewer-close:focus-visible{outline:
 @media(min-width:701px){html body .story-viewer:not([hidden]) .story-viewer-close{width:260px!important;height:50px!important;min-height:50px!important;}}
 @media(max-width:380px){html body .story-viewer:not([hidden]) .story-viewer-close{width:min(230px,calc(100vw - 48px))!important;padding-inline:14px!important;}}
 
-
 /* Keep the native hidden state effective despite the viewer's explicit display rule. */
 html body .story-viewer .story-viewer-image[hidden] { display: none !important; }
-
 
 /* AFV386: Reference-matched light lavender Recovery Stories empty-state card.
    Scoped exclusively to empty mode; regular story playback keeps its existing design. */
@@ -701,7 +684,6 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span{display
 @media(prefers-reduced-motion:reduce){
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}
 }
-
 
 /* AFV389: consolidated Recovery Stories empty-state reference styling.
    Keep the approved compact mobile layout and Image 2 glass-card treatment in one place. */

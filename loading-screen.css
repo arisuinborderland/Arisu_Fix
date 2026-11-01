@@ -241,7 +241,6 @@
   #arisu-loading-screen.is-ready .boot-window { animation: none !important; transition: none !important; }
 }
 
-
 /* AFV379 follow-up — reveal initialization rows one at a time at a moderate pace. */
 #arisu-loading-screen .boot-log li[data-state="pending"] { display: none; }
 #arisu-loading-screen .boot-log li[data-state="running"] { animation: boot-row-appear .22s ease-out both; }
@@ -252,7 +251,6 @@
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen .boot-log li[data-state="running"] { animation: none; }
 }
-
 
 /* AFV393 — Match the Stories progress bar's purple-magenta-cyan gradient. */
 #arisu-loading-screen .boot-progress-track {
