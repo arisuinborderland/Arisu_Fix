@@ -1,3 +1,8 @@
+AFV378 — Smooth Loading Screen Fade In and Out
+- Adds smooth fade-in for the overlay and loading card.
+- Adds smooth fade-out and synchronizes overlay removal with the transition.
+- Honors prefers-reduced-motion; homepage loading screen only.
+
 AFV376 — Minimal Neon-Pulse Bar and Three Initialization Checks
 - Replaces the liquid-wave bar with a slim blue-purple neon pulse (option C).
 - Removes the brand-assets row; keeps document preparation, stylesheet check, and finalization.
