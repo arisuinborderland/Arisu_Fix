@@ -21,6 +21,16 @@
     { key: "styles", message: "Checking page stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
+  // Keep upcoming checks hidden so each line appears only when its turn begins.
+  rows.forEach(row => {
+    const element = overlay.querySelector('[data-check="' + row.key + '"]');
+    if (element) {
+      element.dataset.state = "pending";
+      element.querySelector(".boot-mark").textContent = "○";
+      element.querySelector(".boot-status").textContent = "WAIT";
+    }
+  });
+
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
   const track = overlay.querySelector(".boot-progress-track");
@@ -65,7 +75,7 @@
     element.querySelector(".boot-status").textContent = "RUN";
     for (let i = 0; i < message.length; i += 1) {
       target.textContent += message[i];
-      await wait(22);
+      await wait(18);
     }
   }
 
