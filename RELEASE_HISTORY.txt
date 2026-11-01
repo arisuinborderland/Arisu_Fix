@@ -1,3 +1,8 @@
+AFV388 — Approved Recovery Stories Mascot Artwork
+- Replaces the previous empty-state artwork with the approved anime girl, robot, and floating story-card illustration.
+- Adjusts mobile artwork sizing to preserve the character composition and avoid crowding the message or Got It button.
+- Refreshes Story Viewer stylesheet cache tokens across Homepage, About, Privacy, Proofs, and Reviews.
+
 AFV387 — Recovery Stories Empty-State Illustration Refinement
 - Enlarges the existing anime girl, robot, and floating story-card illustration responsively in the No Stories Yet empty state.
 - Refreshes Story Viewer stylesheet cache tokens across Homepage, About, Privacy, Proofs, and Reviews.

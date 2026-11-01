@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV387 package metadata and release notes are synchronized', () => {
+test('AFV388 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '387.0.0');
-  assert.equal(lock.version, '387.0.0');
-  assert.equal(lock.packages[''].version, '387.0.0');
-  assert.ok(readme.includes('Current release: AFV387'));
-  assert.ok(history.startsWith('AFV387 — Recovery Stories Empty-State Illustration Refinement'));
+  assert.equal(pkg.version, '388.0.0');
+  assert.equal(lock.version, '388.0.0');
+  assert.equal(lock.packages[''].version, '388.0.0');
+  assert.ok(readme.includes('Current release: AFV388'));
+  assert.ok(history.startsWith('AFV388 — Approved Recovery Stories Mascot Artwork'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
