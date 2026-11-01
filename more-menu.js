@@ -25,7 +25,7 @@
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV402&width=180-194';
+    styleLink.href = '/more-menu.css?v=AFV402&width=186-194';
     document.head.appendChild(styleLink);
 
     const backdrop = document.createElement('div');
