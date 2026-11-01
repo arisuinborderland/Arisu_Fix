@@ -33,7 +33,6 @@
 .about-page-main > .about-terms-section .terms-intro{margin:0 0 12px}
 @media(max-width:600px){.about-page-main > .about-terms-section{margin:18px 0 16px}.about-page-main > .about-terms-section .terms-card{padding:17px 15px}.about-page-main > .about-terms-section .terms-card p{font-size:14px;line-height:1.65}}
 
-
 /* clean About header and add a persistent floating return button. */
 .about-topbar .about-back-link { display: none !important; }
 .about-home-cta { display: none !important; }
