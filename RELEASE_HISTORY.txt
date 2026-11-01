@@ -1,3 +1,7 @@
+AFV375 — Liquid-Fill Loading Progress Bar
+- Replaces the plain gradient fill with a blue-purple liquid-style fill and subtle moving wave layers.
+- Keeps the existing consecutive 1–100% counter and compact homepage loading-card layout.
+
 AFV374 — Wider, Compact Homepage Loading Card
 - Widens the loading card toward both screen edges and reduces vertical spacing to match the approved mobile reference.
 - Preserves the logo, blurred live homepage, terminal checks, and progress behavior. Homepage-only CSS adjustment.
