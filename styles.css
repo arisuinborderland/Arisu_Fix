@@ -9826,9 +9826,6 @@ html body.about-page .about-page-footer > span {
 }
 .social-collage > .social-feedback-card .social-feedback-view-all {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
   padding-right: 48px;
   border: 1px solid rgba(103, 135, 255, .75);
