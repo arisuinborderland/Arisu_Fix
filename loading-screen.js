@@ -100,6 +100,11 @@
       await waitForLoad();
       const ok = row.check();
       mark(row, ok, row.message);
+      // Complete the progress bar at the same moment the final status is reported.
+      if (row.key === "final") {
+        setProgress(100);
+        finished = true;
+      }
       await wait(180);
     }
 
