@@ -323,10 +323,10 @@
 }
 
 
-/* AFV391 — More visible soft neon glow; preserve real progress width. */
+/* AFV392 — Let the progress bar's outer neon glow remain visible. */
 #arisu-loading-screen .boot-progress-track {
   height: 6px;
-  overflow: hidden;
+  overflow: visible;
   border: 0;
   border-radius: 999px;
   background: #e9edf5;
