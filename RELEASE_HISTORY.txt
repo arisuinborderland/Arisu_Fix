@@ -1,3 +1,7 @@
+AFV379 — Release Version Alignment
+- Synchronizes package.json and package-lock.json to 379.0.0, matching the AFV379 homepage cache tokens.
+- Keeps the once-per-tab-session loading-screen behavior.
+
 AFV379 — Once-Per-Tab-Session Homepage Loading Screen
 - Shows the loading overlay only on the first homepage load in a tab session.
 - Reloading or using the site's Home button does not show it again in that same tab session.
