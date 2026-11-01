@@ -1,17 +1,18 @@
 ARISU FIX — PROJECT README
-Version: AFV374
+Version: AFV375
 Updated: 2026-11-01
 
-Current release: AFV374
-Package version: 374.0.0
+Current release: AFV375
+Package version: 375.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV374 makes the homepage loading card wider and vertically more compact to match the approved mobile reference. Homepage-only CSS adjustment.
-- AFV374 replaces the inline loading-screen emblem with the dedicated transparent Arisu Fix logo asset in assets/images; preserves the approved blurred homepage overlay and reference layout.
-- AFV374 matches the approved loading-screen reference more closely: detailed playing-card/AF shield energy-ring emblem, larger brand lockup, divider, four status rows, and pill-shaped status badges. Homepage-only change.
+- AFV375 replaces the static gradient progress bar with a blue-purple liquid-fill bar and subtle animated wave layers. Homepage loading screen only.
+- AFV375 makes the homepage loading card wider and vertically more compact to match the approved mobile reference. Homepage-only CSS adjustment.
+- AFV375 replaces the inline loading-screen emblem with the dedicated transparent Arisu Fix logo asset in assets/images; preserves the approved blurred homepage overlay and reference layout.
+- AFV375 matches the approved loading-screen reference more closely: detailed playing-card/AF shield energy-ring emblem, larger brand lockup, divider, four status rows, and pill-shaped status badges. Homepage-only change.
 - AFV371 keeps the minimalist startup card while blurring and softly tinting the live homepage behind it. Adds an original AF/spade shield emblem beside the Arisu Fix title; homepage only.
 - AFV370 smooths the homepage loading progress bar with consecutive 1% increments through 99%, then shows 100% only after initialization checks finish. The counter runs quickly without skipping displayed values.
 - AFV369 improves the homepage-only terminal-style loading screen with sequential typewriter text, one-at-a-time 200 OK status lines, and an intentional 3–5 second minimum presentation. The overlay still waits for actual page load before reporting checks complete.
