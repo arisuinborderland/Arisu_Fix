@@ -10732,7 +10732,9 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
-/* AFV404: prevent header destination links from flashing before More-menu JS removes them. */
+/* AFV404: prevent legacy header destination links from flashing before More-menu JS initializes. */
 .topbar .privacy-link,
 .topbar .about-header-link,
-.topbar .privacy-about-link { display: none !important; }
+.topbar .privacy-about-link,
+.topbar .proofs-header-link,
+.topbar .webtools-header-link { display: none !important; }
