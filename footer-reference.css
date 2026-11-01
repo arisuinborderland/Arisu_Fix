@@ -425,7 +425,7 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
   }
 
   html body.reviews-document .reference-footer {
-    margin-top: -14px !important;
+    margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
