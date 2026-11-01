@@ -1,20 +1,21 @@
 ARISU FIX — PROJECT README
-Version: AFV378
+Version: AFV379
 Updated: 2026-11-01
 
-Current release: AFV378
-Package version: 378.0.0
+Current release: AFV379
+Package version: 379.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV378 adds smooth fade-in and fade-out transitions to the homepage loading overlay, with reduced-motion support.
-- AFV378 switches the homepage loading bar to a minimalist pulsing neon gradient and removes the brand-assets check, leaving three initialization rows. Homepage only.
-- AFV378 replaces the static gradient progress bar with a blue-purple liquid-fill bar and subtle animated wave layers. Homepage loading screen only.
-- AFV378 makes the homepage loading card wider and vertically more compact to match the approved mobile reference. Homepage-only CSS adjustment.
-- AFV378 replaces the inline loading-screen emblem with the dedicated transparent Arisu Fix logo asset in assets/images; preserves the approved blurred homepage overlay and reference layout.
-- AFV378 matches the approved loading-screen reference more closely: detailed playing-card/AF shield energy-ring emblem, larger brand lockup, divider, four status rows, and pill-shaped status badges. Homepage-only change.
+- AFV379 shows the homepage loading overlay once per browser tab session; reloads and in-site Home navigation do not replay it.
+- AFV379 adds smooth fade-in and fade-out transitions to the homepage loading overlay, with reduced-motion support.
+- AFV379 switches the homepage loading bar to a minimalist pulsing neon gradient and removes the brand-assets check, leaving three initialization rows. Homepage only.
+- AFV379 replaces the static gradient progress bar with a blue-purple liquid-fill bar and subtle animated wave layers. Homepage loading screen only.
+- AFV379 makes the homepage loading card wider and vertically more compact to match the approved mobile reference. Homepage-only CSS adjustment.
+- AFV379 replaces the inline loading-screen emblem with the dedicated transparent Arisu Fix logo asset in assets/images; preserves the approved blurred homepage overlay and reference layout.
+- AFV379 matches the approved loading-screen reference more closely: detailed playing-card/AF shield energy-ring emblem, larger brand lockup, divider, four status rows, and pill-shaped status badges. Homepage-only change.
 - AFV371 keeps the minimalist startup card while blurring and softly tinting the live homepage behind it. Adds an original AF/spade shield emblem beside the Arisu Fix title; homepage only.
 - AFV370 smooths the homepage loading progress bar with consecutive 1% increments through 99%, then shows 100% only after initialization checks finish. The counter runs quickly without skipping displayed values.
 - AFV369 improves the homepage-only terminal-style loading screen with sequential typewriter text, one-at-a-time 200 OK status lines, and an intentional 3–5 second minimum presentation. The overlay still waits for actual page load before reporting checks complete.
