@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV371
+Version: AFV372
 Updated: 2026-11-01
 
-Current release: AFV371
-Package version: 371.0.0
+Current release: AFV372
+Package version: 372.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV372 matches the approved loading-screen reference more closely: detailed playing-card/AF shield energy-ring emblem, larger brand lockup, divider, four status rows, and pill-shaped status badges. Homepage-only change.
 - AFV371 keeps the minimalist startup card while blurring and softly tinting the live homepage behind it. Adds an original AF/spade shield emblem beside the Arisu Fix title; homepage only.
 - AFV370 smooths the homepage loading progress bar with consecutive 1% increments through 99%, then shows 100% only after initialization checks finish. The counter runs quickly without skipping displayed values.
 - AFV369 improves the homepage-only terminal-style loading screen with sequential typewriter text, one-at-a-time 200 OK status lines, and an intentional 3–5 second minimum presentation. The overlay still waits for actual page load before reporting checks complete.
