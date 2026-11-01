@@ -8,7 +8,7 @@
 
     // Move the two header destinations into More on every page.
     document.querySelectorAll(
-      'header.topbar .privacy-link, header.topbar .about-header-link, header.topbar .privacy-about-link'
+      'header.topbar .privacy-link, header.topbar .about-header-link, header.topbar .privacy-about-link, header.topbar .proofs-header-link, header.topbar .webtools-header-link'
     ).forEach((link) => link.remove());
 
     const contactLink = nav.querySelector('a[aria-label="Contact Arisu"], a[aria-label="Contact"]');
@@ -25,7 +25,7 @@
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV402&width=186-194';
+    styleLink.href = '/more-menu.css?v=AFV404&width=186-194';
     styleLink.addEventListener('load', () => {
       backdrop.style.removeProperty('opacity');
       backdrop.style.removeProperty('pointer-events');
