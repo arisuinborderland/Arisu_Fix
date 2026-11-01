@@ -1586,3 +1586,9 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   margin-block: 0 !important;
   vertical-align: middle !important;
 }
+
+
+/* AFV — Proofs page only: move the footer down by 2px. */
+html body.proofs-document .reference-footer {
+  margin-top: 2px !important;
+}
