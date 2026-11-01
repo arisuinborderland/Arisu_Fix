@@ -148,7 +148,7 @@
   #arisu-loading-screen .boot-log { font-size: 10px; }
 }
 
-/* AFV376 — Liquid-fill progress bar selected by the user. */
+/* AFV377 — Liquid-fill progress bar selected by the user. */
 #arisu-loading-screen .boot-progress-track {
   position: relative;
   isolation: isolate;
@@ -195,7 +195,7 @@
   #arisu-loading-screen .boot-progress-fill::after { animation: none; }
 }
 
-/* AFV376 — Minimal neon-pulse progress bar (option C). */
+/* AFV377 — Minimal neon-pulse progress bar (option C). */
 #arisu-loading-screen .boot-progress-track {
   height: 6px; border: 0; background: #e9edf5;
   box-shadow: inset 0 1px 2px rgba(50, 65, 110, .08);
@@ -215,4 +215,42 @@
 }
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen .boot-progress-fill { animation: none; }
+}
+
+/* AFV377 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
+#arisu-loading-screen {
+  animation: arisu-loading-fade-in .38s cubic-bezier(.22, 1, .36, 1) both;
+  will-change: opacity, backdrop-filter;
+}
+#arisu-loading-screen .boot-window {
+  animation: arisu-loading-card-in .48s cubic-bezier(.18, .85, .28, 1.08) both;
+}
+#arisu-loading-screen.is-ready {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .34s cubic-bezier(.4, 0, 1, 1), visibility .34s ease;
+}
+#arisu-loading-screen.is-ready .boot-window {
+  animation: arisu-loading-card-out .28s cubic-bezier(.4, 0, 1, 1) both;
+}
+@keyframes arisu-loading-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes arisu-loading-card-in {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes arisu-loading-card-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-4px) scale(.992); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen, #arisu-loading-screen .boot-window,
+  #arisu-loading-screen.is-ready .boot-window {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }
