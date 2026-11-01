@@ -525,10 +525,14 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
   }
 }
 
-/* Reviews mobile only: bring Learn More section to a 2px visual gap below the updates card.
-   Keep the approved Homepage spacing untouched. */
+/* Reviews mobile only: keep a 2px gap after the Customer Feedback outer card.
+   Reset main bottom padding and footer top margin for this page only. */
 @media (max-width: 600px) {
+  html body.reviews-document .reviews-page-main {
+    padding-bottom: 0 !important;
+  }
   html body.reviews-document .reference-footer {
-    margin-top: -40px !important;
+    margin-top: 2px !important;
+    padding-top: 0 !important;
   }
 }
