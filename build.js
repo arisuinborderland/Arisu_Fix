@@ -16,8 +16,8 @@ const releaseToken = `AFV${versionMatch[1]}`;
 // legacy Vercel configuration, SQL migrations, and documentation from public output.
 const publicRootFiles = new Set([
   "_headers", "robots.txt", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
-  "styles.css", "desktop-header.css", "footer-reference.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
-  "script.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
+  "styles.css", "loading-screen.css", "desktop-header.css", "footer-reference.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
+  "script.js", "loading-screen.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
   "privacy-year.js", "proofs.js", "story-admin.js",
   "favicon.ico", "favicon-16.png", "favicon-32.png", "favicon-48.png", "apple-touch-icon.png",
