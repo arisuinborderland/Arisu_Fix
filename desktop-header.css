@@ -132,3 +132,12 @@
     visibility: visible !important;
   }
 }
+
+/* AFV405: final override — prevent legacy header links from appearing before More-menu initialization. */
+html body header.topbar.topbar > div.header-meta.header-meta > a.privacy-link.privacy-link,
+html body header.topbar.topbar > div.header-meta.header-meta > a.about-header-link.about-header-link,
+html body header.topbar.topbar > div.header-meta.header-meta > a.proofs-header-link.proofs-header-link,
+html body header.topbar.topbar > div.header-meta.header-meta > a.webtools-header-link.webtools-header-link,
+html body.privacy-page header.topbar.topbar > a.privacy-about-link.privacy-about-link {
+  display: none !important;
+}
