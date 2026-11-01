@@ -238,7 +238,6 @@
   }
 }
 
-
 /* Stories button: gentle neon pulse ring, without moving the bottom navigation layout. */
 @keyframes arcStoriesNeonPulse {
   0%, 100% {
@@ -263,7 +262,6 @@ html body nav.mobile-bottom-nav .mobile-nav-story-avatar {
     transform: none !important;
   }
 }
-
 
 /* High-visibility Stories ring: animate a separate halo so avatar/image styles cannot suppress it. */
 @keyframes arcStoriesHaloPulse {
