@@ -18,7 +18,7 @@
   bottom: calc(106px + env(safe-area-inset-bottom, 0px));
   z-index: 2147482700;
   box-sizing: border-box;
-  width: min(250px, calc(100vw - 28px));
+  width: min(224px, calc(100vw - 32px));
   padding: 7px;
   border: 1px solid rgba(103, 232, 249, .56);
   border-radius: 17px;
@@ -67,6 +67,9 @@
   box-shadow: 0 3px 9px rgba(0, 0, 0, .22);
 }
 .more-menu-link {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -117,7 +120,7 @@
   .more-menu-popup {
     right: 12px;
     bottom: calc(82px + env(safe-area-inset-bottom, 0px));
-    width: min(236px, calc(100vw - 24px));
+    width: min(210px, calc(100vw - 32px));
     padding: 6px;
     border-radius: 15px;
   }
