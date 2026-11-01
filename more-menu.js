@@ -26,14 +26,26 @@
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
     styleLink.href = '/more-menu.css?v=AFV402&width=186-194';
+    styleLink.addEventListener('load', () => {
+      backdrop.style.removeProperty('opacity');
+      backdrop.style.removeProperty('pointer-events');
+      popup.style.removeProperty('opacity');
+      popup.style.removeProperty('visibility');
+      popup.style.removeProperty('pointer-events');
+    }, { once: true });
     document.head.appendChild(styleLink);
 
     const backdrop = document.createElement('div');
     backdrop.className = 'more-menu-backdrop';
+    backdrop.style.opacity = '0';
+    backdrop.style.pointerEvents = 'none';
     backdrop.setAttribute('aria-hidden', 'true');
 
     const popup = document.createElement('div');
     popup.className = 'more-menu-popup';
+    popup.style.opacity = '0';
+    popup.style.visibility = 'hidden';
+    popup.style.pointerEvents = 'none';
     popup.id = 'arisuMoreMenu';
     popup.setAttribute('role', 'menu');
     popup.setAttribute('aria-label', 'More options');
