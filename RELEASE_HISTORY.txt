@@ -1,3 +1,8 @@
+AFV379 — Once-Per-Tab-Session Homepage Loading Screen
+- Shows the loading overlay only on the first homepage load in a tab session.
+- Reloading or using the site's Home button does not show it again in that same tab session.
+- Uses sessionStorage; a newly opened tab has its own session. Homepage-only behavior.
+
 AFV378 — Smooth Loading Screen Fade In and Out
 - Adds smooth fade-in for the overlay and loading card.
 - Adds smooth fade-out and synchronizes overlay removal with the transition.
