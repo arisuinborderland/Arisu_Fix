@@ -85,7 +85,7 @@
     element.querySelector(".boot-status").textContent = "RUN";
     for (let i = 0; i < message.length; i += 1) {
       target.textContent += message[i];
-      await wait(18);
+      await wait(20);
     }
   }
 
