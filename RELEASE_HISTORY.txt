@@ -1,3 +1,8 @@
+AFV390 — Soft Neon Glow Loading Bar
+- Replaces only the homepage loading bar styling with a cyan-blue-violet gradient and soft animated glow.
+- Preserves actual initialization progress, the percentage display, reduced-motion support, and the existing loading-screen layout.
+- Refreshes the homepage loading-screen stylesheet cache token and synchronizes release metadata.
+
 AFV389 — Compact Mobile No Stories Popup
 - Reduces mobile empty-state artwork height, popup padding, heading/message spacing, and Got It button height.
 - Adds a compact layout for short mobile screens while preserving desktop sizing.
