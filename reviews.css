@@ -821,3 +821,28 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   margin-block: 0 !important;
   vertical-align: middle !important;
 }
+
+
+/* AFV384 — Reviews page only: 2px below the Customer Feedback outer card on mobile. */
+@media (max-width: 700px) {
+  html body.reviews-document .reviews-page-main {
+    padding-bottom: 2px !important;
+  }
+}
+
+/* Reviews page only: trim the Customer Feedback card bottom by 4px while preserving footer position. */
+@media (max-width: 700px) {
+  html body.reviews-document .reviews-page-card {
+    padding-bottom: 15px !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* AFV385 — Reviews only: keep the 2px main bottom gap; cancel the footer's -14px pull-up. */
+@media screen and (max-width: 600px) {
+  html body.reviews-document .reference-footer {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
