@@ -1,3 +1,8 @@
+AFV371 — Blurred Homepage Startup Overlay and AF/Spade Logo
+- Keeps the existing minimalist loading card while revealing the live homepage behind a soft blur and translucent blue-purple tint.
+- Adds a compact original AF shield / spade-card emblem beside the Arisu Fix title; preserves initialization checks and sequential progress.
+- Homepage only; refreshes loading asset cache tokens and synchronizes release metadata.
+
 AFV370 — Smooth 1–100% Loading Progress
 - Progress counter increments sequentially by one percentage point, with no intentional jumps in the displayed value.
 - Counts quickly to 99% and holds there until the sequential initialization checks finish, then displays 100%.
