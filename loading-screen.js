@@ -1,5 +1,5 @@
 "use strict";
-/* AFV373 — Smooth, consecutive 1–100% progress counting. */
+/* AFV374 — Smooth, consecutive 1–100% progress counting. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
