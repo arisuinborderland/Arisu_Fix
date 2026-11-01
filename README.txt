@@ -1,15 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV368
+Version: AFV369
 Updated: 2026-11-01
 
-Current release: AFV368
-Package version: 368.0.0
+Current release: AFV369
+Package version: 369.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV368 adds a homepage-only terminal-style loading screen with a light-gray background and subtle blue-purple accents. Status lines reflect document, stylesheet, and brand-image checks; no artificial loading delay is added.
+- AFV369 improves the homepage-only terminal-style loading screen with sequential typewriter text, one-at-a-time 200 OK status lines, and an intentional 3–5 second minimum presentation. The overlay still waits for actual page load before reporting checks complete.
 - AFV367 keeps the first Recovery Story image hidden until its full load completes, avoiding partial progressive rendering during cold-cache image downloads.
 - AFV366 reduces the cold first-open delay for Recovery Stories by starting the Story-list request immediately after the page load event instead of waiting for browser idle time. The Stories count request remains idle-scheduled because it is not required to open the viewer.
 - AFV365 adds a compact, centered glassmorphism Back to Site button for mobile and desktop, with translucent dark violet, subtle violet border/glow, and backdrop blur.
