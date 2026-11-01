@@ -1,4 +1,4 @@
-/* AFV422 — shared compact More menu for all public pages */
+/* AFV402 — shared compact More menu for all public pages */
 (() => {
   'use strict';
 
@@ -25,7 +25,7 @@
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV422';
+    styleLink.href = '/more-menu.css?v=AFV402';
     document.head.appendChild(styleLink);
 
     const backdrop = document.createElement('div');
