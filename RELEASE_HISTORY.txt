@@ -1,3 +1,8 @@
+AFV379 — Smooth Loading Screen Fade In and Out
+- Added a compact homepage-only loading overlay with the neon Arisu Fix logo, slim blue-purple progress indicator, and three initialization checks.
+- Added smooth fade-in/fade-out transitions and once-per-tab-session behavior; refreshing or using the in-site Home button does not replay the screen.
+- Synchronized release metadata and cache-busting references to AFV379.
+
 AFV379 — Release Version Alignment
 - Synchronizes package.json and package-lock.json to 379.0.0, matching the AFV379 homepage cache tokens.
 - Keeps the once-per-tab-session loading-screen behavior.
