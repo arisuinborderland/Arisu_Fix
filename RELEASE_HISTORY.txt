@@ -1,3 +1,9 @@
+## AFV391 — Strengthen homepage loading bar glow
+- Increased the visible cyan-blue-violet neon glow on the homepage loading bar while preserving the actual initialization progress width.
+- Kept the existing loading screen layout and behavior unchanged.
+- Updated the homepage stylesheet cache token and synchronized release metadata to AFV391 / 391.0.0.
+- Preview build must pass before visual approval; this change has not been merged.
+
 AFV390 — Soft Neon Glow Loading Bar
 - Replaces only the homepage loading bar styling with a cyan-blue-violet gradient and soft animated glow.
 - Preserves actual initialization progress, the percentage display, reduced-motion support, and the existing loading-screen layout.
