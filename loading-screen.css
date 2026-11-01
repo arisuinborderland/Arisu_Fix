@@ -323,10 +323,10 @@
 }
 
 
-/* AFV379 — Restore the approved Option 4: Liquid Fill progress bar.
-   Subtle wave layers move inside the blue-purple fill as the real progress advances. */
+/* AFV379 — Final loading bar choice: Neon Pulse.
+   Keep the real progress width; animate only the blue-purple glow. */
 #arisu-loading-screen .boot-progress-track {
-  height: 6px;
+  height: 5px;
   overflow: hidden;
   border: 0;
   border-radius: 999px;
@@ -336,45 +336,26 @@
 #arisu-loading-screen .boot-progress-fill {
   position: relative;
   overflow: hidden;
-  isolation: isolate;
-  min-width: 0;
   border-radius: inherit;
-  background: linear-gradient(100deg, #4388f4 0%, #6158e8 58%, #9448ee 100%);
-  box-shadow: 0 0 7px rgba(98, 83, 235, .3);
+  background: linear-gradient(90deg, #4285ed 0%, #6254df 68%, #8b43f0 100%);
   transition: width .18s linear;
-  animation: boot-liquid-glow 1.8s ease-in-out infinite;
+  animation: boot-neon-pulse 1.6s ease-in-out infinite;
 }
 #arisu-loading-screen .boot-progress-fill::before,
 #arisu-loading-screen .boot-progress-fill::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: -35%;
-  top: -8px;
-  width: 170%;
-  height: 18px;
-  border-radius: 42%;
-  pointer-events: none;
+  content: none;
+  animation: none;
 }
-#arisu-loading-screen .boot-progress-fill::before {
-  background: rgba(255, 255, 255, .34);
-  animation: boot-liquid-wave 2.8s linear infinite;
-}
-#arisu-loading-screen .boot-progress-fill::after {
-  top: -10px;
-  background: rgba(255, 255, 255, .18);
-  animation: boot-liquid-wave 3.8s linear infinite reverse;
-}
-@keyframes boot-liquid-wave {
-  from { transform: translateX(-9%) rotate(0deg); }
-  to { transform: translateX(9%) rotate(360deg); }
-}
-@keyframes boot-liquid-glow {
-  0%, 100% { filter: brightness(1); box-shadow: 0 0 5px rgba(98, 83, 235, .22); }
-  50% { filter: brightness(1.1); box-shadow: 0 0 9px rgba(98, 83, 235, .38); }
+@keyframes boot-neon-pulse {
+  0%, 100% {
+    filter: brightness(1);
+    box-shadow: 0 0 4px rgba(82, 101, 255, .2);
+  }
+  50% {
+    filter: brightness(1.14);
+    box-shadow: 0 0 10px rgba(104, 82, 255, .48);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen .boot-progress-fill,
-  #arisu-loading-screen .boot-progress-fill::before,
-  #arisu-loading-screen .boot-progress-fill::after { animation: none; }
+  #arisu-loading-screen .boot-progress-fill { animation: none; }
 }
