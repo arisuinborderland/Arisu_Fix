@@ -424,7 +424,11 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
     padding-top: 0 !important;
   }
 
-  html body.reviews-document .reference-footer,
+  html body.reviews-document .reference-footer {
+    margin-top: -28px !important;
+    padding-top: 0 !important;
+  }
+
   html body.proofs-document .reference-footer {
     margin-top: -40px !important;
     padding-top: 0 !important;
