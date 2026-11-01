@@ -6753,29 +6753,12 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
   }
 }
 
-/* mobile-only Soft Blue Glass treatment for the reassurance note. Desktop styling/content remains unchanged. */
+/* Mobile-only sizing for the Soft Blue Glass reassurance note. Shared visual treatment is defined below. */
 @media  (max-width: 640px)  {
-  html body.home-page .why-arisu-section .why-arisu-note {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    border: 1px solid rgba(123, 190, 255, .68) !important;
-    border-radius: 15px !important;
-    background: linear-gradient(125deg, rgba(232, 247, 255, .98) 0%, rgba(235, 241, 255, .97) 56%, rgba(249, 241, 255, .96) 100%) !important;
-    box-shadow: 0 5px 16px rgba(48, 112, 190, .12), inset 0 1px 0 rgba(255,255,255,.95) !important;
-    text-align: left !important;
-  }
   html body.home-page .why-arisu-section .why-arisu-note > span {
-    display: grid !important;
-    place-items: center !important;
     flex: 0 0 29px !important;
     width: 29px !important;
     height: 29px !important;
-    border: 1px solid rgba(255,255,255,.78) !important;
-    border-radius: 10px !important;
-    color: #fff !important;
-    background: linear-gradient(145deg, #17c8ed 0%, #2675f5 58%, #6557ed 100%) !important;
-    box-shadow: 0 3px 9px rgba(45, 104, 226, .22) !important;
   }
   html body.home-page .why-arisu-section .why-arisu-note p {
     min-width: 0 !important;
