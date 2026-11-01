@@ -25,7 +25,7 @@
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV423&chevron-gap=2';
+    styleLink.href = '/more-menu.css?v=AFV402&chevron-gap=2';
     document.head.appendChild(styleLink);
 
     const backdrop = document.createElement('div');
