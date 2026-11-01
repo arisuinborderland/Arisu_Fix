@@ -24,6 +24,8 @@
     const percent = Math.round(complete / Object.values(rows).filter(Boolean).length * 100);
     progress.style.width = percent + "%";
     progressText.textContent = percent + "%";
+    const track = overlay.querySelector(".boot-progress-track");
+    if (track) track.setAttribute("aria-valuenow", String(percent));
   }
 
   function finish() {
