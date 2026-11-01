@@ -701,3 +701,44 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span{display
 @media(prefers-reduced-motion:reduce){
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}
 }
+
+
+/* AFV387: enlarge the existing anime mascot composition so the girl, robot,
+   and floating story cards read clearly while keeping the empty-state layout. */
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
+  width:min(88%,420px)!important;
+  height:clamp(220px,28vh,310px)!important;
+  max-width:100%!important;
+  margin:0 auto 12px!important;
+  flex:0 1 auto!important;
+}
+html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-viewer-mascot{
+  width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+  object-fit:contain!important;object-position:center!important;
+  filter:drop-shadow(0 10px 14px rgba(66,111,220,.20))!important;
+}
+@media(max-width:480px){
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
+    width:min(88%,360px)!important;
+    height:clamp(205px,28vh,265px)!important;
+    margin-bottom:10px!important;
+  }
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+    padding:22px 20px 22px!important;
+  }
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty h2{
+    margin-bottom:15px!important;
+  }
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{
+    margin-bottom:20px!important;
+  }
+}
+@media(max-height:760px){
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
+    height:clamp(160px,23vh,220px)!important;
+    margin-bottom:8px!important;
+  }
+  html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
+    padding-top:18px!important;padding-bottom:18px!important;
+  }
+}
