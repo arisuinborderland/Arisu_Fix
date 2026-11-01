@@ -10857,3 +10857,11 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV384 — Homepage mobile: restore approved tight gap before the About card. */
+@media (max-width: 700px) {
+  html body.home-page .site-footer {
+    margin-top: 2px !important;
+  }
+}
