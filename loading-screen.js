@@ -7,7 +7,6 @@
   const rows = [
     { key: "dom", message: "Preparing homepage document", check: () => document.readyState !== "loading" },
     { key: "styles", message: "Checking page stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
-    { key: "brand", message: "Checking brand assets...", check: () => { const logo = document.querySelector(".topbar .profile-logo img"); return !logo || (logo.complete && logo.naturalWidth > 0); } },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
   const progress = overlay.querySelector(".boot-progress-fill");
