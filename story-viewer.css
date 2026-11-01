@@ -703,7 +703,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span{display
 }
 
 
-/* AFV387: enlarge the existing anime mascot composition so the girl, robot,
+/* AFV388: enlarge the existing anime mascot composition so the girl, robot,
    and floating story cards read clearly while keeping the empty-state layout. */
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
   width:min(88%,420px)!important;
@@ -719,8 +719,8 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-v
 }
 @media(max-width:480px){
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
-    width:min(88%,360px)!important;
-    height:clamp(205px,28vh,265px)!important;
+    width:min(92%,400px)!important;
+    height:clamp(175px,23vh,220px)!important;
     margin-bottom:10px!important;
   }
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
@@ -735,7 +735,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art .story-v
 }
 @media(max-height:760px){
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty-art{
-    height:clamp(160px,23vh,220px)!important;
+    height:clamp(155px,22vh,200px)!important;
     margin-bottom:8px!important;
   }
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
