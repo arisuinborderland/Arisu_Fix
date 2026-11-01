@@ -17,8 +17,8 @@
   }
 
   const rows = [
-    { key: "dom", message: "Preparing homepage document", check: () => document.readyState !== "loading" },
-    { key: "styles", message: "Checking page stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
+    { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
+    { key: "styles", message: "Verifying page styles", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
   // Keep upcoming checks hidden so each line appears only when its turn begins.
@@ -93,7 +93,7 @@
       // Show 100% with the final 200 OK, then hold briefly before fading out.
       if (row.key === "final") {
         setProgress(100);
-        await wait(200);
+        await wait(300);
       } else {
         await wait(180);
       }
