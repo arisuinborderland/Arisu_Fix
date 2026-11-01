@@ -1,3 +1,5 @@
+AFV393 — Soft Neon Glow Loading Bar
+
 ## AFV393 — Match Stories progress bar colors
 - Changed only the homepage loading bar fill gradient to purple, magenta, and cyan, matching the reference Stories progress bar.
 - Retained the soft glow and actual initialization progress width; no loading logic or layout changes.
