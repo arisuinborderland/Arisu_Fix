@@ -238,7 +238,6 @@
   }
 }
 
-
 /* AFV371: restore compact mobile footer proportions on Homepage, Reviews, and Proofs only.
    Keep About page styling independent. */
 @media (max-width: 600px) {
@@ -399,8 +398,6 @@
   }
 }
 
-
-
 /* Homepage mobile: set the About This Website outer card to a 2px inset. */
 @media screen and (max-width: 600px) {
   html body.home-page .reference-footer .reference-about-section {
@@ -411,14 +408,12 @@
   }
 }
 
-
 /* Keep Homepage's main-flow adjustment separate from shared footer spacing. */
 @media (max-width: 600px) {
   html body.home-page main {
     padding-bottom: 0 !important;
   }
 }
-
 
 /* AFV377 — About-page-only compact mobile footer, based on approved homepage proportions.
    Deliberately does not target Homepage, Reviews, Proofs, or desktop layouts. */
@@ -514,7 +509,6 @@
   }
 }
 
-
 /* Proofs page only: reduce the About This Website outer card's bottom by 4px; do not alter footer spacing. */
 @media screen and (max-width: 600px) {
   html body.proofs-document .reference-footer .reference-about-section {
@@ -522,14 +516,12 @@
   }
 }
 
-
 /* Reviews page only: reduce the About This Website outer card's bottom by 4px. */
 @media screen and (max-width: 600px) {
   html body.reviews-document .reference-footer .reference-about-section {
     padding-bottom: 3px !important;
   }
 }
-
 
 /* AFV385 — Single source of truth for shared footer outer spacing.
    Values preserve the approved mobile layout while removing scattered legacy margin rules. */
@@ -559,7 +551,6 @@ body.home-page .reference-footer {
     padding-top: 0 !important;
   }
 }
-
 
 /* AFV386 — Match the 2px gap above the shared footer on mobile.
    These page-specific offsets account for the existing end-of-content spacing;
