@@ -148,7 +148,7 @@
   #arisu-loading-screen .boot-log { font-size: 10px; }
 }
 
-/* AFV375 — Liquid-fill progress bar selected by the user. */
+/* AFV376 — Liquid-fill progress bar selected by the user. */
 #arisu-loading-screen .boot-progress-track {
   position: relative;
   isolation: isolate;
@@ -193,4 +193,26 @@
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen .boot-progress-fill::before,
   #arisu-loading-screen .boot-progress-fill::after { animation: none; }
+}
+
+/* AFV376 — Minimal neon-pulse progress bar (option C). */
+#arisu-loading-screen .boot-progress-track {
+  height: 6px; border: 0; background: #e9edf5;
+  box-shadow: inset 0 1px 2px rgba(50, 65, 110, .08);
+}
+#arisu-loading-screen .boot-progress-fill {
+  overflow: visible; position: relative;
+  background: linear-gradient(90deg, #4285ed, #6254df 68%, #8b43f0);
+  box-shadow: 0 0 7px rgba(82, 101, 255, .28);
+  transition: width .12s linear;
+  animation: boot-neon-pulse 1.6s ease-in-out infinite;
+}
+#arisu-loading-screen .boot-progress-fill::before,
+#arisu-loading-screen .boot-progress-fill::after { content: none; animation: none; }
+@keyframes boot-neon-pulse {
+  0%, 100% { filter: brightness(1); box-shadow: 0 0 5px rgba(82, 101, 255, .2); }
+  50% { filter: brightness(1.13); box-shadow: 0 0 10px rgba(104, 82, 255, .45); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen .boot-progress-fill { animation: none; }
 }
