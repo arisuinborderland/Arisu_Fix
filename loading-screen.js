@@ -1,5 +1,5 @@
 "use strict";
-/* AFV371 — Smooth, consecutive 1–100% progress counting. */
+/* AFV372 — Smooth, consecutive 1–100% progress counting. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -7,7 +7,8 @@
   const rows = [
     { key: "dom", message: "Preparing homepage document", check: () => document.readyState !== "loading" },
     { key: "styles", message: "Checking page stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
-    { key: "brand", message: "Checking brand assets", check: () => { const logo = document.querySelector(".topbar .profile-logo img"); return !logo || (logo.complete && logo.naturalWidth > 0); } }
+    { key: "brand", message: "Checking brand assets...", check: () => { const logo = document.querySelector(".topbar .profile-logo img"); return !logo || (logo.complete && logo.naturalWidth > 0); } },
+    { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
@@ -49,6 +50,7 @@
     const target = element.querySelector(".boot-message");
     target.textContent = "";
     element.querySelector(".boot-mark").textContent = "›";
+    element.dataset.state = "running";
     element.querySelector(".boot-status").textContent = "RUN";
     for (let i = 0; i < message.length; i += 1) {
       target.textContent += message[i];
