@@ -830,9 +830,10 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   }
 }
 
-/* Reviews page only: reduce the Customer Feedback outer card's bottom padding by 4px on mobile. */
+/* Reviews page only: trim the Customer Feedback card bottom by 4px while preserving footer position. */
 @media (max-width: 700px) {
   html body.reviews-document .reviews-page-card {
     padding-bottom: 15px !important;
+    margin-bottom: 4px !important;
   }
 }
