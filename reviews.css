@@ -834,6 +834,6 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
 @media (max-width: 700px) {
   html body.reviews-document .reviews-page-card {
     padding-bottom: 15px !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 0 !important;
   }
 }
