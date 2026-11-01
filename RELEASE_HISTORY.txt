@@ -1,3 +1,7 @@
+AFV389 — Compact Mobile No Stories Popup
+- Reduces mobile empty-state artwork height, popup padding, heading/message spacing, and Got It button height.
+- Adds a compact layout for short mobile screens while preserving desktop sizing.
+
 AFV388 — Approved Recovery Stories Mascot Artwork
 - Replaces the previous empty-state artwork with the approved anime girl, robot, and floating story-card illustration.
 - Adjusts mobile artwork sizing to preserve the character composition and avoid crowding the message or Got It button.

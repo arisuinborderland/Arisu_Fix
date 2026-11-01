@@ -1,16 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV388
+Version: AFV389
 Updated: 2026-11-01
 
-Current release: AFV388
-Package version: 388.0.0
+Current release: AFV389
+Package version: 389.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV388 replaces the Recovery Stories empty-state mascot with the approved girl, robot, and floating story-card illustration; updates responsive sizing and cache tokens.
-- AFV388 refines the Recovery Stories empty-state illustration sizing and refreshes the Story Viewer stylesheet cache token across the five Story Viewer pages.
+- AFV389 compacts the Recovery Stories empty-state popup on mobile, reducing artwork height, card padding, heading/message spacing, and button height while preserving desktop sizing.
+- AFV389 replaces the Recovery Stories empty-state mascot with the approved girl, robot, and floating story-card illustration; updates responsive sizing and cache tokens.
+- AFV389 refines the Recovery Stories empty-state illustration sizing and refreshes the Story Viewer stylesheet cache token across the five Story Viewer pages.
 - AFV379 shows the homepage loading overlay once per browser tab session; reloads and in-site Home navigation do not replay it.
 - AFV379 adds smooth fade-in and fade-out transitions to the homepage loading overlay, with reduced-motion support.
 - AFV379 switches the homepage loading bar to a minimalist pulsing neon gradient and removes the brand-assets check, leaving three initialization rows. Homepage only.
