@@ -94,7 +94,6 @@
   padding-top: 18px;
   padding-bottom: 18px;
 }
-.about-page-main > .about-terms-section { margin-top: 12px; margin-bottom: 12px; }
 @media (max-width: 600px) {
   .about-page-main { padding-top: 18px; padding-bottom: 24px; }
   .about-page-main > section,

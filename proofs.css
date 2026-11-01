@@ -1447,25 +1447,6 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link {
   transform: none !important;
 }
 
-/* AFV277 — use homepage-canonical header button widths at narrow phone sizes.
-   Earlier legacy max-width:390px rules changed these dimensions on content pages. */
-@media (max-width:390px) {
-  html body.proofs-document header.topbar > .header-meta > .privacy-link {
-    width:128px !important; min-width:128px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > .about-header-link {
-    width:82px !important; min-width:82px !important;
-  }
-}
-@media (max-width:380px) {
-  html body.proofs-document header.topbar > .header-meta > .privacy-link {
-    width:116px !important; min-width:116px !important;
-  }
-  html body.proofs-document header.topbar > .header-meta > .about-header-link {
-    width:76px !important; min-width:76px !important;
-  }
-}
-
 /* AFV279 — final canonical header sizing copied from the homepage reference.
    This block intentionally comes last to override legacy page-specific breakpoints. */
 html body.proofs-document header.topbar > .header-meta { align-items:center !important; gap:12px !important; }
