@@ -888,12 +888,6 @@ main{padding-top:0}
 .social-feedback-card .review-image-hint { font-size: 9px; }
 @media  (max-width: 600px)  {
   
-
-  
-  
-
-  
-
   .social-feedback-card .view-reviews-button { min-height: 34px; font-size: 10px; padding: 6px 8px; }
 }
 
@@ -1150,7 +1144,6 @@ main{padding-top:0}
     border-radius: 5px;
   }
 
-  
 }
 
 @media  (max-width: 360px)  {
@@ -1690,11 +1683,6 @@ summary:focus-visible {
   28%, 68% { stroke-dashoffset: 0; }
   82%, 100% { stroke-dashoffset: 24; }
 }
-
-
-
-
-
 
 /* matching contact availability card and static handshake icon. */
 
@@ -2397,7 +2385,6 @@ body.home-page .whatsapp-feature-content h2 {
  Also explicitly animate the recovery promise check on desktop, matching the existing check-draw
  animation used elsewhere. No HTML/JS, mobile layout, or scroll-reveal code is changed. */
 
-
 /* approved sample: 82×82 desktop clock tile, aligned with the availability kicker.
  Keep the clock proportionate and match the WhatsApp icon tile's visual size. */
 
@@ -2406,9 +2393,6 @@ body.home-page .whatsapp-feature-content h2 {
 /* desktop recovery-promise check animation fix.
  Ensure the check is visible even when reduced motion is enabled; animate it on
  desktop when motion is allowed. The icon must never remain an empty green circle. */
-
-
-
 
 /* clean status badge text only; preserve badge, glow, dot and check design. */
 .compact-intro .eyebrow.premium-status > .status-label {
@@ -2447,7 +2431,6 @@ body.home-page .whatsapp-feature-content h2 {
 /* keep the recovery promise check visible while it animates on desktop.
  The previous dash-draw loop left the green circle empty for much of each cycle.
  Keep the white check continuously visible and use a subtle pulse instead. */
-
 
 @keyframes  recovery-promise-circle-pulse  {
   0%, 100% { transform: scale(1); filter: brightness(1); }
@@ -2844,7 +2827,6 @@ body.home-page .whatsapp-feature-content h2 {
     bottom: 18px !important;
   }
 
-
   /* Three standard steps share the first row; the two larger promise cards span the grid below. */
   .how-section .steps-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3073,7 +3055,6 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     letter-spacing: -.2px !important;
   }
 }
-
 
 /* closer scenic Bible verse banner styling for desktop and mobile. */
 body.home-page main > .daily-verse-card {
@@ -4031,7 +4012,6 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* match social brand marks to the compact Recovery Proofs icon. */
 
-
 /* tighten the extra top gap before the social collage on mobile.
  Keep card dimensions, logos, previews, and buttons unchanged. */
 @media  (max-width: 600px)  {
@@ -4041,7 +4021,6 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* nudge TikTok and Facebook logos up 2px for visual alignment with Recovery Proofs. */
-
 
 /* Account Deletion uses the shared .service-platforms spacing. */
 .deletion-service-platforms { margin-top: 12px; }
@@ -4126,7 +4105,6 @@ html body #daily-bible-verse.daily-verse-card {
 }
 /* Keep the last agreed fine-tuning: review preview 2px shorter at each edge (4px total), title 2px lower. */
 
-
 /* shorten the Customer Feedback image by another 2px at the top and 2px at the bottom; leave Recovery Proofs images and buttons unchanged. */
 .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image {
   height: calc(clamp(220px, 27vw, 300px) - 24px) !important;
@@ -4168,9 +4146,7 @@ html body #daily-bible-verse.daily-verse-card {
 
 /* reduce the Customer Feedback icon tile on desktop only; preserve mobile sizing. */
 
-
 /* slightly raise the Customer Feedback star tile and heading on desktop only. */
-
 
 /* desktop-only Customer Feedback image fit and button separation.
  Keep the card dimensions and mobile layout unchanged. */
@@ -4413,7 +4389,6 @@ html body #daily-bible-verse.daily-verse-card {
 }
 
 /* align the Facebook warning box with the TikTok warning box. */
-
 
 /* discourage casual image dragging in proof/review previews. */
 .recovery-proofs-preview img,
@@ -4680,7 +4655,6 @@ body.home-page .desktop-social-destination {
 }
 
 /* stronger visibility and +2px font size for the social-media divider. */
-
 
 /* tighten spacing before Services and strengthen the MY SERVICES label. */
 .section-kicker {
@@ -5273,7 +5247,6 @@ body.home-page .terms-card .terms-security-copy p {
 /* authoritative mobile compact spacing for account-assistance steps.
  Higher specificity intentionally overrides legacy home-page rules. */
 
-
 /* compact, aligned mobile process cards.
  Tightens inner vertical rhythm and lets long headings wrap cleanly.
  Desktop layout and outer section/container dimensions are untouched. */
@@ -5320,7 +5293,6 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 /* align process descriptions directly beneath their headings on mobile. */
-
 
 /* remove excess gap between process-card titles and descriptions on mobile.
  Override legacy grid placement explicitly so descriptions follow titles immediately. */
@@ -5373,10 +5345,8 @@ body.home-page .terms-card .terms-security-copy p {
  Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
  Desktop keeps the existing grid placement via display: contents. */
 
-
 /* restore the desktop process-card text wrapper layout.
  Keep icon + number columns unchanged; let the copy occupy the full third column. */
-
 
 /* desktop-only refinement for the five account-assistance cards.
  Adjust interior content only; deliberately preserve the existing outer card border and radius. */
@@ -6006,7 +5976,6 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   height: auto !important;
   min-height: 0 !important;
   
-  
   border-radius: 22px !important;
   overflow: hidden !important;
   background-image: linear-gradient(90deg, rgba(4,35,82,.25), rgba(4,35,82,.10) 52%, rgba(4,35,82,.10)), url("./verse-lake-photo.webp?v=AFV358") !important;
@@ -6037,7 +6006,6 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     margin-top: -3px !important;
     
-    
     border-radius: 18px !important;
     background-size: auto 112% !important;
     background-position: 100% 52% !important;
@@ -6063,7 +6031,6 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
 }
 @media  (max-width: 380px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
-    
     
     background-size: auto 106% !important;
     background-position: 100% 52% !important;
@@ -6159,9 +6126,6 @@ html body.home-page .floating-menu-items:not([hidden]) {
   margin: 0 0 2px !important;
   
   border-radius: 20px !important;
-  
-  
-  
   
   overflow: hidden !important;
 }
@@ -6702,7 +6666,6 @@ html body.home-page .why-arisu-card > .process-heading-band p {
 
 /* Step 05 is the Facebook & Instagram assistance card, not a warranty card. */
 
-
 /* place the account-safety reminder inside the Why Choose Arisu card,
    immediately below the account-choice note; the old standalone section is removed. */
 html body.home-page .why-arisu-card > .safety-section-inline {
@@ -6832,7 +6795,6 @@ html body.home-page .why-arisu-card > .safety-section-inline .safety-panel p:las
     line-height: 1.4 !important;
   }
 }
-
 
 /* Soft Blue Glass reassurance note on desktop and mobile. */
 html body.home-page .why-arisu-section .why-arisu-note {
@@ -7062,12 +7024,9 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 /* reduce the outer spacing below the Remember safety card by 4px on mobile. */
 
-
 /* keep Clear Guidance lifted 4px and lift Remember another 4px on mobile. */
 
-
 /* reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
-
 
 /* lift the Honest-through-Remember card group by another 2px on mobile. */
 @media  (max-width: 640px)  {
@@ -7095,8 +7054,6 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
     margin-bottom: -10px !important;
   }
 }
-
-
 
 /* reduce Daily Bible Verse card top and bottom padding by 4px on mobile. */
 
@@ -7145,7 +7102,6 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
   }
 }
 
-
 /* social card headers use text only; platform logos live in their action buttons.
    Tighten title-to-preview spacing by 2px without changing button placement or card structure. */
 .social-collage .tiktok-showcase h3,
@@ -7182,7 +7138,6 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
   }
 }
 
-
 /* align both mobile headings, divider lines, previews, and action buttons. */
 @media  (max-width: 600px)  {
   .social-collage > .recovery-proofs-showcase {
@@ -7209,7 +7164,6 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
 
   /* Keep both action buttons 2px below their preview areas and lift them equally. */
   
-
   /* shorten the actual bordered Customer Feedback preview card by 6px
      at its bottom. Keep the View All Reviews button in normal flow and unchanged. */
   html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured {
@@ -7321,10 +7275,8 @@ html body.home-page main > .compact-intro .eyebrow.premium-status {
 
 /* raise only the TikTok and Facebook showcase titles by 8px total on mobile. */
 
-
 /* one authoritative mobile divider rule for TikTok and Facebook titles.
    The line belongs to the same h3 box as the title, so legacy head-level borders/pseudo-elements cannot leave it behind. */
-
 
 /* desktop regression fix: use the original full-color profile screenshots on desktop.
    The transparent desktop-clean assets were revealing large purple/blue frame areas and making the previews look broken.
@@ -7681,16 +7633,9 @@ html body.home-page #contact .whatsapp-feature-card .whatsapp-button:focus-visib
   outline: 3px solid rgba(32, 200, 120, .35) !important; outline-offset: 3px !important;
 }
 
-
-
 /* replace the divider above MY SERVICES with a subtle rounded heading card. */
 html body.home-page .services-section > .services-heading {
   box-sizing: border-box;
-  
-  
-  
-  
-  
   
 }
 html body.home-page .services-section > .services-heading .section-kicker {
@@ -7899,7 +7844,6 @@ html body.home-page #contact .whatsapp-feature-icon::before {
   50% { box-shadow: inset 0 1px 2px rgba(255,255,255,.9), inset 0 -5px 12px rgba(6,24,84,.3), 0 8px 23px rgba(22,87,205,.38), 0 0 12px rgba(37,211,102,.22); }
 }
 
-
 /* Option 5 — 3D Glass Card for the floating shortcut menu.
    Scope is limited to the floating panel and its shortcut rows; geometry,
    mobile sizing, links, open/close behavior, and orb animation stay unchanged. */
@@ -7947,7 +7891,6 @@ html body.home-page .floating-menu-item:active {
   html body.home-page .floating-menu-item { transition: none !important; }
 }
 
-
 /* Restrained pearl-glass treatment for existing header actions. */
 html body .topbar > .header-meta > .proofs-header-link,
 html body .topbar > .header-meta > .webtools-header-link {
@@ -7993,8 +7936,6 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
   }
 }
 
-
-
 html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
   position: relative !important;
   top: -8px !important;
@@ -8011,7 +7952,6 @@ html body.home-page #contact .whatsapp-feature-card {
   }
 }
 
-
 html body.home-page #contact #serviceStatus.service-status-panel {
   position: relative !important;
   top: 0 !important;
@@ -8024,9 +7964,6 @@ html body.home-page #contact #serviceStatus.service-status-panel {
   }
 }
 
-
-
-
 html body.home-page #contact #serviceStatus > .service-status-main > h2,
 html body.home-page #contact #serviceStatus > .service-status-details,
 html body.home-page #contact #serviceStatus > .service-benefit-row {
@@ -8035,15 +7972,11 @@ html body.home-page #contact #serviceStatus > .service-benefit-row {
   transform: translateY(-8px) !important;
 }
 
-
-
 html body.home-page #contact #serviceStatus .service-status-label > span:first-child {
   position: relative !important;
   top: 0 !important;
   transform: translateY(-7px) !important;
 }
-
-
 
 html body.home-page #contact #serviceStatus.service-status-panel {
   padding-bottom: 8px !important;
@@ -8056,8 +7989,6 @@ html body.home-page #contact #serviceStatus.service-status-panel {
     margin-bottom: -1px !important;
   }
 }
-
-
 
 /* Preserve the existing scam-card offset on mobile/tablet. */
 @media (max-width: 899px) {
@@ -8074,13 +8005,10 @@ html body.home-page #contact #serviceStatus.service-status-panel {
   }
 }
 
-
-
 html body.home-page .contact-divider {
   translate: 0 -26px !important;
   --arc-reveal-offset: 0px !important;
 }
-
 
 html body.home-page .desktop-social-destination > .social-collage > .tiktok-showcase,
 html body.home-page .desktop-social-destination > .social-collage > .facebook-showcase,
@@ -8093,20 +8021,14 @@ html body.home-page #contact > .social-collage > .social-feedback-card {
   --arc-reveal-offset: -26px !important;
 }
 
-
-
 html body.home-page .services-section > .services-heading {
   position: relative !important;
   top: -34px !important;
 }
 
-
-
 html body.home-page .services-section > .services-grid > .service-card.recovery-service-card {
   --arc-reveal-offset: -42px !important;
 }
-
-
 
 html body.home-page .services-section > .services-grid > .service-card.deletion-service-card {
   position: relative !important;
@@ -8152,12 +8074,9 @@ html body.home-page .why-arisu-section > .why-arisu-card {
   }
 }
 
-
 html body.home-page .site-footer {
   margin-top: -62px !important;
 }
-
-
 
 /* retain the text offsets, but collapse the creator block's reserved space. */
 html body.home-page .purpose-card > h2 {
@@ -8180,14 +8099,12 @@ html body.home-page .purpose-card .purpose-signoff {
   padding-top: 2px !important;
 }
 
-
 /* desktop-only spacing below WhatsApp card; leave Service Status position unchanged. */
 @media (min-width: 900px) {
   html body.home-page #contact .whatsapp-feature-card {
     padding-bottom: 30px !important;
   }
 }
-
 
 /* reduce only the two requested headings on mobile; preserve desktop typography. */
 @media (max-width: 640px) {
@@ -8199,7 +8116,6 @@ html body.home-page .purpose-card .purpose-signoff {
     font-size: 23px !important;
   }
 }
-
 
 /* Hot Pink + Electric Purple + White Core rotating light trails around the WhatsApp button border.
    Hot pink and electric-purple trails with bright white cores; geometry and timing stay unchanged. */
@@ -8286,7 +8202,6 @@ html body.home-page .purpose-card .purpose-signoff {
     opacity: .3;
   }
 }
-
 
 /* fixed mobile bottom navigation with a dedicated Recovery Stories shortcut. */
 .mobile-bottom-nav { display:none; }
@@ -8384,7 +8299,6 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .mobile-nav-story-avatar { transition:none !important; }
 }
 
-
 /* refined compact profile header; preserve the existing header links and gradient. */
 @media (max-width: 700px) {
   html body.home-page .topbar {
@@ -8441,7 +8355,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* keep the mobile header focused on the Arisu profile and Privacy Policy. */
 @media (max-width: 700px) {
   html body.home-page .topbar > .header-meta {
@@ -8462,7 +8375,6 @@ html body.home-page .purpose-card .purpose-signoff {
     flex: 0 0 auto;
   }
 }
-
 
 /* Option 3: Deep Black-Navy footer with a Violet Stories accent. */
 @media (max-width: 700px) {
@@ -8493,7 +8405,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* apply the Deep Black-Navy + Violet footer style on desktop too. */
 @media (min-width: 701px) {
   html body.home-page .site-footer {
@@ -8523,7 +8434,6 @@ html body.home-page .purpose-card .purpose-signoff {
     border-top-color: rgba(167, 139, 250, .2) !important;
   }
 }
-
 
 /* desktop version of the five-item bottom navigation. */
 @media (min-width: 701px) {
@@ -8590,7 +8500,6 @@ html body.home-page .purpose-card .purpose-signoff {
 @media (min-width: 701px) and (prefers-reduced-motion: reduce) {
   html body.home-page .mobile-nav-item { transition: none !important; }
 }
-
 
 /* make desktop navigation float above page content, matching mobile behavior. */
 @media (min-width: 701px) {
@@ -8667,7 +8576,6 @@ html body.home-page .purpose-card .purpose-signoff {
     margin-top: 22px !important;
   }
 }
-
 
 /* enforce compact Stories sizing and keep fixed navigation clear of footer content. */
 @media (min-width: 701px) {
@@ -8761,7 +8669,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* compact mobile footer links and reduce excess vertical spacing. */
 @media (max-width: 600px) {
   html body.home-page .site-footer > .about-link-section {
@@ -8798,7 +8705,6 @@ html body.home-page .purpose-card .purpose-signoff {
     line-height: 1.35 !important;
   }
 }
-
 
 /* compact footer links with small inline icons for clearer scanning. */
 @media (max-width: 600px) {
@@ -8840,7 +8746,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* balance the compact mobile footer and preserve clearance for fixed bottom navigation. */
 @media (max-width: 700px) {
   html body.home-page .site-footer {
@@ -8850,7 +8755,6 @@ html body.home-page .purpose-card .purpose-signoff {
     padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
   }
 }
-
 
 /* place copyright beside Contact in the compact mobile footer. */
 @media (max-width:760px) {
@@ -8881,7 +8785,6 @@ html body.home-page .purpose-card .purpose-signoff {
     white-space: nowrap;
   }
 }
-
 
 /* place copyright in the final mobile footer grid cell beside Contact. */
 @media (max-width: 760px) {
@@ -8919,14 +8822,12 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* reduce only the remaining space below the compact footer on mobile. */
 @media (max-width: 700px) {
   html body.home-page {
     padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important;
   }
 }
-
 
 /* use a clean, solid WhatsApp brand glyph in the bottom Contact navigation item. */
 @media screen and (max-width:700px) {
@@ -8938,7 +8839,6 @@ html body.home-page .purpose-card .purpose-signoff {
     overflow: visible;
   }
 }
-
 
 /* Desktop polish: simpler header, clearer status details, tighter CTA spacing, and a compact floating nav. */
 @media (min-width: 701px) {
@@ -9106,7 +9006,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* Desktop legibility and animation restoration.
    Only adjust secondary labels and supporting text; preserve the established card layout. */
 @media (min-width: 701px) {
@@ -9226,7 +9125,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* Reduced-motion override for the specific desktop animations requested by the site owner.
    Keep the header check permanently visible and deliberately restore motion only for these
    two desktop UI accents; every other reduced-motion rule stays unchanged. */
@@ -9294,7 +9192,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* High-saturation fuchsia and violet trails for desktop WhatsApp CTA.
    Explicitly restore colored gradients and motion above reduced-motion fallbacks. */
 @media (min-width: 701px) {
@@ -9348,7 +9245,6 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: wa-border-trace-reverse 3.2s linear infinite !important;
   }
 }
-
 
 /* Desktop footer: use the same clear vertical order as mobile.
    Keep the About card, location, link grid, and copyright on separate rows. */
@@ -9501,7 +9397,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* Desktop floating navigation: distinct, readable icon discs and a vivid Stories ring. */
 @media (min-width: 701px) {
   html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories) > svg {
@@ -9612,7 +9507,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-
 /* Desktop footer v2: restore the full-width navy footer and an editorial desktop row.
    The compact two-column link grid is retained only for mobile. */
 @media (min-width: 701px) {
@@ -9632,8 +9526,6 @@ html body.home-page .purpose-card .purpose-signoff {
     border-top: 1px solid rgba(167, 139, 250, .28) !important;
     box-shadow: none !important;
   }
-
-
 
   html body.home-page .site-footer > .footer-location {
     box-sizing: border-box !important;
@@ -9748,7 +9640,6 @@ html body.home-page .purpose-card .purpose-signoff {
     white-space: nowrap !important;
   }
 }
-
 
 /* Desktop refinement v3: close the gap after the final safety card, enlarge footer typography,
    and scale up the floating quick-navigation without changing mobile/tablet rules. */
@@ -9865,7 +9756,6 @@ html body.home-page .purpose-card .purpose-signoff {
     font-size: 10px !important;
   }
 }
-
 
 /* Desktop spacing correction v4.
    The Why Choose card is visually shifted up by 50px; reclaim that reserved flow space.
@@ -10057,8 +9947,6 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
   }
 }
 
-
-
 /* AFV272 — restore a single, non-overlapping mobile header layout across all pages.
    Keep desktop rules untouched; mobile uses the homepage's compact Privacy + About actions. */
 @media (max-width: 700px) {
@@ -10158,8 +10046,6 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
   html body .topbar > .header-meta .header-icon { flex-basis: 12px !important; width: 12px !important; height: 12px !important; }
 }
 
-
-
 /* AFV300 — consolidated homepage-canonical header styling.
    Replaces obsolete AFV269/271/273-277 overrides; keeps AFV272 mobile layout and AFV288 badge clipping fix.
    Dimensions match the AFV297 homepage layout. */
@@ -10253,7 +10139,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   overflow: visible !important; clip-path: none !important;
 }
 
-
 /* AFV319 desktop recovery-proof previews: show the complete source screenshots without cropping. */
 @media (min-width: 761px) {
   html body.home-page .social-collage .recovery-proofs-showcase .recovery-proof-preview-item {
@@ -10268,7 +10153,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     transform: none !important;
   }
 }
-
 
 /* AFV323 desktop-only preview polish.
    These bright cyan rails are embedded in the composite preview assets, not generated by the card border.
@@ -10351,7 +10235,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   }
 }
 
-
 /* AFV323 desktop thumbnail top alignment: remove the extra top inset and align each source at the top.
    Desktop homepage only; mobile rules and the full Recovery Proofs page are unchanged. */
 @media (min-width: 761px) {
@@ -10373,7 +10256,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     vertical-align: top !important;
   }
 }
-
 
 /* AFV324 desktop proof thumbnails extend to 2px above the View Recovery Proofs button.
    Only the desktop homepage preview is stretched; mobile dimensions remain unchanged. */
@@ -10423,7 +10305,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     margin-top: 0 !important;
   }
 }
-
 
 /* AFV325 desktop homepage proof-image integrity.
    Earlier ::before/::after overlays were masking large parts of the screenshots and cover sizing cropped both composites.
@@ -10516,7 +10397,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
     margin: 0 !important;
   }
 }
-
 
 /* AFV326 desktop layout correction: keep Recovery Proofs and Customer Feedback the same fixed height.
    The previous auto-height override let the review preview expand vertically and made desktop content look mobile-sized.
@@ -10651,7 +10531,6 @@ html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
   }
 }
 
-
 /* Keep the composite hidden by default so mobile continues using the two original thumbnails. */
 html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proofs-preview > .recovery-proof-preview-composite {
   display: none !important;
@@ -10724,7 +10603,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   }
 }
 
-
 /* AFV327 desktop-only composite recovery preview.
    Keep the two original proof thumbnails for mobile; use the supplied single composite image on desktop. */
 @media (min-width: 761px) {
@@ -10760,7 +10638,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   }
 }
 
-
 /* Align the homepage Recovery Proofs CTA with Customer Reviews on desktop.
    Keep the original 48px flex slot so the preview image does not grow; visually shorten only the CTA to 42px. */
 @media (min-width: 761px) {
@@ -10775,7 +10652,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   }
 }
 
-
 /* Visually shorten only the Customer Reviews CTA by 2px at top and bottom.
    Keep its layout slot unchanged so the review screenshot and card height do not grow. */
 @media (min-width: 761px) {
@@ -10789,7 +10665,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     transform: translateY(-2px) scaleY(0.84) !important;
   }
 }
-
 
 /* AFV357 — restore the three branded motion accents on narrow/mobile layouts.
    The site intentionally keeps these accents animated on desktop even when the OS
