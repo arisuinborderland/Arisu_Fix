@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV368 package metadata and release notes are synchronized', () => {
+test('AFV369 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '368.0.0');
-  assert.equal(lock.version, '368.0.0');
-  assert.equal(lock.packages[''].version, '368.0.0');
-  assert.ok(readme.includes('Current release: AFV368'));
-  assert.ok(history.startsWith('AFV368 — Add Homepage Terminal-Style Loading Screen'));
+  assert.equal(pkg.version, '369.0.0');
+  assert.equal(lock.version, '369.0.0');
+  assert.equal(lock.packages[''].version, '369.0.0');
+  assert.ok(readme.includes('Current release: AFV369'));
+  assert.ok(history.startsWith('AFV369 — Sequential Terminal Loading Animation'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
