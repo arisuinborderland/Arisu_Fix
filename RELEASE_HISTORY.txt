@@ -1,3 +1,7 @@
+AFV373 — Dedicated Loading-Screen Logo Asset
+- Replaces the inline SVG emblem with assets/images/arisu-fix-af-neon-logo.png in the homepage loading card.
+- Keeps the approved reference layout, blurred homepage backdrop, terminal checks, and progress behavior.
+
 AFV372 — Reference-Matched Homepage Loading Screen
 - Reworks the inline emblem toward the approved playing-card + AF shield + blue-purple energy-ring concept.
 - Adds the brand divider, larger title treatment, fourth finalization row, and colored 200 OK / RUN / WAIT status badges.
