@@ -420,7 +420,17 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
     padding-bottom: 0 !important;
   }
   html body.home-page .reference-footer {
-    margin-top: 6px !important;
+    margin-top: -44px !important;
+    padding-top: 0 !important;
+  }
+
+  html body.reviews-document .reference-footer {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  html body.proofs-document .reference-footer {
+    margin-top: -40px !important;
     padding-top: 0 !important;
   }
 }
@@ -522,5 +532,21 @@ body.home-page .reference-footer { margin-top: 2px !important; padding-top: 0 !i
   html body.about-page .reference-footer .reference-footer-legal p {
     font-size: 11px;
     line-height: 1.5;
+  }
+}
+
+
+/* Proofs page only: reduce the About This Website outer card's bottom by 4px; do not alter footer spacing. */
+@media screen and (max-width: 600px) {
+  html body.proofs-document .reference-footer .reference-about-section {
+    padding-bottom: 3px !important;
+  }
+}
+
+
+/* Reviews page only: reduce the About This Website outer card's bottom by 4px. */
+@media screen and (max-width: 600px) {
+  html body.reviews-document .reference-footer .reference-about-section {
+    padding-bottom: 3px !important;
   }
 }
