@@ -233,19 +233,7 @@ html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
     flex-basis: 14px !important;
   }
 }
-@media (max-width: 600px) {
-  html body.home-page .topbar > .header-meta > .privacy-link,
-  html body.home-page .topbar > .header-meta > .about-header-link {
-    font-size: 10.5px !important;
-    gap: 5px !important;
-  }
-  html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
-  html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
-    width: 14px !important;
-    height: 14px !important;
-    flex-basis: 14px !important;
-  }
-}
+
 @media (max-width: 380px) {
   html body.home-page .topbar > .header-meta > .privacy-link,
   html body.home-page .topbar > .header-meta > .about-header-link {
