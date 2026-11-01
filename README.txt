@@ -69,6 +69,9 @@ RELEASE NOTES
 - The generated dist/ directory is build output and should not be included in a source ZIP.
 - Obsolete Vercel API handlers and their legacy tests have been removed after review; production Story endpoints remain under functions/api/.
 
+RELEASE NOTES
+- AFV379 aligns the release version with the homepage loading-screen cache tokens and once-per-tab-session behavior.
+
 VALIDATION
 - GitHub Actions workflow: Cloudflare Project Validation.
 - The workflow runs npm test and npm run build on pushes to main and pull requests.
