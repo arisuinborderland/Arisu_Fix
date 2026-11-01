@@ -193,7 +193,6 @@
   animation: arisu-loading-card-fade-in .45s ease-out both;
 }
 #arisu-loading-screen.is-ready {
-  animation: none;
   transition: opacity .42s ease-in, visibility .42s ease-in;
 }
 #arisu-loading-screen.is-ready .boot-window {
