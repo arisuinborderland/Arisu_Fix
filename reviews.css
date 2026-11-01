@@ -821,3 +821,11 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   margin-block: 0 !important;
   vertical-align: middle !important;
 }
+
+
+/* AFV384 — Reviews page only: 2px below the Customer Feedback outer card on mobile. */
+@media (max-width: 700px) {
+  html body.reviews-document .reviews-page-main {
+    padding-bottom: 2px !important;
+  }
+}
