@@ -110,3 +110,15 @@ test('AFV406 header and loading CSS cleanup preserves only the active animation 
   assert.ok(loading.includes('@keyframes arisu-loading-card-fade-in'), 'the active card fade-in animation must remain');
   assert.ok(loading.includes('@keyframes arisu-loading-card-fade-out'), 'the active card fade-out animation must remain');
 });
+
+test('AFV406 homepage About card includes the creation-date milestone and approved description', () => {
+  const index = read('index.html');
+  const footer = read('footer-reference.css');
+  assert.ok(index.includes('Arisu Fix is a personal project built to provide reliable Facebook and Instagram account recovery assistance, guides, and helpful resources in a simple and safe way.'));
+  assert.ok(index.includes('Created on October 14, 2026'));
+  assert.ok(index.includes('A small milestone marking the beginning of Arisu Fix.'));
+  assert.ok(index.includes('reference-about-created-check'));
+  assert.ok(index.includes('footer-reference.css?v=AFV406&createddate=1'));
+  assert.ok(footer.includes('.reference-footer .reference-about-created'));
+  assert.ok(footer.includes('.reference-footer .reference-about-created-copy'));
+});
