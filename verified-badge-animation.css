@@ -38,7 +38,7 @@ html.badge-animation-ready body.home-page .topbar .brand .brand-name-row .arisu-
   to { clip-path: inset(0 0 0 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+  html.badge-animation-ready body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
     animation: none !important;
     clip-path: none !important;
     stroke-dashoffset: 0 !important;
