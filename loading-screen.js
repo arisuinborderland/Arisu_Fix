@@ -3,13 +3,12 @@
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   const revealBadge = () => {
+    // The checkmark loop is CSS-driven so it works on every page entrance
+    // without depending on loader timing or a JavaScript-added body class.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.body.classList.remove("badge-check-animation-active");
       const path = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg path");
       if (path) path.style.setProperty("stroke-dashoffset", "0", "important");
-      return;
     }
-    document.body.classList.add("badge-check-animation-active");
   };
   if (!overlay) {
     revealBadge();
