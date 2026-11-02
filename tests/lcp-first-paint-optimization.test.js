@@ -93,7 +93,9 @@ test('AFV406 applies the shared header theme to all public pages', () => {
   const theme = read('homepage-header-theme.css');
   const headerTest = read('tests/desktop-header-layout.test.js');
   for (const pageClass of ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page']) {
-    assert.ok(theme.includes('html body.' + pageClass + ' .topbar'), pageClass + ' must receive the shared header theme');
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar'), pageClass + ' must receive the shared header background');
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar::before'), pageClass + ' must receive its own wave pseudo-element');
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar::after'), pageClass + ' must receive its own gradient separator');
   }
   assert.ok(headerTest.includes('homepage-header-theme.css?v=AFV406&navywave=approved3'), 'all public pages must load the cache-busted shared theme');
 });
