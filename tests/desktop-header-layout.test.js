@@ -38,7 +38,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
     assert.deepEqual(
       links.slice(headerIndex + 1),
-      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=continuous2'] : [],
+      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=continuous3'] : [],
       page + ' must only load the verified badge animation stylesheet after the common header stylesheet when needed'
     );
   }
@@ -51,7 +51,9 @@ test('Homepage verified check continuously draws without animating the badge its
   assert.ok(animationCss.includes('@keyframes arisu-badge-check-loop'));
   assert.ok(animationCss.includes('animation: none !important'));
   assert.ok(loaderJs.includes('const revealBadge ='));
-  assert.ok(loaderJs.includes('document.body.classList.add("badge-check-animation-active")'));
+  assert.ok(animationCss.includes('stroke-dasharray: 24 !important'));
+  assert.ok(!animationCss.includes("badge-check-animation-active"));
+  assert.ok(loaderJs.includes("The checkmark loop is CSS-driven"));
   assert.ok(loaderJs.includes('window.matchMedia("(prefers-reduced-motion: reduce)")'));
   assert.ok(loaderJs.includes('overlay.remove();\n      revealBadge();'));
   assert.ok(loaderJs.includes('window.setTimeout(() => {\n        overlay.remove();\n        revealBadge();'));
