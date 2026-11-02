@@ -16,6 +16,10 @@
     // If storage is unavailable, continue normally rather than blocking the homepage.
   }
 
+  // Keep the overlay hidden in the initial HTML. Only reveal it after the session guard
+  // confirms this is the first homepage visit in the current tab, preventing refresh flashes.
+  overlay.classList.add("is-visible");
+
   const rows = [
     { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
     { key: "styles", message: "Verifying page styles", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
