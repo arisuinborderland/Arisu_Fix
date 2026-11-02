@@ -8,11 +8,15 @@ const html = fs.readFileSync(path.join(root, 'reviews.html'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'reviews.css'), 'utf8');
 const cleanup = fs.readFileSync(path.join(root, 'reviews-floating-cleanup.js'), 'utf8');
 
-test('Customer Reviews header contains Privacy Policy and About, not Recovery Proofs', () => {
+test('Customer Reviews header omits moved About and Privacy buttons while destinations remain in More menu', () => {
   const header = html.match(/<header class="topbar">[\s\S]*?<\/header>/)?.[0] || '';
-  assert.match(header, /class="privacy-link" href="privacy\.html"/);
-  assert.match(header, /class="about-header-link" href="about\.html"/);
+  const menu = fs.readFileSync(path.join(root, 'more-menu.js'), 'utf8');
+  assert.doesNotMatch(header, /privacy-link|privacy-about-link|about-header-link/);
   assert.doesNotMatch(header, /proofs-header-link|Recovery Proofs/);
+  assert.match(menu, /href="\/about\.html"/);
+  assert.match(menu, /href="\/privacy\.html"/);
+  assert.match(fs.readFileSync(path.join(root, 'about.html'), 'utf8'), /<title[^>]*>About/i);
+  assert.match(fs.readFileSync(path.join(root, 'privacy.html'), 'utf8'), /<title[^>]*>Privacy/i);
 });
 
 test('Customer Reviews has no floating home or old Arisu quick-access controls', () => {
@@ -35,5 +39,4 @@ test('Customer Reviews includes the five-item bottom navigation and Stories view
   assert.match(html, /story-viewer\.js\?v=AFV\d+/);
   assert.match(css, /body\.reviews-document \.mobile-bottom-nav/);
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) auto auto/);
-  assert.match(css, /header-meta > \.about-header-link \{ grid-column:3 !important; grid-row:1 !important;/);
 });

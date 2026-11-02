@@ -1,4 +1,4 @@
-/* AFV402 — shared compact More menu for all public pages */
+/* AFV405 — shared compact More menu for all public pages */
 (() => {
   'use strict';
 
@@ -6,9 +6,9 @@
     const nav = document.querySelector('nav.mobile-bottom-nav');
     if (!nav || document.getElementById('arisuMoreMenu')) return;
 
-    // Move the two header destinations into More on every page.
+    // Move the header destinations into More on every page.
     document.querySelectorAll(
-      'header.topbar .privacy-link, header.topbar .about-header-link, header.topbar .privacy-about-link'
+      'header.topbar .privacy-link, header.topbar .about-header-link, header.topbar .privacy-about-link, header.topbar .proofs-header-link, header.topbar .webtools-header-link'
     ).forEach((link) => link.remove());
 
     const contactLink = nav.querySelector('a[aria-label="Contact Arisu"], a[aria-label="Contact"]');
@@ -25,15 +25,27 @@
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV402&chevron-gap=3';
+    styleLink.href = '/more-menu.css?v=AFV405&width=186-194';
+    styleLink.addEventListener('load', () => {
+      backdrop.style.removeProperty('opacity');
+      backdrop.style.removeProperty('pointer-events');
+      popup.style.removeProperty('opacity');
+      popup.style.removeProperty('visibility');
+      popup.style.removeProperty('pointer-events');
+    }, { once: true });
     document.head.appendChild(styleLink);
 
     const backdrop = document.createElement('div');
     backdrop.className = 'more-menu-backdrop';
+    backdrop.style.opacity = '0';
+    backdrop.style.pointerEvents = 'none';
     backdrop.setAttribute('aria-hidden', 'true');
 
     const popup = document.createElement('div');
     popup.className = 'more-menu-popup';
+    popup.style.opacity = '0';
+    popup.style.visibility = 'hidden';
+    popup.style.pointerEvents = 'none';
     popup.id = 'arisuMoreMenu';
     popup.setAttribute('role', 'menu');
     popup.setAttribute('aria-label', 'More options');
