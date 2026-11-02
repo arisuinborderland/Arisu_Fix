@@ -11,7 +11,7 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge::afte
   border: 2px solid transparent !important;
   border-radius: 50% !important;
   background:
-    linear-gradient(#1877f2, #1877f2) padding-box,
+    linear-gradient(transparent, transparent) padding-box,
     conic-gradient(from 0deg, #22f0ff 0deg, #4b9dff 120deg, #df62ff 240deg, #22f0ff 360deg) border-box !important;
   box-shadow: 0 0 6px rgba(34, 240, 255, .42), 0 0 10px rgba(223, 98, 255, .32) !important;
   animation: arisu-brand-badge-rotate 3s linear infinite !important;
