@@ -15,8 +15,8 @@ test('Customer Reviews header omits moved About and Privacy buttons while destin
   assert.doesNotMatch(header, /proofs-header-link|Recovery Proofs/);
   assert.match(menu, /href="\/about\.html"/);
   assert.match(menu, /href="\/privacy\.html"/);
-  assert.match(fs.readFileSync(path.join(root, 'about.html'), 'utf8'), /<title[^>]*About/i);
-  assert.match(fs.readFileSync(path.join(root, 'privacy.html'), 'utf8'), /<title[^>]*Privacy/i);
+  assert.match(fs.readFileSync(path.join(root, 'about.html'), 'utf8'), /<title[^>]*>About/i);
+  assert.match(fs.readFileSync(path.join(root, 'privacy.html'), 'utf8'), /<title[^>]*>Privacy/i);
 });
 
 test('Customer Reviews has no floating home or old Arisu quick-access controls', () => {
