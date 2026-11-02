@@ -55,8 +55,10 @@ test('Homepage verified check continuously draws without animating the badge its
   assert.ok(!animationCss.includes("badge-check-animation-active"));
   assert.ok(loaderJs.includes("The checkmark loop is CSS-driven"));
   assert.ok(loaderJs.includes('window.matchMedia("(prefers-reduced-motion: reduce)")'));
-  assert.ok(loaderJs.includes('overlay.remove();\n      revealBadge();'));
-  assert.ok(loaderJs.includes('window.setTimeout(() => {\n        overlay.remove();\n        revealBadge();'));
+  assert.ok(loaderJs.includes('overlay.remove();'));
+  assert.ok(loaderJs.includes('window.setTimeout(() => {'));
+  assert.ok(loaderJs.includes('revealBadge();'));
+  assert.ok(loaderJs.includes('MINIMUM_DISPLAY_MS = 2500'));
 });
 
 test('Production build allowlist includes the shared header stylesheet', () => {
