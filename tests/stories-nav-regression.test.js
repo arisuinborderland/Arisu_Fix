@@ -129,8 +129,8 @@ test('AFV408 package metadata and release notes are synchronized', () => {
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
   assert.equal(pkg.version, '408.0.0');
-  assert.equal(lock.version, '405.0.0');
-  assert.equal(lock.packages[''].version, '405.0.0');
+  assert.equal(lock.version, '408.0.0');
+  assert.equal(lock.packages[''].version, '408.0.0');
   assert.ok(readme.includes('Current release: AFV408'));
   assert.ok(history.startsWith('AFV408 — Shared Navy-to-Indigo Header Theme'));
 });
