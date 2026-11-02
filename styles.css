@@ -10806,3 +10806,26 @@ html body.home-page .topbar::after {
     0 0 5px rgba(100, 151, 239, .22),
     0 -1px 4px rgba(174, 133, 222, .12);
 }
+
+
+/* AFV406 — keep the blue verified badge steady; draw the check once, then leave it visible. */
+html body.home-page .topbar .arisu-verified-badge {
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+html body.home-page .topbar .arisu-verified-badge::after {
+  animation: none !important;
+  opacity: 0 !important;
+}
+html body.home-page .topbar .arisu-verified-badge svg path {
+  stroke-dasharray: 24 !important;
+  stroke-dashoffset: 24 !important;
+  animation: arisu-brand-check-draw 1.2s ease-out 1 both !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .topbar .arisu-verified-badge svg path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
