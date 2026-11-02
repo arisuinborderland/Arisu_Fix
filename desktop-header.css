@@ -142,7 +142,7 @@
   width: min(43vw, 430px);
   min-width: 250px;
   height: 74px;
-  margin-left: auto;
+  margin-left: 0;
   overflow: hidden;
   border-radius: 12px;
   border: 1px solid rgba(92, 101, 132, .22);
