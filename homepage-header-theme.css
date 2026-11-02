@@ -33,7 +33,21 @@ html body.about-page .topbar::before {
     linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
 }
 
-html body.home-page .topbar > .brand,\nhtml body.home-page .topbar > .header-meta,\nhtml body.home-page .topbar .header-meta > a,\nhtml body.reviews-document .topbar > .brand,\nhtml body.reviews-document .topbar > .header-meta,\nhtml body.reviews-document .topbar .header-meta > a,\nhtml body.proofs-document .topbar > .brand,\nhtml body.proofs-document .topbar > .header-meta,\nhtml body.proofs-document .topbar .header-meta > a,\nhtml body.privacy-page .topbar > .brand,\nhtml body.privacy-page .topbar > .header-meta,\nhtml body.privacy-page .topbar .header-meta > a,\nhtml body.about-page .topbar > .brand,\nhtml body.about-page .topbar > .header-meta,\nhtml body.about-page .topbar .header-meta > a {
+html body.home-page .topbar > .brand,
+html body.home-page .topbar > .header-meta,
+html body.home-page .topbar .header-meta > a,
+html body.reviews-document .topbar > .brand,
+html body.reviews-document .topbar > .header-meta,
+html body.reviews-document .topbar .header-meta > a,
+html body.proofs-document .topbar > .brand,
+html body.proofs-document .topbar > .header-meta,
+html body.proofs-document .topbar .header-meta > a,
+html body.privacy-page .topbar > .brand,
+html body.privacy-page .topbar > .header-meta,
+html body.privacy-page .topbar .header-meta > a,
+html body.about-page .topbar > .brand,
+html body.about-page .topbar > .header-meta,
+html body.about-page .topbar .header-meta > a {
   position: relative;
   z-index: 1;
 }
