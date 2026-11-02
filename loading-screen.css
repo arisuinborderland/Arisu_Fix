@@ -12,9 +12,15 @@
   -webkit-backdrop-filter: blur(9px) saturate(.82);
   backdrop-filter: blur(9px) saturate(.82);
   color: #25314a;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .24s ease, visibility .24s ease;
+}
+#arisu-loading-screen.is-visible:not(.is-ready) {
   opacity: 1;
   visibility: visible;
-  transition: opacity .24s ease, visibility .24s ease;
+  pointer-events: auto;
 }
 #arisu-loading-screen.is-ready {
   opacity: 0;
