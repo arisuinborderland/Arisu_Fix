@@ -1,98 +1,86 @@
-/* AFV406 — Restore the approved navy-to-indigo homepage header.
-   Visual treatment only: preserve existing header dimensions, content, and navigation. */
+/* AFV406 — Shared navy-to-indigo header theme for every public page.
+   Visual-only overrides: retain each page's existing header dimensions and layout. */
 html body.home-page .topbar,
 html body.reviews-document .topbar,
 html body.proofs-document .topbar,
 html body.privacy-page .topbar,
 html body.about-page .topbar {
-  position: sticky;
   isolation: isolate;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
+  background: radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
     radial-gradient(ellipse at 54% -45%, rgba(83, 126, 210, .40) 0%, transparent 58%),
     radial-gradient(ellipse at 98% 110%, rgba(180, 111, 215, .38) 0%, transparent 48%),
     linear-gradient(108deg, #173b58 0%, #263b67 48%, #44345e 100%) !important;
   border-bottom: 1px solid rgba(170, 210, 239, .32) !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.10) !important;
 }
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+
+/* Decorative wave accents are attached independently to each page's header. */
+html body.home-page .topbar::before,
+html body.reviews-document .topbar::before,
+html body.proofs-document .topbar::before,
+html body.privacy-page .topbar::before,
 html body.about-page .topbar::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
+  background: radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
     radial-gradient(ellipse at 88% -20%, rgba(190, 145, 235, .24), transparent 48%),
     linear-gradient(166deg, transparent 0 64%, rgba(106, 197, 226, .26) 64.3%, transparent 65.1%),
     linear-gradient(173deg, transparent 0 74%, rgba(148, 169, 240, .22) 74.3%, transparent 75%),
     linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
 }
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
-html body.about-page .topbar > .brand,
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
-html body.about-page .topbar > .header-meta,
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
-html body.about-page .topbar .header-meta > a {
+
+html body.home-page .topbar > .brand,\nhtml body.home-page .topbar > .header-meta,\nhtml body.home-page .topbar .header-meta > a,\nhtml body.reviews-document .topbar > .brand,\nhtml body.reviews-document .topbar > .header-meta,\nhtml body.reviews-document .topbar .header-meta > a,\nhtml body.proofs-document .topbar > .brand,\nhtml body.proofs-document .topbar > .header-meta,\nhtml body.proofs-document .topbar .header-meta > a,\nhtml body.privacy-page .topbar > .brand,\nhtml body.privacy-page .topbar > .header-meta,\nhtml body.privacy-page .topbar .header-meta > a,\nhtml body.about-page .topbar > .brand,\nhtml body.about-page .topbar > .header-meta,\nhtml body.about-page .topbar .header-meta > a {
   position: relative;
   z-index: 1;
 }
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+
+html body.home-page .topbar .brand b,
+html body.reviews-document .topbar .brand b,
+html body.proofs-document .topbar .brand b,
+html body.privacy-page .topbar .brand b,
 html body.about-page .topbar .brand b {
   color: #f7f9ff !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .24) !important;
 }
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+html body.home-page .topbar .brand small,
+html body.reviews-document .topbar .brand small,
+html body.proofs-document .topbar .brand small,
+html body.privacy-page .topbar .brand small,
 html body.about-page .topbar .brand small {
   color: rgba(239, 245, 255, .86) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .20) !important;
 }
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+html body.home-page .topbar .header-meta a,
+html body.reviews-document .topbar .header-meta a,
+html body.proofs-document .topbar .header-meta a,
+html body.privacy-page .topbar .header-meta a,
 html body.about-page .topbar .header-meta a {
   color: rgba(246, 249, 255, .94);
   border-color: rgba(198, 218, 241, .24);
 }
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+html body.home-page .topbar .header-meta a:hover,
+html body.reviews-document .topbar .header-meta a:hover,
+html body.proofs-document .topbar .header-meta a:hover,
+html body.privacy-page .topbar .header-meta a:hover,
 html body.about-page .topbar .header-meta a:hover,
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+html body.home-page .topbar .header-meta a:focus-visible,
+html body.reviews-document .topbar .header-meta a:focus-visible,
+html body.proofs-document .topbar .header-meta a:focus-visible,
+html body.privacy-page .topbar .header-meta a:focus-visible,
 html body.about-page .topbar .header-meta a:focus-visible {
   background: rgba(255, 255, 255, .08);
   border-color: rgba(198, 218, 241, .38);
 }
-/* Soft cyan-to-violet separator at the bottom edge. */
-html body.home-page .topbar,
-html body.reviews-document .topbar,
-html body.proofs-document .topbar,
-html body.privacy-page .topbar,
+
+/* Soft cyan-to-violet separator, consistently scoped to each header. */
+html body.home-page .topbar::after,
+html body.reviews-document .topbar::after,
+html body.proofs-document .topbar::after,
+html body.privacy-page .topbar::after,
 html body.about-page .topbar::after {
   content: "";
   position: absolute;
