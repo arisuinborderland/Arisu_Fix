@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-label="Alice in Borderland inspired gothic card-suit artwork">
+<defs>
+ <linearGradient id="base" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171923"/><stop offset=".48" stop-color="#080a12"/><stop offset="1" stop-color="#202033"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4f1f7"/><stop offset=".3" stop-color="#697083"/><stop offset=".62" stop-color="#d8d9e4"/><stop offset="1" stop-color="#777d91"/></linearGradient>
+ <linearGradient id="redline" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6c1827" stop-opacity="0"/><stop offset=".45" stop-color="#ff4b62"/><stop offset="1" stop-color="#a91d3c" stop-opacity="0"/></linearGradient>
+ <pattern id="grain" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M0 24 24 0M-6 6 6-6M18 30 30 18" stroke="#fff" stroke-opacity=".045" stroke-width=".8"/><circle cx="5" cy="7" r=".8" fill="#d5d8e5" fill-opacity=".14"/><circle cx="18" cy="17" r=".7" fill="#fff" fill-opacity=".1"/></pattern>
+ <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5f3f0"/><stop offset="1" stop-color="#c9c8d1"/></linearGradient>
+ <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect width="760" height="180" fill="url(#base)"/>
+<rect width="760" height="180" fill="url(#grain)"/>
+<path d="M0 0H190L80 180H0ZM760 0H720L610 180H760Z" fill="#fff" opacity=".025"/>
+<path d="M12 0 150 180M60 0 198 180M700 0 562 180M748 0 610 180" stroke="#a9aebe" stroke-opacity=".13" stroke-width="1"/>
+<path d="M0 154 155 0M0 170 171 0M760 20 598 180M760 5 583 180" stroke="url(#redline)" stroke-width="2"/>
+<path d="M0 150 150 0M760 30 610 180" stroke="#f04b64" stroke-opacity=".62" stroke-width="1"/>
+<!-- subdued oversized card geometry -->
+<g opacity=".13" transform="translate(48 22) rotate(-16 45 65)">
+ <rect width="82" height="122" rx="5" fill="url(#card)" stroke="#fff" stroke-width="1.5"/>
+ <text x="10" y="23" fill="#252838" font-family="Georgia,serif" font-size="17">A</text>
+ <path d="M41 42c-12-18-29-1-17 12l17 17 17-17c12-13-5-30-17-12Z" fill="#b9233d"/>
+</g>
+<g opacity=".2" transform="translate(648 30) rotate(17 28 45)">
+ <rect width="62" height="94" rx="4" fill="url(#card)" stroke="#e6e7ee" stroke-width="1"/>
+ <text x="8" y="19" fill="#202333" font-family="Georgia,serif" font-size="14">♠</text>
+ <path d="M31 37c-9-13-21-1-12 9l12 12 12-12c9-10-3-22-12-9Z" fill="#242735"/>
+</g>
+<path d="M205 22V158" stroke="url(#edge)" stroke-width="1.4" opacity=".7"/>
+<path d="M215 22V158" stroke="#fff" stroke-opacity=".07" stroke-width="1"/>
+<!-- logo text -->
+<text x="451" y="82" text-anchor="middle" fill="#05060a" stroke="#05060a" stroke-width="4" font-family="Georgia,'Times New Roman',serif" font-size="47" font-weight="bold" letter-spacing="-1.5">Alice <tspan font-size="27" font-style="italic">in</tspan> Borderland</text>
+<text x="450" y="79" text-anchor="middle" fill="#f5f3f6" stroke="#b9bdca" stroke-width=".35" font-family="Georgia,'Times New Roman',serif" font-size="47" font-weight="bold" letter-spacing="-1.5">Alice <tspan font-size="27" font-style="italic">in</tspan> Borderland</text>
+<path d="M267 94H634" stroke="#8f94a7" stroke-opacity=".55" stroke-width=".7"/>
+<path d="M306 97H595" stroke="#b92b42" stroke-opacity=".7" stroke-width="1.2"/>
+<!-- suit marks -->
+<g font-family="Georgia,'Times New Roman',serif" font-size="34" text-anchor="middle">
+ <text x="339" y="139" fill="#ed344e">♥</text>
+ <text x="396" y="138" fill="#f2f0f4">♠</text>
+ <text x="453" y="138" fill="#f2f0f4">♣</text>
+ <text x="510" y="138" fill="#ed344e">♦</text>
+</g>
+<g fill="none" stroke="#f5f1f5" stroke-opacity=".45">
+ <path d="M235 14h18M235 14v18M525 14h18M543 14v18M235 166h18M235 148v18M525 166h18M543 148v18" stroke-width="1"/>
+</g>
+<rect x="1" y="1" width="758" height="178" rx="2" fill="none" stroke="url(#edge)" stroke-opacity=".55"/>
+<rect x="3" y="3" width="754" height="174" rx="2" fill="none" stroke="#fff" stroke-opacity=".07"/>
+</svg>
