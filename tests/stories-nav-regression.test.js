@@ -132,7 +132,7 @@ test('AFV405 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '405.0.0');
   assert.equal(lock.packages[''].version, '405.0.0');
   assert.ok(readme.includes('Current release: AFV405'));
-  assert.ok(history.startsWith('AFV405 — Terminal Prompt Loading Status'));
+  assert.ok(history.startsWith('AFV405 — Shared More Menu'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
