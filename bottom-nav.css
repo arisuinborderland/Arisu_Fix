@@ -290,3 +290,13 @@ html body nav.mobile-bottom-nav .mobile-nav-story-avatar::after {
     opacity: .8;
   }
 }
+
+/* AFV405: keep bottom-nav icon and label baselines stable during page transitions. */
+html body nav.mobile-bottom-nav > .mobile-nav-item {
+  align-items: center;
+}
+html body nav.mobile-bottom-nav > .mobile-nav-item > svg,
+html body nav.mobile-bottom-nav > .mobile-nav-item > span {
+  transform: none !important;
+  translate: none !important;
+}
