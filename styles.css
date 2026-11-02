@@ -1662,7 +1662,7 @@ summary:focus-visible {
 @media (max-width:480px) {.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}}
 @media (prefers-reduced-motion:reduce) {.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after{animation:none!important}}
 
-/* animated blue custom check badge beside Arisu in header and footer. */
+/* Brand identity row and static blue verified-badge base styles. */
 .brand-copy{display:inline-flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1.25}
 .brand-name-row{display:inline-flex;align-items:center;gap:7px;min-width:0;line-height:1.15}
 .brand-name-row>b{display:inline-block!important;line-height:1.15!important}
@@ -2439,8 +2439,7 @@ body.home-page .whatsapp-feature-content h2 {
   50% { transform: scale(1.12); opacity: 1; }
 }
 
-/* animated blue check badge at the end of the About title.
- Reuses the site's existing badge animation keyframes and keeps it decorative. */
+/* About-page brand title and verified-badge sizing. */
 .about-card h2.about-brand-title {
   display: flex;
   align-items: center;
