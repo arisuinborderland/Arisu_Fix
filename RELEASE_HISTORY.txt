@@ -1,3 +1,8 @@
+## AFV407 — Compact mobile footer and Soft Curve navigation
+- Compact the shared footer on mobile while preserving the approved footer structure.
+- Apply the loading-screen cyan/blue/violet Soft Curve palette to the mobile bottom navigation across Home, Reviews, Proofs, About, and Privacy Policy.
+- Keep the Explore My Story CTA compact with high-contrast white text and arrow on mobile and desktop.
+
 AFV405 — Shared More Menu
 
 ## AFV405 — Add shared More menu to public pages
