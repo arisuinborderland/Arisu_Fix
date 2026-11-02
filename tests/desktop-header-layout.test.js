@@ -38,7 +38,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
     assert.deepEqual(
       links.slice(headerIndex + 1),
-      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=continuous3'] : [],
+      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=static-edge-checkloop'] : [],
       page + ' must only load the verified badge animation stylesheet after the common header stylesheet when needed'
     );
   }
