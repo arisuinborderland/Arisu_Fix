@@ -1,14 +1,19 @@
 "use strict";
-/* AFV379 — Smooth, consecutive 1–100% progress counting. */
+/* AFV407 — Smooth startup progress; reveal the header check only after the overlay is gone. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
-  if (!overlay) return;
+  const revealBadge = () => window.requestAnimationFrame(() => document.documentElement.classList.add("badge-animation-ready"));
+  if (!overlay) {
+    revealBadge();
+    return;
+  }
 
   // Show once per tab session. Reloads and the site's Home button won't replay it.
   const sessionKey = "arisuFixHomepageLoadingShown";
   try {
     if (window.sessionStorage.getItem(sessionKey) === "1") {
       overlay.remove();
+      revealBadge();
       return;
     }
     window.sessionStorage.setItem(sessionKey, "1");
@@ -16,6 +21,7 @@
     // Fail closed: if session storage is unavailable, don't risk showing the overlay
     // on every refresh. The homepage remains usable without the optional loading screen.
     overlay.remove();
+    revealBadge();
     return;
   }
 
@@ -117,7 +123,10 @@
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
       overlay.setAttribute("aria-hidden", "true");
-      window.setTimeout(() => overlay.remove(), 440);
+      window.setTimeout(() => {
+        overlay.remove();
+        revealBadge();
+      }, 440);
     });
   }
 
