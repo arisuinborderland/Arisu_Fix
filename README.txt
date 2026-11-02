@@ -2,7 +2,7 @@ ARISU FIX — PROJECT README
 Version: AFV405
 Updated: 2026-11-01
 
-Current release: AFV405
+Current release: AFV409
 Package version: 405.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
@@ -78,6 +78,7 @@ RELEASE NOTES
 - Obsolete Vercel API handlers and their legacy tests have been removed after review; production Story endpoints remain under functions/api/.
 
 RELEASE NOTES
+- AFV409 adds first-paint loading-screen visibility and session-guard behavior, locking background scrolling while the overlay is active.
 - AFV379 aligns the release version with the homepage loading-screen cache tokens and once-per-tab-session behavior.
 
 VALIDATION
