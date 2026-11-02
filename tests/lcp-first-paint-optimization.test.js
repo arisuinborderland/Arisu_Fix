@@ -55,3 +55,24 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
 });
+
+
+test('AFV409 keeps the loading overlay visible on first paint for a new tab session', () => {
+  const index = read('index.html');
+  assert.ok(index.includes('id="loading-screen-first-paint-guard"'));
+  assert.ok(index.includes('html.arisu-loading-first-run #arisu-loading-screen'));
+  assert.ok(index.includes('document.documentElement.classList.add("arisu-loading-first-run")'));
+});
+
+test('AFV409 marks the loading session only after completion and locks background scrolling', () => {
+  const script = read('loading-screen.js');
+  const styles = read('loading-screen.css');
+  const sequenceStart = script.indexOf('async function runSequence()');
+  const sessionMark = script.indexOf('window.sessionStorage.setItem(sessionKey, "1")');
+  assert.notEqual(sequenceStart, -1);
+  assert.ok(sessionMark > sequenceStart, 'session flag must be written after sequence starts');
+  assert.ok(script.includes('document.documentElement.classList.add("arisu-loading-active")'));
+  assert.ok(script.includes('document.documentElement.classList.remove("arisu-loading-active")'));
+  assert.ok(styles.includes('html.arisu-loading-active body'));
+  assert.ok(styles.includes('overscroll-behavior: none;'));
+});
