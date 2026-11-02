@@ -32,9 +32,15 @@ test('Desktop header actions share the same size, palette, icon dimensions, and 
 test('All public pages load the shared header stylesheet after page-specific stylesheets', () => {
   for (const page of pages) {
     const html = read(page);
-    const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
-    const last = links.at(-1)?.[1];
-    assert.equal(last, 'desktop-header.css?v=AFV319', page + ' must load the common header stylesheet last');
+    const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
+    const headerIndex = links.indexOf('desktop-header.css?v=AFV319');
+
+    assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
+    assert.deepEqual(
+      links.slice(headerIndex + 1),
+      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=2'] : [],
+      page + ' must only load the verified badge animation stylesheet after the common header stylesheet when needed'
+    );
   }
 });
 
