@@ -32,10 +32,33 @@ test('Desktop header actions share the same size, palette, icon dimensions, and 
 test('All public pages load the shared header stylesheet after page-specific stylesheets', () => {
   for (const page of pages) {
     const html = read(page);
-    const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
-    const last = links.at(-1)?.[1];
-    assert.equal(last, 'desktop-header.css?v=AFV319', page + ' must load the common header stylesheet last');
+    const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
+    const headerIndex = links.findIndex((href) => href.startsWith('desktop-header.css?v=AFV319'));
+
+    assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
+    assert.deepEqual(
+      links.slice(headerIndex + 1),
+      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=static-edge-checkloop'] : [],
+      page + ' must only load the verified badge animation stylesheet after the common header stylesheet when needed'
+    );
   }
+});
+
+test('Homepage verified check continuously draws without animating the badge itself', () => {
+  const animationCss = read('verified-badge-animation.css');
+  const loaderJs = read('loading-screen.js');
+  assert.ok(animationCss.includes('animation: arisu-badge-check-loop 1.8s ease-in-out infinite !important'));
+  assert.ok(animationCss.includes('@keyframes arisu-badge-check-loop'));
+  assert.ok(animationCss.includes('animation: none !important'));
+  assert.ok(loaderJs.includes('const revealBadge ='));
+  assert.ok(animationCss.includes('stroke-dasharray: 24 !important'));
+  assert.ok(!animationCss.includes("badge-check-animation-active"));
+  assert.ok(loaderJs.includes("The checkmark loop is CSS-driven"));
+  assert.ok(loaderJs.includes('window.matchMedia("(prefers-reduced-motion: reduce)")'));
+  assert.ok(loaderJs.includes('overlay.remove();'));
+  assert.ok(loaderJs.includes('window.setTimeout(() => {'));
+  assert.ok(loaderJs.includes('revealBadge();'));
+  assert.ok(loaderJs.includes('MINIMUM_DISPLAY_MS = 2500'));
 });
 
 test('Production build allowlist includes the shared header stylesheet', () => {
@@ -71,7 +94,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV405&desktoplayout=1&header=navywave-color2&separator=softglow1&badge=checkdraw2/);
 });
 
 
@@ -87,7 +110,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV405&desktoplayout=1&header=navywave-color2&separator=softglow1&badge=checkdraw2/);
 });
 
 
@@ -103,7 +126,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV405&desktoplayout=1&header=navywave-color2&separator=softglow1&badge=checkdraw2/);
 });
 
 
@@ -119,7 +142,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV405&desktoplayout=1&header=navywave-color2&separator=softglow1&badge=checkdraw2/);
 });
 
 

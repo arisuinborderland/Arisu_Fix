@@ -1662,17 +1662,14 @@ summary:focus-visible {
 @media (max-width:480px) {.compact-intro .eyebrow.premium-status{gap:6px;padding:8px 10px;letter-spacing:.65px}}
 @media (prefers-reduced-motion:reduce) {.compact-intro .eyebrow .status-pulse,.compact-intro .eyebrow .status-pulse:after{animation:none!important}}
 
-/* animated blue custom check badge beside Arisu in header and footer. */
+/* Brand identity row and static blue verified-badge base styles. */
 .brand-copy{display:inline-flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1.25}
 .brand-name-row{display:inline-flex;align-items:center;gap:7px;min-width:0;line-height:1.15}
 .brand-name-row>b{display:inline-block!important;line-height:1.15!important}
-.arisu-verified-badge{display:inline-grid;place-items:center;position:relative;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#3294ff 0%,#1877f2 58%,#0b5fd7 100%);box-shadow:0 2px 7px rgba(24,119,242,.28),0 0 0 2px rgba(24,119,242,.10);animation:arisu-brand-badge-pop 2s ease-in-out infinite;transform-origin:center;vertical-align:middle}
-.arisu-verified-badge:after{content:"";position:absolute;inset:-3px;border:1px solid rgba(24,119,242,.28);border-radius:50%;animation:arisu-brand-badge-glow 2s ease-out infinite;pointer-events:none}
+.arisu-verified-badge{display:inline-grid;place-items:center;position:relative;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#3294ff 0%,#1877f2 58%,#0b5fd7 100%);box-shadow:0 2px 7px rgba(24,119,242,.28),0 0 0 2px rgba(24,119,242,.10);animation:none;transform:none;vertical-align:middle}
+.arisu-verified-badge:after{content:none;animation:none;pointer-events:none}
 .arisu-verified-badge svg{display:block;width:14px;height:14px;overflow:visible;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.arisu-verified-badge svg path{stroke-dasharray:24;stroke-dashoffset:24;animation:arisu-brand-check-draw 2s ease-in-out infinite}
-@keyframes  arisu-brand-check-draw {0%,8%{stroke-dashoffset:24;opacity:.7}24%,42%{stroke-dashoffset:0;opacity:1}50%,100%{stroke-dashoffset:0;opacity:1}}
-@keyframes  arisu-brand-badge-pop {0%,45%,100%{transform:scale(1);filter:brightness(1)}10%{transform:scale(.92)}20%{transform:scale(1.16);filter:brightness(1.14);box-shadow:0 3px 10px rgba(24,119,242,.4),0 0 0 4px rgba(24,119,242,.13)}30%{transform:scale(1);filter:brightness(1.04)}}
-@keyframes  arisu-brand-badge-glow {0%,100%{transform:scale(.88);opacity:0}18%{opacity:.65}55%{transform:scale(1.35);opacity:0}}
+.arisu-verified-badge svg path{stroke-dasharray:24;stroke-dashoffset:24;animation:none}
 @media (max-width:600px) {.brand-name-row{gap:5px}.arisu-verified-badge{width:18px;height:18px;flex-basis:18px}.arisu-verified-badge svg{width:12px;height:12px}}
 @media (max-width:380px) {.arisu-verified-badge{width:16px;height:16px;flex-basis:16px}.arisu-verified-badge svg{width:10px;height:10px}}
 @media (prefers-reduced-motion:reduce) {.arisu-verified-badge,.arisu-verified-badge:after,.arisu-verified-badge svg path{animation:none!important}.arisu-verified-badge svg path{stroke-dashoffset:0!important}}
@@ -2442,8 +2439,7 @@ body.home-page .whatsapp-feature-content h2 {
   50% { transform: scale(1.12); opacity: 1; }
 }
 
-/* animated blue check badge at the end of the About title.
- Reuses the site's existing badge animation keyframes and keeps it decorative. */
+/* About-page brand title and verified-badge sizing. */
 .about-card h2.about-brand-title {
   display: flex;
   align-items: center;
@@ -5997,8 +5993,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
 @media  (max-width: 899px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 30px !important;
-    padding-bottom: 27px !important;
-    background-position: center 52% !important;
+    padding-bottom: 27px !important;    background-position: center 52% !important;
   }
 }
 /* Mobile-only: zoom the photo slightly and shift its right-side cross inward so it stays visible. */
@@ -9087,8 +9082,7 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Restore the green badge pulse and blue verified-check animation on desktop.
-   Respect the operating system's reduced-motion preference. */
+/* Desktop status indicator and WhatsApp animations; verified badge is handled separately. */
 @media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-fade-in 1s ease-out both,
@@ -9100,20 +9094,7 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse::after {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  /* Keep the check mark visible at all times while the badge itself animates. */
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
-
-  /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
+/* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
     animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
   }
@@ -9142,20 +9123,7 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
 
-  /* Blue badge keeps its pulse; check path remains drawn and visible all the time. */
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
-
-  /* Restore CTA glow and the actual conic gradients as well as animation.
+/* Restore CTA glow and the actual conic gradients as well as animation.
      The earlier reduced-motion rules replace these gradients with static ones. */
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
     animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
@@ -10666,10 +10634,8 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   }
 }
 
-/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.
-   The site intentionally keeps these accents animated on desktop even when the OS
-   requests reduced motion; apply the same narrow-screen behavior for consistency.
-   Scope is limited to the verified badge, recovery-status pulse, and WhatsApp CTA. */
+/* AFV357 — preserve the mobile recovery-status pulse and WhatsApp CTA motion.
+   The verified blue header badge is intentionally static except for its checkmark. */
 @media (max-width: 700px) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-green-glow 3.6s ease-in-out infinite !important;
@@ -10684,19 +10650,7 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     animation: status-ripple 1.5s ease-out infinite !important;
   }
 
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
-
-  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
+html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
     animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
   }
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before {
@@ -10730,5 +10684,221 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     filter: drop-shadow(0 0 4px rgba(168, 85, 247, .98)) !important;
     animation: wa-border-trace-reverse 3.2s linear infinite !important;
     opacity: 1 !important;
+  }
+}
+
+/* AFV405 — compact navy-wave homepage header with readable brand text.
+   Keep the existing header dimensions, logo, badge, and responsive layout. */
+html body.home-page .topbar {
+  position: sticky;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
+    radial-gradient(ellipse at 54% -45%, rgba(83, 126, 210, .40) 0%, transparent 58%),
+    radial-gradient(ellipse at 98% 110%, rgba(180, 111, 215, .38) 0%, transparent 48%),
+    linear-gradient(108deg, #173b58 0%, #263b67 48%, #44345e 100%) !important;
+  border-bottom: 1px solid rgba(170, 210, 239, .32) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+html body.home-page .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
+    radial-gradient(ellipse at 88% -20%, rgba(190, 145, 235, .24), transparent 48%),
+    linear-gradient(166deg, transparent 0 64%, rgba(106, 197, 226, .26) 64.3%, transparent 65.1%),
+    linear-gradient(173deg, transparent 0 74%, rgba(148, 169, 240, .22) 74.3%, transparent 75%),
+    linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
+  opacity: 1;
+}
+html body.home-page .topbar > .brand,
+html body.home-page .topbar > .header-meta,
+html body.home-page .topbar .header-meta > a {
+  position: relative;
+  z-index: 1;
+}
+html body.home-page .topbar .brand b {
+  color: #f7f9ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .24) !important;
+}
+html body.home-page .topbar .brand small {
+  color: rgba(239, 245, 255, .86) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .20) !important;
+}
+html body.home-page .topbar .header-meta a {
+  color: rgba(246, 249, 255, .94);
+  border-color: rgba(198, 218, 241, .24);
+}
+html body.home-page .topbar .header-meta a:hover,
+html body.home-page .topbar .header-meta a:focus-visible {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(198, 218, 241, .38);
+}
+
+
+/* Soft gradient bottom separator — visible separation without overpowering the header. */
+html body.home-page .topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(77, 203, 215, .70) 0%,
+    rgba(91, 145, 238, .72) 34%,
+    rgba(147, 125, 224, .68) 68%,
+    rgba(218, 157, 211, .56) 100%
+  );
+  box-shadow:
+    0 0 5px rgba(100, 151, 239, .22),
+    0 -1px 4px rgba(174, 133, 222, .12);
+}
+
+
+/* AFV406 — share the approved navy-wave visual header with secondary pages.
+   Keep each page's existing header sizing and navigation behavior unchanged. */
+html body.reviews-document .topbar,
+html body.proofs-document .topbar,
+html body.privacy-page .topbar,
+html body.about-page .topbar {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
+    radial-gradient(ellipse at 54% -45%, rgba(83, 126, 210, .40) 0%, transparent 58%),
+    radial-gradient(ellipse at 98% 110%, rgba(180, 111, 215, .38) 0%, transparent 48%),
+    linear-gradient(108deg, #173b58 0%, #263b67 48%, #44345e 100%) !important;
+  border-bottom: 1px solid rgba(170, 210, 239, .32) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+html body.reviews-document .topbar::before,
+html body.proofs-document .topbar::before,
+html body.privacy-page .topbar::before,
+html body.about-page .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
+    radial-gradient(ellipse at 88% -20%, rgba(190, 145, 235, .24), transparent 48%),
+    linear-gradient(166deg, transparent 0 64%, rgba(106, 197, 226, .26) 64.3%, transparent 65.1%),
+    linear-gradient(173deg, transparent 0 74%, rgba(148, 169, 240, .22) 74.3%, transparent 75%),
+    linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
+}
+html body.reviews-document .topbar > .brand,
+html body.reviews-document .topbar > .header-meta,
+html body.proofs-document .topbar > .brand,
+html body.proofs-document .topbar > .header-meta,
+html body.privacy-page .topbar > .brand,
+html body.privacy-page .topbar > .header-meta,
+html body.about-page .topbar > .brand,
+html body.about-page .topbar > .header-meta,
+html body.reviews-document .topbar .header-meta > a,
+html body.proofs-document .topbar .header-meta > a,
+html body.privacy-page .topbar .header-meta > a,
+html body.about-page .topbar .header-meta > a {
+  position: relative;
+  z-index: 1;
+}
+html body.reviews-document .topbar .brand b,
+html body.proofs-document .topbar .brand b,
+html body.privacy-page .topbar .brand b,
+html body.about-page .topbar .brand b {
+  color: #f7f9ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .24) !important;
+}
+html body.reviews-document .topbar .brand small,
+html body.proofs-document .topbar .brand small,
+html body.privacy-page .topbar .brand small,
+html body.about-page .topbar .brand small {
+  color: rgba(239, 245, 255, .86) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .20) !important;
+}
+html body.reviews-document .topbar::after,
+html body.proofs-document .topbar::after,
+html body.privacy-page .topbar::after,
+html body.about-page .topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(77, 203, 215, .70) 0%,
+    rgba(91, 145, 238, .72) 34%,
+    rgba(147, 125, 224, .68) 68%,
+    rgba(218, 157, 211, .56) 100%
+  );
+  box-shadow:
+    0 0 5px rgba(100, 151, 239, .22),
+    0 -1px 4px rgba(174, 133, 222, .12);
+}
+
+/* AFV406 — badge check animation is controlled by verified-badge-animation.css.
+   Keep this stylesheet from pinning stroke-dashoffset with !important, which prevents
+   CSS keyframes from drawing the SVG path. */
+
+/* AFV408 — use the homepage's exact mobile header sizing on About and Privacy. */
+@media (max-width: 700px) {
+  html body.privacy-page .topbar,
+  html body.about-page .topbar {
+    padding: 10px 12px 11px;
+    column-gap: 10px;
+    row-gap: 8px;
+  }
+  html body.privacy-page .topbar > .brand,
+  html body.about-page .topbar > .brand {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    gap: 9px;
+  }
+  html body.privacy-page .topbar > .brand .logo,
+  html body.about-page .topbar > .brand .logo {
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 13px;
+  }
+  html body.privacy-page .topbar > .brand .brand-copy,
+  html body.about-page .topbar > .brand .brand-copy { min-width: 0; }
+  html body.privacy-page .topbar > .brand b,
+  html body.about-page .topbar > .brand b {
+    font-size: 15px;
+    line-height: 1.15;
+    letter-spacing: -.35px;
+  }
+  html body.privacy-page .topbar > .brand small,
+  html body.about-page .topbar > .brand small {
+    margin-top: 3px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 380px) {
+  html body.privacy-page .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.about-page .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.privacy-page .topbar > .brand,
+  html body.about-page .topbar > .brand { gap: 7px; }
+  html body.privacy-page .topbar > .brand .logo,
+  html body.about-page .topbar > .brand .logo {
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
   }
 }

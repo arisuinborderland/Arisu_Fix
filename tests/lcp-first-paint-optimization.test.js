@@ -42,14 +42,14 @@ test('AFV405 release metadata is synchronized', () => {
   assert.ok(history.startsWith('AFV405 — Shared More Menu'));
 });
 
-test('AFV357 restores the three branded animations at mobile widths', () => {
+test('AFV357 restores recovery-status and WhatsApp animations at mobile widths without badge pulse', () => {
   const styles = read('styles.css');
-  const mobileBlockStart = styles.indexOf('/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.');
+  const mobileBlockStart = styles.indexOf('/* AFV357 — preserve the mobile recovery-status pulse and WhatsApp CTA motion.');
   assert.notEqual(mobileBlockStart, -1, 'mobile animation restoration block must exist');
   const mobileBlock = styles.slice(mobileBlockStart);
   assert.ok(mobileBlock.startsWith('/* AFV357'), 'mobile block must be appended at the end of the stylesheet');
   assert.ok(mobileBlock.includes('@media (max-width: 700px)'), 'mobile-only media query must be scoped to 700px and below');
-  assert.ok(mobileBlock.includes('arisu-brand-badge-pop 2s ease-in-out infinite !important'));
+  assert.ok(!mobileBlock.includes('arisu-brand-badge-pop'), 'verified blue badge must not pulse');
   assert.ok(mobileBlock.includes('status-heartbeat 1.15s ease-in-out infinite !important'));
   assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
