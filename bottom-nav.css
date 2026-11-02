@@ -761,3 +761,24 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
     filter: drop-shadow(0 1px 2px rgba(15,23,42,.4)) !important;
   }
 }
+
+
+/* AFV407 soft-curve palette trial: carry the loading-screen navy/cyan/blue/violet colors into the mobile floating navigation. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    background:
+      linear-gradient(115deg, rgba(34, 211, 238, .055) 0%, transparent 30%, rgba(139, 92, 246, .09) 100%),
+      linear-gradient(135deg, rgba(11, 18, 32, .99) 0%, rgba(17, 24, 39, .99) 54%, rgba(27, 22, 52, .99) 100%) !important;
+    border-top: 1px solid rgba(103, 232, 249, .42) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .09),
+      0 -5px 20px rgba(34, 211, 238, .075),
+      0 -4px 26px rgba(139, 92, 246, .10) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.25) !important;
+    backdrop-filter: blur(18px) saturate(1.25) !important;
+  }
+}
