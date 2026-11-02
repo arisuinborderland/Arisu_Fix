@@ -39,7 +39,7 @@ test('AFV405 release metadata is synchronized', () => {
   assert.equal(lock.version, '405.0.0');
   assert.equal(lock.packages[''].version, '405.0.0');
   assert.ok(readme.includes('Current release: AFV405'));
-  assert.ok(history.startsWith('AFV405 — Terminal Prompt Loading Status'));
+  assert.ok(history.startsWith('AFV405 — Shared More Menu'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
