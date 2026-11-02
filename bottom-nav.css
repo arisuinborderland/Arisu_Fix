@@ -670,3 +670,30 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
     color: #FFFFFF !important;
   }
 }
+
+
+/* AFV407 micro-adjustment: reduce the visual gap above nav icons and labels by 2px. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar) {
+    top: 0 !important;
+  }
+}
