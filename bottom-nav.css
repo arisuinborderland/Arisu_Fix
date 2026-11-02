@@ -457,21 +457,30 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
 }
 
 
-/* AFV407: Soft Curve navigation finish, using the loading-screen cyan/blue/violet palette.
-   Keep the existing fixed mobile geometry and Stories avatar glow unchanged. */
+/* AFV407: Visible Soft Curve floating navigation, using the loading-screen cyan/blue/violet palette. */
 @media screen and (max-width: 700px) {
   html body.home-page nav.mobile-bottom-nav,
   html body.reviews-document nav.mobile-bottom-nav,
   html body.proofs-document nav.mobile-bottom-nav,
   html body.about-page nav.mobile-bottom-nav,
   html body.privacy-page nav.mobile-bottom-nav {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+    border: 1px solid transparent !important;
+    border-radius: 25px !important;
     background:
-      linear-gradient(105deg, rgba(34, 211, 238, .075) 0%, rgba(59, 130, 246, .045) 48%, rgba(139, 92, 246, .09) 100%),
-      rgba(16, 24, 39, .985) !important;
-    border-top: 1px solid rgba(148, 163, 220, .24) !important;
+      linear-gradient(110deg, rgba(34, 211, 238, .14), rgba(59, 130, 246, .10) 48%, rgba(139, 92, 246, .16)) padding-box,
+      linear-gradient(105deg, #22D3EE 0%, #3B82F6 52%, #8B5CF6 100%) border-box !important;
     box-shadow:
-      0 -8px 28px rgba(5, 10, 22, .28),
-      inset 0 1px 0 rgba(255, 255, 255, .025) !important;
+      0 0 0 1px rgba(59, 130, 246, .10),
+      0 -5px 24px rgba(34, 211, 238, .10),
+      0 8px 28px rgba(5, 10, 22, .36),
+      inset 0 1px 0 rgba(255, 255, 255, .09) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.2) !important;
+    backdrop-filter: blur(18px) saturate(1.2) !important;
     isolation: isolate !important;
   }
 
@@ -482,12 +491,13 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
   html body.privacy-page nav.mobile-bottom-nav::before {
     content: "" !important;
     position: absolute !important;
-    top: -1px !important;
-    left: 0 !important;
-    right: 0 !important;
+    top: 0 !important;
+    left: 20px !important;
+    right: 20px !important;
     height: 2px !important;
-    background: linear-gradient(90deg, rgba(34, 211, 238, .08), rgba(34, 211, 238, .72) 24%, rgba(59, 130, 246, .78) 55%, rgba(139, 92, 246, .72) 82%, rgba(139, 92, 246, .08)) !important;
-    opacity: .8 !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, rgba(34, 211, 238, .18), #22D3EE 22%, #3B82F6 54%, #8B5CF6 82%, rgba(139, 92, 246, .18)) !important;
+    opacity: .95 !important;
     pointer-events: none !important;
     z-index: 0 !important;
   }
