@@ -1,5 +1,4 @@
-/* AFV405 — keep the badge steady and let loading-screen.js draw the check after the overlay exits.
-   The legacy stylesheet uses !important on stroke-dashoffset, so JS updates that value per frame. */
+/* AFV405 — continuously redraw only the white check; keep the blue badge itself steady. */
 html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge {
   animation: none !important;
   transform: none !important;
@@ -25,6 +24,21 @@ html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg pat
   stroke-linejoin: round !important;
   opacity: 1 !important;
   stroke-dasharray: 24 !important;
-  stroke-dashoffset: 0 !important;
+  stroke-dashoffset: 24 !important;
   animation: none !important;
+}
+html body.home-page.badge-check-animation-active .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+  animation: arisu-badge-check-loop 1.8s ease-in-out infinite !important;
+}
+@keyframes arisu-badge-check-loop {
+  0% { stroke-dashoffset: 24; }
+  34% { stroke-dashoffset: 0; }
+  74% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 24; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
 }
