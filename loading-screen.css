@@ -282,8 +282,9 @@ body.arisu-loading-active {
   overscroll-behavior: none !important;
   height: 100% !important;
 }
+html.arisu-loading-active,
 body.arisu-loading-active {
-  touch-action: pan-x !important;
+  touch-action: none !important;
 }
 #arisu-loading-screen {
   opacity: 1;
