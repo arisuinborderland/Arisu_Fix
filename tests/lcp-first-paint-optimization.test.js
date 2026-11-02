@@ -56,7 +56,6 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
 });
 
-
 test('AFV409 keeps the loading overlay visible on first paint for a new tab session', () => {
   const index = read('index.html');
   assert.ok(index.includes('id="loading-screen-first-paint-guard"'));
