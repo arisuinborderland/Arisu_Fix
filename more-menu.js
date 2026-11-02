@@ -1,4 +1,4 @@
-/* AFV402 — shared compact More menu for all public pages */
+/* AFV405 — shared compact More menu for all public pages */
 (() => {
   'use strict';
 
@@ -6,7 +6,7 @@
     const nav = document.querySelector('nav.mobile-bottom-nav');
     if (!nav || document.getElementById('arisuMoreMenu')) return;
 
-    // Move the two header destinations into More on every page.
+    // Move the header destinations into More on every page.
     document.querySelectorAll(
       'header.topbar .privacy-link, header.topbar .about-header-link, header.topbar .privacy-about-link, header.topbar .proofs-header-link, header.topbar .webtools-header-link'
     ).forEach((link) => link.remove());
@@ -25,7 +25,7 @@
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV404&width=186-194';
+    styleLink.href = '/more-menu.css?v=AFV405&width=186-194';
     styleLink.addEventListener('load', () => {
       backdrop.style.removeProperty('opacity');
       backdrop.style.removeProperty('pointer-events');
