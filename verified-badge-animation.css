@@ -1,0 +1,42 @@
+/* AFV406 — reliable header check reveal.
+   Reveal the white check with a short left-to-right wipe; keep the blue badge itself steady.
+   A clip-path reveal is used because earlier legacy rules mark stroke-dashoffset !important,
+   which prevents CSS keyframes from animating that property in some cascade combinations. */
+html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge {
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge::after {
+  animation: none !important;
+  opacity: 0 !important;
+}
+html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+  fill: none !important;
+  stroke: #fff !important;
+  stroke-width: 3.1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  opacity: 1 !important;
+  stroke-dasharray: 24 !important;
+  stroke-dashoffset: 0 !important;
+  clip-path: inset(0 100% 0 0);
+  animation: arisu-brand-check-reveal-v2 900ms cubic-bezier(.2,.75,.25,1) 1 both !important;
+}
+@keyframes arisu-brand-check-reveal-v2 {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+    animation: none !important;
+    clip-path: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
