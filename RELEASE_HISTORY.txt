@@ -1,3 +1,11 @@
+AFV405 — Shared More Menu
+
+## AFV405 — Add shared More menu to public pages
+- Added the shared More menu script and stylesheet to the five public pages.
+- Included both assets in the explicit production build allowlist.
+- Synchronized package metadata, README, and release metadata tests to AFV405 / 405.0.0.
+- Preview only; validate build and mobile behavior before merging.
+
 AFV402 — Terminal Prompt Loading Status
 
 ## AFV402 — Replace loading success checkmarks
