@@ -10763,6 +10763,92 @@ html body.home-page .topbar::after {
 }
 
 
+/* AFV406 — share the approved navy-wave visual header with secondary pages.
+   Keep each page's existing header sizing and navigation behavior unchanged. */
+html body.reviews-document .topbar,
+html body.proofs-document .topbar,
+html body.privacy-page .topbar,
+html body.about-page .topbar {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
+    radial-gradient(ellipse at 54% -45%, rgba(83, 126, 210, .40) 0%, transparent 58%),
+    radial-gradient(ellipse at 98% 110%, rgba(180, 111, 215, .38) 0%, transparent 48%),
+    linear-gradient(108deg, #173b58 0%, #263b67 48%, #44345e 100%) !important;
+  border-bottom: 1px solid rgba(170, 210, 239, .32) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+html body.reviews-document .topbar::before,
+html body.proofs-document .topbar::before,
+html body.privacy-page .topbar::before,
+html body.about-page .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
+    radial-gradient(ellipse at 88% -20%, rgba(190, 145, 235, .24), transparent 48%),
+    linear-gradient(166deg, transparent 0 64%, rgba(106, 197, 226, .26) 64.3%, transparent 65.1%),
+    linear-gradient(173deg, transparent 0 74%, rgba(148, 169, 240, .22) 74.3%, transparent 75%),
+    linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
+}
+html body.reviews-document .topbar > .brand,
+html body.reviews-document .topbar > .header-meta,
+html body.proofs-document .topbar > .brand,
+html body.proofs-document .topbar > .header-meta,
+html body.privacy-page .topbar > .brand,
+html body.privacy-page .topbar > .header-meta,
+html body.about-page .topbar > .brand,
+html body.about-page .topbar > .header-meta,
+html body.reviews-document .topbar .header-meta > a,
+html body.proofs-document .topbar .header-meta > a,
+html body.privacy-page .topbar .header-meta > a,
+html body.about-page .topbar .header-meta > a {
+  position: relative;
+  z-index: 1;
+}
+html body.reviews-document .topbar .brand b,
+html body.proofs-document .topbar .brand b,
+html body.privacy-page .topbar .brand b,
+html body.about-page .topbar .brand b {
+  color: #f7f9ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .24) !important;
+}
+html body.reviews-document .topbar .brand small,
+html body.proofs-document .topbar .brand small,
+html body.privacy-page .topbar .brand small,
+html body.about-page .topbar .brand small {
+  color: rgba(239, 245, 255, .86) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .20) !important;
+}
+html body.reviews-document .topbar::after,
+html body.proofs-document .topbar::after,
+html body.privacy-page .topbar::after,
+html body.about-page .topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(77, 203, 215, .70) 0%,
+    rgba(91, 145, 238, .72) 34%,
+    rgba(147, 125, 224, .68) 68%,
+    rgba(218, 157, 211, .56) 100%
+  );
+  box-shadow:
+    0 0 5px rgba(100, 151, 239, .22),
+    0 -1px 4px rgba(174, 133, 222, .12);
+}
+
 /* AFV406 — badge check animation is controlled by verified-badge-animation.css.
    Keep this stylesheet from pinning stroke-dashoffset with !important, which prevents
    CSS keyframes from drawing the SVG path. */
