@@ -10,8 +10,8 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge::afte
 }
 html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
+  width: 14px !important;
+  height: 14px !important;
   overflow: visible !important;
   animation: none !important;
 }
@@ -30,6 +30,18 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg
   34% { stroke-dashoffset: 0; }
   74% { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: 24; }
+}
+@media (max-width: 600px) {
+  html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
+    width: 10px !important;
+    height: 10px !important;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg > path {
