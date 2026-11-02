@@ -4,7 +4,8 @@
   const overlay = document.getElementById("arisu-loading-screen");
   const root = document.documentElement;
   const body = document.body;
-  // The checkmark loop is CSS-driven; keep the badge itself static.\n  const revealBadge = () => {
+  // The checkmark loop is CSS-driven; keep the badge itself static.
+  const revealBadge = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       const path = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg path");
       if (path) path.style.setProperty("stroke-dashoffset", "0", "important");
