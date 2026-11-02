@@ -1,18 +1,18 @@
 /* AFV405 — loop the white check drawing; never animate the blue badge itself. */
-html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge {
+html body:is(.home-page, .reviews-document, .proofs-document, .privacy-page, .about-page) .topbar .brand .brand-name-row > .arisu-verified-badge {
   animation: none !important;
   transform: none !important;
   filter: none !important;
 }
 /* Outer ring animation intentionally removed; keep the badge edge static. */
-html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
+html body:is(.home-page, .reviews-document, .proofs-document, .privacy-page, .about-page) .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
   display: block !important;
   width: 14px !important;
   height: 14px !important;
   overflow: visible !important;
   animation: none !important;
 }
-html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg > path {
+html body:is(.home-page, .reviews-document, .proofs-document, .privacy-page, .about-page) .topbar .brand .brand-name-row > .arisu-verified-badge > svg > path {
   fill: none !important;
   stroke: #fff !important;
   stroke-width: 3.1 !important;
@@ -29,19 +29,19 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg
   100% { stroke-dashoffset: 24; }
 }
 @media (max-width: 600px) {
-  html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
+  html body:is(.home-page, .reviews-document, .proofs-document, .privacy-page, .about-page) .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
     width: 12px !important;
     height: 12px !important;
   }
 }
 @media (max-width: 380px) {
-  html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
+  html body:is(.home-page, .reviews-document, .proofs-document, .privacy-page, .about-page) .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
     width: 10px !important;
     height: 10px !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg > path {
+  html body:is(.home-page, .reviews-document, .proofs-document, .privacy-page, .about-page) .topbar .brand .brand-name-row > .arisu-verified-badge > svg > path {
     animation: none !important;
     stroke-dashoffset: 0 !important;
   }
