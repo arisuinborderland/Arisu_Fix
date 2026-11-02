@@ -568,6 +568,35 @@ body.home-page .reference-footer {
 }
 
 
+/* AFV406 — Mobile-only compact About milestone and 2px top spacing. */
+@media (max-width: 600px) {
+  .reference-footer .reference-about-section {
+    padding-top: 2px !important;
+  }
+  .reference-footer .reference-about-created {
+    gap: 8px;
+    margin-top: 2px;
+    padding: 6px 8px;
+    border-radius: 13px;
+  }
+  .reference-footer .reference-about-created-copy {
+    gap: 2px;
+  }
+  .reference-footer .reference-about-created-copy .reference-about-action {
+    align-self: flex-start;
+    min-height: 26px;
+    margin-top: 2px;
+    padding: 4px 10px;
+    gap: 6px;
+    font-size: 11px;
+  }
+  .reference-footer .reference-about-created-copy .reference-about-action svg {
+    width: 13px;
+    height: 13px;
+    flex-basis: 13px;
+  }
+}
+
 /* AFV406 — Compact creation-date milestone in the homepage About card. */
 .reference-footer .reference-about-created {
   display: flex;
