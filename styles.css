@@ -10740,13 +10740,13 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 html body.home-page .topbar {
   position: sticky;
   isolation: isolate;
-  background-image:
+  background:
     linear-gradient(108deg,
-      rgba(44, 218, 255, .075) 0%,
-      rgba(100, 125, 255, .045) 38%,
-      rgba(177, 94, 255, .075) 70%,
-      rgba(255, 76, 199, .065) 100%),
-    linear-gradient(110deg, #e8f4ff 0%, #efedff 52%, #f9e9f5 100%) !important;
+      rgba(44, 218, 255, .22) 0%,
+      rgba(100, 125, 255, .14) 34%,
+      rgba(177, 94, 255, .20) 68%,
+      rgba(255, 76, 199, .18) 100%),
+    linear-gradient(110deg, #dff2ff 0%, #e6e7ff 46%, #f5def4 100%) !important;
   box-shadow:
     0 5px 22px rgba(91, 111, 176, .11),
     inset 0 1px 0 rgba(255, 255, 255, .96),
