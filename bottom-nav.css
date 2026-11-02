@@ -300,3 +300,26 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
   transform: none !important;
   translate: none !important;
 }
+
+/* AFV405: Reviews must use the same fixed icon/label baseline as the other pages on mobile. */
+@media (max-width: 700px) {
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:active,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:focus,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:focus-visible {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    translate: none !important;
+  }
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > span {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    translate: none !important;
+  }
+}
