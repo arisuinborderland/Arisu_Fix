@@ -36,7 +36,19 @@
  <!-- AFV406: decide loading visibility synchronously before the first paint. -->
  <script id="loading-screen-first-paint-guard">
   try {
-   if (window.sessionStorage.getItem("arisuFixHomepageLoadingShown") !== "1") {
+   const storage = window.sessionStorage;
+   const sessionKey = "arisuFixHomepageLoadingShown";
+   const viewportKey = "arisuFixLastViewportWidth";
+   const currentWidth = window.innerWidth;
+   const previousWidth = Number(storage.getItem(viewportKey) || 0);
+
+   /* Treat a mobile-to-desktop-site switch as a presentation-mode reload, not a fresh visit. */
+   if (previousWidth > 0 && previousWidth <= 760 && currentWidth > 760) {
+    storage.setItem(sessionKey, "1");
+   }
+   storage.setItem(viewportKey, String(currentWidth));
+
+   if (storage.getItem(sessionKey) !== "1") {
     document.documentElement.classList.add("arisu-loading-first-run");
    }
   } catch (error) {
