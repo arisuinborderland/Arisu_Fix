@@ -5997,8 +5997,7 @@ html body.home-page main > #daily-bible-verse.daily-verse-card {
 @media  (max-width: 899px)  {
   html body.home-page main > #daily-bible-verse.daily-verse-card {
     padding-top: 30px !important;
-    padding-bottom: 27px !important;
-    background-position: center 52% !important;
+    padding-bottom: 27px !important;    background-position: center 52% !important;
   }
 }
 /* Mobile-only: zoom the photo slightly and shift its right-side cross inward so it stays visible. */
@@ -10731,4 +10730,53 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     animation: wa-border-trace-reverse 3.2s linear infinite !important;
     opacity: 1 !important;
   }
+}
+
+/* AFV405 — compact navy-wave homepage header with readable brand text.
+   Keep the existing header dimensions, logo, badge, and responsive layout. */
+html body.home-page .topbar {
+  position: sticky;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 120%, rgba(35, 170, 190, .15) 0%, transparent 48%),
+    radial-gradient(ellipse at 94% -8%, rgba(116, 103, 205, .16) 0%, transparent 42%),
+    linear-gradient(108deg, #102b43 0%, #172b4b 52%, #282644 100%) !important;
+  border-bottom: 1px solid rgba(154, 190, 221, .20) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+html body.home-page .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(166deg, transparent 0 70%, rgba(83, 166, 196, .13) 70.3%, transparent 71.1%),
+    linear-gradient(173deg, transparent 0 78%, rgba(127, 143, 210, .12) 78.3%, transparent 79%),
+    linear-gradient(178deg, transparent 0 85%, rgba(183, 150, 218, .10) 85.3%, transparent 86%);
+  opacity: .9;
+}
+html body.home-page .topbar > .brand,
+html body.home-page .topbar > .header-meta,
+html body.home-page .topbar .header-meta > a {
+  position: relative;
+  z-index: 1;
+}
+html body.home-page .topbar .brand b {
+  color: #f7f9ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .24) !important;
+}
+html body.home-page .topbar .brand small {
+  color: rgba(239, 245, 255, .86) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .20) !important;
+}
+html body.home-page .topbar .header-meta a {
+  color: rgba(246, 249, 255, .94);
+  border-color: rgba(198, 218, 241, .24);
+}
+html body.home-page .topbar .header-meta a:hover,
+html body.home-page .topbar .header-meta a:focus-visible {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(198, 218, 241, .38);
 }
