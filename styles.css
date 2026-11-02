@@ -10776,7 +10776,8 @@ html body .topbar::after {
     rgba(174, 132, 214, .22));
 }
 html body .topbar > .brand,
-html body .topbar > .header-meta {
+html body .topbar > .header-meta,
+html body .topbar .header-meta > a {
   position: relative;
   z-index: 1;
 }
