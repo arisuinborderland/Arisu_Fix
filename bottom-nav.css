@@ -522,3 +522,52 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
     background: linear-gradient(135deg, rgba(34, 211, 238, .18), rgba(59, 130, 246, .18), rgba(139, 92, 246, .2)) !important;
   }
 }
+
+
+/* AFV407 refinement: tighter mobile nav, slightly lower content, and a softer active-page marker. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    padding-top: 1px !important;
+    padding-bottom: calc(2px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item {
+    gap: 2px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar) {
+    position: relative !important;
+    top: 2px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories) {
+    background: linear-gradient(135deg, rgba(34, 211, 238, .17), rgba(59, 130, 246, .13) 52%, rgba(139, 92, 246, .19)) !important;
+    border: 1px solid rgba(125, 211, 252, .24) !important;
+    border-radius: 15px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 0 12px rgba(59, 130, 246, .08) !important;
+    color: #FFFFFF !important;
+  }
+}
