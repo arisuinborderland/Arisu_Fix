@@ -1670,9 +1670,6 @@ summary:focus-visible {
 .arisu-verified-badge:after{content:none;animation:none;pointer-events:none}
 .arisu-verified-badge svg{display:block;width:14px;height:14px;overflow:visible;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .arisu-verified-badge svg path{stroke-dasharray:24;stroke-dashoffset:24;animation:none}
-24%,42%{stroke-dashoffset:0;opacity:1}50%,100%{stroke-dashoffset:0;opacity:1}}
-10%{transform:scale(.92)}20%{transform:scale(1.16);filter:brightness(1.14);box-shadow:0 3px 10px rgba(24,119,242,.4),0 0 0 4px rgba(24,119,242,.13)}30%{transform:scale(1);filter:brightness(1.04)}}
-18%{opacity:.65}55%{transform:scale(1.35);opacity:0}}
 @media (max-width:600px) {.brand-name-row{gap:5px}.arisu-verified-badge{width:18px;height:18px;flex-basis:18px}.arisu-verified-badge svg{width:12px;height:12px}}
 @media (max-width:380px) {.arisu-verified-badge{width:16px;height:16px;flex-basis:16px}.arisu-verified-badge svg{width:10px;height:10px}}
 @media (prefers-reduced-motion:reduce) {.arisu-verified-badge,.arisu-verified-badge:after,.arisu-verified-badge svg path{animation:none!important}.arisu-verified-badge svg path{stroke-dashoffset:0!important}}
@@ -9086,8 +9083,7 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Restore the green badge pulse and blue verified-check animation on desktop.
-   Respect the operating system's reduced-motion preference. */
+/* Desktop status indicator and WhatsApp animations; verified badge is handled separately. */
 @media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-fade-in 1s ease-out both,
@@ -9128,7 +9124,6 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
 
-  /* Blue badge keeps its pulse; check path remains drawn and visible all the time. */
 /* Restore CTA glow and the actual conic gradients as well as animation.
      The earlier reduced-motion rules replace these gradients with static ones. */
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
