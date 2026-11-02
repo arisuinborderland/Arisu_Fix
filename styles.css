@@ -10635,10 +10635,8 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   }
 }
 
-/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.
-   The site intentionally keeps these accents animated on desktop even when the OS
-   requests reduced motion; apply the same narrow-screen behavior for consistency.
-   Scope is limited to the verified badge, recovery-status pulse, and WhatsApp CTA. */
+/* AFV357 — preserve the mobile recovery-status pulse and WhatsApp CTA motion.
+   The verified blue header badge is intentionally static except for its checkmark. */
 @media (max-width: 700px) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-green-glow 3.6s ease-in-out infinite !important;
