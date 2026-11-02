@@ -154,10 +154,10 @@
   <link rel="stylesheet" href="footer-reference.css?v=AFV367">
   <!-- Critical first-paint guard: prevent the homepage overlay flashing before its stylesheet and session guard run. -->
   <script id="loading-session-guard">try{if(sessionStorage.getItem("arisuFixLoadingShown") === "1"){document.documentElement.classList.remove("arisu-loading-active");document.documentElement.classList.add("arisu-loading-skip");}else{sessionStorage.setItem("arisuFixLoadingShown","1");}}catch(e){/* Keep the first-visit loading screen if session storage is unavailable. */}</script><style id="loading-screen-critical-guard">html.arisu-loading-active,body.arisu-loading-active{overflow:hidden!important;overscroll-behavior:none!important;height:100%!important}html.arisu-loading-active #arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:1;visibility:visible;pointer-events:auto}html.arisu-loading-skip #arisu-loading-screen{display:none!important}</style>
-  <link rel="stylesheet" href="loading-screen.css?v=AFV405&mandatoryload=1">
+  <link rel="stylesheet" href="loading-screen.css?v=AFV405&sessiononce=2">
   <link rel="stylesheet" href="desktop-header.css?v=AFV319">
   <link rel="stylesheet" href="verified-badge-animation.css?v=AFV405&reveal=static-edge-checkloop">
-  <script src="loading-screen.js?v=AFV405&mandatoryload=1" defer></script>
+  <script src="loading-screen.js?v=AFV405&sessiononce=2" defer></script>
 </head>
 <body class="home-page" id="top">
 <div id="arisu-loading-screen" role="status" aria-label="Loading Arisu Fix homepage">
