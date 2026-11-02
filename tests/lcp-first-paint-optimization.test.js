@@ -97,5 +97,16 @@ test('AFV406 applies the shared header theme to all public pages', () => {
     assert.ok(theme.includes('html body.' + pageClass + ' .topbar::before'), pageClass + ' must receive its own wave pseudo-element');
     assert.ok(theme.includes('html body.' + pageClass + ' .topbar::after'), pageClass + ' must receive its own gradient separator');
   }
-  assert.ok(headerTest.includes('homepage-header-theme.css?v=AFV406&navywave=approved3'), 'all public pages must load the cache-busted shared theme');
+  assert.ok(headerTest.includes('homepage-header-theme.css?v=AFV406&navywave=approved4'), 'all public pages must load the cache-busted shared theme');
+});
+
+test('AFV406 header and loading CSS cleanup preserves only the active animation sequence', () => {
+  const header = read('homepage-header-theme.css');
+  const loading = read('loading-screen.css');
+  assert.ok(!header.includes(String.fromCharCode(92) + 'nhtml'), 'header selectors must be real CSS lines, not escaped newline text');
+  assert.equal((loading.match(/@keyframes arisu-loading-fade-in/g) || []).length, 0, 'superseded fade-in keyframes must be removed');
+  assert.equal((loading.match(/@keyframes arisu-loading-card-in/g) || []).length, 0, 'superseded card-in keyframes must be removed');
+  assert.equal((loading.match(/@keyframes arisu-loading-card-out/g) || []).length, 0, 'superseded card-out keyframes must be removed');
+  assert.ok(loading.includes('@keyframes arisu-loading-card-fade-in'), 'the active card fade-in animation must remain');
+  assert.ok(loading.includes('@keyframes arisu-loading-card-fade-out'), 'the active card fade-out animation must remain');
 });
