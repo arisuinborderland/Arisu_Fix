@@ -78,7 +78,7 @@ test('AFV406 shows the loading overlay on first paint without waiting for the de
   assert.ok(guardScript < firstStylesheet, 'session state must be checked before stylesheet and page rendering');
   assert.notEqual(criticalGuard, -1, 'critical CSS must show the overlay for a first run before deferred JavaScript executes');
   assert.ok(index.includes('document.documentElement.classList.add("arisu-loading-first-run")'));
-  assert.ok(index.includes('window.sessionStorage.getItem("arisuFixHomepageLoadingShown") !== "1"'));
+  assert.ok(index.includes('storage.getItem(sessionKey) !== "1"'));
 });
 
 test('AFV406 skips the loading overlay when the browser switches from mobile to desktop site mode', () => {
