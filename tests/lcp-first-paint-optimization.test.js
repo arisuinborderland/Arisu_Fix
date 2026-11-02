@@ -44,7 +44,7 @@ test('AFV405 release metadata is synchronized', () => {
 
 test('AFV357 restores recovery-status and WhatsApp animations at mobile widths without badge pulse', () => {
   const styles = read('styles.css');
-  const mobileBlockStart = styles.indexOf('/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.');
+  const mobileBlockStart = styles.indexOf('/* AFV357 — preserve the mobile recovery-status pulse and WhatsApp CTA motion.');
   assert.notEqual(mobileBlockStart, -1, 'mobile animation restoration block must exist');
   const mobileBlock = styles.slice(mobileBlockStart);
   assert.ok(mobileBlock.startsWith('/* AFV357'), 'mobile block must be appended at the end of the stylesheet');
