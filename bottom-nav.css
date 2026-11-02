@@ -455,3 +455,329 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
     stroke: none !important;
   }
 }
+
+/* AFV410: Visible Soft Curve floating navigation, using the loading-screen cyan/blue/violet palette. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: 0 !important;
+    border-top: 2px solid transparent !important;
+    border-radius: 26px 26px 0 0 !important;
+    background:
+      linear-gradient(110deg, rgba(34, 211, 238, .14), rgba(59, 130, 246, .10) 48%, rgba(139, 92, 246, .16)) padding-box,
+      linear-gradient(105deg, #22D3EE 0%, #3B82F6 52%, #8B5CF6 100%) border-box !important;
+    box-shadow:
+      0 -5px 24px rgba(34, 211, 238, .10),
+      0 -10px 28px rgba(139, 92, 246, .09),
+      0 -3px 22px rgba(5, 10, 22, .24),
+      inset 0 1px 0 rgba(255, 255, 255, .09) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.2) !important;
+    backdrop-filter: blur(18px) saturate(1.2) !important;
+    isolation: isolate !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav::before,
+  html body.reviews-document nav.mobile-bottom-nav::before,
+  html body.proofs-document nav.mobile-bottom-nav::before,
+  html body.about-page nav.mobile-bottom-nav::before,
+  html body.privacy-page nav.mobile-bottom-nav::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 20px !important;
+    right: 20px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, rgba(34, 211, 238, .18), #22D3EE 22%, #3B82F6 54%, #8B5CF6 82%, rgba(139, 92, 246, .18)) !important;
+    opacity: .95 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories) {
+    background: linear-gradient(135deg, rgba(34, 211, 238, .13), rgba(59, 130, 246, .14) 52%, rgba(139, 92, 246, .16)) !important;
+    border-radius: 14px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055) !important;
+    color: #FFFFFF !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories):active,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories):active,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories):active,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories):active,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories):active {
+    background: linear-gradient(135deg, rgba(34, 211, 238, .18), rgba(59, 130, 246, .18), rgba(139, 92, 246, .2)) !important;
+  }
+}
+
+
+/* AFV410 refinement: tighter mobile nav, slightly lower content, and a softer active-page marker. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    padding-top: 1px !important;
+    padding-bottom: calc(2px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item {
+    gap: 2px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar) {
+    position: relative !important;
+    top: 2px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active:not(.mobile-nav-stories) {
+    background: linear-gradient(135deg, rgba(34, 211, 238, .17), rgba(59, 130, 246, .13) 52%, rgba(139, 92, 246, .19)) !important;
+    border: 1px solid rgba(125, 211, 252, .24) !important;
+    border-radius: 15px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 0 12px rgba(59, 130, 246, .08) !important;
+    color: #FFFFFF !important;
+  }
+}
+
+
+/* AFV410 follow-up: align Stories with the other items and make the current page unmistakable. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active {
+    background: linear-gradient(135deg, rgba(34, 211, 238, .32) 0%, rgba(59, 130, 246, .28) 52%, rgba(139, 92, 246, .34) 100%) !important;
+    border: 1px solid rgba(125, 211, 252, .58) !important;
+    border-radius: 15px !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .16),
+      0 0 16px rgba(59, 130, 246, .2) !important;
+    color: #FFFFFF !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories {
+    gap: 2px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    color: #FFFFFF !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar {
+    top: 2px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar) {
+    position: relative !important;
+    top: 2px !important;
+    color: #FFFFFF !important;
+  }
+}
+
+
+/* AFV410 latest polish: reduce the space above nav content and make the active glass tile clearer. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    padding-top: 0 !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item {
+    gap: 1px !important;
+    padding-top: 0 !important;
+    padding-bottom: 1px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories {
+    gap: 1px !important;
+    padding-top: 0 !important;
+    padding-bottom: 1px !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, .19), rgba(255, 255, 255, .045) 38%, rgba(139, 92, 246, .22) 100%),
+      linear-gradient(125deg, rgba(34, 211, 238, .34), rgba(59, 130, 246, .28) 52%, rgba(139, 92, 246, .38)) !important;
+    border: 1px solid rgba(224, 242, 254, .72) !important;
+    border-radius: 15px !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.35) !important;
+    backdrop-filter: blur(14px) saturate(1.35) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .25),
+      inset 0 -1px 0 rgba(15, 23, 42, .10),
+      0 0 0 1px rgba(34, 211, 238, .14),
+      0 0 18px rgba(59, 130, 246, .24) !important;
+    color: #FFFFFF !important;
+  }
+}
+
+
+/* AFV410 micro-adjustment: reduce the visual gap above nav icons and labels by 2px. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar) {
+    top: 0 !important;
+  }
+}
+
+
+/* AFV410 micro-adjustment: move mobile navigation icons and labels up one additional pixel. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > svg,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item > span:not(.mobile-nav-story-avatar),
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories .mobile-nav-story-avatar,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories > span:not(.mobile-nav-story-avatar) {
+    transform: translateY(-1px) !important;
+  }
+}
+
+
+/* AFV410 active destination: stronger glass tile so the current page is obvious at a glance. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active {
+    background:
+      linear-gradient(145deg, rgba(255,255,255,.27) 0%, rgba(255,255,255,.11) 42%, rgba(255,255,255,.035) 100%),
+      linear-gradient(125deg, rgba(34,211,238,.56) 0%, rgba(59,130,246,.48) 52%, rgba(139,92,246,.58) 100%) !important;
+    border: 1px solid rgba(255,255,255,.82) !important;
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.32),
+      inset 0 -2px 0 rgba(15,23,42,.12),
+      0 0 0 1px rgba(34,211,238,.28),
+      0 0 20px rgba(59,130,246,.36) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(1.5) !important;
+    backdrop-filter: blur(16px) saturate(1.5) !important;
+    color: #FFFFFF !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active svg,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active svg,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active svg,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active svg,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active svg,
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-item.is-active span:not(.mobile-nav-story-avatar),
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-item.is-active span:not(.mobile-nav-story-avatar),
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-item.is-active span:not(.mobile-nav-story-avatar),
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-item.is-active span:not(.mobile-nav-story-avatar),
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-item.is-active span:not(.mobile-nav-story-avatar) {
+    color: #FFFFFF !important;
+    filter: drop-shadow(0 1px 2px rgba(15,23,42,.4)) !important;
+  }
+}
+
+
+/* AFV410 soft-curve palette trial: carry the loading-screen navy/cyan/blue/violet colors into the mobile floating navigation. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    background:
+      linear-gradient(115deg, rgba(34, 211, 238, .055) 0%, transparent 30%, rgba(139, 92, 246, .09) 100%),
+      linear-gradient(135deg, rgba(11, 18, 32, .99) 0%, rgba(17, 24, 39, .99) 54%, rgba(27, 22, 52, .99) 100%) !important;
+    border-top: 1px solid rgba(103, 232, 249, .42) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .09),
+      0 -5px 20px rgba(34, 211, 238, .075),
+      0 -4px 26px rgba(139, 92, 246, .10) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.25) !important;
+    backdrop-filter: blur(18px) saturate(1.25) !important;
+  }
+}
