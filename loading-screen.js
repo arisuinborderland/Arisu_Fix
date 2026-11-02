@@ -13,7 +13,9 @@
       return;
     }
   } catch (error) {
-    // Storage may be unavailable; keep the optional loading screen usable regardless.
+    // Preserve the existing fail-closed behavior when session storage is unavailable.
+    overlay.remove();
+    return;
   }
 
   // Lock page scrolling while the fixed loading overlay is active.
