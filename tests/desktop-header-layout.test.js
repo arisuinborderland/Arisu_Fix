@@ -38,7 +38,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
     assert.deepEqual(
       links.slice(headerIndex + 1),
-      page === 'index.html' ? ['verified-badge-animation.css?v=AFV407&reveal=after-overlay1'] : [],
+      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=after-overlay2'] : [],
       page + ' must only load the verified badge animation stylesheet after the common header stylesheet when needed'
     );
   }
@@ -48,7 +48,7 @@ test('Homepage verified check animation starts only after the loading overlay is
   const animationCss = read('verified-badge-animation.css');
   const loaderJs = read('loading-screen.js');
   assert.ok(animationCss.includes('html.badge-animation-ready body.home-page'));
-  assert.ok(animationCss.includes('animation: arisu-brand-check-reveal-v2 900ms'));
+  assert.ok(animationCss.includes('animation: arisu-brand-check-reveal-v3 900ms'));
   assert.ok(loaderJs.includes('const revealBadge ='));
   assert.ok(loaderJs.includes('overlay.remove();\n      revealBadge();'));
   assert.ok(loaderJs.includes('window.setTimeout(() => {\n        overlay.remove();\n        revealBadge();'));
