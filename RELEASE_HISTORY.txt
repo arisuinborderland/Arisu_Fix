@@ -1,3 +1,12 @@
+AFV406 — Realistic Navy Wave Header
+
+## AFV406 — Refresh homepage header colors and finish
+- Replaced the previous header-only treatment with a restrained navy-to-indigo background.
+- Added subtle teal and violet wave accents with a quiet lower edge; the accent remains less vivid than the WhatsApp CTA.
+- Preserved the existing profile, verified badge, text, dimensions, responsive layout, and navigation.
+- Updated the homepage stylesheet cache token and synchronized package metadata.
+- Preview only; validate the mobile header before merging.
+
 AFV405 — Shared More Menu
 
 ## AFV405 — Add shared More menu to public pages
