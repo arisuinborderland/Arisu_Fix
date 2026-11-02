@@ -137,6 +137,21 @@ test('AFV406 About card uses the approved personal-story copy consistently', () 
   for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
     const html = read(page);
     assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
-    assert.ok(html.includes('To Explore My Story'), page + ' must use the approved story button label');
+    assert.ok(html.includes('Explore My Story'), page + ' must use the approved story button label');
+  }
+});
+
+test('AFV406 places Explore My Story below the creation milestone and compacts spacing on mobile', () => {
+  const css = read('footer-reference.css');
+  assert.ok(css.includes('@media (max-width: 600px)'), 'mobile-only compact styles must be scoped to mobile');
+  assert.ok(css.includes('padding-top: 2px !important;'), 'mobile About section top spacing must be 2px');
+  assert.ok(css.includes('margin-top: 2px;'), 'mobile creation milestone spacing must be 2px');
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    const descriptionIndex = html.indexOf('A small milestone marking the beginning of Arisu Fix.');
+    const buttonIndex = html.indexOf('Explore My Story', descriptionIndex);
+    const checkIndex = html.indexOf('reference-about-created-check', descriptionIndex);
+    assert.ok(descriptionIndex >= 0 && buttonIndex > descriptionIndex && checkIndex > buttonIndex, page + ' must place Explore My Story below the milestone description and before the badge');
+    assert.ok(!html.includes('To Explore My Story'), page + ' must not retain the old button wording');
   }
 });
