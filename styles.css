@@ -10742,11 +10742,11 @@ html body.home-page .topbar {
   isolation: isolate;
   background:
     linear-gradient(108deg,
-      rgba(44, 218, 255, .22) 0%,
-      rgba(100, 125, 255, .14) 34%,
-      rgba(177, 94, 255, .20) 68%,
-      rgba(255, 76, 199, .18) 100%),
-    linear-gradient(110deg, #dff2ff 0%, #e6e7ff 46%, #f5def4 100%) !important;
+      rgba(44, 218, 255, .10) 0%,
+      rgba(100, 125, 255, .075) 34%,
+      rgba(177, 94, 255, .085) 68%,
+      rgba(255, 76, 199, .075) 100%),
+    linear-gradient(110deg, #eaf4fb 0%, #efedfa 48%, #f7edf5 100%) !important;
   box-shadow:
     0 5px 22px rgba(91, 111, 176, .11),
     inset 0 1px 0 rgba(255, 255, 255, .96),
@@ -10760,20 +10760,17 @@ html body.home-page .topbar::after {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 2px;
+  height: 1px;
   pointer-events: none;
   background: linear-gradient(90deg,
-    rgba(39, 234, 255, .45) 0%,
-    rgba(39, 234, 255, .98) 14%,
-    rgba(75, 133, 255, .96) 38%,
-    rgba(169, 91, 255, .98) 65%,
-    rgba(255, 69, 200, .96) 86%,
-    rgba(255, 69, 200, .48) 100%);
-  box-shadow:
-    0 0 5px rgba(39, 234, 255, .42),
-    0 0 12px rgba(117, 94, 255, .34),
-    0 0 17px rgba(255, 69, 200, .2);
-  opacity: .96;
+    rgba(91, 190, 218, .16) 0%,
+    rgba(91, 190, 218, .34) 18%,
+    rgba(117, 139, 220, .38) 42%,
+    rgba(163, 128, 205, .36) 66%,
+    rgba(204, 132, 183, .32) 86%,
+    rgba(204, 132, 183, .14) 100%);
+  box-shadow: 0 0 5px rgba(125, 137, 208, .12);
+  opacity: .82;
 }
 @media (prefers-reduced-motion: reduce) {
   html body.home-page .topbar::after { box-shadow: none; }
