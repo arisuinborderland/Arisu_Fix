@@ -122,3 +122,13 @@ test('AFV406 homepage About card includes the creation-date milestone and approv
   assert.ok(footer.includes('.reference-footer .reference-about-created'));
   assert.ok(footer.includes('.reference-footer .reference-about-created-copy'));
 });
+
+test('AFV406 keeps the creation-date milestone consistent across footer cards', () => {
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    assert.ok(html.includes('Arisu Fix is a personal project built to provide reliable Facebook and Instagram account recovery assistance, guides, and helpful resources in a simple and safe way.'), page + ' must use the approved About description');
+    assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the creation date');
+    assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
+    assert.ok(html.includes('footer-reference.css?v=AFV406&createddate=1'), page + ' must load the cache-busted footer stylesheet');
+  }
+});
