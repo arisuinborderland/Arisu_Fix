@@ -273,3 +273,23 @@
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen .boot-progress-fill { animation: none; }
 }
+
+
+/* AFV405 mandatory loading — lock the document behind the overlay until startup completes. */
+html.arisu-loading-active,
+body.arisu-loading-active {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  height: 100% !important;
+}
+body.arisu-loading-active {
+  touch-action: pan-x !important;
+}
+#arisu-loading-screen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#arisu-loading-screen.is-ready {
+  pointer-events: none;
+}
