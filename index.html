@@ -33,6 +33,16 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
+ <!-- AFV406: decide loading visibility synchronously before the first paint. -->
+ <script id="loading-screen-first-paint-guard">
+  try {
+   if (window.sessionStorage.getItem("arisuFixHomepageLoadingShown") !== "1") {
+    document.documentElement.classList.add("arisu-loading-first-run");
+   }
+  } catch (error) {
+   /* Keep the existing fail-closed behavior when session storage is unavailable. */
+  }
+ </script>
  <link rel="stylesheet" href="styles.css?v=AFV358&desktoplayout=1">
  <link rel="stylesheet" href="about-link.css?v=AFV341&homebtnpadding=1">
  <link rel="stylesheet" href="story-viewer.css?v=AFV389&card=5">
@@ -153,7 +163,7 @@
 
   <link rel="stylesheet" href="footer-reference.css?v=AFV367">
   <!-- Critical first-paint guard: prevent the homepage overlay flashing before its stylesheet and session guard run. -->
-  <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}</style>
+  <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}html.arisu-loading-first-run #arisu-loading-screen{opacity:1;visibility:visible;pointer-events:auto}</style>
   <link rel="stylesheet" href="loading-screen.css?v=AFV406&sessionguard=4">
   <link rel="stylesheet" href="homepage-header-theme.css?v=AFV406&navywave=approved2">
   <link rel="stylesheet" href="desktop-header.css?v=AFV319">
