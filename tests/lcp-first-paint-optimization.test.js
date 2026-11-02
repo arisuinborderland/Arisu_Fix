@@ -68,3 +68,15 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
 });
+
+test('AFV406 shows the loading overlay on first paint without waiting for the deferred script', () => {
+  const index = read('index.html');
+  const guardScript = index.indexOf('id="loading-screen-first-paint-guard"');
+  const firstStylesheet = index.indexOf('href="styles.css');
+  const criticalGuard = index.indexOf('html.arisu-loading-first-run #arisu-loading-screen');
+  assert.notEqual(guardScript, -1, 'a synchronous first-paint session guard must exist');
+  assert.ok(guardScript < firstStylesheet, 'session state must be checked before stylesheet and page rendering');
+  assert.notEqual(criticalGuard, -1, 'critical CSS must show the overlay for a first run before deferred JavaScript executes');
+  assert.ok(index.includes('document.documentElement.classList.add("arisu-loading-first-run")'));
+  assert.ok(index.includes('window.sessionStorage.getItem("arisuFixHomepageLoadingShown") !== "1"'));
+});
