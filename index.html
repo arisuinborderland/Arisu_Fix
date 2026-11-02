@@ -156,6 +156,99 @@
   <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}</style>
   <link rel="stylesheet" href="loading-screen.css?v=AFV405&refreshguard=2">
   <link rel="stylesheet" href="desktop-header.css?v=AFV319">
+  <style id="afv406-borderland-header-preview">
+    /* Homepage header concept only: keep the original profile image and brand markup intact. */
+    body.home-page header.topbar {
+      position: sticky;
+      isolation: isolate;
+      overflow: hidden;
+      box-sizing: border-box;
+      width: calc(100% - 28px);
+      min-height: 94px;
+      margin: 10px 14px 0;
+      padding: 10px 14px;
+      border: 1px solid rgba(151, 190, 255, .78);
+      border-bottom-color: rgba(185, 112, 255, .76);
+      border-radius: 22px;
+      background: linear-gradient(110deg, #e8f8ff 0%, #edf0ff 46%, #e8e5ff 100%);
+      box-shadow: 0 7px 22px rgba(66, 115, 222, .14), inset 0 1px 0 rgba(255,255,255,.96);
+    }
+    body.home-page header.topbar::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 58%;
+      background-image: url("/assets/header/alice-borderland-header.svg?v=AFV406");
+      background-position: center right;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: .96;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.16) 9%, #000 30%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.16) 9%, #000 30%);
+    }
+    body.home-page header.topbar::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(115deg, rgba(255,255,255,.18) 0%, transparent 45%, rgba(255,65,161,.08) 100%);
+      pointer-events: none;
+    }
+    body.home-page header.topbar > .brand {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+    body.home-page header.topbar > .brand .profile-logo {
+      box-shadow: 0 0 0 2px rgba(255,255,255,.96), 0 0 0 4px rgba(63, 207, 255, .7), 0 0 15px rgba(109, 95, 255, .28);
+    }
+    body.home-page header.topbar > .header-meta {
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 600px) {
+      body.home-page header.topbar {
+        width: calc(100% - 20px);
+        min-height: 88px;
+        margin: 8px 10px 0;
+        padding: 9px 10px;
+        border-radius: 20px;
+      }
+      body.home-page header.topbar::before {
+        width: 61%;
+        background-position: 57% center;
+        opacity: .9;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.1) 14%, #000 39%);
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.1) 14%, #000 39%);
+      }
+      body.home-page header.topbar > .brand {
+        gap: 10px;
+      }
+      body.home-page header.topbar > .brand .brand-copy {
+        text-shadow: 0 1px 0 rgba(255,255,255,.72);
+      }
+    }
+    @media (max-width: 380px) {
+      body.home-page header.topbar::before {
+        width: 56%;
+        opacity: .72;
+        background-position: 61% center;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body.home-page header.topbar,
+      body.home-page header.topbar::before {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
   <script src="loading-screen.js?v=AFV405&refreshguard=3" defer></script>
 </head>
 <body class="home-page" id="top">
