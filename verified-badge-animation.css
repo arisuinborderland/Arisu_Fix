@@ -5,8 +5,9 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge {
   filter: none !important;
 }
 html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge::after {
-  animation: none !important;
-  opacity: 0 !important;
+  content: "" !important;
+  animation: arisu-brand-badge-glow 2s ease-out infinite !important;
+  pointer-events: none !important;
 }
 html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
   display: block !important;
