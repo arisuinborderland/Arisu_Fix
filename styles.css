@@ -10853,49 +10853,52 @@ html body.about-page .topbar::after {
    Keep this stylesheet from pinning stroke-dashoffset with !important, which prevents
    CSS keyframes from drawing the SVG path. */
 
-/* AFV407 — match the secondary-page mobile brand sizing to the homepage reference. */
+/* AFV408 — use the homepage's exact mobile header sizing on About and Privacy. */
 @media (max-width: 700px) {
   html body.privacy-page .topbar,
   html body.about-page .topbar {
-    padding: 10px 12px 11px !important;
-    column-gap: 10px !important;
-    row-gap: 8px !important;
+    padding: 10px 12px 11px;
+    column-gap: 10px;
+    row-gap: 8px;
   }
   html body.privacy-page .topbar > .brand,
   html body.about-page .topbar > .brand {
-    flex: 1 1 auto !important;
-    justify-content: flex-start !important;
-    min-width: 0 !important;
-    gap: 9px !important;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    gap: 9px;
   }
   html body.privacy-page .topbar > .brand .logo,
   html body.about-page .topbar > .brand .logo {
-    width: 43px !important;
-    height: 43px !important;
-    flex: 0 0 43px !important;
-    border-radius: 13px !important;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 13px;
   }
+  html body.privacy-page .topbar > .brand .brand-copy,
+  html body.about-page .topbar > .brand .brand-copy { min-width: 0; }
   html body.privacy-page .topbar > .brand b,
   html body.about-page .topbar > .brand b {
-    font-size: 15px !important;
-    line-height: 1.15 !important;
-    letter-spacing: -.35px !important;
+    font-size: 15px;
+    line-height: 1.15;
+    letter-spacing: -.35px;
   }
   html body.privacy-page .topbar > .brand small,
   html body.about-page .topbar > .brand small {
-    margin-top: 3px !important;
-    font-size: 11px !important;
-    line-height: 1.2 !important;
+    margin-top: 3px;
+    font-size: 11px;
+    line-height: 1.2;
   }
 }
 @media (max-width: 380px) {
-  html body.privacy-page .topbar > .brand { gap: 7px !important; }
-  html body.about-page .topbar > .brand { gap: 7px !important; }
+  html body.privacy-page .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.about-page .topbar { padding-left: 9px; padding-right: 9px; }
+  html body.privacy-page .topbar > .brand,
+  html body.about-page .topbar > .brand { gap: 7px; }
   html body.privacy-page .topbar > .brand .logo,
   html body.about-page .topbar > .brand .logo {
-    width: 39px !important;
-    height: 39px !important;
-    flex-basis: 39px !important;
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
   }
 }
-
