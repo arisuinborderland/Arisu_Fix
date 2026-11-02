@@ -1,3 +1,11 @@
+AFV408 — Shared Navy-to-Indigo Header Theme
+
+## AFV408 — Add shared navy-to-indigo header theme
+- Added a shared header theme and soft cyan-to-violet separator across the five public pages.
+- Included the stylesheet in the production build allowlist and refreshed its cache token.
+- Synchronized package metadata to AFV408 / 408.0.0.
+- Preview only; validate build and mobile/desktop appearance before merging.
+
 AFV405 — Shared More Menu
 
 ## AFV405 — Add shared More menu to public pages
