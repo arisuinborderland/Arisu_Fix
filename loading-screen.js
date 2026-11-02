@@ -5,6 +5,14 @@
   const root = document.documentElement;
   const body = document.body;
 
+  // The checkmark loop is CSS-driven; keep the badge itself static.
+  const revealBadge = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const path = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg path");
+      if (path) path.style.setProperty("stroke-dashoffset", "0", "important");
+    }
+  };
+
   // Once per tab session: skip the overlay on refresh and internal return navigation.
   if (root.classList.contains("arisu-loading-skip")) {
     if (overlay) overlay.remove();
@@ -13,13 +21,7 @@
     revealBadge();
     return;
   }
-  // The checkmark loop is CSS-driven; keep the badge itself static.
-  const revealBadge = () => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const path = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg path");
-      if (path) path.style.setProperty("stroke-dashoffset", "0", "important");
-    }
-  };
+
 
   if (!overlay) {
     root.classList.remove("arisu-loading-active");
