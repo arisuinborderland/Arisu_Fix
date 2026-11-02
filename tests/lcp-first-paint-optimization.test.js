@@ -36,8 +36,8 @@ test('AFV409 release metadata is synchronized', () => {
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
   assert.equal(pkg.version, '409.0.0');
-  assert.equal(lock.version, '405.0.0');
-  assert.equal(lock.packages[''].version, '405.0.0');
+  assert.equal(lock.version, '409.0.0');
+  assert.equal(lock.packages[''].version, '409.0.0');
   assert.ok(readme.includes('Current release: AFV409'));
   assert.ok(history.startsWith('AFV409 — Loading Screen Session Guard'));
 });
