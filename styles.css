@@ -10732,3 +10732,12 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+/* AFV405: hide header destinations before deferred More-menu JS runs, preventing a refresh flash. */
+html body header.topbar .privacy-link,
+html body header.topbar .about-header-link,
+html body header.topbar .privacy-about-link,
+html body header.topbar .proofs-header-link,
+html body header.topbar .webtools-header-link {
+  display: none !important;
+}
