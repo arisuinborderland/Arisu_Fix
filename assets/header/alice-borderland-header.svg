@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="Neon Borderland-inspired cityscape with a red moon, countdown tower and playing-card suits">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9eaff"/><stop offset=".38" stop-color="#777be8"/><stop offset=".7" stop-color="#152b61"/><stop offset="1" stop-color="#170d32"/></linearGradient>
+ <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d8efff" stop-opacity="0"/><stop offset=".28" stop-color="#d8efff" stop-opacity=".06"/><stop offset=".56" stop-color="#4e4ad8" stop-opacity=".45"/><stop offset="1" stop-color="#0c1738" stop-opacity=".2"/></linearGradient>
+ <radialGradient id="moon"><stop stop-color="#ff9eaa"/><stop offset=".65" stop-color="#ff3d68"/><stop offset="1" stop-color="#c41450"/></radialGradient>
+ <linearGradient id="neon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff4b9c"/><stop offset=".5" stop-color="#8b76ff"/><stop offset="1" stop-color="#43e8ff"/></linearGradient>
+ <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="windows" width="18" height="20" patternUnits="userSpaceOnUse"><rect x="4" y="4" width="5" height="7" fill="#ff547b" opacity=".85"/><rect x="12" y="13" width="3" height="4" fill="#57dfff" opacity=".7"/></pattern>
+</defs>
+<rect width="1200" height="360" fill="url(#sky)"/>
+<circle cx="1080" cy="50" r="105" fill="#ff315c" opacity=".25" filter="url(#glow)"/><circle cx="1080" cy="50" r="79" fill="url(#moon)"/>
+<path d="M1018 4l24 22-12 22 31 16-13 29 27 20M1082 -20l-8 37 18 17-9 26 21 20M1123 -7l-16 31 15 20-8 27 18 18" fill="none" stroke="#ffb2bf" stroke-width="3" opacity=".45"/>
+<path d="M0 246L70 218 130 241 190 198 260 232 315 205 370 240 430 194 500 228 562 204 620 244 686 202 740 237 804 199 864 237 918 195 974 231 1032 195 1090 231 1145 204 1200 224V360H0Z" fill="#1c285c" opacity=".8"/>
+<g opacity=".96" fill="#101b42">
+ <path d="M0 260h44v-58h28v58h23v-94h36v94h22v-73h31v73h30v-47h29v47h26v-100h38v100h26v-66h29v66h34v-90h39v90h30v-56h24v56h32v-110h42v110h29v-74h32v74h28v-48h32v48h27v-93h40v93h30v-59h32v59h29v-77h41v77h28v-47h27v47h27v-84h38v84h29v-53h31v53h28v-94h40v94h32v100H0Z"/>
+</g>
+<g opacity=".9"><path d="M0 245h1200v115H0Z" fill="url(#windows)" opacity=".25"/></g>
+<!-- tilted ace card -->
+<g transform="translate(680 72) rotate(13)">
+ <rect x="0" y="0" width="130" height="202" rx="8" fill="#f7f6ff" stroke="#ffb3d5" stroke-width="3" filter="url(#glow)"/>
+ <text x="14" y="29" font-family="Georgia,serif" font-size="25" font-weight="bold" fill="#b91d50">A</text>
+ <path d="M65 64C48 42 25 67 45 87L65 106 85 87C105 67 82 42 65 64Z" fill="#11172d"/>
+ <path d="M17 145l21-8 10 18-18 14M83 159l18-11 12 18-17 15M27 184l13-7 10 9M88 34l11 6-4 14" fill="none" stroke="#c12a54" stroke-width="3" opacity=".8"/>
+ <path d="M0 0h130v202H0Z" fill="none" stroke="#fff" stroke-width="1" opacity=".8"/>
+</g>
+<!-- countdown tower -->
+<g stroke="#111a3b" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M900 350L965 83 1032 350M920 264h92M931 214h70M942 164h48M954 117h22M912 299l93-76M925 244l77-65M939 190l66-51M955 141l54-35M1016 298l-83-65M1003 242l-67-61M989 188l-48-47"/>
+ <path d="M943 90h74l-13-31h-48Z" fill="#182147"/>
+ <rect x="926" y="100" width="113" height="59" rx="5" fill="#151b3a" stroke="#ff4d78" stroke-width="4" filter="url(#glow)"/>
+</g>
+<text x="982" y="139" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" letter-spacing="2" fill="#ff3c63" filter="url(#glow)">00:00</text>
+<!-- card suit neon icons -->
+<g font-family="Arial,sans-serif" font-size="64" font-weight="bold" text-anchor="middle" filter="url(#glow)">
+ <text x="858" y="315" fill="#ff4a9c" stroke="#ffd4e9" stroke-width="1">♦</text>
+ <text x="954" y="315" fill="#e7efff" stroke="#8bdfff" stroke-width="1">♣</text>
+ <text x="1052" y="315" fill="#ff4778" stroke="#ffd4e9" stroke-width="1">♥</text>
+ <text x="1147" y="315" fill="#f6f5ff" stroke="#9deaff" stroke-width="1">♠</text>
+</g>
+<path d="M0 335C230 321 370 358 555 328S850 333 1200 319" fill="none" stroke="url(#neon)" stroke-width="5" opacity=".85" filter="url(#glow)"/>
+<rect width="1200" height="360" fill="url(#fade)"/>
+</svg>
