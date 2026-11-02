@@ -10829,3 +10829,34 @@ html body.home-page .topbar .arisu-verified-badge svg path {
     stroke-dashoffset: 0 !important;
   }
 }
+
+/* Final verified-badge fix: keep the white check visible on the blue badge.
+   Draw it once on load; do not pulse or blink the badge itself. */
+html body .topbar .brand .brand-name-row .arisu-verified-badge svg {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+html body .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+  fill: none !important;
+  stroke: #fff !important;
+  stroke-width: 3.1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  opacity: 1 !important;
+  stroke-dasharray: 24 !important;
+  stroke-dashoffset: 24 !important;
+  animation: arisu-brand-check-draw 1.2s ease-out 1 both !important;
+}
+html body .topbar .brand .brand-name-row .arisu-verified-badge,
+html body .topbar .brand .brand-name-row .arisu-verified-badge::after {
+  animation: none !important;
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
