@@ -157,95 +157,61 @@
   <link rel="stylesheet" href="loading-screen.css?v=AFV405&refreshguard=2">
   <link rel="stylesheet" href="desktop-header.css?v=AFV319">
   <style id="afv406-borderland-header-preview">
-    /* Homepage header concept only: keep the original profile image and brand markup intact. */
+    /* Decorative art only: preserve the original header geometry and profile placement. */
     body.home-page header.topbar {
       position: sticky;
       isolation: isolate;
       overflow: hidden;
-      box-sizing: border-box;
-      width: calc(100% - 28px);
-      min-height: 94px;
-      margin: 10px 14px 0;
-      padding: 10px 14px;
-      border: 1px solid rgba(151, 190, 255, .78);
-      border-bottom-color: rgba(185, 112, 255, .76);
-      border-radius: 22px;
-      background: linear-gradient(110deg, #e8f8ff 0%, #edf0ff 46%, #e8e5ff 100%);
-      box-shadow: 0 7px 22px rgba(66, 115, 222, .14), inset 0 1px 0 rgba(255,255,255,.96);
+      background-color: rgba(255,255,255,.94);
+      background-image: linear-gradient(105deg, rgba(232,248,255,.2) 0%, rgba(237,240,255,.14) 45%, rgba(232,229,255,.12) 100%);
     }
     body.home-page header.topbar::before {
       content: "";
       position: absolute;
-      z-index: -1;
+      z-index: 0;
       top: 0;
       right: 0;
       bottom: 0;
-      width: 58%;
+      width: min(58%, 520px);
       background-image: url("/assets/header/alice-borderland-header.svg?v=AFV405");
-      background-position: center right;
-      background-size: cover;
+      background-position: right center;
+      background-size: 100% 100%;
       background-repeat: no-repeat;
-      opacity: .96;
+      opacity: .94;
       pointer-events: none;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.16) 9%, #000 30%);
-      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.16) 9%, #000 30%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.12) 8%, #000 28%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.12) 8%, #000 28%);
     }
     body.home-page header.topbar::after {
       content: "";
       position: absolute;
-      z-index: -1;
+      z-index: 0;
       inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(115deg, rgba(255,255,255,.18) 0%, transparent 45%, rgba(255,65,161,.08) 100%);
+      background: linear-gradient(105deg, rgba(255,255,255,.06) 0%, transparent 47%, rgba(255,65,161,.04) 100%);
       pointer-events: none;
     }
-    body.home-page header.topbar > .brand {
-      position: relative;
-      z-index: 1;
-      min-width: 0;
-      flex: 0 1 auto;
-    }
-    body.home-page header.topbar > .brand .profile-logo {
-      box-shadow: 0 0 0 2px rgba(255,255,255,.96), 0 0 0 4px rgba(63, 207, 255, .7), 0 0 15px rgba(109, 95, 255, .28);
-    }
+    body.home-page header.topbar > .brand,
     body.home-page header.topbar > .header-meta {
       position: relative;
       z-index: 1;
     }
+    body.home-page header.topbar > .brand .profile-logo {
+      box-shadow: 0 0 0 2px rgba(255,255,255,.96), 0 0 0 3px rgba(63,207,255,.55), 0 0 12px rgba(109,95,255,.2);
+    }
     @media (max-width: 600px) {
-      body.home-page header.topbar {
-        width: calc(100% - 20px);
-        min-height: 88px;
-        margin: 8px 10px 0;
-        padding: 9px 10px;
-        border-radius: 20px;
-      }
       body.home-page header.topbar::before {
-        width: 61%;
-        background-position: 57% center;
-        opacity: .9;
-        -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.1) 14%, #000 39%);
-        mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.1) 14%, #000 39%);
-      }
-      body.home-page header.topbar > .brand {
-        gap: 10px;
-      }
-      body.home-page header.topbar > .brand .brand-copy {
-        text-shadow: 0 1px 0 rgba(255,255,255,.72);
+        width: 58%;
+        background-position: right center;
+        background-size: 100% 100%;
+        opacity: .88;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.08) 12%, #000 34%);
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.08) 12%, #000 34%);
       }
     }
     @media (max-width: 380px) {
       body.home-page header.topbar::before {
-        width: 56%;
-        opacity: .72;
-        background-position: 61% center;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      body.home-page header.topbar,
-      body.home-page header.topbar::before {
-        animation: none !important;
-        transition: none !important;
+        width: 53%;
+        opacity: .78;
       }
     }
   </style>
