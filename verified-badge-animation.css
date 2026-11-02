@@ -16,6 +16,8 @@ html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg {
   width: 100% !important;
   height: 100% !important;
   overflow: visible !important;
+  clip-path: none;
+  animation: none !important;
 }
 html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
   fill: none !important;
@@ -29,18 +31,20 @@ html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg pat
   clip-path: none;
   animation: none !important;
 }
-html.badge-animation-ready body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+html.badge-animation-ready body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg {
   clip-path: inset(0 100% 0 0);
-  animation: arisu-brand-check-reveal-v2 900ms cubic-bezier(.2,.75,.25,1) 1 both !important;
+  animation: arisu-brand-check-reveal-v3 900ms cubic-bezier(.2,.75,.25,1) 1 both !important;
 }
-@keyframes arisu-brand-check-reveal-v2 {
+@keyframes arisu-brand-check-reveal-v3 {
   from { clip-path: inset(0 100% 0 0); }
   to { clip-path: inset(0 0 0 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.badge-animation-ready body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
+  html.badge-animation-ready body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg {
     animation: none !important;
     clip-path: none !important;
+  }
+  html body.home-page .topbar .brand .brand-name-row .arisu-verified-badge svg path {
     stroke-dashoffset: 0 !important;
   }
 }
