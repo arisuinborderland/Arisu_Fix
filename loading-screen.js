@@ -4,6 +4,15 @@
   const overlay = document.getElementById("arisu-loading-screen");
   const root = document.documentElement;
   const body = document.body;
+
+  // Once per tab session: skip the overlay on refresh and internal return navigation.
+  if (root.classList.contains("arisu-loading-skip")) {
+    if (overlay) overlay.remove();
+    root.classList.remove("arisu-loading-active");
+    body.classList.remove("arisu-loading-active");
+    revealBadge();
+    return;
+  }
   // The checkmark loop is CSS-driven; keep the badge itself static.
   const revealBadge = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
