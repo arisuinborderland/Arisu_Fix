@@ -10783,3 +10783,26 @@ html body.home-page .topbar .header-meta a:focus-visible {
   background: rgba(255, 255, 255, .08);
   border-color: rgba(198, 218, 241, .38);
 }
+
+
+/* Soft gradient bottom separator — visible separation without overpowering the header. */
+html body.home-page .topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(77, 203, 215, .70) 0%,
+    rgba(91, 145, 238, .72) 34%,
+    rgba(147, 125, 224, .68) 68%,
+    rgba(218, 157, 211, .56) 100%
+  );
+  box-shadow:
+    0 0 5px rgba(100, 151, 239, .22),
+    0 -1px 4px rgba(174, 133, 222, .12);
+}
