@@ -4,23 +4,22 @@
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
 
-  // Show once per tab session. Reloads and the site's Home button won't replay it.
+  // Mark the session only after the loading sequence finishes. If the user refreshes
+  // while it is still running, the next page load can show the overlay again.
   const sessionKey = "arisuFixHomepageLoadingShown";
   try {
     if (window.sessionStorage.getItem(sessionKey) === "1") {
       overlay.remove();
       return;
     }
-    window.sessionStorage.setItem(sessionKey, "1");
   } catch (error) {
-    // Fail closed: if session storage is unavailable, don't risk showing the overlay
-    // on every refresh. The homepage remains usable without the optional loading screen.
-    overlay.remove();
-    return;
+    // Storage may be unavailable; keep the optional loading screen usable regardless.
   }
 
-  // Keep the overlay hidden in the initial HTML. Only reveal it after the session guard
-  // confirms this is the first homepage visit in the current tab, preventing refresh flashes.
+  // Lock page scrolling while the fixed loading overlay is active.
+  document.documentElement.classList.add("arisu-loading-active");
+
+  // Keep the overlay hidden in the initial HTML until the session guard is checked.
   overlay.classList.add("is-visible");
 
   const rows = [
@@ -114,10 +113,20 @@
       return element && element.dataset.state === "ok";
     }) ? "Initialization complete · opening homepage" : "Homepage ready with a resource warning";
 
+    // A refresh before this point leaves the session unmarked, so loading is not lost.
+    try {
+      window.sessionStorage.setItem(sessionKey, "1");
+    } catch (error) {
+      // Continue normally if session storage is unavailable.
+    }
+
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
       overlay.setAttribute("aria-hidden", "true");
-      window.setTimeout(() => overlay.remove(), 440);
+      window.setTimeout(() => {
+        document.documentElement.classList.remove("arisu-loading-active");
+        overlay.remove();
+      }, 440);
     });
   }
 
