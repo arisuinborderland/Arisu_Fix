@@ -114,7 +114,7 @@ test('AFV406 header and loading CSS cleanup preserves only the active animation 
 test('AFV406 homepage About card includes the creation-date milestone and approved description', () => {
   const index = read('index.html');
   const footer = read('footer-reference.css');
-  assert.ok(index.includes('Arisu Fix is a personal project built to provide reliable Facebook and Instagram account recovery assistance, guides, and helpful resources in a simple and safe way.'));
+  assert.ok(index.includes('My story, mission, and why I created this website.'));
   assert.ok(index.includes('Created on October 14, 2026'));
   assert.ok(index.includes('A small milestone marking the beginning of Arisu Fix.'));
   assert.ok(index.includes('reference-about-created-check'));
@@ -126,9 +126,17 @@ test('AFV406 homepage About card includes the creation-date milestone and approv
 test('AFV406 keeps the creation-date milestone consistent across footer cards', () => {
   for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
     const html = read(page);
-    assert.ok(html.includes('Arisu Fix is a personal project built to provide reliable Facebook and Instagram account recovery assistance, guides, and helpful resources in a simple and safe way.'), page + ' must use the approved About description');
+    assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
     assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the creation date');
     assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
     assert.ok(html.includes('footer-reference.css?v=AFV406&createddate=1'), page + ' must load the cache-busted footer stylesheet');
+  }
+});
+
+test('AFV406 About card uses the approved personal-story copy consistently', () => {
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
+    assert.ok(html.includes('To Explore My Story'), page + ' must use the approved story button label');
   }
 });
