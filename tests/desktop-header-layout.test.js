@@ -38,10 +38,19 @@ test('All public pages load the shared header stylesheet after page-specific sty
     assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
     assert.deepEqual(
       links.slice(headerIndex + 1),
-      page === 'index.html' ? ['verified-badge-animation.css?v=AFV405&reveal=2'] : [],
+      page === 'index.html' ? ['verified-badge-animation.css?v=AFV407&reveal=after-overlay1'] : [],
       page + ' must only load the verified badge animation stylesheet after the common header stylesheet when needed'
     );
   }
+});
+
+test('Homepage verified check animation starts only after the loading overlay is removed', () => {
+  const animationCss = read('verified-badge-animation.css');
+  const loaderJs = read('loading-screen.js');
+  assert.match(animationCss, /html\\.badge-animation-ready body\\.home-page[\\s\\S]*?animation:\\s*arisu-brand-check-reveal-v2 900ms/);
+  assert.match(loaderJs, /function revealBadge|const revealBadge =/);
+  assert.match(loaderJs, /overlay\\.remove\\(\\);\\s*revealBadge\\(\\);/);
+  assert.match(loaderJs, /window\\.setTimeout\\(\\(\\) => \\{\\s*overlay\\.remove\\(\\);\\s*revealBadge\\(\\);/);
 });
 
 test('Production build allowlist includes the shared header stylesheet', () => {
