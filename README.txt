@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV405
-Updated: 2026-11-01
+Version: AFV406
+Updated: 2026-11-02
 
-Current release: AFV405
-Package version: 405.0.0
+Current release: AFV406
+Package version: 406.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV406 replaces the old homepage header styling with a compact navy-to-indigo gradient, restrained teal/violet wave accents, subtle edging, and higher-contrast brand text. Existing header content, dimensions, and responsive layout are preserved.
 - AFV405 adds the shared More menu to the five public pages and includes its JS/CSS in the production build allowlist. Updates package metadata and validation expectations to AFV405.
 - AFV402 replaces the homepage loading success checkmarks with cyan terminal prompts; preserves the green 200 OK badges, loading behavior, and layout.
 - AFV393 updates the homepage loading bar to the Stories-style purple-magenta-cyan gradient while preserving real initialization progress and the neon glow.
