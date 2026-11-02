@@ -13,7 +13,10 @@
     }
     window.sessionStorage.setItem(sessionKey, "1");
   } catch (error) {
-    // If storage is unavailable, continue normally rather than blocking the homepage.
+    // Fail closed: if session storage is unavailable, don't risk showing the overlay
+    // on every refresh. The homepage remains usable without the optional loading screen.
+    overlay.remove();
+    return;
   }
 
   // Keep the overlay hidden in the initial HTML. Only reveal it after the session guard
