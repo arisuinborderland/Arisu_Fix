@@ -19,7 +19,7 @@
   }
 
   const startedAt = performance.now();
-  const MINIMUM_DISPLAY_MS = 3000;
+  const MINIMUM_DISPLAY_MS = 2500;
   let finished = false;
   root.classList.add("arisu-loading-active");
   body.classList.add("arisu-loading-active");
