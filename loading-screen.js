@@ -2,7 +2,14 @@
 /* AFV407 — Smooth startup progress; reveal the header check only after the overlay is gone. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
-  const revealBadge = () => window.requestAnimationFrame(() => document.documentElement.classList.add("badge-animation-ready"));
+  const revealBadge = () => {
+    document.documentElement.classList.remove("badge-animation-ready");
+    window.requestAnimationFrame(() => {
+      const badge = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg");
+      if (badge) void badge.getBoundingClientRect();
+      window.requestAnimationFrame(() => document.documentElement.classList.add("badge-animation-ready"));
+    });
+  };
   if (!overlay) {
     revealBadge();
     return;
