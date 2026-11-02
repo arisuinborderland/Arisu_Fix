@@ -273,3 +273,11 @@
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen .boot-progress-fill { animation: none; }
 }
+
+
+/* AFV406 fix — prevent the page behind the loading overlay from scrolling. */
+html.arisu-loading-active,
+html.arisu-loading-active body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
