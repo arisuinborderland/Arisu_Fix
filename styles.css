@@ -10732,3 +10732,14 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* Header text contrast only: preserve the existing background, header geometry, and badge. */
+html body.home-page .topbar .brand b {
+  color: #17264b !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .62), 0 1px 2px rgba(15, 23, 42, .12) !important;
+}
+html body.home-page .topbar .brand small {
+  color: #43516b !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .68) !important;
+}
