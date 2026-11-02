@@ -1,3 +1,12 @@
+AFV409 — Loading Screen Session Guard
+
+## AFV409 — Keep the first-visit loading overlay reliable
+- Show the overlay on first paint for a new tab session.
+- Mark the tab session only after the loading sequence completes, so interrupted loads can replay.
+- Lock background scrolling while the overlay is active and release the lock when it is removed.
+- Synchronized package metadata to AFV409 / 409.0.0.
+- Preview only; validate build and browser behavior before merging.
+
 AFV405 — Shared More Menu
 
 ## AFV405 — Add shared More menu to public pages

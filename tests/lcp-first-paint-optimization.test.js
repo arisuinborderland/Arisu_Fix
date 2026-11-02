@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV405 release metadata is synchronized', () => {
+test('AFV409 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '405.0.0');
-  assert.equal(lock.version, '405.0.0');
-  assert.equal(lock.packages[''].version, '405.0.0');
-  assert.ok(readme.includes('Current release: AFV405'));
-  assert.ok(history.startsWith('AFV405 — Shared More Menu'));
+  assert.equal(pkg.version, '409.0.0');
+  assert.equal(lock.version, '409.0.0');
+  assert.equal(lock.packages[''].version, '409.0.0');
+  assert.ok(readme.includes('Current release: AFV409'));
+  assert.ok(history.startsWith('AFV409 — Loading Screen Session Guard'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
@@ -54,4 +54,25 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
+});
+
+
+test('AFV409 keeps the loading overlay visible on first paint for a new tab session', () => {
+  const index = read('index.html');
+  assert.ok(index.includes('id="loading-screen-first-paint-guard"'));
+  assert.ok(index.includes('html.arisu-loading-first-run #arisu-loading-screen'));
+  assert.ok(index.includes('document.documentElement.classList.add("arisu-loading-first-run")'));
+});
+
+test('AFV409 marks the loading session only after completion and locks background scrolling', () => {
+  const script = read('loading-screen.js');
+  const styles = read('loading-screen.css');
+  const sequenceStart = script.indexOf('async function runSequence()');
+  const sessionMark = script.indexOf('window.sessionStorage.setItem(sessionKey, "1")');
+  assert.notEqual(sequenceStart, -1);
+  assert.ok(sessionMark > sequenceStart, 'session flag must be written after sequence starts');
+  assert.ok(script.includes('document.documentElement.classList.add("arisu-loading-active")'));
+  assert.ok(script.includes('document.documentElement.classList.remove("arisu-loading-active")'));
+  assert.ok(styles.includes('html.arisu-loading-active body'));
+  assert.ok(styles.includes('overscroll-behavior: none;'));
 });
