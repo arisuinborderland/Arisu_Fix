@@ -1,3 +1,11 @@
+AFV406 — Loading Screen Cache Refresh
+
+## AFV406 — Refresh session-guarded loading-screen assets
+- Refreshes the homepage loading-screen JavaScript and stylesheet cache-busting tokens to AFV406.
+- Keeps the existing once-per-tab-session guard and fail-closed behavior unchanged.
+- Synchronizes package metadata, README, and release metadata tests to AFV406 / 406.0.0.
+- Preview build and navigation validation required before merging.
+
 AFV405 — Shared More Menu
 
 ## AFV405 — Add shared More menu to public pages
