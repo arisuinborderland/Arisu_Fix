@@ -118,7 +118,7 @@ test('AFV406 homepage About card includes the creation-date milestone and approv
   assert.ok(index.includes('Created on October 14, 2026'));
   assert.ok(index.includes('A small milestone marking the beginning of Arisu Fix.'));
   assert.ok(index.includes('reference-about-created-check'));
-  assert.ok(index.includes('footer-reference.css?v=AFV406&createddate=1'));
+  assert.ok(index.includes('footer-reference.css?v=AFV406&createddate=2'));
   assert.ok(footer.includes('.reference-footer .reference-about-created'));
   assert.ok(footer.includes('.reference-footer .reference-about-created-copy'));
 });
@@ -129,7 +129,7 @@ test('AFV406 keeps the creation-date milestone consistent across footer cards', 
     assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
     assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the creation date');
     assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
-    assert.ok(html.includes('footer-reference.css?v=AFV406&createddate=1'), page + ' must load the cache-busted footer stylesheet');
+    assert.ok(html.includes('footer-reference.css?v=AFV406&createddate=2'), page + ' must load the cache-busted footer stylesheet');
   }
 });
 
