@@ -43,16 +43,16 @@ test('AFV406 keeps loading visible after interrupted refresh and locks backgroun
   assert.ok(styles.includes('overscroll-behavior: none;'), 'overscroll gestures must not scroll the page behind the overlay');
 });
 
-test('AFV406 release metadata is synchronized', () => {
+test('AFV407 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '406.0.0');
-  assert.equal(lock.version, '406.0.0');
-  assert.equal(lock.packages[''].version, '406.0.0');
-  assert.ok(readme.includes('Current release: AFV406'));
-  assert.ok(history.startsWith('AFV406 — Loading Screen Cache Refresh'));
+  assert.equal(pkg.version, '407.0.0');
+  assert.equal(lock.version, '407.0.0');
+  assert.equal(lock.packages[''].version, '407.0.0');
+  assert.ok(readme.includes('Current release: AFV407'));
+  assert.ok(history.startsWith('AFV407 — Compact Mobile Footer & Story Button Contrast'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
@@ -118,7 +118,7 @@ test('AFV406 homepage About card includes the creation-date milestone and approv
   assert.ok(index.includes('Created on October 14, 2026'));
   assert.ok(index.includes('A small milestone marking the beginning of Arisu Fix.'));
   assert.ok(index.includes('reference-about-created-check'));
-  assert.ok(index.includes('footer-reference.css?v=AFV406&createddate=2'));
+  assert.ok(index.includes('footer-reference.css?v=AFV407&mobilecompact=1'));
   assert.ok(footer.includes('.reference-footer .reference-about-created'));
   assert.ok(footer.includes('.reference-footer .reference-about-created-copy'));
 });
@@ -129,7 +129,7 @@ test('AFV406 keeps the creation-date milestone consistent across footer cards', 
     assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
     assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the creation date');
     assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
-    assert.ok(html.includes('footer-reference.css?v=AFV406&createddate=2'), page + ' must load the cache-busted footer stylesheet');
+    assert.ok(html.includes('footer-reference.css?v=AFV407&mobilecompact=1'), page + ' must load the cache-busted footer stylesheet');
   }
 });
 
