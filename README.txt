@@ -10,6 +10,7 @@ Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
 - AFV407 improves mobile readability and compactness of the shared footer across public pages; the Explore My Story CTA now uses a forced high-contrast white label and a tighter gradient button. Desktop styling is preserved.
+- Adds a subtle Soft Curve mobile navigation finish using the loading-screen cyan-to-blue-to-violet palette, with the existing Stories glow and navigation layout preserved.
 - AFV407 refreshes the homepage loading-screen JavaScript and stylesheet cache tokens so the browser fetches the session-guarded assets; release metadata and build validation are synchronized to AFV407.
 - AFV405 adds the shared More menu to the five public pages and includes its JS/CSS in the production build allowlist. Updates package metadata and validation expectations to AFV405.
 - AFV402 replaces the homepage loading success checkmarks with cyan terminal prompts; preserves the green 200 OK badges, loading behavior, and layout.
