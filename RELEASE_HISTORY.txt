@@ -4,7 +4,7 @@ AFV407 — Compact Mobile Footer & Story Button Contrast
 - Forces the Explore My Story label and arrow to high-contrast white on the blue-to-violet gradient.
 - Compacts the shared About/creation-date card, story CTA, footer link tiles, and legal spacing on mobile across Homepage, Reviews, Proofs, and About.
 - Keeps the changes mobile-only so desktop sizing remains unchanged.
-- Refines Soft Curve into a full-width bottom-anchored navigation with curved upper corners, a visible cyan/blue/violet top edge, glass treatment, and soft halo; removes the unintended bottom gap, tightens vertical spacing, aligns the Stories avatar and label, and strengthens the active-page highlight.
+- Refines Soft Curve into a full-width bottom-anchored navigation with curved upper corners, a visible cyan/blue/violet top edge, glass treatment, and soft halo; removes the unintended bottom gap, further tightens top spacing, aligns the Stories avatar and label, and strengthens the active-page glass highlight.
 - Updates the shared footer stylesheet cache token and synchronizes package metadata, lockfile, README, and regression tests to AFV407 / 407.0.0.
 - Preview build and mobile/desktop validation required before merging.
 AFV406 — Loading Screen Cache Refresh
