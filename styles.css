@@ -10732,3 +10732,37 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV406 — Refined Neon Edge header (Option 4).
+   Visual-only treatment: preserve the existing profile, verified badge,
+   text, header dimensions, and navigation positions. */
+html body.home-page .topbar {
+  position: sticky;
+  isolation: isolate;
+  box-shadow:
+    0 5px 22px rgba(91, 111, 176, .075),
+    inset 0 1px 0 rgba(255, 255, 255, .88),
+    0 0 18px rgba(68, 178, 255, .055) !important;
+}
+html body.home-page .topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(39, 234, 255, 0) 0%,
+    rgba(39, 234, 255, .86) 17%,
+    rgba(75, 133, 255, .78) 42%,
+    rgba(169, 91, 255, .8) 67%,
+    rgba(255, 69, 200, .82) 86%,
+    rgba(255, 69, 200, 0) 100%);
+  box-shadow: 0 0 7px rgba(100, 111, 255, .19);
+  opacity: .78;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .topbar::after { box-shadow: none; }
+}
