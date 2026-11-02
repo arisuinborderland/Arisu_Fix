@@ -30,16 +30,29 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV405 release metadata is synchronized', () => {
+test('AFV406 keeps loading visible after interrupted refresh and locks background scrolling', () => {
+  const script = read('loading-screen.js');
+  const styles = read('loading-screen.css');
+  const sequenceStart = script.indexOf('async function runSequence()');
+  const sessionMark = script.indexOf('window.sessionStorage.setItem(sessionKey, "1")');
+  assert.notEqual(sequenceStart, -1, 'loading sequence must exist');
+  assert.ok(sessionMark > sequenceStart, 'session is marked only after the loading sequence completes');
+  assert.ok(script.includes('document.documentElement.classList.add("arisu-loading-active")'), 'active loading state must lock page scrolling');
+  assert.ok(script.includes('document.documentElement.classList.remove("arisu-loading-active")'), 'scroll lock must be released when the overlay is removed');
+  assert.ok(styles.includes('html.arisu-loading-active body'), 'body scrolling must be disabled while loading is active');
+  assert.ok(styles.includes('overscroll-behavior: none;'), 'overscroll gestures must not scroll the page behind the overlay');
+});
+
+test('AFV406 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '405.0.0');
-  assert.equal(lock.version, '405.0.0');
-  assert.equal(lock.packages[''].version, '405.0.0');
-  assert.ok(readme.includes('Current release: AFV405'));
-  assert.ok(history.startsWith('AFV405 — Shared More Menu'));
+  assert.equal(pkg.version, '406.0.0');
+  assert.equal(lock.version, '406.0.0');
+  assert.equal(lock.packages[''].version, '406.0.0');
+  assert.ok(readme.includes('Current release: AFV406'));
+  assert.ok(history.startsWith('AFV406 — Loading Screen Cache Refresh'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
@@ -54,4 +67,91 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
+});
+
+test('AFV406 shows the loading overlay on first paint without waiting for the deferred script', () => {
+  const index = read('index.html');
+  const guardScript = index.indexOf('id="loading-screen-first-paint-guard"');
+  const firstStylesheet = index.indexOf('href="styles.css');
+  const criticalGuard = index.indexOf('html.arisu-loading-first-run #arisu-loading-screen');
+  assert.notEqual(guardScript, -1, 'a synchronous first-paint session guard must exist');
+  assert.ok(guardScript < firstStylesheet, 'session state must be checked before stylesheet and page rendering');
+  assert.notEqual(criticalGuard, -1, 'critical CSS must show the overlay for a first run before deferred JavaScript executes');
+  assert.ok(index.includes('document.documentElement.classList.add("arisu-loading-first-run")'));
+  assert.ok(index.includes('storage.getItem(sessionKey) !== "1"'));
+});
+
+test('AFV406 skips the loading overlay when the browser switches from mobile to desktop site mode', () => {
+  const index = read('index.html');
+  assert.ok(index.includes('arisuFixLastViewportWidth'), 'the previous viewport width must be tracked in this tab session');
+  assert.match(index, /previousWidth <= 760 && currentWidth > 760/);
+  assert.match(index, /storage\.setItem\(sessionKey, "1"\)/);
+  assert.ok(index.indexOf('previousWidth <= 760 && currentWidth > 760') < index.indexOf('document.documentElement.classList.add("arisu-loading-first-run")'), 'desktop-site switch must be detected before first-paint overlay activation');
+});
+
+test('AFV406 applies the shared header theme to all public pages', () => {
+  const theme = read('homepage-header-theme.css');
+  const headerTest = read('tests/desktop-header-layout.test.js');
+  for (const pageClass of ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page']) {
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar'), pageClass + ' must receive the shared header background');
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar::before'), pageClass + ' must receive its own wave pseudo-element');
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar::after'), pageClass + ' must receive its own gradient separator');
+  }
+  assert.ok(headerTest.includes('homepage-header-theme.css?v=AFV406&navywave=approved4'), 'all public pages must load the cache-busted shared theme');
+});
+
+test('AFV406 header and loading CSS cleanup preserves only the active animation sequence', () => {
+  const header = read('homepage-header-theme.css');
+  const loading = read('loading-screen.css');
+  assert.ok(!header.includes(String.fromCharCode(92) + 'nhtml'), 'header selectors must be real CSS lines, not escaped newline text');
+  assert.equal((loading.match(/@keyframes arisu-loading-fade-in/g) || []).length, 0, 'superseded fade-in keyframes must be removed');
+  assert.equal((loading.match(/@keyframes arisu-loading-card-in/g) || []).length, 0, 'superseded card-in keyframes must be removed');
+  assert.equal((loading.match(/@keyframes arisu-loading-card-out/g) || []).length, 0, 'superseded card-out keyframes must be removed');
+  assert.ok(loading.includes('@keyframes arisu-loading-card-fade-in'), 'the active card fade-in animation must remain');
+  assert.ok(loading.includes('@keyframes arisu-loading-card-fade-out'), 'the active card fade-out animation must remain');
+});
+
+test('AFV406 homepage About card includes the creation-date milestone and approved description', () => {
+  const index = read('index.html');
+  const footer = read('footer-reference.css');
+  assert.ok(index.includes('My story, mission, and why I created this website.'));
+  assert.ok(index.includes('Created on October 14, 2026'));
+  assert.ok(index.includes('A small milestone marking the beginning of Arisu Fix.'));
+  assert.ok(index.includes('reference-about-created-check'));
+  assert.ok(index.includes('footer-reference.css?v=AFV406&createddate=2'));
+  assert.ok(footer.includes('.reference-footer .reference-about-created'));
+  assert.ok(footer.includes('.reference-footer .reference-about-created-copy'));
+});
+
+test('AFV406 keeps the creation-date milestone consistent across footer cards', () => {
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
+    assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the creation date');
+    assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
+    assert.ok(html.includes('footer-reference.css?v=AFV406&createddate=2'), page + ' must load the cache-busted footer stylesheet');
+  }
+});
+
+test('AFV406 About card uses the approved personal-story copy consistently', () => {
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    assert.ok(html.includes('My story, mission, and why I created this website.'), page + ' must use the approved About description');
+    assert.ok(html.includes('Explore My Story'), page + ' must use the approved story button label');
+  }
+});
+
+test('AFV406 places Explore My Story below the creation milestone and compacts spacing on mobile', () => {
+  const css = read('footer-reference.css');
+  assert.ok(css.includes('@media (max-width: 600px)'), 'mobile-only compact styles must be scoped to mobile');
+  assert.ok(css.includes('padding-top: 2px !important;'), 'mobile About section top spacing must be 2px');
+  assert.ok(css.includes('margin-top: 2px;'), 'mobile creation milestone spacing must be 2px');
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    const descriptionIndex = html.indexOf('A small milestone marking the beginning of Arisu Fix.');
+    const buttonIndex = html.indexOf('Explore My Story', descriptionIndex);
+    const checkIndex = html.indexOf('reference-about-created-check', descriptionIndex);
+    assert.ok(descriptionIndex >= 0 && buttonIndex > descriptionIndex && checkIndex > buttonIndex, page + ' must place Explore My Story below the milestone description and before the badge');
+    assert.ok(!html.includes('To Explore My Story'), page + ' must not retain the old button wording');
+  }
 });

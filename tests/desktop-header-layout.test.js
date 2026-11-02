@@ -34,7 +34,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     const html = read(page);
     const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
     const last = links.at(-1)?.[1];
-    assert.equal(last, 'desktop-header.css?v=AFV319', page + ' must load the common header stylesheet last');
+    assert.equal(last, 'homepage-header-theme.css?v=AFV406&navywave=approved4', page + ' must load the shared header theme last');
   }
 });
 
@@ -164,4 +164,15 @@ test('Desktop Customer Reviews CTA is visually shortened at top and bottom witho
   assert.match(buttonFix, /@media \(min-width: 761px\)/);
   assert.match(buttonFix, /\.social-feedback-view-all\s*\{[\s\S]*?transform:\s*scaleY\(0\.84\) !important;[\s\S]*?transform-origin:\s*center center !important/);
   assert.match(buttonFix, /\.social-feedback-view-all:hover,[\s\S]*?transform:\s*translateY\(-2px\) scaleY\(0\.84\) !important/);
+});
+
+test('AFV406 restores the approved navy-wave homepage header without changing layout rules', () => {
+  const html = read('index.html');
+  const theme = read('homepage-header-theme.css');
+  const build = read('build.js');
+  assert.match(html, /homepage-header-theme\.css\?v=AFV406&navywave=approved4/);
+  assert.match(theme, /linear-gradient\(108deg, #173b58 0%, #263b67 48%, #44345e 100%\)/);
+  assert.match(theme, /html body\.home-page \.topbar::after/);
+  assert.match(theme, /height: 2px/);
+  assert.match(build, /"homepage-header-theme\.css"/);
 });

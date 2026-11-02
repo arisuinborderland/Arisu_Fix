@@ -33,6 +33,28 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
+ <!-- AFV406: decide loading visibility synchronously before the first paint. -->
+ <script id="loading-screen-first-paint-guard">
+  try {
+   const storage = window.sessionStorage;
+   const sessionKey = "arisuFixHomepageLoadingShown";
+   const viewportKey = "arisuFixLastViewportWidth";
+   const currentWidth = window.innerWidth;
+   const previousWidth = Number(storage.getItem(viewportKey) || 0);
+
+   /* Treat a mobile-to-desktop-site switch as a presentation-mode reload, not a fresh visit. */
+   if (previousWidth > 0 && previousWidth <= 760 && currentWidth > 760) {
+    storage.setItem(sessionKey, "1");
+   }
+   storage.setItem(viewportKey, String(currentWidth));
+
+   if (storage.getItem(sessionKey) !== "1") {
+    document.documentElement.classList.add("arisu-loading-first-run");
+   }
+  } catch (error) {
+   /* Keep the existing fail-closed behavior when session storage is unavailable. */
+  }
+ </script>
  <link rel="stylesheet" href="styles.css?v=AFV358&desktoplayout=1">
  <link rel="stylesheet" href="about-link.css?v=AFV341&homebtnpadding=1">
  <link rel="stylesheet" href="story-viewer.css?v=AFV389&card=5">
@@ -151,12 +173,13 @@
 
 
 
-  <link rel="stylesheet" href="footer-reference.css?v=AFV367">
+  <link rel="stylesheet" href="footer-reference.css?v=AFV406&createddate=2">
   <!-- Critical first-paint guard: prevent the homepage overlay flashing before its stylesheet and session guard run. -->
-  <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}</style>
-  <link rel="stylesheet" href="loading-screen.css?v=AFV405&refreshguard=2">
-  <link rel="stylesheet" href="desktop-header.css?v=AFV319">
-  <script src="loading-screen.js?v=AFV405&refreshguard=3" defer></script>
+  <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}html.arisu-loading-first-run #arisu-loading-screen{opacity:1;visibility:visible;pointer-events:auto}</style>
+  <link rel="stylesheet" href="loading-screen.css?v=AFV406&sessionguard=4">
+<link rel="stylesheet" href="desktop-header.css?v=AFV319">
+  <link rel="stylesheet" href="homepage-header-theme.css?v=AFV406&navywave=approved4">
+  <script src="loading-screen.js?v=AFV406&sessionguard=4" defer></script>
 </head>
 <body class="home-page" id="top">
 <div id="arisu-loading-screen" role="status" aria-label="Loading Arisu Fix homepage">
@@ -390,8 +413,12 @@
         <span class="reference-about-eyebrow">ABOUT THIS WEBSITE</span>
         <span class="reference-about-title">Learn More About Arisu Fix</span>
         <span class="reference-about-description">My story, mission, and why I created this website.</span>
-        <span class="reference-about-action">Explore Our Story
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span class="reference-about-created" aria-label="Website creation date">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M9 15l2 2 4-4"/></svg>
+          <span class="reference-about-created-copy"><strong>Created on October 14, 2026</strong><span>A small milestone marking the beginning of Arisu Fix.</span><span class="reference-about-action">Explore My Story
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span></span>
+          <svg class="reference-about-created-check" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.2 15 4l3.5.2 1.1 3.3 2.4 2.5-1.1 3.3.1 3.5-3.1 1.6-1.9 2.9-3.4-.7-3.4.7-1.9-2.9-3.1-1.6.1-3.5-1.1-3.3 2.4-2.5 1.1-3.3L9 4z"/><path d="m8.2 12.2 2.3 2.3 5.3-5.3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </span>
       <svg class="reference-about-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
