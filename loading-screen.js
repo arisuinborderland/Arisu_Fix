@@ -1,13 +1,30 @@
 "use strict";
-/* AFV407 — Smooth startup progress; reveal the header check only after the overlay is gone. */
+/* AFV405 — Smooth startup progress; draw the header check after the overlay is gone. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   const revealBadge = () => {
-    document.documentElement.classList.remove("badge-animation-ready");
     window.requestAnimationFrame(() => {
-      const badge = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg");
-      if (badge) void badge.getBoundingClientRect();
-      window.requestAnimationFrame(() => document.documentElement.classList.add("badge-animation-ready"));
+      const path = document.querySelector(".topbar .brand .brand-name-row .arisu-verified-badge svg path");
+      if (!path) return;
+      const showCheck = () => path.style.setProperty("stroke-dashoffset", "0", "important");
+      path.style.setProperty("stroke-dasharray", "24", "important");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        showCheck();
+        return;
+      }
+      path.style.setProperty("stroke-dashoffset", "24", "important");
+      void path.getBoundingClientRect();
+      const duration = 900;
+      let startedAt = null;
+      const drawFrame = (now) => {
+        if (startedAt === null) startedAt = now;
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        path.style.setProperty("stroke-dashoffset", String(24 * (1 - eased)), "important");
+        if (progress < 1) window.requestAnimationFrame(drawFrame);
+        else showCheck();
+      };
+      window.requestAnimationFrame(drawFrame);
     });
   };
   if (!overlay) {
