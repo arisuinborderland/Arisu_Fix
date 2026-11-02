@@ -1,5 +1,5 @@
 "use strict";
-/* AFV379 — Smooth, consecutive 1–100% progress counting. */
+/* AFV406 — Session-guarded loading screen; refreshed cache version for production validation. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
