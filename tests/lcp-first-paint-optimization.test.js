@@ -80,3 +80,20 @@ test('AFV406 shows the loading overlay on first paint without waiting for the de
   assert.ok(index.includes('document.documentElement.classList.add("arisu-loading-first-run")'));
   assert.ok(index.includes('window.sessionStorage.getItem("arisuFixHomepageLoadingShown") !== "1"'));
 });
+
+test('AFV406 skips the loading overlay when the browser switches from mobile to desktop site mode', () => {
+  const index = read('index.html');
+  assert.ok(index.includes('arisuFixLastViewportWidth'), 'the previous viewport width must be tracked in this tab session');
+  assert.match(index, /previousWidth <= 760 && currentWidth > 760/);
+  assert.match(index, /storage\.setItem\(sessionKey, "1"\)/);
+  assert.ok(index.indexOf('previousWidth <= 760 && currentWidth > 760') < index.indexOf('document.documentElement.classList.add("arisu-loading-first-run")'), 'desktop-site switch must be detected before first-paint overlay activation');
+});
+
+test('AFV406 applies the shared header theme to all public pages', () => {
+  const theme = read('homepage-header-theme.css');
+  const headerTest = read('tests/desktop-header-layout.test.js');
+  for (const pageClass of ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page']) {
+    assert.ok(theme.includes('html body.' + pageClass + ' .topbar'), pageClass + ' must receive the shared header theme');
+  }
+  assert.ok(headerTest.includes('homepage-header-theme.css?v=AFV406&navywave=approved3'), 'all public pages must load the cache-busted shared theme');
+});
