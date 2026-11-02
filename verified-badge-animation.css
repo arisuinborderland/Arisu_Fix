@@ -4,20 +4,7 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge {
   transform: none !important;
   filter: none !important;
 }
-html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: -3px !important;
-  border: 2px solid transparent !important;
-  border-radius: 50% !important;
-  background:
-    linear-gradient(transparent, transparent) padding-box,
-    conic-gradient(from 0deg, #22f0ff 0deg, #4b9dff 120deg, #df62ff 240deg, #22f0ff 360deg) border-box !important;
-  box-shadow: 0 0 6px rgba(34, 240, 255, .42), 0 0 10px rgba(223, 98, 255, .32) !important;
-  animation: arisu-brand-badge-rotate 3s linear infinite !important;
-  transform-origin: center !important;
-  pointer-events: none !important;
-}
+/* Outer ring animation intentionally removed; keep the badge edge static. */
 html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg {
   display: block !important;
   width: 14px !important;
@@ -34,10 +21,6 @@ html body.home-page .topbar .brand .brand-name-row > .arisu-verified-badge > svg
   opacity: 1 !important;
   stroke-dasharray: 24 !important;
   animation: arisu-badge-check-loop 1.8s ease-in-out infinite !important;
-}
-@keyframes arisu-brand-badge-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 @keyframes arisu-badge-check-loop {
   0% { stroke-dashoffset: 24; }
