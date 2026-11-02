@@ -785,3 +785,39 @@ body.home-page .reference-footer {
     line-height: 1.45 !important;
   }
 }
+
+
+/* AFV408 — Desktop-only compact Explore My Story CTA; mobile AFV407 layout remains untouched. */
+@media screen and (min-width: 701px) {
+  html body .reference-footer .reference-about-created-copy .reference-about-action {
+    display: inline-flex !important;
+    align-self: flex-start !important;
+    flex: 0 0 auto !important;
+    width: fit-content !important;
+    max-width: max-content !important;
+    min-width: 0 !important;
+    min-height: 34px !important;
+    margin-top: 5px !important;
+    padding: 8px 16px !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+    border-radius: 999px !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    background: linear-gradient(105deg, #0879df 0%, #4548e8 58%, #7139df 100%) !important;
+    box-shadow: 0 3px 10px rgba(48, 91, 210, .24) !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    text-shadow: 0 1px 1px rgba(13, 32, 91, .18) !important;
+  }
+
+  html body .reference-footer .reference-about-created-copy .reference-about-action svg {
+    flex: 0 0 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    color: #fff !important;
+    stroke: currentColor !important;
+  }
+}
