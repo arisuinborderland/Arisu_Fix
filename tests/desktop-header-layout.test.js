@@ -34,7 +34,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     const html = read(page);
     const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
     const last = links.at(-1)?.[1];
-    assert.equal(last, 'homepage-header-theme.css?v=AFV406&navywave=approved3', page + ' must load the shared header theme last');
+    assert.equal(last, 'homepage-header-theme.css?v=AFV406&navywave=approved4', page + ' must load the shared header theme last');
   }
 });
 
@@ -170,7 +170,7 @@ test('AFV406 restores the approved navy-wave homepage header without changing la
   const html = read('index.html');
   const theme = read('homepage-header-theme.css');
   const build = read('build.js');
-  assert.match(html, /homepage-header-theme\.css\?v=AFV406&navywave=approved3/);
+  assert.match(html, /homepage-header-theme\.css\?v=AFV406&navywave=approved4/);
   assert.match(theme, /linear-gradient\(108deg, #173b58 0%, #263b67 48%, #44345e 100%\)/);
   assert.match(theme, /html body\.home-page \.topbar::after/);
   assert.match(theme, /height: 2px/);
