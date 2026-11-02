@@ -10739,11 +10739,12 @@ html body.home-page .topbar {
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 8% 120%, rgba(35, 170, 190, .15) 0%, transparent 48%),
-    radial-gradient(ellipse at 94% -8%, rgba(116, 103, 205, .16) 0%, transparent 42%),
-    linear-gradient(108deg, #102b43 0%, #172b4b 52%, #282644 100%) !important;
-  border-bottom: 1px solid rgba(154, 190, 221, .20) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.045) !important;
+    radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
+    radial-gradient(ellipse at 54% -45%, rgba(83, 126, 210, .40) 0%, transparent 58%),
+    radial-gradient(ellipse at 98% 110%, rgba(180, 111, 215, .38) 0%, transparent 48%),
+    linear-gradient(108deg, #173b58 0%, #263b67 48%, #44345e 100%) !important;
+  border-bottom: 1px solid rgba(170, 210, 239, .32) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10) !important;
 }
 html body.home-page .topbar::before {
   content: "";
@@ -10752,10 +10753,12 @@ html body.home-page .topbar::before {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(166deg, transparent 0 70%, rgba(83, 166, 196, .13) 70.3%, transparent 71.1%),
-    linear-gradient(173deg, transparent 0 78%, rgba(127, 143, 210, .12) 78.3%, transparent 79%),
-    linear-gradient(178deg, transparent 0 85%, rgba(183, 150, 218, .10) 85.3%, transparent 86%);
-  opacity: .9;
+    radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
+    radial-gradient(ellipse at 88% -20%, rgba(190, 145, 235, .24), transparent 48%),
+    linear-gradient(166deg, transparent 0 64%, rgba(106, 197, 226, .26) 64.3%, transparent 65.1%),
+    linear-gradient(173deg, transparent 0 74%, rgba(148, 169, 240, .22) 74.3%, transparent 75%),
+    linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
+  opacity: 1;
 }
 html body.home-page .topbar > .brand,
 html body.home-page .topbar > .header-meta,
