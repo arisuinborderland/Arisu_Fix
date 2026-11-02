@@ -30,6 +30,19 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
+test('AFV406 keeps loading visible after interrupted refresh and locks background scrolling', () => {
+  const script = read('loading-screen.js');
+  const styles = read('loading-screen.css');
+  const sequenceStart = script.indexOf('async function runSequence()');
+  const sessionMark = script.indexOf('window.sessionStorage.setItem(sessionKey, "1")');
+  assert.notEqual(sequenceStart, -1, 'loading sequence must exist');
+  assert.ok(sessionMark > sequenceStart, 'session is marked only after the loading sequence completes');
+  assert.ok(script.includes('document.documentElement.classList.add("arisu-loading-active")'), 'active loading state must lock page scrolling');
+  assert.ok(script.includes('document.documentElement.classList.remove("arisu-loading-active")'), 'scroll lock must be released when the overlay is removed');
+  assert.ok(styles.includes('html.arisu-loading-active body'), 'body scrolling must be disabled while loading is active');
+  assert.ok(styles.includes('overscroll-behavior: none;'), 'overscroll gestures must not scroll the page behind the overlay');
+});
+
 test('AFV406 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
