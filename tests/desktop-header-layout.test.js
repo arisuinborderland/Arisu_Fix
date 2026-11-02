@@ -33,7 +33,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
   for (const page of pages) {
     const html = read(page);
     const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
-    const headerIndex = links.indexOf('desktop-header.css?v=AFV319');
+    const headerIndex = links.findIndex((href) => href.startsWith('desktop-header.css?v=AFV319'));
 
     assert.notEqual(headerIndex, -1, page + ' must load the common header stylesheet');
     assert.deepEqual(
