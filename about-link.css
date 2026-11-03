@@ -1,11 +1,3 @@
-/* profile-card About This Website CTA inside the footer */
-
-/* keep the About CTA as the first, full-width card inside the site footer. */
-
-/* compact footer About card and tighten mobile footer spacing. */
-
-/* remove empty mobile footer grid rows and keep the location block 4px below the About card. */
-
 /* compact About link beside Privacy Policy in the homepage header. */
 html body.home-page .topbar .header-meta .about-header-link {
   box-sizing: border-box;
