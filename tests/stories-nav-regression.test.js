@@ -173,6 +173,7 @@ test('AFV427 About page uses the approved five-step Process Flow and preserves k
   assert.match(html, /No guarantee of recovery outcomes/);
   assert.match(html, /Arisu Ryohei/);
   assert.match(html, /id="termsTitle"/, 'the existing terms and limitations section remains');
+  assert.doesNotMatch(html, /Established September 08, 2018/, 'the established-date line is no longer part of the About page');
   assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
   assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
   assert.match(css, /\.about-process-step:not\(:last-child\)::before/);
