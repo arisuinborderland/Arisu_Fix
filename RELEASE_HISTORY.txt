@@ -1,3 +1,12 @@
+AFV425 — Reviews and Proofs Header CSS Cleanup
+
+## AFV425 — Remove superseded page-specific header layers
+- Removed obsolete mobile header sizing and Grid alignment rules from Reviews after confirming the later compact Flex contract and shared header stylesheet supersede them.
+- Removed two superseded mobile profile/header override layers from Recovery Proofs; preserved the live Stories count badge, action-button appearance/hover/focus rules, and final AFV279 sizing contract.
+- Removed the redundant AFV273 width reset and AFV276 metric reset because the later AFV274/AFV279 contracts define the effective dimensions.
+- Preserved the shared site-header.css overflow/background clipping behavior; no shell overflow change was made without browser evidence that it is safe.
+- Refreshed Reviews and Proofs stylesheet cache tokens and synchronized package metadata to AFV425.
+
 AFV424 — Legacy Footer CSS Cleanup
 
 ## AFV424 — Remove the retired footer selector layers

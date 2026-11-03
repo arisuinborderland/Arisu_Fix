@@ -38,5 +38,5 @@ test('Customer Reviews includes the five-item bottom navigation and Stories view
   assert.match(html, /id="recoveryStoryViewer"/);
   assert.match(html, /story-viewer\.js\?v=AFV\d+/);
   assert.match(css, /body\.reviews-document \.mobile-bottom-nav/);
-  assert.match(css, /grid-template-columns:minmax\(0,1fr\) auto auto/);
+  assert.match(css, /grid-template-columns:repeat\(5,minmax\(0,1fr\)\)/);
 });

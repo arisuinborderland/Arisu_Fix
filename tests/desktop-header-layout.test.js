@@ -195,3 +195,18 @@ test('AFV423 desktop homepage verified check is not pinned to its hidden SVG das
   assert.doesNotMatch(desktopRule, /stroke-dashoffset:\s*24\s*!important/);
   assert.match(homeStyles, /\.arisu-verified-badge svg path\{stroke-dasharray:24;stroke-dashoffset:24;animation:arisu-brand-check-draw 2s ease-in-out infinite\}/);
 });
+
+
+test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => {
+ const reviews = read('reviews.css');
+ const proofs = read('proofs.css');
+ assert.doesNotMatch(reviews, /Final mobile header alignment: keep both actions side-by-side beside the brand/);
+ assert.doesNotMatch(reviews, /Match the homepage profile header sizing and alignment on Customer Reviews/);
+ assert.doesNotMatch(proofs, /refined compact profile header; preserve the existing header links and gradient/);
+ assert.doesNotMatch(proofs, /Match the homepage profile header sizing and alignment on Recovery Proofs/);
+ assert.doesNotMatch(proofs, /AFV273 — final scoped reset/);
+ assert.doesNotMatch(proofs, /AFV276 — match homepage header action sizing exactly/);
+ assert.match(proofs, /AFV279 — final canonical header sizing/);
+ assert.match(proofs, /Preserve the Reviews\/Proofs brand-row and verified-badge alignment/);
+ assert.match(reviews, /match homepage mobile header geometry exactly/);
+});

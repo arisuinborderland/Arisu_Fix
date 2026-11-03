@@ -5,21 +5,22 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const css = fs.readFileSync(path.join(root, 'reviews.css'), 'utf8');
+const sharedHeaderCss = fs.readFileSync(path.join(root, 'site-header.css'), 'utf8');
 const html = fs.readFileSync(path.join(root, 'reviews.html'), 'utf8');
 
-test('Reviews CSS keeps one mobile logo sizing rule for the 700px breakpoint', () => {
-  const block = /html body\.reviews-document \.topbar > \.brand \.logo\s*\{\s*width:\s*43px !important;\s*height:\s*43px !important;\s*flex:\s*0 0 43px !important;\s*border-radius:\s*13px !important;\s*\}/g;
-  assert.equal([...css.matchAll(block)].length, 1);
+test('Shared header CSS keeps one base, one mobile, and one compact logo rule', () => {
+  const logoRule = /html body header\.topbar\.site-header>a\.brand>\.logo\s*\{/g;
+  assert.equal([...sharedHeaderCss.matchAll(logoRule)].length, 3);
+  assert.match(sharedHeaderCss, /flex:0 0 39px!important;width:39px!important;height:39px!important/);
+  assert.match(sharedHeaderCss, /flex-basis:37px!important;width:37px!important;height:37px!important/);
 });
 
-test('Reviews CSS keeps one mobile brand-small typography rule for the 700px breakpoint', () => {
-  const block = /html body\.reviews-document \.topbar > \.brand small\s*\{\s*margin-top:\s*3px !important;\s*font-size:\s*11px !important;\s*line-height:\s*1\.2 !important;\s*\}/g;
-  assert.equal([...css.matchAll(block)].length, 1);
+test('Shared header CSS keeps the 700px mobile brand subtitle typography', () => {
+  assert.match(sharedHeaderCss, /\.brand-copy>small \{margin:0!important;font-size:11px!important;line-height:1\.2!important\}/);
 });
 
-test('Reviews CSS keeps one compact logo sizing rule for the 380px breakpoint', () => {
-  const block = /html body\.reviews-document \.topbar > \.brand \.logo\s*\{\s*width:\s*39px !important;\s*height:\s*39px !important;\s*flex-basis:\s*39px !important;\s*\}/g;
-  assert.equal([...css.matchAll(block)].length, 1);
+test('Shared header CSS keeps the compact 380px brand subtitle typography', () => {
+  assert.match(sharedHeaderCss, /\.brand-copy>small \{font-size:10px!important\}/);
 });
 
 test('Reviews page loads the current release CSS and script cache tokens', () => {
