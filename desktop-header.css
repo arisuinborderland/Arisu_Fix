@@ -195,7 +195,7 @@
     width: 100% !important;
     min-height: 58px !important;
     height: 58px !important;
-    padding: 0 16px !important;
+    padding: 0 12px !important;
     gap: 7px !important;
     position: relative !important;
     z-index: 20 !important;
@@ -207,7 +207,7 @@
     align-items: center !important;
     justify-content: flex-start !important;
     min-width: 0 !important;
-    gap: 10px !important;
+    gap: 7px !important;
   }
   html body.about-page header.topbar > a.brand > .logo,
   html body.privacy-page header.topbar > a.brand > .logo {
@@ -253,18 +253,18 @@
 @media (max-width: 380px) {
   html body.about-page header.topbar,
   html body.privacy-page header.topbar {
-    padding-left: 9px !important;
-    padding-right: 9px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   html body.about-page header.topbar > a.brand,
   html body.privacy-page header.topbar > a.brand {
-    gap: 5px !important;
+    gap: 7px !important;
   }
   html body.about-page header.topbar > a.brand > .logo,
   html body.privacy-page header.topbar > a.brand > .logo {
-    flex-basis: 34px !important;
-    width: 34px !important;
-    height: 34px !important;
+    flex-basis: 37px !important;
+    width: 37px !important;
+    height: 37px !important;
   }
 }
 
