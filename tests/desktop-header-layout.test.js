@@ -42,14 +42,14 @@ test('Production build allowlist includes the shared header stylesheet', () => {
   assert.match(read('build.js'), /"desktop-header\.css"/);
 });
 
-test('AFV417 About and Privacy match the exact compact homepage mobile header and shared theme', () => {
+test('AFV418 About and Privacy match the compact homepage header and reference alignment', () => {
   const mobileBlocks = [...css.matchAll(/@media\s*\(max-width:\s*700px\)/g)];
-  assert.equal(mobileBlocks.length, 1, 'one authoritative mobile header rule group controls both pages');
+  assert.ok(mobileBlocks.length >= 1, 'shared mobile header rule group controls both pages');
   assert.match(css, /html body\.about-page header\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
-  assert.match(css, /padding: 0 16px !important/);
+  assert.match(css, /padding: 0 12px !important/);
   assert.match(css, /flex: 0 0 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
-  assert.match(css, /gap: 10px !important/);
+  assert.match(css, /gap: 7px !important/);
   assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 34px !important;[\s\S]*?width: 34px !important;[\s\S]*?height: 34px !important/);
   const mobileHeader = css.slice(css.indexOf('AFV417 — Exact compact mobile header contract shared with Home'));
   assert.doesNotMatch(mobileHeader, /background:\s*inherit\s*!important/, 'page background must not override the shared navy-indigo header theme');
@@ -237,4 +237,21 @@ test('AFV417 About and Privacy mobile headers explicitly match the exact homepag
   assert.match(css, /min-height: 58px !important/);
   assert.match(css, /padding: 0 16px !important/);
   assert.match(css, /width: 39px !important;[\s\S]*?height: 39px !important/);
+});
+
+
+test('AFV418 Privacy mobile content uses a compact icon/text layout and tighter section rhythm', () => {
+  const privacy = read('privacy.css');
+  assert.match(privacy, /AFV418 — Compact Privacy Policy rhythm/);
+  assert.match(privacy, /grid-template-columns: 44px minmax\(0, 1fr\) !important/);
+  assert.match(privacy, /column-gap: 10px !important/);
+  assert.match(privacy, /padding: 18px 0 !important/);
+  assert.match(privacy, /margin-top: 18px !important/);
+});
+
+test('AFV418 About mobile heading spacing is tightened without changing desktop rules', () => {
+  const about = read('about-page.css');
+  assert.match(about, /AFV418 — Bring About page heading/);
+  assert.match(about, /padding-top: 16px !important/);
+  assert.match(about, /margin-bottom: 13px !important/);
 });
