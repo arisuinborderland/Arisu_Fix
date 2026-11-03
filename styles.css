@@ -9106,6 +9106,14 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .topbar .arisu-verified-badge::after {
     animation: arisu-brand-badge-glow 2s ease-out infinite !important;
   }
+  /* AFV414: re-enable the check-draw as well as the pulse on mobile.
+     The global reduced-motion rule disables the path; the mobile override
+     must explicitly restore it to match the site's intended branded motion. */
+  html body.home-page .topbar .arisu-verified-badge svg path {
+    stroke-dasharray: 24 !important;
+    stroke-dashoffset: 24 !important;
+    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+  }
 
   /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
