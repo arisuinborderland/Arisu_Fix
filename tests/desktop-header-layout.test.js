@@ -178,7 +178,7 @@ test('AFV412 uses one shared header structure and profile thumbnail across all p
     assert.ok(header.includes('assets/performance/arisu-profile-thumb.webp?v=AFV355'), page + ' must use the shared profile thumbnail');
     assert.ok(header.includes('class="header-meta"'), page + ' must include the shared header action rail');
   }
-  assert.ok(!read('about.html').includes('about-topbar'));
+  assert.ok(read('about.html').includes('class="topbar about-topbar"'), 'About keeps its mobile header padding hook while sharing the desktop shell');
 });
 
 test('AFV412 restores the Creation Date milestone on all four shared footer pages', () => {
@@ -187,7 +187,7 @@ test('AFV412 restores the Creation Date milestone on all four shared footer page
     assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the website creation date');
     assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
     assert.ok(html.includes('Explore My Story'), page + ' must use the approved story CTA');
-    assert.ok(html.includes('footer-reference.css?v=AFV412&compactfooter=1&createddate=1'), page + ' must refresh the footer cache token');
+    assert.ok(html.includes('footer-reference.css?v=AFV413&compactfooter=1&createddate=1'), page + ' must refresh the footer cache token');
   }
 });
 
