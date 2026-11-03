@@ -1191,3 +1191,9 @@ AFV261 — 2026-10-23
 - Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV261 / 261.0.0.
 
 AFV300 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.
+
+
+AFV433 — 2026-11-04
+- Reduced collapsed homepage accordion header height, title size, subtitle size, and vertical padding on mobile; desktop collapsed headers are also more compact.
+- Kept expanded headers, expanded panel content, single-open behavior, and all footer/layout fixes unchanged.
+- Added regression assertions for the compact collapsed dimensions and synchronized cache-busting references and package metadata.
