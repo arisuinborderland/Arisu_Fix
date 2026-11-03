@@ -37,7 +37,11 @@ test("mobile homepage footer no longer uses the legacy negative overlap margin",
   assert.match(footer, /margin-top: 8px !important;/);
 });
 
-test("How accordion first card is not clipped by the legacy mobile grid lift", () => {\n  assert.match(styles, /html body\\.home-page \\.how-assistance-section \\.why-arisu-card > \\.why-arisu-grid\\s*\\{\\s*transform: none !important;/);\n});\n\ntest("accordion headers and panel contents use compact spacing", () => {
+test("How accordion first card is not clipped by the legacy mobile grid lift", () => {
+  assert.match(styles, /html body\.home-page \.how-assistance-section \.why-arisu-card > \.why-arisu-grid\s*\{\s*transform: none !important;/);
+});
+
+test("accordion headers and panel contents use compact spacing", () => {
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px/);
   assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
 });
