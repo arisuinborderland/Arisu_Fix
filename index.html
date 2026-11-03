@@ -43,6 +43,8 @@
   } catch (error) { /* Keep the optional loading overlay hidden if session storage is unavailable. */ }
   </script>
   <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}html.arisu-loading-first-run #arisu-loading-screen{opacity:1;visibility:visible;pointer-events:auto}</style>
+  <link rel="stylesheet" href="loading-screen.css?v=AFV411&sessionguard=1&firstpaint=3">
+  <script src="loading-screen.js?v=AFV411&sessionguard=1" defer></script>
 <link rel="stylesheet" href="styles.css?v=AFV424&desktoplayout=1">
  <link rel="stylesheet" href="about-link.css?v=AFV424&homebtnpadding=1">
  <link rel="stylesheet" href="story-viewer.css?v=AFV389&card=5">
@@ -336,7 +338,6 @@
     <p>Built on trust. Focused on recovery.</p>
   </div>
 </footer>
-<script src="loading-screen.js?v=AFV411&sessionguard=1" defer></script>
 <script src="script.js?v=AFV267"></script>
 <script src="story-viewer.js?v=AFV367" defer></script>
 <script src="review-lightbox.js?v=AFV355"></script>
