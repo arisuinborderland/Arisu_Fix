@@ -53,11 +53,11 @@
     const serviceIntro = services.querySelector(".services-heading > p");
     if (!serviceHeading || !serviceIntro) return;
     services.dataset.accordionReady = "true";
-    services.classList.add("home-accordion-item", "is-open");
-    const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1, true);
+    services.classList.add("home-accordion-item");
+    const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1);
     serviceHeading.remove();
     serviceIntro.remove();
-    const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton, true);
+    const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton);
     items.push({ section: services, button: serviceButton, panel: servicePanel });
 
     const whyCard = why.querySelector(".why-arisu-card");
@@ -106,7 +106,7 @@
       });
     });
 
-    setOpen(items[0]);
+    setOpen(null);
   };
 
   if (document.readyState === "loading") {
