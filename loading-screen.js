@@ -119,6 +119,7 @@
 
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
+      document.documentElement.classList.remove("arisu-loading-first-run");
       overlay.setAttribute("aria-hidden", "true");
       window.setTimeout(() => {
         document.documentElement.classList.remove("arisu-loading-active");
