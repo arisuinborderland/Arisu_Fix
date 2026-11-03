@@ -34,7 +34,7 @@ test('All public pages load the shared header stylesheet after page-specific sty
     const html = read(page);
     const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
     const last = links.at(-1)?.[1];
-    assert.equal(last, 'homepage-header-theme.css?v=AFV408&navywave=approved4', page + ' must load the shared header theme last');
+    assert.equal(last, 'homepage-header-theme.css?v=AFV409&navywave=approved5', page + ' must load the shared header theme last');
   }
 });
 
@@ -42,16 +42,16 @@ test('Production build allowlist includes the shared header stylesheet', () => {
   assert.match(read('build.js'), /"desktop-header\.css"/);
 });
 
-test('AFV416 About and Privacy match the compact homepage mobile header and shared theme', () => {
+test('AFV417 About and Privacy match the exact compact homepage mobile header and shared theme', () => {
   const mobileBlocks = [...css.matchAll(/@media\s*\(max-width:\s*700px\)/g)];
   assert.equal(mobileBlocks.length, 1, 'one authoritative mobile header rule group controls both pages');
-  assert.match(css, /html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /html body\\.about-page header\\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
-  assert.match(css, /padding: 10px 12px 11px !important/);
+  assert.match(css, /padding: 0 16px !important/);
   assert.match(css, /flex: 0 0 43px !important;[\s\S]*?width: 43px !important;[\s\S]*?height: 43px !important/);
-  assert.match(css, /gap: 9px !important/);
+  assert.match(css, /gap: 10px !important/);
   assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
-  const mobileHeader = css.slice(css.indexOf('AFV416 — Match the compact homepage mobile header'));
+  const mobileHeader = css.slice(css.indexOf('AFV417 — Exact compact mobile header contract shared with Home'));
   assert.doesNotMatch(mobileHeader, /background:\s*inherit\s*!important/, 'page background must not override the shared navy-indigo header theme');
 });
 
@@ -187,7 +187,7 @@ test('AFV412 uses one shared header structure and profile thumbnail across all p
     assert.ok(header.includes('assets/performance/arisu-profile-thumb.webp?v=AFV355'), page + ' must use the shared profile thumbnail');
     assert.ok(header.includes('class="header-meta"'), page + ' must include the shared header action rail');
   }
-  assert.ok(read('about.html').includes('class="topbar about-topbar"'), 'About keeps its mobile header padding hook while sharing the desktop shell');
+  assert.ok(read('about.html').includes('class="topbar"'), 'About uses the same topbar markup as every other public page');
 });
 
 test('AFV412 restores the Creation Date milestone on all four shared footer pages', () => {
@@ -230,10 +230,10 @@ test('AFV414 mobile homepage check path uses the shared draw animation while bad
   assert.match(styles, /\.arisu-verified-badge svg path\s*\{[^}]*animation:\s*arisu-brand-check-draw 2s ease-in-out infinite/s);
 });
 
-test('AFV416 About and Privacy mobile headers explicitly match the compact homepage shell', () => {
+test('AFV417 About and Privacy mobile headers explicitly match the exact homepage shell', () => {
   const css = read('desktop-header.css');
-  assert.match(css, /AFV416 — Match the compact homepage mobile header/);
-  assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /AFV417 — Exact compact mobile header contract shared with Home/);
+  assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\\.about-page header\\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
   assert.match(css, /padding: 10px 12px 11px !important/);
   assert.match(css, /width: 43px !important;[\s\S]*?height: 43px !important/);
