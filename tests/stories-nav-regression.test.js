@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV434 package metadata and release notes are synchronized', () => {
+test('AFV435 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '434.0.0');
-  assert.equal(lock.version, '434.0.0');
-  assert.equal(lock.packages[''].version, '434.0.0');
-  assert.ok(readme.includes('Current release: AFV434'));
-  assert.ok(history.startsWith('AFV434 — Refined Compact Collapsed Accordion Headers'));
+  assert.equal(pkg.version, '435.0.0');
+  assert.equal(lock.version, '435.0.0');
+  assert.equal(lock.packages[''].version, '435.0.0');
+  assert.ok(readme.includes('Current release: AFV435'));
+  assert.ok(history.startsWith('AFV435 — Balanced Compact Collapsed Accordion Headers'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
