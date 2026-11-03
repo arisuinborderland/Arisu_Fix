@@ -1,3 +1,11 @@
+AFV410 — Compact Mobile Footer and Soft Curve Navigation
+
+## AFV410 — Clean navigation/footer port from main
+- Applies the Soft Curve cyan/blue/violet floating mobile navigation across Home, Reviews, Proofs, About, and Privacy Policy.
+- Compacts the shared footer on mobile and keeps the Explore Our Story CTA readable.
+- Refreshes navigation/footer stylesheet cache tokens and synchronizes release metadata.
+- Preview only; validate build and mobile/desktop behavior before merging.
+
 AFV408 — Shared Navy-to-Indigo Header Theme
 
 ## AFV408 — Add shared navy-to-indigo header theme
