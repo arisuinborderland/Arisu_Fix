@@ -42,15 +42,17 @@ test('Production build allowlist includes the shared header stylesheet', () => {
   assert.match(read('build.js'), /"desktop-header\.css"/);
 });
 
-test('AFV415 About and Privacy use one authoritative mobile header shell', () => {
-  const mobileBlocks = [...css.matchAll(/@media\s*\(max-width:\s*700px\)/g)];
-  assert.equal(mobileBlocks.length, 1, 'only one mobile header rule group should control both pages');
-  assert.doesNotMatch(css, /@media\s*\(max-width:\s*600px\)/, 'the conflicting 39px grid override must be removed');
-  assert.doesNotMatch(css, /width:\s*39px !important|height:\s*39px !important|width:\s*34px !important/, 'stale logo sizes must not remain');
-  assert.match(css, /html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
-  assert.match(css, /flex: 0 0 66px !important;[\s\S]*?width: 66px !important;[\s\S]*?height: 66px !important;/);
-  assert.match(css, /padding: 18px 22px !important/);
-  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?width: 37px !important;[\s\S]*?height: 37px !important;/);
+test('AFV416 About and Privacy match the compact homepage mobile header and shared theme', () => {
+  const mobileBlocks = [...css.matchAll(/@media\\s*\\(max-width:\\s*700px\\)/g)];
+  assert.equal(mobileBlocks.length, 1, 'one authoritative mobile header rule group controls both pages');
+  assert.match(css, /html body\\.about-page header\\.topbar\\.about-topbar,[\\s\\S]*?html body\\.privacy-page header\\.topbar/);
+  assert.match(css, /min-height: 58px !important/);
+  assert.match(css, /padding: 10px 12px 11px !important/);
+  assert.match(css, /flex: 0 0 43px !important;[\\s\\S]*?width: 43px !important;[\\s\\S]*?height: 43px !important/);
+  assert.match(css, /gap: 9px !important/);
+  assert.match(css, /@media \\(max-width: 380px\\)[\\s\\S]*?flex-basis: 39px !important;[\\s\\S]*?width: 39px !important;[\\s\\S]*?height: 39px !important/);
+  const mobileHeader = css.slice(css.indexOf('AFV416 — Match the compact homepage mobile header'));
+  assert.doesNotMatch(mobileHeader, /background:\\s*inherit\\s*!important/, 'page background must not override the shared navy-indigo header theme');
 });
 
 test('AFV323 desktop homepage proof previews mask cyan rails and keep square source composites intact', () => {
@@ -228,9 +230,9 @@ test('AFV414 mobile homepage check path uses the shared draw animation while bad
   assert.match(styles, /\.arisu-verified-badge svg path\s*\{[^}]*animation:\s*arisu-brand-check-draw 2s ease-in-out infinite/s);
 });
 
-test('AFV415 About and Privacy mobile headers explicitly match the shared mobile header shell', () => {
+test('AFV416 About and Privacy mobile headers explicitly match the compact homepage shell', () => {
   const css = read('desktop-header.css');
-  assert.match(css, /AFV415 — One authoritative mobile header shell for About and Privacy/);
+  assert.match(css, /AFV416 — Match the compact homepage mobile header/);
   assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /padding: 18px 22px !important/);
 });
