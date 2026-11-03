@@ -10,8 +10,13 @@ test('AFV411 first-paint guard shows the loading overlay only for a new tab sess
   const html = read('index.html');
   assert.ok(html.includes('id="loading-screen-first-paint-guard"'));
   assert.ok(html.includes('arisu-loading-first-run #arisu-loading-screen'));
-  assert.ok(html.includes('loading-screen.css?v=AFV411&sessionguard=1'));
+  assert.ok(html.includes('loading-screen.css?v=AFV411&sessionguard=1&firstpaint=2'));
   assert.ok(html.includes('loading-screen.js?v=AFV411&sessionguard=1'));
+  const guardPosition = html.indexOf('id="loading-screen-first-paint-guard"');
+  const firstStylesheetPosition = html.indexOf('<link rel="stylesheet"');
+  assert.ok(guardPosition >= 0 && guardPosition < firstStylesheetPosition, 'session guard must run before the first stylesheet');
+  const criticalGuardPosition = html.indexOf('id="loading-screen-critical-guard"');
+  assert.ok(criticalGuardPosition > guardPosition && criticalGuardPosition < firstStylesheetPosition, 'critical visibility CSS must precede render-blocking stylesheets');
 });
 
 test('AFV411 records the session only after loading completes and releases scroll lock', () => {
