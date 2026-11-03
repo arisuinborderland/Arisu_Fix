@@ -1,3 +1,11 @@
+AFV419 — Align About and Privacy Mobile Header Position
+
+## AFV419 — Remove the page-specific horizontal offset
+- Root cause: the About/Privacy mobile-only header contract overrode the shared public-page header with 16px horizontal gutters and a 10px brand gap, shifting the logo and brand copy inward compared with Recovery Proofs and Reviews. The narrow-screen override also used 9px gutters, a 5px gap, and a 34px logo rather than the shared compact values.
+- Matched About and Privacy to the shared header alignment: 12px gutters and 7px logo-to-copy gap at standard mobile widths; 10px gutters, 7px gap, and 37px logo at widths up to 380px.
+- Kept the 58px header shell, desktop sizing, header theme, verified badge sizing/animation, page content, footer, and navigation unchanged.
+- Updated shared header cache keys and release metadata to AFV419 / 419.0.0.
+
 AFV418 — Refine About and Privacy Mobile Layout
 
 ## AFV418 — Align content rhythm and brand positioning to the main-page reference
