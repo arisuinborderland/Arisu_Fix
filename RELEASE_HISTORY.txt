@@ -1,3 +1,12 @@
+AFV417 — Exact Shared Mobile Header Contract
+
+## AFV417 — Remove the About-only header cascade
+- Root cause: About retained the page-specific `.about-topbar` hook and legacy `about-page.css` padding/background rules, while Home used the compact mobile topbar contract from `styles.css`. AFV416 still used a 43px logo and additional vertical padding instead of the homepage's 39px logo and fixed 58px shell.
+- Removed the About-only topbar class and obsolete About-specific header padding/background declarations.
+- Standardized About and Privacy mobile headers to the homepage contract: fixed 58px shell, 39px profile mark, 16px horizontal gutters, 10px brand gap, 16px brand name, and 11px subtitle. At 380px and below, both use a 34px logo, 9px gutters, and 5px brand gap.
+- Kept the navy-indigo shared theme and wave separator; refreshed the shared theme cache token to AFV409 and shared header token to AFV417 on all five public pages.
+- Desktop header sizing and all page content, navigation, footer, and badge animations remain unchanged.
+
 AFV416 — Match the Compact Homepage Mobile Header
 
 ## AFV416 — Fix About and Privacy mobile header mismatch
