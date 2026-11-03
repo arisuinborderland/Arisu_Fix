@@ -55,6 +55,7 @@
     services.classList.add("home-accordion-item");
     const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1);
     serviceHeading.remove();
+    serviceIntro.remove();
     const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton);
     items.push({ section: services, button: serviceButton, panel: servicePanel });
 
