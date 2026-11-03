@@ -1,26 +1,26 @@
 "use strict";
-/* AFV379 — Smooth, consecutive 1–100% progress counting. */
+/* AFV411 — Session-guarded loading screen with first-paint visibility and scroll lock. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
 
-  // Show once per tab session. Reloads and the site's Home button won't replay it.
+  // Show once per tab session. Mark completion only after the loading sequence finishes.
   const sessionKey = "arisuFixHomepageLoadingShown";
   try {
     if (window.sessionStorage.getItem(sessionKey) === "1") {
       overlay.remove();
       return;
     }
-    window.sessionStorage.setItem(sessionKey, "1");
   } catch (error) {
-    // Fail closed: if session storage is unavailable, don't risk showing the overlay
-    // on every refresh. The homepage remains usable without the optional loading screen.
+    // Fail closed: if session storage is unavailable, keep the homepage usable without the optional overlay.
     overlay.remove();
     return;
   }
 
-  // Keep the overlay hidden in the initial HTML. Only reveal it after the session guard
-  // confirms this is the first homepage visit in the current tab, preventing refresh flashes.
+  // Lock background scrolling while the fixed loading overlay is active.
+  document.documentElement.classList.add("arisu-loading-active");
+
+  // The first-paint guard decides visibility before the stylesheet is painted.
   overlay.classList.add("is-visible");
 
   const rows = [
@@ -109,6 +109,9 @@
     await progressTask;
     setProgress(100);
     finished = true;
+    // Persist completion only after all loading checks have finished.
+    try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue if storage becomes unavailable. */ }
+
     footnote.textContent = rows.every(row => {
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
       return element && element.dataset.state === "ok";
@@ -117,7 +120,10 @@
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
       overlay.setAttribute("aria-hidden", "true");
-      window.setTimeout(() => overlay.remove(), 440);
+      window.setTimeout(() => {
+        document.documentElement.classList.remove("arisu-loading-active");
+        overlay.remove();
+      }, 440);
     });
   }
 
