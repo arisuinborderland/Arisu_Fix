@@ -300,3 +300,230 @@ body.about-page .mobile-bottom-nav { display:none; }
     margin-bottom: 10px !important;
   }
 }
+
+
+/* AFV427 — unified About content in the approved five-step Process Flow. */
+.about-page-main > .about-process-flow {
+  margin: 0 0 22px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse at 0% 5%, rgba(62,190,255,.18), transparent 42%),
+    radial-gradient(ellipse at 100% 95%, rgba(173,83,255,.18), transparent 44%),
+    linear-gradient(135deg, rgba(239,249,255,.92), rgba(250,248,255,.88) 54%, rgba(249,240,255,.9));
+  box-shadow: 0 14px 36px rgba(57,91,174,.13), inset 0 1px 0 rgba(255,255,255,.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.about-process-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.about-process-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 62px minmax(0,1fr);
+  align-items: stretch;
+  column-gap: 12px;
+  min-width: 0;
+}
+.about-process-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 29px;
+  top: 66px;
+  bottom: -17px;
+  width: 4px;
+  border-radius: 99px;
+  background: linear-gradient(180deg,#16c8f4 0%,#1769f5 48%,#9148ed 100%);
+  box-shadow: 0 0 10px rgba(44,132,255,.28);
+}
+.about-process-number {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-top: 24px;
+  border: 2px solid rgba(255,255,255,.98);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg,#08bff5 0%,#1769ed 48%,#772ce4 100%);
+  box-shadow: 0 5px 15px rgba(35,101,231,.28), 0 0 0 3px rgba(77,178,255,.12);
+  font: 800 18px/1 Manrope,Arial,sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.about-process-panel {
+  display: grid;
+  grid-template-columns: 64px minmax(0,1fr);
+  align-items: start;
+  gap: 15px;
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid rgba(255,255,255,.96);
+  border-radius: 22px;
+  background: linear-gradient(125deg,rgba(255,255,255,.84),rgba(245,248,255,.8) 64%,rgba(245,236,255,.78));
+  box-shadow: 0 7px 17px rgba(48,85,157,.10), inset 0 1px 0 rgba(255,255,255,.96);
+}
+.about-process-brand-image,
+.about-process-icon {
+  width: 62px;
+  height: 62px;
+  box-sizing: border-box;
+  border-radius: 17px;
+}
+.about-process-brand-image {
+  display: block;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.95);
+  box-shadow: 0 0 0 3px rgba(32,191,245,.18), 0 4px 14px rgba(31,93,201,.16);
+}
+.about-process-icon {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(145deg,#13c8ef 0%,#1469ef 55%,#7e35e8 100%);
+  box-shadow: 0 5px 15px rgba(43,106,224,.2), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.about-process-icon svg { width: 34px; height: 34px; }
+.about-process-copy { min-width: 0; }
+.about-process-copy h2 {
+  margin: 0 0 7px;
+  color: #14284d;
+  font: 800 clamp(17px,2vw,22px)/1.2 Manrope,Arial,sans-serif;
+  letter-spacing: -.035em;
+}
+.about-process-service h2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.about-process-copy h3 {
+  margin: 0 0 8px;
+  color: #234d92;
+  font: 750 16px/1.35 Manrope,Arial,sans-serif;
+}
+.about-process-copy p,
+.about-process-copy li {
+  color: #53647e;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.about-process-copy p { margin: 0 0 8px; }
+.about-process-copy p:last-child { margin-bottom: 0; }
+.about-process-disclaimer {
+  margin-top: 11px !important;
+  padding-top: 10px;
+  border-top: 1px solid rgba(72,119,199,.25);
+  color: #405777 !important;
+}
+.about-process-mantra {
+  color: #2458b0 !important;
+  font-weight: 800;
+}
+.about-process-copy ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 20px;
+}
+.about-process-copy li::marker { color: #1769e8; }
+.about-process-signoff {
+  margin-top: 8px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(72,119,199,.25);
+}
+.about-process-signoff-label,
+.about-process-creator-role {
+  display: block;
+  color: #6a7890;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.about-process-creator-name {
+  margin: 2px 0 1px !important;
+  color: #2d5797 !important;
+  font-family: Georgia,"Times New Roman",serif;
+  font-size: clamp(25px,3vw,31px) !important;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.2 !important;
+}
+@media (max-width: 700px) {
+  .about-page-main > .about-process-flow {
+    margin: 2px 0 12px !important;
+    padding: 10px !important;
+    border-radius: 21px !important;
+  }
+  .about-process-list { gap: 9px; }
+  .about-process-step {
+    grid-template-columns: 36px minmax(0,1fr);
+    column-gap: 8px;
+  }
+  .about-process-step:not(:last-child)::before {
+    left: 16px;
+    top: 43px;
+    bottom: -12px;
+    width: 3px;
+  }
+  .about-process-number {
+    width: 32px;
+    height: 32px;
+    margin-top: 22px;
+    border-width: 1.5px;
+    font-size: 12px;
+  }
+  .about-process-panel {
+    grid-template-columns: 42px minmax(0,1fr);
+    gap: 10px;
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+  .about-process-brand-image,
+  .about-process-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  .about-process-icon svg { width: 25px; height: 25px; }
+  .about-process-copy h2 {
+    margin-bottom: 5px;
+    font-size: 16px;
+    letter-spacing: -.025em;
+  }
+  .about-process-copy h3 { margin-bottom: 5px; font-size: 14px; }
+  .about-process-copy p,
+  .about-process-copy li { font-size: 12.5px; line-height: 1.55; }
+  .about-process-copy p { margin-bottom: 6px; }
+  .about-process-copy ul { gap: 3px; padding-left: 17px; }
+  .about-process-disclaimer { margin-top: 8px !important; padding-top: 7px; }
+  .about-process-signoff { margin-top: 6px; padding-top: 7px; }
+  .about-process-signoff-label,
+  .about-process-creator-role { font-size: 11px; }
+  .about-process-creator-name { font-size: 25px !important; }
+}
+@media (max-width: 380px) {
+  .about-page-main > .about-process-flow { padding: 8px !important; }
+  .about-process-step { grid-template-columns: 30px minmax(0,1fr); column-gap: 6px; }
+  .about-process-step:not(:last-child)::before { left: 13px; }
+  .about-process-number { width: 27px; height: 27px; font-size: 10px; margin-top: 24px; }
+  .about-process-panel { grid-template-columns: 34px minmax(0,1fr); gap: 8px; padding: 10px !important; }
+  .about-process-brand-image,.about-process-icon { width: 34px; height: 34px; border-radius: 10px; }
+  .about-process-icon svg { width: 21px; height: 21px; }
+  .about-process-copy h2 { font-size: 14px; }
+  .about-process-copy p,.about-process-copy li { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-process-number,
+  .about-process-panel,
+  .about-process-icon { scroll-behavior: auto; }
+}
