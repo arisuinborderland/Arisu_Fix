@@ -15,6 +15,14 @@ test("homepage accordion defaults to Services and uses the approved order", () =
   assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
 });
 
+test("services subtitle is moved into the trigger instead of being duplicated in the panel", () => {
+  assert.match(accordion, /serviceIntro\.remove\(\)/);
+});
+
+test("How section cancels the legacy visual lift and stays in document flow", () => {
+  assert.match(styles, /\.how-assistance-section > \.why-arisu-card[\\s\\S]*?translate: none !important/);
+});
+
 test("opening a section closes the previous section", () => {
   assert.match(accordion, /setOpen\(isOpen \? null : item\)/);
   assert.match(accordion, /item\.panel\.inert = !open/);
