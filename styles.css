@@ -10732,3 +10732,12 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV412 — Restore the homepage verified check draw without changing the badge shell.
+   Other pages keep their existing shared check animation untouched. */
+html body.home-page .topbar .arisu-verified-badge svg path {
+  stroke-dasharray: 24 !important;
+  stroke-dashoffset: 24 !important;
+  animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+}
