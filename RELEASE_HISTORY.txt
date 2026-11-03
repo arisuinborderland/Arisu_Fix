@@ -1,4 +1,9 @@
-AFV412 — Shared Header, Creation Date, and Homepage Badge Animation
+AFV414 — Mobile Verified Check Animation and Shared Headers
+
+## AFV414 — Fix mobile check draw and About/Privacy header consistency
+- Restores the homepage verified SVG check-draw animation in the mobile motion override while preserving the existing blue badge pulse.
+- Normalizes About and Privacy mobile header sizing, brand alignment, logo dimensions, and action rail to the shared header shell used by the other public pages.
+- Refreshes the shared stylesheet cache keys and synchronizes package metadata to AFV414 / 414.0.0.
 
 ## AFV412 — Restore footer milestone and unify public-page header
 - Restores the Creation Date milestone card with the October 14, 2026 date and Explore My Story CTA on Home, Reviews, Proofs, and About.
