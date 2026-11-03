@@ -35,7 +35,16 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV421&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV422&shared=1',page+' must load shared header stylesheet last');}
+});
+test('AFV422 cleanup leaves one authoritative header layout layer', () => {
+ assert.match(css,/AFV422 — Approved shared header baseline/);
+ assert.match(css,/AFV408 — Shared navy-to-indigo header theme/);
+ assert.match(css,/AFV420 — One authoritative header contract/);
+ assert.doesNotMatch(css,/AFV412 shared desktop header normalization|AFV412 — One shared header shell|privacy-about-link|about-header-link/);
+ const build=read('build.js');
+ assert.doesNotMatch(build,/desktop-header\.css|homepage-header-theme\.css/);
+ for(const page of pages){const html=read(page);assert.doesNotMatch(html,/desktop-header\.css|homepage-header-theme\.css/);}
 });
 test('Production build allowlist includes the shared header stylesheet', () => {assert.match(read('build.js'),/"site-header\.css"/);});
 
