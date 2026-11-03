@@ -1,4 +1,4 @@
-/* AFV319 desktop header normalization.
+/* AFV412 shared desktop header normalization.
    Shared desktop rules only; existing mobile header layouts remain untouched. */
 @media (min-width: 701px) {
   html body.home-page header.topbar.topbar,
@@ -130,5 +130,22 @@
     stroke: #263a61 !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+}
+
+
+/* AFV412 — One shared header shell: same brand alignment and empty action rail
+   on pages that do not have page-specific header actions. */
+@media (min-width: 701px) {
+  html body header.topbar > div.header-meta:empty {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    min-height: 1px !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 }
