@@ -12,7 +12,7 @@ test('AFV411 first-paint guard shows the loading overlay only for a new tab sess
   assert.ok(html.includes('arisu-loading-first-run #arisu-loading-screen'));
   assert.ok(html.includes('animation:none!important'), 'first-paint overlay must not be hidden by the CSS fade-in animation');
   assert.ok(html.includes('#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}'));
-  assert.ok(html.includes('loading-screen.css?v=AFV411&sessionguard=1&firstpaint=4'));
+  assert.ok(html.includes('loading-screen.css?v=AFV411&sessionguard=1&firstpaint=5'));
   assert.ok(html.includes('loading-screen.js?v=AFV411&sessionguard=1'));
   const guardPosition = html.indexOf('id="loading-screen-first-paint-guard"');
   const firstStylesheetPosition = html.indexOf('<link rel="stylesheet"');
@@ -34,6 +34,7 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(!css.includes('arisu-loading-card-fade-in'), 'loading card must not use an entrance fade');
   assert.ok(css.includes('arisu-loading-card-fade-out'), 'existing loading card exit fade must remain');
   assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'), 'existing overlay exit fade must remain');
+  assert.ok(!/^\s*transition:\s*opacity \.24s ease, visibility \.24s ease;/m.test(css), 'default overlay state must not transition into view');
 });
 
 test('AFV425 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
