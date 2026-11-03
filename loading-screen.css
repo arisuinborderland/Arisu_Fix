@@ -104,7 +104,7 @@
   #arisu-loading-screen .boot-content { padding: 21px 16px 17px; }
   #arisu-loading-screen .boot-brand-row { gap: 10px; }
   #arisu-loading-screen .boot-logo { width: 72px; height: 72px; flex-basis: 72px; }
-  #arisu-loading-screen .boot-subtitle { font-size: 8px; letter-spacing: .08em; }
+  #arisu-loading-screen .boot-subtitle { letter-spacing: .08em; }
   #arisu-loading-screen .boot-log { font-size: 10px; }
   #arisu-loading-screen .boot-brand { font-size: 28px; }
   #arisu-loading-screen .boot-status { padding: 2px 5px; }
