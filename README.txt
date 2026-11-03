@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV425
+Version: AFV428
 Updated: 2026-11-03
 
-Current release: AFV425
-Package version: 425.0.0
+Current release: AFV428
+Package version: 428.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV428 adds a compact, single-open accordion to the homepage in the order Services, Why Choose Arisu?, and How Account Assistance Works. Services is expanded by default; opening another section closes the previous one. Existing service, history, process, warranty, and safety content is preserved.
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
 
 - AFV424 removes the retired `.site-footer` and `.proofs-footer` CSS layers after confirming the five source pages no longer use those components. It preserves the four-page `.reference-footer`, Privacy's generic footer, and the shared header. It also removes the obsolete homepage About CTA inline styles and stale scroll-reveal target; updates affected cache tokens and regression tests.
