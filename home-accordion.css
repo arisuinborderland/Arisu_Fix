@@ -1,4 +1,4 @@
-/* AFV428 — Homepage single-open accordion */
+/* AFV431 — Homepage accordion card clipping correction */
 .home-accordion-item {
   position: relative;
   min-width: 0;
@@ -260,5 +260,17 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
     padding-top: 7px;
     padding-bottom: 8px;
+  }
+}
+
+
+/* AFV431 root-cause fix:
+   Legacy mobile CSS translates the original Why-card grid upward by 6px.
+   In the How accordion the grid is now nested inside a clipped .why-arisu-card
+   wrapper, so that offset cuts off the first card's top edge. Reset only this
+   legacy lift in the How accordion; leave the Why section's approved spacing intact. */
+@media (max-width: 640px) {
+  html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid {
+    transform: none !important;
   }
 }
