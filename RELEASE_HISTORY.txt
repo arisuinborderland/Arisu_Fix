@@ -1,3 +1,12 @@
+AFV420 — Shared Public Header Component
+
+## AFV420 — One HTML and CSS source for all public-page headers
+- Root cause: five independently authored header elements and separate header stylesheet references allowed About and Privacy to drift from Home, Reviews, and Recovery Proofs. About/Privacy also carried extra page-specific mobile header overrides.
+- Added one shared HTML partial and a homepage-only action slot. The build injects the same header markup into index, reviews, proofs, about, and privacy before publishing static output.
+- Consolidated shared header layout, theme, logo sizing, brand typography, verified badge sizing, and responsive rules into site-header.css, loaded last on all five pages.
+- Kept homepage-only Recovery Proofs and Customer Reviews actions in the shared header slot; kept page content, footer, bottom navigation, and story UI separate.
+- Added build-time checks and regression tests to ensure every generated page contains exactly one rendered shared header and no unresolved placeholder.
+
 AFV419 — Align About and Privacy Mobile Header Position
 
 ## AFV419 — Remove the page-specific horizontal offset
