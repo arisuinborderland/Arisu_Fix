@@ -124,3 +124,13 @@
     transition: none !important;
   }
 }
+
+
+/* AFV428 follow-up: the original Why card has a legacy -50px visual lift.
+   The new How section reuses its visual card class, but must stay in normal
+   document flow so it cannot overlap the About section below it. */
+html body.home-page .how-assistance-section > .why-arisu-card {
+  position: relative !important;
+  top: auto !important;
+  translate: none !important;
+}
