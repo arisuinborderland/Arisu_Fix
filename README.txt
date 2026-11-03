@@ -101,6 +101,7 @@ RELEASE NOTES
 - Obsolete Vercel API handlers and their legacy tests have been removed after review; production Story endpoints remain under functions/api/.
 
 RELEASE NOTES
+- AFV433 reduces collapsed homepage accordion headers to a compact 48px mobile minimum with smaller one-line title/subtitle text; expanded headers and panel content remain unchanged.
 - AFV379 aligns the release version with the homepage loading-screen cache tokens and once-per-tab-session behavior.
 
 VALIDATION
