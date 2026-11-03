@@ -191,13 +191,18 @@ test('AFV412 restores the Creation Date milestone on all four shared footer page
   }
 });
 
-test('AFV412 restores only the homepage verified check draw', () => {
+test('AFV413 removes the legacy desktop rule that disabled the homepage check draw', () => {
   const styles = read('styles.css');
-  const restore = styles.slice(styles.lastIndexOf('AFV412 — Restore the homepage verified check draw'));
-  assert.ok(restore.includes('html body.home-page .topbar .arisu-verified-badge svg path'));
-  assert.ok(restore.includes('stroke-dashoffset: 24 !important'));
-  assert.ok(restore.includes('animation: arisu-brand-check-draw 2s ease-in-out infinite !important'));
-  assert.ok(!restore.includes('background:') && !restore.includes('border-radius:') && !restore.includes('box-shadow:'));
+  assert.ok(styles.includes('@keyframes  arisu-brand-check-draw'));
+  assert.ok(styles.includes('animation: arisu-brand-check-draw 2s ease-in-out infinite'));
+  assert.ok(!styles.includes('Keep the check mark visible at all times while the badge itself animates.'));
+  assert.ok(!styles.includes('Blue badge keeps its pulse; check path remains drawn and visible all the time.'));
+});
+test('AFV413 Creation Date uses a stacked layout for date, caption and CTA', () => {
+  const css = read('footer-reference.css');
+  assert.match(css, /\.reference-about-created-copy\s*\{[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column;/);
+  assert.match(css, /\.reference-about-created-copy strong,[\s\S]*?display:\s*block;/);
+  assert.match(css, /\.reference-about-created \.reference-about-action\s*\{[\s\S]*?align-self:\s*flex-start;/);
 });
 
 test('AFV412 keeps the shared header desktop sizing consistent across all five pages', () => {
