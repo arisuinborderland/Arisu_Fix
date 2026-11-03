@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV419
+Version: AFV420
 Updated: 2026-11-03
 
-Current release: AFV419
-Package version: 419.0.0
+Current release: AFV420
+Package version: 420.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV420 replaces duplicated public-page header markup with one build-time shared HTML component and one shared stylesheet. All five public pages now receive identical logo, verified badge, typography, spacing, theme, and responsive alignment; homepage-only action links are supplied through a dedicated slot. The static build injects the component before deployment, with no runtime header flash.
 - AFV419 fixes the About/Privacy mobile header offset: their page-specific header overrides used wider 16px gutters and 10px logo-to-copy gaps than the shared public-page header. Aligns both pages to 12px/7px at standard mobile widths and 10px/7px with a 37px logo at <=380px. Updates shared header cache keys and release metadata.
 - AFV418 refines About/Privacy mobile spacing and aligns their header logo, brand text, and verified badge with the Recovery Proofs reference. Privacy Policy now uses a compact icon/text grid and tighter title/date/section rhythm; About heading-to-card spacing is reduced. Desktop layout and shared badge animation are preserved.
 - AFV417 removes the About-only topbar hook and legacy padding/background rules. About and Privacy now use the exact compact mobile header contract: 58px shell, 39px logo, 16px side gutters, 10px brand gap, and 34px logo below 380px. Refreshes shared theme cache keys across all five pages.
