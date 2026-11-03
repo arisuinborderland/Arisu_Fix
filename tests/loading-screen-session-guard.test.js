@@ -30,11 +30,11 @@ test('AFV411 release metadata stays synchronized without reverting AFV410', () =
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '411.0.0');
-  assert.equal(lock.version, '411.0.0');
-  assert.equal(lock.packages[''].version, '411.0.0');
-  assert.ok(readme.includes('Current release: AFV411'));
+  assert.equal(pkg.version, '412.0.0');
+  assert.equal(lock.version, '412.0.0');
+  assert.equal(lock.packages[''].version, '412.0.0');
+  assert.ok(readme.includes('Current release: AFV412'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV411 — Homepage Loading Screen Session Guard'));
+  assert.ok(history.startsWith('AFV412 — Shared Header, Creation Date, and Homepage Badge Animation'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
