@@ -1,3 +1,13 @@
+AFV428 — Homepage Single-Open Accordion
+
+## AFV428 — Compact the three homepage information sections
+- Reorganized “What Services I Offer”, “Why Choose Arisu?”, and “How Account Assistance Works” into a single-open accordion in the approved order.
+- “What Services I Offer” opens by default; opening another section closes the previously open section.
+- Preserved the existing service details, history content, process guidance, safety reminder, and original card content.
+- Added accessible button controls, expanded-state semantics, native keyboard support, animated panel transitions, and reduced-motion handling.
+- Kept the change scoped to the homepage; added accordion CSS/JS, homepage references, build allowlist entries, release metadata, and regression coverage.
+- Preview required on mobile and desktop before merge. Do not merge until visual validation is approved.
+
 AFV425 — Reviews and Proofs Header CSS Cleanup
 
 ## AFV425 — Remove superseded page-specific header layers
