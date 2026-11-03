@@ -9106,12 +9106,6 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .topbar .arisu-verified-badge::after {
     animation: arisu-brand-badge-glow 2s ease-out infinite !important;
   }
-  /* Keep the check mark visible at all times while the badge itself animates. */
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
 
   /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
@@ -9142,18 +9136,6 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
 
-  /* Blue badge keeps its pulse; check path remains drawn and visible all the time. */
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
 
   /* Restore CTA glow and the actual conic gradients as well as animation.
      The earlier reduced-motion rules replace these gradients with static ones. */
@@ -10734,10 +10716,5 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 }
 
 
-/* AFV412 — Restore the homepage verified check draw without changing the badge shell.
-   Other pages keep their existing shared check animation untouched. */
-html body.home-page .topbar .arisu-verified-badge svg path {
-  stroke-dasharray: 24 !important;
-  stroke-dashoffset: 24 !important;
-  animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
-}
+/* AFV413 — The canonical badge check-draw is shared from the base badge rule.
+   Legacy desktop static overrides were removed so the path animation can run. */
