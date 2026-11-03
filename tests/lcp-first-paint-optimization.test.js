@@ -17,7 +17,7 @@ test('AFV358 generates and preloads the optimized Daily Bible Verse WebP as a hi
   assert.ok(build.includes('output: "verse-lake-photo.webp"'), 'production build must generate the optimized LCP asset');
   assert.ok(styles.includes('verse-lake-photo.webp?v=AFV358'), 'CSS must use the same optimized asset as the preload');
   assert.ok(!styles.includes('verse-lake-photo.jpg?v=AFV266'), 'old JPEG background references must be replaced');
-  assert.ok(index.includes('scroll-reveal.js?v=AFV357'), 'homepage must refresh the changed script cache token');
+  assert.ok(index.includes('scroll-reveal.js?v=AFV424'), 'homepage must refresh the changed script cache token');
 });
 
 test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll reveal', () => {
