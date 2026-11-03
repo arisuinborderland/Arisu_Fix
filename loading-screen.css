@@ -22,8 +22,7 @@
   visibility: visible;
   pointer-events: auto;
 }
-#arisu-loading-screen.is-ready {
-}
+
 #arisu-loading-screen .boot-window {
   width: min(100%, 470px);
   overflow: hidden;
