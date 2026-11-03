@@ -36,3 +36,8 @@ test('The homepage no longer ships the retired About CTA inline style block', ()
   const home = read('index.html');
   assert.doesNotMatch(home, /about-cta-visibility-enhancement|\.about-link-section|\.about-page-cta/);
 });
+
+test('Retired How It Works section selectors are absent from the homepage stylesheet', () => {
+  assert.doesNotMatch(styles, /\.how-section(?!\))/);
+  assert.doesNotMatch(read('index.html'), /class=["'][^"']*\bhow-section\b/);
+});
