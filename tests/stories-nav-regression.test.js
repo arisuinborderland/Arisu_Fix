@@ -132,7 +132,7 @@ test('AFV422 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '422.0.0');
   assert.equal(lock.packages[''].version, '422.0.0');
   assert.ok(readme.includes('Current release: AFV422'));
-  assert.ok(history.startsWith('AFV422 — Shared Public Header Component'));
+  assert.ok(history.startsWith('AFV422 — Shared Header Cleanup and Approved Layout Baseline'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
