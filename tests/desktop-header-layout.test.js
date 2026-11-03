@@ -13,7 +13,7 @@ test('Desktop header spans the viewport with responsive outer gutters', () => {
   assert.match(css, /@media\s*\(min-width:\s*701px\)/);
   assert.match(css, /padding:\s*8px clamp\(20px, 2vw, 36px\) !important/);
   for (const pageClass of ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page']) {
-    assert.match(css, new RegExp('body\\.' + pageClass + ' header\\.topbar'));
+    assert.match(css, new RegExp('body\\.' + pageClass + ' header\.topbar'));
   }
 });
 
@@ -45,7 +45,7 @@ test('Production build allowlist includes the shared header stylesheet', () => {
 test('AFV417 About and Privacy match the exact compact homepage mobile header and shared theme', () => {
   const mobileBlocks = [...css.matchAll(/@media\s*\(max-width:\s*700px\)/g)];
   assert.equal(mobileBlocks.length, 1, 'one authoritative mobile header rule group controls both pages');
-  assert.match(css, /html body\.about-page header\\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /html body\.about-page header\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
   assert.match(css, /padding: 0 16px !important/);
   assert.match(css, /flex: 0 0 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
@@ -233,7 +233,7 @@ test('AFV414 mobile homepage check path uses the shared draw animation while bad
 test('AFV417 About and Privacy mobile headers explicitly match the exact homepage shell', () => {
   const css = read('desktop-header.css');
   assert.match(css, /AFV417 — Exact compact mobile header contract shared with Home/);
-  assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
   assert.match(css, /padding: 0 16px !important/);
   assert.match(css, /width: 39px !important;[\s\S]*?height: 39px !important/);
