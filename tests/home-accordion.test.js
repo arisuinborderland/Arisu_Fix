@@ -20,7 +20,7 @@ test("services subtitle is moved into the trigger instead of being duplicated in
 });
 
 test("How section cancels the legacy visual lift and stays in document flow", () => {
-  assert.match(styles, /\.how-assistance-section > \.why-arisu-card[\\s\\S]*?translate: none !important/);
+  assert.match(styles, /html body\.home-page \.how-assistance-section > \.why-arisu-card\s*\{[^}]*translate:\s*none !important;/);
 });
 
 test("opening a section closes the previous section", () => {
