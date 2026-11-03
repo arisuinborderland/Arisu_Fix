@@ -6,12 +6,12 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV428 About Process Flow keeps a single parent card and the approved five-step order', () => {
+test('AFV428 About Process Flow keeps a single parent card and the approved six-step order', () => {
   const html = read('about.html');
-  const flow = html.slice(html.indexOf('class="about-process-flow"'), html.indexOf('class="site-section terms-section about-terms-section"'));
+  const flow = html.slice(html.indexOf('class="about-process-flow"'), html.indexOf('</main>'));
   assert.ok(flow.length > 0, 'unified process card should precede Terms & limitations');
-  assert.equal((flow.match(/class="about-process-step"/g) || []).length, 5);
-  const order = ['About Arisu Recovery Service', 'Why I Built This Site', 'My Mission', 'My Values', 'About the Creator'];
+  assert.equal((flow.match(/class="about-process-step"/g) || []).length, 6);
+  const order = ['About Arisu Recovery Service', 'Why I Built This Site', 'My Mission', 'My Values', 'About the Creator', 'Terms &amp; limitations'];
   let cursor = -1;
   for (const title of order) {
     const next = flow.indexOf(title);
@@ -23,7 +23,8 @@ test('AFV428 About Process Flow keeps a single parent card and the approved five
   assert.ok(flow.includes('Less searching. More transparency. Better-informed decisions.'));
   assert.ok(flow.includes('Arisu Ryohei'));
   assert.ok(html.includes('about-page.css?v=AFV428'));
-  assert.ok(html.includes('id="termsTitle"'), 'terms and limitations stay available');
+  assert.ok(html.includes('id="termsTitle"'), 'terms and limitations stay available as step 06');
+  assert.ok(flow.includes('aria-hidden="true">06</span>'), 'Terms & limitations is numbered 06');
   assert.ok(!html.includes('Established September 08, 2018'), 'the established-date line is removed from the About page');
   const css = read('about-page.css');
   assert.ok(css.includes('.about-process-flow'));
