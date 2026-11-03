@@ -49,7 +49,7 @@ test("opening a section closes the previous section", () => {
 });
 
 test("accordion assets are cache-busted and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV429/);
-  assert.match(html, /home-accordion\.js\?v=AFV429/);
+  assert.match(html, /home-accordion\.css\?v=AFV430/);
+  assert.match(html, /home-accordion\.js\?v=AFV430/);
   assert.match(styles, /prefers-reduced-motion: reduce/);
 });
