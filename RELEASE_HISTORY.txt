@@ -1,3 +1,12 @@
+AFV429 — Services Accordion Default-Open Initialization Fix
+
+## AFV429 — Make Services open before accordion initialization completes
+- Root cause: all triggers and panels were initialized closed, and Services only opened at the very end of the full three-section DOM transformation. Any interruption before the final setOpen call left the first accordion collapsed.
+- Mark the Services section open before building its trigger and panel; initialize its trigger with aria-expanded=true and its panel as non-inert.
+- Keep the final single-open normalization so opening Why or How still closes the previous section.
+- Bump only the accordion asset cache tokens to AFV429 and update release metadata.
+- Add regression assertions that Services is open at construction time, not only after the final initializer call.
+
 AFV428 — Homepage Single-Open Accordion
 
 ## AFV428 — Compact the three homepage information sections
