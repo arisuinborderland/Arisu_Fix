@@ -25,14 +25,14 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(css.includes('overscroll-behavior: none'));
 });
 
-test('AFV417 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('AFV418 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '417.0.0');
-  assert.equal(lock.version, '417.0.0');
-  assert.equal(lock.packages[''].version, '417.0.0');
+  assert.equal(pkg.version, '418.0.0');
+  assert.equal(lock.version, '418.0.0');
+  assert.equal(lock.packages[''].version, '418.0.0');
   assert.ok(readme.includes('Current release: AFV417'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
   assert.ok(history.startsWith('AFV417 — Exact Shared Mobile Header Contract'));
