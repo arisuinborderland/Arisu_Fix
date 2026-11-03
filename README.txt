@@ -9,7 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV428 adds a compact, single-open accordion to the homepage in the order Services, Why Choose Arisu?, and How Account Assistance Works. Services is expanded by default; opening another section closes the previous one. Existing service, history, process, warranty, and safety content is preserved.
+- AFV428 adds a compact, single-open homepage accordion in the order Services, Why Choose Arisu?, and How Account Assistance Works. Services is expanded by default; opening another section closes the previous one. It preserves existing content, removes the duplicate Services subtitle, resets legacy card offsets that caused overlap, and restores mobile footer spacing by replacing the old -44px footer lift with an 8px gap. Accordion headers and panel contents are compacted.
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
 
 - AFV424 removes the retired `.site-footer` and `.proofs-footer` CSS layers after confirming the five source pages no longer use those components. It preserves the four-page `.reference-footer`, Privacy's generic footer, and the shared header. It also removes the obsolete homepage About CTA inline styles and stale scroll-reveal target; updates affected cache tokens and regression tests.
