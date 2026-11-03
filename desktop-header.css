@@ -237,3 +237,68 @@
     width: 34px !important; height: 34px !important; min-width: 34px !important; flex-basis: 34px !important;
   }
 }
+
+
+/* AFV414 — Mobile header normalization for About and Privacy.
+   These pages use the same brand/action-rail markup as Reviews and Proofs.
+   Override the About-only topbar padding so all five pages share one shell. */
+@media (max-width: 700px) {
+  html body.about-page header.topbar,
+  html body.privacy-page header.topbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 96px !important;
+    height: auto !important;
+    padding: 18px 22px !important;
+    gap: 24px !important;
+    position: relative !important;
+    z-index: 20 !important;
+    background: inherit !important;
+  }
+  html body.about-page header.topbar > a.brand,
+  html body.privacy-page header.topbar > a.brand {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    gap: 16px !important;
+  }
+  html body.about-page header.topbar > a.brand > .logo,
+  html body.privacy-page header.topbar > a.brand > .logo {
+    flex: 0 0 66px !important;
+    width: 66px !important;
+    height: 66px !important;
+  }
+  html body.about-page header.topbar > .header-meta,
+  html body.privacy-page header.topbar > .header-meta {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    min-width: 0 !important;
+    min-height: 1px !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.about-page header.topbar,
+  html body.privacy-page header.topbar {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+  }
+  html body.about-page header.topbar > a.brand,
+  html body.privacy-page header.topbar > a.brand {
+    gap: 6px !important;
+  }
+  html body.about-page header.topbar > a.brand > .logo,
+  html body.privacy-page header.topbar > a.brand > .logo {
+    flex-basis: 37px !important;
+    width: 37px !important;
+    height: 37px !important;
+  }
+}
