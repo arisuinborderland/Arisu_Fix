@@ -1,3 +1,14 @@
+AFV418 — Refine About and Privacy Mobile Layout
+
+## AFV418 — Align content rhythm and brand positioning to the main-page reference
+- Root cause: Privacy Policy used independent 64px desktop / 52px mobile icon columns, 12px mobile icon-text gap, 25px row padding, 28px section margin, and generous page/card top padding. Those values made its content noticeably more spread out than the Recovery Proofs main-page reference.
+- Reduced Privacy mobile page/card top spacing, tightened the title-to-date and date-to-first-section rhythm, and changed the icon/text grid to a compact 44px icon with a 10px gap (40px/9px at widths up to 380px).
+- Reduced Privacy section row padding and heading/body typography while preserving readable line-height and all policy content.
+- Root cause: About used a separate 23px mobile main top padding and 17px heading bottom margin. Refined those values to 16px and 13px, respectively, and tightened the heading line rhythm.
+- Fine-aligned About and Privacy header gutters (12px), logo-to-copy gap (7px), and verified badge alignment/spacing with the Recovery Proofs reference; retained the shared 39px / 34px logo sizing and existing badge animations.
+- Updated About/Privacy stylesheet cache keys and package metadata to AFV418 / 418.0.0.
+- Desktop layout, page content, bottom navigation, footer, and badge animation behavior remain unchanged.
+
 AFV417 — Exact Shared Mobile Header Contract
 
 ## AFV417 — Remove the About-only header cascade
