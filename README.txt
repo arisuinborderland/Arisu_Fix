@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV410
+Version: AFV411
 Updated: 2026-11-01
 
-Current release: AFV410
-Package version: 410.0.0
+Current release: AFV411
+Package version: 411.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV411 fixes the homepage loading-screen session guard: first-paint visibility, retry after interrupted loading, and background scroll lock. Preserves AFV410 navigation/footer updates.
 - AFV410 applies the Soft Curve cyan/blue/violet mobile navigation and compacts the shared footer while preserving the approved structure.
 - AFV408 adds the shared navy-to-indigo header theme and soft cyan-to-violet separator across the five public pages. Includes the stylesheet in the production build and refreshes its cache token.
 - AFV405 adds the shared More menu to the five public pages and includes its JS/CSS in the production build allowlist. Updates package metadata and validation expectations to AFV405.

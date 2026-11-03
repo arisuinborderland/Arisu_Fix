@@ -152,11 +152,19 @@
 
 
   <link rel="stylesheet" href="footer-reference.css?v=AFV410&compactfooter=1">
+  <script id="loading-screen-first-paint-guard">
+  try {
+    const sessionKey = "arisuFixHomepageLoadingShown";
+    if (window.sessionStorage.getItem(sessionKey) !== "1") {
+      document.documentElement.classList.add("arisu-loading-first-run");
+    }
+  } catch (error) { /* Keep the optional loading overlay hidden if session storage is unavailable. */ }
+  </script>
   <!-- Critical first-paint guard: prevent the homepage overlay flashing before its stylesheet and session guard run. -->
-  <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}</style>
-  <link rel="stylesheet" href="loading-screen.css?v=AFV405&refreshguard=2">
+  <style id="loading-screen-critical-guard">#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}html.arisu-loading-first-run #arisu-loading-screen{opacity:1;visibility:visible;pointer-events:auto}</style>
+  <link rel="stylesheet" href="loading-screen.css?v=AFV411&sessionguard=1">
   <link rel="stylesheet" href="desktop-header.css?v=AFV319">
-  <script src="loading-screen.js?v=AFV405&refreshguard=3" defer></script>
+  <script src="loading-screen.js?v=AFV411&sessionguard=1" defer></script>
   <link rel="stylesheet" href="homepage-header-theme.css?v=AFV408&navywave=approved4">
 </head>
 <body class="home-page" id="top">

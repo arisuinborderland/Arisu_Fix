@@ -1,3 +1,12 @@
+AFV411 — Homepage Loading Screen Session Guard
+
+## AFV411 — Port loading-screen session guard onto AFV410 main
+- Shows the homepage loading overlay on first paint for a new tab session.
+- Marks the tab session complete only after the loading sequence finishes, so an interrupted refresh can retry.
+- Locks background scrolling while the overlay is active and releases the lock when the overlay is removed.
+- Preserves AFV410 Soft Curve navigation and compact footer; refreshes only homepage loading-screen cache tokens.
+- Preview only; run CI and verify fresh-tab, interrupted-refresh, and return-to-Home behavior before merging.
+
 AFV410 — Compact Mobile Footer and Soft Curve Navigation
 
 ## AFV410 — Clean navigation/footer port from main
