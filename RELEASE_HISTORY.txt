@@ -1,3 +1,13 @@
+AFV416 — Match the Compact Homepage Mobile Header
+
+## AFV416 — Fix About and Privacy mobile header mismatch
+- Root cause: AFV415 normalized About and Privacy to desktop-scale 66px logos and a 96px minimum header height, but the approved homepage mobile header uses a compact 43px profile mark and a 58px minimum shell. This made both pages oversized rather than matching the reference.
+- The AFV415 mobile rule also set `background: inherit !important` on About and Privacy. Its selector specificity overrode the shared `homepage-header-theme.css` navy-indigo gradient, exposing the pale page background.
+- Replaced the incorrect dimensions with the homepage mobile values: 43px logo, 58px minimum header height, 10px 12px 11px padding, 9px brand gap, 15px brand name and 11px subtitle. Retained the homepage 39px compact mark and 9px side gutters below 380px.
+- Removed the background inheritance override so the shared navy-indigo gradient, wave accents, and cyan-violet separator apply consistently.
+- Refreshed `desktop-header.css` cache keys across all five public pages and synchronized package metadata to AFV416 / 416.0.0.
+- Desktop header sizing and all page content, navigation, footer, and badge animations remain unchanged.
+
 AFV415 — Unify About and Privacy Mobile Headers
 
 ## AFV415 — Remove conflicting mobile header overrides
