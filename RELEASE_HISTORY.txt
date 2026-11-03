@@ -1,3 +1,11 @@
+AFV423 — Restore Desktop Homepage Verified Checkmark
+
+## AFV423 — Remove the fixed hidden SVG offset
+- Root cause: the desktop homepage animation override set `stroke-dashoffset: 24 !important` while also enabling the check-draw animation. The important declaration outranked animated values, leaving the SVG path fully hidden while the blue badge background remained visible.
+- Removed only the forced offset declaration. The existing `arisu-brand-check-draw` keyframes now control the check path from hidden to visible as intended.
+- Preserved the blue badge pulse, mobile checkmark behavior, shared header sizing/theme, and reduced-motion fallback. Refreshed only the homepage `styles.css` cache token to AFV423.
+- Added a regression test that rejects a forced hidden offset in the desktop homepage animation block.
+
 AFV422 — Shared Header Cleanup and Approved Layout Baseline
 
 ## AFV422 — Remove superseded header override layers
