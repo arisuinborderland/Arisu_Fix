@@ -142,10 +142,11 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 /* Compact collapsed headers; expanded headers retain their normal sizing.
    Keep panel content compact without changing the content or its visibility. */
 .home-accordion-item:not(.is-open) > .home-accordion-trigger {
-  min-height: 64px;
-  gap: 10px;
-  padding: 10px 15px;
-  border-radius: 16px;
+  box-sizing: border-box;
+  min-height: 54px;
+  gap: 8px;
+  padding: 8px 13px;
+  border-radius: 15px;
 }
 .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-copy {
   min-width: 0;
@@ -156,8 +157,8 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: clamp(18px, 2.8vw, 23px);
-  line-height: 1.18;
+  font-size: 17px;
+  line-height: 1.15;
 }
 .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-subtitle {
   display: block;
@@ -165,8 +166,8 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 12.5px;
-  line-height: 1.32;
+  font-size: 11.5px;
+  line-height: 1.2;
 }
 .home-accordion-panel-inner {
   padding-inline: 8px;
@@ -252,18 +253,18 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     margin-block: 6px;
   }
   .home-accordion-item:not(.is-open) > .home-accordion-trigger {
-    min-height: 58px;
-    gap: 9px;
-    padding: 8px 13px;
-    border-radius: 15px;
+    min-height: 48px;
+    gap: 6px;
+    padding: 6px 11px;
+    border-radius: 14px;
   }
   .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-title {
-    font-size: 18px;
-    line-height: 1.18;
+    font-size: 16px;
+    line-height: 1.15;
   }
   .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-subtitle {
-    font-size: 12px;
-    line-height: 1.3;
+    font-size: 10.5px;
+    line-height: 1.2;
   }
   .home-accordion-panel {
     border-radius: 0 0 15px 15px;
