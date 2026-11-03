@@ -148,7 +148,7 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
 });
 
 
-test('AFV428 About page uses the approved five-step Process Flow and preserves key content', () => {
+test('AFV428 About page uses the approved six-step Process Flow and preserves key content', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'about.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '..', 'about-page.css'), 'utf8');
   assert.match(html, /about-page\.css\?v=AFV428/);
@@ -158,7 +158,8 @@ test('AFV428 About page uses the approved five-step Process Flow and preserves k
     'Why I Built This Site',
     'My Mission',
     'My Values',
-    'About the Creator'
+    'About the Creator',
+    'Terms &amp; limitations'
   ];
   let previous = -1;
   for (const label of labels) {
@@ -172,7 +173,7 @@ test('AFV428 About page uses the approved five-step Process Flow and preserves k
   assert.match(html, /Customer awareness and scam prevention/);
   assert.match(html, /No guarantee of recovery outcomes/);
   assert.match(html, /Arisu Ryohei/);
-  assert.match(html, /id="termsTitle"/, 'the existing terms and limitations section remains');
+  assert.match(html, /id="termsTitle"/, 'Terms & limitations is included as step 06');
   assert.doesNotMatch(html, /Established September 08, 2018/, 'the established-date line is no longer part of the About page');
   assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
   assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
