@@ -10,12 +10,15 @@ const styles = fs.readFileSync(path.join(root, "home-accordion.css"), "utf8");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const footer = fs.readFileSync(path.join(root, "footer-reference.css"), "utf8");
 
-test("homepage accordion defaults to Services and uses the approved order", () => {
+test("homepage accordion defaults to all sections closed and uses the approved order", () => {
   assert.ok(accordion.indexOf('getElementById("services")') < accordion.indexOf('getElementById("why-choose-arisu")'));
-  assert.match(accordion, /services\.classList\.add\("home-accordion-item", "is-open"\)/);
-  assert.match(accordion, /makeTrigger\(services,[^;]*, true\)/);
-  assert.match(accordion, /makePanel\(services, "homeAccordionServicesPanel", serviceButton, true\)/);
-  assert.match(accordion, /setOpen\(items\[0\]\)/);
+  assert.match(accordion, /services\.classList\.add\("home-accordion-item"\)/);
+  assert.doesNotMatch(accordion, /services\.classList\.add\("home-accordion-item", "is-open"\)/);
+  assert.match(accordion, /makeTrigger\(services,[^;]*, 1\)/);
+  assert.match(accordion, /makePanel\(services, "homeAccordionServicesPanel", serviceButton\)/);
+  assert.match(accordion, /setOpen\(null\)/);
+  assert.match(accordion, /button\.setAttribute\("aria-expanded", String\(initiallyOpen\)\)/);
+  assert.match(accordion, /panel\.inert = !initiallyOpen/);
   assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
 });
 
