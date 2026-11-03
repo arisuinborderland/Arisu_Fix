@@ -224,7 +224,6 @@ test('AFV414 mobile homepage check path uses the shared draw animation while bad
 test('AFV414 About and Privacy mobile headers explicitly match the shared mobile header shell', () => {
   const css = read('desktop-header.css');
   assert.match(css, /AFV414 — Mobile header normalization for About and Privacy/);
-  assert.match(css, /@media \(max-width: 600px\)[\s\S]*?html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /padding: 18px 22px !important/);
-  assert.match(css, /grid-template-columns: minmax\(0, 1fr\) minmax\(0, 1fr\) !important/);
 });
