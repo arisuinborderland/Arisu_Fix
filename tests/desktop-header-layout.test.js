@@ -26,8 +26,16 @@ test('Build injects the shared header into all five static pages before deployme
 test('Shared mobile header dimensions and text/badge sizes are identical across pages', () => {
  assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 39px!important/);assert.match(css,/font-size:16px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:37px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:14px!important/);
 });
+test('Homepage mobile header stays one row and matches the 58px shared page height', () => {
+ const homeMobile = css.slice(css.indexOf('html body.home-page header.topbar.site-header {', css.indexOf('@media(max-width:700px)')));
+ assert.match(homeMobile,/display:flex!important/);
+ assert.match(homeMobile,/min-height:58px!important;height:58px!important/);
+ assert.match(homeMobile,/padding:0 12px!important/);
+ assert.match(css,/html body\.home-page header\.topbar\.site-header>\.header-meta \{display:none!important\}/);
+ assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
+});
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV420&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV421&shared=1',page+' must load shared header stylesheet last');}
 });
 test('Production build allowlist includes the shared header stylesheet', () => {assert.match(read('build.js'),/"site-header\.css"/);});
 
