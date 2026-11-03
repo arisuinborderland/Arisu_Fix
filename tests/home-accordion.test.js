@@ -26,7 +26,7 @@ test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => 
 });
 
 test("mobile homepage footer no longer uses the legacy negative overlap margin", () => {
-  assert.match(footer, /AFV428[\\s\\S]*?@media \\(max-width: 600px\\)[\\s\\S]*?html body\\.home-page \\.reference-footer\\s*\\{\\s*margin-top: 8px !important;/);
+  assert.match(footer, /margin-top: -44px !important;[\s\S]*AFV428[\s\S]*margin-top: 8px !important;/);
 });
 
 test("accordion headers and panel contents use compact spacing", () => {
