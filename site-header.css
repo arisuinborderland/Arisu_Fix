@@ -325,18 +325,12 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header .arisu-verified-badge svg {width:12px!important;height:12px!important}
  html body header.topbar.site-header>.header-meta:empty {display:none!important}
  html body.home-page header.topbar.site-header {
-  display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:58px auto!important;
-  align-content:start!important;min-height:58px!important;height:auto!important;padding:0 12px 6px!important;row-gap:2px!important;
+  /* Home uses the same single-row mobile header as every other public page. */
+  display:flex!important;flex-flow:row nowrap!important;align-items:center!important;justify-content:space-between!important;
+  min-height:58px!important;height:58px!important;padding:0 12px!important;gap:7px!important;
  }
- html body.home-page header.topbar.site-header>a.brand {grid-column:1!important;grid-row:1!important;align-self:center!important;justify-self:start!important}
- html body.home-page header.topbar.site-header>.header-meta:not(:empty) {
-  display:grid!important;grid-column:1!important;grid-row:2!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
-  align-items:stretch!important;justify-content:stretch!important;width:100%!important;margin:0!important;gap:8px!important;
- }
- html body.home-page header.topbar.site-header>.header-meta>a {
-  box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
-  min-width:0!important;width:100%!important;margin:0!important;
- }
+ html body.home-page header.topbar.site-header>.header-meta {display:none!important}
+
 }
 @media(max-width:380px) {
  html body header.topbar.site-header {padding-left:10px!important;padding-right:10px!important}
