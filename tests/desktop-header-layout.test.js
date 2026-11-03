@@ -234,5 +234,7 @@ test('AFV416 About and Privacy mobile headers explicitly match the compact homep
   const css = read('desktop-header.css');
   assert.match(css, /AFV416 — Match the compact homepage mobile header/);
   assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
-  assert.match(css, /padding: 18px 22px !important/);
+  assert.match(css, /min-height: 58px !important/);
+  assert.match(css, /padding: 10px 12px 11px !important/);
+  assert.match(css, /width: 43px !important;[\s\S]*?height: 43px !important/);
 });
