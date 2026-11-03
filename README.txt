@@ -9,6 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV414 restores the homepage verified check-draw animation on mobile while preserving the existing blue badge pulse, and normalizes About/Privacy mobile header dimensions and alignment to the shared header shell. Preserves AFV413 and earlier fixes.
 - AFV414 restores the mobile verified check-draw animation while preserving the blue badge pulse, and explicitly normalizes About and Privacy mobile header sizing and grid alignment after page-specific styles. Refreshes the shared header stylesheet cache token across all five public pages.
 - AFV413 fixes the Creation Date stacked layout, removes legacy desktop rules disabling the homepage verified check animation, restores the About mobile header hook, normalizes About/Privacy desktop header sizing, and refreshes shared stylesheet cache tokens. Preserves AFV412 and earlier behavior.
 - AFV412 restores the October 14, 2026 Creation Date milestone, normalizes shared header markup and desktop sizing across all five public pages, and restores only the homepage verified check draw. Preserves AFV411 loading and AFV410 navigation/footer behavior.
