@@ -128,11 +128,11 @@ test('AFV414 package metadata and release notes are synchronized', () => {
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '414.0.0');
-  assert.equal(lock.version, '414.0.0');
-  assert.equal(lock.packages[''].version, '414.0.0');
-  assert.ok(readme.includes('Current release: AFV414'));
-  assert.ok(history.startsWith('AFV414 — Mobile Verified Check Animation and Shared Headers'));
+  assert.equal(pkg.version, '415.0.0');
+  assert.equal(lock.version, '415.0.0');
+  assert.equal(lock.packages[''].version, '415.0.0');
+  assert.ok(readme.includes('Current release: AFV415'));
+  assert.ok(history.startsWith('AFV415 — Unify About and Privacy Mobile Headers'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
