@@ -11,9 +11,11 @@ test('AFV411 first-paint guard shows the loading overlay only for a new tab sess
   assert.ok(html.includes('id="loading-screen-first-paint-guard"'));
   assert.ok(html.includes('arisu-loading-first-run #arisu-loading-screen'));
   assert.ok(html.includes('animation:none!important'), 'first-paint overlay must not be hidden by the CSS fade-in animation');
+  assert.ok(html.includes('body>:not(#arisu-loading-screen){visibility:hidden!important}'), 'homepage content must stay hidden until the loading overlay is ready');
+  assert.ok(html.includes('display:grid;place-items:center'), 'critical guard must render the loading overlay before external CSS');
   assert.ok(html.includes('#arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;opacity:0;visibility:hidden;pointer-events:none}'));
   assert.ok(html.includes('loading-screen.css?v=AFV411&sessionguard=1&firstpaint=5'));
-  assert.ok(html.includes('loading-screen.js?v=AFV411&sessionguard=1'));
+  assert.ok(html.includes('loading-screen.js?v=AFV411&sessionguard=2'));
   const guardPosition = html.indexOf('id="loading-screen-first-paint-guard"');
   const firstStylesheetPosition = html.indexOf('<link rel="stylesheet"');
   assert.ok(guardPosition >= 0 && guardPosition < firstStylesheetPosition, 'session guard must run before the first stylesheet');
@@ -26,6 +28,7 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(js.includes('document.documentElement.classList.add("arisu-loading-active")'));
   assert.ok(js.includes('window.sessionStorage.setItem(sessionKey, "1")'));
   assert.ok(js.includes('document.documentElement.classList.remove("arisu-loading-active")'));
+  assert.ok(js.includes('document.documentElement.classList.remove("arisu-loading-first-run")'), "homepage is revealed as the exit fade begins");
   assert.ok(js.indexOf('setItem(sessionKey, "1")') > js.indexOf('async function runSequence()'));
   const css = read('loading-screen.css');
   assert.ok(css.includes('html.arisu-loading-active body'));
