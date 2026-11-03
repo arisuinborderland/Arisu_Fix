@@ -39,7 +39,7 @@ test('AFV419 release metadata is synchronized', () => {
   assert.equal(lock.version, '419.0.0');
   assert.equal(lock.packages[''].version, '419.0.0');
   assert.ok(readme.includes('Current release: AFV419'));
-  assert.ok(history.startsWith('AFV419 — Refine About and Privacy Mobile Layout'));
+  assert.ok(history.startsWith('AFV419 — Align About and Privacy Mobile Header Position'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
