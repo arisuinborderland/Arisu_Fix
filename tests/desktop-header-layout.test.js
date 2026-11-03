@@ -170,7 +170,7 @@ test('Desktop Customer Reviews CTA is visually shortened at top and bottom witho
 test('AFV412 uses one shared header structure and profile thumbnail across all public pages', () => {
   for (const page of pages) {
     const html = read(page);
-    const start = html.indexOf('<header class="topbar">');
+    const start = html.search(/<header class="topbar(?: about-topbar)?">/);
     const end = html.indexOf('</header>', start);
     assert.ok(start >= 0 && end > start, page + ' must use the common topbar class');
     const header = html.slice(start, end);
@@ -210,4 +210,21 @@ test('AFV412 keeps the shared header desktop sizing consistent across all five p
   assert.ok(css.includes('min-height: 96px !important'));
   assert.ok(css.includes('padding: 8px clamp(20px, 2vw, 36px) !important'));
   assert.ok(css.includes('header.topbar > div.header-meta:empty'));
+});
+
+
+test('AFV414 mobile homepage check path uses the shared draw animation while badge pulse remains intact', () => {
+  const styles = read('styles.css');
+  const mobileBlock = styles.split('@media (max-width: 700px) {').slice(-1)[0];
+  assert.ok(mobileBlock, 'mobile homepage animation block must exist');
+  assert.doesNotMatch(mobileBlock, /topbar \.arisu-verified-badge svg path\s*\{[^}]*animation:\s*none\s*!important/s);
+  assert.match(styles, /\.arisu-verified-badge svg path\s*\{[^}]*animation:\s*arisu-brand-check-draw 2s ease-in-out infinite/s);
+});
+
+test('AFV414 About and Privacy mobile headers explicitly match the shared mobile header shell', () => {
+  const css = read('desktop-header.css');
+  assert.match(css, /AFV414 — Explicitly normalize About and Privacy mobile headers/);
+  assert.match(css, /@media \(max-width: 600px\)[\s\S]*?html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /padding: 12px 12px 13px !important/);
+  assert.match(css, /grid-template-columns: minmax\(0, 1fr\) minmax\(0, 1fr\) !important/);
 });
