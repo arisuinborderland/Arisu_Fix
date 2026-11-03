@@ -132,7 +132,7 @@ test('AFV425 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '425.0.0');
   assert.equal(lock.packages[''].version, '425.0.0');
   assert.ok(readme.includes('Current release: AFV425'));
-  assert.ok(history.startsWith('AFV425 — Legacy Footer CSS Cleanup'));
+  assert.ok(history.startsWith('AFV425 — Reviews and Proofs Header CSS Cleanup'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {

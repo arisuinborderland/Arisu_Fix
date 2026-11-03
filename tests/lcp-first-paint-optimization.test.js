@@ -39,7 +39,7 @@ test('AFV425 release metadata is synchronized', () => {
   assert.equal(lock.version, '425.0.0');
   assert.equal(lock.packages[''].version, '425.0.0');
   assert.ok(readme.includes('Current release: AFV425'));
-  assert.ok(history.startsWith('AFV425 — Legacy Footer CSS Cleanup'));
+  assert.ok(history.startsWith('AFV425 — Reviews and Proofs Header CSS Cleanup'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {

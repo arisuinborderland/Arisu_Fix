@@ -102,8 +102,6 @@ html body.reviews-document .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-
   html body.reviews-document .mobile-bottom-nav .mobile-nav-story-avatar { width:36px; min-width:36px; max-width:36px; height:36px; min-height:36px; max-height:36px; flex-basis:36px; }
   html body.reviews-document .reviews-page-main { padding-bottom:24px; }
 }
-@media (max-width:380px) {
-}
 @media (prefers-reduced-motion:reduce) {
   html body.reviews-document .topbar .header-meta > .privacy-link,
   html body.reviews-document .topbar .header-meta > .about-header-link { transition:none; }
