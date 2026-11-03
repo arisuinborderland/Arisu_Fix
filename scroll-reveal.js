@@ -29,7 +29,6 @@
       ".purpose-section > .purpose-card",
       ".safety-section > .safety-panel",
       ".terms-section > .terms-card",
-      ".site-footer > *"
     ];
     const selectorText = selectors.join(",");
     const uniqueTargets = [...new Set(document.querySelectorAll(selectorText))];
