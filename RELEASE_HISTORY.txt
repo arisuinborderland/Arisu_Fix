@@ -1,3 +1,13 @@
+AFV422 — Shared Header Cleanup and Approved Layout Baseline
+
+## AFV422 — Remove superseded header override layers
+- Recorded the approved mobile header baseline: 58px single-row shell, 12px side padding, 39px profile mark, 7px brand gap, 16px Arisu label, 18px verified badge, and the navy-indigo theme.
+- Removed the obsolete AFV412 desktop sizing and legacy privacy/about action-button rules plus the redundant empty-action-rail block from site-header.css (153 lines). The current AFV420/AFV421 authoritative shared header contract remains the single source for dimensions and responsive behavior.
+- Retained the AFV408 shared navy-indigo theme, wave accents, separator, and AFV421 homepage mobile correction.
+- Confirmed obsolete desktop-header.css and homepage-header-theme.css are deleted from this PR branch, are absent from the public build allowlist, and are no longer linked by the five public pages.
+- Kept page-specific content styles, footer, bottom navigation, homepage action-button styling, and global verified badge animation in their existing files to avoid unrelated regressions.
+- Added regression checks for the one-source header contract and removal of superseded override layers.
+
 AFV421 — Shared Public Header Component
 
 ## AFV421 — Match Homepage Mobile Header Height
