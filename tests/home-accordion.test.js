@@ -19,8 +19,14 @@ test("services subtitle is moved into the trigger instead of being duplicated in
   assert.match(accordion, /serviceIntro\.remove\(\)/);
 });
 
-test("How section cancels the legacy visual lift and stays in document flow", () => {
-  assert.match(styles, /html body\.home-page \.how-assistance-section > \.why-arisu-card\s*\{[^}]*translate:\s*none !important;/);
+test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => {
+  assert.match(styles, /html body\.home-page \.home-accordion-item \.why-arisu-card\s*\{[^}]*translate:\s*none !important;/);
+  assert.match(styles, /html body\.home-page #desktopSocialDestination > #why-choose-arisu\s*\{\s*margin-bottom:\s*0 !important;/);
+});
+
+test("accordion headers and panel contents use compact spacing", () => {
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px/);
+  assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
 });
 
 test("opening a section closes the previous section", () => {
