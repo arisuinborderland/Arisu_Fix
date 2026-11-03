@@ -182,41 +182,66 @@
 }
 
 
-/* AFV415 — One authoritative mobile header shell for About and Privacy.
-   Match the 66px shared brand mark used by Home, Reviews, and Proofs.
-   Keep About's page hook, but remove all competing 39px/34px overrides. */
+/* AFV416 — Match the compact homepage mobile header on About and Privacy.
+   Use the homepage's 43px profile mark / 58px shell, and let the shared
+   navy-indigo theme own the background (do not inherit the page background). */
 @media (max-width: 700px) {
   html body.about-page header.topbar.about-topbar,
   html body.privacy-page header.topbar {
     display: flex !important;
+    flex-flow: row nowrap !important;
     align-items: center !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
     width: 100% !important;
-    min-height: 96px !important;
+    min-height: 58px !important;
     height: auto !important;
-    padding: 18px 22px !important;
-    gap: 24px !important;
+    padding: 10px 12px 11px !important;
+    gap: 10px !important;
     position: relative !important;
     z-index: 20 !important;
-    background: inherit !important;
   }
 
   html body.about-page header.topbar.about-topbar > a.brand,
   html body.privacy-page header.topbar > a.brand {
     display: flex !important;
+    flex: 1 1 auto !important;
     align-items: center !important;
-    flex: 0 1 auto !important;
+    justify-content: flex-start !important;
     min-width: 0 !important;
-    gap: 16px !important;
+    gap: 9px !important;
   }
 
   html body.about-page header.topbar.about-topbar > a.brand > .logo,
   html body.privacy-page header.topbar > a.brand > .logo {
     box-sizing: border-box !important;
-    flex: 0 0 66px !important;
-    width: 66px !important;
-    height: 66px !important;
+    flex: 0 0 43px !important;
+    width: 43px !important;
+    height: 43px !important;
+    border-radius: 13px !important;
+  }
+
+  html body.about-page header.topbar.about-topbar > a.brand .brand-copy,
+  html body.privacy-page header.topbar > a.brand .brand-copy {
+    display: inline-flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    min-width: 0 !important;
+  }
+
+  html body.about-page header.topbar.about-topbar > a.brand b,
+  html body.privacy-page header.topbar > a.brand b {
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -.35px !important;
+  }
+
+  html body.about-page header.topbar.about-topbar > a.brand small,
+  html body.privacy-page header.topbar > a.brand small {
+    margin-top: 3px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
   }
 
   html body.about-page header.topbar.about-topbar > .header-meta,
@@ -242,13 +267,13 @@
 
   html body.about-page header.topbar.about-topbar > a.brand,
   html body.privacy-page header.topbar > a.brand {
-    gap: 6px !important;
+    gap: 7px !important;
   }
 
   html body.about-page header.topbar.about-topbar > a.brand > .logo,
   html body.privacy-page header.topbar > a.brand > .logo {
-    flex-basis: 37px !important;
-    width: 37px !important;
-    height: 37px !important;
+    flex-basis: 39px !important;
+    width: 39px !important;
+    height: 39px !important;
   }
 }
