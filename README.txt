@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV430
-Updated: 2026-11-03
+Version: AFV431
+Updated: 2026-11-04
 
-Current release: AFV430
-Package version: 430.0.0
+Current release: AFV431
+Package version: 431.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV431 fixes the clipped first card in the How Account Assistance Works accordion. The legacy mobile -6px grid lift is reset only inside that accordion, preventing the first card from being clipped by its overflow-hidden wrapper without changing the Why Choose Arisu spacing.
 - AFV430 sets all three homepage accordion sections to collapsed on initial page load. The shared single-open interaction remains: opening one section closes the previously open section, and tapping the active section closes it. Accordion asset URLs are cache-busted to AFV430.
 - AFV428 adds a compact, single-open homepage accordion in the order Services, Why Choose Arisu?, and How Account Assistance Works. All three sections start collapsed; opening another section closes the previous one. It preserves existing content, removes the duplicate Services subtitle, resets legacy card offsets that caused overlap, and restores mobile footer spacing by replacing the old -44px footer lift with an 8px gap. Accordion headers and panel contents are compacted.
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
