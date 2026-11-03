@@ -39,7 +39,7 @@ test('AFV417 release metadata is synchronized', () => {
   assert.equal(lock.version, '417.0.0');
   assert.equal(lock.packages[''].version, '417.0.0');
   assert.ok(readme.includes('Current release: AFV417'));
-  assert.ok(history.startsWith('AFV417 — Match the Compact Homepage Mobile Header'));
+  assert.ok(history.startsWith('AFV417 — Exact Shared Mobile Header Contract'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
