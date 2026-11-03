@@ -12,6 +12,9 @@ const footer = fs.readFileSync(path.join(root, "footer-reference.css"), "utf8");
 
 test("homepage accordion defaults to Services and uses the approved order", () => {
   assert.ok(accordion.indexOf('getElementById("services")') < accordion.indexOf('getElementById("why-choose-arisu")'));
+  assert.match(accordion, /services\.classList\.add\("home-accordion-item", "is-open"\)/);
+  assert.match(accordion, /makeTrigger\(services,[^;]*, true\)/);
+  assert.match(accordion, /makePanel\(services, "homeAccordionServicesPanel", serviceButton, true\)/);
   assert.match(accordion, /setOpen\(items\[0\]\)/);
   assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
 });
@@ -26,7 +29,7 @@ test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => 
 });
 
 test("mobile homepage footer no longer uses the legacy negative overlap margin", () => {
-  assert.match(footer, /margin-top: -44px !important;[\s\S]*AFV428[\s\S]*margin-top: 8px !important;/);
+  assert.match(footer, /margin-top: -44px !important;[\s\S]*AFV429[\s\S]*margin-top: 8px !important;/);
 });
 
 test("accordion headers and panel contents use compact spacing", () => {
@@ -41,7 +44,7 @@ test("opening a section closes the previous section", () => {
 });
 
 test("accordion assets are cache-busted and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV428/);
-  assert.match(html, /home-accordion\.js\?v=AFV428/);
+  assert.match(html, /home-accordion\.css\?v=AFV429/);
+  assert.match(html, /home-accordion\.js\?v=AFV429/);
   assert.match(styles, /prefers-reduced-motion: reduce/);
 });
