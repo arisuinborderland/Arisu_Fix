@@ -3,7 +3,7 @@ AFV427 — Unified About Page Process Flow
 ## AFV427 — Consolidate About content into one five-step card
 - Reordered About content into the approved sequence: About Arisu Recovery Service, Why I Built This Site, My Mission, My Values, and About the Creator.
 - Replaced the separate service, purpose, mission, and values cards with one premium blue-purple glassmorphism parent card and numbered vertical timeline.
-- Preserved original service description and disclaimer, full purpose explanation and mantra, mission statement, all four values, creator signature, Terms & limitations, shared header, footer, and mobile navigation.
+- Preserved original service description and disclaimer, full purpose explanation and mantra, mission statement, all four values, creator signature, Terms & limitations, shared header, footer, and mobile navigation. Removed the separate “Established September 08, 2018” line so the About page ends at Terms & limitations before the footer.
 - Added compact mobile and narrow-phone layouts with readable typography and responsive timeline markers.
 - Refreshed the About stylesheet cache token to AFV427 and synchronized package metadata, lockfile, README, release history, and release-version regression expectations.
 - Preview only; validate GitHub Actions, mobile, and desktop behavior before merging.
