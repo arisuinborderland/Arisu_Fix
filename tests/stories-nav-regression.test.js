@@ -132,7 +132,7 @@ test('AFV416 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '416.0.0');
   assert.equal(lock.packages[''].version, '416.0.0');
   assert.ok(readme.includes('Current release: AFV416'));
-  assert.ok(history.startsWith('AFV416 — Unify About and Privacy Mobile Headers'));
+  assert.ok(history.startsWith('AFV416 — Match the Compact Homepage Mobile Header'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
