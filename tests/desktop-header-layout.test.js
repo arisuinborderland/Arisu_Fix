@@ -48,9 +48,9 @@ test('AFV417 About and Privacy match the exact compact homepage mobile header an
   assert.match(css, /html body\\.about-page header\\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
   assert.match(css, /padding: 0 16px !important/);
-  assert.match(css, /flex: 0 0 43px !important;[\s\S]*?width: 43px !important;[\s\S]*?height: 43px !important/);
+  assert.match(css, /flex: 0 0 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
   assert.match(css, /gap: 10px !important/);
-  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
+  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 34px !important;[\s\S]*?width: 34px !important;[\s\S]*?height: 34px !important/);
   const mobileHeader = css.slice(css.indexOf('AFV417 — Exact compact mobile header contract shared with Home'));
   assert.doesNotMatch(mobileHeader, /background:\s*inherit\s*!important/, 'page background must not override the shared navy-indigo header theme');
 });
@@ -235,6 +235,6 @@ test('AFV417 About and Privacy mobile headers explicitly match the exact homepag
   assert.match(css, /AFV417 — Exact compact mobile header contract shared with Home/);
   assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\\.about-page header\\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
-  assert.match(css, /padding: 10px 12px 11px !important/);
-  assert.match(css, /width: 43px !important;[\s\S]*?height: 43px !important/);
+  assert.match(css, /padding: 0 16px !important/);
+  assert.match(css, /width: 39px !important;[\s\S]*?height: 39px !important/);
 });
