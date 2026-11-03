@@ -1,3 +1,12 @@
+AFV415 — Unify About and Privacy Mobile Headers
+
+## AFV415 — Remove conflicting mobile header overrides
+- Root cause: AFV414 left two competing mobile media-query groups in desktop-header.css. The earlier max-width:600px grid rule had higher selector specificity for About and forced a 39px logo, while Privacy fell through to the later 66px flex rule.
+- Removed the duplicate 39px/34px grid overrides and retained one authoritative flex-based mobile shell for both pages.
+- Standardized About and Privacy to the shared 66px logo, 16px brand gap, 18px 22px header padding, and 96px minimum header height used by the other public pages; retained the shared 37px compact-logo treatment below 380px.
+- Refreshed desktop-header.css cache keys across all five public pages and synchronized package metadata to AFV415 / 415.0.0.
+- Preserved the page-specific content, desktop layout, bottom navigation, and all existing animations.
+
 AFV414 — Mobile Verified Check Animation and Shared Headers
 
 ## AFV414 — Fix mobile check draw and About/Privacy header consistency
