@@ -39,7 +39,7 @@ test('AFV423 release metadata is synchronized', () => {
   assert.equal(lock.version, '423.0.0');
   assert.equal(lock.packages[''].version, '423.0.0');
   assert.ok(readme.includes('Current release: AFV423'));
-  assert.ok(history.startsWith('AFV423 — Shared Header Cleanup and Approved Layout Baseline'));
+  assert.ok(history.startsWith('AFV423 — Restore Desktop Homepage Verified Checkmark'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
