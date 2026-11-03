@@ -1,3 +1,12 @@
+AFV428 — About Service Badge Removal & Mobile Spacing
+
+## AFV428 — Remove the About service blue badge and compact details
+- Removed the animated blue verified badge markup from the “About Arisu Recovery Service” heading only; retained the heading and profile image.
+- Tightened heading-to-description and description-to-disclaimer spacing, with responsive adjustments for mobile and narrow phones.
+- Preserved remaining Process Flow steps, service copy, Terms & limitations, footer, shared header, and mobile navigation.
+- Refreshed the About stylesheet cache token and synchronized package metadata, lockfile, README, release history, and regression expectations to AFV428 / 428.0.0.
+- Preview only; validate CI and mobile/desktop rendering before merge.
+
 AFV427 — Unified About Page Process Flow
 
 ## AFV427 — Consolidate About content into one five-step card

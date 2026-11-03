@@ -527,3 +527,18 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-panel,
   .about-process-icon { scroll-behavior: auto; }
 }
+
+
+/* AFV428 — remove the About service badge footprint and tighten its details. */
+.about-process-service .about-process-copy h2 { margin-bottom: 5px; }
+.about-process-service .about-process-copy > p { margin-bottom: 5px; }
+.about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 5px !important; padding-top: 6px; }
+@media (max-width: 700px) {
+  .about-process-service .about-process-copy h2 { margin-bottom: 4px; }
+  .about-process-service .about-process-copy > p { margin-bottom: 4px; line-height: 1.48; }
+  .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 4px !important; padding-top: 5px; line-height: 1.45; }
+}
+@media (max-width: 380px) {
+  .about-process-service .about-process-copy > p { margin-bottom: 3px; }
+  .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 3px !important; padding-top: 4px; }
+}

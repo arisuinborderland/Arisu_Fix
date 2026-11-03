@@ -19,6 +19,7 @@ test('AFV427 About Process Flow keeps a single parent card and the approved five
     cursor = next;
   }
   assert.ok(flow.includes('It is not affiliated with or endorsed by Meta, Facebook, or Instagram.'));
+  assert.ok(!flow.includes('arisu-verified-badge'), 'About service heading has no blue badge markup');
   assert.ok(flow.includes('Less searching. More transparency. Better-informed decisions.'));
   assert.ok(flow.includes('Arisu Ryohei'));
   assert.ok(html.includes('about-page.css?v=AFV427'));
@@ -28,4 +29,5 @@ test('AFV427 About Process Flow keeps a single parent card and the approved five
   assert.ok(css.includes('.about-process-flow'));
   assert.ok(css.includes('.about-process-step:not(:last-child)::before'));
   assert.ok(css.includes('@media (max-width: 380px)'));
+  assert.ok(css.includes('AFV428 — remove the About service badge footprint and tighten its details'));
 });
