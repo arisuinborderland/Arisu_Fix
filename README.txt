@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV423
+Version: AFV424
 Updated: 2026-11-03
 
-Current release: AFV423
-Package version: 423.0.0
+Current release: AFV424
+Package version: 424.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV424 removes the retired `.site-footer` and `.proofs-footer` CSS layers after confirming the five source pages no longer use those components. It preserves the four-page `.reference-footer`, Privacy's generic footer, and the shared header. It also removes the obsolete homepage About CTA inline styles and stale scroll-reveal target; updates affected cache tokens and regression tests.
 - AFV423 fixes the desktop homepage verified badge checkmark. Root cause was a desktop-only `stroke-dashoffset: 24 !important` declaration that overrode the SVG check-draw animation and kept the white check hidden. Removed the forced offset, retained the blue badge pulse, check-draw keyframes, mobile behavior, and reduced-motion fallback.
 - AFV423 cleanup: removed 153 lines of superseded header sizing, empty-rail, and page-specific button overrides from site-header.css. The approved AFV421 shared header contract and navy-indigo theme remain; obsolete desktop-header.css and homepage-header-theme.css files and references are removed from the production path. The AFV421 mobile header layout is the approved visual baseline: 58px single row, 39px profile mark, 7px logo-to-copy gap, and shared 18px verified badge.
 - AFV423 fixes the homepage-only mobile header height mismatch. Root cause was a special two-row grid with an empty/hidden second action row, 2px row gap, and 6px bottom padding; this added vertical space to Home while other pages used the 58px single-row header. Home now uses the same fixed 58px single-row header and hides desktop-only header actions on mobile. Desktop homepage action links are preserved.

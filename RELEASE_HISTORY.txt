@@ -1,3 +1,12 @@
+AFV424 — Legacy Footer CSS Cleanup
+
+## AFV424 — Remove the retired footer selector layers
+- Verified that Home, Reviews, Proofs, and About use the shared `.reference-footer`; Privacy retains its separate generic `<footer>`.
+- Removed 115 obsolete footer rule blocks from styles.css, 35 from proofs.css, and 44 legacy About/footer rule blocks from about-link.css.
+- Removed the obsolete homepage About CTA inline style block and the stale `.site-footer > *` scroll-reveal target.
+- Preserved footer-reference.css, Privacy's generic footer styling, active header styles, and bottom-navigation clearance rules.
+- Refreshed cache tokens for changed public assets and synchronized package metadata, README, and regression tests to AFV424.
+
 AFV423 — Restore Desktop Homepage Verified Checkmark
 
 ## AFV423 — Remove the fixed hidden SVG offset

@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV423 package metadata and release notes are synchronized', () => {
+test('AFV424 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '423.0.0');
-  assert.equal(lock.version, '423.0.0');
-  assert.equal(lock.packages[''].version, '423.0.0');
-  assert.ok(readme.includes('Current release: AFV423'));
-  assert.ok(history.startsWith('AFV423 — Restore Desktop Homepage Verified Checkmark'));
+  assert.equal(pkg.version, '424.0.0');
+  assert.equal(lock.version, '424.0.0');
+  assert.equal(lock.packages[''].version, '424.0.0');
+  assert.ok(readme.includes('Current release: AFV424'));
+  assert.ok(history.startsWith('AFV424 — Legacy Footer CSS Cleanup'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
