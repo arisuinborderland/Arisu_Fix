@@ -1,3 +1,12 @@
+AFV432 — Compact Collapsed Accordion Headers
+
+## AFV432 — Keep collapsed headers to two compact lines
+- Scope compact header sizing to collapsed accordion items only.
+- Keep the title on one line and the subtitle on one line with ellipsis when it exceeds available width.
+- Preserve expanded header sizing, all expanded panel content, and the existing single-open interaction.
+- Retain compact panel-content spacing and the AFV431 How-card clipping correction.
+- Add regression assertions and update accordion asset cache tokens and package/release metadata to AFV432.
+
 AFV431 — How Accordion First Card Clipping Fix
 
 ## AFV431 — Remove the legacy mobile grid lift inside How accordion
