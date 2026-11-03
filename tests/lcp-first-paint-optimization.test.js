@@ -39,7 +39,7 @@ test('AFV422 release metadata is synchronized', () => {
   assert.equal(lock.version, '422.0.0');
   assert.equal(lock.packages[''].version, '422.0.0');
   assert.ok(readme.includes('Current release: AFV422'));
-  assert.ok(history.startsWith('AFV422 — Shared Public Header Component'));
+  assert.ok(history.startsWith('AFV422 — Shared Header Cleanup and Approved Layout Baseline'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
