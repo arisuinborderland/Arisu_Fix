@@ -42,7 +42,7 @@ test("How accordion first card is not clipped by the legacy mobile grid lift", (
 });
 
 test("accordion headers and panel contents use compact spacing", () => {
-  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);\n  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*white-space:\s*nowrap/);\n  assert.match(styles, /text-overflow:\s*ellipsis/);\n  assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
   assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
 });
 
@@ -53,7 +53,7 @@ test("opening a section closes the previous section", () => {
 });
 
 test("accordion assets are cache-busted and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV431/);
-  assert.match(html, /home-accordion\.js\?v=AFV431/);
+  assert.match(html, /home-accordion\.css\?v=AFV432/);
+  assert.match(html, /home-accordion\.js\?v=AFV432/);
   assert.match(styles, /prefers-reduced-motion: reduce/);
 });
