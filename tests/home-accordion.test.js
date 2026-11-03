@@ -41,11 +41,15 @@ test("How accordion first card is not clipped by the legacy mobile grid lift", (
   assert.match(styles, /html body\.home-page \.how-assistance-section \.why-arisu-card > \.why-arisu-grid\s*\{\s*transform: none !important;/);
 });
 
-test("collapsed accordion headers keep title and subtitle to one line", () => {
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-title\s*\{[^}]*white-space:\s*nowrap/);
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-subtitle\s*\{[^}]*white-space:\s*nowrap/);
+test("collapsed accordion headers use a visibly smaller compact size and one-line text", () => {
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*54px/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-title\s*\{[^}]*font-size:\s*17px/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*11\.5px/);
+  assert.match(styles, /white-space:\s*nowrap/);
   assert.match(styles, /text-overflow:\s*ellipsis/);
+  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*48px/);
+  assert.match(styles, /font-size:\s*16px/);
+  assert.match(styles, /font-size:\s*10\.5px/);
 });
 
 test("expanded accordion content retains its compact panel spacing", () => {
