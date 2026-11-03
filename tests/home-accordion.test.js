@@ -34,14 +34,14 @@ test("opening a section closes the previous section and updates accessibility st
 });
 
 test("collapsed accordion headers use compact dimensions and one-line ellipsis text", () => {
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*54px/);
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-title\s*\{[^}]*font-size:\s*17px/);
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*11\.5px/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*48px/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-title\s*\{[^}]*font-size:\s*15px/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*10px/);
   assert.match(styles, /white-space:\s*nowrap/);
   assert.match(styles, /text-overflow:\s*ellipsis/);
-  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*48px/);
-  assert.match(styles, /font-size:\s*16px/);
-  assert.match(styles, /font-size:\s*10\.5px/);
+  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*40px/);
+  assert.match(styles, /font-size:\s*14px/);
+  assert.match(styles, /font-size:\s*9\.5px/);
 });
 
 test("expanded accordion content retains compact panel spacing without clipping the How card", () => {
@@ -59,8 +59,8 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV433 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV433/);
-  assert.match(html, /home-accordion\.js\?v=AFV433/);
+test("accordion assets are cache-busted to AFV434 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV434/);
+  assert.match(html, /home-accordion\.js\?v=AFV434/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });

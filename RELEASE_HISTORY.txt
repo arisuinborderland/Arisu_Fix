@@ -1,3 +1,11 @@
+AFV434 — Refined Compact Collapsed Accordion Headers
+
+## AFV434 — Reduce the actual collapsed header footprint
+- Root cause: AFV433 used a 48px mobile minimum with two stacked text lines, 4px copy gap, and 12px total vertical padding; intrinsic content height kept the rendered header close to 49px CSS despite the nominal minimum.
+- Reduce only collapsed-state dimensions: 40px mobile minimum, 14px title, 9.5px subtitle, 3px vertical padding, 2px text gap, and a smaller chevron. Desktop collapsed dimensions are also reduced to 48px with 15px/10px text.
+- Preserve expanded header sizing, full expanded content, and single-open/all-closed behavior.
+- Synchronize accordion cache tokens, package/release metadata, and regression assertions; correct three stale release-version test expectations that caused the previous CI run to fail.
+
 AFV432 — Compact Collapsed Accordion Headers
 
 ## AFV432 — Keep collapsed headers to two compact lines

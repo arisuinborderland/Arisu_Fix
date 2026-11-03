@@ -1,4 +1,4 @@
-/* AFV432 — Compact collapsed accordion headers */
+/* AFV434 — Smaller collapsed accordion headers after mobile visual review */
 .home-accordion-item {
   position: relative;
   min-width: 0;
@@ -143,22 +143,23 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
    Keep panel content compact without changing the content or its visibility. */
 .home-accordion-item:not(.is-open) > .home-accordion-trigger {
   box-sizing: border-box;
-  min-height: 54px;
-  gap: 8px;
-  padding: 8px 13px;
-  border-radius: 15px;
+  min-height: 48px;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 13px;
 }
 .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-copy {
   min-width: 0;
   flex: 1 1 auto;
+  gap: 2px;
 }
 .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-title {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 17px;
-  line-height: 1.15;
+  font-size: 15px;
+  line-height: 1.1;
 }
 .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-subtitle {
   display: block;
@@ -166,8 +167,15 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 11.5px;
-  line-height: 1.2;
+  font-size: 10px;
+  line-height: 1.1;
+}
+.home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-chevron {
+  flex-basis: 10px;
+  width: 10px;
+  height: 10px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
 }
 .home-accordion-panel-inner {
   padding-inline: 8px;
@@ -253,18 +261,23 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     margin-block: 6px;
   }
   .home-accordion-item:not(.is-open) > .home-accordion-trigger {
-    min-height: 48px;
-    gap: 6px;
-    padding: 6px 11px;
-    border-radius: 14px;
+    min-height: 40px;
+    gap: 3px;
+    padding: 3px 9px;
+    border-radius: 12px;
   }
   .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-title {
-    font-size: 16px;
-    line-height: 1.15;
+    font-size: 14px;
+    line-height: 1.1;
   }
   .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-subtitle {
-    font-size: 10.5px;
-    line-height: 1.2;
+    font-size: 9.5px;
+    line-height: 1.1;
+  }
+  .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-chevron {
+    flex-basis: 9px;
+    width: 9px;
+    height: 9px;
   }
   .home-accordion-panel {
     border-radius: 0 0 15px 15px;
