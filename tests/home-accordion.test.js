@@ -41,8 +41,14 @@ test("How accordion first card is not clipped by the legacy mobile grid lift", (
   assert.match(styles, /html body\.home-page \.how-assistance-section \.why-arisu-card > \.why-arisu-grid\s*\{\s*transform: none !important;/);
 });
 
-test("accordion headers and panel contents use compact spacing", () => {
-  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);\n  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*white-space:\s*nowrap/);\n  assert.match(styles, /text-overflow:\s*ellipsis/);\n  assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
+test("collapsed accordion headers keep title and subtitle to one line", () => {
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-title\s*\{[^}]*white-space:\s*nowrap/);
+  assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-subtitle\s*\{[^}]*white-space:\s*nowrap/);
+  assert.match(styles, /text-overflow:\s*ellipsis/);
+});
+
+test("expanded accordion content retains its compact panel spacing", () => {
   assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
 });
 
