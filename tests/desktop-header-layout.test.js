@@ -165,3 +165,42 @@ test('Desktop Customer Reviews CTA is visually shortened at top and bottom witho
   assert.match(buttonFix, /\.social-feedback-view-all\s*\{[\s\S]*?transform:\s*scaleY\(0\.84\) !important;[\s\S]*?transform-origin:\s*center center !important/);
   assert.match(buttonFix, /\.social-feedback-view-all:hover,[\s\S]*?transform:\s*translateY\(-2px\) scaleY\(0\.84\) !important/);
 });
+
+
+test('AFV412 uses one shared header structure and profile thumbnail across all public pages', () => {
+  for (const page of pages) {
+    const html = read(page);
+    const header = html.match(/<header class="topbar">([\\s\\S]*?)<\\/header>/);
+    assert.ok(header, page + ' must use the common topbar class without page-specific variants');
+    assert.match(header[1], /class="brand"/);
+    assert.match(header[1], /assets\\/performance\\/arisu-profile-thumb\\.webp\\?v=AFV355/);
+    assert.match(header[1], /class="header-meta"/);
+  }
+  assert.doesNotMatch(read('about.html'), /about-topbar/);
+});
+
+test('AFV412 restores the Creation Date milestone on all four shared footer pages', () => {
+  for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html']) {
+    const html = read(page);
+    assert.ok(html.includes('Created on October 14, 2026'), page + ' must show the website creation date');
+    assert.ok(html.includes('A small milestone marking the beginning of Arisu Fix.'), page + ' must show the milestone caption');
+    assert.ok(html.includes('Explore My Story'), page + ' must use the approved story CTA');
+    assert.match(html, /footer-reference\\.css\\?v=AFV412&compactfooter=1&createddate=1/);
+  }
+});
+
+test('AFV412 restores only the homepage verified check draw', () => {
+  const styles = read('styles.css');
+  const restore = styles.slice(styles.lastIndexOf('AFV412 — Restore the homepage verified check draw'));
+  assert.match(restore, /html body\\.home-page \\.topbar \\.arisu-verified-badge svg path/);
+  assert.match(restore, /stroke-dashoffset: 24 !important/);
+  assert.match(restore, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
+  assert.doesNotMatch(restore, /background:|border-radius:|box-shadow:/);
+});
+
+test('AFV412 keeps the shared header desktop sizing consistent across all five pages', () => {
+  const css = read('desktop-header.css');
+  assert.match(css, /min-height: 96px !important/);
+  assert.match(css, /padding: 8px clamp\\(20px, 2vw, 36px\\) !important/);
+  assert.match(css, /header\\.topbar > div\\.header-meta:empty/);
+});
