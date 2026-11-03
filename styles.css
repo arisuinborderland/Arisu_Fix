@@ -535,9 +535,6 @@ main{padding-top:0}
   .wizard-card.contact-only {
     padding-bottom: 7px;
   }
-  .how-section .section-heading {
-    margin-bottom: 10px;
-  }
 }
 
 /* compact Remember, FAQ, About, Terms and footer spacing on mobile */
@@ -568,7 +565,6 @@ main{padding-top:0}
   .how-section .step-card p { font-size: 15px !important; line-height: 1.58 !important; }
 }
 @media  (max-width: 420px)  {
-  .how-section .step-card p { line-height: 1.55 !important; }
 }
 
 /* improve readability of About This Website and account-safety text */
@@ -1136,8 +1132,7 @@ main{padding-top:0}
 }
 
 /* green WhatsApp-inspired outer cards for the three process steps.
- Keep the existing step icon tiles, text, numbering, and WhatsApp floating button unchanged. */
-.how-section .step-card:hover {
+ Keep the existing step icon tiles, text, numbering{
   border-color: #18c982;
   box-shadow: 0 15px 34px rgba(22, 190, 105, 0.17), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -1146,23 +1141,6 @@ main{padding-top:0}
  Keep all information and the existing desktop/mobile card designs. */
 .site-section {
   margin-top: 30px;
-}
-.how-section {
-  margin-top: 26px;
-}
-.how-section .section-heading {
-  margin-bottom: 15px;
-}
-.how-section .section-heading h2 {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.how-section .step-card h3 {
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-}
-.how-section .step-card p {
-  line-height: 1.6;
 }
 
 .site-section.about-section,
@@ -1223,24 +1201,6 @@ main{padding-top:0}
 
 @media  (max-width: 760px)  {
   .site-section { margin-top: 22px !important; }
-  .how-section { margin-top: 8px !important; }
-  .how-section .section-heading { margin-bottom: 11px !important; }
-  .how-section .section-kicker { line-height: 1.1 !important; }
-  .how-section .section-heading h2 {
-    margin: 4px 0 4px !important;
-    line-height: 1.16 !important;
-  }
-  .how-section .section-heading p {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
-  }
-  .how-section .step-card h3 {
-    padding-bottom: 4px !important;
-  }
-  .how-section .step-card p {
-    font-size: 13px !important;
-    line-height: 1.48 !important;
-  }
 
   .site-section.about-section,
   .site-section.safety-section,
@@ -1279,10 +1239,6 @@ main{padding-top:0}
 }
 @media  (max-width: 420px)  {
   .site-section { margin-top: 18px !important; }
-  .how-section { margin-top: 6px !important; }
-  .how-section .step-card { padding: 11px 11px !important; column-gap: 9px !important; }
-  .how-section .step-card h3 { font-size: 13.5px !important; }
-  .how-section .step-card p { font-size: 12.5px !important; }
   .site-section.about-section,
   .site-section.safety-section,
   .site-section.terms-section { margin-top: 10px !important; }
@@ -2985,56 +2941,12 @@ body.home-page .desktop-social-destination { order: 5 !important; }
 }
 
 /* unify all five process cards to the approved horizontal layout.
- Icon, number badge, and copy sit side-by-side on desktop and mobile. */
-.how-section .steps-grid {
+ Icon, number badge{
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
   gap: 14px !important;
 }
-.how-section .step-card {
-  display: grid !important;
-  grid-template-columns: 64px 52px minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
-  align-items: start !important;
-  column-gap: 18px !important;
-  row-gap: 8px !important;
-  width: 100%;
-  min-height: 0 !important;
-  padding: 19px 22px !important;
-  border: 1.5px solid #65dfc6 !important;
-  border-radius: 21px !important;
-  background: linear-gradient(120deg, rgba(255,255,255,.98), rgba(250,253,255,.98)) !important;
-  box-shadow: 0 7px 20px rgba(31, 113, 117, .045) !important;
-}
-.how-section .step-card h3 {
-  grid-column: 3 !important;
-  grid-row: 1 !important;
-  align-self: center !important;
-  margin: 2px 28px 0 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  color: #101a38 !important;
-  font: 800 clamp(17px, 1.65vw, 24px)/1.25 Manrope, sans-serif !important;
-  letter-spacing: -.45px !important;
-}
-.how-section .step-card > p {
-  grid-column: 3 !important;
-  grid-row: 2 !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  color: #53627f !important;
-  font-size: 15px !important;
-  line-height: 1.65 !important;
-}
 @media  (max-width: 760px)  {
-  .how-section .step-card {
-    grid-template-columns: 42px 38px minmax(0, 1fr) !important;
-    border-radius: 17px !important;
-  }
-  .how-section .step-card h3 {
-    font-size: 15px !important;
-    letter-spacing: -.2px !important;
-  }
 }
 
 /* closer scenic Bible verse banner styling for desktop and mobile. */
@@ -5177,12 +5089,6 @@ body.home-page .terms-card .terms-security-copy p {
   }
 }
 @media  (max-width: 380px)  {
-  .how-section .step-card {
-    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
-    column-gap: 7px !important;
-  }
-  .how-section .step-card h3 { font-size: 13px !important; }
-  .how-section .step-card > p { font-size: 12px !important; }
 }
 
 /* lift process-card titles and descriptions on mobile only.
@@ -5217,10 +5123,6 @@ body.home-page .terms-card .terms-security-copy p {
   }
 }
 @media  (max-width: 380px)  {
-  .how-section .step-card {
-    padding: 7px 8px 8px !important;
-    row-gap: 1px !important;
-  }
 }
 
 /* authoritative mobile compact spacing for account-assistance steps.
@@ -5257,18 +5159,6 @@ body.home-page .terms-card .terms-security-copy p {
   }
 }
 @media  (max-width: 380px)  {
-  body.home-page .site-section.how-section .step-card {
-    row-gap: 2px !important;
-    padding: 7px 8px !important;
-  }
-  body.home-page .site-section.how-section .step-card h3 {
-    font-size: 13px !important;
-    line-height: 1.22 !important;
-  }
-  body.home-page .site-section.how-section .step-card > p {
-    font-size: 11.5px !important;
-    line-height: 1.38 !important;
-  }
 }
 
 /* align process descriptions directly beneath their headings on mobile. */
@@ -5301,10 +5191,6 @@ body.home-page .terms-card .terms-security-copy p {
 }
 
 @media  (max-width: 380px)  {
-  body.home-page .site-section.how-section .step-card {
-    grid-template-columns: 32px 30px minmax(0, 1fr) !important;
-    column-gap: 6px !important;
-  }
 }
 
 /* refined mobile title-to-description spacing across all five process cards. */
