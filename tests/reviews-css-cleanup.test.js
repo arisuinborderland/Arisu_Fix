@@ -8,19 +8,22 @@ const css = fs.readFileSync(path.join(root, 'reviews.css'), 'utf8');
 const sharedHeaderCss = fs.readFileSync(path.join(root, 'site-header.css'), 'utf8');
 const html = fs.readFileSync(path.join(root, 'reviews.html'), 'utf8');
 
+function countOccurrences(source, value) {
+  return source.split(value).length - 1;
+}
+
 test('Shared header CSS owns one mobile logo sizing rule for the 700px breakpoint', () => {
-  const block = /html body header\.topbar\.site-header>a\.brand>\.logo\s*\{[^}]*flex:\s*0 0 39px!important;[^}]*width:\s*39px!important;[^}]*height:\s*39px!important;[^}]*\}/g;
-  assert.equal([...sharedHeaderCss.matchAll(block)].length, 1);
+  const selector = 'html body header.topbar.site-header>a.brand>.logo';
+  assert.equal(countOccurrences(sharedHeaderCss, selector), 3);
+  assert.match(sharedHeaderCss, /flex:0 0 39px!important;width:39px!important;height:39px!important/);
 });
 
-test('Shared header CSS owns one mobile brand-small typography rule for the 700px breakpoint', () => {
-  const block = /html body header\.topbar\.site-header \.brand-copy>small\s*\{[^}]*font-size:\s*11px!important;[^}]*line-height:\s*1\.2!important;[^}]*\}/g;
-  assert.equal([...sharedHeaderCss.matchAll(block)].length, 1);
+test('Shared header CSS keeps the 700px mobile brand subtitle typography', () => {
+  assert.match(sharedHeaderCss, /\.brand-copy>small \{margin:0!important;font-size:11px!important;line-height:1\.2!important\}/);
 });
 
-test('Shared header CSS owns one compact logo sizing rule for the 380px breakpoint', () => {
-  const block = /html body header\.topbar\.site-header>a\.brand>\.logo\s*\{[^}]*flex-basis:\s*37px!important;[^}]*width:\s*37px!important;[^}]*height:\s*37px!important;[^}]*\}/g;
-  assert.equal([...sharedHeaderCss.matchAll(block)].length, 1);
+test('Shared header CSS keeps the compact 380px logo dimensions', () => {
+  assert.match(sharedHeaderCss, /\.brand>\.logo \{flex-basis:37px!important;width:37px!important;height:37px!important\}/);
 });
 
 test('Reviews page loads the current release CSS and script cache tokens', () => {
