@@ -50,7 +50,7 @@ test('AFV418 About and Privacy match the compact homepage header and reference a
   assert.match(css, /padding: 0 12px !important/);
   assert.match(css, /flex: 0 0 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
   assert.match(css, /gap: 7px !important/);
-  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 34px !important;[\s\S]*?width: 34px !important;[\s\S]*?height: 34px !important/);
+  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 37px !important;[\\s\\S]*?width: 37px !important;[\\s\\S]*?height: 37px !important/);
   const mobileHeader = css.slice(css.indexOf('AFV417 — Exact compact mobile header contract shared with Home'));
   assert.doesNotMatch(mobileHeader, /background:\s*inherit\s*!important/, 'page background must not override the shared navy-indigo header theme');
 });
@@ -235,10 +235,20 @@ test('AFV417 About and Privacy mobile headers explicitly match the exact homepag
   assert.match(css, /AFV417 — Exact compact mobile header contract shared with Home/);
   assert.match(css, /@media \(max-width: 700px\)[\s\S]*?html body\.about-page header\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
   assert.match(css, /min-height: 58px !important/);
-  assert.match(css, /padding: 0 16px !important/);
+  assert.match(css, /padding: 0 12px !important/);
   assert.match(css, /width: 39px !important;[\s\S]*?height: 39px !important/);
 });
 
+
+test('AFV419 About and Privacy mobile header gutters and brand gap match the shared public-page header', () => {
+  const css = read('desktop-header.css');
+  const mobile = css.slice(css.indexOf('AFV417 — Exact compact mobile header contract shared with Home'));
+  assert.match(mobile, /padding: 0 12px !important/);
+  assert.match(mobile, /gap: 7px !important/);
+  assert.match(mobile, /@media \(max-width: 380px\)[\s\S]*?padding-left: 10px !important;[\s\S]*?padding-right: 10px !important/);
+  assert.match(mobile, /flex-basis: 37px !important;[\s\S]*?width: 37px !important;[\s\S]*?height: 37px !important/);
+  assert.doesNotMatch(mobile, /padding: 0 16px !important|gap: 10px !important/);
+});
 
 test('AFV418 Privacy mobile content uses a compact icon/text layout and tighter section rhythm', () => {
   const privacy = read('privacy.css');
