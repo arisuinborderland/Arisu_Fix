@@ -184,3 +184,14 @@ test('AFV418 About mobile heading spacing is tightened without changing desktop 
   assert.match(about, /padding-top: 16px !important/);
   assert.match(about, /margin-bottom: 13px !important/);
 });
+
+test('AFV423 desktop homepage verified check is not pinned to its hidden SVG dash offset', () => {
+  const homeStyles = read('styles.css');
+  const desktopBadgeBlock = homeStyles.split('AFV423 — Restore the desktop homepage verified check animation.')[1];
+  assert.ok(desktopBadgeBlock, 'AFV423 desktop badge animation block must exist');
+  const desktopRule = desktopBadgeBlock.split('/* Restore the WhatsApp CTA')[0];
+  assert.match(desktopRule, /@media \(min-width: 701px\) and \(prefers-reduced-motion: no-preference\)/);
+  assert.match(desktopRule, /arisu-brand-check-draw 2s ease-in-out infinite !important/);
+  assert.doesNotMatch(desktopRule, /stroke-dashoffset:\s*24\s*!important/);
+  assert.match(homeStyles, /\.arisu-verified-badge svg path\{stroke-dasharray:24;stroke-dashoffset:24;animation:arisu-brand-check-draw 2s ease-in-out infinite\}/);
+});
