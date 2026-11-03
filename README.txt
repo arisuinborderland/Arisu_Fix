@@ -3,7 +3,7 @@ Version: AFV430
 Updated: 2026-11-03
 
 Current release: AFV430
-Package version: 429.0.0
+Package version: 430.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
