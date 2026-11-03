@@ -17,7 +17,7 @@
 .about-value-card p{margin:0}.about-value-card ul{margin:0;padding-left:18px}
 .about-established{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px 0;color:#225ac2;font:800 14px/1.5 Manrope,Arial,sans-serif;text-align:center}
 .about-established span{font-size:20px}
-@media(max-width:600px){.about-back-link{padding:9px 10px;font-size:12px}.about-page-main{width:calc(100% - 28px);padding:23px 0 32px}.about-page-heading{margin-bottom:17px}.about-page-heading p{font-size:13px}.about-page-purpose{padding:20px 17px;border-radius:19px}.about-page-purpose .purpose-card h2{font-size:25px}.about-page-purpose .purpose-card>p{font-size:14px;line-height:1.65}.about-page-profile{grid-template-columns:58px minmax(0,1fr);padding:15px 13px;gap:11px;border-radius:17px}.about-page-profile>img{width:58px;height:58px;border-radius:16px}.about-page-profile .about-brand-title{font-size:18px!important}.about-page-profile .about-description,.about-page-profile .independent-note{font-size:12.5px;line-height:1.55}.about-page-values{grid-template-columns:1fr;gap:12px}.about-value-card{padding:16px;border-radius:17px}.about-value-card p,.about-value-card li{font-size:13px}.about-established{font-size:13px}.about-page-footer{gap:12px;font-size:11px}}
+@media(max-width:600px){.about-page-main{width:calc(100% - 28px);padding:23px 0 32px}.about-page-heading{margin-bottom:17px}.about-page-heading p{font-size:13px}.about-page-purpose{padding:20px 17px;border-radius:19px}.about-page-purpose .purpose-card h2{font-size:25px}.about-page-purpose .purpose-card>p{font-size:14px;line-height:1.65}.about-page-profile{grid-template-columns:58px minmax(0,1fr);padding:15px 13px;gap:11px;border-radius:17px}.about-page-profile>img{width:58px;height:58px;border-radius:16px}.about-page-profile .about-brand-title{font-size:18px!important}.about-page-profile .about-description,.about-page-profile .independent-note{font-size:12.5px;line-height:1.55}.about-page-values{grid-template-columns:1fr;gap:12px}.about-value-card{padding:16px;border-radius:17px}.about-value-card p,.about-value-card li{font-size:13px}.about-established{font-size:13px}.about-page-footer{gap:12px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.about-page-cta{transition:none}.about-page-cta:hover{transform:none}}
 
 /* include the complete Please Read / Terms card on the About page. */
@@ -137,10 +137,6 @@
     margin-top: 2px !important;
     margin-bottom: 2px !important;
   }
-  body.about-page .about-page-footer {
-    gap: 8px 12px !important;
-    padding: 10px 12px !important;
-  }
 }
 
 /* lift Mission, Values, and Please Read; enforce 2px vertical gaps. */
@@ -178,9 +174,6 @@
   body.about-page .about-page-main > .about-established {
     margin-top: 2px !important;
     margin-bottom: 0 !important;
-  }
-  body.about-page .about-page-footer {
-    margin-top: 0 !important;
   }
 }
 
@@ -249,15 +242,6 @@
 @media (max-width: 600px) {
   body.about-page .about-page-main {
     padding-bottom: 2px !important;
-  }
-  body.about-page .about-page-footer {
-    margin-top: 2px !important;
-    margin-bottom: 0 !important;
-    padding: 10px 12px !important;
-  }
-  /* Reserve room for the fixed bottom navigation after the footer links. */
-  body.about-page .about-page-footer {
-    padding-bottom: 72px !important;
   }
 }
 
