@@ -11,7 +11,7 @@ test('AFV411 first-paint guard shows the loading overlay only for a new tab sess
   assert.ok(html.includes('id="loading-screen-first-paint-guard"'));
   assert.ok(html.includes('arisu-loading-first-run #arisu-loading-screen'));
   assert.ok(html.includes('animation:none!important'), 'first-paint overlay must not be hidden by the CSS fade-in animation');
-  assert.ok(html.includes('body>:not(#arisu-loading-screen){visibility:hidden!important}'), 'homepage content must stay hidden until the loading overlay is ready');
+  assert.ok(html.includes('body>:not(#arisu-loading-screen){display:none!important}'), 'homepage content must stay hidden until the loading overlay is ready');
   assert.ok(html.includes('display:grid;place-items:center'), 'critical guard must render the loading overlay before external CSS');
   assert.ok(html.includes('html.arisu-loading-first-run #arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center'), 'critical first-paint rule must render the overlay immediately');
   assert.ok(html.includes('opacity:1;visibility:visible;pointer-events:auto;animation:none!important'), 'critical first-paint rule must show the overlay without an entrance animation');
