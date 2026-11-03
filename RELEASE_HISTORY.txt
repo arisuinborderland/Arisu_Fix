@@ -1,17 +1,18 @@
-AFV429 — Services Accordion Default-Open Initialization Fix
+AFV430 — All Homepage Accordions Start Collapsed
 
-## AFV429 — Make Services open before accordion initialization completes
-- Root cause: all triggers and panels were initialized closed, and Services only opened at the very end of the full three-section DOM transformation. Any interruption before the final setOpen call left the first accordion collapsed.
-- Mark the Services section open before building its trigger and panel; initialize its trigger with aria-expanded=true and its panel as non-inert.
-- Keep the final single-open normalization so opening Why or How still closes the previous section.
-- Bump only the accordion asset cache tokens to AFV429 and update release metadata.
-- Add regression assertions that Services is open at construction time, not only after the final initializer call.
+## AFV430 — Set the homepage accordion initial state to closed
+- Clarified the required default behavior: all three accordion sections start collapsed on a fresh page load.
+- Removed the Services `is-open` class and its initially expanded ARIA/panel state.
+- Initialize every trigger with `aria-expanded=false` and every panel as inert; normalize the completed accordion with `setOpen(null)`.
+- Preserve the single-open interaction: opening one section closes the previous section; tapping the active section closes it.
+- Bump accordion CSS/JS cache tokens and release metadata to AFV430.
+- Update regression coverage to assert the all-closed initial state.
 
 AFV428 — Homepage Single-Open Accordion
 
 ## AFV428 — Compact the three homepage information sections
 - Reorganized “What Services I Offer”, “Why Choose Arisu?”, and “How Account Assistance Works” into a single-open accordion in the approved order.
-- “What Services I Offer” opens by default; opening another section closes the previously open section.
+- All three sections start collapsed; opening another section closes the previously open section.
 - Preserved the existing service details, history content, process guidance, safety reminder, and original card content.
 - Added accessible button controls, expanded-state semantics, native keyboard support, animated panel transitions, and reduced-motion handling.
 - Removed the duplicated Services subtitle after moving its copy into the accordion trigger.
