@@ -43,14 +43,14 @@ test('Production build allowlist includes the shared header stylesheet', () => {
 });
 
 test('AFV415 About and Privacy use one authoritative mobile header shell', () => {
-  const mobileBlocks = [...css.matchAll(/@media\\s*\\(max-width:\\s*700px\\)/g)];
+  const mobileBlocks = [...css.matchAll(/@media\s*\(max-width:\s*700px\)/g)];
   assert.equal(mobileBlocks.length, 1, 'only one mobile header rule group should control both pages');
-  assert.doesNotMatch(css, /@media\\s*\\(max-width:\\s*600px\\)/, 'the conflicting 39px grid override must be removed');
-  assert.doesNotMatch(css, /width:\\s*39px !important|height:\\s*39px !important|width:\\s*34px !important/, 'stale logo sizes must not remain');
-  assert.match(css, /html body\\.about-page header\\.topbar\\.about-topbar,[\\s\\S]*?html body\\.privacy-page header\\.topbar/);
-  assert.match(css, /flex: 0 0 66px !important;[\\s\\S]*?width: 66px !important;[\\s\\S]*?height: 66px !important;/);
+  assert.doesNotMatch(css, /@media\s*\(max-width:\s*600px\)/, 'the conflicting 39px grid override must be removed');
+  assert.doesNotMatch(css, /width:\s*39px !important|height:\s*39px !important|width:\s*34px !important/, 'stale logo sizes must not remain');
+  assert.match(css, /html body\.about-page header\.topbar\.about-topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
+  assert.match(css, /flex: 0 0 66px !important;[\s\S]*?width: 66px !important;[\s\S]*?height: 66px !important;/);
   assert.match(css, /padding: 18px 22px !important/);
-  assert.match(css, /@media \\(max-width: 380px\\)[\\s\\S]*?width: 37px !important;[\\s\\S]*?height: 37px !important;/);
+  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?width: 37px !important;[\s\S]*?height: 37px !important;/);
 });
 
 test('AFV323 desktop homepage proof previews mask cyan rails and keep square source composites intact', () => {
@@ -78,7 +78,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV414&desktoplayout=1/);
 });
 
 
@@ -94,7 +94,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV414&desktoplayout=1/);
 });
 
 
@@ -110,7 +110,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV414&desktoplayout=1/);
 });
 
 
@@ -126,7 +126,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV414&desktoplayout=1/);
 });
 
 
