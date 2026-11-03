@@ -201,83 +201,6 @@ html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom
   html body.proofs-document .mobile-nav-story-avatar { transition:none !important; }
 }
 
-/* refined compact profile header; preserve the existing header links and gradient. */
-@media (max-width: 700px) {
-  html body.proofs-document .topbar {
-    padding: 10px 12px 11px;
-    column-gap: 10px;
-    row-gap: 8px;
-  }
-  html body.proofs-document .topbar > .brand {
-    flex: 1 1 auto;
-    justify-content: flex-start;
-    min-width: 0;
-    gap: 9px;
-  }
-  html body.proofs-document .topbar > .brand .logo {
-    width: 43px;
-    height: 43px;
-    flex: 0 0 43px;
-    border-radius: 13px;
-  }
-  html body.proofs-document .topbar > .brand .brand-copy { min-width: 0; }
-  html body.proofs-document .topbar > .brand b {
-    font-size: 15px;
-    line-height: 1.15;
-    letter-spacing: -.35px;
-  }
-  html body.proofs-document .topbar > .brand small {
-    margin-top: 3px;
-    font-size: 11px;
-    line-height: 1.2;
-  }
-  html body.proofs-document .topbar .arisu-verified-badge {
-    flex: 0 0 auto;
-  }
-  html body.proofs-document .topbar .header-meta {
-    flex: 0 0 auto;
-    gap: 6px;
-  }
-  html body.proofs-document .topbar .header-meta .privacy-link {
-    min-height: 40px;
-    padding: 0 11px;
-    border-radius: 12px;
-    font-size: 11px;
-    white-space: nowrap;
-  }
-}
-@media (max-width: 380px) {
-  html body.proofs-document .topbar { padding-left: 9px; padding-right: 9px; }
-  html body.proofs-document .topbar > .brand { gap: 7px; }
-  html body.proofs-document .topbar > .brand .logo {
-    width: 39px; height: 39px; flex-basis: 39px;
-  }
-  html body.proofs-document .topbar .header-meta .privacy-link {
-    min-height: 37px; padding: 0 8px; font-size: 10px;
-  }
-}
-
-/* keep the mobile header focused on the Arisu profile and Privacy Policy. */
-@media (max-width: 700px) {
-  html body.proofs-document .topbar > .header-meta {
-    display: flex !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-    grid-template-columns: none !important;
-    justify-content: flex-end;
-    gap: 0 !important;
-  }
-  html body.proofs-document .topbar > .header-meta > .proofs-header-link,
-  html body.proofs-document .topbar > .header-meta > .webtools-header-link {
-    display: none !important;
-  }
-  html body.proofs-document .topbar > .header-meta > .privacy-link {
-    display: inline-flex !important;
-    width: auto;
-    flex: 0 0 auto;
-  }
-}
-
 /* Option 3: Deep Black-Navy footer with a Violet Stories accent. */
 @media (max-width: 700px) {
   html body.proofs-document .mobile-bottom-nav {
@@ -713,81 +636,6 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:focus-visi
   }
 }
 
-/* Match the homepage profile header sizing and alignment on Recovery Proofs. */
-@media (max-width: 700px) {
-  html body.proofs-document .topbar {
-    padding: 10px 12px 11px !important;
-    column-gap: 10px !important;
-    row-gap: 8px !important;
-    align-items: center !important;
-  }
-  html body.proofs-document .topbar > .brand {
-    flex: 1 1 auto !important; min-width: 0 !important; justify-content: flex-start !important; gap: 9px !important;
-  }
-  html body.proofs-document .topbar > .brand .logo {
-    width: 43px !important; height: 43px !important; flex: 0 0 43px !important; border-radius: 13px !important;
-  }
-  html body.proofs-document .topbar > .brand b { font-size: 15px !important; line-height: 1.15 !important; letter-spacing: -.35px !important; }
-  html body.proofs-document .topbar > .brand small { margin-top: 3px !important; font-size: 11px !important; line-height: 1.2 !important; }
-  html body.proofs-document .topbar .header-meta { flex: 0 0 auto !important; gap: 6px !important; }
-  html body.proofs-document .topbar .header-meta > .privacy-link,
-  html body.proofs-document .topbar .header-meta > .about-header-link {
-    min-height: 40px !important; height: 40px !important; padding: 0 11px !important; border-radius: 12px !important;
-    font-size: 11px !important; line-height: 1 !important; white-space: nowrap !important; box-sizing: border-box !important;
-  }
-  html body.proofs-document .topbar .header-meta .header-icon { width: 16px !important; height: 16px !important; flex: 0 0 16px !important; }
-}
-@media (max-width: 380px) {
-  html body.proofs-document .topbar { padding-left: 9px !important; padding-right: 9px !important; }
-  html body.proofs-document .topbar > .brand { gap: 7px !important; }
-  html body.proofs-document .topbar > .brand .logo { width: 39px !important; height: 39px !important; flex-basis: 39px !important; }
-  html body.proofs-document .topbar .header-meta > .privacy-link,
-  html body.proofs-document .topbar .header-meta > .about-header-link { min-height: 37px !important; height: 37px !important; padding: 0 8px !important; font-size: 10px !important; }
-}
-
-/* match homepage mobile header geometry exactly; prevent the header from wrapping. */
-@media (max-width: 700px) {
-  html body.proofs-document .topbar {
-    box-sizing:border-box !important; display:flex !important; flex-flow:row nowrap !important;
-    align-items:center !important; justify-content:space-between !important;
-    padding:8px 12px !important; gap:8px !important; min-height:0 !important; height:auto !important;
-  }
-  html body.proofs-document .topbar > .brand {
-    flex:1 1 auto !important; min-width:0 !important; width:auto !important;
-    justify-content:flex-start !important; gap:7px !important;
-  }
-  html body.proofs-document .topbar > .brand .logo {
-    width:43px !important; height:43px !important; flex:0 0 43px !important; border-radius:13px !important;
-  }
-  html body.proofs-document .topbar > .brand b { font-size:15px !important; line-height:1.15 !important; }
-  html body.proofs-document .topbar > .brand small { margin-top:3px !important; font-size:11px !important; line-height:1.2 !important; }
-  html body.proofs-document .topbar > .header-meta {
-    display:flex !important; flex:0 0 auto !important; width:auto !important; min-width:0 !important;
-    justify-content:flex-end !important; align-items:center !important; gap:6px !important;
-  }
-  html body.proofs-document .topbar > .header-meta > .privacy-link,
-  html body.proofs-document .topbar > .header-meta > .about-header-link {
-    box-sizing:border-box !important; flex:0 0 auto !important; display:inline-flex !important;
-    align-items:center !important; justify-content:center !important; height:36px !important; min-height:36px !important;
-    padding:0 8px !important; margin:0 !important; gap:5px !important; border-radius:12px !important;
-    font-size:10.5px !important; line-height:1 !important; white-space:nowrap !important;
-  }
-  html body.proofs-document .topbar > .header-meta > .privacy-link { width:102px !important; }
-  html body.proofs-document .topbar > .header-meta > .about-header-link { width:76px !important; }
-  html body.proofs-document .topbar > .header-meta .header-icon { width:14px !important; height:14px !important; flex:0 0 14px !important; }
-}
-@media (max-width: 380px) {
-  html body.proofs-document .topbar { padding-left:9px !important; padding-right:9px !important; gap:5px !important; }
-  html body.proofs-document .topbar > .brand { gap:6px !important; }
-  html body.proofs-document .topbar > .brand .logo { width:39px !important; height:39px !important; flex-basis:39px !important; }
-  html body.proofs-document .topbar > .brand b { font-size:13px !important; }
-  html body.proofs-document .topbar > .brand small { font-size:9.5px !important; }
-  html body.proofs-document .topbar > .header-meta { gap:4px !important; }
-  html body.proofs-document .topbar > .header-meta > .privacy-link { width:96px !important; padding:0 6px !important; font-size:9.5px !important; }
-  html body.proofs-document .topbar > .header-meta > .about-header-link { width:70px !important; padding:0 5px !important; font-size:9.5px !important; }
-  html body.proofs-document .topbar > .header-meta .header-icon { width:12px !important; height:12px !important; flex-basis:12px !important; }
-}
-
 /* Keep the live Stories count badge above the avatar image on Proofs. */
 @media (max-width: 700px) {
   html body.proofs-document nav.mobile-bottom-nav .mobile-nav-stories {
@@ -1130,40 +978,6 @@ html body.proofs-document .topbar > .header-meta > .about-header-link:hover { ba
   html body.reviews-document header.topbar > .header-meta > .about-header-link { padding: 0 6px !important; font-size: 9.5px !important; }
 }
 
-/* AFV273 — final scoped reset: remove legacy per-page min-width differences. */
-@media (max-width:700px) {
-  html body.proofs-document .topbar > .header-meta > .privacy-link,
-  html body.proofs-document .topbar > .header-meta > .about-header-link,
-  html body.reviews-document .topbar > .header-meta > .privacy-link,
-  html body.reviews-document .topbar > .header-meta > .about-header-link {
-    min-width:0 !important;
-    width:auto !important;
-    max-width:none !important;
-    height:38px !important;
-    min-height:38px !important;
-    padding:0 9px !important;
-    gap:5px !important;
-    font-size:10.5px !important;
-    line-height:1 !important;
-  }
-  html body.proofs-document .topbar > .header-meta > .privacy-link,
-  html body.reviews-document .topbar > .header-meta > .privacy-link { width:128px !important; }
-  html body.proofs-document .topbar > .header-meta > .about-header-link,
-  html body.reviews-document .topbar > .header-meta > .about-header-link { width:82px !important; }
-  html body.proofs-document .topbar > .header-meta > .privacy-link .header-icon,
-  html body.proofs-document .topbar > .header-meta > .about-header-link .header-icon,
-  html body.reviews-document .topbar > .header-meta > .privacy-link .header-icon,
-  html body.reviews-document .topbar > .header-meta > .about-header-link .header-icon {
-    flex-basis:14px !important;width:14px !important;height:14px !important;
-  }
-}
-@media (max-width:380px) {
-  html body.proofs-document .topbar > .header-meta > .privacy-link,
-  html body.reviews-document .topbar > .header-meta > .privacy-link { width:116px !important; }
-  html body.proofs-document .topbar > .header-meta > .about-header-link,
-  html body.reviews-document .topbar > .header-meta > .about-header-link { width:76px !important; }
-}
-
 /* AFV274 — force the exact homepage header button metrics after legacy page styles. */
 html body.proofs-document header.topbar > .header-meta,
 html body.reviews-document header.topbar > .header-meta { align-items:center !important; gap:12px !important; }
@@ -1247,27 +1061,6 @@ html body.reviews-document header.topbar > .header-meta > .about-header-link .he
   html body.reviews-document header.topbar > .header-meta > .about-header-link .header-icon {
     width:12px !important; height:12px !important; flex-basis:12px !important;
   }
-}
-
-/* AFV276 — match homepage header action sizing exactly on content pages. */
-html body.proofs-document header.topbar > .header-meta,
-html body.reviews-document header.topbar > .header-meta {
-  align-items: center !important;
-}
-html body.proofs-document header.topbar > .header-meta > .privacy-link,
-html body.reviews-document header.topbar > .header-meta > .privacy-link,
-html body.proofs-document header.topbar > .header-meta > .about-header-link,
-html body.reviews-document header.topbar > .header-meta > .about-header-link {
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  flex: 0 0 auto !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin: 0 !important;
-  line-height: 1 !important;
-  transform: none !important;
 }
 
 /* AFV279 — final canonical header sizing copied from the homepage reference.

@@ -101,43 +101,15 @@ html body.reviews-document .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-
   html body.reviews-document .mobile-bottom-nav > .mobile-nav-item svg { width:24px; height:24px; flex-basis:24px; }
   html body.reviews-document .mobile-bottom-nav .mobile-nav-story-avatar { width:36px; min-width:36px; max-width:36px; height:36px; min-height:36px; max-height:36px; flex-basis:36px; }
   html body.reviews-document .reviews-page-main { padding-bottom:24px; }
-  html body.reviews-document .topbar { gap:8px; }
-  html body.reviews-document .topbar .brand { flex:1 1 auto; min-width:0; }
-  html body.reviews-document .topbar .header-meta { flex:0 0 auto; gap:6px; }
-  html body.reviews-document .topbar .header-meta > .privacy-link,
-  html body.reviews-document .topbar .header-meta > .about-header-link { min-height:43px; padding:0 15px; gap:5px; border-radius:12px; font-size:12px; }
-  html body.reviews-document .topbar .header-meta .header-icon { width:14px; height:14px; flex-basis:14px; }
-}
-@media (max-width:380px) {
-  html body.reviews-document .topbar { padding-left:9px; padding-right:9px; }
-  html body.reviews-document .topbar .brand { gap:6px; }
-  html body.reviews-document .topbar .logo { width:37px; height:37px; }
-  html body.reviews-document .topbar .brand small { font-size:10px; }
-  html body.reviews-document .topbar .header-meta { gap:4px; }
-  html body.reviews-document .topbar .header-meta > .privacy-link,
-  html body.reviews-document .topbar .header-meta > .about-header-link { min-height:41px; padding:0 10px; gap:4px; font-size:11px; }
-  html body.reviews-document .topbar .header-meta .header-icon { width:12px; height:12px; flex-basis:12px; }
 }
 @media (prefers-reduced-motion:reduce) {
   html body.reviews-document .topbar .header-meta > .privacy-link,
   html body.reviews-document .topbar .header-meta > .about-header-link { transition:none; }
 }
 
-/* Final mobile header alignment: keep both actions side-by-side beside the brand. */
-@media (max-width:600px) {
-  html body.reviews-document .topbar {
-    display:grid !important;
-    grid-template-columns:minmax(0,1fr) auto auto !important;
-    align-items:center !important;
-    column-gap:6px !important;
-  }
-  html body.reviews-document .topbar > .brand { grid-column:1 !important; grid-row:1 !important; }
-  html body.reviews-document .topbar > .header-meta { display:contents !important; }
-  html body.reviews-document .topbar > .header-meta > .privacy-link { grid-column:2 !important; grid-row:1 !important; align-self:center !important; justify-self:end !important; transform:none !important; }
-  html body.reviews-document .topbar > .header-meta > .about-header-link { grid-column:3 !important; grid-row:1 !important; align-self:center !important; justify-self:end !important; }
-  html body.reviews-document .topbar > .header-meta > .privacy-link:hover,
-  html body.reviews-document .topbar > .header-meta > .about-header-link:hover { transform:translateY(-1px) !important; }
-}
+/* Preserve the hover lift from the superseded grid header layer. */
+html body.reviews-document .topbar > .header-meta > .privacy-link:hover,
+html body.reviews-document .topbar > .header-meta > .about-header-link:hover { transform:translateY(-1px) !important; }
 
 /* hard-hide legacy floating shortcuts on Customer Reviews only.
    The homepage keeps its floating menu and WhatsApp shortcut unchanged. */
@@ -234,38 +206,6 @@ html body.reviews-document .topbar .header-meta .header-icon {
     padding: 0 4px !important; border: 2px solid #101827 !important; border-radius: 12px !important;
     background: #A855F7 !important; color: #fff !important; font: 700 10px/1 Arial,sans-serif !important;
   }
-}
-
-/* Match the homepage profile header sizing and alignment on Customer Reviews. */
-@media (max-width: 700px) {
-  html body.reviews-document .topbar {
-    padding: 10px 12px 11px !important;
-    column-gap: 10px !important;
-    row-gap: 8px !important;
-    align-items: center !important;
-  }
-  html body.reviews-document .topbar > .brand {
-    flex: 1 1 auto !important; min-width: 0 !important; justify-content: flex-start !important; gap: 9px !important;
-  }
-  html body.reviews-document .topbar > .brand .logo {
-    width: 43px !important; height: 43px !important; flex: 0 0 43px !important; border-radius: 13px !important;
-  }
-  html body.reviews-document .topbar > .brand b { font-size: 15px !important; line-height: 1.15 !important; letter-spacing: -.35px !important; }
-  html body.reviews-document .topbar > .brand small { margin-top: 3px !important; font-size: 11px !important; line-height: 1.2 !important; }
-  html body.reviews-document .topbar .header-meta { flex: 0 0 auto !important; gap: 6px !important; }
-  html body.reviews-document .topbar .header-meta > .privacy-link,
-  html body.reviews-document .topbar .header-meta > .about-header-link {
-    min-height: 40px !important; height: 40px !important; padding: 0 11px !important; border-radius: 12px !important;
-    font-size: 11px !important; line-height: 1 !important; white-space: nowrap !important; box-sizing: border-box !important;
-  }
-  html body.reviews-document .topbar .header-meta .header-icon { width: 16px !important; height: 16px !important; flex: 0 0 16px !important; }
-}
-@media (max-width: 380px) {
-  html body.reviews-document .topbar { padding-left: 9px !important; padding-right: 9px !important; }
-  html body.reviews-document .topbar > .brand { gap: 7px !important; }
-  html body.reviews-document .topbar > .brand .logo { width: 39px !important; height: 39px !important; flex-basis: 39px !important; }
-  html body.reviews-document .topbar .header-meta > .privacy-link,
-  html body.reviews-document .topbar .header-meta > .about-header-link { min-height: 37px !important; height: 37px !important; padding: 0 8px !important; font-size: 10px !important; }
 }
 
 /* match homepage mobile header geometry exactly; prevent the header from wrapping. */
