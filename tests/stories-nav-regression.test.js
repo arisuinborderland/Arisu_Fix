@@ -148,10 +148,10 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
 });
 
 
-test('AFV427 About page uses the approved five-step Process Flow and preserves key content', () => {
+test('AFV428 About page uses the approved five-step Process Flow and preserves key content', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'about.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '..', 'about-page.css'), 'utf8');
-  assert.match(html, /about-page\.css\?v=AFV427/);
+  assert.match(html, /about-page\.css\?v=AFV428/);
   assert.match(html, /class="about-process-flow"/);
   const labels = [
     'About Arisu Recovery Service',
@@ -176,6 +176,10 @@ test('AFV427 About page uses the approved five-step Process Flow and preserves k
   assert.doesNotMatch(html, /Established September 08, 2018/, 'the established-date line is no longer part of the About page');
   assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
   assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
+  assert.match(css, /AFV428 — remove the About service badge footprint and tighten its details/);
+  const serviceStart = html.indexOf('class="about-process-service"');
+  const serviceEnd = html.indexOf('class="about-process-step"', serviceStart);
+  assert.doesNotMatch(html.slice(serviceStart, serviceEnd), /arisu-verified-badge|about-verified-badge/, 'About service heading has no blue badge or animation');
   assert.match(css, /\.about-process-step:not\(:last-child\)::before/);
   assert.match(css, /@media \(max-width: 380px\)/);
 });
