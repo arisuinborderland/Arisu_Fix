@@ -1,16 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV421
+Version: AFV422
 Updated: 2026-11-03
 
-Current release: AFV421
-Package version: 421.0.0
+Current release: AFV422
+Package version: 422.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV421 fixes the homepage-only mobile header height mismatch. Root cause was a special two-row grid with an empty/hidden second action row, 2px row gap, and 6px bottom padding; this added vertical space to Home while other pages used the 58px single-row header. Home now uses the same fixed 58px single-row header and hides desktop-only header actions on mobile. Desktop homepage action links are preserved.
-- AFV421 replaces duplicated public-page header markup with one build-time shared HTML component and one shared stylesheet. All five public pages now receive identical logo, verified badge, typography, spacing, theme, and responsive alignment; homepage-only action links are supplied through a dedicated slot. The static build injects the component before deployment, with no runtime header flash.
+- AFV422 cleanup: removed 153 lines of superseded header sizing, empty-rail, and page-specific button overrides from site-header.css. The approved AFV421 shared header contract and navy-indigo theme remain; obsolete desktop-header.css and homepage-header-theme.css files and references are removed from the production path. The AFV421 mobile header layout is the approved visual baseline: 58px single row, 39px profile mark, 7px logo-to-copy gap, and shared 18px verified badge.
+- AFV422 fixes the homepage-only mobile header height mismatch. Root cause was a special two-row grid with an empty/hidden second action row, 2px row gap, and 6px bottom padding; this added vertical space to Home while other pages used the 58px single-row header. Home now uses the same fixed 58px single-row header and hides desktop-only header actions on mobile. Desktop homepage action links are preserved.
+- AFV422 replaces duplicated public-page header markup with one build-time shared HTML component and one shared stylesheet. All five public pages now receive identical logo, verified badge, typography, spacing, theme, and responsive alignment; homepage-only action links are supplied through a dedicated slot. The static build injects the component before deployment, with no runtime header flash.
 - AFV419 fixes the About/Privacy mobile header offset: their page-specific header overrides used wider 16px gutters and 10px logo-to-copy gaps than the shared public-page header. Aligns both pages to 12px/7px at standard mobile widths and 10px/7px with a 37px logo at <=380px. Updates shared header cache keys and release metadata.
 - AFV418 refines About/Privacy mobile spacing and aligns their header logo, brand text, and verified badge with the Recovery Proofs reference. Privacy Policy now uses a compact icon/text grid and tighter title/date/section rhythm; About heading-to-card spacing is reduced. Desktop layout and shared badge animation are preserved.
 - AFV417 removes the About-only topbar hook and legacy padding/background rules. About and Privacy now use the exact compact mobile header contract: 58px shell, 39px logo, 16px side gutters, 10px brand gap, and 34px logo below 380px. Refreshes shared theme cache keys across all five pages.
