@@ -25,17 +25,17 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(css.includes('overscroll-behavior: none'));
 });
 
-test('AFV420 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('AFV421 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '420.0.0');
-  assert.equal(lock.version, '420.0.0');
-  assert.equal(lock.packages[''].version, '420.0.0');
-  assert.ok(readme.includes('Current release: AFV420'));
+  assert.equal(pkg.version, '421.0.0');
+  assert.equal(lock.version, '421.0.0');
+  assert.equal(lock.packages[''].version, '421.0.0');
+  assert.ok(readme.includes('Current release: AFV421'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV420 — Shared Public Header Component'));
+  assert.ok(history.startsWith('AFV421 — Shared Public Header Component'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
