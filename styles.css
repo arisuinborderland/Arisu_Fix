@@ -149,15 +149,11 @@ main{max-width:1040px;padding:30px 22px 72px}
 
 .floating-whatsapp{position:fixed;z-index:25;right:max(18px,calc((100vw - 1080px)/2));display:flex;align-items:center;gap:9px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:linear-gradient(135deg,#27d96b,#16a85b);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 10px 25px rgba(20,156,85,.26);transition:transform .16s ease,box-shadow .16s ease}
 .floating-whatsapp-icon{width:21px;height:21px;flex:0 0 21px;display:block}.floating-whatsapp>span:first-child{font-size:19px}.floating-whatsapp:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,156,85,.32)}.floating-whatsapp:focus-visible{outline:3px solid #8ddcad;outline-offset:3px}
-.site-footer{max-width:none;display:grid;grid-template-columns:auto minmax(150px,1fr) auto;align-items:center;gap:14px 25px;padding:25px max(22px,calc((100% - 1040px)/2));background:rgba(255,255,255,.96);border-top:1px solid #e3e9f2}
-.footer-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.footer-brand img{width:42px;height:42px;object-fit:cover;border-radius:13px}.footer-brand b,.footer-brand small{display:block;line-height:1.3}.footer-brand b{font:800 14px Manrope,sans-serif}.footer-brand small{color:var(--muted);margin-top:3px}
-.footer-note{color:#77839a;margin:0}
-.footer-links{display:flex;gap:16px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.footer-links a{font-weight:700;text-decoration:none;color:#65738a}.footer-links a:hover{color:var(--blue)}
-.footer-copyright{grid-column:1/-1;border-top:1px solid #edf0f5;padding-top:13px;color:#8a95a6}
+
 @media (max-width:760px) {
- html{scroll-padding-top:85px}.steps-grid{grid-template-columns:1fr;gap:11px}.step-card{min-height:0;display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start}.step-card h3{grid-column:2;grid-row:1;margin:2px 25px 6px 0}.step-card p{grid-column:2;grid-row:2}.safety-panel{grid-template-columns:43px minmax(0,1fr);gap:13px;border-radius:19px}.safety-panel-icon{width:42px;height:42px;border-radius:13px;font-size:22px}.about-card{grid-template-columns:60px minmax(0,1fr);border-radius:20px}.about-card>img{width:60px;height:60px;border-radius:17px}.site-footer{grid-template-columns:minmax(0,1fr) auto;gap:14px 10px}.footer-note{grid-column:1/-1;grid-row:2}.footer-links{grid-column:1/-1;grid-row:3;justify-content:flex-start;gap:17px}.footer-copyright{grid-row:4}.site-section{scroll-margin-top:94px}
+ html{scroll-padding-top:85px}.steps-grid{grid-template-columns:1fr;gap:11px}.step-card{min-height:0;display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start}.step-card h3{grid-column:2;grid-row:1;margin:2px 25px 6px 0}.step-card p{grid-column:2;grid-row:2}.safety-panel{grid-template-columns:43px minmax(0,1fr);gap:13px;border-radius:19px}.safety-panel-icon{width:42px;height:42px;border-radius:13px;font-size:22px}.about-card{grid-template-columns:60px minmax(0,1fr);border-radius:20px}.about-card>img{width:60px;height:60px;border-radius:17px}.site-section{scroll-margin-top:94px}
 }
-@media (max-width:420px) {.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.header-meta{gap:6px}.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}.footer-links{gap:12px}.footer-links a{font-size:10px}}
+@media (max-width:420px) {.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.header-meta{gap:6px}.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}}
 @media (prefers-reduced-motion:reduce) {html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 /* Premium Mobile Polish readability, touch targets and calmer spacing */
@@ -182,8 +178,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .step-card h3{font-size:17px}
 
 .floating-whatsapp{min-height:50px;padding:0 18px;font-size:14px;bottom:18px}
-.footer-links a{font-size:13px;padding:5px 0}
-.footer-copyright{font-size:12px}
+
 .topbar .brand b{font-size:16px}
 .topbar .brand small{font-size:11px}
 .header-meta .privacy-link{display:inline-flex;align-items:center;justify-content:center}
@@ -211,7 +206,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  .about-card h2{font-size:21px}
  .terms-card{padding:21px 18px}
  .floating-whatsapp{right:12px;bottom:12px;min-height:48px;padding:0 15px;font-size:13px}
- .site-footer{padding:22px 17px calc(26px + env(safe-area-inset-bottom))}
+ 
 }
 @media (max-width:420px) {
  .header-meta .privacy-link{font-size:11px;min-height:40px;padding:0 10px}
@@ -558,10 +553,9 @@ main{padding-top:0}
   .about-card p, .terms-card p { margin: 6px 0 0 !important; font-size: 12.5px !important; line-height: 1.5 !important; }
   .terms-card { padding: 16px 14px !important; border-radius: 18px !important; }
   .terms-card h2 { margin: 5px 0 2px !important; font-size: 19px !important; line-height: 1.2 !important; }
-  .site-footer { padding: 15px 14px !important; gap: 10px !important; }
-  .footer-brand img { width: 42px !important; height: 42px !important; }
-  .footer-note { margin: 0 !important; font-size: 11px !important; line-height: 1.45 !important; }
-  .footer-links { gap: 8px !important; }
+
+  
+  
 }
 @media  (max-width: 420px)  {
   .site-section.safety-section { margin-top: 9px !important; }
@@ -597,16 +591,13 @@ main{padding-top:0}
 .terms-card .section-kicker{font-size:14px !important;line-height:1.5 !important;letter-spacing:1.7px !important;font-weight:800 !important}
 .terms-card h2{font-size:clamp(24px,3vw,29px) !important;line-height:1.25 !important;margin:8px 0 0 !important}
 .terms-card p{font-size:clamp(16px,2vw,18px) !important;line-height:1.75 !important}
-.footer-brand b{font-size:18px !important;line-height:1.35 !important}
-.footer-brand small{font-size:14px !important;line-height:1.5 !important}
-.footer-note{font-size:15px !important;line-height:1.75 !important}
+
 @media (max-width:600px) {
  .terms-card .section-kicker{font-size:13px !important}
  .terms-card h2{font-size:24px !important}
  .terms-card p{font-size:16px !important;line-height:1.75 !important}
- .footer-brand b{font-size:17px !important}
- .footer-brand small{font-size:13px !important}
- .footer-note{font-size:14px !important;line-height:1.7 !important}
+
+ 
 }
 
 /* add a distinct Free Web Tools link to the top navigation */
@@ -1646,10 +1637,7 @@ summary:focus-visible {
     max-width: 1000px;
     margin-top: 36px;
   }
-  body.home-page .site-footer {
-    padding-left: max(32px, calc((100% - 1040px) / 2));
-    padding-right: max(32px, calc((100% - 1040px) / 2));
-  }
+  
 }
 
 /* Premium green status badge styling */
@@ -3413,9 +3401,7 @@ body.home-page .safety-panel,
 body.home-page .terms-card {
   margin-top: 0 !important;
 }
-body.home-page .site-footer {
-  margin-top: 18px !important;
-}
+
 @media  (min-width: 601px)  {
   body.home-page .site-section { margin-top: 28px !important; }
   body.home-page .social-collage { gap: 12px !important; }
@@ -3436,7 +3422,7 @@ body.home-page .site-footer {
   body.home-page .about-card,
   body.home-page .safety-panel,
   body.home-page .terms-card { padding-top: 14px !important; padding-bottom: 14px !important; }
-  body.home-page .site-footer { margin-top: 12px !important; }
+  
 }
 @media  (max-width: 380px)  {
   body.home-page .social-collage { gap: 7px !important; }
@@ -6188,20 +6174,6 @@ html body.home-page .floating-menu-item-icon.faq-shortcut { background: #e9efff 
 }
 
 /* keep footer content in a single, readable mobile flow. */
-@media  (max-width: 600px)  {
-  body.home-page .site-footer {
-    grid-template-columns: minmax(0, 1fr) !important;
-    align-items: start !important;
-  }
-  body.home-page .site-footer > .footer-brand { grid-column: 1 !important; grid-row: 1 !important; }
-  body.home-page .site-footer > .footer-note { grid-column: 1 !important; grid-row: 2 !important; }
-  body.home-page .site-footer > .footer-location { grid-column: 1 !important; grid-row: 3 !important; min-width: 0; }
-  body.home-page .site-footer > .footer-links { grid-column: 1 !important; grid-row: 4 !important; }
-  body.home-page .site-footer > .footer-copyright { grid-column: 1 !important; grid-row: 5 !important; }
-  body.home-page .footer-location-item { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
-  body.home-page .footer-location-item svg { width: 16px; height: 16px; flex: 0 0 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
-  body.home-page .footer-location { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
-}
 
 /* soften outer-card outlines from About This Website through the final content cards. */
 @media  (max-width: 600px)  {
@@ -6356,7 +6328,7 @@ body.home-page .purpose-card .purpose-kicker {
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media  (max-width: 600px)  {
   html body.home-page main { padding-bottom: 8px !important; }
-  html body.home-page .site-footer { margin-top: 4px !important; }
+  
 }
 
 /* consolidate repeated mobile WhatsApp spacing adjustments.
@@ -6391,44 +6363,6 @@ body.home-page .purpose-card .purpose-kicker {
 
 /* repair desktop footer location icons and alignment.
    The SVGs previously had no desktop size/stroke rules, so their paths rendered as huge black shapes. */
-@media  (min-width: 601px)  {
-  body.home-page .site-footer > .footer-location {
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px 8px !important;
-    min-width: 0 !important;
-    align-self: center !important;
-  }
-  body.home-page .site-footer .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap;
-  }
-  body.home-page .site-footer .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    max-width: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-  body.home-page .site-footer .footer-location-separator {
-    display: inline-block !important;
-    color: #7d899c !important;
-    line-height: 1 !important;
-  }
-}
 
 /* desktop Service Status and Scam Awareness match the WhatsApp card width; repair footer note wrapping.
    Desktop-only refinements preserve the mobile card stack and spacing. */
@@ -6497,96 +6431,15 @@ body.home-page .purpose-card .purpose-kicker {
   }
 
   /* Match the compact three-column desktop footer reference; links/copyright use lower rows. */
-  html body.home-page .site-footer {
-    width: 100% !important;
-    max-width: none !important;
-    display: grid !important;
-    grid-template-columns: minmax(180px, 0.9fr) minmax(260px, 1.1fr) minmax(280px, 1.4fr) !important;
-    grid-template-rows: auto auto auto !important;
-    align-items: center !important;
-    column-gap: 25px !important;
-    row-gap: 14px !important;
-    padding: 28px clamp(32px, 4.4vw, 52px) 22px !important;
-  }
 
-  html body.home-page .site-footer > .footer-brand {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: start !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-note {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    align-self: center !important;
-    font-size: 14px !important;
-    line-height: 1.65 !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    hyphens: none !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-location {
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px 8px !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    align-self: center !important;
-  }
+  
 
-  html body.home-page .site-footer .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-  }
+  
 
-  html body.home-page .site-footer .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    max-width: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer .footer-location-separator {
-    display: inline-block !important;
-    line-height: 1 !important;
-    color: #7d899c !important;
-  }
-
-  html body.home-page .site-footer > .footer-links {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
-    justify-content: flex-start !important;
-    gap: 16px !important;
-    margin: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-copyright {
-    grid-column: 1 / -1 !important;
-    grid-row: 3 !important;
-    width: min(100%, 1040px) !important;
-    margin: 0 !important;
-    padding-top: 13px !important;
-    border-top: 1px solid #edf0f5 !important;
-  }
 }
 
 /* true desktop centering for the content sections from How It Works through Please Read.
@@ -8074,10 +7927,6 @@ html body.home-page .why-arisu-section > .why-arisu-card {
   }
 }
 
-html body.home-page .site-footer {
-  margin-top: -62px !important;
-}
-
 /* retain the text offsets, but collapse the creator block's reserved space. */
 html body.home-page .purpose-card > h2 {
   position: relative;
@@ -8406,34 +8255,6 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 /* apply the Deep Black-Navy + Violet footer style on desktop too. */
-@media (min-width: 701px) {
-  html body.home-page .site-footer {
-    background: #101827 !important;
-    color: #F8FAFF !important;
-    border-top: 1px solid rgba(167, 139, 250, .25) !important;
-  }
-  html body.home-page .site-footer .footer-brand,
-  html body.home-page .site-footer .footer-brand .brand-name-row,
-  html body.home-page .site-footer .footer-brand small,
-  html body.home-page .site-footer .footer-note,
-  html body.home-page .site-footer .footer-location,
-  html body.home-page .site-footer .footer-location-item,
-  html body.home-page .site-footer .footer-copyright {
-    color: #F8FAFF !important;
-  }
-  html body.home-page .site-footer .footer-links a {
-    color: #F8FAFF !important;
-    transition: color .2s ease, text-shadow .2s ease;
-  }
-  html body.home-page .site-footer .footer-links a:hover,
-  html body.home-page .site-footer .footer-links a:focus-visible {
-    color: #D8C7FF !important;
-    text-shadow: 0 0 10px rgba(167, 139, 250, .42);
-  }
-  html body.home-page .site-footer .footer-copyright {
-    border-top-color: rgba(167, 139, 250, .2) !important;
-  }
-}
 
 /* desktop version of the five-item bottom navigation. */
 @media (min-width: 701px) {
@@ -8572,9 +8393,7 @@ html body.home-page .purpose-card .purpose-signoff {
     padding: 0 3px !important;
     font-size: 9px !important;
   }
-  html body.home-page .site-footer {
-    margin-top: 22px !important;
-  }
+  
 }
 
 /* enforce compact Stories sizing and keep fixed navigation clear of footer content. */
@@ -8582,10 +8401,7 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page {
     padding-bottom: 150px !important;
   }
-  html body.home-page .site-footer {
-    padding-bottom: 120px !important;
-    margin-top: 24px !important;
-  }
+  
   html body.home-page nav.mobile-bottom-nav {
     position: fixed !important;
     top: auto !important;
@@ -8670,157 +8486,20 @@ html body.home-page .purpose-card .purpose-signoff {
 }
 
 /* compact mobile footer links and reduce excess vertical spacing. */
-@media (max-width: 600px) {
-  html body.home-page .site-footer > .about-link-section {
-    margin-bottom: 4px !important;
-  }
-  html body.home-page .site-footer > .footer-location {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    row-gap: 4px !important;
-    column-gap: 8px !important;
-  }
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    justify-content: stretch !important;
-    align-items: start !important;
-    gap: 6px 12px !important;
-    margin-top: 8px !important;
-    margin-bottom: 0 !important;
-    width: 100% !important;
-  }
-  html body.home-page .site-footer > .footer-links a {
-    display: block !important;
-    min-width: 0 !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    overflow-wrap: anywhere;
-  }
-  html body.home-page .site-footer > .footer-copyright {
-    margin-top: 8px !important;
-    padding-top: 8px !important;
-    line-height: 1.35 !important;
-  }
-}
 
 /* compact footer links with small inline icons for clearer scanning. */
-@media (max-width: 600px) {
-  html body.home-page .site-footer > .footer-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 7px 10px !important;
-  }
-  html body.home-page .site-footer > .footer-links a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    min-height: 24px !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-  }
-  html body.home-page .site-footer > .footer-links a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-  html body.home-page .site-footer > .footer-links a span {
-    min-width: 0 !important;
-  }
-}
-@media (min-width: 601px) {
-  html body.home-page .site-footer > .footer-links a {
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  html body.home-page .site-footer > .footer-links a svg {
-    width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor;
-    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
-  }
-}
 
 /* balance the compact mobile footer and preserve clearance for fixed bottom navigation. */
 @media (max-width: 700px) {
-  html body.home-page .site-footer {
-    padding-bottom: 6px !important;
-  }
+  
   html body.home-page {
     padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
   }
 }
 
 /* place copyright beside Contact in the compact mobile footer. */
-@media (max-width:760px) {
-  .site-footer {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    row-gap: 10px;
-  }
-  .site-footer > .about-link-section,
-  .site-footer > .footer-location {
-    grid-column: 1 / -1;
-  }
-  .site-footer > .footer-links {
-    display: contents;
-  }
-  .site-footer > .footer-links a {
-    min-width: 0;
-    justify-self: start;
-    padding: 2px 0;
-  }
-  .site-footer > .footer-copyright {
-    grid-column: 2;
-    grid-row: auto;
-    align-self: center;
-    justify-self: start;
-    border-top: 0;
-    padding-top: 2px;
-    white-space: nowrap;
-  }
-}
 
 /* place copyright in the final mobile footer grid cell beside Contact. */
-@media (max-width: 760px) {
-  html body.home-page .site-footer > .footer-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 7px !important;
-  }
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    align-self: center !important;
-    justify-self: start !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-    color: #8a95a6 !important;
-  }
-}
-@media (min-width: 761px) {
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    margin-left: auto;
-    border: 0;
-    padding-top: 0;
-    white-space: nowrap;
-  }
-}
 
 /* reduce only the remaining space below the compact footer on mobile. */
 @media (max-width: 700px) {
@@ -9143,7 +8822,6 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
 
-
   /* Restore CTA glow and the actual conic gradients as well as animation.
      The earlier reduced-motion rules replace these gradients with static ones. */
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
@@ -9238,152 +8916,21 @@ html body.home-page .purpose-card .purpose-signoff {
 /* Desktop footer: use the same clear vertical order as mobile.
    Keep the About card, location, link grid, and copyright on separate rows. */
 @media (min-width: 701px) {
-  html body.home-page .site-footer {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 14px !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin-top: 18px !important;
-    padding: 22px clamp(28px, 4vw, 48px) 124px !important;
-    background: transparent !important;
-    color: #172447 !important;
-    border-top: 1px solid rgba(143, 172, 221, .22) !important;
-    box-shadow: none !important;
-  }
 
-  html body.home-page .site-footer > .about-link-section {
-    box-sizing: border-box !important;
-    width: min(100%, 824px) !important;
-    max-width: 824px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    align-self: center !important;
-  }
+  
 
-  html body.home-page .site-footer > .about-link-section .about-page-cta {
-    box-sizing: border-box !important;
-    display: flex !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-location {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px 10px !important;
-    width: min(100%, 824px) !important;
-    max-width: 824px !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    color: #263654 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-location .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-    color: #263654 !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-location .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-location .footer-location-separator {
-    color: #8a95a6 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links {
-    box-sizing: border-box !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-items: center !important;
-    justify-content: stretch !important;
-    gap: 7px 12px !important;
-    width: min(100%, 620px) !important;
-    max-width: 620px !important;
-    margin: 2px auto 0 !important;
-    padding: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    min-height: 24px !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    color: #65738a !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    text-decoration: none !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a:hover,
-  html body.home-page .site-footer > .footer-links > a:focus-visible {
-    color: #4f46e5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a span {
-    min-width: 0 !important;
-  }
+  
 
   /* Copyright shares the last grid row with Contact, just like mobile. */
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    align-self: center !important;
-    justify-self: start !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    color: #8a95a6 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-  }
+  
 }
 
 /* Desktop floating navigation: distinct, readable icon discs and a vivid Stories ring. */
@@ -9499,135 +9046,18 @@ html body.home-page .purpose-card .purpose-signoff {
 /* Desktop footer v2: restore the full-width navy footer and an editorial desktop row.
    The compact two-column link grid is retained only for mobile. */
 @media (min-width: 701px) {
-  html body.home-page .site-footer {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 15px !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 18px 0 0 !important;
-    padding: 28px clamp(28px, 4vw, 48px) 124px !important;
-    background: #101827 !important;
-    color: #F8FAFF !important;
-    border-top: 1px solid rgba(167, 139, 250, .28) !important;
-    box-shadow: none !important;
-  }
 
-  html body.home-page .site-footer > .footer-location {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px 10px !important;
-    width: min(100%, 1040px) !important;
-    max-width: 1040px !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    color: #D9E3F5 !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-location .footer-location-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-    color: #D9E3F5 !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-item svg {
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-    flex: 0 0 16px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.7 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-location .footer-location-separator {
-    color: #8291AB !important;
-  }
+  
 
   /* Restore the five footer links to a horizontal desktop row. */
-  html body.home-page .site-footer > .footer-links {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px 22px !important;
-    width: min(100%, 1160px) !important;
-    max-width: 1160px !important;
-    margin: 4px auto 0 !important;
-    padding: 0 !important;
-  }
 
-  html body.home-page .site-footer > .footer-links > a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;
-    flex: 0 0 auto !important;
-    min-width: 0 !important;
-    min-height: 25px !important;
-    padding: 2px 0 !important;
-    margin: 0 !important;
-    color: #E2E8F0 !important;
-    font-size: 12px !important;
-    font-weight: 650 !important;
-    line-height: 1.35 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-links > a:hover,
-  html body.home-page .site-footer > .footer-links > a:focus-visible {
-    color: #D8C7FF !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-links > a svg {
-    display: block !important;
-    width: 14px !important;
-    height: 14px !important;
-    flex: 0 0 14px !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > a span {
-    min-width: 0 !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    align-self: center !important;
-    justify-self: auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 0 0 auto !important;
-    padding: 2px 0 !important;
-    border: 0 !important;
-    color: #A8B4C8 !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    white-space: nowrap !important;
-  }
+  
 }
 
 /* Desktop refinement v3: close the gap after the final safety card, enlarge footer typography,
@@ -9641,61 +9071,13 @@ html body.home-page .purpose-card .purpose-signoff {
     padding-bottom: 12px !important;
   }
 
-  html body.home-page .site-footer {
-    margin-top: 8px !important;
-    padding-bottom: 190px !important;
-  }
-
   /* A more readable, balanced location/service-coverage line. */
-  html body.home-page .site-footer > .footer-location {
-    gap: 8px 12px !important;
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-  }
 
   /* Keep the footer links in one centered group and put copyright on a calm second row. */
-  html body.home-page .site-footer > .footer-links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    column-gap: 24px !important;
-    row-gap: 10px !important;
-    width: min(100%, 1040px) !important;
-    max-width: 1040px !important;
-    margin: 5px auto 0 !important;
-  }
 
-  html body.home-page .site-footer > .footer-links > a {
-    gap: 7px !important;
-    min-height: 28px !important;
-    font-size: 14px !important;
-    font-weight: 650 !important;
-    line-height: 1.4 !important;
-  }
+  
 
-  html body.home-page .site-footer > .footer-links > a svg {
-    width: 16px !important;
-    height: 16px !important;
-    flex-basis: 16px !important;
-  }
-
-  html body.home-page .site-footer > .footer-links > .footer-copyright {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex: 0 0 100% !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 5px 0 0 !important;
-    padding: 10px 0 0 !important;
-    border-top: 1px solid rgba(167, 139, 250, .20) !important;
-    color: #A8B4C8 !important;
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-  }
+  
 
     /* Compact desktop floating navigation. */
   html body.home-page nav.mobile-bottom-nav {
@@ -9758,10 +9140,6 @@ html body.home-page .purpose-card .purpose-signoff {
     padding-bottom: 0 !important;
   }
 
-  html body.home-page .site-footer {
-    margin-top: 2px !important;
-    padding-bottom: 120px !important;
-  }
 }
 
 /* About page: clearer mobile footer links and reduced blank space below footer. */
@@ -10715,7 +10093,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
-
 
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
