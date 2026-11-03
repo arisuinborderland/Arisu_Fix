@@ -1098,12 +1098,6 @@ main{padding-top:0}
   .social-feedback-card .review-proof-card { padding: 2px; }
 }
 
-/* green WhatsApp-inspired outer cards for the three process steps.
- Keep the existing step icon tiles, text, numbering{
-  border-color: #18c982;
-  box-shadow: 0 15px 34px rgba(22, 190, 105, 0.17), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
 /* compact vertical spacing from the process section through Terms.
  Keep all information and the existing desktop/mobile card designs. */
 .site-section {
@@ -2900,13 +2894,6 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     flex-basis: 24px !important;
   }
 
-}
-
-/* unify all five process cards to the approved horizontal layout.
- Icon, number badge{
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  gap: 14px !important;
 }
 @media  (max-width: 760px)  {
 }
@@ -6189,7 +6176,7 @@ body.home-page .purpose-card .purpose-kicker {
   html body.home-page main > section.site-section.about-section,
   html body.home-page main > section.site-section.purpose-section,
   html body.home-page main > section.site-section.safety-section,
-  html body.home-page main > section.site-section.terms-section {
+  html body.home-page main > section.site-section.terms-section{
     position: relative !important;
     left: 50% !important;
     right: auto !important;
