@@ -1,3 +1,11 @@
+AFV421 — Match Homepage Mobile Header Height
+
+## AFV421 — Remove the unnecessary homepage mobile header row
+- Root cause confirmed from the shared stylesheet: Home alone used a 58px + auto two-row grid, with a 2px row gap and 6px bottom padding. The second row was reserved for desktop-only Recovery Proofs and Customer Reviews links even though those links are not part of the mobile header. This made the homepage header visibly taller than Reviews and other public pages.
+- Replaced the homepage-only mobile grid with the same fixed 58px single-row flex header used by the other pages; hid the desktop-only header action rail on mobile.
+- Preserved desktop homepage action links, shared HTML, logo/text/badge dimensions, header theme, other page headers, and all page content.
+- Added regression coverage that prevents a second homepage-only mobile row from returning.
+
 AFV420 — Shared Public Header Component
 
 ## AFV420 — One HTML and CSS source for all public-page headers
