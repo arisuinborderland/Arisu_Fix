@@ -1,4 +1,12 @@
-AFV431 — How Accordion First Card Clipping Fix\n\n## AFV431 — Remove the legacy mobile grid lift inside How accordion\n- Root cause: styles.css applies a legacy `translateY(-6px)` transform to the original Why-card grid on mobile. After the accordion restructuring, that grid sits inside an `overflow: hidden` card wrapper in the How section, clipping the first card's top edge.\n- Add a narrowly scoped mobile override for `.how-assistance-section .why-arisu-card > .why-arisu-grid` with `transform: none !important`.\n- Preserve the Why Choose Arisu section's existing layout and spacing; no broad CSS refactor.\n- Add a regression assertion and bump accordion cache tokens and package/release metadata to AFV431.\n\nAFV430 — All Homepage Accordions Start Collapsed
+AFV431 — How Accordion First Card Clipping Fix
+
+## AFV431 — Remove the legacy mobile grid lift inside How accordion
+- Root cause: styles.css applies a legacy `translateY(-6px)` transform to the original Why-card grid on mobile. After the accordion restructuring, that grid sits inside an `overflow: hidden` card wrapper in the How section, clipping the first card's top edge.
+- Add a narrowly scoped mobile override for `.how-assistance-section .why-arisu-card > .why-arisu-grid` with `transform: none !important`.
+- Preserve the Why Choose Arisu section's existing layout and spacing; no broad CSS refactor.
+- Add a regression assertion and bump accordion cache tokens and package/release metadata to AFV431.
+
+AFV430 — All Homepage Accordions Start Collapsed
 
 ## AFV430 — Set the homepage accordion initial state to closed
 - Clarified the required default behavior: all three accordion sections start collapsed on a fresh page load.
