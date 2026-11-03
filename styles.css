@@ -1007,11 +1007,7 @@ main{padding-top:0}
     justify-content: center;
   }
 }
-@media  (max-width: 360px)  {
-  .social-feedback-card .review-proof-image {
-    min-height: 125px;
-  }
-}
+
 
 /* natural-ratio review previews. Avoid fixed-height letterboxing/stretching. */
 .social-feedback-card .review-proof-card {
@@ -1032,10 +1028,7 @@ main{padding-top:0}
   }
 }
 
-/* mobile-only taller review previews, filling the marked space above View All Reviews without distorting screenshots. */
-@media  (max-width: 360px)  {
-  .social-feedback-card .review-proof-card { height: 166px; }
-}
+
 
 /* show two full, undistorted review screenshots in Customer Feedback.
  Keep the desktop layout stable and make the mobile previews use two equal columns. */
