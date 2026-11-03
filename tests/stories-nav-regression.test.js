@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV425 package metadata and release notes are synchronized', () => {
+test('AFV427 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '425.0.0');
-  assert.equal(lock.version, '425.0.0');
-  assert.equal(lock.packages[''].version, '425.0.0');
-  assert.ok(readme.includes('Current release: AFV425'));
-  assert.ok(history.startsWith('AFV425 — Reviews and Proofs Header CSS Cleanup'));
+  assert.equal(pkg.version, '427.0.0');
+  assert.equal(lock.version, '427.0.0');
+  assert.equal(lock.packages[''].version, '427.0.0');
+  assert.ok(readme.includes('Current release: AFV427'));
+  assert.ok(history.startsWith('AFV427 — Unified About Page Process Flow'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
@@ -145,4 +145,36 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
   assert.match(css, /\.story-viewer-progress-fill\{[^}]*transform:scaleX\(0\)[^}]*transform-origin:left center[^}]*will-change:transform/);
   assert.match(css, /\.story-viewer-progress-segment\.is-complete \.story-viewer-progress-fill\{transform:scaleX\(1\)\}/);
+});
+
+
+test('AFV427 About page uses the approved five-step Process Flow and preserves key content', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'about.html'), 'utf8');
+  const css = fs.readFileSync(path.join(__dirname, '..', 'about-page.css'), 'utf8');
+  assert.match(html, /about-page\.css\?v=AFV427/);
+  assert.match(html, /class="about-process-flow"/);
+  const labels = [
+    'About Arisu Recovery Service',
+    'Why I Built This Site',
+    'My Mission',
+    'My Values',
+    'About the Creator'
+  ];
+  let previous = -1;
+  for (const label of labels) {
+    const position = html.indexOf(label, html.indexOf('class="about-process-flow"'));
+    assert.ok(position > previous, `About flow should place "${label}" in the approved order`);
+    previous = position;
+  }
+  assert.match(html, /It is not affiliated with or endorsed by Meta, Facebook, or Instagram/);
+  assert.match(html, /Less searching\. More transparency\. Better-informed decisions\./);
+  assert.match(html, /Legitimate account-owner assistance/);
+  assert.match(html, /Customer awareness and scam prevention/);
+  assert.match(html, /No guarantee of recovery outcomes/);
+  assert.match(html, /Arisu Ryohei/);
+  assert.match(html, /id="termsTitle"/, 'the existing terms and limitations section remains');
+  assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
+  assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
+  assert.match(css, /\.about-process-step:not\(:last-child\)::before/);
+  assert.match(css, /@media \(max-width: 380px\)/);
 });
