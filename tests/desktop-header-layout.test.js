@@ -3,48 +3,50 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-
 const root = path.resolve(__dirname, '..');
-const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
-const css = read('desktop-header.css');
+const read = name => fs.readFileSync(path.join(root, name), 'utf8');
+const css = read('site-header.css');
 const pages = ['index.html', 'reviews.html', 'proofs.html', 'privacy.html', 'about.html'];
 
-test('Desktop header spans the viewport with responsive outer gutters', () => {
-  assert.match(css, /@media\s*\(min-width:\s*701px\)/);
-  assert.match(css, /padding:\s*8px clamp\(20px, 2vw, 36px\) !important/);
-  for (const pageClass of ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page']) {
-    assert.match(css, new RegExp('body\\.' + pageClass + ' header\\.topbar'));
-  }
+test('Shared desktop header uses one shell, logo, brand typography, and badge contract', () => {
+ assert.match(css,/min-height:96px!important/); assert.match(css,/flex:0 0 66px!important/);
+ assert.match(css,/gap:12px!important/); assert.match(css,/font:800 16px\/1\.15 Manrope,sans-serif!important/);
+ assert.match(css,/flex:0 0 22px!important/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
 });
-
-test('Desktop header actions share the same size, palette, icon dimensions, and focus treatment', () => {
-  assert.match(css, /height:\s*44px !important/);
-  assert.match(css, /width:\s*164px !important/);
-  assert.match(css, /width:\s*124px !important/);
-  assert.match(css, /border-radius:\s*14px !important/);
-  assert.match(css, /background:\s*linear-gradient\(135deg, rgba\(255,255,255,\.98\), rgba\(239,243,255,\.96\)\) !important/);
-  assert.match(css, /width:\s*18px !important;\s*height:\s*18px !important;\s*flex:\s*0 0 18px !important/);
-  assert.match(css, /:focus-visible/);
-  assert.match(css, /header SVG icons visible on pale desktop buttons/);
-  assert.match(css, /\.header-icon \*[,\s\S]*stroke: #263a61 !important/);
+test('All five source pages use the same build-time shared header placeholder', () => {
+ for(const page of pages){const html=read(page);assert.equal((html.match(/<!-- SHARED_SITE_HEADER -->/g)||[]).length,1,page+' must contain one marker');assert.doesNotMatch(html,/<header\b/i,page+' must not duplicate header markup');}
+ const partial=read('partials/site-header.html');assert.equal((partial.match(/<header\b/g)||[]).length,1);assert.equal((partial.match(/{{HEADER_ACTIONS}}/g)||[]).length,1);
 });
-
-test('All public pages load the shared header stylesheet after page-specific stylesheets', () => {
-  for (const page of pages) {
-    const html = read(page);
-    const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];
-    const last = links.at(-1)?.[1];
-    assert.equal(last, 'homepage-header-theme.css?v=AFV408&navywave=approved4', page + ' must load the shared header theme last');
-  }
+test('Homepage-only header actions are isolated in the shared component slot', () => {
+ const actions=read('partials/site-header-home-actions.html');assert.match(actions,/proofs-header-link/);assert.match(actions,/webtools-header-link/);assert.doesNotMatch(read('partials/site-header.html'),/proofs-header-link|webtools-header-link/);
 });
-
-test('Production build allowlist includes the shared header stylesheet', () => {
-  assert.match(read('build.js'), /"desktop-header\.css"/);
+test('Build injects the shared header into all five static pages before deployment', () => {
+ const build=read('build.js');assert.match(build,/function injectSharedSiteHeader\(\)/);assert.match(build,/injectSharedSiteHeader\(\);/);assert.match(build,/shared header was not rendered exactly once/);assert.match(build,/"site-header\.css"/);assert.doesNotMatch(build,/"desktop-header\.css", "homepage-header-theme\.css"/);
 });
-
-test('Mobile header styles are not declared in the desktop-only override', () => {
-  assert.doesNotMatch(css, /@media\s*\(max-width:/);
+test('Shared mobile header dimensions and text/badge sizes are identical across pages', () => {
+ assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 39px!important/);assert.match(css,/font-size:16px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:37px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:14px!important/);
 });
+test('Homepage mobile header stays one row and matches the 58px shared page height', () => {
+ const homeMobile = css.slice(css.indexOf('html body.home-page header.topbar.site-header {', css.indexOf('@media(max-width:700px)')));
+ assert.match(homeMobile,/display:flex!important/);
+ assert.match(homeMobile,/min-height:58px!important;height:58px!important/);
+ assert.match(homeMobile,/padding:0 12px!important/);
+ assert.match(css,/html body\.home-page header\.topbar\.site-header>\.header-meta \{display:none!important\}/);
+ assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
+});
+test('All public pages load the shared header stylesheet last', () => {
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV422&shared=1',page+' must load shared header stylesheet last');}
+});
+test('AFV422 cleanup leaves one authoritative header layout layer', () => {
+ assert.match(css,/AFV422 — Approved shared header baseline/);
+ assert.match(css,/AFV408 — Shared navy-to-indigo header theme/);
+ assert.match(css,/AFV420 — One authoritative header contract/);
+ assert.doesNotMatch(css,/AFV412 shared desktop header normalization|AFV412 — One shared header shell|privacy-about-link|about-header-link/);
+ const build=read('build.js');
+ assert.doesNotMatch(build,/desktop-header\.css|homepage-header-theme\.css/);
+ for(const page of pages){const html=read(page);assert.doesNotMatch(html,/desktop-header\.css|homepage-header-theme\.css/);}
+});
+test('Production build allowlist includes the shared header stylesheet', () => {assert.match(read('build.js'),/"site-header\.css"/);});
 
 test('AFV323 desktop homepage proof previews mask cyan rails and keep square source composites intact', () => {
   const homeStyles = read('styles.css');
@@ -71,7 +73,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV423&desktoplayout=1/);
 });
 
 
@@ -87,7 +89,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV423&desktoplayout=1/);
 });
 
 
@@ -103,7 +105,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV423&desktoplayout=1/);
 });
 
 
@@ -119,7 +121,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV358&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV423&desktoplayout=1/);
 });
 
 
@@ -164,4 +166,32 @@ test('Desktop Customer Reviews CTA is visually shortened at top and bottom witho
   assert.match(buttonFix, /@media \(min-width: 761px\)/);
   assert.match(buttonFix, /\.social-feedback-view-all\s*\{[\s\S]*?transform:\s*scaleY\(0\.84\) !important;[\s\S]*?transform-origin:\s*center center !important/);
   assert.match(buttonFix, /\.social-feedback-view-all:hover,[\s\S]*?transform:\s*translateY\(-2px\) scaleY\(0\.84\) !important/);
+});
+
+
+test('AFV418 Privacy mobile content uses a compact icon/text layout and tighter section rhythm', () => {
+  const privacy = read('privacy.css');
+  assert.match(privacy, /AFV418 — Compact Privacy Policy rhythm/);
+  assert.match(privacy, /grid-template-columns: 44px minmax\(0, 1fr\) !important/);
+  assert.match(privacy, /column-gap: 10px !important/);
+  assert.match(privacy, /padding: 18px 0 !important/);
+  assert.match(privacy, /margin-top: 18px !important/);
+});
+
+test('AFV418 About mobile heading spacing is tightened without changing desktop rules', () => {
+  const about = read('about-page.css');
+  assert.match(about, /AFV418 — Bring About page heading/);
+  assert.match(about, /padding-top: 16px !important/);
+  assert.match(about, /margin-bottom: 13px !important/);
+});
+
+test('AFV423 desktop homepage verified check is not pinned to its hidden SVG dash offset', () => {
+  const homeStyles = read('styles.css');
+  const desktopBadgeBlock = homeStyles.split('AFV423 — Restore the desktop homepage verified check animation.')[1];
+  assert.ok(desktopBadgeBlock, 'AFV423 desktop badge animation block must exist');
+  const desktopRule = desktopBadgeBlock.split('/* Restore the WhatsApp CTA')[0];
+  assert.match(desktopRule, /@media \(min-width: 701px\) and \(prefers-reduced-motion: no-preference\)/);
+  assert.match(desktopRule, /arisu-brand-check-draw 2s ease-in-out infinite !important/);
+  assert.doesNotMatch(desktopRule, /stroke-dashoffset:\s*24\s*!important/);
+  assert.match(homeStyles, /\.arisu-verified-badge svg path\{stroke-dasharray:24;stroke-dashoffset:24;animation:arisu-brand-check-draw 2s ease-in-out infinite\}/);
 });

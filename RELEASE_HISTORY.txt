@@ -1,3 +1,103 @@
+AFV423 — Restore Desktop Homepage Verified Checkmark
+
+## AFV423 — Remove the fixed hidden SVG offset
+- Root cause: the desktop homepage animation override set `stroke-dashoffset: 24 !important` while also enabling the check-draw animation. The important declaration outranked animated values, leaving the SVG path fully hidden while the blue badge background remained visible.
+- Removed only the forced offset declaration. The existing `arisu-brand-check-draw` keyframes now control the check path from hidden to visible as intended.
+- Preserved the blue badge pulse, mobile checkmark behavior, shared header sizing/theme, and reduced-motion fallback. Refreshed only the homepage `styles.css` cache token to AFV423.
+- Added a regression test that rejects a forced hidden offset in the desktop homepage animation block.
+
+AFV422 — Shared Header Cleanup and Approved Layout Baseline
+
+## AFV422 — Remove superseded header override layers
+- Recorded the approved mobile header baseline: 58px single-row shell, 12px side padding, 39px profile mark, 7px brand gap, 16px Arisu label, 18px verified badge, and the navy-indigo theme.
+- Removed the obsolete AFV412 desktop sizing and legacy privacy/about action-button rules plus the redundant empty-action-rail block from site-header.css (153 lines). The current AFV420/AFV421 authoritative shared header contract remains the single source for dimensions and responsive behavior.
+- Retained the AFV408 shared navy-indigo theme, wave accents, separator, and AFV421 homepage mobile correction.
+- Confirmed obsolete desktop-header.css and homepage-header-theme.css are deleted from this PR branch, are absent from the public build allowlist, and are no longer linked by the five public pages.
+- Kept page-specific content styles, footer, bottom navigation, homepage action-button styling, and global verified badge animation in their existing files to avoid unrelated regressions.
+- Added regression checks for the one-source header contract and removal of superseded override layers.
+
+AFV421 — Shared Public Header Component
+
+## AFV421 — Match Homepage Mobile Header Height
+
+## AFV421 — Remove the unnecessary homepage mobile header row
+- Root cause confirmed from the shared stylesheet: Home alone used a 58px + auto two-row grid, with a 2px row gap and 6px bottom padding. The second row was reserved for desktop-only Recovery Proofs and Customer Reviews links even though those links are not part of the mobile header. This made the homepage header visibly taller than Reviews and other public pages.
+- Replaced the homepage-only mobile grid with the same fixed 58px single-row flex header used by the other pages; hid the desktop-only header action rail on mobile.
+- Preserved desktop homepage action links, shared HTML, logo/text/badge dimensions, header theme, other page headers, and all page content.
+- Added regression coverage that prevents a second homepage-only mobile row from returning.
+
+AFV420 — Shared Public Header Component
+
+## AFV420 — One HTML and CSS source for all public-page headers
+- Root cause: five independently authored header elements and separate header stylesheet references allowed About and Privacy to drift from Home, Reviews, and Recovery Proofs. About/Privacy also carried extra page-specific mobile header overrides.
+- Added one shared HTML partial and a homepage-only action slot. The build injects the same header markup into index, reviews, proofs, about, and privacy before publishing static output.
+- Consolidated shared header layout, theme, logo sizing, brand typography, verified badge sizing, and responsive rules into site-header.css, loaded last on all five pages.
+- Kept homepage-only Recovery Proofs and Customer Reviews actions in the shared header slot; kept page content, footer, bottom navigation, and story UI separate.
+- Added build-time checks and regression tests to ensure every generated page contains exactly one rendered shared header and no unresolved placeholder.
+
+AFV419 — Align About and Privacy Mobile Header Position
+
+## AFV419 — Remove the page-specific horizontal offset
+- Root cause: the About/Privacy mobile-only header contract overrode the shared public-page header with 16px horizontal gutters and a 10px brand gap, shifting the logo and brand copy inward compared with Recovery Proofs and Reviews. The narrow-screen override also used 9px gutters, a 5px gap, and a 34px logo rather than the shared compact values.
+- Matched About and Privacy to the shared header alignment: 12px gutters and 7px logo-to-copy gap at standard mobile widths; 10px gutters, 7px gap, and 37px logo at widths up to 380px.
+- Kept the 58px header shell, desktop sizing, header theme, verified badge sizing/animation, page content, footer, and navigation unchanged.
+- Updated shared header cache keys and release metadata to AFV419 / 419.0.0.
+
+AFV418 — Refine About and Privacy Mobile Layout
+
+## AFV418 — Align content rhythm and brand positioning to the main-page reference
+- Root cause: Privacy Policy used independent 64px desktop / 52px mobile icon columns, 12px mobile icon-text gap, 25px row padding, 28px section margin, and generous page/card top padding. Those values made its content noticeably more spread out than the Recovery Proofs main-page reference.
+- Reduced Privacy mobile page/card top spacing, tightened the title-to-date and date-to-first-section rhythm, and changed the icon/text grid to a compact 44px icon with a 10px gap (40px/9px at widths up to 380px).
+- Reduced Privacy section row padding and heading/body typography while preserving readable line-height and all policy content.
+- Root cause: About used a separate 23px mobile main top padding and 17px heading bottom margin. Refined those values to 16px and 13px, respectively, and tightened the heading line rhythm.
+- Fine-aligned About and Privacy header gutters (12px), logo-to-copy gap (7px), and verified badge alignment/spacing with the Recovery Proofs reference; retained the shared 39px / 34px logo sizing and existing badge animations.
+- Updated About/Privacy stylesheet cache keys and package metadata to AFV418 / 418.0.0.
+- Desktop layout, page content, bottom navigation, footer, and badge animation behavior remain unchanged.
+
+AFV417 — Exact Shared Mobile Header Contract
+
+## AFV417 — Remove the About-only header cascade
+- Root cause: About retained the page-specific `.about-topbar` hook and legacy `about-page.css` padding/background rules, while Home used the compact mobile topbar contract from `styles.css`. AFV416 still used a 43px logo and additional vertical padding instead of the homepage's 39px logo and fixed 58px shell.
+- Removed the About-only topbar class and obsolete About-specific header padding/background declarations.
+- Standardized About and Privacy mobile headers to the homepage contract: fixed 58px shell, 39px profile mark, 16px horizontal gutters, 10px brand gap, 16px brand name, and 11px subtitle. At 380px and below, both use a 34px logo, 9px gutters, and 5px brand gap.
+- Kept the navy-indigo shared theme and wave separator; refreshed the shared theme cache token to AFV409 and shared header token to AFV417 on all five public pages.
+- Desktop header sizing and all page content, navigation, footer, and badge animations remain unchanged.
+
+AFV416 — Match the Compact Homepage Mobile Header
+
+## AFV416 — Fix About and Privacy mobile header mismatch
+- Root cause: AFV415 normalized About and Privacy to desktop-scale 66px logos and a 96px minimum header height, but the approved homepage mobile header uses a compact 43px profile mark and a 58px minimum shell. This made both pages oversized rather than matching the reference.
+- The AFV415 mobile rule also set `background: inherit !important` on About and Privacy. Its selector specificity overrode the shared `homepage-header-theme.css` navy-indigo gradient, exposing the pale page background.
+- Replaced the incorrect dimensions with the homepage mobile values: 43px logo, 58px minimum header height, 10px 12px 11px padding, 9px brand gap, 15px brand name and 11px subtitle. Retained the homepage 39px compact mark and 9px side gutters below 380px.
+- Removed the background inheritance override so the shared navy-indigo gradient, wave accents, and cyan-violet separator apply consistently.
+- Refreshed `desktop-header.css` cache keys across all five public pages and synchronized package metadata to AFV416 / 416.0.0.
+- Desktop header sizing and all page content, navigation, footer, and badge animations remain unchanged.
+
+AFV415 — Unify About and Privacy Mobile Headers
+
+## AFV415 — Remove conflicting mobile header overrides
+- Root cause: AFV414 left two competing mobile media-query groups in desktop-header.css. The earlier max-width:600px grid rule had higher selector specificity for About and forced a 39px logo, while Privacy fell through to the later 66px flex rule.
+- Removed the duplicate 39px/34px grid overrides and retained one authoritative flex-based mobile shell for both pages.
+- Standardized About and Privacy to the shared 66px logo, 16px brand gap, 18px 22px header padding, and 96px minimum header height used by the other public pages; retained the shared 37px compact-logo treatment below 380px.
+- Refreshed desktop-header.css cache keys across all five public pages and synchronized package metadata to AFV415 / 415.0.0.
+- Preserved the page-specific content, desktop layout, bottom navigation, and all existing animations.
+
+AFV414 — Mobile Verified Check Animation and Shared Headers
+
+## AFV414 — Fix mobile check draw and About/Privacy header consistency
+- Restores the homepage verified SVG check-draw animation in the mobile motion override while preserving the existing blue badge pulse.
+- Normalizes About and Privacy mobile header sizing, brand alignment, logo dimensions, and action rail to the shared header shell used by the other public pages.
+- Refreshes the shared stylesheet cache keys and synchronizes package metadata to AFV414 / 414.0.0.
+
+## AFV412 — Restore footer milestone and unify public-page header
+- Restores the Creation Date milestone card with the October 14, 2026 date and Explore My Story CTA on Home, Reviews, Proofs, and About.
+- Normalizes the shared header markup across Home, Reviews, Proofs, About, and Privacy Policy; uses the same profile thumbnail and shared action rail.
+- Removes the About-only header class that introduced a separate header padding rule; preserves page-specific actions on Home.
+- Restores the animated check-draw only on the homepage verified badge; preserves its blue badge shell and other pages' working animation.
+- Refreshes shared header/footer cache tokens and synchronizes package metadata to AFV412 / 412.0.0.
+- Preserves AFV411 loading-screen behavior and AFV410 Soft Curve navigation and compact footer styling.
+- Preview only; validate CI and inspect all five pages at mobile and desktop widths before merging.
+
 AFV411 — Homepage Loading Screen Session Guard
 
 ## AFV411 — Port loading-screen session guard onto AFV410 main

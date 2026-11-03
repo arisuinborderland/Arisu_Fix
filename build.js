@@ -16,7 +16,7 @@ const releaseToken = `AFV${versionMatch[1]}`;
 // legacy Vercel configuration, SQL migrations, and documentation from public output.
 const publicRootFiles = new Set([
   "_headers", "robots.txt", "index.html", "about.html", "reviews.html", "proofs.html", "privacy.html", "story-admin.html",
-  "styles.css", "loading-screen.css", "desktop-header.css", "homepage-header-theme.css", "more-menu.css", "footer-reference.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
+  "styles.css", "loading-screen.css", "site-header.css", "more-menu.css", "footer-reference.css", "about-page.css", "about-link.css", "reviews.css", "proofs.css", "privacy.css", "story-admin.css", "story-viewer.css", "bottom-nav.css",
   "script.js", "loading-screen.js", "more-menu.js", "header-scroll.js", "desktop-layout.js", "image-protection.js", "reviews-floating-cleanup.js",
   "story-viewer.js", "scroll-reveal.js", "scroll-restoration.js", "review-lightbox.js",
   "privacy-year.js", "proofs.js", "story-admin.js",
@@ -85,6 +85,29 @@ function copyAllowedPublicFiles() {
     }
   }
 }
+
+function injectSharedSiteHeader() {
+  const partialDirectory = path.join(root, "partials");
+  const templatePath = path.join(partialDirectory, "site-header.html");
+  const actionsPath = path.join(partialDirectory, "site-header-home-actions.html");
+  if (!fs.existsSync(templatePath) || !fs.existsSync(actionsPath)) throw new Error("Build failed: shared site header partials are missing.");
+  const template = fs.readFileSync(templatePath, "utf8");
+  const homeActions = fs.readFileSync(actionsPath, "utf8").trim();
+  const slot = "{{HEADER_ACTIONS}}";
+  if (template.split(slot).length !== 2) throw new Error("Build failed: shared header must contain exactly one action slot.");
+  const pages = ["index.html", "reviews.html", "proofs.html", "about.html", "privacy.html"];
+  for (const page of pages) {
+    const file = path.join(output, page);
+    let html = fs.readFileSync(file, "utf8");
+    const marker = "<!-- SHARED_SITE_HEADER -->";
+    if (html.split(marker).length !== 2) throw new Error(`Build failed: ${page} must contain exactly one shared header marker.`);
+    html = html.replace(marker, template.replace(slot, page === "index.html" ? homeActions : ""));
+    const count = (html.match(/<header\b[^>]*class=["'][^"']*\bsite-header\b/gi) || []).length;
+    if (html.includes(marker) || count !== 1) throw new Error(`Build failed: shared header was not rendered exactly once in ${page}.`);
+    fs.writeFileSync(file, html);
+  }
+}
+
 async function generateOptimizedImages() {
   for (const asset of generatedImageAssets) {
     const input = path.join(output, asset.source);
@@ -180,6 +203,7 @@ function verifyLocalReferences() {
 
 async function runBuild() {
   copyAllowedPublicFiles();
+  injectSharedSiteHeader();
   await generateOptimizedImages();
   verifyBackendLayout();
   verifyExactPublicOutput();

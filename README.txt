@@ -1,14 +1,27 @@
 ARISU FIX — PROJECT README
-Version: AFV411
-Updated: 2026-11-01
+Version: AFV423
+Updated: 2026-11-03
 
-Current release: AFV411
-Package version: 411.0.0
+Current release: AFV423
+Package version: 423.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV423 fixes the desktop homepage verified badge checkmark. Root cause was a desktop-only `stroke-dashoffset: 24 !important` declaration that overrode the SVG check-draw animation and kept the white check hidden. Removed the forced offset, retained the blue badge pulse, check-draw keyframes, mobile behavior, and reduced-motion fallback.
+- AFV423 cleanup: removed 153 lines of superseded header sizing, empty-rail, and page-specific button overrides from site-header.css. The approved AFV421 shared header contract and navy-indigo theme remain; obsolete desktop-header.css and homepage-header-theme.css files and references are removed from the production path. The AFV421 mobile header layout is the approved visual baseline: 58px single row, 39px profile mark, 7px logo-to-copy gap, and shared 18px verified badge.
+- AFV423 fixes the homepage-only mobile header height mismatch. Root cause was a special two-row grid with an empty/hidden second action row, 2px row gap, and 6px bottom padding; this added vertical space to Home while other pages used the 58px single-row header. Home now uses the same fixed 58px single-row header and hides desktop-only header actions on mobile. Desktop homepage action links are preserved.
+- AFV423 replaces duplicated public-page header markup with one build-time shared HTML component and one shared stylesheet. All five public pages now receive identical logo, verified badge, typography, spacing, theme, and responsive alignment; homepage-only action links are supplied through a dedicated slot. The static build injects the component before deployment, with no runtime header flash.
+- AFV419 fixes the About/Privacy mobile header offset: their page-specific header overrides used wider 16px gutters and 10px logo-to-copy gaps than the shared public-page header. Aligns both pages to 12px/7px at standard mobile widths and 10px/7px with a 37px logo at <=380px. Updates shared header cache keys and release metadata.
+- AFV418 refines About/Privacy mobile spacing and aligns their header logo, brand text, and verified badge with the Recovery Proofs reference. Privacy Policy now uses a compact icon/text grid and tighter title/date/section rhythm; About heading-to-card spacing is reduced. Desktop layout and shared badge animation are preserved.
+- AFV417 removes the About-only topbar hook and legacy padding/background rules. About and Privacy now use the exact compact mobile header contract: 58px shell, 39px logo, 16px side gutters, 10px brand gap, and 34px logo below 380px. Refreshes shared theme cache keys across all five pages.
+- AFV416 aligns About and Privacy mobile headers with the homepage compact header (43px profile mark, 58px minimum shell, 10px 12px 11px padding, 9px brand gap) and removes the inherited-background override so the shared navy-indigo theme remains visible. Refreshes the shared header stylesheet cache key across all five public pages.
+- AFV415 removes conflicting duplicate mobile header overrides and uses one authoritative 66px About/Privacy header shell matching Home, Reviews, and Proofs. Refreshes the shared header stylesheet cache key across all five public pages.
+- AFV414 restores the homepage verified check-draw animation on mobile while preserving the existing blue badge pulse, and normalizes About/Privacy mobile header dimensions and alignment to the shared header shell. Preserves AFV413 and earlier fixes.
+- AFV414 restores the mobile verified check-draw animation while preserving the blue badge pulse, and explicitly normalizes About and Privacy mobile header sizing and grid alignment after page-specific styles. Refreshes the shared header stylesheet cache token across all five public pages.
+- AFV413 fixes the Creation Date stacked layout, removes legacy desktop rules disabling the homepage verified check animation, restores the About mobile header hook, normalizes About/Privacy desktop header sizing, and refreshes shared stylesheet cache tokens. Preserves AFV412 and earlier behavior.
+- AFV412 restores the October 14, 2026 Creation Date milestone, normalizes shared header markup and desktop sizing across all five public pages, and restores only the homepage verified check draw. Preserves AFV411 loading and AFV410 navigation/footer behavior.
 - AFV411 fixes the homepage loading-screen session guard: first-paint visibility, retry after interrupted loading, and background scroll lock. Preserves AFV410 navigation/footer updates.
 - AFV410 applies the Soft Curve cyan/blue/violet mobile navigation and compacts the shared footer while preserving the approved structure.
 - AFV408 adds the shared navy-to-indigo header theme and soft cyan-to-violet separator across the five public pages. Includes the stylesheet in the production build and refreshes its cache token.

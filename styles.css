@@ -9087,8 +9087,8 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Restore the green badge pulse and blue verified-check animation on desktop.
-   Respect the operating system's reduced-motion preference. */
+/* AFV423 — Restore the desktop homepage verified check animation.
+   Let the keyframes control stroke-dashoffset; a fixed !important offset hides the SVG check. */
 @media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-fade-in 1s ease-out both,
@@ -9106,11 +9106,12 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .topbar .arisu-verified-badge::after {
     animation: arisu-brand-badge-glow 2s ease-out infinite !important;
   }
-  /* Keep the check mark visible at all times while the badge itself animates. */
+  /* AFV414: re-enable the check-draw as well as the pulse on mobile.
+     The global reduced-motion rule disables the path; the mobile override
+     must explicitly restore it to match the site's intended branded motion. */
   html body.home-page .topbar .arisu-verified-badge svg path {
     stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
+    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
   }
 
   /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
@@ -9142,18 +9143,6 @@ html body.home-page .purpose-card .purpose-signoff {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
 
-  /* Blue badge keeps its pulse; check path remains drawn and visible all the time. */
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
 
   /* Restore CTA glow and the actual conic gradients as well as animation.
      The earlier reduced-motion rules replace these gradients with static ones. */
@@ -10690,12 +10679,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   html body.home-page .topbar .arisu-verified-badge::after {
     animation: arisu-brand-badge-glow 2s ease-out infinite !important;
   }
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
-
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
     animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
   }
@@ -10732,3 +10715,7 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     opacity: 1 !important;
   }
 }
+
+
+/* AFV413 — The canonical badge check-draw is shared from the base badge rule.
+   Legacy desktop static overrides were removed so the path animation can run. */

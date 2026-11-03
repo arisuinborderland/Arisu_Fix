@@ -4,7 +4,6 @@
 .policy-icon{width:64px;height:64px;display:grid;place-items:center;font-size:28px;font-weight:800;flex-shrink:0;border-radius:17px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
 .policy-icon.blue{background:#e8f0ff;color:#3157c9}.policy-icon.green{background:#e5f8ed;color:#238653}.policy-icon.purple{background:#f0e8ff;color:#7545c8}
 .policy-point h2{margin:3px 0 10px;font-size:22px;line-height:1.3;font-family:Manrope,sans-serif;letter-spacing:-.45px}.policy-point p{margin:0;line-height:1.65;overflow-wrap:anywhere}
-@media(max-width:480px){.policy-point{grid-template-columns:52px minmax(0,1fr)}.policy-icon{width:52px;height:52px;font-size:24px}.policy-point h2{font-size:19px}}
 
 body{background:radial-gradient(ellipse at 50% 0%,rgba(222,231,255,.42),transparent 38rem),linear-gradient(180deg,#f9fbff,#f5f7fb 75%,#fff)}
 main{padding-top:40px;padding-bottom:64px}
@@ -44,3 +43,60 @@ main>.wizard-card>h1{letter-spacing:-1.2px!important}
   html body.privacy-page .mobile-nav-item svg.whatsapp-nav-icon { fill: currentColor; stroke: none; stroke-width: 0; }
 }
 @media (prefers-reduced-motion: reduce) { html body.privacy-page .mobile-nav-story-avatar { transition: none !important; } }
+
+
+/* AFV418 — Compact Privacy Policy rhythm, matching the main-page content density. */
+@media (max-width: 600px) {
+  html body.privacy-page main {
+    padding: 12px 12px 32px !important;
+  }
+  html body.privacy-page main > .wizard-card {
+    padding: 18px 16px !important;
+    border-radius: 19px !important;
+  }
+  html body.privacy-page main > .wizard-card > h1 {
+    margin: 0 0 18px !important;
+    font-size: clamp(27px, 7vw, 34px) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -1px !important;
+  }
+  html body.privacy-page .policy-updated {
+    margin: 0 !important;
+    padding: 7px 11px !important;
+  }
+  html body.privacy-page .policy-points {
+    margin-top: 18px !important;
+  }
+  html body.privacy-page .policy-point {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    column-gap: 10px !important;
+    padding: 18px 0 !important;
+  }
+  html body.privacy-page .policy-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+    font-size: 22px !important;
+  }
+  html body.privacy-page .policy-point h2 {
+    margin: 1px 0 7px !important;
+    font-size: 17px !important;
+    line-height: 1.3 !important;
+    letter-spacing: -.3px !important;
+  }
+  html body.privacy-page .policy-point p {
+    font-size: 14px !important;
+    line-height: 1.58 !important;
+  }
+}
+@media (max-width: 380px) {
+  html body.privacy-page .policy-point {
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+  }
+  html body.privacy-page .policy-icon {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+  }
+}

@@ -87,6 +87,71 @@
   font-weight: 500;
   line-height: 1.4;
 }
+/* AFV413 — Creation Date row layout: keep date, caption and CTA on separate lines. */
+.reference-footer .reference-about-created {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 7px;
+  padding: 7px 9px;
+  border: 1px solid rgba(111, 157, 220, .22);
+  border-radius: 13px;
+  background: rgba(255,255,255,.48);
+}
+.reference-footer .reference-about-created > svg:first-child {
+  display: block;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  color: #244c91;
+  border-radius: 10px;
+  background: #e8f2ff;
+}
+.reference-footer .reference-about-created-copy {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 3px;
+}
+.reference-footer .reference-about-created-copy strong,
+.reference-footer .reference-about-created-copy > span:not(.reference-about-action) {
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.reference-footer .reference-about-created-copy strong {
+  color: #21385f;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.reference-footer .reference-about-created-copy > span:not(.reference-about-action) {
+  color: #5c6b83;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.reference-footer .reference-about-created .reference-about-action {
+  display: inline-flex;
+  align-self: flex-start;
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+.reference-footer .reference-about-created .reference-about-created-check {
+  display: block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  color: #17345f;
+}
+
 .reference-footer .reference-about-action {
   display: inline-flex;
   align-items: center;
