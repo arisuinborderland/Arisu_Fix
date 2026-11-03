@@ -23,6 +23,7 @@ test('AFV427 About Process Flow keeps a single parent card and the approved five
   assert.ok(flow.includes('Arisu Ryohei'));
   assert.ok(html.includes('about-page.css?v=AFV427'));
   assert.ok(html.includes('id="termsTitle"'), 'terms and limitations stay available');
+  assert.ok(!html.includes('Established September 08, 2018'), 'the established-date line is removed from the About page');
   const css = read('about-page.css');
   assert.ok(css.includes('.about-process-flow'));
   assert.ok(css.includes('.about-process-step:not(:last-child)::before'));
