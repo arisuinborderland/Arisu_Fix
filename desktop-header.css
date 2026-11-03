@@ -182,68 +182,11 @@
 }
 
 
-/* AFV414 — Explicitly normalize About and Privacy mobile headers after page-specific CSS. */
-@media (max-width: 600px) {
-  html body.about-page header.topbar.about-topbar,
-  html body.privacy-page header.topbar {
-    box-sizing: border-box !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    grid-template-rows: auto auto !important;
-    align-items: center !important;
-    justify-content: stretch !important;
-    column-gap: 4px !important;
-    row-gap: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 12px 12px 13px !important;
-    margin: 0 !important;
-    flex-wrap: initial !important;
-  }
-  html body.about-page header.topbar.about-topbar > .brand,
-  html body.privacy-page header.topbar > .brand {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    width: auto !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    flex: initial !important;
-    gap: 9px !important;
-  }
-  html body.about-page header.topbar.about-topbar > .brand > .logo,
-  html body.privacy-page header.topbar > .brand > .logo {
-    box-sizing: border-box !important;
-    width: 39px !important;
-    height: 39px !important;
-    min-width: 39px !important;
-    flex: 0 0 39px !important;
-    border-radius: 12px !important;
-  }
-  html body.about-page header.topbar.about-topbar > .header-meta,
-  html body.privacy-page header.topbar > .header-meta {
-    display: contents !important;
-  }
-}
-@media (max-width: 380px) {
-  html body.about-page header.topbar.about-topbar > .brand,
-  html body.privacy-page header.topbar > .brand { gap: 5px !important; }
-  html body.about-page header.topbar.about-topbar > .brand > .logo,
-  html body.privacy-page header.topbar > .brand > .logo {
-    width: 34px !important; height: 34px !important; min-width: 34px !important; flex-basis: 34px !important;
-  }
-}
-
-
-/* AFV414 — Mobile header normalization for About and Privacy.
-   These pages use the same brand/action-rail markup as Reviews and Proofs.
-   Override the About-only topbar padding so all five pages share one shell. */
+/* AFV415 — One authoritative mobile header shell for About and Privacy.
+   Match the 66px shared brand mark used by Home, Reviews, and Proofs.
+   Keep About's page hook, but remove all competing 39px/34px overrides. */
 @media (max-width: 700px) {
-  html body.about-page header.topbar,
+  html body.about-page header.topbar.about-topbar,
   html body.privacy-page header.topbar {
     display: flex !important;
     align-items: center !important;
@@ -258,7 +201,8 @@
     z-index: 20 !important;
     background: inherit !important;
   }
-  html body.about-page header.topbar > a.brand,
+
+  html body.about-page header.topbar.about-topbar > a.brand,
   html body.privacy-page header.topbar > a.brand {
     display: flex !important;
     align-items: center !important;
@@ -266,13 +210,16 @@
     min-width: 0 !important;
     gap: 16px !important;
   }
-  html body.about-page header.topbar > a.brand > .logo,
+
+  html body.about-page header.topbar.about-topbar > a.brand > .logo,
   html body.privacy-page header.topbar > a.brand > .logo {
+    box-sizing: border-box !important;
     flex: 0 0 66px !important;
     width: 66px !important;
     height: 66px !important;
   }
-  html body.about-page header.topbar > .header-meta,
+
+  html body.about-page header.topbar.about-topbar > .header-meta,
   html body.privacy-page header.topbar > .header-meta {
     display: flex !important;
     flex: 0 0 auto !important;
@@ -285,17 +232,20 @@
     gap: 0 !important;
   }
 }
+
 @media (max-width: 380px) {
-  html body.about-page header.topbar,
+  html body.about-page header.topbar.about-topbar,
   html body.privacy-page header.topbar {
     padding-left: 9px !important;
     padding-right: 9px !important;
   }
-  html body.about-page header.topbar > a.brand,
+
+  html body.about-page header.topbar.about-topbar > a.brand,
   html body.privacy-page header.topbar > a.brand {
     gap: 6px !important;
   }
-  html body.about-page header.topbar > a.brand > .logo,
+
+  html body.about-page header.topbar.about-topbar > a.brand > .logo,
   html body.privacy-page header.topbar > a.brand > .logo {
     flex-basis: 37px !important;
     width: 37px !important;
