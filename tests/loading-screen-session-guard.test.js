@@ -30,6 +30,10 @@ test('AFV411 records the session only after loading completes and releases scrol
   const css = read('loading-screen.css');
   assert.ok(css.includes('html.arisu-loading-active body'));
   assert.ok(css.includes('overscroll-behavior: none'));
+  assert.ok(!css.includes('arisu-loading-fade-in'), 'loading overlay must not use an entrance fade');
+  assert.ok(!css.includes('arisu-loading-card-fade-in'), 'loading card must not use an entrance fade');
+  assert.ok(css.includes('arisu-loading-card-fade-out'), 'existing loading card exit fade must remain');
+  assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'), 'existing overlay exit fade must remain');
 });
 
 test('AFV425 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
