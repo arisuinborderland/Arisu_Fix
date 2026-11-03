@@ -9087,8 +9087,8 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Restore the green badge pulse and blue verified-check animation on desktop.
-   Respect the operating system's reduced-motion preference. */
+/* AFV423 — Restore the desktop homepage verified check animation.
+   Let the keyframes control stroke-dashoffset; a fixed !important offset hides the SVG check. */
 @media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
   html body.home-page main > .compact-intro .eyebrow.premium-status {
     animation: eyebrow-fade-in 1s ease-out both,
@@ -9111,7 +9111,6 @@ html body.home-page .purpose-card .purpose-signoff {
      must explicitly restore it to match the site's intended branded motion. */
   html body.home-page .topbar .arisu-verified-badge svg path {
     stroke-dasharray: 24 !important;
-    stroke-dashoffset: 24 !important;
     animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
   }
 
