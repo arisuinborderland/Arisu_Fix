@@ -1,3 +1,14 @@
+AFV412 — Shared Header, Creation Date, and Homepage Badge Animation
+
+## AFV412 — Restore footer milestone and unify public-page header
+- Restores the Creation Date milestone card with the October 14, 2026 date and Explore My Story CTA on Home, Reviews, Proofs, and About.
+- Normalizes the shared header markup across Home, Reviews, Proofs, About, and Privacy Policy; uses the same profile thumbnail and shared action rail.
+- Removes the About-only header class that introduced a separate header padding rule; preserves page-specific actions on Home.
+- Restores the animated check-draw only on the homepage verified badge; preserves its blue badge shell and other pages' working animation.
+- Refreshes shared header/footer cache tokens and synchronizes package metadata to AFV412 / 412.0.0.
+- Preserves AFV411 loading-screen behavior and AFV410 Soft Curve navigation and compact footer styling.
+- Preview only; validate CI and inspect all five pages at mobile and desktop widths before merging.
+
 AFV411 — Homepage Loading Screen Session Guard
 
 ## AFV411 — Port loading-screen session guard onto AFV410 main
