@@ -12,6 +12,9 @@
   -webkit-backdrop-filter: blur(9px) saturate(.82);
   backdrop-filter: blur(9px) saturate(.82);
   color: #25314a;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition: opacity .24s ease, visibility .24s ease;
 }
 #arisu-loading-screen.is-visible:not(.is-ready) {
@@ -20,9 +23,6 @@
   pointer-events: auto;
 }
 #arisu-loading-screen.is-ready {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
 }
 #arisu-loading-screen .boot-window {
   width: min(100%, 470px);
