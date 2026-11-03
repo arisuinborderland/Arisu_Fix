@@ -15,6 +15,7 @@ test("homepage accordion defaults to all sections closed and uses the approved o
   assert.match(accordion, /services\.classList\.add\("home-accordion-item"\)/);
   assert.doesNotMatch(accordion, /services\.classList\.add\("home-accordion-item", "is-open"\)/);
   assert.match(accordion, /makeTrigger\(services,[^;]*, 1\)/);
+  assert.match(accordion, /initiallyOpen = false/);
   assert.match(accordion, /makePanel\(services, "homeAccordionServicesPanel", serviceButton\)/);
   assert.match(accordion, /setOpen\(null\)/);
   assert.match(accordion, /button\.setAttribute\("aria-expanded", String\(initiallyOpen\)\)/);
