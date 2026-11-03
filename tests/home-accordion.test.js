@@ -39,9 +39,9 @@ test("collapsed accordion headers use compact dimensions and one-line ellipsis t
   assert.match(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger \.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*10px/);
   assert.match(styles, /white-space:\s*nowrap/);
   assert.match(styles, /text-overflow:\s*ellipsis/);
-  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*40px/);
-  assert.match(styles, /font-size:\s*14px/);
-  assert.match(styles, /font-size:\s*9\.5px/);
+  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger\s*\{[^}]*min-height:\s*46px/);
+  assert.match(styles, /font-size:\s*15px/);
+  assert.match(styles, /font-size:\s*10\.5px/);
 });
 
 test("expanded accordion content retains compact panel spacing without clipping the How card", () => {
