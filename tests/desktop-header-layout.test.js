@@ -42,7 +42,7 @@ test('Production build allowlist includes the shared header stylesheet', () => {
   assert.match(read('build.js'), /"desktop-header\.css"/);
 });
 
-test('AFV418 About and Privacy match the compact homepage header and reference alignment', () => {
+test('AFV419 About and Privacy match the compact homepage header and reference alignment', () => {
   const mobileBlocks = [...css.matchAll(/@media\s*\(max-width:\s*700px\)/g)];
   assert.ok(mobileBlocks.length >= 1, 'shared mobile header rule group controls both pages');
   assert.match(css, /html body\.about-page header\.topbar,[\s\S]*?html body\.privacy-page header\.topbar/);
@@ -50,7 +50,7 @@ test('AFV418 About and Privacy match the compact homepage header and reference a
   assert.match(css, /padding: 0 12px !important/);
   assert.match(css, /flex: 0 0 39px !important;[\s\S]*?width: 39px !important;[\s\S]*?height: 39px !important/);
   assert.match(css, /gap: 7px !important/);
-  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 37px !important;[\\s\\S]*?width: 37px !important;[\\s\\S]*?height: 37px !important/);
+  assert.match(css, /@media \(max-width: 380px\)[\s\S]*?flex-basis: 37px !important;[\s\S]*?width: 37px !important;[\\s\\S]*?height: 37px !important/);
   const mobileHeader = css.slice(css.indexOf('AFV417 — Exact compact mobile header contract shared with Home'));
   assert.doesNotMatch(mobileHeader, /background:\s*inherit\s*!important/, 'page background must not override the shared navy-indigo header theme');
 });
