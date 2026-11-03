@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV420 package metadata and release notes are synchronized', () => {
+test('AFV421 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '420.0.0');
-  assert.equal(lock.version, '420.0.0');
-  assert.equal(lock.packages[''].version, '420.0.0');
-  assert.ok(readme.includes('Current release: AFV420'));
-  assert.ok(history.startsWith('AFV420 — Shared Public Header Component'));
+  assert.equal(pkg.version, '421.0.0');
+  assert.equal(lock.version, '421.0.0');
+  assert.equal(lock.packages[''].version, '421.0.0');
+  assert.ok(readme.includes('Current release: AFV421'));
+  assert.ok(history.startsWith('AFV421 — Shared Public Header Component'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
