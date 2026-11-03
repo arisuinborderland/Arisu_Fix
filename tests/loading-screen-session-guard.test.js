@@ -33,9 +33,9 @@ test('AFV418 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(pkg.version, '418.0.0');
   assert.equal(lock.version, '418.0.0');
   assert.equal(lock.packages[''].version, '418.0.0');
-  assert.ok(readme.includes('Current release: AFV417'));
+  assert.ok(readme.includes('Current release: AFV418'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV417 — Exact Shared Mobile Header Contract'));
+  assert.ok(history.startsWith('AFV418 — Refine About and Privacy Mobile Layout'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
