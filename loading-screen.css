@@ -12,9 +12,6 @@
   -webkit-backdrop-filter: blur(9px) saturate(.82);
   backdrop-filter: blur(9px) saturate(.82);
   color: #25314a;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
   transition: opacity .24s ease, visibility .24s ease;
 }
 #arisu-loading-screen.is-visible:not(.is-ready) {
@@ -99,8 +96,8 @@
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { background: #c8f5d7; color: #176b36; }
 #arisu-loading-screen .boot-log li[data-state="running"] .boot-status { background: #e8ddff; color: #6334d9; }
 #arisu-loading-screen .boot-progress-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; color: #78849b; font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-#arisu-loading-screen .boot-progress-track { height: 5px; margin-top: 9px; overflow: hidden; border-radius: 99px; background: #e9edf5; }
-#arisu-loading-screen .boot-progress-fill { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #4285ed, #8b6de1); transition: width .18s ease; }
+#arisu-loading-screen .boot-progress-track { height: 5px; margin-top: 9px; overflow: hidden; border-radius: 99px; }
+#arisu-loading-screen .boot-progress-fill { width: 0; height: 100%; background: linear-gradient(90deg, #4285ed, #8b6de1); transition: width .18s ease; }
 #arisu-loading-screen .boot-footnote { margin: 14px 0 0; color: #9aa4b5; font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 @media (max-width: 380px) {
   #arisu-loading-screen { padding: 14px; }
@@ -110,7 +107,6 @@
   #arisu-loading-screen .boot-subtitle { font-size: 8px; letter-spacing: .08em; }
   #arisu-loading-screen .boot-log { font-size: 10px; }
   #arisu-loading-screen .boot-brand { font-size: 28px; }
-  #arisu-loading-screen .boot-subtitle { font-size: 8px; }
   #arisu-loading-screen .boot-status { padding: 2px 5px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -161,8 +157,6 @@
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen, #arisu-loading-screen .boot-window,
   #arisu-loading-screen.is-ready .boot-window {
-    animation: none !important;
-    transition: none !important;
     transform: none !important;
   }
 }
