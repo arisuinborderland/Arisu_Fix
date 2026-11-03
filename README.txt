@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV416
+Version: AFV417
 Updated: 2026-11-03
 
-Current release: AFV416
-Package version: 416.0.0
+Current release: AFV417
+Package version: 417.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV417 removes the About-only topbar hook and legacy padding/background rules. About and Privacy now use the exact compact mobile header contract: 58px shell, 39px logo, 16px side gutters, 10px brand gap, and 34px logo below 380px. Refreshes shared theme cache keys across all five pages.
 - AFV416 aligns About and Privacy mobile headers with the homepage compact header (43px profile mark, 58px minimum shell, 10px 12px 11px padding, 9px brand gap) and removes the inherited-background override so the shared navy-indigo theme remains visible. Refreshes the shared header stylesheet cache key across all five public pages.
 - AFV415 removes conflicting duplicate mobile header overrides and uses one authoritative 66px About/Privacy header shell matching Home, Reviews, and Proofs. Refreshes the shared header stylesheet cache key across all five public pages.
 - AFV414 restores the homepage verified check-draw animation on mobile while preserving the existing blue badge pulse, and normalizes About/Privacy mobile header dimensions and alignment to the shared header shell. Preserves AFV413 and earlier fixes.
