@@ -337,3 +337,27 @@ body.about-page .mobile-bottom-nav { display:none; }
   html body.about-page .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon { fill:currentColor; stroke:none; stroke-width:0; }
 }
 @media (prefers-reduced-motion:reduce) { html body.about-page .mobile-bottom-nav * { transition:none !important; animation:none !important; } }
+
+
+/* AFV418 — Bring About page heading and card rhythm closer to the shared main layout. */
+@media (max-width: 600px) {
+  html body.about-page .about-page-main {
+    padding-top: 16px !important;
+  }
+  html body.about-page .about-page-heading {
+    margin-bottom: 13px !important;
+  }
+  html body.about-page .about-page-heading .section-kicker {
+    line-height: 1.25 !important;
+  }
+  html body.about-page .about-page-heading h1 {
+    margin: 7px 0 !important;
+    line-height: 1.12 !important;
+  }
+  html body.about-page .about-page-heading p {
+    line-height: 1.5 !important;
+  }
+  html body.about-page .about-page-purpose {
+    margin-bottom: 10px !important;
+  }
+}
