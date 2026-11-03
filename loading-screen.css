@@ -160,13 +160,7 @@
   }
 }
 
-/* AFV378 — Smooth fade-in and fade-out, synchronized with overlay removal. */
-#arisu-loading-screen {
-  animation: arisu-loading-fade-in .45s ease-out both;
-}
-#arisu-loading-screen .boot-window {
-  animation: arisu-loading-card-fade-in .45s ease-out both;
-}
+/* AFV426 — Instant loading-screen entrance; retain the existing exit fade. */
 #arisu-loading-screen.is-ready {
   animation: none;
   opacity: 0;
@@ -176,10 +170,6 @@
 }
 #arisu-loading-screen.is-ready .boot-window {
   animation: arisu-loading-card-fade-out .42s ease-in both;
-}
-@keyframes arisu-loading-card-fade-in {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes arisu-loading-card-fade-out {
   from { opacity: 1; transform: translateY(0); }
