@@ -8,12 +8,12 @@
     return element;
   };
 
-  const makeTrigger = (section, title, subtitle, panelId, index) => {
+  const makeTrigger = (section, title, subtitle, panelId, index, initiallyOpen = false) => {
     const button = createElement("button", "home-accordion-trigger");
     button.type = "button";
     button.id = `homeAccordionTrigger${index}`;
     button.setAttribute("aria-controls", panelId);
-    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-expanded", String(initiallyOpen));
 
     const copy = createElement("span", "home-accordion-trigger-copy");
     const heading = createElement("span", "home-accordion-trigger-title");
@@ -28,12 +28,13 @@
     return button;
   };
 
-  const makePanel = (section, panelId, button) => {
+  const makePanel = (section, panelId, button, initiallyOpen = false) => {
     const panel = createElement("div", "home-accordion-panel");
     const inner = createElement("div", "home-accordion-panel-inner");
     panel.id = panelId;
     panel.setAttribute("role", "region");
     panel.setAttribute("aria-labelledby", button.id);
+    panel.inert = !initiallyOpen;
     while (button.nextSibling) inner.append(button.nextSibling);
     panel.append(inner);
     section.append(panel);
@@ -52,11 +53,11 @@
     const serviceIntro = services.querySelector(".services-heading > p");
     if (!serviceHeading || !serviceIntro) return;
     services.dataset.accordionReady = "true";
-    services.classList.add("home-accordion-item");
-    const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1);
+    services.classList.add("home-accordion-item", "is-open");
+    const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1, true);
     serviceHeading.remove();
     serviceIntro.remove();
-    const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton);
+    const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton, true);
     items.push({ section: services, button: serviceButton, panel: servicePanel });
 
     const whyCard = why.querySelector(".why-arisu-card");
