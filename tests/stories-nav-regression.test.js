@@ -132,7 +132,7 @@ test('AFV423 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '423.0.0');
   assert.equal(lock.packages[''].version, '423.0.0');
   assert.ok(readme.includes('Current release: AFV423'));
-  assert.ok(history.startsWith('AFV423 — Shared Header Cleanup and Approved Layout Baseline'));
+  assert.ok(history.startsWith('AFV423 — Restore Desktop Homepage Verified Checkmark'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
