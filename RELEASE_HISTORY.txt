@@ -1,3 +1,13 @@
+AFV460 — Simple Connect with Arisu Header
+
+## AFV460 — Simplify the Connect with Arisu header
+- Replace the uppercase social divider label with a compact “Connect with Arisu” heading and standalone blue verified check.
+- Remove the divider lines and avoid rounded banner containers or decorative rain/diagonal background patterns.
+- Keep the background plain and transparent; place the existing anime mascot asset at the right as a compact accent.
+- Preserve social cards, Scam Awareness content, Explore More content, navigation, and all unrelated layout rules.
+- Bump the package version and the changed homepage stylesheet cache token to AFV460.
+- Add focused regression coverage for the heading markup and simple background styling.
+
 AFV459 — Homepage Accordion Feature Isolation
 
 ## AFV459 — Add the homepage accordion as a focused feature
