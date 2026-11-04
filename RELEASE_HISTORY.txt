@@ -1,3 +1,11 @@
+AFV441 — Remove leftover homepage bottom padding after accordion
+
+## AFV441 — Balance mobile spacing below the homepage accordion
+- Root cause: a legacy mobile `main` bottom-padding rule still added 8px below the moved accordion group, on top of the last accordion item's margin and the reference footer's top margin.
+- Set the homepage `main` mobile bottom padding to 0px so the bottom spacing no longer accumulates after the final accordion card.
+- Preserve the accordion's fixed 64px headers, 4px inter-card rhythm, footer's approved 8px top gap, card internals, and desktop layout.
+- Refresh the homepage stylesheet cache token and package/release metadata.
+
 AFV440 — Normalize Mobile Accordion Text Spacing
 
 ## AFV440 — Equalize vertical text spacing across accordion headers
