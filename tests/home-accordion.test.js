@@ -104,8 +104,8 @@ test("AFV447 centers the natural title/subtitle group, removes the excessive one
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
   assert.match(js, /home-accordion-trigger-subtitle-text/);
-  assert.match(css, /AFV447[\\s\\S]*?grid-template-rows:\\s*auto auto/);
-  assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center/);
+  assert.match(css, /AFV447[\s\S]*?grid-template-rows:\s*auto auto/);
+  assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto/);
   assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
   assert.match(html, /home-accordion\.css\?v=AFV447/);
