@@ -1,17 +1,18 @@
 ARISU FIX — PROJECT README
-Version: AFV443
+Version: AFV444
 Updated: 2026-11-04
 
-Current release: AFV443
-AFV443 restores balanced mobile accordion text spacing. It removes AFV442's conflicting 1.18em subtitle override and retains AFV440's 2.36em two-line subtitle slot, while preserving the fixed 64px headers and AFV442's corrected social-card-to-accordion gap.
+Current release: AFV444
+AFV444 fixes the remaining visual bottom whitespace in one-line mobile accordion subtitles. The text is vertically centered inside the existing 2.36em two-line slot, while preserving the fixed 64px headers, two-line Why description, 4px card rhythm, social-card-to-accordion gap, and approved footer layout.
 Mobile accordion headers use a compact fixed 64px height. A high-specificity parent selector now overrides legacy 18px and 8px section margins, setting a consistent 4px mobile margin for all three accordion cards. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
-Package version: 443.0.0
+Package version: 444.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV443 fixes the regression where What Services I Offer and How account assistance works regained excessive top/bottom whitespace. AFV442 had overridden AFV440's 2.36em two-line subtitle reserve with 1.18em, shrinking the centered text group inside fixed 64px triggers. Remove only that conflicting override; retain the 64px header size, 4px card rhythm, AFV442 social-card flow correction, and approved footer styling.
+- AFV444 fixes the remaining bottom-heavy appearance in the What Services and How account assistance headers. Root cause: the shared 2.36em subtitle slot preserved equal header geometry, but the one-line text remained top-aligned inside the slot, leaving the unused second line as visible whitespace below. Wrap the subtitle text and center it within the existing slot. No trigger height, padding, card margins, social-card spacing, desktop CSS, or footer styling changes.
+- AFV444 fixes the regression where What Services I Offer and How account assistance works regained excessive top/bottom whitespace. AFV442 had overridden AFV440's 2.36em two-line subtitle reserve with 1.18em, shrinking the centered text group inside fixed 64px triggers. Remove only that conflicting override; retain the 64px header size, 4px card rhythm, AFV442 social-card flow correction, and approved footer styling.
 - AFV442 fixes the large mobile gap between the Recovery Proofs/Customer Reviews cards and the homepage accordion. The social cards use a -26px visual reveal offset that did not reclaim normal-flow space; the social collage now receives a matching mobile-only negative bottom margin. Also remove leftover mobile padding on the Services wrapper and let one-line accordion subtitles occupy one line instead of reserving an empty second line. Fixed 64px headers and footer layout remain unchanged.
 - AFV441 fixes the remaining mobile bottom-space mismatch below the homepage accordion. Root cause: an 8px `main` bottom-padding rule was still stacking with the final accordion margin and the footer's 8px top margin. Set only the homepage main trailing padding to 0; preserve accordion card geometry, inter-card spacing, footer styling, and desktop layout.
 - AFV440 fixes the remaining perceived top/bottom whitespace mismatch inside mobile accordion headers. The subtitle reserves a consistent two-line text slot on all three cards, so the vertically centered title/description group has the same height whether the description wraps once or twice. No header height, font size, inter-card gap, desktop layout, or accordion behavior changes.
