@@ -1,17 +1,19 @@
 ARISU FIX — PROJECT README
-Version: AFV454
+Version: AFV455
 Updated: 2026-11-04
 
-Current release: AFV454
+Current release: AFV455
+AFV455 removes 17 empty legacy media-query blocks and their obsolete adjacent notes from styles.css without changing any active CSS declarations.
 AFV454 removes the obsolete desktop -50px Why Choose flow compensation while preserving the approved accordion layout and homepage main trailing-padding correction.
 AFV453 preserves the approved mobile accordion layout and removes verified superseded homepage accordion transform offsets.
 AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set, preserving the approved AFV450 layout values and mobile spacing.
-Package version: 454.0.0
+Package version: 455.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV455 removes 17 empty legacy media-query blocks and obsolete adjacent comments without changing active CSS declarations.
 - AFV454 removes the obsolete desktop -50px Why Choose margin compensation, preserves the desktop main padding correction, and refreshes the homepage stylesheet cache token.
 - AFV453 protects the approved mobile accordion layout and removes the superseded -6px/-10px/-14px legacy transform offsets.
 - AFV452 preserves accordion heading IDs and makes initialization atomic without changing the approved visual layout.
