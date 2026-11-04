@@ -1,8 +1,8 @@
 ARISU FIX — PROJECT README
-Version: AFV440
+Version: AFV441
 Updated: 2026-11-04
 
-Current release: AFV440
+Current release: AFV441
 Mobile accordion trigger text blocks reserve a two-line subtitle slot, so one-line Services and How descriptions align vertically like the two-line Why Choose description. Fixed 64px headers and consistent card spacing remain unchanged.
 Mobile accordion headers use a compact fixed 64px height. A high-specificity parent selector now overrides legacy 18px and 8px section margins, setting a consistent 4px mobile margin for all three accordion cards. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
 Package version: 440.0.0
@@ -11,6 +11,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV441 fixes the remaining mobile bottom-space mismatch below the homepage accordion. Root cause: an 8px `main` bottom-padding rule was still stacking with the final accordion margin and the footer's 8px top margin. Set only the homepage main trailing padding to 0; preserve accordion card geometry, inter-card spacing, footer styling, and desktop layout.
 - AFV440 fixes the remaining perceived top/bottom whitespace mismatch inside mobile accordion headers. The subtitle reserves a consistent two-line text slot on all three cards, so the vertically centered title/description group has the same height whether the description wraps once or twice. No header height, font size, inter-card gap, desktop layout, or accordion behavior changes.
 - AFV440 fixes the mobile spacing root cause: legacy `body.home-page .site-section` and `#why-choose-arisu` margin rules overrode the earlier low-specificity accordion spacing. A parent-qualified selector now enforces a consistent 4px margin for all three cards. The 64px fixed headers, open-only smooth auto-scroll, and reduced-motion support remain.
 - AFV440 fixes the accordion state-size mismatch: collapsed and expanded headers now share the same height, padding, title size, subtitle size, and alignment on mobile and desktop. Only panel visibility and chevron direction change. Panel-content compaction, single-open behavior, all-closed initial state, and existing footer/layout fixes are preserved. Accordion cache tokens and regression assertions are synchronized.
