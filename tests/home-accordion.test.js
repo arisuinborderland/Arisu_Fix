@@ -61,7 +61,7 @@ test("collapsed and expanded accordion headers share identical geometry and typo
 
 test("mobile accordion lets one-line subtitles use their natural height while Why retains two lines", () => {
   assert.match(styles, /AFV445[\s\S]*?\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle-text\\s*\\{[^}]*-webkit-line-clamp:\\s*2/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\\{[^}]*-webkit-line-clamp:\s*2/);
 });
 
 test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
