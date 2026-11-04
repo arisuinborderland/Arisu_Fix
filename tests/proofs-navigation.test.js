@@ -22,7 +22,7 @@ test('Recovery Proofs reuses the shared default hidden state for bottom navigati
   const sharedStylesheet = html.indexOf('styles.css?');
   const proofsStylesheet = html.indexOf('proofs.css?');
   assert.ok(sharedStylesheet >= 0 && proofsStylesheet > sharedStylesheet, 'shared CSS must load before Proofs CSS');
-  assert.equal((sharedCss.match(/\\.mobile-bottom-nav\\s*\\{\\s*display:\\s*none\\s*;\\s*\\}/g) || []).length, 1);
+  assert.equal((sharedCss.match(/\.mobile-bottom-nav\s*\{\s*display:\s*none\s*;\s*\}/g) || []).length, 1);
   assert.doesNotMatch(css, /\\.mobile-bottom-nav\\s*\\{\\s*display:\\s*none\\s*;\\s*\\}/);
-  assert.match(css, /html body\\.proofs-document \\.mobile-bottom-nav/);
+  assert.match(css, /html body\.proofs-document \.mobile-bottom-nav/);
 });
