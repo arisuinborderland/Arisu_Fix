@@ -144,12 +144,6 @@
 }
 
 .home-accordion-item #servicesTitle,
-.home-accordion-item #whyArisuTitle,
-.home-accordion-item #howTitle {
-  scroll-margin-top: 100px;
-}
-
-
 /* The accordion wrapper changes the legacy card's positioning context.
    Cancel the old visual lift only inside the wrapped accordion cards. */
 html body.home-page .home-accordion-item .why-arisu-card {
