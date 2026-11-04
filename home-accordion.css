@@ -373,3 +373,14 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     line-clamp: 2;
   }
 }
+
+
+/* AFV445 — Remove the unused second subtitle line from one-line mobile headers.
+   Keep the trigger at 64px. The Why description naturally occupies two lines;
+   Services and How now use only their real one-line subtitle height, reducing
+   the excess lower whitespace without changing card margins or panel content. */
+@media (max-width: 640px) {
+  .home-accordion-trigger-subtitle {
+    min-height: 1.18em;
+  }
+}
