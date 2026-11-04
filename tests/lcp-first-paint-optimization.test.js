@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV457 release metadata is synchronized', () => {
+test('AFV458 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '457.0.0');
-  assert.equal(lock.version, '457.0.0');
-  assert.equal(lock.packages[''].version, '457.0.0');
-  assert.ok(readme.includes('Current release: AFV457'));
-  assert.ok(history.startsWith('AFV457 — Remove duplicate Recovery Proofs navigation baseline'));
+  assert.equal(pkg.version, '458.0.0');
+  assert.equal(lock.version, '458.0.0');
+  assert.equal(lock.packages[''].version, '458.0.0');
+  assert.ok(readme.includes('Current release: AFV458'));
+  assert.ok(history.startsWith('AFV458 — Restore accordion heading scroll offsets and repair CSS selector'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
