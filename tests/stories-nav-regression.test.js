@@ -132,7 +132,7 @@ test('AFV448 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '448.0.0');
   assert.equal(lock.packages[''].version, '448.0.0');
   assert.ok(readme.includes('Current release: AFV448'));
-  assert.ok(history.startsWith('AFV448 — Correct Mobile Accordion Title-to-Subtitle Spacing'));
+  assert.ok(history.startsWith('AFV448 — Match Mobile Accordion Top and Bottom Insets to Why Choose'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
