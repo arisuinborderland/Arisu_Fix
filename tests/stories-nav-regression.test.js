@@ -255,7 +255,7 @@ test('current package metadata and release notes are synchronized', () => {
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
   const releaseNumber = pkg.version.split('.')[0];
   const releaseTag = `AFV${releaseNumber}`;
-  assert.match(pkg.version, /^\\d+\\.\\d+\\.\\d+$/);
+  assert.match(pkg.version, /^\d+\.\d+\.\d+$/);
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
   assert.ok(readme.includes(`Current release: ${releaseTag}`));
