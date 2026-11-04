@@ -134,7 +134,7 @@ test('current package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
   assert.ok(readme.includes(`Current release: ${releaseTag}`));
-  assert.match(history, new RegExp(`^\\${releaseTag} — `));
+  assert.ok(history.startsWith(`${releaseTag} — `));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
@@ -147,14 +147,6 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
   const css = fs.readFileSync(path.join(__dirname, '..', 'story-viewer.css'), 'utf8');
   assert.match(css, /\.story-viewer-progress-fill\{[^}]*transform:scaleX\(0\)[^}]*transform-origin:left center[^}]*will-change:transform/);
   assert.match(css, /\.story-viewer-progress-segment\.is-complete \.story-viewer-progress-fill\{transform:scaleX\(1\)\}/);
-});  const releaseParts = pkg.version.split('.');
-  const releaseTag = `AFV${releaseParts[0]}`;
-  assert.equal(releaseParts.length, 3);
-  assert.ok(releaseParts.every(part => part.length > 0 && Number.isInteger(Number(part))));
-  assert.equal(lock.version, pkg.version);
-  assert.equal(lock.packages[''].version, pkg.version);
-  assert.ok(readme.includes(`Current release: ${releaseTag}`));
-  assert.ok(history.startsWith(`${releaseTag} — `));
 });
 
 
@@ -279,7 +271,7 @@ test('current package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
   assert.ok(readme.includes(`Current release: ${releaseTag}`));
-  assert.match(history, new RegExp(`^\\${releaseTag} — `));
+  assert.ok(history.startsWith(`${releaseTag} — `));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
