@@ -93,6 +93,12 @@ test("mobile accordion CSS has one authoritative rule per repeated layout select
   assert.equal(count(styles, /^  \.home-accordion-item\.is-open > \.home-accordion-panel \.home-accordion-panel-inner\s*\{/gm), 1);
 });
 
+test("accordion stylesheet contains no redundant wrapper no-op overrides", () => {
+  assert.doesNotMatch(styles, /\.home-accordion-item \.services-heading\s*\{\s*margin-top:\s*0/);
+  assert.doesNotMatch(styles, /\.home-accordion-item \.why-arisu-card\s*\{\s*margin-top:\s*0/);
+  assert.doesNotMatch(styles, /\.how-assistance-section \.why-arisu-card\s*\{\s*width:\s*100%/);
+});
+
 test("mobile accordion preserves the approved 4px inter-card spacing", () => {
   assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
   assert.doesNotMatch(styles, /margin-block:\s*6px|margin-block:\s*4px !important/);
