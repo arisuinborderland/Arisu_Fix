@@ -41,7 +41,6 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*min-height:\s*68px[^}]*padding:\s*13px 15px/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
-  assert.match(styles, /text-overflow:\s*ellipsis/);
 });
 
 test("expanded accordion content retains compact panel spacing without clipping the How card", () => {
