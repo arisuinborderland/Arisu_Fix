@@ -5466,11 +5466,6 @@ body.home-page .why-arisu-section .why-arisu-note {
   }
 }
 
-/* restore a little breathing room above the mobile process section.
- Only the section's outside spacing changes; card internals and desktop layout stay untouched. */
-@media  (max-width: 640px)  {
-}
-
 /* apply the compact mobile gap to the actual moved sections.
  desktop-layout.js moves #services and #why-choose-arisu inside #desktopSocialDestination,
  so target them there rather than as direct children of main. */
@@ -5479,7 +5474,7 @@ body.home-page .why-arisu-section .why-arisu-note {
     margin-bottom: 0 !important;
   }
   html body.home-page #desktopSocialDestination > #why-choose-arisu {
-    margin-top: 8px !important;
+    margin-bottom: 0 !important;
   }
 }
 
