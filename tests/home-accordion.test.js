@@ -33,6 +33,16 @@ test("opening a section closes the previous section and updates accessibility st
   assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
 });
 
+
+test("opening an accordion smoothly scrolls the new panel into view and closing does not scroll", () => {
+  assert.match(accordion, /if \(nextItem\) \{/);
+  assert.match(accordion, /window\.setTimeout\(\(\) => \{/);
+  assert.match(accordion, /nextItem\.panel\.scrollIntoView\(\{/);
+  assert.match(accordion, /behavior: reduceMotion \? "auto" : "smooth"/);
+  assert.match(accordion, /block: "nearest"/);
+  assert.match(accordion, /\}, 360\)/);
+});
+
 test("collapsed and expanded accordion headers share identical geometry and typography", () => {
   assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*min-height:\s*78px/);
   assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*padding:\s*16px 20px/);
@@ -61,8 +71,8 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV437 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV437/);
-  assert.match(html, /home-accordion\.js\?v=AFV437/);
+test("accordion assets are cache-busted to AFV438 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV438/);
+  assert.match(html, /home-accordion\.js\?v=AFV438/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
