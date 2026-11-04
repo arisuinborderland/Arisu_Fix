@@ -1,5 +1,12 @@
 /* AFV461 — isolated homepage visual redesign. Keep shared header, footer,
    accordion, story viewer, and page-wide styles outside this file. */
+html:has(body.home-page),body.home-page{background:#fff!important}
+body.home-page{background-image:none!important;color:#182238}
+body.home-page main{background:transparent}
+body.home-page .compact-intro{display:grid!important;grid-template-columns:minmax(0,1.08fr) minmax(220px,.72fr)!important;align-items:center!important;text-align:left!important}
+body.home-page .compact-intro-copy{grid-column:1;grid-row:1}
+body.home-page .compact-intro-mascot{grid-column:2;grid-row:1}
+body.home-page .compact-intro-mascot img{width:min(100%,330px)!important;height:auto!important;max-height:310px!important;object-fit:contain!important}
 .home-page main{max-width:1160px;padding:24px 22px 32px}
 .home-page .daily-verse-card{margin:12px auto 22px}
 .home-page .compact-intro{
@@ -53,6 +60,10 @@
 .home-page .contact-divider{margin-top:28px}
 .home-page .scam-awareness-card{max-width:980px}
 @media(max-width:680px){
+ body.home-page .compact-intro{grid-template-columns:minmax(0,1fr) minmax(108px,.62fr)!important;text-align:left!important;gap:8px}
+ body.home-page .compact-intro-copy{grid-column:1;grid-row:1}
+ body.home-page .compact-intro-mascot{grid-column:2;grid-row:1}
+ body.home-page .compact-intro-mascot img{width:100%!important;height:auto!important;max-height:185px!important}
  .home-page main{padding:14px 12px 26px}
  .home-page .compact-intro{grid-template-columns:minmax(0,1fr) minmax(108px,.62fr);gap:8px;margin-bottom:18px;padding:17px 14px;border-radius:9px}
  .home-page .compact-intro .eyebrow{font-size:8px;letter-spacing:.65px;gap:5px;margin-bottom:9px}
