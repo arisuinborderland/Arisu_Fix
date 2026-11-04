@@ -1,0 +1,411 @@
+/* AFV460 — Homepage redesign layout layer.
+   Additive and homepage-scoped: preserve existing page components and interactions. */
+
+html body.home-page main {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+html body.home-page .daily-verse-card,
+html body.home-page .wizard-card.contact-only,
+html body.home-page .home-redesign-hero,
+html body.home-page #desktopSocialDestination {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+html body.home-page .wizard-card.contact-only {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin: 14px auto 0;
+}
+
+html body.home-page .wizard-card.contact-only .whatsapp-feature-card,
+html body.home-page .wizard-card.contact-only .service-status-panel {
+  min-width: 0;
+}
+
+html body.home-page .home-redesign-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 300px);
+  align-items: center;
+  gap: clamp(18px, 4vw, 44px);
+  margin: 22px auto 28px;
+  padding: clamp(22px, 4vw, 42px);
+  overflow: hidden;
+  border: 1px solid #e7eaf0;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+}
+
+html body.home-page .home-redesign-hero-copy {
+  min-width: 0;
+}
+
+html body.home-page .home-redesign-hero-copy .eyebrow {
+  margin-bottom: 14px;
+}
+
+html body.home-page .home-redesign-hero-copy h1 {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+html body.home-page .home-redesign-hero-copy h1 em {
+  color: #2563eb;
+  font-style: normal;
+}
+
+html body.home-page .home-redesign-hero-mascot {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  align-self: stretch;
+}
+
+html body.home-page .home-redesign-hero-mascot img {
+  display: block;
+  width: min(100%, 280px);
+  max-height: 300px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+html body.home-page #desktopSocialDestination {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 0 auto;
+}
+
+html body.home-page #desktopSocialDestination .contact-divider {
+  margin: 8px 0 0;
+}
+
+html body.home-page #desktopSocialDestination .social-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+  margin: 0;
+}
+
+html body.home-page #desktopSocialDestination .home-feature-card,
+html body.home-page #desktopSocialDestination .social-feedback-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  text-decoration: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+
+html body.home-page #desktopSocialDestination .home-feature-card:hover,
+html body.home-page #desktopSocialDestination .social-feedback-card:hover-within {
+  border-color: #c4b5fd;
+  box-shadow: 0 5px 18px rgba(31, 41, 55, .07);
+}
+
+html body.home-page .home-feature-card-copy {
+  display: grid;
+  gap: 5px;
+  min-height: 66px;
+  margin-bottom: 12px;
+}
+
+html body.home-page .home-feature-card-title {
+  margin: 0;
+  color: #172033;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+html body.home-page .home-feature-card-description {
+  margin: 0;
+  color: #647084;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+html body.home-page #desktopSocialDestination .social-profile-preview,
+html body.home-page #desktopSocialDestination .recovery-proofs-preview,
+html body.home-page #desktopSocialDestination .windows-feedback-content {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #f5f5f5;
+}
+
+html body.home-page #desktopSocialDestination .social-profile-preview img,
+html body.home-page #desktopSocialDestination .recovery-proofs-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f5f5f5;
+  transition: transform 250ms ease;
+}
+
+html body.home-page #desktopSocialDestination .home-feature-card:hover .social-profile-preview img,
+html body.home-page #desktopSocialDestination .home-feature-card:hover .recovery-proofs-preview img {
+  transform: scale(1.05);
+}
+
+html body.home-page #desktopSocialDestination .tiktok-profile-button,
+html body.home-page #desktopSocialDestination .facebook-profile-button,
+html body.home-page #desktopSocialDestination .recovery-proofs-button,
+html body.home-page #desktopSocialDestination .social-feedback-view-all {
+  display: flex;
+  width: fit-content;
+  min-width: 150px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  margin: 14px auto 0;
+  padding: 9px 16px;
+  border: 1px solid #1d4ed8;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #fff;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+  transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease, transform 150ms ease-out;
+}
+
+html body.home-page #desktopSocialDestination .tiktok-profile-button:hover,
+html body.home-page #desktopSocialDestination .facebook-profile-button:hover,
+html body.home-page #desktopSocialDestination .recovery-proofs-button:hover,
+html body.home-page #desktopSocialDestination .social-feedback-view-all:hover {
+  border-color: #1e40af;
+  background: #1d4ed8;
+}
+
+html body.home-page #desktopSocialDestination .tiktok-profile-button:active,
+html body.home-page #desktopSocialDestination .facebook-profile-button:active,
+html body.home-page #desktopSocialDestination .recovery-proofs-button:active,
+html body.home-page #desktopSocialDestination .social-feedback-view-all:active {
+  transform: scale(.95);
+}
+
+html body.home-page #desktopSocialDestination .tiktok-profile-button:focus-visible,
+html body.home-page #desktopSocialDestination .facebook-profile-button:focus-visible,
+html body.home-page #desktopSocialDestination .recovery-proofs-button:focus-visible,
+html body.home-page #desktopSocialDestination .social-feedback-view-all:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .35);
+  outline-offset: 3px;
+}
+
+html body.home-page #desktopSocialDestination .social-feedback-card .windows-feedback-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+html body.home-page #desktopSocialDestination .social-feedback-card .reviews-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+html body.home-page .home-explore-more-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 22px 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  text-decoration: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+
+html body.home-page .home-explore-more-card:hover {
+  border-color: #c4b5fd;
+  box-shadow: 0 5px 18px rgba(31, 41, 55, .07);
+}
+
+html body.home-page .home-explore-more-copy {
+  display: grid;
+  gap: 5px;
+}
+
+html body.home-page .home-explore-more-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+html body.home-page .home-explore-more-description {
+  color: #647084;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+html body.home-page .home-explore-more-action {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  border: 1px solid #1d4ed8;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html body.home-page #desktopSocialDestination > .scam-awareness-card {
+  order: initial;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@media (min-width: 701px) {
+  html body.home-page main {
+    padding: 28px 32px 40px;
+  }
+
+  html body.home-page .wizard-card.contact-only {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+    align-items: stretch;
+  }
+
+  html body.home-page .wizard-card.contact-only .whatsapp-feature-card,
+  html body.home-page .wizard-card.contact-only .service-status-panel {
+    height: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-page main {
+    padding: 12px 10px 22px;
+  }
+
+  html body.home-page .wizard-card.contact-only {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  html body.home-page .home-redesign-hero {
+    grid-template-columns: minmax(0, 1fr) 112px;
+    gap: 8px;
+    margin: 16px auto 20px;
+    padding: 16px 12px;
+  }
+
+  html body.home-page .home-redesign-hero-copy h1 {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  html body.home-page .home-redesign-hero-mascot img {
+    width: 112px;
+    max-height: 132px;
+  }
+
+  html body.home-page #desktopSocialDestination {
+    gap: 14px;
+  }
+
+  html body.home-page #desktopSocialDestination .social-collage {
+    gap: 10px;
+  }
+
+  html body.home-page #desktopSocialDestination .home-feature-card,
+  html body.home-page #desktopSocialDestination .social-feedback-card {
+    padding: 9px;
+    border-radius: 8px;
+  }
+
+  html body.home-page .home-feature-card-copy {
+    min-height: 76px;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  html body.home-page .home-feature-card-title {
+    font-size: 14px;
+  }
+
+  html body.home-page .home-feature-card-description {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  html body.home-page #desktopSocialDestination .social-profile-preview,
+  html body.home-page #desktopSocialDestination .recovery-proofs-preview,
+  html body.home-page #desktopSocialDestination .windows-feedback-content {
+    border-radius: 16px;
+  }
+
+  html body.home-page #desktopSocialDestination .tiktok-profile-button,
+  html body.home-page #desktopSocialDestination .facebook-profile-button,
+  html body.home-page #desktopSocialDestination .recovery-proofs-button,
+  html body.home-page #desktopSocialDestination .social-feedback-view-all {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    margin-top: 9px;
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  html body.home-page .home-explore-more-card {
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  html body.home-page .home-explore-more-title {
+    font-size: 15px;
+  }
+
+  html body.home-page .home-explore-more-description {
+    font-size: 11px;
+  }
+
+  html body.home-page .home-explore-more-action {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .home-redesign-hero *,
+  html body.home-page #desktopSocialDestination * {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
