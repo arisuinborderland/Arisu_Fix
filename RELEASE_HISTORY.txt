@@ -1,3 +1,13 @@
+AFV432 — Consolidate About Process Flow responsive CSS
+
+## AFV432 — Process Flow CSS consolidation
+- Folded the effective AFV428 service-heading spacing values into the main service rules.
+- Consolidated AFV429 mobile compact values into a single 700px responsive block and a single narrow-phone block, removing superseded cascade overrides.
+- Preserved the effective compact mobile sizing for timeline, numbered markers, panels, icons, text, disclaimer, signoff, and Terms introduction.
+- Kept the separate AFV431 mobile page-heading rule, shared bottom navigation, and reduced-motion support intact.
+- Updated About stylesheet cache token and release metadata to AFV432 / 432.0.0.
+- Preview only; validate CI and mobile/desktop rendering before merge.
+
 AFV431 — Remove retired About page CSS and consolidate mobile heading rules
 
 ## AFV431 — Targeted About CSS cleanup
