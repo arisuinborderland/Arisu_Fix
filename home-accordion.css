@@ -117,9 +117,6 @@
   scroll-margin-top: 100px;
 }
 
-.home-accordion-item .services-heading { margin-top: 0; }
-.home-accordion-item .why-arisu-card { margin-top: 0; }
-.how-assistance-section .why-arisu-card { width: 100%; }
 
 /* The accordion wrapper changes the legacy card's positioning context.
    Cancel the old visual lift only inside the wrapped accordion cards. */
