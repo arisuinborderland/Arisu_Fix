@@ -1,3 +1,11 @@
+AFV446 — Stabilize Mobile Accordion Top and Bottom Spacing
+
+## AFV446 — Fixed two-row mobile accordion header geometry
+- Root cause: the 64px trigger used a vertically centered, content-sized copy block. Its height changed between one-line Services/How subtitles and the two-line Why subtitle. AFV440/AFV444/AFV445 then alternated between reserving and removing a second subtitle line, which changed the perceived top/bottom whitespace rather than fixing the underlying geometry.
+- Replace the competing subtitle min-height rules with a fixed 22px title row and a flexible subtitle row that vertically centers one or two lines. Keep the 64px trigger and 5px vertical outer inset unchanged.
+- Preserve the 4px accordion rhythm, social-card-to-accordion spacing, expanded panel content, desktop layout, and approved footer.
+- Synchronize package/release metadata, asset cache-busting, and regression assertions to AFV446 / 446.0.0.
+
 AFV445 — Reduce One-Line Mobile Accordion Subtitle Height
 
 ## AFV445 — Remove unused subtitle line from one-line mobile accordion headers
