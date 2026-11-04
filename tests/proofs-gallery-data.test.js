@@ -10,7 +10,7 @@ const root = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(root, 'proofs.js'), 'utf8');
 
 function readProofData() {
-  const match = source.match(/const recoveryProofs = (\\[[\\s\\S]*?\\]);/);
+  const match = source.match(/const recoveryProofs = (\[[\s\S]*?\]);/);
   assert.ok(match, 'recoveryProofs data array must exist');
   return vm.runInNewContext(match[1]);
 }
