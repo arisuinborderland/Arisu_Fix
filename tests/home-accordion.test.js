@@ -59,8 +59,10 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
-test("mobile accordion lets one-line subtitles use their natural height while Why retains two lines", () => {
-  assert.match(styles, /AFV445[\s\S]*?\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em/);
+test("mobile accordion uses fixed title and subtitle rows for stable vertical spacing", () => {
+  assert.match(styles, /AFV446[\s\S]*?\.home-accordion-trigger\s*\{\s*align-items:\s*stretch/);
+  assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*grid-template-rows:\s*22px minmax\(0, 1fr\)/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center[^}]*min-height:\s*0/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
 });
 
@@ -84,9 +86,9 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV445 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV445/);
-  assert.match(html, /home-accordion\.js\?v=AFV445/);
+test("accordion assets are cache-busted to AFV446 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV446/);
+  assert.match(html, /home-accordion\.js\?v=AFV446/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
@@ -97,15 +99,15 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("AFV445 reduces one-line subtitle height while preserving the two-line clamp and fixed mobile header geometry", () => {
+test("AFV446 fixes mobile accordion top and bottom spacing with fixed text rows and preserves the two-line clamp", () => {
   const js = fs.readFileSync(path.join(__dirname, "..", "home-accordion.js"), "utf8");
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
   assert.match(js, /home-accordion-trigger-subtitle-text/);
-  assert.match(css, /AFV445[\s\S]*?\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em/);
+  assert.match(css, /AFV446[\\s\\S]*?grid-template-rows:\\s*22px minmax\\(0, 1fr\\)/);
   assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*grid[^}]*align-content:\s*center/);
   assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
-  assert.match(html, /home-accordion\.css\?v=AFV445/);
-  assert.match(html, /home-accordion\.js\?v=AFV445/);
+  assert.match(html, /home-accordion\.css\?v=AFV446/);
+  assert.match(html, /home-accordion\.js\?v=AFV446/);
 });
