@@ -3,7 +3,7 @@ Version: AFV442
 Updated: 2026-11-04
 
 Current release: AFV442
-Mobile accordion trigger text blocks reserve a two-line subtitle slot, so one-line Services and How descriptions align vertically like the two-line Why Choose description. Fixed 64px headers and consistent card spacing remain unchanged.
+AFV442 reclaims the blank mobile gap below Recovery Proofs and Customer Reviews by compensating for the social cards' -26px visual transform in normal flow. It removes leftover Services wrapper padding and balances one-line versus two-line accordion subtitles without changing the fixed 64px header height or approved About/footer styling.
 Mobile accordion headers use a compact fixed 64px height. A high-specificity parent selector now overrides legacy 18px and 8px section margins, setting a consistent 4px mobile margin for all three accordion cards. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
 Package version: 440.0.0
 Production hosting: Cloudflare Pages
