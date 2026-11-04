@@ -70,6 +70,14 @@ test("desktop accordion geometry and typography retain the approved baseline", (
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
+test("accordion card and heading text visibly communicate an interactive control", () => {
+  assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*border:\s*1\.5px solid rgba\(74, 132, 220, \.52\)/);
+  assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*inset 0 -1px 0 rgba\(89, 139, 220, \.08\)/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*color:\s*#173d78[^}]*font-weight:\s*850/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*color:\s*#344d70[^}]*font-weight:\s*600/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger\s*\{[^}]*inset 3px 0 0 #347fe8/);
+});
+
 test("accordion trigger has a circular, visibly tappable chevron control with pressed feedback", () => {
   assert.match(styles, /\.home-accordion-chevron\s*\{[^}]*width:\s*36px[^}]*height:\s*36px[^}]*border-radius:\s*50%/);
   assert.match(styles, /\.home-accordion-chevron::before\s*\{[^}]*border-right:\s*3px solid #2674e8[^}]*border-bottom:\s*3px solid #2674e8/);
