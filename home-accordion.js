@@ -17,6 +17,7 @@
 
     const copy = createElement("span", "home-accordion-trigger-copy");
     const heading = createElement("span", "home-accordion-trigger-title");
+    if (title.id) heading.id = title.id;
     heading.innerHTML = title.innerHTML;
     const description = createElement("span", "home-accordion-trigger-subtitle");
     const descriptionText = createElement("span", "home-accordion-trigger-subtitle-text", subtitle);
@@ -50,23 +51,10 @@
     const processHeading = document.getElementById("how-it-works");
     if (!services || !why || !destination || !processHeading || services.dataset.accordionReady === "true") return;
 
-    const items = [];
+    // Validate every source node before the first DOM mutation. This prevents
+    // a missing section from leaving the homepage only partially converted.
     const serviceHeading = services.querySelector(".services-heading h2");
     const serviceIntro = services.querySelector(".services-heading > p");
-    if (!serviceHeading || !serviceIntro) return;
-    services.dataset.accordionReady = "true";
-    services.classList.add("home-accordion-item");
-    const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1);
-    serviceHeading.remove();
-    serviceIntro.remove();
-    const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton);
-    items.push({ section: services, button: serviceButton, panel: servicePanel });
-
-    const whyCard = why.querySelector(".why-arisu-card");
-    const whyHeading = whyCard?.querySelector(".why-arisu-heading");
-    const whyTitle = whyHeading?.querySelector("h2");
-    const whyIntro = whyHeading?.querySelector("p");
-    if (!whyCard || !whyTitle || !whyIntro) return;
     why.classList.add("home-accordion-item");
     const whyButton = makeTrigger(why, whyTitle, whyIntro.textContent.trim(), "homeAccordionWhyPanel", 2);
     whyHeading.remove();
