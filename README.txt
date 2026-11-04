@@ -1,9 +1,11 @@
 ARISU FIX — PROJECT README
-Version: AFV459
+Version: AFV460
 Updated: 2026-11-04
 
-Current release: AFV459
-Package version: 459.0.0
+Current release: AFV460
+Package version: 460.0.0
+
+AFV460 update: Simplified the Connect with Arisu heading with a standalone verified check, plain background, and compact mascot accent. Removed divider lines and avoided rounded/rain-pattern decoration while preserving the social cards and surrounding sections.
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
