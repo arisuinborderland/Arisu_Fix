@@ -9,15 +9,20 @@
   };
 
   const makeTrigger = (section, title, subtitle, panelId, index, initiallyOpen = false) => {
+    const semanticHeading = createElement("h2", "home-accordion-semantic-heading");
+    if (title.id) semanticHeading.id = title.id;
+    semanticHeading.textContent = title.textContent.trim();
+
     const button = createElement("button", "home-accordion-trigger");
     button.type = "button";
     button.id = `homeAccordionTrigger${index}`;
     button.setAttribute("aria-controls", panelId);
     button.setAttribute("aria-expanded", String(initiallyOpen));
+    if (semanticHeading.id) button.setAttribute("aria-labelledby", semanticHeading.id);
 
     const copy = createElement("span", "home-accordion-trigger-copy");
+    copy.setAttribute("aria-hidden", "true");
     const heading = createElement("span", "home-accordion-trigger-title");
-    if (title.id) heading.id = title.id;
     heading.innerHTML = title.innerHTML;
     const description = createElement("span", "home-accordion-trigger-subtitle");
     const descriptionText = createElement("span", "home-accordion-trigger-subtitle-text", subtitle);
@@ -27,6 +32,7 @@
     copy.append(heading, description);
     button.append(copy, hint);
     section.insertBefore(button, section.firstChild);
+    section.insertBefore(semanticHeading, button);
     return button;
   };
 
