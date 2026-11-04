@@ -52,7 +52,7 @@ test('Connect stylesheet is included in the production allowlist and cache-buste
   const build = read('build.js');
   const html = read('index.html');
   assert.match(build, /"homepage-connect\.css"/);
-  assert.match(html, /homepage-connect\.css\?v=AFV460/);
+  assert.match(html, /homepage-connect\.css\?v=AFV461/);
   assert.match(html, /desktop-layout\.js\?v=AFV460/);
 });
 
@@ -70,11 +70,14 @@ test('Mobile Connect cards retain the approved horizontal image-and-copy layout'
   const html = read('index.html');
   const css = read('homepage-connect.css');
   assert.match(html, /connect-heading-title/);
-  assert.ok(html.includes("assets/connect/arisu-connect-mascot.webp?v=AFV460"));
+  assert.ok(html.includes("/assets/connect/arisu-connect-mascot.webp?v=AFV461"));
+  assert.match(html, /loading="eager" decoding="async">/);
+  assert.ok(css.includes("clip-path: polygon(50% 0,94% 17%,90% 61%,75% 83%,50% 100%,25% 83%,10% 61%,6% 17%)"));
   assert.doesNotMatch(html, /Official social channels and community resources/);
   const mobile = css.split('@media (max-width: 900px)')[1].split('@media (max-width: 420px)')[0];
   assert.ok(mobile.includes("grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr)"));
   assert.ok(mobile.includes("grid-auto-rows: 174px"));
+  assert.ok(mobile.includes("grid-template-columns: repeat(4,minmax(0,1fr))"));
   assert.ok(mobile.includes(".connect-card-copy p { display: block"));
   assert.ok(!mobile.includes("grid-template-columns: minmax(0,1fr);"));
 });
@@ -86,4 +89,6 @@ test('Relocated Scam Awareness does not inherit the old homepage vertical offset
   assert.ok(css.includes("--arc-reveal-offset: 0px !important;"));
   assert.ok(css.includes(".connect-scam-watermark"));
   assert.ok(css.includes("margin: 9px 0 17px 68px"));
+  assert.ok(css.includes("@media (max-width: 380px)"));
+  assert.ok(css.includes("repeating-linear-gradient(110deg,transparent 0 8px,#c30c45 8px 15px,transparent 15px 22px)"));
 });
