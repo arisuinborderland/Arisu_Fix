@@ -4,7 +4,8 @@ AFV452 — Preserve accordion heading IDs and make initialization atomic
 - Copy each source heading ID to its generated accordion trigger heading. This keeps the existing section aria-labelledby references and heading scroll-margin styling connected after conversion.
 - Resolve all required Services, Why Choose, and How Account Assistance source elements before setting the initialization marker or changing the DOM.
 - Prevent partial conversion if an expected source element is missing; preserve the existing accordion order, single-open behavior, animation, and all approved CSS geometry.
-- Add regression checks for heading ID preservation and preflight validation; bump script cache token and package metadata to AFV452 / 452.0.0.
+- Remove three no-op wrapper overrides that duplicated existing global defaults; preserve all computed visual values.
+- Add regression checks for heading ID preservation, preflight validation, and both AFV452 asset cache tokens; bump package metadata to AFV452 / 452.0.0.
 
 AFV451 — Consolidate Homepage Accordion CSS Without Layout Changes
 
