@@ -59,8 +59,9 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
-test("mobile accordion reserves two subtitle lines so all trigger text blocks share the same vertical rhythm", () => {
-  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger-subtitle\s*\{[^}]*min-height:\s*2\.36em/);
+test("mobile accordion lets one-line subtitles use their natural height while Why retains two lines", () => {
+  assert.match(styles, /AFV445[\\s\\S]*?\.home-accordion-trigger-subtitle\\s*\\{\\s*min-height:\\s*1\\.18em/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle-text\\s*\\{[^}]*-webkit-line-clamp:\\s*2/);
 });
 
 test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
@@ -96,7 +97,7 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("AFV444 centers one-line subtitle text within the shared two-line slot without changing header geometry", () => {
+test("AFV445 reduces one-line subtitle height without changing fixed mobile header geometry", () => {
   const js = fs.readFileSync(path.join(__dirname, "..", "home-accordion.js"), "utf8");
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
