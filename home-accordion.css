@@ -246,15 +246,14 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 
-/* AFV437 — Compact, equal-height mobile accordion headers.
-   Keep the fixed header geometry in both states while allowing descriptions
-   to use up to two readable lines without increasing the card height. */
+/* AFV437 — Compact mobile accordion headers.
+   Use content-driven height so every header keeps the same true vertical inset. */
 @media (max-width: 640px) {
   .home-accordion-trigger {
     box-sizing: border-box;
-    height: 68px;
-    min-height: 68px;
-    max-height: 68px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
     padding: 7px 13px;
     gap: 9px;
   }
@@ -295,7 +294,7 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 
 
 /* AFV438 — Refine mobile card rhythm without changing state parity.
-   Keep a small, consistent gap between sections and a compact fixed trigger. */
+   Keep a small, consistent gap between sections and compact horizontal/vertical padding. */
 @media (max-width: 640px) {
   /* Root cause: styles.css applies body.home-page .site-section { margin-top: 18px !important }
      and a legacy #why-choose-arisu rule applies 8px. This parent-qualified selector
@@ -304,9 +303,6 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     margin: 4px 0 !important;
   }
   .home-accordion-trigger {
-    height: 64px;
-    min-height: 64px;
-    max-height: 64px;
     padding: 5px 13px;
   }
   .home-accordion-trigger-copy {
@@ -384,3 +380,9 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     align-self: center;
   }
 }
+
+
+/* AFV450 root-cause correction:
+   Fixed 64px mobile headers forced one-line subtitles to leave unused vertical
+   space. AFV437 now uses natural height; AFV438 supplies the shared 5px inset.
+   The two-line Why Choose header grows naturally without changing its padding. */
