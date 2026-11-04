@@ -70,7 +70,7 @@ test('Mobile Connect cards retain the approved horizontal image-and-copy layout'
   const html = read('index.html');
   const css = read('homepage-connect.css');
   assert.match(html, /connect-heading-title/);
-  assert.match(html, /assets\\/connect\\/arisu-connect-mascot\\.webp\\?v=AFV460/);
+  assert.ok(html.includes("assets/connect/arisu-connect-mascot.webp?v=AFV460"));
   assert.doesNotMatch(html, /Official social channels and community resources/);
   const mobile = css.split('@media (max-width: 900px)')[1].split('@media (max-width: 420px)')[0];
   assert.match(mobile, /grid-template-columns:\\s*minmax\\(0,\\.86fr\\) minmax\\(0,1\\.14fr\\)/);
