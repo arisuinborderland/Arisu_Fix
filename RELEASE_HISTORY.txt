@@ -1,3 +1,13 @@
+AFV451 — Consolidate Homepage Accordion CSS Without Layout Changes
+
+## AFV451 — Remove superseded accordion cascade layers
+- Audit the accumulated AFV428–AFV450 accordion overrides and consolidate them into one desktop rule set and one mobile override set.
+- Remove declarations that were fully superseded by later rules, including duplicate subtitle clamping, intermediate trigger spacing, and intermediate panel padding.
+- Preserve the approved AFV450 values: natural mobile trigger height, 5px top/bottom inset, 2px title/subtitle gap, 4px inter-card spacing, 7px/8px expanded panel inset, and existing desktop geometry.
+- Preserve the high-specificity mobile section-margin override so legacy .site-section margins cannot reintroduce excess spacing.
+- Keep expanded panel content, accordion behavior, social-card placement, desktop styling, and the approved footer unchanged.
+- Update accordion cache tokens and package/release metadata to AFV451 / 451.0.0; add regression assertions for consolidated selectors and preserved spacing.
+
 AFV450 — Match Mobile Accordion Top and Bottom Insets to Why Choose
 
 ## AFV450 — Remove the fixed mobile trigger height at its source
