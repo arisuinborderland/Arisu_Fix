@@ -22,7 +22,8 @@
     const description = createElement("span", "home-accordion-trigger-subtitle");
     const descriptionText = createElement("span", "home-accordion-trigger-subtitle-text", subtitle);
     description.append(descriptionText);
-    copy.append(heading, description);
+    const hint = createElement("span", "home-accordion-trigger-hint", initiallyOpen ? "TAP TO COLLAPSE" : "TAP TO EXPAND");
+    copy.append(heading, description, hint);
 
     const chevron = createElement("span", "home-accordion-chevron");
     chevron.setAttribute("aria-hidden", "true");
@@ -103,6 +104,8 @@
         const open = item === activeItem;
         item.section.classList.toggle("is-open", open);
         item.button.setAttribute("aria-expanded", String(open));
+        const hint = item.button.querySelector(".home-accordion-trigger-hint");
+        if (hint) hint.textContent = open ? "TAP TO COLLAPSE" : "TAP TO EXPAND";
         item.panel.inert = !open;
       });
     };
