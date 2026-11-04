@@ -31,5 +31,5 @@ test('AFV430 About Process Flow keeps a single parent card and the approved six-
   assert.ok(css.includes('.about-process-flow'));
   assert.ok(css.includes('.about-process-step:not(:last-child)::before'));
   assert.ok(css.includes('@media (max-width: 380px)'));
-  assert.ok(css.includes('AFV430 — remove the nested Legitimate Account Recovery Only notice from the Terms step'));
+  assert.ok(css.includes('AFV431 — retain the compact approved About Process Flow after legacy CSS cleanup'));
 });
