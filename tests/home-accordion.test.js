@@ -59,10 +59,10 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
-test("mobile accordion uses Why Choose's two-line subtitle block height to equalize top/bottom insets", () => {
-  assert.match(styles, /AFV448[\s\S]*?\.home-accordion-trigger\s*\{\s*align-items:\s*center/);
-  assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*grid-template-rows:\s*auto auto[^}]*gap:\s*2px/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto[^}]*min-height:\s*calc\(2 \* 1\.18em\)/);
+test("mobile accordion uses natural subtitle height and a fixed 2px title/subtitle gap", () => {
+  assert.match(styles, /AFV449[\s\S]*?\.home-accordion-trigger\s*\{\s*align-items:\s*center/);
+  assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*display:\s*flex[^}]*flex-direction:\s*column[^}]*justify-content:\s*center[^}]*gap:\s*2px/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto[^}]*min-height:\s*0[^}]*margin:\s*0[^}]*padding:\s*0/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
 });
 
@@ -86,9 +86,9 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV448 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV448/);
-  assert.match(html, /home-accordion\.js\?v=AFV448/);
+test("accordion assets are cache-busted to AFV449 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV449/);
+  assert.match(html, /home-accordion\.js\?v=AFV449/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
@@ -99,15 +99,15 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("AFV448 reuses Why Choose vertical text-block geometry without changing subtitle wording", () => {
+test("AFV449 removes artificial subtitle height and keeps a fixed 2px title/subtitle gap", () => {
   const js = fs.readFileSync(path.join(__dirname, "..", "home-accordion.js"), "utf8");
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
   assert.match(js, /home-accordion-trigger-subtitle-text/);
-  assert.match(css, /AFV448[\s\S]*?grid-template-rows:\s*auto auto/);
+  assert.match(css, /AFV449[\s\S]*?flex-direction:\s*column/);
   assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto/);
   assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
-  assert.match(html, /home-accordion\.css\?v=AFV448/);
-  assert.match(html, /home-accordion\.js\?v=AFV448/);
+  assert.match(html, /home-accordion\.css\?v=AFV449/);
+  assert.match(html, /home-accordion\.js\?v=AFV449/);
 });
