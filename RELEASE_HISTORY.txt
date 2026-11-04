@@ -1,3 +1,12 @@
+AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text
+
+## AFV442 — Remove the visual-transform flow gap and excess subtitle reserve
+- Root cause: the social collage cards are visually translated upward by 26px via `--arc-reveal-offset`, but transforms do not reduce the collage's normal-flow height. The following accordion therefore starts after an invisible 26px strip.
+- Apply a matching -26px mobile-only bottom margin to the social collage, so the accordion follows the visible card edges rather than the pre-transform layout box.
+- Remove legacy top/bottom padding from the moved Services wrapper and retain a controlled 4px accordion-item rhythm.
+- Replace the forced two-line subtitle minimum with a natural one-line minimum; two-line descriptions expand naturally while fixed 64px trigger geometry and centered alignment remain unchanged.
+- Refresh stylesheet/script cache tokens, package metadata, README/release history, and regression coverage. Desktop layout and the approved About/footer styling remain untouched.
+
 AFV441 — Remove leftover homepage bottom padding after accordion
 
 ## AFV441 — Balance mobile spacing below the homepage accordion
