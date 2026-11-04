@@ -1,3 +1,11 @@
+AFV455 — Remove empty legacy media-query blocks
+
+## AFV455 — Remove empty media-query shells from styles.css
+- Audit identified 17 empty or comment-only @media blocks left behind by earlier targeted CSS edits.
+- Remove those blocks and their immediately attached obsolete comments only; no active CSS declarations, selectors, responsive breakpoints, or layout values are changed.
+- Add a regression test preventing empty/comment-only @media blocks from returning.
+- Synchronize README, package metadata, release history, and the homepage styles.css cache token to AFV455 / 455.0.0.
+
 AFV454 — Remove obsolete desktop Why Choose flow compensation
 
 ## AFV454 — Remove the superseded desktop -50px flow offset
