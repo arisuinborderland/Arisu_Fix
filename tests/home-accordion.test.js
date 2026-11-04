@@ -163,9 +163,9 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("obsolete pre-accordion mobile transform offsets are removed from the legacy stylesheet", () => {
+test("superseded How-section transform offsets are removed from the legacy stylesheet", () => {
   const legacyStyles = fs.readFileSync(path.join(root, "styles.css"), "utf8");
-  assert.doesNotMatch(legacyStyles, /transform:\s*translateY\(-10px\) !important/);
-  assert.doesNotMatch(legacyStyles, /transform:\s*translateY\(-14px\) !important/);
-  assert.doesNotMatch(legacyStyles, /transform:\s*translateY\(-6px\) !important/);
+  assert.doesNotMatch(legacyStyles, /html body\.home-page \.why-arisu-section \.why-arisu-note\s*\{[^}]*transform:\s*translateY\(-10px\) !important/);
+  assert.doesNotMatch(legacyStyles, /html body\.home-page \.why-arisu-card > \.safety-section-inline \.safety-panel\s*\{[^}]*transform:\s*translateY\(-14px\) !important/);
+  assert.doesNotMatch(legacyStyles, /html body\.home-page \.why-arisu-card > \.why-arisu-grid\s*\{[^}]*transform:\s*translateY\(-6px\) !important/);
 });
