@@ -1,4 +1,13 @@
-AFV436 — Equal Accordion Header Dimensions
+AFV437 — Compact Mobile Accordion Headers
+
+## AFV437 — Compact fixed-height mobile accordion headers
+- Keep the corrected state-independent header geometry from AFV436 while reducing mobile visual bulk.
+- Set mobile headers to a fixed 68px height with 7px 13px padding, 18px titles, and 12px descriptions clamped to at most two lines.
+- Keep all three mobile accordion headers the same height even when descriptions wrap; prevent text wrapping from stretching the card.
+- Slightly reduce the mobile chevron dimensions. Desktop sizing and expanded panel content remain unchanged.
+- Refresh accordion CSS/JS cache tokens, release metadata, and regression tests.
+
+## AFV436 — Equal Accordion Header Dimensions
 
 ## AFV436 — Keep collapsed and expanded headers identical
 - Root cause: AFV435 applied separate collapsed-only overrides to trigger height, padding, title/subtitle typography, and chevron size, making the header visibly change dimensions when toggled.
