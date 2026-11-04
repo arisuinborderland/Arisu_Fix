@@ -39,7 +39,7 @@ test('AFV439 release metadata is synchronized', () => {
   assert.equal(lock.version, '439.0.0');
   assert.equal(lock.packages[''].version, '439.0.0');
   assert.ok(readme.includes('Current release: AFV439'));
-  assert.ok(history.startsWith('AFV439 — Mobile Accordion Spacing and Open Auto-Scroll'));
+  assert.ok(history.startsWith('AFV439 — Fix Legacy Mobile Accordion Margins'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
