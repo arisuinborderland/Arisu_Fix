@@ -1,3 +1,11 @@
+AFV454 — Remove obsolete desktop Why Choose flow compensation
+
+## AFV454 — Remove the superseded desktop -50px flow offset
+- Root cause: the desktop -50px margin-bottom correction belonged to the pre-accordion Why Choose card lift. The accordion now resets the wrapped card's positioning and owns its spacing, so the old negative margin is obsolete and can distort desktop flow.
+- Remove only the obsolete desktop #why-choose-arisu margin-bottom: -50px declaration from styles.css.
+- Preserve the verified desktop homepage main padding-bottom: 0 correction and the approved accordion card geometry, spacing, expanded content, and footer.
+- Refresh the homepage styles.css cache token and synchronize package metadata, README, release history, and regression coverage to AFV454 / 454.0.0.
+
 AFV453 — Preserve approved accordion layout and remove superseded offsets
 
 ## AFV453 — Approved layout baseline and targeted cascade cleanup
