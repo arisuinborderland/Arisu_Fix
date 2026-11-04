@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV457 package metadata and release notes are synchronized', () => {
+test('AFV458 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '457.0.0');
-  assert.equal(lock.version, '457.0.0');
-  assert.equal(lock.packages[''].version, '457.0.0');
-  assert.ok(readme.includes('Current release: AFV457'));
-  assert.ok(history.startsWith('AFV457 — Remove duplicate Recovery Proofs navigation baseline'));
+  assert.equal(pkg.version, '458.0.0');
+  assert.equal(lock.version, '458.0.0');
+  assert.equal(lock.packages[''].version, '458.0.0');
+  assert.ok(readme.includes('Current release: AFV458'));
+  assert.ok(history.startsWith('AFV458 — Restore accordion heading scroll offsets and repair CSS selector'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
