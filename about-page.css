@@ -198,6 +198,7 @@ body.about-page .mobile-bottom-nav { display:none; }
   font-weight: 700;
   line-height: 1.2 !important;
 }
+/* AFV432 — consolidated responsive Process Flow rules. */
 @media (max-width: 700px) {
   .about-page-main > .about-process-flow { margin: 2px 0 12px !important; padding: 8px !important; border-radius: 21px !important; }
   .about-process-list { gap: 7px; }
