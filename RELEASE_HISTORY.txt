@@ -131,6 +131,14 @@ AFV440 — Normalize Mobile Accordion Text Spacing
 - Preserve expanded header sizing, full expanded content, and single-open/all-closed behavior.
 - Synchronize accordion cache tokens, package/release metadata, and regression assertions; correct three stale release-version test expectations that caused the previous CI run to fail.
 
+AFV434 — About Page Main Sync and Legacy CSS Cleanup
+
+## AFV434 — Rebase approved About Process Flow on latest main
+- Applied the approved six-step About Process Flow markup and consolidated page stylesheet to a clean branch based on the latest main.
+- Removed only the 27-line retired About-specific footer selector layer from styles.css; retained the shared footer and all unrelated page styles.
+- Added dedicated About Process Flow regression coverage and synchronized package release metadata.
+- Preserved the latest homepage accordion, Reviews, Recovery Proofs, and Story Viewer work from main.
+
 AFV432 — Compact Collapsed Accordion Headers
 
 ## AFV432 — Keep collapsed headers to two compact lines
