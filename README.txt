@@ -1,16 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV451
+Version: AFV452
 Updated: 2026-11-04
 
-Current release: AFV451
-AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set. It removes superseded duplicate declarations while preserving the approved AFV450 visual values, including natural mobile header height, 5px vertical inset, 2px title/subtitle gap, 4px inter-card spacing, expanded panel sizing, and desktop geometry.
-The mobile spacing override retains its required selector specificity so legacy .site-section margins cannot override the approved accordion rhythm. Footer styling, expanded content, social-card placement, and accordion behavior remain unchanged.
-Package version: 451.0.0
+Current release: AFV452
+AFV452 preserves original IDs on generated accordion headings so section aria-labelledby and scroll-margin targets remain valid. It also validates every required source element before any DOM mutation, preventing a partially converted homepage if initialization prerequisites are missing.
+AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set, preserving the approved AFV450 layout values and mobile spacing.
+Package version: 452.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV452 preserves accordion heading IDs and makes initialization atomic without changing the approved visual layout.
 - AFV451 consolidates the homepage accordion CSS while preserving the approved layout and computed spacing.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
 
