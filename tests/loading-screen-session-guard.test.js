@@ -41,7 +41,7 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(!/^\s*transition:\s*opacity \.24s ease, visibility \.24s ease;/m.test(css), 'default overlay state must not transition into view');
 });
 
-test('AFV461 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('current release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
