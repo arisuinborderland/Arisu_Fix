@@ -24,6 +24,21 @@ test("homepage accordion defaults to all sections closed and uses the approved o
   assert.match(accordion, /panel\.inert = !initiallyOpen/);
 });
 
+test("generated accordion headings preserve source IDs used by aria-labelledby and scroll targets", () => {
+  assert.match(accordion, /if \(title\.id\) heading\.id = title\.id/);
+  assert.match(accordion, /button\.setAttribute\("aria-controls", panelId\)/);
+  assert.match(accordion, /panel\.setAttribute\("aria-labelledby", button\.id\)/);
+});
+
+test("all required source elements are validated before the accordion mutates the DOM", () => {
+  const validation = accordion.indexOf("!processTitle || !processIntro || !processGrid || !processNote || !safety");
+  const mutation = accordion.indexOf('services.dataset.accordionReady = "true"');
+  assert.notEqual(validation, -1);
+  assert.ok(mutation > validation);
+  assert.ok(accordion.indexOf("services.classList.add") > mutation);
+  assert.ok(accordion.indexOf("why.classList.add") > mutation);
+});
+
 test("services subtitle is moved into the trigger instead of being duplicated in the panel", () => {
   assert.match(accordion, /serviceIntro\.remove\(\)/);
 });
@@ -98,7 +113,7 @@ test("mobile homepage footer retains its approved spacing and remains outside ac
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV451 and respect reduced motion", () => {
+test("accordion assets are cache-busted to AFV452 and respect reduced motion", () => {
   assert.match(html, /home-accordion\.css\?v=AFV451/);
   assert.match(html, /home-accordion\.js\?v=AFV451/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
