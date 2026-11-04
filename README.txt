@@ -1,8 +1,8 @@
 ARISU FIX — PROJECT README
-Version: AFV441
+Version: AFV442
 Updated: 2026-11-04
 
-Current release: AFV441
+Current release: AFV442
 Mobile accordion trigger text blocks reserve a two-line subtitle slot, so one-line Services and How descriptions align vertically like the two-line Why Choose description. Fixed 64px headers and consistent card spacing remain unchanged.
 Mobile accordion headers use a compact fixed 64px height. A high-specificity parent selector now overrides legacy 18px and 8px section margins, setting a consistent 4px mobile margin for all three accordion cards. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
 Package version: 440.0.0
@@ -11,6 +11,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV442 fixes the large mobile gap between the Recovery Proofs/Customer Reviews cards and the homepage accordion. The social cards use a -26px visual reveal offset that did not reclaim normal-flow space; the social collage now receives a matching mobile-only negative bottom margin. Also remove leftover mobile padding on the Services wrapper and let one-line accordion subtitles occupy one line instead of reserving an empty second line. Fixed 64px headers and footer layout remain unchanged.
 - AFV441 fixes the remaining mobile bottom-space mismatch below the homepage accordion. Root cause: an 8px `main` bottom-padding rule was still stacking with the final accordion margin and the footer's 8px top margin. Set only the homepage main trailing padding to 0; preserve accordion card geometry, inter-card spacing, footer styling, and desktop layout.
 - AFV440 fixes the remaining perceived top/bottom whitespace mismatch inside mobile accordion headers. The subtitle reserves a consistent two-line text slot on all three cards, so the vertically centered title/description group has the same height whether the description wraps once or twice. No header height, font size, inter-card gap, desktop layout, or accordion behavior changes.
 - AFV440 fixes the mobile spacing root cause: legacy `body.home-page .site-section` and `#why-choose-arisu` margin rules overrode the earlier low-specificity accordion spacing. A parent-qualified selector now enforces a consistent 4px margin for all three cards. The 64px fixed headers, open-only smooth auto-scroll, and reduced-motion support remain.
