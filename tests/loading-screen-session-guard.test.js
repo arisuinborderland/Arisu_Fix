@@ -51,7 +51,7 @@ test('AFV455 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(lock.packages[''].version, '455.0.0');
   assert.ok(readme.includes('Current release: AFV455'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV455 — Remove obsolete desktop Why Choose flow compensation'));
+  assert.ok(history.startsWith('AFV455 — Remove empty legacy media-query blocks'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
