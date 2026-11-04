@@ -63,65 +63,41 @@
 
 .home-accordion-trigger-hint {
   display: inline-flex;
-  width: fit-content;
+  flex: 0 0 auto;
+  min-width: 78px;
   align-items: center;
-  gap: 5px;
-  margin-top: 2px;
-  padding: 3px 8px;
-  border: 1px solid rgba(48, 119, 226, .24);
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid rgba(39, 116, 232, .38);
   border-radius: 999px;
-  background: rgba(220, 236, 255, .78);
-  color: #286fc9;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .075em;
+  background: linear-gradient(135deg, #287ce8, #4965e8 62%, #7650df);
+  box-shadow: 0 3px 9px rgba(48, 103, 190, .2), inset 0 1px 0 rgba(255,255,255,.28);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .home-accordion-trigger-hint::after {
   content: "";
-  width: 5px;
-  height: 5px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg) translateY(-1px);
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .22s ease;
 }
 
 .home-accordion-item.is-open > .home-accordion-trigger .home-accordion-trigger-hint {
-  border-color: rgba(39, 116, 232, .3);
-  background: rgba(211, 230, 255, .92);
-  color: #1f5fb5;
+  border-color: rgba(75, 91, 199, .48);
+  background: linear-gradient(135deg, #526fe0, #7352d7);
 }
 
 .home-accordion-item.is-open > .home-accordion-trigger .home-accordion-trigger-hint::after {
-  transform: rotate(225deg) translateY(-1px);
-}
-
-.home-accordion-chevron {
-  position: relative;
-  display: grid;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  margin-inline: 3px 5px;
-  border: 1px solid rgba(48, 119, 226, .28);
-  border-radius: 50%;
-  background: linear-gradient(145deg, rgba(222, 239, 255, .98), rgba(237, 231, 255, .96));
-  box-shadow: 0 2px 7px rgba(48, 103, 190, .13), inset 0 1px 0 rgba(255,255,255,.95);
-  transition: background .22s ease, border-color .22s ease, box-shadow .22s ease;
-}
-
-.home-accordion-chevron::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  margin-top: -5px;
-  border-right: 3px solid #2674e8;
-  border-bottom: 3px solid #2674e8;
-  border-radius: 1px;
-  transform: rotate(45deg);
-  transition: transform .28s ease;
+  transform: rotate(225deg) translate(-2px, -1px);
 }
 
 .home-accordion-trigger:active {
@@ -140,10 +116,6 @@
   border-bottom-right-radius: 0;
   background: linear-gradient(115deg, #f5faff, #e5f0ff 58%, #eee6ff);
   box-shadow: 0 3px 12px rgba(39, 104, 204, .15), inset 3px 0 0 #347fe8;
-}
-
-.home-accordion-item.is-open > .home-accordion-trigger .home-accordion-chevron::before {
-  transform: rotate(225deg);
 }
 
 .home-accordion-panel {
@@ -342,23 +314,10 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   }
 
   .home-accordion-trigger-hint {
-    margin-top: 2px;
-    padding: 3px 7px;
-    font-size: 8px;
-    letter-spacing: .07em;
-  }
-
-  .home-accordion-chevron {
-    flex-basis: 32px;
-    width: 32px;
-    height: 32px;
-    margin-inline: 1px 2px;
-    align-self: center;
-  }
-
-  .home-accordion-chevron::before {
-    width: 9px;
-    height: 9px;
+    min-width: 66px;
+    gap: 6px;
+    padding: 8px 10px;
+    font-size: 9px;
   }
 
   .home-accordion-panel {
