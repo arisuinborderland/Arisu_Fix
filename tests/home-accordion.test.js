@@ -60,8 +60,8 @@ test("collapsed and expanded accordion headers share identical geometry and typo
 });
 
 test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
-  assert.match(styles, /html body\\.home-page #desktopSocialDestination > \\.home-accordion-item\\s*\\{\\s*margin:\\s*4px 0 !important;/);
-  assert.match(styles, /Root cause: styles\\.css applies body\\.home-page \\.site-section/);
+  assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
+  assert.match(styles, /Root cause: styles\.css applies body\.home-page \.site-section/);
 });
 
 test("expanded accordion content retains compact panel spacing without clipping the How card", () => {
