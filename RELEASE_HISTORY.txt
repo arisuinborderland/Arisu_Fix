@@ -1,3 +1,13 @@
+AFV459 — Homepage Accordion Feature Isolation
+
+## AFV459 — Add the homepage accordion as a focused feature
+- Add the approved three-section Services, Why Choose Arisu?, and How account assistance works accordion as a separate CSS/JS feature.
+- Preserve all-closed initial state, single-open behavior, accessible native h2 headings, labelled panels, inert collapsed content, reduced-motion handling, and open-panel scrolling.
+- Keep the approved accordion card geometry and mobile 4px inter-card spacing; add only the homepage-specific mobile footer clearance needed by the accordion.
+- Add both assets to the explicit production build allowlist and add focused regression coverage.
+- Remove the retired homepage safety reminder block from the collapsible content as requested.
+- Keep unrelated Story Viewer, Proofs navigation, About page, and legacy stylesheet cleanup out of this PR.
+
 AFV434 — About Page Main Sync and Legacy CSS Cleanup
 
 ## AFV434 — Rebase approved About Process Flow on latest main

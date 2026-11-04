@@ -795,3 +795,11 @@ body.home-page .reference-footer {
     stroke: currentColor !important;
   }
 }
+
+
+/* AFV459 — Keep the homepage footer clear of the new accordion section. */
+@media (max-width: 600px) {
+  html body.home-page .reference-footer {
+    margin-top: 8px !important;
+  }
+}
