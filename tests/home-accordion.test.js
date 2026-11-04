@@ -110,6 +110,10 @@ test("expanded accordion content retains compact panel spacing without clipping 
   assert.match(styles, /html body\.home-page \.how-assistance-section \.why-arisu-card > \.why-arisu-grid\s*\{\s*transform:\s*none !important;/);
 });
 
+test("mobile How accordion places Clear Guidance 2px below the warranty card without legacy transform lift", () => {
+  assert.match(styles, /html body\\.home-page \\.how-assistance-section \\.why-arisu-note\\s*\\{\\s*margin-top:\\s*2px !important;\\s*transform:\\s*none !important;/);
+});
+
 test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => {
   assert.match(styles, /html body\.home-page \.home-accordion-item \.why-arisu-card\s*\{[^}]*translate:\s*none !important;/);
   assert.match(styles, /html body\.home-page #desktopSocialDestination > #why-choose-arisu\s*\{\s*margin-bottom:\s*0 !important;/);
