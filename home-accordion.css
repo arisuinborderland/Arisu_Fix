@@ -61,6 +61,42 @@
   line-height: 1.4;
 }
 
+.home-accordion-trigger-hint {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  padding: 3px 8px;
+  border: 1px solid rgba(48, 119, 226, .24);
+  border-radius: 999px;
+  background: rgba(220, 236, 255, .78);
+  color: #286fc9;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .075em;
+  line-height: 1;
+}
+
+.home-accordion-trigger-hint::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+.home-accordion-item.is-open > .home-accordion-trigger .home-accordion-trigger-hint {
+  border-color: rgba(39, 116, 232, .3);
+  background: rgba(211, 230, 255, .92);
+  color: #1f5fb5;
+}
+
+.home-accordion-item.is-open > .home-accordion-trigger .home-accordion-trigger-hint::after {
+  transform: rotate(225deg) translateY(-1px);
+}
+
 .home-accordion-chevron {
   position: relative;
   display: grid;
@@ -303,6 +339,13 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+  }
+
+  .home-accordion-trigger-hint {
+    margin-top: 2px;
+    padding: 3px 7px;
+    font-size: 8px;
+    letter-spacing: .07em;
   }
 
   .home-accordion-chevron {
