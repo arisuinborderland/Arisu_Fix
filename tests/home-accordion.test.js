@@ -88,3 +88,9 @@ test("accordion assets are cache-busted to AFV440 and respect reduced motion", (
   assert.match(html, /home-accordion\.js\?v=AFV440/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
+
+
+test("mobile homepage removes the legacy trailing main padding below the accordion", () => {
+  const source = fs.readFileSync(path.join(__dirname, "..", "styles.css"), "utf8");
+  assert.match(source, /@media\s*\(max-width:\s*600px\)[\s\S]*?html body\.home-page main \{ padding-bottom: 0 !important; \}/);
+});
