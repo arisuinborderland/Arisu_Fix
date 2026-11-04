@@ -1,3 +1,8 @@
+AFV461 — Corrected Connect Mascot and Scam Awareness Mobile Layout
+- Fix the Connect mascot's root-relative eager-loaded image URL and cache token.
+- Match the approved verified shield silhouette and restore four-column Scam Awareness at standard mobile widths, with a two-column fallback on very narrow screens.
+- Preserve the existing upper homepage, destination links, proofs/reviews functionality, accordion, and footer.
+
 AFV460 — Approved Connect with Arisu Homepage Layout
 
 ## AFV460 — Replace the old social + Scam Awareness arrangement
