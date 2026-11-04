@@ -41,3 +41,9 @@ test('Retired How It Works section selectors are absent from the homepage styles
   assert.doesNotMatch(styles, /\.how-section(?!\))/);
   assert.doesNotMatch(read('index.html'), /class=["'][^"']*\bhow-section\b/);
 });
+
+
+test('Homepage legacy stylesheet contains no empty or comment-only media-query blocks', () => {
+  const withoutComments = read('styles.css').replace(/\\/\\*[\\s\\S]*?\\*\\//g, '');
+  assert.doesNotMatch(withoutComments, /@media[^{}]*\\{\\s*\\}/);
+});
