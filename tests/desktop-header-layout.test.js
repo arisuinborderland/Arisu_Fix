@@ -178,11 +178,11 @@ test('AFV418 Privacy mobile content uses a compact icon/text layout and tighter 
   assert.match(privacy, /margin-top: 18px !important/);
 });
 
-test('AFV418 About mobile heading spacing is tightened without changing desktop rules', () => {
+test('AFV431 About mobile heading spacing uses the compact Process Flow layout', () => {
   const about = read('about-page.css');
-  assert.match(about, /AFV418 — Bring About page heading/);
-  assert.match(about, /padding-top: 16px !important/);
-  assert.match(about, /margin-bottom: 13px !important/);
+  assert.match(about, /AFV431 — approved compact mobile heading rhythm/);
+  assert.match(about, /padding-top: 8px/);
+  assert.match(about, /margin-bottom: 2px/);
 });
 
 test('AFV423 desktop homepage verified check is not pinned to its hidden SVG dash offset', () => {
