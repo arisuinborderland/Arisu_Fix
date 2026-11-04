@@ -39,6 +39,9 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*clamp\(20px, 3vw, 27px\)/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*clamp\(13px, 1\.8vw, 16px\)/);
   assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*min-height:\s*68px[^}]*padding:\s*13px 15px/);
+  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*height:\s*68px[^}]*min-height:\s*68px[^}]*max-height:\s*68px[^}]*padding:\s*7px 13px/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*white-space:\s*nowrap/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*-webkit-line-clamp:\s*2/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
