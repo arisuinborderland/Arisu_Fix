@@ -61,14 +61,40 @@
 }
 
 .home-accordion-chevron {
-  flex: 0 0 13px;
-  width: 13px;
-  height: 13px;
+  position: relative;
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  place-items: center;
   margin-inline: 3px 5px;
+  border: 1px solid rgba(48, 119, 226, .28);
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(222, 239, 255, .98), rgba(237, 231, 255, .96));
+  box-shadow: 0 2px 7px rgba(48, 103, 190, .13), inset 0 1px 0 rgba(255,255,255,.95);
+  transition: background .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.home-accordion-chevron::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
   border-right: 3px solid #2674e8;
   border-bottom: 3px solid #2674e8;
-  transform: rotate(45deg) translateY(-3px);
+  border-radius: 1px;
+  transform: rotate(45deg);
   transition: transform .28s ease;
+}
+
+.home-accordion-trigger:active {
+  transform: translateY(1px);
+}
+
+.home-accordion-trigger:hover .home-accordion-chevron {
+  border-color: rgba(39, 116, 232, .55);
+  background: linear-gradient(145deg, #d7ebff, #e8ddff);
+  box-shadow: 0 3px 9px rgba(48, 103, 190, .2), inset 0 1px 0 rgba(255,255,255,.98);
 }
 
 .home-accordion-item.is-open > .home-accordion-trigger {
@@ -78,8 +104,8 @@
   box-shadow: 0 3px 12px rgba(55, 91, 159, .08);
 }
 
-.home-accordion-item.is-open > .home-accordion-trigger .home-accordion-chevron {
-  transform: rotate(225deg) translate(-2px, -1px);
+.home-accordion-item.is-open > .home-accordion-trigger .home-accordion-chevron::before {
+  transform: rotate(225deg);
 }
 
 .home-accordion-panel {
@@ -278,11 +304,16 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   }
 
   .home-accordion-chevron {
-    flex-basis: 11px;
-    width: 11px;
-    height: 11px;
-    margin-inline: 2px 4px;
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+    margin-inline: 1px 2px;
     align-self: center;
+  }
+
+  .home-accordion-chevron::before {
+    width: 9px;
+    height: 9px;
   }
 
   .home-accordion-panel {
