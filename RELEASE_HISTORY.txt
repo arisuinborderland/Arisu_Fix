@@ -1,3 +1,11 @@
+AFV444 — Center Mobile Accordion Subtitle Text Within Reserved Slot
+
+## AFV444 — Remove the visual bottom-heavy subtitle alignment
+- Root cause: AFV443 correctly restored a shared 2.36em subtitle slot, but a one-line subtitle remained top-aligned inside that two-line slot. The unused second line therefore appeared as excess whitespace below the text in What Services and How account assistance.
+- Wrap subtitle text in a dedicated inner span and center that text vertically within the existing subtitle slot using grid alignment.
+- Preserve the fixed 64px mobile trigger geometry, 2.36em reserved subtitle slot, two-line Why description, 4px accordion-item rhythm, AFV442 social-card flow correction, and approved About/footer styling.
+- Refresh accordion CSS/JS cache tokens, package metadata, README/release history, and regression coverage. No card padding, outer margins, desktop CSS, or footer changes.
+
 AFV443 — Restore Balanced Mobile Accordion Text Spacing
 
 ## AFV443 — Remove the conflicting one-line subtitle override
