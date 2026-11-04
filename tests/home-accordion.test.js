@@ -152,8 +152,8 @@ test("mobile homepage footer retains its approved spacing and remains outside ac
 });
 
 test("accordion assets are cache-busted to AFV453 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV452/);
-  assert.match(html, /home-accordion\.js\?v=AFV452/);
+  assert.match(html, /home-accordion\.css\?v=AFV453/);
+  assert.match(html, /home-accordion\.js\?v=AFV453/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
