@@ -795,3 +795,13 @@ body.home-page .reference-footer {
     stroke: currentColor !important;
   }
 }
+
+
+/* AFV428 — The homepage now ends with a collapsible How section.
+   The former -44px footer lift was tuned for the pre-accordion layout and
+   makes the About/footer card overlap the new accordion trigger on mobile. */
+@media (max-width: 600px) {
+  html body.home-page .reference-footer {
+    margin-top: 8px !important;
+  }
+}

@@ -105,8 +105,7 @@ html body.proofs-document .topbar .header-meta .header-icon{display:block;width:
 html body.proofs-document{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))!important}
 @media(max-width:600px){html body.proofs-document .topbar .header-meta{gap:6px}html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{min-height:43px;padding:0 15px;gap:5px;border-radius:12px;font-size:12px}html body.proofs-document .topbar .header-meta .header-icon{width:14px;height:14px;flex-basis:14px}}
 @media(max-width:380px){html body.proofs-document .topbar .header-meta{gap:4px}html body.proofs-document .topbar .header-meta>.privacy-link,html body.proofs-document .topbar .header-meta>.about-header-link{min-height:41px;padding:0 10px;gap:4px;font-size:11px}html body.proofs-document .topbar .header-meta .header-icon{width:12px;height:12px;flex-basis:12px}}
-/* fixed mobile bottom navigation on Recovery Proofs, matching the homepage. */
-.mobile-bottom-nav { display:none; }
+/* The shared styles.css owns the default hidden state for mobile bottom navigation. */
 @media screen and (max-width: 700px) {
   html body.proofs-document { padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
   /* Keep the restored floating quick-access menu available on mobile too. */

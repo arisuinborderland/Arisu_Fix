@@ -1,16 +1,41 @@
 ARISU FIX — PROJECT README
-Version: AFV434
-Updated: 2026-11-03
+Version: AFV458
+Updated: 2026-11-04
 
-Current release: AFV434
-Package version: 434.0.0
+Current release: AFV458
+AFV458 restores the shared 100px scroll offset for all three accordion headings and repairs the malformed selector without changing approved card geometry or spacing.
+AFV457 removes the duplicate default hidden-state rule for Recovery Proofs bottom navigation; the shared styles.css remains the single owner of that baseline.
+AFV454 removes the obsolete desktop -50px Why Choose flow compensation while preserving the approved accordion layout and homepage main trailing-padding correction.
+AFV453 preserves the approved mobile accordion layout and removes verified superseded homepage accordion transform offsets.
+AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set, preserving the approved AFV450 layout values and mobile spacing.
+Package version: 458.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV458 restores the 100px accordion heading scroll offset, repairs the malformed selector, and updates accordion CSS cache-busting.
+- AFV457 removes the repeated Proofs bottom-navigation display:none baseline from proofs.css and reuses the shared declaration in styles.css.
+- AFV454 removes the obsolete desktop -50px Why Choose margin compensation, preserves the desktop main padding correction, and refreshes the homepage stylesheet cache token.
+- AFV453 protects the approved mobile accordion layout and removes the superseded -6px/-10px/-14px legacy transform offsets.
+- AFV452 preserves accordion heading IDs and makes initialization atomic without changing the approved visual layout.
+- AFV451 consolidates the homepage accordion CSS while preserving the approved layout and computed spacing.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
 
+
+- AFV450 removes the fixed mobile header height and uses natural content height with a shared 5px top/bottom inset, so one-line subtitles no longer reserve unused vertical space. The Why Choose header grows naturally for its two-line subtitle. Text and the 2px title/subtitle gap remain unchanged.
+- AFV444 fixes the remaining bottom-heavy appearance in the What Services and How account assistance headers. Root cause: the shared 2.36em subtitle slot preserved equal header geometry, but the one-line text remained top-aligned inside the slot, leaving the unused second line as visible whitespace below. Wrap the subtitle text and center it within the existing slot. No trigger height, padding, card margins, social-card spacing, desktop CSS, or footer styling changes.
+- AFV444 fixes the regression where What Services I Offer and How account assistance works regained excessive top/bottom whitespace. AFV442 had overridden AFV440's 2.36em two-line subtitle reserve with 1.18em, shrinking the centered text group inside fixed 64px triggers. Remove only that conflicting override; retain the 64px header size, 4px card rhythm, AFV442 social-card flow correction, and approved footer styling.
+- AFV442 fixes the large mobile gap between the Recovery Proofs/Customer Reviews cards and the homepage accordion. The social cards use a -26px visual reveal offset that did not reclaim normal-flow space; the social collage now receives a matching mobile-only negative bottom margin. Also remove leftover mobile padding on the Services wrapper and let one-line accordion subtitles occupy one line instead of reserving an empty second line. Fixed 64px headers and footer layout remain unchanged.
+- AFV441 fixes the remaining mobile bottom-space mismatch below the homepage accordion. Root cause: an 8px `main` bottom-padding rule was still stacking with the final accordion margin and the footer's 8px top margin. Set only the homepage main trailing padding to 0; preserve accordion card geometry, inter-card spacing, footer styling, and desktop layout.
+- AFV440 fixes the remaining perceived top/bottom whitespace mismatch inside mobile accordion headers. The subtitle reserves a consistent two-line text slot on all three cards, so the vertically centered title/description group has the same height whether the description wraps once or twice. No header height, font size, inter-card gap, desktop layout, or accordion behavior changes.
+- AFV440 fixes the mobile spacing root cause: legacy `body.home-page .site-section` and `#why-choose-arisu` margin rules overrode the earlier low-specificity accordion spacing. A parent-qualified selector now enforces a consistent 4px margin for all three cards. The 64px fixed headers, open-only smooth auto-scroll, and reduced-motion support remain.
+- AFV440 fixes the accordion state-size mismatch: collapsed and expanded headers now share the same height, padding, title size, subtitle size, and alignment on mobile and desktop. Only panel visibility and chevron direction change. Panel-content compaction, single-open behavior, all-closed initial state, and existing footer/layout fixes are preserved. Accordion cache tokens and regression assertions are synchronized.
+- AFV435 further reduces collapsed homepage accordion headers after mobile visual review: 46px mobile minimum, 15px title, 10.5px subtitle, slightly roomier compact padding and spacing, and a smaller chevron. Expanded headers, expanded content, all-closed initial state, and single-open interaction are preserved. CI release-metadata assertions are synchronized.
+- AFV432 makes collapsed homepage accordion headers compact: title and subtitle stay on one line, with ellipsis for long text. Expanded headers and all expanded panel content remain available; single-open behavior is unchanged. Accordion CSS/JS cache tokens updated to AFV432.
+- AFV431 fixes the clipped first card in the How Account Assistance Works accordion. The legacy mobile -6px grid lift is reset only inside that accordion, preventing the first card from being clipped by its overflow-hidden wrapper without changing the Why Choose Arisu spacing.
+- AFV430 sets all three homepage accordion sections to collapsed on initial page load. The shared single-open interaction remains: opening one section closes the previously open section, and tapping the active section closes it. Accordion asset URLs are cache-busted to AFV430.
+- AFV428 adds a compact, single-open homepage accordion in the order Services, Why Choose Arisu?, and How Account Assistance Works. All three sections start collapsed; opening another section closes the previous one. It preserves existing content, removes the duplicate Services subtitle, resets legacy card offsets that caused overlap, and restores mobile footer spacing by replacing the old -44px footer lift with an 8px gap. Accordion headers and panel contents are compacted.
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
 
 - AFV424 removes the retired `.site-footer` and `.proofs-footer` CSS layers after confirming the five source pages no longer use those components. It preserves the four-page `.reference-footer`, Privacy's generic footer, and the shared header. It also removes the obsolete homepage About CTA inline styles and stale scroll-reveal target; updates affected cache tokens and regression tests.
@@ -99,6 +124,7 @@ RELEASE NOTES
 - Obsolete Vercel API handlers and their legacy tests have been removed after review; production Story endpoints remain under functions/api/.
 
 RELEASE NOTES
+- AFV433 reduces collapsed homepage accordion headers to a compact 48px mobile minimum with smaller one-line title/subtitle text; expanded headers and panel content remain unchanged.
 - AFV379 aligns the release version with the homepage loading-screen cache tokens and once-per-tab-session behavior.
 
 VALIDATION

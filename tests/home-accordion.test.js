@@ -5,59 +5,181 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.join(__dirname, "..");
-const requiredAssets = ["home-accordion.js", "home-accordion.css"];
-const hasAccordionAssets = requiredAssets.every(file => fs.existsSync(path.join(root, file)));
-
-if (!hasAccordionAssets) {
-  test("homepage accordion regression suite waits for its feature assets", { skip: "Homepage accordion assets are supplied by the separate accordion preview PR; keep this suite active when those assets are present." }, () => {});
-} else {
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const fs = require("node:fs");
-const path = require("node:path");
-
-const root = path.join(__dirname, "..");
 const accordion = fs.readFileSync(path.join(root, "home-accordion.js"), "utf8");
 const styles = fs.readFileSync(path.join(root, "home-accordion.css"), "utf8");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const footer = fs.readFileSync(path.join(root, "footer-reference.css"), "utf8");
 
-test("homepage accordion defaults to Services and uses the approved order", () => {
+const count = (source, pattern) => (source.match(pattern) || []).length;
+
+test("homepage accordion defaults to all sections closed and uses the approved order", () => {
   assert.ok(accordion.indexOf('getElementById("services")') < accordion.indexOf('getElementById("why-choose-arisu")'));
-  assert.match(accordion, /services\.classList\.add\("home-accordion-item", "is-open"\)/);
-  assert.match(accordion, /makeTrigger\(services,[^;]*, true\)/);
-  assert.match(accordion, /makePanel\(services, "homeAccordionServicesPanel", serviceButton, true\)/);
-  assert.match(accordion, /setOpen\(items\[0\]\)/);
-  assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
+  assert.match(accordion, /services\.classList\.add\("home-accordion-item"\)/);
+  assert.doesNotMatch(accordion, /services\.classList\.add\("home-accordion-item",\s*"is-open"\)/);
+  assert.match(accordion, /makeTrigger\(services,[^;]*, 1\)/);
+  assert.match(accordion, /initiallyOpen = false/);
+  assert.match(accordion, /makePanel\(services, "homeAccordionServicesPanel", serviceButton\)/);
+  assert.match(accordion, /setOpen\(null\)/);
+  assert.match(accordion, /button\.setAttribute\("aria-expanded", String\(initiallyOpen\)\)/);
+  assert.match(accordion, /panel\.inert = !initiallyOpen/);
+});
+
+test("generated accordion headings preserve source IDs used by aria-labelledby and scroll targets", () => {
+  assert.match(accordion, /semanticHeading\.id = title\.id/);
+  assert.match(accordion, /button\.setAttribute\("aria-controls", panelId\)/);
+  assert.match(accordion, /panel\.setAttribute\("aria-labelledby", button\.id\)/);
+});
+
+test("generated accordion sections retain native h2 semantics and label each trigger", () => {
+  assert.match(accordion, /createElement\("h2", "home-accordion-semantic-heading"\)/);
+  assert.match(accordion, /semanticHeading\.textContent = title\.textContent\.trim\(\)/);
+  assert.match(accordion, /button\.setAttribute\("aria-labelledby", semanticHeading\.id\)/);
+  assert.match(accordion, /copy\.setAttribute\("aria-hidden", "true"\)/);
+  assert.match(styles, /\.home-accordion-semantic-heading\s*\{[^}]*clip:\s*rect\(0, 0, 0, 0\)/);
+  assert.match(accordion, /panel\.setAttribute\("aria-labelledby", button\.id\)/);
+});
+
+test("all required source elements are validated before the accordion mutates the DOM", () => {
+  const validation = accordion.indexOf("!processTitle || !processIntro || !processGrid || !processNote");
+  const mutation = accordion.indexOf('services.dataset.accordionReady = "true"');
+  assert.notEqual(validation, -1);
+  assert.ok(mutation > validation);
+  assert.ok(accordion.indexOf("services.classList.add") > mutation);
+  assert.ok(accordion.indexOf("why.classList.add") > mutation);
 });
 
 test("services subtitle is moved into the trigger instead of being duplicated in the panel", () => {
   assert.match(accordion, /serviceIntro\.remove\(\)/);
 });
 
+test("opening a section closes the previous section and updates accessibility state", () => {
+  assert.match(accordion, /const isOpen = item\.button\.getAttribute\("aria-expanded"\) === "true"/);
+  assert.match(accordion, /const nextItem = isOpen \? null : item/);
+  assert.match(accordion, /setOpen\(nextItem\)/);
+  assert.match(accordion, /item\.panel\.inert = !open/);
+  assert.match(accordion, /items\.forEach\(\(item\) => \{/);
+  assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
+});
+
+test("opening an accordion smoothly scrolls the new panel into view and closing does not scroll", () => {
+  assert.match(accordion, /if \(nextItem\) \{/);
+  assert.match(accordion, /window\.setTimeout\(\(\) => \{/);
+  assert.match(accordion, /nextItem\.panel\.scrollIntoView\(\{/);
+  assert.match(accordion, /behavior: reduceMotion \? "auto" : "smooth"/);
+  assert.match(accordion, /block: "nearest"/);
+  assert.match(accordion, /\}, 360\)/);
+});
+
+test("desktop accordion geometry and typography retain the approved baseline", () => {
+  assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*min-height:\s*78px/);
+  assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*padding:\s*16px 20px/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*clamp\(20px, 3vw, 27px\)/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*clamp\(13px, 1\.8vw, 16px\)/);
+  assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
+  assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
+});
+
+test("accordion card and heading text visibly communicate an interactive control", () => {
+  assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*border:\s*1\.5px solid rgba\(74, 132, 220, \.52\)/);
+  assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*inset 0 -1px 0 rgba\(89, 139, 220, \.08\)/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*color:\s*#173d78[^}]*font-weight:\s*850/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*color:\s*#344d70[^}]*font-weight:\s*600/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger\s*\{[^}]*inset 3px 0 0 #347fe8/);
+});
+
+test("accordion trigger displays a right-aligned Expand/Collapse pill", () => {
+  assert.match(accordion, /createElement\("span", "home-accordion-trigger-hint", initiallyOpen \? "COLLAPSE" : "EXPAND"\)/);
+  assert.match(accordion, /button\.append\(copy, hint\)/);
+  assert.match(accordion, /hint\.textContent = open \? "COLLAPSE" : "EXPAND"/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*128px[^}]*border-radius:\s*999px[^}]*background:\s*linear-gradient/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-trigger-hint/);
+  assert.match(styles, /^  \.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*86px[^}]*min-height:\s*36px/m);
+});
+
+test("accordion Expand/Collapse pill has pressed feedback and directional state cue", () => {
+  assert.match(styles, /\.home-accordion-trigger-hint::after\s*\{[^}]*border-right:\s*2px solid currentColor[^}]*border-bottom:\s*2px solid currentColor/);
+  assert.match(styles, /\.home-accordion-trigger:active\s*\{\s*transform:\s*translateY\(1px\)/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-trigger-hint::after/);
+  assert.doesNotMatch(styles, /\.home-accordion-chevron/);
+});
+
+test("mobile accordion gives headings natural wrapping room and keeps a compact expand control", () => {
+  assert.match(styles, /height:\s*auto/);
+  assert.match(styles, /min-height:\s*78px/);
+  assert.match(styles, /max-height:\s*none/);
+  assert.match(styles, /padding:\s*10px 13px/);
+  assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*display:\s*flex[^}]*flex-direction:\s*column[^}]*justify-content:\s*center[^}]*gap:\s*3px/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*line-height:\s*1\.16[^}]*white-space:\s*normal[^}]*overflow-wrap:\s*anywhere/);
+  assert.doesNotMatch(styles, /\.home-accordion-trigger-title\s*\{[^}]*text-overflow:\s*ellipsis/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*line-height:\s*1\.18/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
+  assert.match(styles, /border-radius:\s*999px/);
+  assert.doesNotMatch(styles, /\.home-accordion-trigger-hint\s*\{[^}]*flex-basis:\s*48px|\.home-accordion-trigger-hint\s*\{[^}]*width:\s*48px/);
+  assert.doesNotMatch(styles, /height:\s*(?:64|68)px|min-height:\s*(?:64|68)px|max-height:\s*(?:64|68)px/);
+});
+
+test("mobile accordion CSS has one authoritative rule per repeated layout selector", () => {
+  assert.equal(count(styles, /^\.home-accordion-trigger-copy\s*\{/gm), 1);
+  assert.equal(count(styles, /^  \.home-accordion-trigger-copy\s*\{/gm), 1);
+  assert.equal(count(styles, /^\.home-accordion-trigger-subtitle-text\s*\{/gm), 0);
+  assert.equal(count(styles, /^  \.home-accordion-trigger-subtitle-text\s*\{/gm), 1);
+  assert.equal(count(styles, /^\.home-accordion-panel-inner\s*\{/gm), 1);
+  assert.equal(count(styles, /^  \.home-accordion-panel-inner\s*\{/gm), 1);
+  assert.equal(count(styles, /^  \.home-accordion-item\.is-open > \.home-accordion-panel \.home-accordion-panel-inner\s*\{/gm), 1);
+});
+
+test("all three accordion heading IDs retain their shared scroll offset", () => {
+  assert.match(styles, /\.home-accordion-item #servicesTitle,\s*\.home-accordion-item #whyArisuTitle,\s*\.home-accordion-item #howTitle\s*\{\s*scroll-margin-top:\s*100px;\s*\}/);
+  assert.doesNotMatch(styles, /\.home-accordion-item #servicesTitle,\s*\/\*/);
+});
+
+test("accordion stylesheet contains no redundant wrapper no-op overrides", () => {
+  assert.doesNotMatch(styles, /\.home-accordion-item \.services-heading\s*\{\s*margin-top:\s*0/);
+  assert.doesNotMatch(styles, /\.home-accordion-item \.why-arisu-card\s*\{\s*margin-top:\s*0/);
+  assert.doesNotMatch(styles, /\.how-assistance-section \.why-arisu-card\s*\{\s*width:\s*100%/);
+});
+
+test("mobile accordion preserves the approved 4px inter-card spacing", () => {
+  assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
+  assert.doesNotMatch(styles, /margin-block:\s*6px|margin-block:\s*4px !important/);
+});
+
+test("expanded accordion content retains compact panel spacing without clipping the How card", () => {
+  assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
+  assert.match(styles, /\.home-accordion-panel-inner\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(styles, /html body\.home-page \.how-assistance-section \.why-arisu-card > \.why-arisu-grid\s*\{\s*transform:\s*none !important;/);
+});
+
+test("mobile How accordion places Clear Guidance 2px below the warranty card without legacy transform lift", () => {
+  assert.match(styles, /html body\.home-page \.how-assistance-section \.why-arisu-note\s*\{\s*margin-top:\s*2px !important;\s*transform:\s*none !important;/);
+});
+
 test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => {
   assert.match(styles, /html body\.home-page \.home-accordion-item \.why-arisu-card\s*\{[^}]*translate:\s*none !important;/);
   assert.match(styles, /html body\.home-page #desktopSocialDestination > #why-choose-arisu\s*\{\s*margin-bottom:\s*0 !important;/);
+  const legacyStyles = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+  assert.doesNotMatch(legacyStyles, /@media\s*\(max-width:\s*640px\)[\s\S]*?#desktopSocialDestination\s*>\s*#why-choose-arisu\s*\{[^}]*margin-top:\s*8px\s*!important;/);
 });
 
-test("mobile homepage footer no longer uses the legacy negative overlap margin", () => {
-  assert.match(footer, /margin-top: -44px !important;[\s\S]*AFV428[\s\S]*margin-top: 8px !important;/);
+test("mobile homepage footer retains its approved spacing and remains outside accordion cleanup", () => {
+  assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion headers and panel contents use compact spacing", () => {
-  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px/);
-  assert.match(styles, /\.home-accordion-panel \.service-issue-list li\s*\{[^}]*font-size:\s*11\.5px/);
+test("accordion CSS is cache-busted to AFV458 while its unchanged script remains at AFV453 and respects reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV458/);
+  assert.match(html, /home-accordion\.js\?v=AFV453/);
+  assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
-test("opening a section closes the previous section", () => {
-  assert.match(accordion, /setOpen\(isOpen \? null : item\)/);
-  assert.match(accordion, /item\.panel\.inert = !open/);
-  assert.match(accordion, /items\.forEach\(\(item\) => \{/);
+test("mobile homepage removes the legacy trailing main padding below the accordion", () => {
+  const source = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+  assert.match(source, /@media\s*\(max-width:\s*600px\)[\s\S]*?html body\.home-page main \{ padding-bottom: 0 !important; \}/);
 });
 
-test("accordion assets are cache-busted and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV429/);
-  assert.match(html, /home-accordion\.js\?v=AFV429/);
-  assert.match(styles, /prefers-reduced-motion: reduce/);
+
+test("superseded How-section transform offsets are removed from the legacy stylesheet", () => {
+  const legacyStyles = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+  assert.doesNotMatch(legacyStyles, /html body\.home-page \.why-arisu-section \.why-arisu-note\s*\{[^}]*transform:\s*translateY\(-10px\) !important/);
+  assert.doesNotMatch(legacyStyles, /html body\.home-page \.why-arisu-card > \.safety-section-inline \.safety-panel\s*\{[^}]*transform:\s*translateY\(-14px\) !important/);
+  assert.doesNotMatch(legacyStyles, /html body\.home-page \.why-arisu-card > \.why-arisu-grid\s*\{[^}]*transform:\s*translateY\(-6px\) !important/);
 });
-}

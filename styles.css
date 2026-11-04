@@ -528,12 +528,6 @@ main{padding-top:0}
 
 /* improve readability of the three process descriptions */
 
-/* make the three process descriptions below their headings easier to read. */
-@media  (max-width: 600px)  {
-}
-@media  (max-width: 420px)  {
-}
-
 /* improve readability of About This Website and account-safety text */
 .about-card .section-kicker { font-size: 12px; line-height: 1.4; letter-spacing: 1.5px; }
 .about-card h2 { font-size: clamp(25px, 3.8vw, 32px); line-height: 1.25; }
@@ -962,7 +956,6 @@ main{padding-top:0}
   }
 }
 
-
 /* natural-ratio review previews. Avoid fixed-height letterboxing/stretching. */
 .social-feedback-card .review-proof-card {
   overflow: hidden;
@@ -981,8 +974,6 @@ main{padding-top:0}
     flex-direction: column;
   }
 }
-
-
 
 /* show two full, undistorted review screenshots in Customer Feedback.
  Keep the desktop layout stable and make the mobile previews use two equal columns. */
@@ -2894,8 +2885,6 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     flex-basis: 24px !important;
   }
 
-}
-@media  (max-width: 760px)  {
 }
 
 /* closer scenic Bible verse banner styling for desktop and mobile. */
@@ -5020,50 +5009,10 @@ body.home-page .terms-card .terms-security-copy p {
   body.home-page .terms-card .terms-security-copy p { font-size: 11.5px !important; }
 }
 
-/* tighter mobile spacing for the account-assistance process cards.
- Keep desktop layout unchanged; remove excess grid-row height caused by the icon spanning three rows. */
-@media  (max-width: 760px)  {
-}
-@media  (max-width: 380px)  {
-}
-
-/* lift process-card titles and descriptions on mobile only.
- Keep outer card layout, icons, badges, and desktop presentation unchanged. */
-@media  (max-width: 380px)  {
-}
-
-/* approved tighter mobile spacing inside the five process cards.
- Reduce the inner top/bottom padding and the title-to-description row gap.
- Desktop styling and the outer section layout remain unchanged. */
-@media  (max-width: 760px)  {
-}
-@media  (max-width: 380px)  {
-}
-
 /* authoritative mobile compact spacing for account-assistance steps.
  Higher specificity intentionally overrides legacy home-page rules. */
 
-/* compact, aligned mobile process cards.
- Tightens inner vertical rhythm and lets long headings wrap cleanly.
- Desktop layout and outer section/container dimensions are untouched. */
-@media  (max-width: 760px)  {
-}
-@media  (max-width: 380px)  {
-}
-
 /* align process descriptions directly beneath their headings on mobile. */
-
-/* remove excess gap between process-card titles and descriptions on mobile.
- Override legacy grid placement explicitly so descriptions follow titles immediately. */
-@media  (max-width: 760px)  {
-}
-
-@media  (max-width: 380px)  {
-}
-
-/* refined mobile title-to-description spacing across all five process cards. */
-@media  (max-width: 760px)  {
-}
 
 /* reliable mobile spacing using a real text wrapper.
  Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
@@ -5071,11 +5020,6 @@ body.home-page .terms-card .terms-security-copy p {
 
 /* restore the desktop process-card text wrapper layout.
  Keep icon + number columns unchanged; let the copy occupy the full third column. */
-
-/* desktop-only refinement for the five account-assistance cards.
- Adjust interior content only; deliberately preserve the existing outer card border and radius. */
-@media  (min-width: 761px)  {
-}
 
 /* lift the ENTIRE contents of the Why Choose Arisu outer card.
  The outer border, radius, background, and horizontal padding are preserved.
@@ -5466,11 +5410,6 @@ body.home-page .why-arisu-section .why-arisu-note {
   }
 }
 
-/* restore a little breathing room above the mobile process section.
- Only the section's outside spacing changes; card internals and desktop layout stay untouched. */
-@media  (max-width: 640px)  {
-}
-
 /* apply the compact mobile gap to the actual moved sections.
  desktop-layout.js moves #services and #why-choose-arisu inside #desktopSocialDestination,
  so target them there rather than as direct children of main. */
@@ -5478,9 +5417,7 @@ body.home-page .why-arisu-section .why-arisu-note {
   html body.home-page #desktopSocialDestination > #services {
     margin-bottom: 0 !important;
   }
-  html body.home-page #desktopSocialDestination > #why-choose-arisu {
-    margin-top: 8px !important;
-  }
+
 }
 
 /* enforce the requested mobile text-size increases after legacy overrides.
@@ -6055,7 +5992,7 @@ body.home-page .purpose-card .purpose-kicker {
 /* bring the footer closer to the Legitimate Account Recovery card on mobile.
    Reduce the trailing main padding and footer gap; preserve the card's own spacing. */
 @media  (max-width: 600px)  {
-  html body.home-page main { padding-bottom: 8px !important; }
+  html body.home-page main { padding-bottom: 0 !important; }
   
 }
 
@@ -6607,19 +6544,6 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 /* keep Clear Guidance lifted 4px and lift Remember another 4px on mobile. */
 
 /* reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
-
-/* lift the Honest-through-Remember card group by another 2px on mobile. */
-@media  (max-width: 640px)  {
-  html body.home-page .why-arisu-card > .why-arisu-grid {
-    transform: translateY(-6px) !important;
-  }
-  html body.home-page .why-arisu-section .why-arisu-note {
-    transform: translateY(-10px) !important;
-  }
-  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
-    transform: translateY(-14px) !important;
-  }
-}
 
 /* reduce only the bottom padding of the Why Choose Arisu outer card by 8px on mobile. */
 @media  (max-width: 640px)  {
@@ -8640,26 +8564,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Desktop footer: use the same clear vertical order as mobile.
-   Keep the About card, location, link grid, and copyright on separate rows. */
-@media (min-width: 701px) {
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  /* Copyright shares the last grid row with Contact, just like mobile. */
-  
-}
-
 /* Desktop floating navigation: distinct, readable icon discs and a vivid Stories ring. */
 @media (min-width: 701px) {
   html body.home-page nav.mobile-bottom-nav > .mobile-nav-item:not(.mobile-nav-stories) > svg {
@@ -8770,23 +8674,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Desktop footer v2: restore the full-width navy footer and an editorial desktop row.
-   The compact two-column link grid is retained only for mobile. */
-@media (min-width: 701px) {
-
-  
-
-  
-
-  /* Restore the five footer links to a horizontal desktop row. */
-
-  
-
-  
-
-  
-}
-
 /* Desktop refinement v3: close the gap after the final safety card, enlarge footer typography,
    and scale up the floating quick-navigation without changing mobile/tablet rules. */
 @media (min-width: 701px) {
@@ -8855,18 +8742,11 @@ html body.home-page .purpose-card .purpose-signoff {
   }
 }
 
-/* Desktop spacing correction v4.
-   The Why Choose card is visually shifted up by 50px; reclaim that reserved flow space.
-   Also trim the excessive footer tail while leaving the floating nav clear of the copyright. */
+/* Preserve the verified desktop homepage main trailing-padding correction. */
 @media (min-width: 701px) {
-  html body.home-page #desktopSocialDestination > #why-choose-arisu {
-    margin-bottom: -50px !important;
-  }
-
   html body.home-page main {
     padding-bottom: 0 !important;
   }
-
 }
 
 @media (max-width: 600px) {

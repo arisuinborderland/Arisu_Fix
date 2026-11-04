@@ -55,3 +55,14 @@ test('Proofs CSS retains one copy of exact duplicate declarations', () => {
   assert.equal(css.includes(redundantPairRule), false);
   assert.equal((css.match(/@media\(max-width:600px\)\{\.proof-image-pair\{gap:2px\}\}/g) || []).length, 0);
 });
+
+
+test('Story Viewer empty-state CSS keeps one authoritative copy of repeated state rules', () => {
+  const css = read('story-viewer.css');
+  const hiddenRule = /html body \.story-viewer\.story-viewer-empty-open \.story-viewer-nav\{display:none!important\}/g;
+  const activeRule = /html body \.story-viewer\.story-viewer-empty-open \.story-viewer-empty-done:active\{transform:scale\(\.985\)!important\}/g;
+  const reducedMotionRule = /@media\(prefers-reduced-motion:reduce\)\s*\{\s*html body \.story-viewer\.story-viewer-empty-open \.story-viewer-empty-done\{transition:none!important\}\s*\}/g;
+  assert.equal((css.match(hiddenRule) || []).length, 1);
+  assert.equal((css.match(activeRule) || []).length, 1);
+  assert.equal((css.match(reducedMotionRule) || []).length, 1);
+});
