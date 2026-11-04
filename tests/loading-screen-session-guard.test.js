@@ -51,7 +51,7 @@ test('AFV452 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(lock.packages[''].version, '452.0.0');
   assert.ok(readme.includes('Current release: AFV452'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV452 — Consolidate Homepage Accordion CSS Without Layout Changes'));
+  assert.ok(history.startsWith('AFV452 — Preserve accordion heading IDs and make initialization atomic'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
