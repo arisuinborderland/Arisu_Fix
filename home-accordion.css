@@ -325,17 +325,6 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 
-/* AFV440 — Normalize the vertical text block across one- and two-line subtitles.
-   The trigger is fixed-height and its copy is vertically centered. Without a
-   reserved second subtitle line, one-line descriptions create a shorter copy
-   block and visibly larger top/bottom whitespace than the two-line Why card. */
-@media (max-width: 640px) {
-  .home-accordion-trigger-subtitle {
-    min-height: 2.36em;
-  }
-}
-
-
 /* AFV442 — Reclaim the mobile space left behind by visually lifted social cards.
    Their -26px reveal transform does not change normal flow height, leaving a blank
    strip before the accordion. Match that visual offset in the collage's flow box. */
@@ -355,15 +344,32 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 
-/* AFV444 — Center the rendered subtitle inside its reserved two-line slot.
-   The 2.36em slot keeps all 64px headers geometrically aligned, but a one-line
-   subtitle was top-aligned inside that slot, leaving its unused second line as
-   visible bottom whitespace. Center only the text inside the slot; do not change
-   trigger height, outer padding, card margins, or the two-line Why description. */
+/* AFV446 — Lock the mobile header's text geometry instead of tuning top/bottom
+   padding independently. The old auto-height copy block changed height with
+   one- versus two-line subtitles, making the fixed 64px trigger appear to swap
+   excess whitespace from top to bottom. A fixed title row plus a flexible,
+   vertically centered subtitle row gives every collapsed header the same
+   top/bottom inset and keeps the two-line Why subtitle inside the same box. */
 @media (max-width: 640px) {
+  .home-accordion-trigger {
+    align-items: stretch;
+  }
+  .home-accordion-trigger-copy {
+    align-self: stretch;
+    grid-template-rows: 22px minmax(0, 1fr);
+    gap: 0;
+  }
+  .home-accordion-trigger-title {
+    align-self: center;
+  }
   .home-accordion-trigger-subtitle {
-    display: grid;
-    align-content: center;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    line-height: 1.18;
   }
   .home-accordion-trigger-subtitle-text {
     display: -webkit-box;
@@ -372,15 +378,7 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     -webkit-line-clamp: 2;
     line-clamp: 2;
   }
-}
-
-
-/* AFV445 — Remove the unused second subtitle line from one-line mobile headers.
-   Keep the trigger at 64px. The Why description naturally occupies two lines;
-   Services and How now use only their real one-line subtitle height, reducing
-   the excess lower whitespace without changing card margins or panel content. */
-@media (max-width: 640px) {
-  .home-accordion-trigger-subtitle {
-    min-height: 1.18em;
+  .home-accordion-chevron {
+    align-self: center;
   }
 }
