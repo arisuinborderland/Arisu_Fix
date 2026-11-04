@@ -287,3 +287,31 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     margin-inline: 2px 4px;
   }
 }
+
+
+/* AFV438 — Refine mobile card rhythm without changing state parity.
+   Keep a small, consistent gap between sections and a compact fixed trigger. */
+@media (max-width: 640px) {
+  .home-accordion-item {
+    margin-block: 5px !important;
+  }
+  .home-accordion-trigger {
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    padding: 5px 13px;
+  }
+  .home-accordion-trigger-copy {
+    gap: 1px;
+  }
+  .home-accordion-trigger-title {
+    line-height: 1.12;
+  }
+  .home-accordion-trigger-subtitle {
+    line-height: 1.18;
+  }
+  .home-accordion-panel {
+    scroll-margin-top: 104px;
+    scroll-margin-bottom: 104px;
+  }
+}
