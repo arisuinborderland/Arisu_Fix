@@ -1,9 +1,13 @@
-/* AFV436 — Keep accordion header geometry identical in collapsed and expanded states. */
+/* AFV451 — Consolidated accordion styles.
+   Keep one authoritative desktop rule set and one mobile override set.
+   Values preserve the approved AFV450 layout while removing superseded cascade layers. */
+
 .home-accordion-item {
   position: relative;
   min-width: 0;
   margin-block: 12px;
 }
+
 .home-accordion-trigger {
   position: relative;
   z-index: 1;
@@ -25,31 +29,37 @@
   -webkit-tap-highlight-color: transparent;
   transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
 }
+
 .home-accordion-trigger:hover {
   border-color: rgba(53, 125, 235, .62);
   box-shadow: 0 7px 20px rgba(55, 91, 159, .13), inset 0 1px 0 rgba(255,255,255,.98);
 }
+
 .home-accordion-trigger:focus-visible {
   outline: 3px solid rgba(45, 119, 244, .42);
   outline-offset: 3px;
 }
+
 .home-accordion-trigger-copy {
   display: grid;
   min-width: 0;
   gap: 4px;
 }
+
 .home-accordion-trigger-title {
   color: #142247;
   font-size: clamp(20px, 3vw, 27px);
   font-weight: 800;
   line-height: 1.2;
 }
+
 .home-accordion-trigger-subtitle {
   color: #465a79;
   font-size: clamp(13px, 1.8vw, 16px);
   font-weight: 500;
   line-height: 1.4;
 }
+
 .home-accordion-chevron {
   flex: 0 0 13px;
   width: 13px;
@@ -60,15 +70,18 @@
   transform: rotate(45deg) translateY(-3px);
   transition: transform .28s ease;
 }
+
 .home-accordion-item.is-open > .home-accordion-trigger {
   border-color: rgba(66, 139, 242, .62);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: 0 3px 12px rgba(55, 91, 159, .08);
 }
+
 .home-accordion-item.is-open > .home-accordion-trigger .home-accordion-chevron {
   transform: rotate(225deg) translate(-2px, -1px);
 }
+
 .home-accordion-panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -80,285 +93,172 @@
   opacity: 0;
   transition: grid-template-rows .34s ease, opacity .24s ease, border-width .2s ease;
 }
+
 .home-accordion-item.is-open > .home-accordion-panel {
   grid-template-rows: 1fr;
   border-width: 0 1px 1px;
   opacity: 1;
 }
+
 .home-accordion-panel-inner {
   min-height: 0;
   overflow: hidden;
-  padding: 0 12px;
+  padding: 0 8px;
 }
+
 .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
-  padding-top: 12px;
-  padding-bottom: 14px;
+  padding-top: 8px;
+  padding-bottom: 9px;
 }
+
 .home-accordion-item #servicesTitle,
 .home-accordion-item #whyArisuTitle,
 .home-accordion-item #howTitle {
   scroll-margin-top: 100px;
 }
+
 .home-accordion-item .services-heading { margin-top: 0; }
 .home-accordion-item .why-arisu-card { margin-top: 0; }
 .how-assistance-section .why-arisu-card { width: 100%; }
-@media (max-width: 640px) {
-  .home-accordion-item { margin-block: 8px; }
-  .home-accordion-trigger {
-    min-height: 68px;
-    gap: 12px;
-    padding: 13px 15px;
-    border-radius: 17px;
-  }
-  .home-accordion-trigger-title { font-size: clamp(18px, 5vw, 22px); }
-  .home-accordion-trigger-subtitle { font-size: 13px; }
-  .home-accordion-panel { border-radius: 0 0 17px 17px; }
-  .home-accordion-panel-inner { padding-inline: 9px; }
-  .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
-    padding-top: 9px;
-    padding-bottom: 10px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .home-accordion-trigger, .home-accordion-chevron, .home-accordion-panel {
-    transition: none !important;
-  }
-}
 
-
-/* AFV428 follow-up: accordion panels add a wrapper around the legacy card.
-   The direct-child selector missed that nested card, so the old -50px lift remained
-   active and pulled the content into the About/footer area. Reset the card offset
-   for both accordion panels and undo the old desktop flow-space compensation. */
+/* The accordion wrapper changes the legacy card's positioning context.
+   Cancel the old visual lift only inside the wrapped accordion cards. */
 html body.home-page .home-accordion-item .why-arisu-card {
   position: relative !important;
   top: auto !important;
   translate: none !important;
 }
+
 html body.home-page #desktopSocialDestination > #why-choose-arisu {
   margin-bottom: 0 !important;
 }
 
-/* Keep panel content compact; trigger sizing is state-independent. */
-.home-accordion-panel-inner {
-  padding-inline: 8px;
-}
-.home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
-  padding-top: 8px;
-  padding-bottom: 9px;
-}
+/* Preserve the compact content sizing inside expanded panels. */
 .home-accordion-panel .service-card {
   padding: 12px !important;
   border-radius: 16px !important;
 }
+
 .home-accordion-panel .service-card-heading {
   gap: 10px !important;
 }
+
 .home-accordion-panel .service-card-heading h3 {
   font-size: 19px !important;
   line-height: 1.22 !important;
 }
+
 .home-accordion-panel .service-card-heading p {
   font-size: 12.5px !important;
   line-height: 1.38 !important;
 }
+
 .home-accordion-panel .service-issue-list {
   gap: 6px !important;
 }
+
 .home-accordion-panel .service-issue-list li {
   min-height: 38px !important;
   padding: 6px 8px !important;
   font-size: 11.5px !important;
   line-height: 1.3 !important;
 }
+
 .home-accordion-panel .service-platforms {
   padding: 9px !important;
   border-radius: 14px !important;
 }
+
 .home-accordion-panel .service-platforms h4 {
   margin-bottom: 7px !important;
   font-size: 14px !important;
   line-height: 1.25 !important;
 }
+
 .home-accordion-panel .service-platform-list {
   gap: 7px !important;
 }
+
 .home-accordion-panel .service-platform {
   gap: 7px !important;
   padding: 7px 8px !important;
 }
+
 .home-accordion-panel .deletion-option {
   padding: 9px !important;
   gap: 9px !important;
 }
+
 .home-accordion-panel .deletion-option h4 {
   font-size: 14px !important;
   line-height: 1.25 !important;
 }
+
 .home-accordion-panel .deletion-option p {
   font-size: 12px !important;
   line-height: 1.35 !important;
 }
+
 .home-accordion-panel .why-arisu-card {
   padding: 12px !important;
 }
+
 .home-accordion-panel .why-history-card {
   padding: 9px !important;
 }
+
 .home-accordion-panel .why-arisu-grid {
   gap: 7px !important;
 }
+
 .home-accordion-panel .why-arisu-item {
   padding: 9px !important;
 }
+
 .home-accordion-panel .why-arisu-note {
   margin-top: 7px !important;
   padding: 8px !important;
 }
+
 .home-accordion-panel .safety-panel {
   padding: 10px !important;
 }
 
 @media (max-width: 640px) {
   .home-accordion-item {
-    margin-block: 6px;
+    margin: 4px 0 !important;
   }
-  .home-accordion-panel {
-    border-radius: 0 0 15px 15px;
-  }
-  .home-accordion-panel-inner {
-    padding-inline: 7px;
-  }
-  .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
-    padding-top: 7px;
-    padding-bottom: 8px;
-  }
-}
-/* AFV431 root-cause fix:
-   Legacy mobile CSS translates the original Why-card grid upward by 6px.
-   In the How accordion the grid is now nested inside a clipped .why-arisu-card
-   wrapper, so that offset cuts off the first card's top edge. Reset only this
-   legacy lift in the How accordion; leave the Why section's approved spacing intact. */
-@media (max-width: 640px) {
-  html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid {
-    transform: none !important;
-  }
-}
 
-
-/* AFV437 — Compact mobile accordion headers.
-   Use content-driven height so every header keeps the same true vertical inset. */
-@media (max-width: 640px) {
   .home-accordion-trigger {
     box-sizing: border-box;
     height: auto;
     min-height: 0;
     max-height: none;
-    padding: 7px 13px;
     gap: 9px;
-  }
-  .home-accordion-trigger-copy {
-    min-width: 0;
-    gap: 2px;
-    overflow: hidden;
-  }
-  .home-accordion-trigger-title {
-    min-width: 0;
-    overflow: hidden;
-    font-size: 18px;
-    line-height: 1.15;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .home-accordion-trigger-subtitle {
-    display: grid;
-    align-content: center;
-    overflow: hidden;
-    font-size: 12px;
-    line-height: 1.2;
-  }
-  .home-accordion-trigger-subtitle-text {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-  }
-  .home-accordion-chevron {
-    flex-basis: 11px;
-    width: 11px;
-    height: 11px;
-    margin-inline: 2px 4px;
-  }
-}
-
-
-/* AFV438 — Refine mobile card rhythm without changing state parity.
-   Keep a small, consistent gap between sections and compact horizontal/vertical padding. */
-@media (max-width: 640px) {
-  /* Root cause: styles.css applies body.home-page .site-section { margin-top: 18px !important }
-     and a legacy #why-choose-arisu rule applies 8px. This parent-qualified selector
-     intentionally outranks both rules for every dynamically moved accordion section. */
-  html body.home-page #desktopSocialDestination > .home-accordion-item {
-    margin: 4px 0 !important;
-  }
-  .home-accordion-trigger {
     padding: 5px 13px;
+    border-radius: 17px;
   }
-  .home-accordion-trigger-copy {
-    gap: 1px;
-  }
-  .home-accordion-trigger-title {
-    line-height: 1.12;
-  }
-  .home-accordion-trigger-subtitle {
-    line-height: 1.18;
-  }
-  .home-accordion-panel {
-    scroll-margin-top: 104px;
-    scroll-margin-bottom: 104px;
-  }
-}
 
-
-/* AFV442 — Reclaim the mobile space left behind by visually lifted social cards.
-   Their -26px reveal transform does not change normal flow height, leaving a blank
-   strip before the accordion. Match that visual offset in the collage's flow box. */
-@media (max-width: 640px) {
-  html body.home-page #desktopSocialDestination > .social-collage {
-    margin-bottom: -26px !important;
-  }
-  html body.home-page #desktopSocialDestination > #services {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  html body.home-page #desktopSocialDestination > .home-accordion-item {
-    margin-block: 4px !important;
-  }
-}
-
-
-/* AFV449 — Remove the artificial subtitle spacer that caused the visible gap.
-   Keep the actual title/subtitle content in one naturally sized vertical group.
-   Center that complete group in the fixed trigger and use one explicit 2px gap.
-   The two-line Why subtitle naturally occupies more height; one-line subtitles
-   no longer reserve an invisible second line or create a false title gap. */
-@media (max-width: 640px) {
-  .home-accordion-trigger {
-    align-items: center;
-  }
   .home-accordion-trigger-copy {
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: center;
+    min-width: 0;
     gap: 2px;
+    overflow: hidden;
   }
+
   .home-accordion-trigger-title {
     align-self: auto;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 1.12;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
+
   .home-accordion-trigger-subtitle {
     display: block;
     align-self: auto;
@@ -367,8 +267,10 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-size: 12px;
     line-height: 1.18;
   }
+
   .home-accordion-trigger-subtitle-text {
     display: -webkit-box;
     overflow: hidden;
@@ -376,13 +278,53 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     -webkit-line-clamp: 2;
     line-clamp: 2;
   }
+
   .home-accordion-chevron {
+    flex-basis: 11px;
+    width: 11px;
+    height: 11px;
+    margin-inline: 2px 4px;
     align-self: center;
+  }
+
+  .home-accordion-panel {
+    border-radius: 0 0 15px 15px;
+    scroll-margin-top: 104px;
+    scroll-margin-bottom: 104px;
+  }
+
+  .home-accordion-panel-inner {
+    padding-inline: 7px;
+  }
+
+  .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+
+  /* The collage's reveal transform does not affect normal flow height.
+     Retain the approved visual overlap compensation before the accordion. */
+  html body.home-page #desktopSocialDestination > .social-collage {
+    margin-bottom: -26px !important;
+  }
+
+  html body.home-page #desktopSocialDestination > #services {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Legacy mobile CSS lifts this grid; reset it only in the How accordion. */
+  html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid {
+    transform: none !important;
   }
 }
 
-
-/* AFV450 root-cause correction:
-   Fixed 64px mobile headers forced one-line subtitles to leave unused vertical
-   space. AFV437 now uses natural height; AFV438 supplies the shared 5px inset.
-   The two-line Why Choose header grows naturally without changing its padding. */
+@media (prefers-reduced-motion: reduce) {
+  .home-accordion-trigger,
+  .home-accordion-chevron,
+  .home-accordion-panel {
+    transition: none !important;
+  }
+}
