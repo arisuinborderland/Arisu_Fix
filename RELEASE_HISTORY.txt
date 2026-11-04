@@ -1,3 +1,11 @@
+AFV460 — Responsive Homepage Redesign
+
+## AFV460 — Apply the approved homepage layout while preserving existing features
+- Reuse the existing homepage entry point and existing interactive components; no duplicate homepage is introduced.
+- Preserve Daily Bible Verse, WhatsApp contact, Service Status, existing recovery/review destinations and lightboxes, Stories navigation, the three-card accordion, About section, and footer.
+- Add a responsive two-column feature-card layout, wide Explore More card, and retain the existing Scam Awareness component.
+- Include the new homepage stylesheet in the explicit public build allowlist and synchronize release metadata.
+
 AFV459 — Homepage Accordion Feature Isolation
 
 ## AFV459 — Add the homepage accordion as a focused feature
