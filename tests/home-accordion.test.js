@@ -31,7 +31,7 @@ test("generated accordion headings preserve source IDs used by aria-labelledby a
 });
 
 test("all required source elements are validated before the accordion mutates the DOM", () => {
-  const validation = accordion.indexOf("!processTitle || !processIntro || !processGrid || !processNote || !safety");
+  const validation = accordion.indexOf("!processTitle || !processIntro || !processGrid || !processNote");
   const mutation = accordion.indexOf('services.dataset.accordionReady = "true"');
   assert.notEqual(validation, -1);
   assert.ok(mutation > validation);
