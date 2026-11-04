@@ -178,7 +178,7 @@ test('AFV430 About page uses the approved six-step Process Flow and preserves ke
   assert.doesNotMatch(html, /Established September 08, 2018/, 'the established-date line is no longer part of the About page');
   assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
   assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
-  assert.match(css, /AFV430 — remove the nested Legitimate Account Recovery notice card/);
+  assert.match(css, /AFV430 — remove the nested Legitimate Account Recovery Only notice from the Terms step/);
   const serviceStart = html.indexOf('class="about-process-service"');
   const serviceEnd = html.indexOf('class="about-process-step"', serviceStart);
   assert.doesNotMatch(html.slice(serviceStart, serviceEnd), /arisu-verified-badge|about-verified-badge/, 'About service heading has no blue badge or animation');
