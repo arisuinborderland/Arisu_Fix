@@ -1,10 +1,10 @@
-AFV447 — Correct Mobile Accordion Title-to-Subtitle Spacing
+AFV448 — Match Mobile Accordion Top and Bottom Insets to Why Choose
 
-## AFV447 — Center the complete title/subtitle group
-- Root cause: AFV446 stretched the copy block to fill the fixed 64px trigger, then vertically centered the subtitle inside the remaining row. One-line Services and How descriptions were therefore pushed too low, creating an excessive title-to-subtitle gap. This was an internal text-layout alignment issue, not outer card padding.
-- Let the title and subtitle use their natural one- or two-line heights, keep a consistent 2px gap, and center the complete text group within the fixed-height trigger.
-- Preserve the 64px header, 5px vertical outer inset, two-line Why subtitle clamp, 4px accordion rhythm, social-card spacing, expanded panel content, desktop layout, and approved footer.
-- Synchronize CSS/JS cache tokens, package/release metadata, and regression tests to AFV447 / 447.0.0.
+## AFV448 — Reuse Why Choose vertical spacing for all accordion headers
+- Root cause: one-line Services and How subtitles generated shorter text blocks than the two-line Why Choose subtitle, so the centered copy group had different top/bottom insets inside the fixed-height trigger.
+- Reserve the same two-line subtitle block height across all three triggers while preserving the original text and 2px title/subtitle gap. No forced line breaks or wording changes.
+- Keep the 64px trigger height, 4px inter-card rhythm, social-card spacing, expanded panel content, desktop layout, and approved footer unchanged.
+- Synchronize CSS/JS cache tokens, package/release metadata, and regression tests to AFV448 / 448.0.0.
 
 AFV446 — Stabilize Mobile Accordion Top and Bottom Spacing
 
