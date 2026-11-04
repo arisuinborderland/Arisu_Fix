@@ -7,7 +7,8 @@ const css = fs.readFileSync(path.join(__dirname, '..', 'about-page.css'), 'utf8'
 
 test('About page mobile spacing does not retain superseded floating-button clearance values', () => {
   assert.doesNotMatch(css, /padding-bottom:\s*76px\s*!important/);
-  assert.match(css, /body\.about-page \.about-page-main\s*\{\s*padding-bottom:\s*2px\s*!important/);
+  assert.doesNotMatch(css, /body\.about-page \.about-page-main\s*\{[^}]*padding-bottom:\s*2px\s*!important/);
+  assert.match(css, /padding-bottom:calc\(84px \+ env\(safe-area-inset-bottom,0px\)\) !important/);
 });
 
 test('About page stylesheet has no empty CSS rule blocks after cleanup', () => {
