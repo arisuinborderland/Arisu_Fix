@@ -70,6 +70,14 @@ test("desktop accordion geometry and typography retain the approved baseline", (
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
+test("accordion trigger has a circular, visibly tappable chevron control with pressed feedback", () => {
+  assert.match(styles, /\.home-accordion-chevron\s*\{[^}]*width:\s*36px[^}]*height:\s*36px[^}]*border-radius:\s*50%/);
+  assert.match(styles, /\.home-accordion-chevron::before\s*\{[^}]*border-right:\s*3px solid #2674e8[^}]*border-bottom:\s*3px solid #2674e8/);
+  assert.match(styles, /\.home-accordion-trigger:active\s*\{\s*transform:\s*translateY\(1px\)/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-chevron::before/);
+  assert.match(styles, /\.home-accordion-chevron\s*\{[^}]*flex-basis:\s*32px/);
+});
+
 test("mobile accordion keeps natural height, 5px vertical inset, and a 2px title/subtitle gap", () => {
   assert.match(styles, /height:\s*auto/);
   assert.match(styles, /min-height:\s*0/);
