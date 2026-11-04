@@ -1,18 +1,20 @@
 ARISU FIX — PROJECT README
-Version: AFV457
+Version: AFV458
 Updated: 2026-11-04
 
-Current release: AFV457
+Current release: AFV458
+AFV458 restores the shared 100px scroll offset for all three accordion headings and repairs the malformed selector without changing approved card geometry or spacing.
 AFV457 removes the duplicate default hidden-state rule for Recovery Proofs bottom navigation; the shared styles.css remains the single owner of that baseline.
 AFV454 removes the obsolete desktop -50px Why Choose flow compensation while preserving the approved accordion layout and homepage main trailing-padding correction.
 AFV453 preserves the approved mobile accordion layout and removes verified superseded homepage accordion transform offsets.
 AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set, preserving the approved AFV450 layout values and mobile spacing.
-Package version: 457.0.0
+Package version: 458.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV458 restores the 100px accordion heading scroll offset, repairs the malformed selector, and updates accordion CSS cache-busting.
 - AFV457 removes the repeated Proofs bottom-navigation display:none baseline from proofs.css and reuses the shared declaration in styles.css.
 - AFV454 removes the obsolete desktop -50px Why Choose margin compensation, preserves the desktop main padding correction, and refreshes the homepage stylesheet cache token.
 - AFV453 protects the approved mobile accordion layout and removes the superseded -6px/-10px/-14px legacy transform offsets.
