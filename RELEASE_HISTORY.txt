@@ -1,3 +1,12 @@
+AFV456 — Remove duplicate Story Viewer empty-state rules
+
+## AFV456 — Consolidate repeated Recovery Stories state declarations
+- Remove one exact duplicate empty-state visibility rule and one duplicate button active-feedback rule, retaining the later copies after the current visual overrides.
+- Consolidate three identical reduced-motion transition blocks into the final override after the Story Viewer layout rules.
+- Preserve the approved AFV389 card styling, dimensions, gradients, pseudo-element overlays, and interaction behavior.
+- Add regression coverage and refresh the Story Viewer stylesheet cache token on all five public pages.
+- Synchronize package metadata, README, and release history to AFV456 / 456.0.0.
+
 AFV455 — Remove empty legacy media-query blocks
 
 ## AFV455 — Remove empty media-query shells from styles.css
