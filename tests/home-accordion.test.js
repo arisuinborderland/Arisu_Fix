@@ -61,7 +61,7 @@ test("collapsed and expanded accordion headers share identical geometry and typo
 
 test("mobile accordion lets one-line subtitles use their natural height while Why retains two lines", () => {
   assert.match(styles, /AFV445[\s\S]*?\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\\{[^}]*-webkit-line-clamp:\s*2/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
 });
 
 test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
@@ -97,12 +97,12 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("AFV445 reduces one-line subtitle height without changing fixed mobile header geometry", () => {
+test("AFV445 reduces one-line subtitle height while preserving the two-line clamp and fixed mobile header geometry", () => {
   const js = fs.readFileSync(path.join(__dirname, "..", "home-accordion.js"), "utf8");
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
   assert.match(js, /home-accordion-trigger-subtitle-text/);
-  assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*min-height:\s*2\.36em/);
+  assert.match(css, /AFV445[\s\S]*?\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em/);
   assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*grid[^}]*align-content:\s*center/);
   assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
