@@ -84,9 +84,9 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV444 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV444/);
-  assert.match(html, /home-accordion\.js\?v=AFV444/);
+test("accordion assets are cache-busted to AFV445 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV445/);
+  assert.match(html, /home-accordion\.js\?v=AFV445/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
@@ -106,6 +106,6 @@ test("AFV445 reduces one-line subtitle height without changing fixed mobile head
   assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*grid[^}]*align-content:\s*center/);
   assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
-  assert.match(html, /home-accordion\.css\?v=AFV444/);
-  assert.match(html, /home-accordion\.js\?v=AFV444/);
+  assert.match(html, /home-accordion\.css\?v=AFV445/);
+  assert.match(html, /home-accordion\.js\?v=AFV445/);
 });
