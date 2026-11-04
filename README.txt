@@ -1,15 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV428
+Version: AFV429
 Updated: 2026-11-03
 
-Current release: AFV428
-Package version: 428.0.0
+Current release: AFV429
+Package version: 429.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV428 removes the animated blue verified badge from the “About Arisu Recovery Service” heading only. The heading and profile image remain; service description and disclaimer spacing is tightened for mobile and narrow phones. Other About steps, Terms, footer, shared header, and navigation remain unchanged.
+- AFV429 compacts the complete six-step About Process Flow on mobile: reduces timeline gaps, panel padding, icon footprints, paragraph spacing, and the nested Terms notice while preserving readable type and all original content. Desktop styling remains unchanged. About stylesheet cache token and release metadata updated to AFV429 / 429.0.0.
+- AFV429 removes the animated blue verified badge from the “About Arisu Recovery Service” heading only. The heading and profile image remain; service description and disclaimer spacing is tightened for mobile and narrow phones. Other About steps, Terms, footer, shared header, and navigation remain unchanged.
 - AFV427 replaces the separate About purpose, service profile, mission, and values cards with one premium glassmorphism parent card and an accessible five-step vertical Process Flow. Original purpose copy, service description, Meta/Facebook/Instagram disclaimer, mission, four values, creator signature, Terms & limitations, navigation, and footer are preserved; the separate Established September 08, 2018 line is removed from the About page. The About stylesheet cache token and release metadata are synchronized to AFV427.
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
 
