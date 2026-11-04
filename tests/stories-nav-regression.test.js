@@ -128,9 +128,9 @@ test('AFV429 package metadata and release notes are synchronized', () => {
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '428.0.0');
-  assert.equal(lock.version, '428.0.0');
-  assert.equal(lock.packages[''].version, '428.0.0');
+  assert.equal(pkg.version, '429.0.0');
+  assert.equal(lock.version, '429.0.0');
+  assert.equal(lock.packages[''].version, '429.0.0');
   assert.ok(readme.includes('Current release: AFV429'));
   assert.ok(history.startsWith('AFV429 — About Service Badge Removal & Mobile Spacing'));
 });
