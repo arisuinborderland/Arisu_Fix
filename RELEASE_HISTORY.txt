@@ -1,4 +1,10 @@
-AFV438 — Mobile Accordion Spacing and Open Auto-Scroll
+AFV439 — Fix Legacy Mobile Accordion Margins
+
+## AFV439 — Override legacy section margins for consistent compact spacing
+- Root cause: the generic `body.home-page .site-section { margin-top: 18px !important; }` rule in styles.css had higher specificity than the accordion's `.home-accordion-item` margin, while a legacy `#why-choose-arisu` rule separately forced an 8px top margin. This caused uneven, oversized gaps despite AFV438's 5px rule.
+- Replace the ineffective low-specificity margin with `html body.home-page #desktopSocialDestination > .home-accordion-item { margin: 4px 0 !important; }` inside the mobile breakpoint. This outranks both legacy rules and applies consistently to Services, Why Choose, and How sections.
+- Preserve 64px fixed header dimensions, typography, panel contents, single-open behavior, open-only smooth auto-scroll, and desktop layout.
+- Refresh accordion cache tokens, package metadata, release notes, and regression assertions.
 
 ## AFV438 — Refine mobile spacing and scroll to opened content
 - Reduce mobile accordion trigger height from 68px to a fixed 64px while preserving identical dimensions in collapsed and expanded states.
