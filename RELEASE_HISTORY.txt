@@ -1,4 +1,14 @@
-AFV437 — Compact Mobile Accordion Headers
+AFV438 — Mobile Accordion Spacing and Open Auto-Scroll
+
+## AFV438 — Refine mobile spacing and scroll to opened content
+- Reduce mobile accordion trigger height from 68px to a fixed 64px while preserving identical dimensions in collapsed and expanded states.
+- Tighten vertical trigger padding and title/description line spacing slightly; retain readable typography and room for two-line descriptions.
+- Enforce a consistent 5px vertical margin per accordion item to remove uneven section gaps while retaining visible breathing room.
+- When a section opens, smoothly scroll its newly revealed panel into view after the expand transition; closing a section does not auto-scroll.
+- Respect prefers-reduced-motion and account for the fixed header and bottom navigation using panel scroll margins.
+- Refresh asset cache tokens, package metadata, release history, and regression tests.
+
+## AFV437 — Compact Mobile Accordion Headers
 
 ## AFV437 — Compact fixed-height mobile accordion headers
 - Keep the corrected state-independent header geometry from AFV436 while reducing mobile visual bulk.
