@@ -41,7 +41,7 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(!/^\s*transition:\s*opacity \.24s ease, visibility \.24s ease;/m.test(css), 'default overlay state must not transition into view');
 });
 
-test('AFV460 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('AFV461 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
@@ -49,9 +49,9 @@ test('AFV460 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(pkg.version, '460.0.0');
   assert.equal(lock.version, '460.0.0');
   assert.equal(lock.packages[''].version, '460.0.0');
-  assert.ok(readme.includes('Current release: AFV460'));
+  assert.ok(readme.includes('Current release: AFV461'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV460 — Approved Connect with Arisu Homepage Layout'));
+  assert.ok(history.startsWith('AFV461 — Corrected Connect Mascot and Scam Awareness Mobile Layout'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
