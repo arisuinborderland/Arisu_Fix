@@ -292,8 +292,11 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 /* AFV438 — Refine mobile card rhythm without changing state parity.
    Keep a small, consistent gap between sections and a compact fixed trigger. */
 @media (max-width: 640px) {
-  .home-accordion-item {
-    margin-block: 5px !important;
+  /* Root cause: styles.css applies body.home-page .site-section { margin-top: 18px !important }
+     and a legacy #why-choose-arisu rule applies 8px. This parent-qualified selector
+     intentionally outranks both rules for every dynamically moved accordion section. */
+  html body.home-page #desktopSocialDestination > .home-accordion-item {
+    margin: 4px 0 !important;
   }
   .home-accordion-trigger {
     height: 64px;
