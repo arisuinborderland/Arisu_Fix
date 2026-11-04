@@ -1,3 +1,12 @@
+AFV457 — Remove duplicate Recovery Proofs navigation baseline
+
+## AFV457 — Reuse the shared default hidden state for Proofs navigation
+- Remove the exact duplicate `.mobile-bottom-nav { display:none; }` rule from proofs.css.
+- Keep the shared styles.css declaration as the single default owner; proofs.html loads styles.css before proofs.css.
+- Preserve all Proofs-specific mobile navigation layout, spacing, safe-area, active-state, and tap-interaction rules.
+- Add a regression test for stylesheet order and single ownership of the default rule.
+- Refresh only the Proofs stylesheet cache token and synchronize package metadata, README, and release history to AFV457 / 457.0.0.
+
 AFV456 — Remove duplicate Story Viewer empty-state rules
 
 ## AFV456 — Consolidate repeated Recovery Stories state declarations
