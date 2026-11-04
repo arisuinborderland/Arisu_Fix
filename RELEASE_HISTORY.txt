@@ -1,3 +1,12 @@
+AFV431 — Remove retired About page CSS and consolidate mobile heading rules
+
+## AFV431 — Targeted About CSS cleanup
+- Removed obsolete standalone-card styles and historical spacing overrides left behind by the unified six-step Process Flow.
+- Removed unused Terms nested-card selectors after the nested notice was deleted in AFV430.
+- Preserved the current Process Flow, service-heading spacing, mobile bottom navigation, and compact mobile heading rhythm.
+- Updated About stylesheet cache token and release metadata to AFV431 / 431.0.0.
+- Preview only; validate CI and mobile/desktop rendering before merge.
+
 AFV430 — Remove nested Legitimate Account Recovery notice
 
 ## AFV430 — Compact Terms & limitations step
