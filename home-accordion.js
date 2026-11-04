@@ -55,18 +55,37 @@
     // a missing section from leaving the homepage only partially converted.
     const serviceHeading = services.querySelector(".services-heading h2");
     const serviceIntro = services.querySelector(".services-heading > p");
+    const whyCard = why.querySelector(".why-arisu-card");
+    const whyHeading = whyCard?.querySelector(".why-arisu-heading");
+    const whyTitle = whyHeading?.querySelector("h2");
+    const whyIntro = whyHeading?.querySelector("p");
+    const processTitle = processHeading.querySelector("h2");
+    const processIntro = processHeading.querySelector("p");
+    const processGrid = whyCard?.querySelector(".why-arisu-grid");
+    const processNote = whyCard?.querySelector(".why-arisu-note");
+    const safety = whyCard?.querySelector("#account-safety");
+
+    if (
+      !serviceHeading || !serviceIntro ||
+      !whyCard || !whyHeading || !whyTitle || !whyIntro ||
+      !processTitle || !processIntro || !processGrid || !processNote || !safety
+    ) return;
+
+    const items = [];
+    services.dataset.accordionReady = "true";
+
+    services.classList.add("home-accordion-item");
+    const serviceButton = makeTrigger(services, serviceHeading, serviceIntro.textContent.trim(), "homeAccordionServicesPanel", 1);
+    serviceHeading.remove();
+    serviceIntro.remove();
+    const servicePanel = makePanel(services, "homeAccordionServicesPanel", serviceButton);
+    items.push({ section: services, button: serviceButton, panel: servicePanel });
+
     why.classList.add("home-accordion-item");
     const whyButton = makeTrigger(why, whyTitle, whyIntro.textContent.trim(), "homeAccordionWhyPanel", 2);
     whyHeading.remove();
     const whyPanel = makePanel(why, "homeAccordionWhyPanel", whyButton);
     items.push({ section: why, button: whyButton, panel: whyPanel });
-
-    const processTitle = processHeading.querySelector("h2");
-    const processIntro = processHeading.querySelector("p");
-    const processGrid = whyCard.querySelector(".why-arisu-grid");
-    const processNote = whyCard.querySelector(".why-arisu-note");
-    const safety = whyCard.querySelector("#account-safety");
-    if (!processTitle || !processIntro || !processGrid || !processNote || !safety) return;
 
     const how = createElement("section", "site-section why-arisu-section how-assistance-section home-accordion-item");
     how.id = "how-assistance-works";
