@@ -1,10 +1,176 @@
-AFV434 — About Page Main Sync and Legacy CSS Cleanup
+AFV451 — Consolidate Homepage Accordion CSS Without Layout Changes
 
-## AFV434 — Rebase approved About Process Flow on latest main
-- Applied the approved six-step About Process Flow markup and consolidated page stylesheet to a clean branch based on the latest main.
-- Removed only the 27-line retired About-specific footer selector layer from styles.css; retained the shared footer and all unrelated page styles.
-- Added dedicated About Process Flow regression coverage and synchronized package release metadata.
-- Preserved the latest homepage accordion, Reviews, Recovery Proofs, and Story Viewer work from main.
+## AFV451 — Remove superseded accordion cascade layers
+- Audit the accumulated AFV428–AFV450 accordion overrides and consolidate them into one desktop rule set and one mobile override set.
+- Remove declarations that were fully superseded by later rules, including duplicate subtitle clamping, intermediate trigger spacing, and intermediate panel padding.
+- Preserve the approved AFV450 values: natural mobile trigger height, 5px top/bottom inset, 2px title/subtitle gap, 4px inter-card spacing, 7px/8px expanded panel inset, and existing desktop geometry.
+- Preserve the high-specificity mobile section-margin override so legacy .site-section margins cannot reintroduce excess spacing.
+- Keep expanded panel content, accordion behavior, social-card placement, desktop styling, and the approved footer unchanged.
+- Update accordion cache tokens and package/release metadata to AFV451 / 451.0.0; add regression assertions for consolidated selectors and preserved spacing.
+
+AFV450 — Match Mobile Accordion Top and Bottom Insets to Why Choose
+
+## AFV450 — Remove the fixed mobile trigger height at its source
+- Root cause: the shared 64px mobile trigger height forced one-line Services and How subtitles to leave unused vertical space, making their top/bottom insets appear larger than Why Choose.
+- Remove fixed height/min-height/max-height constraints from the mobile header sizing rules. Use natural content height and one shared 5px vertical padding value.
+- Preserve the 2px title/subtitle gap. Why Choose naturally grows to accommodate its two-line subtitle without changing its padding.
+- Preserve the 4px inter-card spacing, social-card placement, expanded panels, desktop styling, and approved footer.
+- Update homepage accordion cache tokens, package metadata, README, and regression tests to AFV450 / 450.0.0.
+
+AFV449 — Remove Artificial Mobile Accordion Subtitle Spacing
+
+## AFV449 — Fix title-to-subtitle gap at its source
+- Root cause: AFV448 reserved a two-line minimum height for every subtitle. One-line Services and How descriptions therefore carried an invisible second line, creating excess vertical whitespace and a visibly oversized title/subtitle gap.
+- Replace the reserved subtitle height with natural content height; use a flex column text group centered in the fixed trigger with one explicit 2px gap.
+- Reset subtitle margin and padding to zero. Keep the original wording and natural two-line wrapping for Why Choose.
+- Preserve 64px trigger height, 4px inter-card rhythm, social-card spacing, expanded panel content, desktop layout, and approved footer.
+- Synchronize cache tokens, package/release metadata, and regression tests to AFV449 / 449.0.0.
+
+AFV449 — Match Mobile Accordion Top and Bottom Insets to Why Choose
+
+## AFV449 — Reuse Why Choose vertical spacing for all accordion headers
+- Root cause: one-line Services and How subtitles generated shorter text blocks than the two-line Why Choose subtitle, so the centered copy group had different top/bottom insets inside the fixed-height trigger.
+- Reserve the same two-line subtitle block height across all three triggers while preserving the original text and 2px title/subtitle gap. No forced line breaks or wording changes.
+- Keep the 64px trigger height, 4px inter-card rhythm, social-card spacing, expanded panel content, desktop layout, and approved footer unchanged.
+- Synchronize CSS/JS cache tokens, package/release metadata, and regression tests to AFV449 / 449.0.0.
+
+AFV446 — Stabilize Mobile Accordion Top and Bottom Spacing
+
+## AFV446 — Fixed two-row mobile accordion header geometry
+- Root cause: the 64px trigger used a vertically centered, content-sized copy block. Its height changed between one-line Services/How subtitles and the two-line Why subtitle. AFV440/AFV444/AFV445 then alternated between reserving and removing a second subtitle line, which changed the perceived top/bottom whitespace rather than fixing the underlying geometry.
+- Replace the competing subtitle min-height rules with a fixed 22px title row and a flexible subtitle row that vertically centers one or two lines. Keep the 64px trigger and 5px vertical outer inset unchanged.
+- Preserve the 4px accordion rhythm, social-card-to-accordion spacing, expanded panel content, desktop layout, and approved footer.
+- Synchronize package/release metadata, asset cache-busting, and regression assertions to AFV446 / 446.0.0.
+
+AFV445 — Reduce One-Line Mobile Accordion Subtitle Height
+
+## AFV445 — Remove unused subtitle line from one-line mobile accordion headers
+- Root cause: AFV444 centered the subtitle text inside a reserved two-line slot, but that still retained unused vertical space for one-line descriptions. The latest mobile adjustment removes the reserved second line for the one-line Services and How subtitles while allowing the Why subtitle to wrap naturally to two lines.
+- Keep the fixed 64px mobile trigger, 4px accordion card rhythm, AFV442 social-card flow correction, panel content, desktop layout, and approved footer unchanged.
+- Synchronize package/release metadata and regression assertions to AFV445 / 445.0.0.
+
+AFV444 — Center Mobile Accordion Subtitle Text Within Reserved Slot
+
+## AFV444 — Remove the visual bottom-heavy subtitle alignment
+- Root cause: AFV443 correctly restored a shared 2.36em subtitle slot, but a one-line subtitle remained top-aligned inside that two-line slot. The unused second line therefore appeared as excess whitespace below the text in What Services and How account assistance.
+- Wrap subtitle text in a dedicated inner span and center that text vertically within the existing subtitle slot using grid alignment.
+- Preserve the fixed 64px mobile trigger geometry, 2.36em reserved subtitle slot, two-line Why description, 4px accordion-item rhythm, AFV442 social-card flow correction, and approved About/footer styling.
+- Refresh accordion CSS/JS cache tokens, package metadata, README/release history, and regression coverage. No card padding, outer margins, desktop CSS, or footer changes.
+
+AFV443 — Restore Balanced Mobile Accordion Text Spacing
+
+## AFV443 — Remove the conflicting one-line subtitle override
+- Root cause: AFV442 appended a later `.home-accordion-trigger-subtitle { min-height: 1.18em; }` rule, overriding AFV440's intentional `min-height: 2.36em` two-line reserve. This shortened the vertically centered text group inside the fixed 64px trigger and recreated excessive top/bottom whitespace on one-line Services and How subtitles.
+- Remove only the conflicting AFV442 override. Restore the shared 2.36em subtitle slot for all three triggers so one-line and two-line descriptions occupy a consistent text block.
+- Preserve the 64px trigger height, 4px inter-card rhythm, AFV442's -26px social-collage flow correction, Services wrapper padding correction, and approved About/footer styling.
+- Refresh accordion CSS/JS cache tokens, package metadata, README/release history, and regression coverage. No desktop CSS or social-card spacing changes.
+
+AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text
+
+## AFV442 — Remove the visual-transform flow gap and excess subtitle reserve
+- Root cause: the social collage cards are visually translated upward by 26px via `--arc-reveal-offset`, but transforms do not reduce the collage's normal-flow height. The following accordion therefore starts after an invisible 26px strip.
+- Apply a matching -26px mobile-only bottom margin to the social collage, so the accordion follows the visible card edges rather than the pre-transform layout box.
+- Remove legacy top/bottom padding from the moved Services wrapper and retain a controlled 4px accordion-item rhythm.
+- Replace the forced two-line subtitle minimum with a natural one-line minimum; two-line descriptions expand naturally while fixed 64px trigger geometry and centered alignment remain unchanged.
+- Refresh stylesheet/script cache tokens, package metadata, README/release history, and regression coverage. Desktop layout and the approved About/footer styling remain untouched.
+
+AFV441 — Remove leftover homepage bottom padding after accordion
+
+## AFV441 — Balance mobile spacing below the homepage accordion
+- Root cause: a legacy mobile `main` bottom-padding rule still added 8px below the moved accordion group, on top of the last accordion item's margin and the reference footer's top margin.
+- Set the homepage `main` mobile bottom padding to 0px so the bottom spacing no longer accumulates after the final accordion card.
+- Preserve the accordion's fixed 64px headers, 4px inter-card rhythm, footer's approved 8px top gap, card internals, and desktop layout.
+- Refresh the homepage stylesheet cache token and package/release metadata.
+
+AFV440 — Normalize Mobile Accordion Text Spacing
+
+## AFV440 — Equalize vertical text spacing across accordion headers
+- Root cause: the fixed-height mobile trigger vertically centers a title/subtitle group whose natural height varies with subtitle wrapping. The two-line Why Choose subtitle fills more vertical space, while the one-line Services and How subtitles create visibly larger top/bottom whitespace.
+- Reserve a two-line subtitle slot (`min-height: 2.36em`) for all mobile accordion triggers. The text group now occupies a consistent height and aligns with the same vertical rhythm across all three cards.
+- Preserve the fixed 64px header, existing typography, card-to-card margins, expanded content, open-only smooth auto-scroll, reduced-motion behavior, and desktop layout.
+- Refresh accordion cache tokens, package metadata, README/release history, and regression coverage.
+
+## AFV439 — Fix Legacy Mobile Accordion Margins
+
+## AFV439 — Override legacy section margins for consistent compact spacing
+- Root cause: the generic `body.home-page .site-section { margin-top: 18px !important; }` rule in styles.css had higher specificity than the accordion's `.home-accordion-item` margin, while a legacy `#why-choose-arisu` rule separately forced an 8px top margin. This caused uneven, oversized gaps despite AFV438's 5px rule.
+- Replace the ineffective low-specificity margin with `html body.home-page #desktopSocialDestination > .home-accordion-item { margin: 4px 0 !important; }` inside the mobile breakpoint. This outranks both legacy rules and applies consistently to Services, Why Choose, and How sections.
+- Preserve 64px fixed header dimensions, typography, panel contents, single-open behavior, open-only smooth auto-scroll, and desktop layout.
+- Refresh accordion cache tokens, package metadata, release notes, and regression assertions.
+
+## AFV438 — Refine mobile spacing and scroll to opened content
+- Reduce mobile accordion trigger height from 68px to a fixed 64px while preserving identical dimensions in collapsed and expanded states.
+- Tighten vertical trigger padding and title/description line spacing slightly; retain readable typography and room for two-line descriptions.
+- Enforce a consistent 5px vertical margin per accordion item to remove uneven section gaps while retaining visible breathing room.
+- When a section opens, smoothly scroll its newly revealed panel into view after the expand transition; closing a section does not auto-scroll.
+- Respect prefers-reduced-motion and account for the fixed header and bottom navigation using panel scroll margins.
+- Refresh asset cache tokens, package metadata, release history, and regression tests.
+
+## AFV437 — Compact Mobile Accordion Headers
+
+## AFV437 — Compact fixed-height mobile accordion headers
+- Keep the corrected state-independent header geometry from AFV436 while reducing mobile visual bulk.
+- Set mobile headers to a fixed 68px height with 7px 13px padding, 18px titles, and 12px descriptions clamped to at most two lines.
+- Keep all three mobile accordion headers the same height even when descriptions wrap; prevent text wrapping from stretching the card.
+- Slightly reduce the mobile chevron dimensions. Desktop sizing and expanded panel content remain unchanged.
+- Refresh accordion CSS/JS cache tokens, release metadata, and regression tests.
+
+## AFV436 — Equal Accordion Header Dimensions
+
+## AFV436 — Keep collapsed and expanded headers identical
+- Root cause: AFV435 applied separate collapsed-only overrides to trigger height, padding, title/subtitle typography, and chevron size, making the header visibly change dimensions when toggled.
+- Remove the collapsed-only trigger overrides. Both states now use the same desktop and mobile trigger geometry, title size, subtitle size, line-height, and alignment; only the panel visibility and chevron direction change.
+- Preserve compact inner panel content, the all-closed initial state, single-open interaction, How-section clipping correction, and footer/layout fixes.
+- Refresh homepage accordion CSS/JS cache tokens and synchronize package metadata and regression assertions.
+
+## AFV435 — Balanced Compact Collapsed Accordion Headers
+
+## AFV435 — Slightly increase collapsed header sizing after preview
+- Root cause: AFV433 used a 48px mobile minimum with two stacked text lines, 4px copy gap, and 12px total vertical padding; intrinsic content height kept the rendered header close to 49px CSS despite the nominal minimum.
+- Reduce only collapsed-state dimensions: 40px mobile minimum, 14px title, 9.5px subtitle, 3px vertical padding, 2px text gap, and a smaller chevron. Desktop collapsed dimensions are also reduced to 48px with 15px/10px text.
+- Preserve expanded header sizing, full expanded content, and single-open/all-closed behavior.
+- Synchronize accordion cache tokens, package/release metadata, and regression assertions; correct three stale release-version test expectations that caused the previous CI run to fail.
+
+AFV432 — Compact Collapsed Accordion Headers
+
+## AFV432 — Keep collapsed headers to two compact lines
+- Scope compact header sizing to collapsed accordion items only.
+- Keep the title on one line and the subtitle on one line with ellipsis when it exceeds available width.
+- Preserve expanded header sizing, all expanded panel content, and the existing single-open interaction.
+- Retain compact panel-content spacing and the AFV431 How-card clipping correction.
+- Add regression assertions and update accordion asset cache tokens and package/release metadata to AFV432.
+
+AFV431 — How Accordion First Card Clipping Fix
+
+## AFV431 — Remove the legacy mobile grid lift inside How accordion
+- Root cause: styles.css applies a legacy `translateY(-6px)` transform to the original Why-card grid on mobile. After the accordion restructuring, that grid sits inside an `overflow: hidden` card wrapper in the How section, clipping the first card's top edge.
+- Add a narrowly scoped mobile override for `.how-assistance-section .why-arisu-card > .why-arisu-grid` with `transform: none !important`.
+- Preserve the Why Choose Arisu section's existing layout and spacing; no broad CSS refactor.
+- Add a regression assertion and bump accordion cache tokens and package/release metadata to AFV431.
+
+AFV430 — All Homepage Accordions Start Collapsed
+
+## AFV430 — Set the homepage accordion initial state to closed
+- Clarified the required default behavior: all three accordion sections start collapsed on a fresh page load.
+- Removed the Services `is-open` class and its initially expanded ARIA/panel state.
+- Initialize every trigger with `aria-expanded=false` and every panel as inert; normalize the completed accordion with `setOpen(null)`.
+- Preserve the single-open interaction: opening one section closes the previous section; tapping the active section closes it.
+- Bump accordion CSS/JS cache tokens and release metadata to AFV430.
+- Update regression coverage to assert the all-closed initial state.
+
+AFV428 — Homepage Single-Open Accordion
+
+## AFV428 — Compact the three homepage information sections
+- Reorganized “What Services I Offer”, “Why Choose Arisu?”, and “How Account Assistance Works” into a single-open accordion in the approved order.
+- All three sections start collapsed; opening another section closes the previously open section.
+- Preserved the existing service details, history content, process guidance, safety reminder, and original card content.
+- Added accessible button controls, expanded-state semantics, native keyboard support, animated panel transitions, and reduced-motion handling.
+- Removed the duplicated Services subtitle after moving its copy into the accordion trigger.
+- Fixed the nested-card selector: the accordion panel wrapper meant the earlier direct-child offset reset did not match. Reset legacy -50px card translation for both accordion panels and removed the obsolete desktop negative-margin compensation.
+- Fixed the mobile footer overlap: replaced the legacy -44px homepage footer lift with an 8px gap in footer-reference.css.
+- Compacted accordion headers, service issue tiles, platform cards, history/process cards, and safety content.
+- Added regression coverage for single-open behavior, nested card positioning, footer spacing, and compact layout.
+- Preview required on mobile and desktop before merge. Do not merge until visual validation is approved.
 
 AFV425 — Reviews and Proofs Header CSS Cleanup
 
@@ -1158,3 +1324,9 @@ AFV261 — 2026-10-23
 - Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV261 / 261.0.0.
 
 AFV300 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.
+
+
+AFV433 — 2026-11-04
+- Reduced collapsed homepage accordion header height, title size, subtitle size, and vertical padding on mobile; desktop collapsed headers are also more compact.
+- Kept expanded headers, expanded panel content, single-open behavior, and all footer/layout fixes unchanged.
+- Added regression assertions for the compact collapsed dimensions and synchronized cache-busting references and package metadata.

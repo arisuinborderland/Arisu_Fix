@@ -73,7 +73,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -89,7 +89,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -105,7 +105,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -121,7 +121,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -178,11 +178,11 @@ test('AFV418 Privacy mobile content uses a compact icon/text layout and tighter 
   assert.match(privacy, /margin-top: 18px !important/);
 });
 
-test('AFV431 About mobile heading spacing uses the compact Process Flow layout', () => {
+test('AFV418 About mobile heading spacing is tightened without changing desktop rules', () => {
   const about = read('about-page.css');
-  assert.match(about, /AFV431 — approved compact mobile heading rhythm/);
-  assert.match(about, /padding-top: 8px/);
-  assert.match(about, /margin-bottom: 2px/);
+  assert.match(about, /AFV418 — Bring About page heading/);
+  assert.match(about, /padding-top: 16px !important/);
+  assert.match(about, /margin-bottom: 13px !important/);
 });
 
 test('AFV423 desktop homepage verified check is not pinned to its hidden SVG dash offset', () => {
