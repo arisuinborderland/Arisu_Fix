@@ -59,6 +59,10 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
+test("mobile accordion reserves two subtitle lines so all trigger text blocks share the same vertical rhythm", () => {
+  assert.match(styles, /@media \\(max-width:\\s*640px\\)\\s*\\{[\\s\\S]*?\\.home-accordion-trigger-subtitle\\s*\\{[^}]*min-height:\\s*2\\.36em/);
+});
+
 test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
   assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
   assert.match(styles, /Root cause: styles\.css applies body\.home-page \.site-section/);
@@ -79,8 +83,8 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV439 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV439/);
-  assert.match(html, /home-accordion\.js\?v=AFV439/);
+test("accordion assets are cache-busted to AFV440 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV440/);
+  assert.match(html, /home-accordion\.js\?v=AFV440/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
