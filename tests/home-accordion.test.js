@@ -83,9 +83,9 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV442 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV442/);
-  assert.match(html, /home-accordion\.js\?v=AFV442/);
+test("accordion assets are cache-busted to AFV443 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV443/);
+  assert.match(html, /home-accordion\.js\?v=AFV443/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
