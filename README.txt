@@ -1,17 +1,19 @@
 ARISU FIX — PROJECT README
-Version: AFV453
+Version: AFV454
 Updated: 2026-11-04
 
-Current release: AFV453
-AFV453 preserves the approved mobile accordion layout, removes verified superseded homepage accordion transform offsets, and synchronizes package metadata and accordion cache tokens.
+Current release: AFV454
+AFV454 removes the obsolete desktop -50px Why Choose flow compensation while preserving the approved accordion layout and homepage main trailing-padding correction.
+AFV453 preserves the approved mobile accordion layout and removes verified superseded homepage accordion transform offsets.
 AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set, preserving the approved AFV450 layout values and mobile spacing.
-Package version: 453.0.0
+Package version: 454.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV453 protects the approved mobile accordion layout, removes the superseded -6px/-10px/-14px legacy transform offsets, and synchronizes package/lockfile versions, accordion cache tokens, and regression tests.
+- AFV454 removes the obsolete desktop -50px Why Choose margin compensation, preserves the desktop main padding correction, and refreshes the homepage stylesheet cache token.
+- AFV453 protects the approved mobile accordion layout and removes the superseded -6px/-10px/-14px legacy transform offsets.
 - AFV452 preserves accordion heading IDs and makes initialization atomic without changing the approved visual layout.
 - AFV451 consolidates the homepage accordion CSS while preserving the approved layout and computed spacing.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
