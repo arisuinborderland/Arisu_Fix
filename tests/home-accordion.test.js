@@ -78,20 +78,20 @@ test("accordion card and heading text visibly communicate an interactive control
   assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger\s*\{[^}]*inset 3px 0 0 #347fe8/);
 });
 
-test("accordion trigger displays and updates an explicit expand/collapse action cue", () => {
-  assert.match(accordion, /createElement\("span", "home-accordion-trigger-hint", initiallyOpen \? "TAP TO COLLAPSE" : "TAP TO EXPAND"\)/);
-  assert.match(accordion, /hint\.textContent = open \? "TAP TO COLLAPSE" : "TAP TO EXPAND"/);
-  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*border-radius:\s*999px[^}]*font-size:\s*9px[^}]*font-weight:\s*800/);
+test("accordion trigger displays a right-aligned Expand/Collapse pill", () => {
+  assert.match(accordion, /createElement\("span", "home-accordion-trigger-hint", initiallyOpen \? "COLLAPSE" : "EXPAND"\)/);
+  assert.match(accordion, /button\.append\(copy, hint\)/);
+  assert.match(accordion, /hint\.textContent = open \? "COLLAPSE" : "EXPAND"/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*78px[^}]*border-radius:\s*999px[^}]*background:\s*linear-gradient/);
   assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-trigger-hint/);
-  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*font-size:\s*8px/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*66px/);
 });
 
-test("accordion trigger has a circular, visibly tappable chevron control with pressed feedback", () => {
-  assert.match(styles, /\.home-accordion-chevron\s*\{[^}]*width:\s*36px[^}]*height:\s*36px[^}]*border-radius:\s*50%/);
-  assert.match(styles, /\.home-accordion-chevron::before\s*\{[^}]*border-right:\s*3px solid #2674e8[^}]*border-bottom:\s*3px solid #2674e8/);
+test("accordion Expand/Collapse pill has pressed feedback and directional state cue", () => {
+  assert.match(styles, /\.home-accordion-trigger-hint::after\s*\{[^}]*border-right:\s*2px solid currentColor[^}]*border-bottom:\s*2px solid currentColor/);
   assert.match(styles, /\.home-accordion-trigger:active\s*\{\s*transform:\s*translateY\(1px\)/);
-  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-chevron::before/);
-  assert.match(styles, /\.home-accordion-chevron\s*\{[^}]*flex-basis:\s*32px/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-trigger-hint::after/);
+  assert.doesNotMatch(styles, /\.home-accordion-chevron/);
 });
 
 test("mobile accordion keeps natural height, 5px vertical inset, and a 2px title/subtitle gap", () => {
