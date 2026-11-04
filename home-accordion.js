@@ -22,12 +22,10 @@
     const description = createElement("span", "home-accordion-trigger-subtitle");
     const descriptionText = createElement("span", "home-accordion-trigger-subtitle-text", subtitle);
     description.append(descriptionText);
-    const hint = createElement("span", "home-accordion-trigger-hint", initiallyOpen ? "TAP TO COLLAPSE" : "TAP TO EXPAND");
-    copy.append(heading, description, hint);
-
-    const chevron = createElement("span", "home-accordion-chevron");
-    chevron.setAttribute("aria-hidden", "true");
-    button.append(copy, chevron);
+    const hint = createElement("span", "home-accordion-trigger-hint", initiallyOpen ? "COLLAPSE" : "EXPAND");
+    hint.setAttribute("aria-hidden", "true");
+    copy.append(heading, description);
+    button.append(copy, hint);
     section.insertBefore(button, section.firstChild);
     return button;
   };
@@ -105,7 +103,7 @@
         item.section.classList.toggle("is-open", open);
         item.button.setAttribute("aria-expanded", String(open));
         const hint = item.button.querySelector(".home-accordion-trigger-hint");
-        if (hint) hint.textContent = open ? "TAP TO COLLAPSE" : "TAP TO EXPAND";
+        if (hint) hint.textContent = open ? "COLLAPSE" : "EXPAND";
         item.panel.inert = !open;
       });
     };
