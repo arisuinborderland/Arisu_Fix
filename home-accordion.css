@@ -344,19 +344,20 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 
-/* AFV448 — Reuse Why Choose's exact mobile vertical text-block geometry.
-   The remaining top/bottom mismatch came from one-line subtitles producing a
-   shorter copy block than the two-line Why subtitle. Reserve the same two-line
-   subtitle height in all three triggers, keep the text itself natural (no forced
-   line breaks), and center the complete block. This gives Services and How the
-   same top/bottom inset as Why without changing card height or outer margins. */
+/* AFV449 — Remove the artificial subtitle spacer that caused the visible gap.
+   Keep the actual title/subtitle content in one naturally sized vertical group.
+   Center that complete group in the fixed trigger and use one explicit 2px gap.
+   The two-line Why subtitle naturally occupies more height; one-line subtitles
+   no longer reserve an invisible second line or create a false title gap. */
 @media (max-width: 640px) {
   .home-accordion-trigger {
     align-items: center;
   }
   .home-accordion-trigger-copy {
+    display: flex;
+    flex-direction: column;
     align-self: center;
-    grid-template-rows: auto auto;
+    justify-content: center;
     gap: 2px;
   }
   .home-accordion-trigger-title {
@@ -366,7 +367,9 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     display: block;
     align-self: auto;
     height: auto;
-    min-height: calc(2 * 1.18em);
+    min-height: 0;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     line-height: 1.18;
   }
