@@ -99,7 +99,7 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("AFV448 centers the natural title/subtitle group, removes the excessive one-line title-to-subtitle gap, and preserves the two-line clamp", () => {
+test("AFV448 reuses Why Choose vertical text-block geometry without changing subtitle wording", () => {
   const js = fs.readFileSync(path.join(__dirname, "..", "home-accordion.js"), "utf8");
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
