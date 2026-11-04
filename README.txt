@@ -1,17 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV447
+Version: AFV448
 Updated: 2026-11-04
 
-Current release: AFV447
-AFV447 fixes the excessive gap between one-line mobile accordion titles and subtitles. Root cause: AFV446 centered the subtitle inside a stretched remaining row, which pushed one-line descriptions too low. The complete natural-height title/subtitle group is now centered as one unit with a consistent 2px internal gap; two-line Why text remains supported. Card height, 4px inter-card rhythm, social-card spacing, panel content, desktop layout, and approved footer remain unchanged.
+Current release: AFV448
+AFV448 reuses the Why Choose card's two-line subtitle block height for all three mobile accordion headers. Root cause: one-line Services and How subtitles created a shorter text block and therefore different top/bottom insets inside the fixed-height trigger. A consistent two-line subtitle box now reserves identical vertical geometry while preserving the original one-line wording, 2px title/subtitle gap, card height, 4px inter-card rhythm, social-card spacing, panel content, desktop layout, and approved footer.
 Mobile accordion headers use a compact fixed 64px height. A high-specificity parent selector now overrides legacy 18px and 8px section margins, setting a consistent 4px mobile margin for all three accordion cards. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
-Package version: 447.0.0
+Package version: 448.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV447 replaces competing one-line/two-line subtitle min-height overrides with a deterministic two-row text layout inside the fixed 64px mobile trigger. This stabilizes top and bottom whitespace without changing card margins, panel content, desktop layout, or footer.
+- AFV448 applies the same two-line subtitle block height to Services, Why Choose, and How, matching the top/bottom text-block inset of the Why Choose reference. Text remains unchanged; no forced line breaks are added.
 - AFV444 fixes the remaining bottom-heavy appearance in the What Services and How account assistance headers. Root cause: the shared 2.36em subtitle slot preserved equal header geometry, but the one-line text remained top-aligned inside the slot, leaving the unused second line as visible whitespace below. Wrap the subtitle text and center it within the existing slot. No trigger height, padding, card margins, social-card spacing, desktop CSS, or footer styling changes.
 - AFV444 fixes the regression where What Services I Offer and How account assistance works regained excessive top/bottom whitespace. AFV442 had overridden AFV440's 2.36em two-line subtitle reserve with 1.18em, shrinking the centered text group inside fixed 64px triggers. Remove only that conflicting override; retain the 64px header size, 4px card rhythm, AFV442 social-card flow correction, and approved footer styling.
 - AFV442 fixes the large mobile gap between the Recovery Proofs/Customer Reviews cards and the homepage accordion. The social cards use a -26px visual reveal offset that did not reclaim normal-flow space; the social collage now receives a matching mobile-only negative bottom margin. Also remove leftover mobile padding on the Services wrapper and let one-line accordion subtitles occupy one line instead of reserving an empty second line. Fixed 64px headers and footer layout remain unchanged.
