@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV431 package metadata and release notes are synchronized', () => {
+test('AFV432 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '431.0.0');
-  assert.equal(lock.version, '431.0.0');
-  assert.equal(lock.packages[''].version, '431.0.0');
-  assert.ok(readme.includes('Current release: AFV431'));
-  assert.ok(history.startsWith('AFV431 — Remove nested Legitimate Account Recovery notice'));
+  assert.equal(pkg.version, '432.0.0');
+  assert.equal(lock.version, '432.0.0');
+  assert.equal(lock.packages[''].version, '432.0.0');
+  assert.ok(readme.includes('Current release: AFV432'));
+  assert.ok(history.startsWith('AFV432 — Remove nested Legitimate Account Recovery notice'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
@@ -148,10 +148,10 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
 });
 
 
-test('AFV431 About page uses the approved six-step Process Flow and preserves key content', () => {
+test('AFV432 About page uses the approved six-step Process Flow and preserves key content', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'about.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '..', 'about-page.css'), 'utf8');
-  assert.match(html, /about-page\.css\?v=AFV431/);
+  assert.match(html, /about-page\.css\?v=AFV432/);
   assert.match(html, /class="about-process-flow"/);
   const labels = [
     'About Arisu Recovery Service',
@@ -178,7 +178,7 @@ test('AFV431 About page uses the approved six-step Process Flow and preserves ke
   assert.doesNotMatch(html, /Established September 08, 2018/, 'the established-date line is no longer part of the About page');
   assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
   assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
-  assert.match(css, /AFV431 — remove the nested Legitimate Account Recovery Only notice from the Terms step/);
+  assert.match(css, /AFV432 — remove the nested Legitimate Account Recovery Only notice from the Terms step/);
   const serviceStart = html.indexOf('class="about-process-service"');
   const serviceEnd = html.indexOf('class="about-process-step"', serviceStart);
   assert.doesNotMatch(html.slice(serviceStart, serviceEnd), /arisu-verified-badge|about-verified-badge/, 'About service heading has no blue badge or animation');
