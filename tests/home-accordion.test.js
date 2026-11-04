@@ -78,6 +78,14 @@ test("accordion card and heading text visibly communicate an interactive control
   assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger\s*\{[^}]*inset 3px 0 0 #347fe8/);
 });
 
+test("accordion trigger displays and updates an explicit expand/collapse action cue", () => {
+  assert.match(accordion, /createElement\("span", "home-accordion-trigger-hint", initiallyOpen \? "TAP TO COLLAPSE" : "TAP TO EXPAND"\)/);
+  assert.match(accordion, /hint\.textContent = open \? "TAP TO COLLAPSE" : "TAP TO EXPAND"/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*border-radius:\s*999px[^}]*font-size:\s*9px[^}]*font-weight:\s*800/);
+  assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-trigger-hint/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*font-size:\s*8px/);
+});
+
 test("accordion trigger has a circular, visibly tappable chevron control with pressed feedback", () => {
   assert.match(styles, /\.home-accordion-chevron\s*\{[^}]*width:\s*36px[^}]*height:\s*36px[^}]*border-radius:\s*50%/);
   assert.match(styles, /\.home-accordion-chevron::before\s*\{[^}]*border-right:\s*3px solid #2674e8[^}]*border-bottom:\s*3px solid #2674e8/);
