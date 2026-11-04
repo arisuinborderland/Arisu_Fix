@@ -214,7 +214,7 @@ test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => 
 
 test('AFV454 removes obsolete desktop Why Choose flow compensation and preserves homepage trailing padding', () => {
   const styles = read('styles.css');
-  assert.doesNotMatch(styles, /html body\\.home-page #desktopSocialDestination > #why-choose-arisu\\s*\\{\\s*margin-bottom:\\s*-50px !important;/);
-  assert.match(styles, /html body\\.home-page main\\s*\\{\\s*padding-bottom:\\s*0 !important;/);
-  assert.match(read('index.html'), /styles\\.css\\?v=AFV454&desktoplayout=1/);
+  assert.doesNotMatch(styles, /html body\.home-page #desktopSocialDestination > #why-choose-arisu\s*\{\s*margin-bottom:\s*-50px !important;/);
+  assert.match(styles, /html body\.home-page main\s*\{\s*padding-bottom:\s*0 !important;/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV454&desktoplayout=1/);
 });
