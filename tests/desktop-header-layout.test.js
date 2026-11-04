@@ -125,17 +125,25 @@ test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
 });
 
 
-test('AFV327 desktop homepage uses the single composite recovery preview while mobile retains original previews', () => {
-  const html = read("index.html");
-  const homeStyles = read("styles.css");
-  assert.match(html, /recovery-proof-preview-composite[^>]*>\s*<img src="60309\.png\?v=AFV327"/);
-  assert.match(homeStyles, /Keep the composite hidden by default[\s\S]*?recovery-proof-preview-composite\s*\{\s*display: none !important;/);
-  const desktopFix = homeStyles.split("AFV327 desktop-only composite recovery preview.")[1];
-  assert.ok(desktopFix, "desktop-only composite preview rules must exist");
-  assert.match(desktopFix, /@media \(min-width: 761px\)/);
-  assert.match(desktopFix, /recovery-proof-preview-item:not\(\.recovery-proof-preview-composite\)[\s\S]*?display: none !important/);
-  assert.match(desktopFix, /\.recovery-proof-preview-composite[\s\S]*?display: block !important/);
-  assert.match(read("build.js"), /"60309\.png"/);
+test('AFV461 homepage feature cards replace the retired desktop composite preview', () => {
+  const html = read('index.html');
+  const homeStyles = read('homepage-redesign.css');
+  const build = read('build.js');
+
+  assert.match(html, /class="social-collage"[^>]*aria-label="Arisu Fix features and social destinations"/);
+  assert.match(html, /class="home-feature-card recovery-proofs-showcase"/);
+  assert.match(html, /proofs\/arisu-suspended-account-180-days-preview\.webp\?v=AFV355/);
+  assert.match(html, /class="home-feature-card social-feedback-card"/);
+  assert.match(html, /class="home-feature-card tiktok-showcase"/);
+  assert.match(html, /class="home-feature-card facebook-showcase"/);
+  assert.match(html, /class="home-feature-action"/);
+  assert.doesNotMatch(html, /recovery-proof-preview-composite|60309\.png\?v=AFV327/);
+
+  assert.match(homeStyles, /\.social-collage\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,minmax\(0,1fr\)/);
+  assert.match(homeStyles, /\.home-feature-card:hover \.home-feature-media img\s*\{\s*transform:scale\(1\.05\)/);
+  assert.match(homeStyles, /\.home-feature-action:focus-visible/);
+  assert.match(homeStyles, /@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(build, /"homepage-redesign\.css"/);
 });
 
 
