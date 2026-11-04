@@ -132,7 +132,7 @@ test('AFV442 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '442.0.0');
   assert.equal(lock.packages[''].version, '442.0.0');
   assert.ok(readme.includes('Current release: AFV442'));
-  assert.ok(history.startsWith('AFV442 — Remove Leftover Homepage Bottom Padding After Accordion'));
+  assert.ok(history.startsWith('AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
