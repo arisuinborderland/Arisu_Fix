@@ -18,10 +18,10 @@
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  border: 1px solid rgba(100, 151, 230, .42);
+  border: 1.5px solid rgba(74, 132, 220, .52);
   border-radius: 19px;
-  background: linear-gradient(115deg, rgba(255,255,255,.96), rgba(238,243,255,.94) 58%, rgba(246,239,255,.94));
-  box-shadow: 0 5px 16px rgba(55, 91, 159, .09), inset 0 1px 0 rgba(255,255,255,.95);
+  background: linear-gradient(115deg, rgba(255,255,255,.99), rgba(231,241,255,.97) 58%, rgba(242,233,255,.97));
+  box-shadow: 0 5px 16px rgba(55, 91, 159, .12), inset 0 1px 0 rgba(255,255,255,1), inset 0 -1px 0 rgba(89, 139, 220, .08);
   color: #142247;
   cursor: pointer;
   text-align: left;
@@ -47,16 +47,17 @@
 }
 
 .home-accordion-trigger-title {
-  color: #142247;
+  color: #173d78;
   font-size: clamp(20px, 3vw, 27px);
-  font-weight: 800;
+  font-weight: 850;
   line-height: 1.2;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
 }
 
 .home-accordion-trigger-subtitle {
-  color: #465a79;
+  color: #344d70;
   font-size: clamp(13px, 1.8vw, 16px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4;
 }
 
@@ -98,10 +99,11 @@
 }
 
 .home-accordion-item.is-open > .home-accordion-trigger {
-  border-color: rgba(66, 139, 242, .62);
+  border-color: rgba(39, 116, 232, .82);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  box-shadow: 0 3px 12px rgba(55, 91, 159, .08);
+  background: linear-gradient(115deg, #f5faff, #e5f0ff 58%, #eee6ff);
+  box-shadow: 0 3px 12px rgba(39, 104, 204, .15), inset 3px 0 0 #347fe8;
 }
 
 .home-accordion-item.is-open > .home-accordion-trigger .home-accordion-chevron::before {
