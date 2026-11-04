@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV432
+Version: AFV433
 Updated: 2026-11-03
 
-Current release: AFV432
-Package version: 432.0.0
+Current release: AFV433
+Package version: 433.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV433 removes obsolete About footer selectors that no longer match the shared reference footer, removes the retired Step 01 heading flex layout, corrects the Process Flow comment, and refreshes the About stylesheet cache token. Active mobile spacing and the approved six-step layout are preserved.
 - AFV432 consolidates About Process Flow desktop/mobile responsive rules, preserving the effective AFV430 mobile dimensions while removing superseded AFV428/AFV429 override blocks. Updated stylesheet cache token and release metadata to AFV432 / 432.0.0.
 - AFV431 removes retired standalone About card styles and obsolete spacing overrides, consolidating mobile heading rhythm while preserving the approved six-step Process Flow and mobile navigation. About stylesheet cache token and release metadata updated to AFV431 / 431.0.0.
 - AFV430 removes the nested “Legitimate Account Recovery Only” notice card from step 06 (Terms & limitations) to make the mobile About page more compact. The existing Terms introduction, step number, outer glass card, footer Terms anchor, and all other content remain.
