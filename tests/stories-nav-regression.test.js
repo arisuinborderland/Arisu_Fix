@@ -123,16 +123,18 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV461 package metadata and release notes are synchronized', () => {
+test('current package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '461.0.0');
-  assert.equal(lock.version, '461.0.0');
-  assert.equal(lock.packages[''].version, '461.0.0');
-  assert.ok(readme.includes('Current release: AFV461'));
-  assert.ok(history.startsWith('AFV461 — Homepage Accordion Feature Isolation'));
+  const releaseNumber = pkg.version.split('.')[0];
+  const releaseTag = `AFV${releaseNumber}`;
+  assert.match(pkg.version, /^\\d+\\.\\d+\\.\\d+$/);
+  assert.equal(lock.version, pkg.version);
+  assert.equal(lock.packages[''].version, pkg.version);
+  assert.ok(readme.includes(`Current release: ${releaseTag}`));
+  assert.match(history, new RegExp(`^\\${releaseTag} — `));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
