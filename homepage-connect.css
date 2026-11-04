@@ -1,0 +1,314 @@
+/* AFV460 — Approved Connect with Arisu, Explore More, and relocated Scam Awareness layout */
+.homepage-connect-layout {
+  width: min(100%, 1080px);
+  margin: 24px auto 0;
+  padding: 0;
+  color: #101638;
+  box-sizing: border-box;
+}
+.homepage-connect-layout *,
+.homepage-connect-layout *::before,
+.homepage-connect-layout *::after { box-sizing: border-box; }
+
+.connect-heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 154px;
+  padding: 18px 28px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 24px;
+}
+.connect-heading-copy { position: relative; z-index: 2; max-width: 66%; }
+.connect-heading h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #101638;
+  font: 900 clamp(30px, 4.4vw, 52px)/1.06 Manrope, Arial, sans-serif;
+  letter-spacing: -.045em;
+}
+.connect-heading h2 > span:first-child { color: #101638; }
+.connect-heading h2 > span:first-child::first-letter { color: inherit; }
+.connect-heading h2 { column-gap: 9px; }
+.connect-heading h2::first-line { color: #101638; }
+.connect-heading h2 { text-wrap: balance; }
+.connect-heading h2 { background: transparent; }
+.connect-heading h2 > span:first-child { background: linear-gradient(100deg,#13b8ff 0%,#1c6cf2 52%,#7429eb 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.connect-heading-copy > p {
+  margin: 9px 0 0;
+  color: #4e587b;
+  font-size: clamp(13px, 1.35vw, 17px);
+  line-height: 1.45;
+  font-weight: 650;
+}
+.connect-verified-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #fff;
+  border-radius: 50%;
+  background: linear-gradient(145deg,#12c9ff,#0876ef);
+  box-shadow: 0 5px 13px rgba(8,118,239,.28);
+}
+.connect-verified-badge svg { width: 25px; height: 25px; }
+.connect-header-mascot {
+  position: absolute;
+  z-index: 1;
+  right: 2px;
+  bottom: -7px;
+  width: min(39%, 350px);
+  height: 165px;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 8px 12px rgba(43,48,110,.16));
+  pointer-events: none;
+}
+.connect-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 18px;
+  width: 100%;
+  margin: 8px 0 0;
+}
+.connect-card {
+  display: grid;
+  grid-template-columns: minmax(130px,.92fr) minmax(0,1.08fr);
+  grid-template-rows: minmax(138px,1fr) 56px;
+  gap: 12px 16px;
+  min-width: 0;
+  min-height: 238px;
+  padding: 17px;
+  overflow: hidden;
+  border: 1.5px solid rgba(115,145,220,.32);
+  border-radius: 23px;
+  background: linear-gradient(140deg,rgba(255,255,255,.96),rgba(239,242,255,.86));
+  box-shadow: 0 8px 22px rgba(64,78,142,.12), inset 0 1px 0 rgba(255,255,255,.95);
+  color: #101638;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.connect-card-tiktok { border-color: rgba(232,80,169,.42); background: linear-gradient(140deg,#fff8fd 0%,#fceeff 100%); }
+.connect-card-facebook { border-color: rgba(39,151,245,.42); background: linear-gradient(140deg,#f9fdff 0%,#edf3ff 100%); }
+.connect-card-proofs { border-color: rgba(44,185,245,.43); background: linear-gradient(140deg,#f8fdff 0%,#edf5ff 100%); }
+.connect-card-reviews { border-color: rgba(170,75,244,.42); background: linear-gradient(140deg,#fffaff 0%,#f5edff 100%); }
+.connect-card:hover { transform: translateY(-2px); box-shadow: 0 13px 28px rgba(64,78,142,.17); }
+.connect-card:focus-visible,
+.connect-explore-banner:focus-visible { outline: 3px solid #2868ed; outline-offset: 3px; }
+.connect-card-preview {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(41,65,120,.22);
+  border-radius: 16px;
+  background: rgba(13,25,52,.08);
+  box-shadow: 0 4px 12px rgba(26,47,96,.13);
+}
+.connect-card-preview > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+}
+.connect-card-copy {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  min-width: 0;
+  padding: 0 2px;
+}
+.connect-card-copy h3 {
+  margin: 0 0 8px;
+  color: #101638;
+  font: 900 clamp(20px,2.35vw,30px)/1.08 Manrope,Arial,sans-serif;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+.connect-card-copy p {
+  margin: 0;
+  color: #20294b;
+  font-size: clamp(13px,1.5vw,18px);
+  line-height: 1.35;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+.connect-card-action {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 52px;
+  margin: 0;
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(105deg,#0876f8,#1154e9);
+  box-shadow: 0 5px 13px rgba(18,91,226,.24);
+  color: #fff;
+  font-size: clamp(13px,1.35vw,18px);
+  line-height: 1.15;
+  font-weight: 850;
+  text-align: center;
+  text-decoration: none;
+}
+.connect-card-action > svg { width: 26px; height: 26px; flex: 0 0 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.connect-card-action .connect-external-icon { width: 19px; height: 19px; flex-basis: 19px; }
+.connect-tiktok-action { background: linear-gradient(105deg,#171923,#050609); }
+.connect-tiktok-action > svg:first-child { fill: currentColor; stroke: none; }
+.connect-reviews-action { background: linear-gradient(105deg,#9b20ed,#5309cc); }
+.connect-reviews-action > svg:first-child { fill: currentColor; stroke: none; }
+.connect-card-reviews { display: grid; }
+.connect-review-preview { display: block; padding: 0; }
+.connect-review-preview .windows-feedback-content { display: block; width: 100%; height: 100%; padding: 0; }
+.connect-review-preview .reviews-grid { display: block; width: 100%; height: 100%; margin: 0; overflow: hidden; }
+.connect-review-preview .review-card,
+.connect-review-preview .review-proof-image { width: 100%; height: 100%; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 0; }
+.connect-review-preview .review-proof-image { display: block; overflow: hidden; background: transparent; }
+.connect-review-preview .review-proof-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.connect-review-preview .review-image-hint { display: none; }
+.connect-proofs-preview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; padding: 3px; background: #111827; }
+.connect-proofs-preview img { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: cover; object-position: top center; border-radius: 7px; }
+.connect-explore-banner {
+  display: grid;
+  grid-template-columns: 112px minmax(0,1fr) 64px;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-height: 156px;
+  margin: 22px 0;
+  padding: 18px 25px;
+  overflow: hidden;
+  border: 1px solid rgba(85,195,255,.56);
+  border-radius: 26px;
+  background: linear-gradient(112deg,#078bfa 0%,#173de5 47%,#6c19e9 100%);
+  box-shadow: 0 10px 24px rgba(64,62,194,.22), inset 0 1px 0 rgba(255,255,255,.34);
+  color: #fff;
+  text-decoration: none;
+}
+.connect-explore-icon { display: grid; place-items: center; width: 100%; min-height: 100px; border-right: 1px solid rgba(255,255,255,.55); padding-right: 17px; }
+.connect-explore-icon svg { width: 76px; height: 76px; filter: drop-shadow(0 0 8px rgba(255,255,255,.42)); }
+.connect-explore-copy { display: grid; gap: 7px; min-width: 0; }
+.connect-explore-copy strong { color: #fff; font: 900 clamp(25px,3.6vw,42px)/1.08 Manrope,Arial,sans-serif; letter-spacing: -.035em; }
+.connect-explore-copy strong span { color: #35dcff; }
+.connect-explore-copy > span { color: rgba(255,255,255,.97); font-size: clamp(13px,1.55vw,19px); line-height: 1.35; font-weight: 650; }
+.connect-explore-arrow { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #fff; color: #6515d6; box-shadow: 0 4px 12px rgba(0,0,0,.18); }
+.connect-explore-arrow svg { width: 30px; height: 30px; }
+.connect-scam-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 20px 0 28px;
+  padding: 20px 23px 22px;
+  overflow: hidden;
+  border: 1.5px solid rgba(231,65,122,.58);
+  border-radius: 24px;
+  background: linear-gradient(118deg,rgba(255,246,250,.98),rgba(255,233,244,.94));
+  box-shadow: 0 8px 20px rgba(190,64,104,.14), inset 0 1px 0 rgba(255,255,255,.9);
+  color: #16152f;
+}
+.connect-scam-heading { display: flex; align-items: center; gap: 12px; max-width: max-content; }
+.connect-scam-shield { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; color: #fff; border-radius: 15px; background: linear-gradient(145deg,#f72556,#b5093c); box-shadow: 0 4px 11px rgba(190,10,62,.24); }
+.connect-scam-shield svg { width: 40px; height: 40px; }
+.connect-scam-heading h2 { margin: 0; padding: 5px 13px; color: #fff; background: linear-gradient(100deg,#ed174b,#a80736); border-radius: 6px 14px 6px 14px; font: 900 clamp(23px,3vw,35px)/1.1 Manrope,Arial,sans-serif; letter-spacing: -.02em; }
+.connect-scam-slashes { width: 40px; height: 52px; background: repeating-linear-gradient(110deg,transparent 0 8px,#c30c45 8px 15px,transparent 15px 22px); }
+.connect-scam-subtitle { margin: 9px 0 17px 68px; color: #191638; font-size: clamp(14px,1.7vw,20px); line-height: 1.35; font-weight: 850; }
+.connect-scam-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; }
+.connect-scam-item { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 7px; min-width: 0; padding: 5px 13px; text-align: center; }
+.connect-scam-item + .connect-scam-item { border-left: 1px solid rgba(215,80,146,.35); }
+.connect-scam-item svg { width: 39px; height: 39px; color: #17224e; overflow: visible; }
+.connect-scam-item:nth-child(2) svg { color: #0870ef; }
+.connect-scam-item p { max-width: 200px; margin: 0; color: #11152f; font-size: clamp(13px,1.45vw,18px); line-height: 1.23; font-weight: 800; overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  .connect-heading { min-height: 126px; padding: 14px 18px; }
+  .connect-heading-copy { max-width: 69%; }
+  .connect-header-mascot { width: 36%; height: 135px; }
+  .connect-social-grid { gap: 12px; }
+  .connect-card { grid-template-columns: minmax(0,1fr); grid-template-rows: auto auto 48px; min-height: 0; gap: 9px; padding: 12px; border-radius: 18px; }
+  .connect-card-preview { grid-column: 1; grid-row: 1; aspect-ratio: 1.28 / 1; height: auto; }
+  .connect-card-copy { grid-column: 1; grid-row: 2; align-self: start; min-height: 55px; padding: 0 2px; }
+  .connect-card-copy h3 { margin-bottom: 4px; font-size: clamp(15px,2.2vw,20px); }
+  .connect-card-copy p { font-size: clamp(11px,1.45vw,14px); line-height: 1.28; }
+  .connect-card-action { grid-column: 1; grid-row: 3; min-height: 46px; padding: 7px; gap: 6px; border-radius: 12px; font-size: clamp(11px,1.35vw,14px); }
+  .connect-card-action > svg { width: 21px; height: 21px; flex-basis: 21px; }
+  .connect-card-action .connect-external-icon { width: 15px; height: 15px; flex-basis: 15px; }
+  .connect-explore-banner { grid-template-columns: 75px minmax(0,1fr) 46px; min-height: 118px; gap: 12px; margin: 17px 0; padding: 15px; border-radius: 20px; }
+  .connect-explore-icon { min-height: 82px; padding-right: 10px; }
+  .connect-explore-icon svg { width: 57px; height: 57px; }
+  .connect-explore-arrow { width: 43px; height: 43px; }
+  .connect-explore-arrow svg { width: 24px; height: 24px; }
+  .connect-scam-card { padding: 16px 14px 18px; border-radius: 20px; }
+  .connect-scam-heading { gap: 8px; }
+  .connect-scam-shield { flex-basis: 43px; width: 43px; height: 43px; }
+  .connect-scam-shield svg { width: 34px; height: 34px; }
+  .connect-scam-heading h2 { font-size: clamp(19px,3vw,27px); }
+  .connect-scam-slashes { width: 27px; height: 43px; }
+  .connect-scam-subtitle { margin: 8px 0 12px; font-size: clamp(12px,1.7vw,16px); }
+  .connect-scam-grid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 10px; }
+  .connect-scam-item { padding: 8px 10px; }
+  .connect-scam-item:nth-child(3) { border-left: 0; }
+  .connect-scam-item:nth-child(3),
+  .connect-scam-item:nth-child(4) { border-top: 1px solid rgba(215,80,146,.35); padding-top: 13px; }
+}
+@media (max-width: 420px) {
+  .homepage-connect-layout { margin-top: 18px; }
+  .connect-heading { min-height: 102px; padding: 9px 11px; }
+  .connect-heading-copy { max-width: 72%; }
+  .connect-heading h2 { font-size: clamp(24px,7.2vw,30px); gap: 6px; }
+  .connect-heading-copy > p { margin-top: 5px; font-size: 11px; }
+  .connect-verified-badge { width: 27px; height: 27px; flex-basis: 27px; }
+  .connect-verified-badge svg { width: 18px; height: 18px; }
+  .connect-header-mascot { right: -6px; width: 38%; height: 105px; }
+  .connect-social-grid { gap: 8px; margin-top: 4px; }
+  .connect-card { padding: 8px; gap: 7px; border-radius: 15px; grid-template-rows: auto auto 42px; }
+  .connect-card-preview { aspect-ratio: 1.22 / 1; border-radius: 10px; }
+  .connect-card-copy { min-height: 45px; }
+  .connect-card-copy h3 { font-size: 13px; line-height: 1.12; }
+  .connect-card-copy p { display: none; }
+  .connect-card-action { min-height: 41px; padding: 5px 4px; gap: 4px; border-radius: 10px; font-size: 10px; }
+  .connect-card-action > svg { width: 17px; height: 17px; flex-basis: 17px; }
+  .connect-card-action .connect-external-icon { width: 12px; height: 12px; flex-basis: 12px; }
+  .connect-explore-banner { grid-template-columns: 44px minmax(0,1fr) 32px; gap: 8px; min-height: 102px; margin: 13px 0; padding: 11px 9px; border-radius: 16px; }
+  .connect-explore-icon { min-height: 70px; padding-right: 5px; }
+  .connect-explore-icon svg { width: 39px; height: 39px; }
+  .connect-explore-copy { gap: 5px; }
+  .connect-explore-copy strong { font-size: 18px; line-height: 1.1; }
+  .connect-explore-copy > span { font-size: 10px; line-height: 1.25; }
+  .connect-explore-arrow { width: 31px; height: 31px; }
+  .connect-explore-arrow svg { width: 19px; height: 19px; }
+  .connect-scam-card { margin: 14px 0 20px; padding: 13px 9px; border-radius: 16px; }
+  .connect-scam-heading { gap: 6px; }
+  .connect-scam-shield { width: 34px; height: 34px; flex-basis: 34px; border-radius: 10px; }
+  .connect-scam-shield svg { width: 27px; height: 27px; }
+  .connect-scam-heading h2 { padding: 5px 8px; font-size: 18px; }
+  .connect-scam-slashes { width: 18px; height: 33px; }
+  .connect-scam-subtitle { font-size: 11px; margin: 7px 0 8px; }
+  .connect-scam-grid { column-gap: 0; row-gap: 5px; }
+  .connect-scam-item { gap: 5px; padding: 7px 5px; }
+  .connect-scam-item svg { width: 28px; height: 28px; }
+  .connect-scam-item p { font-size: 11px; line-height: 1.2; }
+}
+@media (hover: none) {
+  .connect-card:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .connect-card { transition: none; }
+}
