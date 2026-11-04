@@ -132,7 +132,7 @@ test('AFV452 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '452.0.0');
   assert.equal(lock.packages[''].version, '452.0.0');
   assert.ok(readme.includes('Current release: AFV452'));
-  assert.ok(history.startsWith('AFV452 — Consolidate Homepage Accordion CSS Without Layout Changes'));
+  assert.ok(history.startsWith('AFV452 — Preserve accordion heading IDs and make initialization atomic'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
