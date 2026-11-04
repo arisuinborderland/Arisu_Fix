@@ -138,6 +138,9 @@ body.about-page .mobile-bottom-nav { display:none; }
   font: 800 clamp(17px,2vw,22px)/1.2 Manrope,Arial,sans-serif;
   letter-spacing: -.035em;
 }
+.about-process-service .about-process-copy h2 { margin-bottom: 5px; }
+.about-process-service .about-process-copy > p { margin-bottom: 5px; }
+.about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 5px !important; padding-top: 6px; }
 .about-process-service h2 {
   display: flex;
   align-items: center;
@@ -233,16 +236,24 @@ body.about-page .mobile-bottom-nav { display:none; }
   }
   .about-process-icon svg { width: 25px; height: 25px; }
   .about-process-copy h2 {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     font-size: 16px;
     letter-spacing: -.025em;
   }
   .about-process-copy h3 { margin-bottom: 5px; font-size: 14px; }
   .about-process-copy p,
-  .about-process-copy li { font-size: 12.5px; line-height: 1.55; }
-  .about-process-copy p { margin-bottom: 6px; }
-  .about-process-copy ul { gap: 3px; padding-left: 17px; }
-  .about-process-disclaimer { margin-top: 8px !important; padding-top: 7px; }
+  .about-process-copy li { font-size: 12px; line-height: 1.45; }
+  .about-process-copy p { margin-bottom: 4px; }
+  .about-process-copy ul { gap: 2px; padding-left: 15px; }
+  .about-process-disclaimer { margin-top: 6px !important; padding-top: 5px; }
+  .about-process-signoff { margin-top: 5px; padding-top: 5px; }
+  .about-process-signoff-label, .about-process-creator-role { font-size: 10.5px; }
+  .about-process-creator-name { font-size: 23px !important; }
+  .about-process-terms-copy > .section-kicker { margin-bottom: 1px; font-size: 9px; }
+  .about-process-terms-copy .terms-intro { margin: 0 0 5px; font-size: 12px; line-height: 1.42; }
+  .about-process-service .about-process-copy h2 { margin-bottom: 4px; }
+  .about-process-service .about-process-copy > p { margin-bottom: 4px; line-height: 1.48; }
+  .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 4px !important; padding-top: 5px; line-height: 1.45; }
   .about-process-signoff { margin-top: 6px; padding-top: 7px; }
   .about-process-signoff-label,
   .about-process-creator-role { font-size: 11px; }
@@ -250,6 +261,13 @@ body.about-page .mobile-bottom-nav { display:none; }
 }
 @media (max-width: 380px) {
   .about-page-main > .about-process-flow { padding: 8px !important; }
+  .about-process-panel { grid-template-columns: 32px minmax(0,1fr); gap: 7px; padding: 9px !important; }
+  .about-process-brand-image, .about-process-icon { width: 32px; height: 32px; border-radius: 9px; }
+  .about-process-icon svg { width: 20px; height: 20px; }
+  .about-process-copy h2 { font-size: 14px; }
+  .about-process-copy p, .about-process-copy li { font-size: 11.5px; line-height: 1.42; }
+  .about-process-service .about-process-copy > p { margin-bottom: 3px; }
+  .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 3px !important; padding-top: 4px; }
   .about-process-step { grid-template-columns: 30px minmax(0,1fr); column-gap: 6px; }
   .about-process-step:not(:last-child)::before { left: 13px; }
   .about-process-number { width: 27px; height: 27px; font-size: 10px; margin-top: 24px; }
@@ -265,51 +283,7 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-icon { scroll-behavior: auto; }
 }
 
-/* AFV428 — remove the About service badge footprint and tighten its details. */
-.about-process-service .about-process-copy h2 { margin-bottom: 5px; }
-.about-process-service .about-process-copy > p { margin-bottom: 5px; }
-.about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 5px !important; padding-top: 6px; }
-@media (max-width: 700px) {
-  .about-process-service .about-process-copy h2 { margin-bottom: 4px; }
-  .about-process-service .about-process-copy > p { margin-bottom: 4px; line-height: 1.48; }
-  .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 4px !important; padding-top: 5px; line-height: 1.45; }
-}
-@media (max-width: 380px) {
-  .about-process-service .about-process-copy > p { margin-bottom: 3px; }
-  .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 3px !important; padding-top: 4px; }
-}
-
-/* AFV429 — compact the six-step About flow on mobile without reducing readability. */
-@media (max-width: 700px) {
-  .about-page-main > .about-process-flow { padding: 8px !important; }
-  .about-process-list { gap: 7px; }
-  .about-process-step { grid-template-columns: 34px minmax(0,1fr); column-gap: 7px; }
-  .about-process-step:not(:last-child)::before { left: 15px; top: 39px; bottom: -9px; }
-  .about-process-number { width: 30px; height: 30px; margin-top: 18px; font-size: 11px; }
-  .about-process-panel { grid-template-columns: 38px minmax(0,1fr); gap: 8px; padding: 10px !important; }
-  .about-process-brand-image, .about-process-icon { width: 38px; height: 38px; border-radius: 11px; }
-  .about-process-icon svg { width: 23px; height: 23px; }
-  .about-process-copy h2 { margin-bottom: 4px; font-size: 15px; }
-  .about-process-copy h3 { margin-bottom: 4px; font-size: 13px; }
-  .about-process-copy p, .about-process-copy li { font-size: 12px; line-height: 1.45; }
-  .about-process-copy p { margin-bottom: 4px; }
-  .about-process-copy ul { gap: 2px; padding-left: 15px; }
-  .about-process-disclaimer { margin-top: 6px !important; padding-top: 5px; }
-  .about-process-signoff { margin-top: 5px; padding-top: 5px; }
-  .about-process-signoff-label, .about-process-creator-role { font-size: 10.5px; }
-  .about-process-creator-name { font-size: 23px !important; }
-  .about-process-terms-copy > .section-kicker { margin-bottom: 1px; font-size: 9px; }
-  .about-process-terms-copy .terms-intro { margin: 0 0 5px; font-size: 12px; line-height: 1.42; }
-}
-@media (max-width: 380px) {
-  .about-process-panel { grid-template-columns: 32px minmax(0,1fr); gap: 7px; padding: 9px !important; }
-  .about-process-brand-image, .about-process-icon { width: 32px; height: 32px; border-radius: 9px; }
-  .about-process-icon svg { width: 20px; height: 20px; }
-  .about-process-copy h2 { font-size: 14px; }
-  .about-process-copy p, .about-process-copy li { font-size: 11.5px; line-height: 1.42; }
-}
-
-/* AFV431 — retain only the current About heading rhythm on mobile. */
+/* AFV431 — approved compact mobile heading rhythm. */
 @media (max-width: 700px) {
   .about-page-main { width: calc(100% - 28px); padding-top: 8px; padding-bottom: 24px; }
   .about-page-heading { margin-bottom: 2px; }
