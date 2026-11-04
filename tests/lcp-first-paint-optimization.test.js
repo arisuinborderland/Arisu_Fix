@@ -56,4 +56,50 @@ test('AFV357 restores the three branded animations at mobile widths', () => {
   assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
   assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
+});  const releaseParts = pkg.version.split('.');
+  const releaseTag = `AFV${releaseParts[0]}`;
+  assert.equal(releaseParts.length, 3);
+  assert.ok(releaseParts.every(part => part.length > 0 && Number.isInteger(Number(part))));
+  assert.equal(lock.version, pkg.version);
+  assert.equal(lock.packages[''].version, pkg.version);
+  assert.ok(readme.includes(`Current release: ${releaseTag}`));
+  assert.ok(history.startsWith(`${releaseTag} — `));
+});
+
+test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll reveal', () => {
+  const reveal = read('scroll-reveal.js');
+  assert.ok(reveal.includes('"main > #daily-bible-verse"'), 'the verse remains a scroll-reveal target');
+  assert.ok(reveal.includes('el.id === "daily-bible-verse"'), 'the initial-paint exception is scoped to the verse');
+  assert.ok(reveal.includes('const rect = el.getBoundingClientRect();'), 'initial viewport visibility is checked before reveal is enabled');
+  assert.ok(reveal.includes('el.classList.add("arc-scroll-reveal-visible")'), 'the initially visible verse is not hidden on first paint');
+  assert.ok(reveal.includes('target.classList.remove("arc-scroll-reveal-visible")'), 'the observer can still hide it after scrolling away');
+  assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
+});
+
+test('current release metadata is synchronized', () => {
+  const pkg = JSON.parse(read('package.json'));
+  const lock = JSON.parse(read('package-lock.json'));
+  const readme = read('README.txt');
+  const history = read('RELEASE_HISTORY.txt');
+  const releaseNumber = pkg.version.split('.')[0];
+  const releaseTag = `AFV${releaseNumber}`;
+  assert.match(pkg.version, /^\\d+\\.\\d+\\.\\d+$/);
+  assert.equal(lock.version, pkg.version);
+  assert.equal(lock.packages[''].version, pkg.version);
+  assert.ok(readme.includes(`Current release: ${releaseTag}`));
+  assert.match(history, new RegExp(`^\\${releaseTag} — `));
+});
+
+test('AFV357 restores the three branded animations at mobile widths', () => {
+  const styles = read('styles.css');
+  const mobileBlockStart = styles.indexOf('/* AFV357 — restore the three branded motion accents on narrow/mobile layouts.');
+  assert.notEqual(mobileBlockStart, -1, 'mobile animation restoration block must exist');
+  const mobileBlock = styles.slice(mobileBlockStart);
+  assert.ok(mobileBlock.startsWith('/* AFV357'), 'mobile block must be appended at the end of the stylesheet');
+  assert.ok(mobileBlock.includes('@media (max-width: 700px)'), 'mobile-only media query must be scoped to 700px and below');
+  assert.ok(mobileBlock.includes('arisu-brand-badge-pop 2s ease-in-out infinite !important'));
+  assert.ok(mobileBlock.includes('status-heartbeat 1.15s ease-in-out infinite !important'));
+  assert.ok(mobileBlock.includes('status-ripple 1.5s ease-out infinite !important'));
+  assert.ok(mobileBlock.includes('wa-border-trace 2.8s linear infinite !important'));
+  assert.ok(mobileBlock.includes('wa-border-trace-reverse 3.2s linear infinite !important'));
 });
