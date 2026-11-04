@@ -6601,19 +6601,6 @@ html body .topbar > .header-meta > .webtools-header-link:focus-visible {
 
 /* reduce only the bottom outer spacing after the Remember card by 8px on mobile. */
 
-/* lift the Honest-through-Remember card group by another 2px on mobile. */
-@media  (max-width: 640px)  {
-  html body.home-page .why-arisu-card > .why-arisu-grid {
-    transform: translateY(-6px) !important;
-  }
-  html body.home-page .why-arisu-section .why-arisu-note {
-    transform: translateY(-10px) !important;
-  }
-  html body.home-page .why-arisu-card > .safety-section-inline .safety-panel {
-    transform: translateY(-14px) !important;
-  }
-}
-
 /* reduce only the bottom padding of the Why Choose Arisu outer card by 8px on mobile. */
 @media  (max-width: 640px)  {
   html body.home-page .why-arisu-section .why-arisu-card {
