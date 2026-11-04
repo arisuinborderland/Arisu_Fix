@@ -1,4 +1,12 @@
-AFV439 — Fix Legacy Mobile Accordion Margins
+AFV440 — Normalize Mobile Accordion Text Spacing
+
+## AFV440 — Equalize vertical text spacing across accordion headers
+- Root cause: the fixed-height mobile trigger vertically centers a title/subtitle group whose natural height varies with subtitle wrapping. The two-line Why Choose subtitle fills more vertical space, while the one-line Services and How subtitles create visibly larger top/bottom whitespace.
+- Reserve a two-line subtitle slot (`min-height: 2.36em`) for all mobile accordion triggers. The text group now occupies a consistent height and aligns with the same vertical rhythm across all three cards.
+- Preserve the fixed 64px header, existing typography, card-to-card margins, expanded content, open-only smooth auto-scroll, reduced-motion behavior, and desktop layout.
+- Refresh accordion cache tokens, package metadata, README/release history, and regression coverage.
+
+## AFV439 — Fix Legacy Mobile Accordion Margins
 
 ## AFV439 — Override legacy section margins for consistent compact spacing
 - Root cause: the generic `body.home-page .site-section { margin-top: 18px !important; }` rule in styles.css had higher specificity than the accordion's `.home-accordion-item` margin, while a legacy `#why-choose-arisu` rule separately forced an 8px top margin. This caused uneven, oversized gaps despite AFV438's 5px rule.
