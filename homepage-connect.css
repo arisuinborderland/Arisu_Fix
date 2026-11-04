@@ -1,7 +1,7 @@
-/* AFV460 — Approved Connect with Arisu, Explore More, and relocated Scam Awareness layout */
+/* AFV460 — Approved Connect with Arisu layout */
 .homepage-connect-layout {
   width: min(100%, 1080px);
-  margin: 24px auto 0;
+  margin: 14px auto 0;
   padding: 0;
   color: #101638;
   box-sizing: border-box;
@@ -14,75 +14,76 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 154px;
-  padding: 18px 28px;
+  min-height: 208px;
+  padding: 14px 26px;
   overflow: hidden;
   isolation: isolate;
-  border-radius: 24px;
 }
-.connect-heading-copy { position: relative; z-index: 2; max-width: 66%; }
+.connect-heading-copy { position: relative; z-index: 2; max-width: 69%; }
 .connect-heading h2 {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row nowrap;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  width: max-content;
+  max-width: 100%;
   margin: 0;
   color: #101638;
-  font: 900 clamp(30px, 4.4vw, 52px)/1.06 Manrope, Arial, sans-serif;
+  font: 900 clamp(30px, 4.3vw, 52px)/1.06 Manrope, Arial, sans-serif;
   letter-spacing: -.045em;
+  white-space: nowrap;
 }
-.connect-heading h2 > span:first-child { color: #101638; }
-.connect-heading h2 > span:first-child::first-letter { color: inherit; }
-.connect-heading h2 { column-gap: 9px; }
-.connect-heading h2::first-line { color: #101638; }
-.connect-heading h2 { text-wrap: balance; }
-.connect-heading h2 { background: transparent; }
-.connect-heading h2 > span:first-child { background: linear-gradient(100deg,#13b8ff 0%,#1c6cf2 52%,#7429eb 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.connect-heading-copy > p {
-  margin: 9px 0 0;
-  color: #4e587b;
-  font-size: clamp(13px, 1.35vw, 17px);
-  line-height: 1.45;
-  font-weight: 650;
+.connect-heading-title { display: inline-block; white-space: nowrap; }
+.connect-heading-title strong {
+  font-weight: 900;
+  background: linear-gradient(100deg,#13b8ff 0%,#1c6cf2 52%,#7429eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .connect-verified-badge {
   display: inline-grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  flex: 0 0 38px;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
   color: #fff;
   border-radius: 50%;
   background: linear-gradient(145deg,#12c9ff,#0876ef);
   box-shadow: 0 5px 13px rgba(8,118,239,.28);
 }
-.connect-verified-badge svg { width: 25px; height: 25px; }
+.connect-verified-badge svg { width: 26px; height: 26px; }
 .connect-header-mascot {
   position: absolute;
   z-index: 1;
-  right: 2px;
-  bottom: -7px;
-  width: min(39%, 350px);
-  height: 165px;
+  right: 0;
+  bottom: 0;
+  width: 31%;
+  height: 208px;
   object-fit: contain;
   object-position: right bottom;
-  filter: drop-shadow(0 8px 12px rgba(43,48,110,.16));
+  mix-blend-mode: multiply;
   pointer-events: none;
+  filter: drop-shadow(0 7px 10px rgba(43,48,110,.10));
 }
+
 .connect-social-grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-auto-rows: minmax(238px,auto);
   gap: 18px;
   width: 100%;
   margin: 8px 0 0;
+  align-items: stretch;
 }
 .connect-card {
   display: grid;
-  grid-template-columns: minmax(130px,.92fr) minmax(0,1.08fr);
-  grid-template-rows: minmax(138px,1fr) 56px;
+  grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr);
+  grid-template-rows: minmax(138px,1fr) 54px;
   gap: 12px 16px;
   min-width: 0;
   min-height: 238px;
+  height: 100%;
   padding: 17px;
   overflow: hidden;
   border: 1.5px solid rgba(115,145,220,.32);
@@ -100,6 +101,7 @@
 .connect-card:hover { transform: translateY(-2px); box-shadow: 0 13px 28px rgba(64,78,142,.17); }
 .connect-card:focus-visible,
 .connect-explore-banner:focus-visible { outline: 3px solid #2868ed; outline-offset: 3px; }
+
 .connect-card-preview {
   grid-column: 1;
   grid-row: 1;
@@ -186,8 +188,10 @@
 .connect-review-preview .review-proof-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .connect-review-preview .review-image-hint { display: none; }
 .connect-proofs-preview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; padding: 3px; background: #111827; }
+.connect-proofs-preview > img,
+.connect-proofs-preview .recovery-proof-preview-item > img { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: cover; object-position: top center; border-radius: 7px; }
 .connect-proofs-preview .recovery-proof-preview-composite { display: none !important; }
-.connect-proofs-preview img { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: cover; object-position: top center; border-radius: 7px; }
+
 .connect-explore-banner {
   display: grid;
   grid-template-columns: 112px minmax(0,1fr) 64px;
@@ -213,9 +217,10 @@
 .connect-explore-copy > span { color: rgba(255,255,255,.97); font-size: clamp(13px,1.55vw,19px); line-height: 1.35; font-weight: 650; }
 .connect-explore-arrow { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #fff; color: #6515d6; box-shadow: 0 4px 12px rgba(0,0,0,.18); }
 .connect-explore-arrow svg { width: 30px; height: 30px; }
+
 .connect-scam-card {
-  display: block;
   position: relative;
+  display: block;
   width: 100%;
   margin: 20px 0 28px;
   padding: 20px 23px 22px;
@@ -225,91 +230,115 @@
   background: linear-gradient(118deg,rgba(255,246,250,.98),rgba(255,233,244,.94));
   box-shadow: 0 8px 20px rgba(190,64,104,.14), inset 0 1px 0 rgba(255,255,255,.9);
   color: #16152f;
+  transform: none !important;
+  --arc-reveal-offset: 0px !important;
 }
-.connect-scam-heading { display: flex; align-items: center; gap: 12px; max-width: max-content; }
-.connect-scam-shield { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; color: #fff; border-radius: 15px; background: linear-gradient(145deg,#f72556,#b5093c); box-shadow: 0 4px 11px rgba(190,10,62,.24); }
+.connect-scam-heading { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; max-width: max-content; }
+.connect-scam-shield { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; color: #fff; border-radius: 13px; background: linear-gradient(145deg,#f72556,#b5093c); box-shadow: 0 4px 11px rgba(190,10,62,.24); }
 .connect-scam-shield svg { width: 40px; height: 40px; }
-.connect-scam-heading h2 { margin: 0; padding: 5px 13px; color: #fff; background: linear-gradient(100deg,#ed174b,#a80736); border-radius: 6px 14px 6px 14px; font: 900 clamp(23px,3vw,35px)/1.1 Manrope,Arial,sans-serif; letter-spacing: -.02em; }
-.connect-scam-slashes { width: 40px; height: 52px; background: repeating-linear-gradient(110deg,transparent 0 8px,#c30c45 8px 15px,transparent 15px 22px); }
-.connect-scam-subtitle { margin: 9px 0 17px 68px; color: #191638; font-size: clamp(14px,1.7vw,20px); line-height: 1.35; font-weight: 850; }
-.connect-scam-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; }
+.connect-scam-heading h2 { margin: 0; padding: 7px 16px; color: #fff; background: linear-gradient(100deg,#ed174b,#a80736); border-radius: 5px 14px 5px 14px; font: 900 clamp(23px,3vw,35px)/1.1 Manrope,Arial,sans-serif; letter-spacing: -.02em; white-space: nowrap; }
+.connect-scam-slashes { width: 40px; height: 52px; flex: 0 0 40px; background: repeating-linear-gradient(110deg,transparent 0 8px,#c30c45 8px 15px,transparent 15px 22px); }
+.connect-scam-subtitle { position: relative; z-index: 1; margin: 9px 0 17px 68px; color: #191638; font-size: clamp(14px,1.7vw,20px); line-height: 1.35; font-weight: 850; }
+.connect-scam-watermark { position: absolute; top: 8px; right: 20px; width: 100px; height: 112px; color: #d91f50; opacity: .10; pointer-events: none; }
+.connect-scam-watermark svg { display: block; width: 100%; height: 100%; }
+.connect-scam-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; }
 .connect-scam-item { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 7px; min-width: 0; padding: 5px 13px; text-align: center; }
 .connect-scam-item + .connect-scam-item { border-left: 1px solid rgba(215,80,146,.35); }
 .connect-scam-item svg { width: 39px; height: 39px; color: #17224e; overflow: visible; }
 .connect-scam-item:nth-child(2) svg { color: #0870ef; }
 .connect-scam-item p { max-width: 200px; margin: 0; color: #11152f; font-size: clamp(13px,1.45vw,18px); line-height: 1.23; font-weight: 800; overflow-wrap: anywhere; }
+
 @media (max-width: 900px) {
-  .connect-heading { min-height: 126px; padding: 14px 18px; }
-  .connect-heading-copy { max-width: 69%; }
-  .connect-header-mascot { width: 36%; height: 135px; }
-  .connect-social-grid { gap: 12px; }
-  .connect-card { grid-template-columns: minmax(0,1fr); grid-template-rows: auto auto 48px; min-height: 0; gap: 9px; padding: 12px; border-radius: 18px; }
-  .connect-card-preview { grid-column: 1; grid-row: 1; aspect-ratio: 1.28 / 1; height: auto; }
-  .connect-card-copy { grid-column: 1; grid-row: 2; align-self: start; min-height: 55px; padding: 0 2px; }
-  .connect-card-copy h3 { margin-bottom: 4px; font-size: clamp(15px,2.2vw,20px); }
-  .connect-card-copy p { font-size: clamp(11px,1.45vw,14px); line-height: 1.28; }
-  .connect-card-action { grid-column: 1; grid-row: 3; min-height: 46px; padding: 7px; gap: 6px; border-radius: 12px; font-size: clamp(11px,1.35vw,14px); }
-  .connect-card-action > svg { width: 21px; height: 21px; flex-basis: 21px; }
-  .connect-card-action .connect-external-icon { width: 15px; height: 15px; flex-basis: 15px; }
-  .connect-explore-banner { grid-template-columns: 75px minmax(0,1fr) 46px; min-height: 118px; gap: 12px; margin: 17px 0; padding: 15px; border-radius: 20px; }
+  .homepage-connect-layout { width: 100%; margin-top: 8px; }
+  .connect-heading { min-height: 112px; padding: 8px 12px; }
+  .connect-heading-copy { max-width: 77%; }
+  .connect-heading h2 { gap: 7px; font-size: clamp(21px,5.8vw,28px); }
+  .connect-verified-badge { width: 28px; height: 28px; flex-basis: 28px; }
+  .connect-verified-badge svg { width: 19px; height: 19px; }
+  .connect-header-mascot { right: 0; width: 32%; height: 112px; object-fit: contain; object-position: right bottom; }
+
+  .connect-social-grid { gap: 10px; grid-auto-rows: 174px; margin-top: 5px; }
+  .connect-card {
+    grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr);
+    grid-template-rows: minmax(0,1fr) 42px;
+    gap: 7px 8px;
+    min-height: 0;
+    height: 100%;
+    padding: 9px;
+    border-radius: 16px;
+  }
+  .connect-card-preview { grid-column: 1; grid-row: 1; height: 100%; aspect-ratio: auto; border-radius: 10px; }
+  .connect-card-copy { grid-column: 2; grid-row: 1; align-self: center; min-height: 0; padding: 0 1px; }
+  .connect-card-copy h3 { margin: 0 0 5px; font-size: clamp(13px,3.2vw,18px); line-height: 1.12; }
+  .connect-card-copy p { display: block; font-size: clamp(10px,2.7vw,13px); line-height: 1.25; }
+  .connect-card-action { grid-column: 1 / -1; grid-row: 2; min-height: 42px; padding: 6px 5px; gap: 5px; border-radius: 10px; font-size: clamp(9.5px,2.55vw,12px); line-height: 1.08; }
+  .connect-card-action > svg { width: 18px; height: 18px; flex-basis: 18px; }
+  .connect-card-action .connect-external-icon { width: 14px; height: 14px; flex-basis: 14px; }
+
+  .connect-explore-banner { grid-template-columns: 75px minmax(0,1fr) 46px; min-height: 112px; gap: 12px; margin: 15px 0; padding: 13px; border-radius: 20px; }
   .connect-explore-icon { min-height: 82px; padding-right: 10px; }
   .connect-explore-icon svg { width: 57px; height: 57px; }
+  .connect-explore-copy strong { font-size: clamp(20px,3.4vw,30px); }
+  .connect-explore-copy > span { font-size: clamp(11px,1.6vw,15px); line-height: 1.28; }
   .connect-explore-arrow { width: 43px; height: 43px; }
   .connect-explore-arrow svg { width: 24px; height: 24px; }
-  .connect-scam-card { padding: 16px 14px 18px; border-radius: 20px; }
+
+  .connect-scam-card { margin: 14px 0 24px !important; padding: 15px 13px 16px; border-radius: 19px; }
   .connect-scam-heading { gap: 8px; }
   .connect-scam-shield { flex-basis: 43px; width: 43px; height: 43px; }
   .connect-scam-shield svg { width: 34px; height: 34px; }
-  .connect-scam-heading h2 { font-size: clamp(19px,3vw,27px); }
-  .connect-scam-slashes { width: 27px; height: 43px; }
-  .connect-scam-subtitle { margin: 8px 0 12px; font-size: clamp(12px,1.7vw,16px); }
-  .connect-scam-grid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 10px; }
-  .connect-scam-item { padding: 8px 10px; }
+  .connect-scam-heading h2 { padding: 6px 12px; font-size: clamp(18px,3vw,25px); }
+  .connect-scam-slashes { width: 25px; height: 43px; flex-basis: 25px; }
+  .connect-scam-subtitle { margin: 8px 0 12px 55px; font-size: clamp(12px,1.7vw,16px); }
+  .connect-scam-watermark { right: 10px; width: 72px; height: 86px; }
+  .connect-scam-grid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 0; }
+  .connect-scam-item { min-height: 86px; gap: 5px; padding: 8px 9px; }
+  .connect-scam-item:nth-child(2n) { border-left: 1px solid rgba(215,80,146,.35); }
   .connect-scam-item:nth-child(3) { border-left: 0; }
   .connect-scam-item:nth-child(3),
-  .connect-scam-item:nth-child(4) { border-top: 1px solid rgba(215,80,146,.35); padding-top: 13px; }
+  .connect-scam-item:nth-child(4) { border-top: 1px solid rgba(215,80,146,.35); padding-top: 10px; }
+  .connect-scam-item svg { width: 30px; height: 30px; }
+  .connect-scam-item p { max-width: 220px; font-size: clamp(11px,1.55vw,14px); }
 }
+
 @media (max-width: 420px) {
-  .homepage-connect-layout { margin-top: 18px; }
-  .connect-heading { min-height: 102px; padding: 9px 11px; }
-  .connect-heading-copy { max-width: 72%; }
-  .connect-heading h2 { font-size: clamp(24px,7.2vw,30px); gap: 6px; }
-  .connect-heading-copy > p { margin-top: 5px; font-size: 11px; }
-  .connect-verified-badge { width: 27px; height: 27px; flex-basis: 27px; }
-  .connect-verified-badge svg { width: 18px; height: 18px; }
-  .connect-header-mascot { right: -6px; width: 38%; height: 105px; }
-  .connect-social-grid { gap: 8px; margin-top: 4px; }
-  .connect-card { padding: 8px; gap: 7px; border-radius: 15px; grid-template-rows: auto auto 42px; }
-  .connect-card-preview { aspect-ratio: 1.22 / 1; border-radius: 10px; }
-  .connect-card-copy { min-height: 45px; }
-  .connect-card-copy h3 { font-size: 13px; line-height: 1.12; }
-  .connect-card-copy p { display: none; }
-  .connect-card-action { min-height: 41px; padding: 5px 4px; gap: 4px; border-radius: 10px; font-size: 10px; }
-  .connect-card-action > svg { width: 17px; height: 17px; flex-basis: 17px; }
+  .homepage-connect-layout { margin-top: 4px; }
+  .connect-heading { min-height: 98px; padding: 6px 9px; }
+  .connect-heading-copy { max-width: 77%; }
+  .connect-heading h2 { gap: 6px; font-size: clamp(20px,5.5vw,23px); }
+  .connect-verified-badge { width: 25px; height: 25px; flex-basis: 25px; }
+  .connect-verified-badge svg { width: 17px; height: 17px; }
+  .connect-header-mascot { width: 32%; height: 98px; }
+
+  .connect-social-grid { gap: 8px; grid-auto-rows: 166px; margin-top: 4px; }
+  .connect-card { grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); grid-template-rows: minmax(0,1fr) 40px; gap: 6px; padding: 7px; border-radius: 14px; }
+  .connect-card-preview { border-radius: 9px; }
+  .connect-card-copy h3 { margin-bottom: 4px; font-size: clamp(12px,3.2vw,14px); }
+  .connect-card-copy p { display: block; font-size: clamp(9.5px,2.55vw,10.5px); line-height: 1.2; }
+  .connect-card-action { min-height: 40px; padding: 4px 3px; gap: 3px; border-radius: 9px; font-size: clamp(8.8px,2.25vw,9.8px); }
+  .connect-card-action > svg { width: 15px; height: 15px; flex-basis: 15px; }
   .connect-card-action .connect-external-icon { width: 12px; height: 12px; flex-basis: 12px; }
-  .connect-explore-banner { grid-template-columns: 44px minmax(0,1fr) 32px; gap: 8px; min-height: 102px; margin: 13px 0; padding: 11px 9px; border-radius: 16px; }
-  .connect-explore-icon { min-height: 70px; padding-right: 5px; }
-  .connect-explore-icon svg { width: 39px; height: 39px; }
-  .connect-explore-copy { gap: 5px; }
-  .connect-explore-copy strong { font-size: 18px; line-height: 1.1; }
-  .connect-explore-copy > span { font-size: 10px; line-height: 1.25; }
-  .connect-explore-arrow { width: 31px; height: 31px; }
-  .connect-explore-arrow svg { width: 19px; height: 19px; }
-  .connect-scam-card { margin: 14px 0 20px; padding: 13px 9px; border-radius: 16px; }
-  .connect-scam-heading { gap: 6px; }
-  .connect-scam-shield { width: 34px; height: 34px; flex-basis: 34px; border-radius: 10px; }
+
+  .connect-explore-banner { grid-template-columns: 43px minmax(0,1fr) 31px; gap: 8px; min-height: 94px; margin: 12px 0; padding: 10px 8px; border-radius: 15px; }
+  .connect-explore-icon { min-height: 68px; padding-right: 5px; }
+  .connect-explore-icon svg { width: 38px; height: 38px; }
+  .connect-explore-copy { gap: 4px; }
+  .connect-explore-copy strong { font-size: clamp(16px,4.35vw,18px); line-height: 1.1; }
+  .connect-explore-copy > span { font-size: clamp(9.5px,2.5vw,10.5px); line-height: 1.22; }
+  .connect-explore-arrow { width: 30px; height: 30px; }
+  .connect-explore-arrow svg { width: 18px; height: 18px; }
+
+  .connect-scam-card { margin: 12px 0 20px !important; padding: 12px 9px 13px; border-radius: 15px; }
+  .connect-scam-heading { gap: 6px; max-width: calc(100% - 38px); }
+  .connect-scam-shield { width: 34px; height: 34px; flex-basis: 34px; border-radius: 9px; }
   .connect-scam-shield svg { width: 27px; height: 27px; }
-  .connect-scam-heading h2 { padding: 5px 8px; font-size: 18px; }
-  .connect-scam-slashes { width: 18px; height: 33px; }
-  .connect-scam-subtitle { font-size: 11px; margin: 7px 0 8px; }
-  .connect-scam-grid { column-gap: 0; row-gap: 5px; }
-  .connect-scam-item { gap: 5px; padding: 7px 5px; }
-  .connect-scam-item svg { width: 28px; height: 28px; }
-  .connect-scam-item p { font-size: 11px; line-height: 1.2; }
+  .connect-scam-heading h2 { padding: 5px 8px; font-size: clamp(16px,4.45vw,18px); }
+  .connect-scam-slashes { width: 17px; height: 33px; flex-basis: 17px; }
+  .connect-scam-subtitle { margin: 7px 0 8px 41px; font-size: 10.5px; line-height: 1.25; }
+  .connect-scam-watermark { top: 6px; right: 8px; width: 48px; height: 60px; }
+  .connect-scam-item { min-height: 76px; gap: 4px; padding: 7px 5px; }
+  .connect-scam-item svg { width: 26px; height: 26px; }
+  .connect-scam-item p { font-size: 10px; line-height: 1.18; }
 }
-@media (hover: none) {
-  .connect-card:hover { transform: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .connect-card { transition: none; }
-}
+@media (hover: none) { .connect-card:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .connect-card { transition: none; } }
