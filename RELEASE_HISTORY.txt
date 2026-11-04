@@ -1,3 +1,11 @@
+AFV461 — Homepage Hero and Feature-Card Redesign
+
+## AFV461 — Redesign the homepage hero and feature cards
+- Introduce a responsive two-column homepage hero using the existing mascot artwork.
+- Add four balanced feature cards for Recovery Proofs, Customer Reviews, TikTok Arisu, and the Facebook Page, with dedicated action links.
+- Add an isolated homepage redesign stylesheet and include it in the production build allowlist.
+- Preserve the shared header/footer, accordion feature, Story Viewer, and existing page navigation behavior.
+
 AFV459 — Homepage Accordion Feature Isolation
 
 ## AFV459 — Add the homepage accordion as a focused feature
