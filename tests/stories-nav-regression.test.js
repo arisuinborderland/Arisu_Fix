@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV449 package metadata and release notes are synchronized', () => {
+test('AFV450 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '449.0.0');
-  assert.equal(lock.version, '449.0.0');
-  assert.equal(lock.packages[''].version, '449.0.0');
-  assert.ok(readme.includes('Current release: AFV449'));
-  assert.ok(history.startsWith('AFV449 — Match Mobile Accordion Top and Bottom Insets to Why Choose'));
+  assert.equal(pkg.version, '450.0.0');
+  assert.equal(lock.version, '450.0.0');
+  assert.equal(lock.packages[''].version, '450.0.0');
+  assert.ok(readme.includes('Current release: AFV450'));
+  assert.ok(history.startsWith('AFV450 — Match Mobile Accordion Top and Bottom Insets to Why Choose'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
