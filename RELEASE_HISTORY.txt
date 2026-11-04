@@ -1,10 +1,19 @@
-AFV448 — Match Mobile Accordion Top and Bottom Insets to Why Choose
+AFV449 — Remove Artificial Mobile Accordion Subtitle Spacing
 
-## AFV448 — Reuse Why Choose vertical spacing for all accordion headers
+## AFV449 — Fix title-to-subtitle gap at its source
+- Root cause: AFV448 reserved a two-line minimum height for every subtitle. One-line Services and How descriptions therefore carried an invisible second line, creating excess vertical whitespace and a visibly oversized title/subtitle gap.
+- Replace the reserved subtitle height with natural content height; use a flex column text group centered in the fixed trigger with one explicit 2px gap.
+- Reset subtitle margin and padding to zero. Keep the original wording and natural two-line wrapping for Why Choose.
+- Preserve 64px trigger height, 4px inter-card rhythm, social-card spacing, expanded panel content, desktop layout, and approved footer.
+- Synchronize cache tokens, package/release metadata, and regression tests to AFV449 / 449.0.0.
+
+AFV449 — Match Mobile Accordion Top and Bottom Insets to Why Choose
+
+## AFV449 — Reuse Why Choose vertical spacing for all accordion headers
 - Root cause: one-line Services and How subtitles generated shorter text blocks than the two-line Why Choose subtitle, so the centered copy group had different top/bottom insets inside the fixed-height trigger.
 - Reserve the same two-line subtitle block height across all three triggers while preserving the original text and 2px title/subtitle gap. No forced line breaks or wording changes.
 - Keep the 64px trigger height, 4px inter-card rhythm, social-card spacing, expanded panel content, desktop layout, and approved footer unchanged.
-- Synchronize CSS/JS cache tokens, package/release metadata, and regression tests to AFV448 / 448.0.0.
+- Synchronize CSS/JS cache tokens, package/release metadata, and regression tests to AFV449 / 449.0.0.
 
 AFV446 — Stabilize Mobile Accordion Top and Bottom Spacing
 
