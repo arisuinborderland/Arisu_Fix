@@ -178,11 +178,12 @@ test('AFV418 Privacy mobile content uses a compact icon/text layout and tighter 
   assert.match(privacy, /margin-top: 18px !important/);
 });
 
-test('AFV418 About mobile heading spacing is tightened without changing desktop rules', () => {
+test('AFV431 About mobile heading rhythm stays compact without changing desktop base rules', () => {
   const about = read('about-page.css');
-  assert.match(about, /AFV418 — Bring About page heading/);
-  assert.match(about, /padding-top: 16px !important/);
-  assert.match(about, /margin-bottom: 13px !important/);
+  assert.match(about, /\.about-page-heading\{text-align:center;margin:0 auto 22px;max-width:680px\}/);
+  assert.match(about, /@media \(max-width: 700px\) \{[\s\S]*?\.about-page-main \{ width: calc\(100% - 28px\); padding-top: 8px; padding-bottom: 24px; \}/);
+  assert.match(about, /\.about-page-heading \{ margin-bottom: 2px; \}/);
+  assert.match(about, /\.about-page-heading h1 \{ margin: 7px 0; line-height: 1\.12; \}/);
 });
 
 test('AFV423 desktop homepage verified check is not pinned to its hidden SVG dash offset', () => {
