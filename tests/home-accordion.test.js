@@ -62,7 +62,7 @@ test("collapsed and expanded accordion headers share identical geometry and typo
 test("mobile accordion uses Why Choose's two-line subtitle block height to equalize top/bottom insets", () => {
   assert.match(styles, /AFV448[\s\S]*?\.home-accordion-trigger\s*\{\s*align-items:\s*center/);
   assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*grid-template-rows:\s*auto auto[^}]*gap:\s*2px/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto[^}]*min-height:\s*0/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto[^}]*min-height:\s*calc\(2 \* 1\.18em\)/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
 });
 
