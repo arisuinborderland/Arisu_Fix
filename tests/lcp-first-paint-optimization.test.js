@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV442 release metadata is synchronized', () => {
+test('AFV443 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '442.0.0');
-  assert.equal(lock.version, '442.0.0');
-  assert.equal(lock.packages[''].version, '442.0.0');
-  assert.ok(readme.includes('Current release: AFV442'));
-  assert.ok(history.startsWith('AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text'));
+  assert.equal(pkg.version, '443.0.0');
+  assert.equal(lock.version, '443.0.0');
+  assert.equal(lock.packages[''].version, '443.0.0');
+  assert.ok(readme.includes('Current release: AFV443'));
+  assert.ok(history.startsWith('AFV443 — Restore Balanced Mobile Accordion Text Spacing'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
