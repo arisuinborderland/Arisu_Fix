@@ -1,3 +1,12 @@
+AFV458 — Restore accordion heading scroll offsets and repair CSS selector
+
+## AFV458 — Restore the three accordion heading scroll offsets
+- Root cause: the prior heading-rule cleanup left a dangling comma selector and removed the shared scroll-margin declaration instead of removing only the redundant subset rule.
+- Restore one grouped selector for #servicesTitle, #whyArisuTitle, and #howTitle with scroll-margin-top: 100px.
+- Repair the selector boundary before the legacy Why card positioning reset.
+- Preserve approved accordion trigger sizing, 4px mobile card spacing, panel geometry, typography, and footer layout.
+- Refresh the accordion CSS cache token and synchronize package metadata, README, release history, and regression coverage to AFV458 / 458.0.0.
+
 AFV457 — Remove duplicate Recovery Proofs navigation baseline
 
 ## AFV457 — Reuse the shared default hidden state for Proofs navigation
