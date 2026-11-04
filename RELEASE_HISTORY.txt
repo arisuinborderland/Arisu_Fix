@@ -1,3 +1,11 @@
+AFV434 — About Page Main Sync and Legacy CSS Cleanup
+
+## AFV434 — Rebase approved About Process Flow on latest main
+- Applied the approved six-step About Process Flow markup and consolidated page stylesheet to a clean branch based on the latest main.
+- Removed only the 27-line retired About-specific footer selector layer from styles.css; retained the shared footer and all unrelated page styles.
+- Added dedicated About Process Flow regression coverage and synchronized package release metadata.
+- Preserved the latest homepage accordion, Reviews, Recovery Proofs, and Story Viewer work from main.
+
 AFV425 — Reviews and Proofs Header CSS Cleanup
 
 ## AFV425 — Remove superseded page-specific header layers
