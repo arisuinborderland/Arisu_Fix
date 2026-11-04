@@ -82,9 +82,9 @@ test("accordion trigger displays a right-aligned Expand/Collapse pill", () => {
   assert.match(accordion, /createElement\("span", "home-accordion-trigger-hint", initiallyOpen \? "COLLAPSE" : "EXPAND"\)/);
   assert.match(accordion, /button\.append\(copy, hint\)/);
   assert.match(accordion, /hint\.textContent = open \? "COLLAPSE" : "EXPAND"/);
-  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*78px[^}]*border-radius:\s*999px[^}]*background:\s*linear-gradient/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*128px[^}]*border-radius:\s*999px[^}]*background:\s*linear-gradient/);
   assert.match(styles, /\.home-accordion-item\.is-open > \.home-accordion-trigger \.home-accordion-trigger-hint/);
-  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*66px/);
+  assert.match(styles, /^  \.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*86px[^}]*min-height:\s*36px/m);
 });
 
 test("accordion Expand/Collapse pill has pressed feedback and directional state cue", () => {
@@ -151,7 +151,7 @@ test("mobile homepage footer retains its approved spacing and remains outside ac
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV452 and respect reduced motion", () => {
+test("accordion assets are cache-busted to AFV453 and respect reduced motion", () => {
   assert.match(html, /home-accordion\.css\?v=AFV452/);
   assert.match(html, /home-accordion\.js\?v=AFV452/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
@@ -160,4 +160,12 @@ test("accordion assets are cache-busted to AFV452 and respect reduced motion", (
 test("mobile homepage removes the legacy trailing main padding below the accordion", () => {
   const source = fs.readFileSync(path.join(root, "styles.css"), "utf8");
   assert.match(source, /@media\s*\(max-width:\s*600px\)[\s\S]*?html body\.home-page main \{ padding-bottom: 0 !important; \}/);
+});
+
+
+test("obsolete pre-accordion mobile transform offsets are removed from the legacy stylesheet", () => {
+  const legacyStyles = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+  assert.doesNotMatch(legacyStyles, /transform:\s*translateY\(-10px\) !important/);
+  assert.doesNotMatch(legacyStyles, /transform:\s*translateY\(-14px\) !important/);
+  assert.doesNotMatch(legacyStyles, /transform:\s*translateY\(-6px\) !important/);
 });
