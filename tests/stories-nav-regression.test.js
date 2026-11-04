@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV454 package metadata and release notes are synchronized', () => {
+test('AFV455 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '454.0.0');
-  assert.equal(lock.version, '454.0.0');
-  assert.equal(lock.packages[''].version, '454.0.0');
-  assert.ok(readme.includes('Current release: AFV454'));
-  assert.ok(history.startsWith('AFV454 — Remove obsolete desktop Why Choose flow compensation'));
+  assert.equal(pkg.version, '455.0.0');
+  assert.equal(lock.version, '455.0.0');
+  assert.equal(lock.packages[''].version, '455.0.0');
+  assert.ok(readme.includes('Current release: AFV455'));
+  assert.ok(history.startsWith('AFV455 — Remove obsolete desktop Why Choose flow compensation'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
