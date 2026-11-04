@@ -41,17 +41,17 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(!/^\s*transition:\s*opacity \.24s ease, visibility \.24s ease;/m.test(css), 'default overlay state must not transition into view');
 });
 
-test('AFV442 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('AFV443 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '442.0.0');
-  assert.equal(lock.version, '442.0.0');
-  assert.equal(lock.packages[''].version, '442.0.0');
-  assert.ok(readme.includes('Current release: AFV442'));
+  assert.equal(pkg.version, '443.0.0');
+  assert.equal(lock.version, '443.0.0');
+  assert.equal(lock.packages[''].version, '443.0.0');
+  assert.ok(readme.includes('Current release: AFV443'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text'));
+  assert.ok(history.startsWith('AFV443 — Restore Balanced Mobile Accordion Text Spacing'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
