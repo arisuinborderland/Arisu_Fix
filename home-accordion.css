@@ -344,29 +344,29 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 
-/* AFV446 — Lock the mobile header's text geometry instead of tuning top/bottom
-   padding independently. The old auto-height copy block changed height with
-   one- versus two-line subtitles, making the fixed 64px trigger appear to swap
-   excess whitespace from top to bottom. A fixed title row plus a flexible,
-   vertically centered subtitle row gives every collapsed header the same
-   top/bottom inset and keeps the two-line Why subtitle inside the same box. */
+/* AFV447 — Center the complete title/subtitle group, not the subtitle alone.
+   AFV446 stretched the copy block to fill the trigger and centered the subtitle
+   in the remaining row. That made one-line Services/How subtitles sit too low,
+   creating a large title-to-subtitle gap. Let the copy block use its natural
+   one- or two-line height, keep a deliberate 2px title/subtitle gap, and center
+   the complete block in the fixed 64px trigger. The two-line Why subtitle fills
+   the same available area naturally without a separate alignment behavior. */
 @media (max-width: 640px) {
   .home-accordion-trigger {
-    align-items: stretch;
+    align-items: center;
   }
   .home-accordion-trigger-copy {
-    align-self: stretch;
-    grid-template-rows: 22px minmax(0, 1fr);
-    gap: 0;
+    align-self: center;
+    grid-template-rows: auto auto;
+    gap: 2px;
   }
   .home-accordion-trigger-title {
-    align-self: center;
+    align-self: auto;
   }
   .home-accordion-trigger-subtitle {
-    display: flex;
-    align-items: center;
-    align-self: stretch;
-    height: 100%;
+    display: block;
+    align-self: auto;
+    height: auto;
     min-height: 0;
     overflow: hidden;
     line-height: 1.18;
