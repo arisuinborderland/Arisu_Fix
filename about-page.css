@@ -5,244 +5,6 @@
 .about-page-heading .section-kicker{color:#2b67d8;font-size:12px;font-weight:800;letter-spacing:.16em}
 .about-page-heading h1{margin:8px 0;color:#172749;font:800 clamp(27px,4vw,38px)/1.15 Manrope,Arial,sans-serif;letter-spacing:-1px}
 .about-page-heading p{margin:0;color:#5b6c87;font-size:15px;line-height:1.6}
-.about-page-purpose{margin:0 0 16px}
-.about-page-profile{margin:0 0 16px;padding:22px;gap:17px}
-.about-page-profile .about-description,.about-page-profile .independent-note{font-size:14px;line-height:1.7}
-.about-page-profile .independent-note{padding:10px 12px}
-.about-page-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
-.about-value-card{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:20px;border:1px solid rgba(125,163,229,.32);border-radius:20px;background:linear-gradient(140deg,#fff,#f6f9ff);box-shadow:0 8px 22px rgba(58,102,170,.06)}
-.about-value-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:#e6f1ff;color:#1761d3;font-size:25px;font-weight:800}
-.about-value-card h2{margin:3px 0 8px;color:#172749;font:800 17px/1.3 Manrope,Arial,sans-serif}
-.about-value-card p,.about-value-card li{color:#586984;font-size:13px;line-height:1.65}
-.about-value-card p{margin:0}.about-value-card ul{margin:0;padding-left:18px}
-.about-established{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px 0;color:#225ac2;font:800 14px/1.5 Manrope,Arial,sans-serif;text-align:center}
-.about-established span{font-size:20px}
-@media(max-width:600px){.about-page-main{width:calc(100% - 28px);padding:23px 0 32px}.about-page-heading{margin-bottom:17px}.about-page-heading p{font-size:13px}.about-page-purpose{padding:20px 17px;border-radius:19px}.about-page-profile{grid-template-columns:58px minmax(0,1fr);padding:15px 13px;gap:11px;border-radius:17px}.about-page-profile>img{width:58px;height:58px;border-radius:16px}.about-page-profile .about-brand-title{font-size:18px!important}.about-page-profile .about-description,.about-page-profile .independent-note{font-size:12.5px;line-height:1.55}.about-page-values{grid-template-columns:1fr;gap:12px}.about-value-card{padding:16px;border-radius:17px}.about-value-card p,.about-value-card li{font-size:13px}.about-established{font-size:13px}.about-page-footer{gap:12px;font-size:11px}}
-
-/* include the complete Please Read / Terms card on the About page. */
-.about-page-main > .about-terms-section{display:block;width:100%;max-width:none;margin:22px 0 20px;padding:0}
-.about-page-main > .about-terms-section .terms-card{padding:22px;border-radius:20px}
-.about-page-main > .about-terms-section .terms-card h2{margin:8px 0 10px}
-.about-page-main > .about-terms-section .terms-intro{margin:0 0 12px}
-@media(max-width:600px){.about-page-main > .about-terms-section{margin:18px 0 16px}.about-page-main > .about-terms-section .terms-card{padding:17px 15px}.about-page-main > .about-terms-section .terms-card p{font-size:14px;line-height:1.65}}
-
-
-/* compact About page section spacing; descriptions use 2px bottom margin. */
-.about-page-main > section,
-.about-page-main > .about-page-purpose,
-.about-page-main > .about-card,
-.about-page-main > .about-value-card,
-.about-page-main > .about-terms-section {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-.about-page-main .about-page-heading { margin-bottom: 12px; }
-.about-page-main .about-page-purpose > p,
-.about-page-main .about-card p,
-.about-page-main .about-value-card p,
-.about-page-main .about-terms-section .terms-intro,
-.about-page-main .about-terms-section .terms-card p {
-  margin-bottom: 2px;
-}
-.about-page-main .about-page-purpose > p + p,
-.about-page-main .about-card p + p { margin-top: 6px; }
-.about-page-main .about-page-purpose,
-.about-page-main .about-card,
-.about-page-main .about-value-card {
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
-@media (max-width: 600px) {
-  .about-page-main { padding-top: 18px; padding-bottom: 24px; }
-  .about-page-main > section,
-  .about-page-main > .about-page-purpose,
-  .about-page-main > .about-card,
-  .about-page-main > .about-value-card,
-  .about-page-main > .about-terms-section {
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-  .about-page-main .about-page-heading { margin-bottom: 8px; }
-  .about-page-main .about-page-purpose,
-  .about-page-main .about-card,
-  .about-page-main .about-value-card { padding-top: 15px; padding-bottom: 15px; }
-}
-
-/* remove the excess gradient gap after the About footer on mobile. */
-@media (max-width: 600px) {
-  body.about-page {
-    padding-bottom: 0 !important;
-  }
-  body.about-page .about-established {
-    margin-top: 12px !important;
-    margin-bottom: 8px !important;
-  }
-}
-
-/* consistent compact spacing across the About page on mobile. */
-@media (max-width: 600px) {
-  body.about-page .about-page-main {
-    width: calc(100% - 28px) !important;
-    padding-top: 8px !important;
-  }
-  body.about-page .about-page-main > *,
-  body.about-page .about-page-main > section,
-  body.about-page .about-page-main > .about-page-purpose,
-  body.about-page .about-page-main > .about-page-profile,
-  body.about-page .about-page-main > .about-page-values,
-  body.about-page .about-page-main > .about-terms-section {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main .about-page-heading {
-    margin-top: 0 !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main .about-page-purpose,
-  body.about-page .about-page-main .about-page-profile,
-  body.about-page .about-page-main .about-value-card,
-  body.about-page .about-page-main > .about-terms-section .terms-card {
-    padding: 12px !important;
-    border-radius: 14px !important;
-  }
-  body.about-page .about-page-main .about-page-values {
-    gap: 2px !important;
-  }
-  body.about-page .about-page-main .about-page-profile {
-    column-gap: 10px !important;
-    row-gap: 2px !important;
-  }
-  body.about-page .about-page-main .about-page-profile .about-description,
-  body.about-page .about-page-main .about-page-profile .independent-note,
-  body.about-page .about-page-main .about-page-purpose .purpose-card > p,
-  body.about-page .about-page-main .about-value-card p,
-  body.about-page .about-page-main .about-value-card li,
-  body.about-page .about-page-main .about-terms-section .terms-intro,
-  body.about-page .about-page-main .about-terms-section .terms-card p {
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main .about-value-card h2,
-  body.about-page .about-page-main .about-terms-section .terms-card h2 {
-    margin-top: 2px !important;
-    margin-bottom: 4px !important;
-  }
-  body.about-page .about-page-main .about-terms-section {
-    padding: 0 !important;
-  }
-  body.about-page .about-page-main .about-terms-section .terms-card {
-    padding: 12px !important;
-  }
-  body.about-page .about-page-main .about-established {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-  }
-}
-
-/* lift Mission, Values, and Please Read; enforce 2px vertical gaps. */
-@media (max-width: 600px) {
-  body.about-page .about-page-main > .about-page-purpose,
-  body.about-page .about-page-main > .about-page-profile,
-  body.about-page .about-page-main > .about-page-values,
-  body.about-page .about-page-main > .about-terms-section,
-  body.about-page .about-page-main > .about-established {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main {
-    padding-top: 2px !important;
-  }
-  body.about-page .about-page-main > .about-page-values {
-    gap: 2px !important;
-  }
-  body.about-page .about-page-main > .about-page-values .about-value-card {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  body.about-page .about-page-main > .about-terms-section {
-    padding: 0 !important;
-  }
-  body.about-page .about-page-main > .about-terms-section .terms-card {
-    margin: 0 !important;
-    padding: 12px !important;
-  }
-  body.about-page .about-page-main > .about-terms-section .terms-intro,
-  body.about-page .about-page-main > .about-terms-section .terms-card p {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main > .about-established {
-    margin-top: 2px !important;
-    margin-bottom: 0 !important;
-  }
-}
-
-/* set About page section-to-section spacing to 2px and lift content upward. */
-@media (max-width: 600px) {
-  body.about-page .about-page-main > .about-page-heading {
-    margin-top: 0 !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main > .about-page-values > .about-value-card {
-    margin: 0 !important;
-  }
-  body.about-page .about-page-main > .about-terms-section > .terms-card {
-    margin: 0 !important;
-  }
-  body.about-page .about-page-main > .about-established {
-    margin-bottom: 2px !important;
-  }
-}
-
-/* reduce excess vertical padding INSIDE every About-page card on mobile. */
-@media (max-width: 600px) {
-  body.about-page .about-page-main .about-page-purpose,
-  body.about-page .about-page-main .about-page-profile,
-  body.about-page .about-page-main .about-value-card,
-  body.about-page .about-page-main > .about-terms-section .terms-card,
-  body.about-page .about-page-main .terms-security {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-  }
-  body.about-page .about-page-main .about-page-purpose,
-  body.about-page .about-page-main .about-page-profile,
-  body.about-page .about-page-main .about-value-card,
-  body.about-page .about-page-main > .about-terms-section .terms-card {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-  body.about-page .about-page-main .about-page-purpose h2,
-  body.about-page .about-page-main .about-page-profile h2,
-  body.about-page .about-page-main .about-value-card h2,
-  body.about-page .about-page-main > .about-terms-section .terms-card h2,
-  body.about-page .about-page-main .terms-security h3 {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main .about-page-purpose > p,
-  body.about-page .about-page-main .about-page-profile p,
-  body.about-page .about-page-main .about-value-card p,
-  body.about-page .about-page-main .about-value-card li,
-  body.about-page .about-page-main > .about-terms-section .terms-card p,
-  body.about-page .about-page-main .terms-security p {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-  }
-  body.about-page .about-page-main .purpose-signoff {
-    margin-top: 2px !important;
-    padding-top: 2px !important;
-    padding-bottom: 0 !important;
-  }
-  body.about-page .about-page-main .about-page-profile {
-    align-items: start;
-  }
-}
-
-/* keep the footer clear of the fixed mobile bottom navigation. */
-@media (max-width: 600px) {
-  body.about-page .about-page-main {
-    padding-bottom: 2px !important;
-  }
-}
 
 /* homepage-matched bottom navigation on About page; only visible on mobile. */
 body.about-page { padding-bottom:0; }
@@ -276,31 +38,6 @@ body.about-page .mobile-bottom-nav { display:none; }
   html body.about-page .mobile-bottom-nav .mobile-nav-item svg.whatsapp-nav-icon { fill:currentColor; stroke:none; stroke-width:0; }
 }
 @media (prefers-reduced-motion:reduce) { html body.about-page .mobile-bottom-nav * { transition:none !important; animation:none !important; } }
-
-
-/* AFV418 — Bring About page heading and card rhythm closer to the shared main layout. */
-@media (max-width: 600px) {
-  html body.about-page .about-page-main {
-    padding-top: 16px !important;
-  }
-  html body.about-page .about-page-heading {
-    margin-bottom: 13px !important;
-  }
-  html body.about-page .about-page-heading .section-kicker {
-    line-height: 1.25 !important;
-  }
-  html body.about-page .about-page-heading h1 {
-    margin: 7px 0 !important;
-    line-height: 1.12 !important;
-  }
-  html body.about-page .about-page-heading p {
-    line-height: 1.5 !important;
-  }
-  html body.about-page .about-page-purpose {
-    margin-bottom: 10px !important;
-  }
-}
-
 
 /* AFV427 — unified About content in the approved five-step Process Flow. */
 .about-page-main > .about-process-flow {
@@ -528,7 +265,6 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-icon { scroll-behavior: auto; }
 }
 
-
 /* AFV428 — remove the About service badge footprint and tighten its details. */
 .about-process-service .about-process-copy h2 { margin-bottom: 5px; }
 .about-process-service .about-process-copy > p { margin-bottom: 5px; }
@@ -542,7 +278,6 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-service .about-process-copy > p { margin-bottom: 3px; }
   .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 3px !important; padding-top: 4px; }
 }
-
 
 /* AFV429 — compact the six-step About flow on mobile without reducing readability. */
 @media (max-width: 700px) {
@@ -565,11 +300,6 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-creator-name { font-size: 23px !important; }
   .about-process-terms-copy > .section-kicker { margin-bottom: 1px; font-size: 9px; }
   .about-process-terms-copy .terms-intro { margin: 0 0 5px; font-size: 12px; line-height: 1.42; }
-  .about-process-terms-copy .terms-security { grid-template-columns: 30px minmax(0,1fr); gap: 7px; padding: 8px 8px 3px; border-radius: 12px; }
-  .about-process-terms-copy .terms-security-icon { width: 30px; height: 30px; border-radius: 9px; }
-  .about-process-terms-copy .terms-security-icon svg { width: 18px; height: 18px; }
-  .about-process-terms-copy .terms-security-copy h3 { margin-bottom: 3px; font-size: 12.5px; line-height: 1.25; }
-  .about-process-terms-copy .terms-security-copy p { font-size: 11px; line-height: 1.38; }
 }
 @media (max-width: 380px) {
   .about-process-panel { grid-template-columns: 32px minmax(0,1fr); gap: 7px; padding: 9px !important; }
@@ -577,9 +307,13 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-icon svg { width: 20px; height: 20px; }
   .about-process-copy h2 { font-size: 14px; }
   .about-process-copy p, .about-process-copy li { font-size: 11.5px; line-height: 1.42; }
-  .about-process-terms-copy .terms-security { grid-template-columns: 28px minmax(0,1fr); gap: 6px; padding: 7px 7px 3px; }
-  .about-process-terms-copy .terms-security-icon { width: 28px; height: 28px; }
 }
 
-
-/* AFV430 — remove the nested Legitimate Account Recovery Only notice from the Terms step. */
+/* AFV431 — retain only the current About heading rhythm on mobile. */
+@media (max-width: 700px) {
+  .about-page-main { width: calc(100% - 28px); padding-top: 8px; padding-bottom: 24px; }
+  .about-page-heading { margin-bottom: 2px; }
+  .about-page-heading .section-kicker { line-height: 1.25; }
+  .about-page-heading h1 { margin: 7px 0; line-height: 1.12; }
+  .about-page-heading p { font-size: 13px; line-height: 1.5; }
+}
