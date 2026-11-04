@@ -51,7 +51,7 @@ test('AFV459 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(lock.packages[''].version, '459.0.0');
   assert.ok(readme.includes('Current release: AFV459'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV459 — About Page Main Sync and Legacy CSS Cleanup'));
+  assert.ok(history.startsWith('AFV459 — Homepage Accordion Feature Isolation'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
