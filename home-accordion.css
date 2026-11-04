@@ -1,4 +1,4 @@
-/* AFV435 — Slightly increase collapsed accordion headers after mobile preview */
+/* AFV436 — Keep accordion header geometry identical in collapsed and expanded states. */
 .home-accordion-item {
   position: relative;
   min-width: 0;
@@ -139,45 +139,7 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   margin-bottom: 0 !important;
 }
 
-/* Compact collapsed headers; expanded headers retain their normal sizing.
-   Keep panel content compact without changing the content or its visibility. */
-.home-accordion-item:not(.is-open) > .home-accordion-trigger {
-  box-sizing: border-box;
-  min-height: 48px;
-  gap: 4px;
-  padding: 5px 12px;
-  border-radius: 13px;
-}
-.home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-copy {
-  min-width: 0;
-  flex: 1 1 auto;
-  gap: 2px;
-}
-.home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-title {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 15px;
-  line-height: 1.1;
-}
-.home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-subtitle {
-  display: block;
-  min-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 10px;
-  line-height: 1.1;
-}
-.home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-chevron {
-  flex-basis: 10px;
-  width: 10px;
-  height: 10px;
-  border-right-width: 2px;
-  border-bottom-width: 2px;
-}
-.home-accordion-panel-inner {
+/* Keep panel content compact; trigger sizing is state-independent. */.home-accordion-panel-inner {
   padding-inline: 8px;
 }
 .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
@@ -259,27 +221,7 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 @media (max-width: 640px) {
   .home-accordion-item {
     margin-block: 6px;
-  }
-  .home-accordion-item:not(.is-open) > .home-accordion-trigger {
-    min-height: 46px;
-    gap: 4px;
-    padding: 5px 11px;
-    border-radius: 12px;
-  }
-  .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-title {
-    font-size: 15px;
-    line-height: 1.15;
-  }
-  .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-trigger-subtitle {
-    font-size: 10.5px;
-    line-height: 1.15;
-  }
-  .home-accordion-item:not(.is-open) > .home-accordion-trigger .home-accordion-chevron {
-    flex-basis: 10px;
-    width: 10px;
-    height: 10px;
-  }
-  .home-accordion-panel {
+  }  .home-accordion-panel {
     border-radius: 0 0 15px 15px;
   }
   .home-accordion-panel-inner {
