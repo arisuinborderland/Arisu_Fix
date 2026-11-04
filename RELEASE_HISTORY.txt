@@ -1,3 +1,12 @@
+AFV429 — Compact Six-Step About Flow for Mobile
+
+## AFV429 — Compact mobile About Process Flow
+- Reduced mobile timeline gaps, panel padding, icon sizes, and paragraph/list spacing across all six About steps.
+- Tightened the Terms & limitations intro and nested Legitimate Account Recovery Only notice to reduce excessive vertical scroll while retaining readable text and complete copy.
+- Scoped the compact layout to mobile widths; desktop styling and page content remain unchanged.
+- Updated the About stylesheet cache token and synchronized package metadata, README, release history, and regression expectations to AFV429 / 429.0.0.
+- Preview only; validate CI and mobile/desktop rendering before merge.
+
 AFV428 — About Service Badge Removal & Mobile Spacing
 
 ## AFV428 — Remove the About service blue badge and compact details
