@@ -50,8 +50,8 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*padding:\s*16px 20px/);
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*clamp\(20px, 3vw, 27px\)/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*clamp\(13px, 1\.8vw, 16px\)/);
-  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*min-height:\s*68px[^}]*padding:\s*13px 15px/);
-  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*height:\s*64px[^}]*min-height:\s*64px[^}]*max-height:\s*64px[^}]*padding:\s*5px 13px/);
+  assert.match(styles, /AFV437[\\s\\S]*?\\.home-accordion-trigger\\s*\\{[^}]*height:\\s*auto[^}]*min-height:\\s*0[^}]*max-height:\\s*none[^}]*padding:\\s*7px 13px/);
+  assert.match(styles, /AFV438[\\s\\S]*?\\.home-accordion-trigger\\s*\\{[^}]*padding:\\s*5px 13px/);
   assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*white-space:\s*nowrap/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
@@ -87,8 +87,8 @@ test("mobile homepage footer replaces the legacy overlap margin with the approve
 });
 
 test("accordion assets are cache-busted to AFV449 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV449/);
-  assert.match(html, /home-accordion\.js\?v=AFV449/);
+  assert.match(html, /home-accordion\.css\?v=AFV450/);
+  assert.match(html, /home-accordion\.js\?v=AFV450/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
@@ -110,4 +110,13 @@ test("AFV449 removes artificial subtitle height and keeps a fixed 2px title/subt
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
   assert.match(html, /home-accordion\.css\?v=AFV449/);
   assert.match(html, /home-accordion\.js\?v=AFV449/);
+});
+
+
+test("AFV450 uses natural mobile header height with the same 5px top and bottom inset", () => {
+  const afv437 = styles.slice(styles.indexOf("AFV437"));
+  assert.match(afv437, /height:\\s*auto[\\s\\S]*?min-height:\\s*0[\\s\\S]*?max-height:\\s*none/);
+  assert.match(afv437, /AFV438[\\s\\S]*?padding:\\s*5px 13px/);
+  assert.doesNotMatch(afv437, /height:\\s*(?:64|68)px|min-height:\\s*(?:64|68)px|max-height:\\s*(?:64|68)px/);
+  assert.match(styles, /AFV450 root-cause correction/);
 });
