@@ -344,13 +344,12 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 
-/* AFV447 — Center the complete title/subtitle group, not the subtitle alone.
-   AFV446 stretched the copy block to fill the trigger and centered the subtitle
-   in the remaining row. That made one-line Services/How subtitles sit too low,
-   creating a large title-to-subtitle gap. Let the copy block use its natural
-   one- or two-line height, keep a deliberate 2px title/subtitle gap, and center
-   the complete block in the fixed 64px trigger. The two-line Why subtitle fills
-   the same available area naturally without a separate alignment behavior. */
+/* AFV448 — Reuse Why Choose's exact mobile vertical text-block geometry.
+   The remaining top/bottom mismatch came from one-line subtitles producing a
+   shorter copy block than the two-line Why subtitle. Reserve the same two-line
+   subtitle height in all three triggers, keep the text itself natural (no forced
+   line breaks), and center the complete block. This gives Services and How the
+   same top/bottom inset as Why without changing card height or outer margins. */
 @media (max-width: 640px) {
   .home-accordion-trigger {
     align-items: center;
@@ -367,7 +366,7 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     display: block;
     align-self: auto;
     height: auto;
-    min-height: 0;
+    min-height: calc(2 * 1.18em);
     overflow: hidden;
     line-height: 1.18;
   }
