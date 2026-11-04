@@ -10,6 +10,8 @@ const styles = fs.readFileSync(path.join(root, "home-accordion.css"), "utf8");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const footer = fs.readFileSync(path.join(root, "footer-reference.css"), "utf8");
 
+const count = (source, pattern) => (source.match(pattern) || []).length;
+
 test("homepage accordion defaults to all sections closed and uses the approved order", () => {
   assert.ok(accordion.indexOf('getElementById("services")') < accordion.indexOf('getElementById("why-choose-arisu")'));
   assert.match(accordion, /services\.classList\.add\("home-accordion-item"\)/);
@@ -35,7 +37,6 @@ test("opening a section closes the previous section and updates accessibility st
   assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
 });
 
-
 test("opening an accordion smoothly scrolls the new panel into view and closing does not scroll", () => {
   assert.match(accordion, /if \(nextItem\) \{/);
   assert.match(accordion, /window\.setTimeout\(\(\) => \{/);
@@ -45,30 +46,41 @@ test("opening an accordion smoothly scrolls the new panel into view and closing 
   assert.match(accordion, /\}, 360\)/);
 });
 
-test("collapsed and expanded accordion headers share identical geometry and typography", () => {
+test("desktop accordion geometry and typography retain the approved baseline", () => {
   assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*min-height:\s*78px/);
   assert.match(styles, /\.home-accordion-trigger\s*\{[^}]*padding:\s*16px 20px/);
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*clamp\(20px, 3vw, 27px\)/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*clamp\(13px, 1\.8vw, 16px\)/);
-  assert.match(styles, /AFV437[\s\S]*?\.home-accordion-trigger\s*\{[^}]*height:\s*auto[^}]*min-height:\s*0[^}]*max-height:\s*none[^}]*padding:\s*7px 13px/);
-  assert.match(styles, /AFV438[\s\S]*?\.home-accordion-trigger\s*\{[^}]*padding:\s*5px 13px/);
-  assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
-  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*white-space:\s*nowrap/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
 
-test("mobile accordion uses natural subtitle height and a fixed 2px title/subtitle gap", () => {
-  assert.match(styles, /AFV449[\s\S]*?\.home-accordion-trigger\s*\{\s*align-items:\s*center/);
+test("mobile accordion keeps natural height, 5px vertical inset, and a 2px title/subtitle gap", () => {
+  assert.match(styles, /height:\s*auto/);
+  assert.match(styles, /min-height:\s*0/);
+  assert.match(styles, /max-height:\s*none/);
+  assert.match(styles, /padding:\s*5px 13px/);
   assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*display:\s*flex[^}]*flex-direction:\s*column[^}]*justify-content:\s*center[^}]*gap:\s*2px/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto[^}]*min-height:\s*0[^}]*margin:\s*0[^}]*padding:\s*0/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*line-height:\s*1\.12[^}]*white-space:\s*nowrap/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*line-height:\s*1\.18/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
+  assert.doesNotMatch(styles, /height:\s*(?:64|68)px|min-height:\s*(?:64|68)px|max-height:\s*(?:64|68)px/);
 });
 
-test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
-  assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
-  assert.match(styles, /Root cause: styles\.css applies body\.home-page \.site-section/);
+test("mobile accordion CSS has one authoritative rule per repeated layout selector", () => {
+  assert.equal(count(styles, /^\.home-accordion-trigger-copy\s*\{/gm), 1);
+  assert.equal(count(styles, /^  \.home-accordion-trigger-copy\s*\{/gm), 1);
+  assert.equal(count(styles, /^\.home-accordion-trigger-subtitle-text\s*\{/gm), 0);
+  assert.equal(count(styles, /^  \.home-accordion-trigger-subtitle-text\s*\{/gm), 1);
+  assert.equal(count(styles, /^\.home-accordion-panel-inner\s*\{/gm), 1);
+  assert.equal(count(styles, /^  \.home-accordion-panel-inner\s*\{/gm), 1);
+  assert.equal(count(styles, /^  \.home-accordion-item\.is-open > \.home-accordion-panel \.home-accordion-panel-inner\s*\{/gm), 1);
+});
+
+test("mobile accordion preserves the approved 4px inter-card spacing", () => {
+  assert.match(styles, /\.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
+  assert.doesNotMatch(styles, /margin-block:\s*6px|margin-block:\s*4px !important/);
 });
 
 test("expanded accordion content retains compact panel spacing without clipping the How card", () => {
@@ -82,41 +94,17 @@ test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => 
   assert.match(styles, /html body\.home-page #desktopSocialDestination > #why-choose-arisu\s*\{\s*margin-bottom:\s*0 !important;/);
 });
 
-test("mobile homepage footer replaces the legacy overlap margin with the approved spacing", () => {
+test("mobile homepage footer retains its approved spacing and remains outside accordion cleanup", () => {
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV450 and respect reduced motion", () => {
-  assert.match(html, /home-accordion\.css\?v=AFV450/);
-  assert.match(html, /home-accordion\.js\?v=AFV450/);
+test("accordion assets are cache-busted to AFV451 and respect reduced motion", () => {
+  assert.match(html, /home-accordion\.css\?v=AFV451/);
+  assert.match(html, /home-accordion\.js\?v=AFV451/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
-
 test("mobile homepage removes the legacy trailing main padding below the accordion", () => {
-  const source = fs.readFileSync(path.join(__dirname, "..", "styles.css"), "utf8");
+  const source = fs.readFileSync(path.join(root, "styles.css"), "utf8");
   assert.match(source, /@media\s*\(max-width:\s*600px\)[\s\S]*?html body\.home-page main \{ padding-bottom: 0 !important; \}/);
-});
-
-
-test("AFV449 removes artificial subtitle height and keeps a fixed 2px title/subtitle gap", () => {
-  const js = fs.readFileSync(path.join(__dirname, "..", "home-accordion.js"), "utf8");
-  const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
-  const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
-  assert.match(js, /home-accordion-trigger-subtitle-text/);
-  assert.match(css, /AFV449[\s\S]*?flex-direction:\s*column/);
-  assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto/);
-  assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
-  assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
-  assert.match(html, /home-accordion\.css\?v=AFV450/);
-  assert.match(html, /home-accordion\.js\?v=AFV450/);
-});
-
-
-test("AFV450 uses natural mobile header height with the same 5px top and bottom inset", () => {
-  const afv437 = styles.slice(styles.indexOf("AFV437"));
-  assert.match(afv437, /height:\s*auto[\s\S]*?min-height:\s*0[\s\S]*?max-height:\s*none/);
-  assert.match(afv437, /AFV438[\s\S]*?padding:\s*5px 13px/);
-  assert.doesNotMatch(afv437, /height:\s*(?:64|68)px|min-height:\s*(?:64|68)px|max-height:\s*(?:64|68)px/);
-  assert.match(styles, /AFV450 root-cause correction/);
 });
