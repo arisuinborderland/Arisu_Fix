@@ -114,7 +114,7 @@ test("accordion-wrapped Why and How cards cancel the legacy visual lift", () => 
   assert.match(styles, /html body\.home-page \.home-accordion-item \.why-arisu-card\s*\{[^}]*translate:\s*none !important;/);
   assert.match(styles, /html body\.home-page #desktopSocialDestination > #why-choose-arisu\s*\{\s*margin-bottom:\s*0 !important;/);
   const legacyStyles = fs.readFileSync(path.join(root, "styles.css"), "utf8");
-  assert.doesNotMatch(legacyStyles, /#desktopSocialDestination\s*>\s*#why-choose-arisu\s*\{[^}]*margin-top:\s*8px\s*!important;/);
+  assert.doesNotMatch(legacyStyles, /#desktopSocialDestination\s*>\s*#why-choose-arisu\s*\{/);
 });
 
 test("mobile homepage footer retains its approved spacing and remains outside accordion cleanup", () => {
