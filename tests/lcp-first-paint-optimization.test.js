@@ -30,16 +30,16 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV444 release metadata is synchronized', () => {
+test('AFV445 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '444.0.0');
-  assert.equal(lock.version, '444.0.0');
-  assert.equal(lock.packages[''].version, '444.0.0');
-  assert.ok(readme.includes('Current release: AFV444'));
-  assert.ok(history.startsWith('AFV444 — Center Mobile Accordion Subtitle Text Within Reserved Slot'));
+  assert.equal(pkg.version, '445.0.0');
+  assert.equal(lock.version, '445.0.0');
+  assert.equal(lock.packages[''].version, '445.0.0');
+  assert.ok(readme.includes('Current release: AFV445'));
+  assert.ok(history.startsWith('AFV445 — Reduce One-Line Mobile Accordion Subtitle Height'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
