@@ -9796,3 +9796,92 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
+
+/* AFV460 — Simple Connect with Arisu header.
+   Plain background only: no divider lines, rounded banner, or decorative rain pattern. */
+html body.home-page main > .connect-arisu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  width: 100%;
+  margin: 16px 0 12px;
+  padding: 0;
+  color: #26385d;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+  letter-spacing: normal;
+  text-transform: none;
+}
+html body.home-page main > .connect-arisu-heading::before,
+html body.home-page main > .connect-arisu-heading::after {
+  display: none !important;
+  content: none !important;
+}
+html body.home-page main > .connect-arisu-heading > .connect-arisu-verified {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  color: #1677ed;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+html body.home-page main > .connect-arisu-heading > .connect-arisu-verified svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+html body.home-page main > .connect-arisu-heading > .connect-arisu-title {
+  margin: 0;
+  padding: 0;
+  color: #26385d;
+  font: 800 clamp(19px, 2.7vw, 25px)/1.15 Manrope, sans-serif;
+  letter-spacing: -.035em;
+}
+html body.home-page main > .connect-arisu-heading .connect-arisu-name {
+  color: #2679e8;
+}
+html body.home-page main > .connect-arisu-heading > .connect-arisu-mascot {
+  display: block;
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  margin: -5px 0 -4px auto;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+@media (max-width: 600px) {
+  html body.home-page main > .connect-arisu-heading {
+    gap: 7px;
+    margin: 12px 0 10px;
+  }
+  html body.home-page main > .connect-arisu-heading > .connect-arisu-verified,
+  html body.home-page main > .connect-arisu-heading > .connect-arisu-verified svg {
+    width: 22px;
+    height: 22px;
+  }
+  html body.home-page main > .connect-arisu-heading > .connect-arisu-verified {
+    flex-basis: 22px;
+  }
+  html body.home-page main > .connect-arisu-heading > .connect-arisu-title {
+    font-size: clamp(17px, 4.7vw, 21px);
+  }
+  html body.home-page main > .connect-arisu-heading > .connect-arisu-mascot {
+    width: 56px;
+    height: 56px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+  }
+}
