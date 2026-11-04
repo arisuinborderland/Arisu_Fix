@@ -9,7 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV460 introduces the approved Connect with Arisu social-card layout, Explore More banner, and relocated four-item Scam Awareness panel. It preserves the existing upper homepage sections, proof/review functionality, accordion, and shared footer.
+- AFV460 introduces the approved Connect with Arisu social-card layout, Explore More banner, and relocated four-item Scam Awareness panel. It preserves the existing upper homepage sections, proof/review functionality, accordion, and shared footer. The mobile visual-correction pass keeps all four cards horizontal with visible descriptions, uses the approved Connect character crop, and resets the relocated Scam Awareness offset.
 - AFV459 isolates the homepage accordion feature and its required build, markup, accessibility, and mobile footer dependencies. It preserves the existing AFV434 main baseline and removes the retired homepage safety reminder block as requested.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
 
