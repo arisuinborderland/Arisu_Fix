@@ -1,3 +1,12 @@
+AFV450 — Match Mobile Accordion Top and Bottom Insets to Why Choose
+
+## AFV450 — Remove the fixed mobile trigger height at its source
+- Root cause: the shared 64px mobile trigger height forced one-line Services and How subtitles to leave unused vertical space, making their top/bottom insets appear larger than Why Choose.
+- Remove fixed height/min-height/max-height constraints from the mobile header sizing rules. Use natural content height and one shared 5px vertical padding value.
+- Preserve the 2px title/subtitle gap. Why Choose naturally grows to accommodate its two-line subtitle without changing its padding.
+- Preserve the 4px inter-card spacing, social-card placement, expanded panels, desktop styling, and approved footer.
+- Update homepage accordion cache tokens, package metadata, README, and regression tests to AFV450 / 450.0.0.
+
 AFV449 — Remove Artificial Mobile Accordion Subtitle Spacing
 
 ## AFV449 — Fix title-to-subtitle gap at its source
