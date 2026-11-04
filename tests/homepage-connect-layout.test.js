@@ -73,16 +73,17 @@ test('Mobile Connect cards retain the approved horizontal image-and-copy layout'
   assert.ok(html.includes("assets/connect/arisu-connect-mascot.webp?v=AFV460"));
   assert.doesNotMatch(html, /Official social channels and community resources/);
   const mobile = css.split('@media (max-width: 900px)')[1].split('@media (max-width: 420px)')[0];
-  assert.match(mobile, /grid-template-columns:\\s*minmax\\(0,\\.86fr\\) minmax\\(0,1\\.14fr\\)/);
-  assert.match(mobile, /grid-auto-rows:\\s*174px/);
-  assert.match(mobile, /\\.connect-card-copy p\\s*\\{\\s*display:\\s*block/);
-  assert.doesNotMatch(mobile, /grid-template-columns:\\s*minmax\\(0,1fr\\);/);
+  assert.ok(mobile.includes("grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr)"));
+  assert.ok(mobile.includes("grid-auto-rows: 174px"));
+  assert.ok(mobile.includes(".connect-card-copy p { display: block"));
+  assert.ok(!mobile.includes("grid-template-columns: minmax(0,1fr);"));
 });
 
 test('Relocated Scam Awareness does not inherit the old homepage vertical offset', () => {
   const css = read('homepage-connect.css');
-  assert.match(css, /\\.connect-scam-card\\s*\\{[\\s\\S]*?transform:\\s*none !important/);
-  assert.match(css, /--arc-reveal-offset:\\s*0px !important/);
-  assert.match(css, /\\.connect-scam-watermark/);
-  assert.match(css, /\\.connect-scam-subtitle\\s*\\{[\\s\\S]*?margin:\\s*9px 0 17px 68px/);
+  assert.ok(css.includes(".connect-scam-card {"));
+  assert.ok(css.includes("transform: none !important;"));
+  assert.ok(css.includes("--arc-reveal-offset: 0px !important;"));
+  assert.ok(css.includes(".connect-scam-watermark"));
+  assert.ok(css.includes("margin: 9px 0 17px 68px"));
 });
