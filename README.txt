@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV434
-Updated: 2026-11-03
+Version: AFV459
+Updated: 2026-11-04
 
-Current release: AFV434
-Package version: 434.0.0
+Current release: AFV459
+Package version: 459.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV459 isolates the homepage accordion feature and its required build, markup, accessibility, and mobile footer dependencies. It preserves the existing AFV434 main baseline and removes the retired homepage safety reminder block as requested.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
 
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
