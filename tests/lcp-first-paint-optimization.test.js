@@ -39,7 +39,7 @@ test('AFV456 release metadata is synchronized', () => {
   assert.equal(lock.version, '456.0.0');
   assert.equal(lock.packages[''].version, '456.0.0');
   assert.ok(readme.includes('Current release: AFV456'));
-  assert.ok(history.startsWith('AFV456 — Remove empty legacy media-query blocks'));
+  assert.ok(history.startsWith('AFV456 — Remove duplicate Story Viewer empty-state rules'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {

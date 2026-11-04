@@ -51,7 +51,7 @@ test('AFV456 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(lock.packages[''].version, '456.0.0');
   assert.ok(readme.includes('Current release: AFV456'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV456 — Remove empty legacy media-query blocks'));
+  assert.ok(history.startsWith('AFV456 — Remove duplicate Story Viewer empty-state rules'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
