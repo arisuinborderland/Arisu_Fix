@@ -1,3 +1,11 @@
+AFV443 — Restore Balanced Mobile Accordion Text Spacing
+
+## AFV443 — Remove the conflicting one-line subtitle override
+- Root cause: AFV442 appended a later `.home-accordion-trigger-subtitle { min-height: 1.18em; }` rule, overriding AFV440's intentional `min-height: 2.36em` two-line reserve. This shortened the vertically centered text group inside the fixed 64px trigger and recreated excessive top/bottom whitespace on one-line Services and How subtitles.
+- Remove only the conflicting AFV442 override. Restore the shared 2.36em subtitle slot for all three triggers so one-line and two-line descriptions occupy a consistent text block.
+- Preserve the 64px trigger height, 4px inter-card rhythm, AFV442's -26px social-collage flow correction, Services wrapper padding correction, and approved About/footer styling.
+- Refresh accordion CSS/JS cache tokens, package metadata, README/release history, and regression coverage. No desktop CSS or social-card spacing changes.
+
 AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text
 
 ## AFV442 — Remove the visual-transform flow gap and excess subtitle reserve
