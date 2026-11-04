@@ -54,7 +54,7 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*height:\s*64px[^}]*min-height:\s*64px[^}]*max-height:\s*64px[^}]*padding:\s*5px 13px/);
   assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*white-space:\s*nowrap/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*-webkit-line-clamp:\s*2/);
+  assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\) > \.home-accordion-trigger/);
   assert.doesNotMatch(styles, /\.home-accordion-item:not\(\.is-open\).*home-accordion-trigger-(?:title|subtitle|copy|chevron)/);
 });
