@@ -580,3 +580,6 @@ body.about-page .mobile-bottom-nav { display:none; }
   .about-process-terms-copy .terms-security { grid-template-columns: 28px minmax(0,1fr); gap: 6px; padding: 7px 7px 3px; }
   .about-process-terms-copy .terms-security-icon { width: 28px; height: 28px; }
 }
+
+
+/* AFV430 — remove the nested Legitimate Account Recovery Only notice from the Terms step. */
