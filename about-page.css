@@ -39,7 +39,7 @@ body.about-page .mobile-bottom-nav { display:none; }
 }
 @media (prefers-reduced-motion:reduce) { html body.about-page .mobile-bottom-nav * { transition:none !important; animation:none !important; } }
 
-/* AFV427 — unified About content in the approved five-step Process Flow. */
+/* AFV427 — unified About content in the approved Process Flow. */
 .about-page-main > .about-process-flow {
   margin: 0 0 22px;
   padding: 16px;
@@ -141,12 +141,6 @@ body.about-page .mobile-bottom-nav { display:none; }
 .about-process-service .about-process-copy h2 { margin-bottom: 5px; }
 .about-process-service .about-process-copy > p { margin-bottom: 5px; }
 .about-process-service .about-process-copy > .about-process-disclaimer { margin-top: 5px !important; padding-top: 6px; }
-.about-process-service h2 {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 7px;
-}
 .about-process-copy h3 {
   margin: 0 0 8px;
   color: #234d92;
@@ -198,7 +192,7 @@ body.about-page .mobile-bottom-nav { display:none; }
   font-weight: 700;
   line-height: 1.2 !important;
 }
-/* AFV432 — consolidated responsive Process Flow rules. */
+/* AFV433 — consolidated responsive Process Flow rules. */
 @media (max-width: 700px) {
   .about-page-main > .about-process-flow { margin: 2px 0 12px !important; padding: 8px !important; border-radius: 21px !important; }
   .about-process-list { gap: 7px; }
