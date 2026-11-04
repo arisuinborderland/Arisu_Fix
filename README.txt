@@ -3,7 +3,7 @@ Version: AFV452
 Updated: 2026-11-04
 
 Current release: AFV452
-AFV452 preserves original IDs on generated accordion headings so section aria-labelledby and scroll-margin targets remain valid. It also validates every required source element before any DOM mutation, preventing a partially converted homepage if initialization prerequisites are missing.
+AFV452 preserves original IDs on generated accordion headings, validates every required source element before DOM mutation, and removes three no-op wrapper overrides from the consolidated accordion stylesheet. No approved visual values were changed.
 AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set, preserving the approved AFV450 layout values and mobile spacing.
 Package version: 452.0.0
 Production hosting: Cloudflare Pages
