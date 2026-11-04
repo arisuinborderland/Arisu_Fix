@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV440 package metadata and release notes are synchronized', () => {
+test('AFV441 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '440.0.0');
-  assert.equal(lock.version, '440.0.0');
-  assert.equal(lock.packages[''].version, '440.0.0');
-  assert.ok(readme.includes('Current release: AFV440'));
-  assert.ok(history.startsWith('AFV440 — Normalize Mobile Accordion Text Spacing'));
+  assert.equal(pkg.version, '441.0.0');
+  assert.equal(lock.version, '441.0.0');
+  assert.equal(lock.packages[''].version, '441.0.0');
+  assert.ok(readme.includes('Current release: AFV441'));
+  assert.ok(history.startsWith('AFV441 — Remove Leftover Homepage Bottom Padding After Accordion'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
