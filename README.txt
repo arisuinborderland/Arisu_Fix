@@ -11,6 +11,10 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV451 consolidates the homepage accordion CSS while preserving the approved layout and computed spacing.
+- AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
+
+
 - AFV450 removes the fixed mobile header height and uses natural content height with a shared 5px top/bottom inset, so one-line subtitles no longer reserve unused vertical space. The Why Choose header grows naturally for its two-line subtitle. Text and the 2px title/subtitle gap remain unchanged.
 - AFV444 fixes the remaining bottom-heavy appearance in the What Services and How account assistance headers. Root cause: the shared 2.36em subtitle slot preserved equal header geometry, but the one-line text remained top-aligned inside the slot, leaving the unused second line as visible whitespace below. Wrap the subtitle text and center it within the existing slot. No trigger height, padding, card margins, social-card spacing, desktop CSS, or footer styling changes.
 - AFV444 fixes the regression where What Services I Offer and How account assistance works regained excessive top/bottom whitespace. AFV442 had overridden AFV440's 2.36em two-line subtitle reserve with 1.18em, shrinking the centered text group inside fixed 64px triggers. Remove only that conflicting override; retain the 64px header size, 4px card rhythm, AFV442 social-card flow correction, and approved footer styling.
