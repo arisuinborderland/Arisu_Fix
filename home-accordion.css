@@ -324,6 +324,12 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid {
     transform: none !important;
   }
+
+  /* Cancel the legacy -10px visual lift and keep Clear Guidance 2px below the warranty card. */
+  html body.home-page .how-assistance-section .why-arisu-note {
+    margin-top: 2px !important;
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
