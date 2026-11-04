@@ -119,6 +119,11 @@ test("mobile accordion CSS has one authoritative rule per repeated layout select
   assert.equal(count(styles, /^  \.home-accordion-item\.is-open > \.home-accordion-panel \.home-accordion-panel-inner\s*\{/gm), 1);
 });
 
+test("all three accordion heading IDs retain their shared scroll offset", () => {
+  assert.match(styles, /\.home-accordion-item #servicesTitle,\s*\.home-accordion-item #whyArisuTitle,\s*\.home-accordion-item #howTitle\s*\{\s*scroll-margin-top:\s*100px;\s*\}/);
+  assert.doesNotMatch(styles, /\.home-accordion-item #servicesTitle,\s*\/\*/);
+});
+
 test("accordion stylesheet contains no redundant wrapper no-op overrides", () => {
   assert.doesNotMatch(styles, /\.home-accordion-item \.services-heading\s*\{\s*margin-top:\s*0/);
   assert.doesNotMatch(styles, /\.home-accordion-item \.why-arisu-card\s*\{\s*margin-top:\s*0/);
@@ -151,7 +156,7 @@ test("mobile homepage footer retains its approved spacing and remains outside ac
   assert.match(footer, /margin-top:\s*-44px !important;[\s\S]*AFV428[\s\S]*margin-top:\s*8px !important;/);
 });
 
-test("accordion assets are cache-busted to AFV453 and respect reduced motion", () => {
+test("accordion CSS is cache-busted to AFV458 while its unchanged script remains at AFV453 and respects reduced motion", () => {
   assert.match(html, /home-accordion\.css\?v=AFV453/);
   assert.match(html, /home-accordion\.js\?v=AFV453/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
