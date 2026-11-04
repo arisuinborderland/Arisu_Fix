@@ -16,18 +16,18 @@ function configureWhatsAppLink(link) {
 
 configureWhatsAppLink(document.getElementById("whatsappLink"));
 // Keep social links as normal HTTPS URLs for compatibility with in-app browsers.
-const tiktokCard = document.querySelector(".tiktok-showcase");
-if (tiktokCard) {
-  tiktokCard.href = TIKTOK_PROFILE_URL;
-  tiktokCard.removeAttribute("target");
-  tiktokCard.setAttribute("rel", "noopener noreferrer");
+const tiktokLink = document.querySelector(".tiktok-showcase .home-feature-action");
+if (tiktokLink) {
+  tiktokLink.href = TIKTOK_PROFILE_URL;
+  tiktokLink.target = "_blank";
+  tiktokLink.rel = "noopener noreferrer";
 }
 
-const facebookCard = document.querySelector(".facebook-showcase");
-if (facebookCard) {
-  facebookCard.href = FACEBOOK_PAGE_URL;
-  facebookCard.removeAttribute("target");
-  facebookCard.setAttribute("rel", "noopener noreferrer");
+const facebookLink = document.querySelector(".facebook-showcase .home-feature-action");
+if (facebookLink) {
+  facebookLink.href = FACEBOOK_PAGE_URL;
+  facebookLink.target = "_blank";
+  facebookLink.rel = "noopener noreferrer";
 }
 
 const year = document.getElementById("year");
