@@ -51,7 +51,7 @@ test('AFV448 release metadata stays synchronized while preserving AFV412, AFV411
   assert.equal(lock.packages[''].version, '448.0.0');
   assert.ok(readme.includes('Current release: AFV448'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.startsWith('AFV448 — Correct Mobile Accordion Title-to-Subtitle Spacing'));
+  assert.ok(history.startsWith('AFV448 — Match Mobile Accordion Top and Bottom Insets to Why Choose'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
