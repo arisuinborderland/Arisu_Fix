@@ -1,0 +1,79 @@
+/* AFV461 — isolated homepage visual redesign. Keep shared header, footer,
+   accordion, story viewer, and page-wide styles outside this file. */
+.home-page main{max-width:1160px;padding:24px 22px 32px}
+.home-page .daily-verse-card{margin:12px auto 22px}
+.home-page .compact-intro{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(220px,.72fr);
+  align-items:center;gap:24px;max-width:980px;margin:0 auto 26px;
+  padding:clamp(22px,4vw,42px);text-align:left;background:#fff;
+  border:1px solid #e5eaf2;border-radius:10px;
+  box-shadow:0 12px 32px rgba(26,44,76,.055)
+}
+.home-page .compact-intro-copy{min-width:0}
+.home-page .compact-intro .eyebrow{margin-bottom:12px}
+.home-page .compact-intro h1{margin:0;color:#17243b;font-size:clamp(32px,4.4vw,52px);line-height:1.06;letter-spacing:-1.5px}
+.home-page .compact-intro h1 em{color:#2563eb;font-style:normal}
+.home-page .compact-intro-description{max-width:470px;margin:14px 0 20px;color:#59677d;font-size:15px;line-height:1.65}
+.home-page .hero-contact-link{display:inline-flex;min-height:42px;align-items:center;justify-content:center;padding:0 18px;border:1px solid #1d4ed8;border-radius:7px;background:#2563eb;color:#fff;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s ease,transform .15s ease}
+.home-page .hero-contact-link:hover{background:#1d4ed8}
+.home-page .hero-contact-link:active{transform:scale(.97)}
+.home-page .compact-intro-mascot{display:flex;align-items:center;justify-content:center;min-width:0}
+.home-page .compact-intro-mascot img{display:block;width:min(100%,330px);max-height:310px;object-fit:contain;object-position:center;filter:drop-shadow(0 12px 18px rgba(32,52,91,.12))}
+.home-page .contact-only{max-width:980px}
+.home-page .social-collage{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;
+  width:100%;max-width:980px;margin:22px auto 0
+}
+.home-page .social-collage>.home-feature-card{
+  display:flex;flex-direction:column;min-width:0;min-height:100%;
+  padding:18px;border:1px solid #e1e7f0;border-radius:8px;
+  background:#fff;box-shadow:0 7px 22px rgba(26,44,76,.045);
+  transition:border-color .25s ease
+}
+.home-page .home-feature-card:hover{border-color:#c8d5ee}
+.home-page .home-feature-copy{order:0;min-height:72px}
+.home-page .home-feature-copy h2{margin:0 0 6px;color:#18263e;font:700 18px/1.25 Manrope,sans-serif;letter-spacing:-.25px}
+.home-page .home-feature-copy p{margin:0;color:#66748a;font-size:12px;line-height:1.5}
+.home-page .home-feature-media{order:1;display:block;overflow:hidden;aspect-ratio:16/9;margin:14px 0 16px;border:1px solid #e7ebf2;border-radius:16px;background:#f5f6f8}
+.home-page .home-feature-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.home-page .home-feature-card:hover .home-feature-media img{transform:scale(1.05)}
+.home-page .home-feature-action{order:2;display:flex;min-height:40px;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:auto;padding:8px 12px;border:1px solid #1d4ed8;border-radius:7px;background:#2563eb;color:#fff;text-decoration:none;text-align:center;font-size:13px;font-weight:600;transition:background .2s ease,transform .15s ease}
+.home-page .home-feature-action:hover{background:#1d4ed8}
+.home-page .home-feature-action:active{transform:scale(.95)}
+.home-page .home-feature-action:focus-visible,.home-page .hero-contact-link:focus-visible{outline:3px solid rgba(37,99,235,.3);outline-offset:3px}
+.home-page .home-feature-card .social-profile-preview,
+.home-page .home-feature-card .recovery-proofs-preview{display:none}
+.home-page .home-feature-card .home-feature-media img{object-position:center}
+.home-page .home-feature-card .windows-feedback-content{display:flex;flex:1;flex-direction:column;min-width:0}
+.home-page .home-feature-card .reviews-grid{display:block;overflow:hidden;margin:0}
+.home-page .home-feature-card .review-card{margin:0}
+.home-page .home-feature-card .review-proof-image{display:block;width:100%;overflow:hidden;aspect-ratio:16/9;border:1px solid #e7ebf2;border-radius:16px;background:#f5f6f8}
+.home-page .home-feature-card .review-proof-image img{width:100%;height:100%;object-fit:cover}
+.home-page .home-feature-card .social-feedback-view-all{display:flex;order:2;min-height:40px;align-items:center;justify-content:center;margin-top:auto;padding:8px 12px;border:1px solid #1d4ed8;border-radius:7px;background:#2563eb;color:#fff;text-decoration:none;font-size:13px;font-weight:600}
+.home-page .contact-divider{margin-top:28px}
+.home-page .scam-awareness-card{max-width:980px}
+@media(max-width:680px){
+ .home-page main{padding:14px 12px 26px}
+ .home-page .compact-intro{grid-template-columns:minmax(0,1fr) minmax(108px,.62fr);gap:8px;margin-bottom:18px;padding:17px 14px;border-radius:9px}
+ .home-page .compact-intro .eyebrow{font-size:8px;letter-spacing:.65px;gap:5px;margin-bottom:9px}
+ .home-page .compact-intro h1{font-size:clamp(23px,6.2vw,34px);letter-spacing:-.9px;line-height:1.08}
+ .home-page .compact-intro-description{margin:9px 0 13px;font-size:11px;line-height:1.45}
+ .home-page .hero-contact-link{min-height:35px;padding:0 12px;font-size:11px}
+ .home-page .compact-intro-mascot img{width:100%;max-height:185px}
+ .home-page .social-collage{gap:10px;margin-top:16px}
+ .home-page .social-collage>.home-feature-card{padding:11px;border-radius:8px}
+ .home-page .home-feature-copy{min-height:82px}
+ .home-page .home-feature-copy h2{font-size:14px;line-height:1.25}
+ .home-page .home-feature-copy p{font-size:10px;line-height:1.4}
+ .home-page .home-feature-media{margin:10px 0 11px;border-radius:13px}
+ .home-page .home-feature-action,.home-page .home-feature-card .social-feedback-view-all{min-height:36px;padding:7px 6px;font-size:10px}
+}
+@media(max-width:360px){
+ .home-page .compact-intro{grid-template-columns:minmax(0,1fr) 100px;padding:14px 10px}
+ .home-page .compact-intro h1{font-size:23px}
+ .home-page .home-feature-copy h2{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-page .home-feature-media img,.home-page .hero-contact-link,.home-page .home-feature-action{transition:none}
+ .home-page .home-feature-card:hover .home-feature-media img{transform:none}
+}
