@@ -272,10 +272,15 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     text-overflow: ellipsis;
   }
   .home-accordion-trigger-subtitle {
-    display: -webkit-box;
+    display: grid;
+    align-content: center;
     overflow: hidden;
     font-size: 12px;
     line-height: 1.2;
+  }
+  .home-accordion-trigger-subtitle-text {
+    display: -webkit-box;
+    overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -346,5 +351,25 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   }
   html body.home-page #desktopSocialDestination > .home-accordion-item {
     margin-block: 4px !important;
+  }
+}
+
+
+/* AFV444 — Center the rendered subtitle inside its reserved two-line slot.
+   The 2.36em slot keeps all 64px headers geometrically aligned, but a one-line
+   subtitle was top-aligned inside that slot, leaving its unused second line as
+   visible bottom whitespace. Center only the text inside the slot; do not change
+   trigger height, outer padding, card margins, or the two-line Why description. */
+@media (max-width: 640px) {
+  .home-accordion-trigger-subtitle {
+    display: grid;
+    align-content: center;
+  }
+  .home-accordion-trigger-subtitle-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
