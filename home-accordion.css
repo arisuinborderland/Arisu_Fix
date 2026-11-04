@@ -329,3 +329,30 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     min-height: 2.36em;
   }
 }
+
+
+/* AFV442 — Reclaim the mobile space left behind by visually lifted social cards.
+   Their -26px reveal transform does not change normal flow height, leaving a blank
+   strip before the accordion. Match that visual offset in the collage's flow box. */
+@media (max-width: 640px) {
+  html body.home-page #desktopSocialDestination > .social-collage {
+    margin-bottom: -26px !important;
+  }
+  html body.home-page #desktopSocialDestination > #services {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  html body.home-page #desktopSocialDestination > .home-accordion-item {
+    margin-block: 4px !important;
+  }
+}
+
+/* Let one-line subtitles use one line of space; two-line subtitles grow naturally.
+   The fixed 64px trigger remains vertically centered, removing the artificial blank
+   lower subtitle line from Services and How without changing card height. */
+@media (max-width: 640px) {
+  .home-accordion-trigger-copy { gap: 1px; }
+  .home-accordion-trigger-subtitle { min-height: 1.18em; }
+}
