@@ -39,7 +39,7 @@ test('AFV448 release metadata is synchronized', () => {
   assert.equal(lock.version, '448.0.0');
   assert.equal(lock.packages[''].version, '448.0.0');
   assert.ok(readme.includes('Current release: AFV448'));
-  assert.ok(history.startsWith('AFV448 — Correct Mobile Accordion Title-to-Subtitle Spacing'));
+  assert.ok(history.startsWith('AFV448 — Match Mobile Accordion Top and Bottom Insets to Why Choose'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
