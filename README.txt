@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV435
+Version: AFV436
 Updated: 2026-11-04
 
-Current release: AFV435
-Package version: 435.0.0
+Current release: AFV436
+Package version: 436.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV436 fixes the accordion state-size mismatch: collapsed and expanded headers now share the same height, padding, title size, subtitle size, and alignment on mobile and desktop. Only panel visibility and chevron direction change. Panel-content compaction, single-open behavior, all-closed initial state, and existing footer/layout fixes are preserved. Accordion cache tokens and regression assertions are synchronized.
 - AFV435 further reduces collapsed homepage accordion headers after mobile visual review: 46px mobile minimum, 15px title, 10.5px subtitle, slightly roomier compact padding and spacing, and a smaller chevron. Expanded headers, expanded content, all-closed initial state, and single-open interaction are preserved. CI release-metadata assertions are synchronized.
 - AFV432 makes collapsed homepage accordion headers compact: title and subtitle stay on one line, with ellipsis for long text. Expanded headers and all expanded panel content remain available; single-open behavior is unchanged. Accordion CSS/JS cache tokens updated to AFV432.
 - AFV431 fixes the clipped first card in the How Account Assistance Works accordion. The legacy mobile -6px grid lift is reset only inside that accordion, preventing the first card from being clipped by its overflow-hidden wrapper without changing the Why Choose Arisu spacing.
