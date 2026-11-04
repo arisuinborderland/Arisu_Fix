@@ -96,12 +96,13 @@ test("mobile homepage removes the legacy trailing main padding below the accordi
 });
 
 
-test("AFV442 reclaims the mobile social-card flow gap and removes the artificial subtitle line", () => {
+test("AFV443 preserves the social-card flow fix and restores balanced two-line subtitle spacing", () => {
   const css = fs.readFileSync(path.join(__dirname, "..", "home-accordion.css"), "utf8");
   const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
   assert.match(css, /#desktopSocialDestination > #services\s*\{[^}]*padding-top:\s*0 !important;/);
-  assert.match(css, /\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em;/);
-  assert.match(html, /home-accordion\.css\?v=AFV442/);
-  assert.match(html, /home-accordion\.js\?v=AFV442/);
+  assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*min-height:\s*2\.36em/);
+  assert.doesNotMatch(css, /\.home-accordion-trigger-subtitle\s*\{\s*min-height:\s*1\.18em;/);
+  assert.match(html, /home-accordion\.css\?v=AFV443/);
+  assert.match(html, /home-accordion\.js\?v=AFV443/);
 });
