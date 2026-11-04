@@ -39,7 +39,7 @@ test('AFV442 release metadata is synchronized', () => {
   assert.equal(lock.version, '442.0.0');
   assert.equal(lock.packages[''].version, '442.0.0');
   assert.ok(readme.includes('Current release: AFV442'));
-  assert.ok(history.startsWith('AFV442 — Remove Leftover Homepage Bottom Padding After Accordion'));
+  assert.ok(history.startsWith('AFV442 — Reclaim Mobile Accordion Gap and Balance Trigger Text'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
