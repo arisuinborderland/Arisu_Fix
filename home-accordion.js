@@ -18,7 +18,9 @@
     const copy = createElement("span", "home-accordion-trigger-copy");
     const heading = createElement("span", "home-accordion-trigger-title");
     heading.innerHTML = title.innerHTML;
-    const description = createElement("span", "home-accordion-trigger-subtitle", subtitle);
+    const description = createElement("span", "home-accordion-trigger-subtitle");
+    const descriptionText = createElement("span", "home-accordion-trigger-subtitle-text", subtitle);
+    description.append(descriptionText);
     copy.append(heading, description);
 
     const chevron = createElement("span", "home-accordion-chevron");
