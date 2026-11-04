@@ -24,7 +24,7 @@ test('AFV355 and AFV358 production build generate all eight optimized WebP deliv
   assert.match(build, /expected\.push\(\.\.\.generatedImageAssets\.map/);
 });
 
-test('AFV355 homepage and Reviews page use optimized WebP image URLs', () => {
+test('Homepage and Reviews page use the optimized WebP images required by their current layouts', () => {
   const index = read('index.html');
   const reviews = read('reviews.html');
   for (const asset of [
@@ -32,14 +32,13 @@ test('AFV355 homepage and Reviews page use optimized WebP image URLs', () => {
     'assets/performance/tiktok-profile-preview.webp?v=AFV355',
     'assets/performance/facebook-page-preview.webp?v=AFV355',
     'proofs/arisu-suspended-account-180-days-preview.webp?v=AFV355',
-    'proofs/file_0000000089048211995f9a93297d1146-preview.webp?v=AFV355'
   ]) assert.ok(index.includes(asset), `homepage must reference ${asset}`);
   assert.match(index, /reviews\/review-slot-1-thumb\.webp\?v=AFV355/);
   assert.match(reviews, /reviews\/review-slot-1-thumb\.webp\?v=AFV355/);
   assert.match(reviews, /data-full-src="reviews\/review-slot-1\.webp\?v=AFV355"/);
 });
 
-test('AFV355 review lightbox loads the full-size source and latest main features remain', () => {
+test('Review lightbox loads the full-size source and latest main features remain', () => {
   const lightbox = read('review-lightbox.js');
   const index = read('index.html');
   assert.match(lightbox, /image\.dataset\.fullSrc \|\| image\.currentSrc \|\| image\.src/);
