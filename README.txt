@@ -1,18 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV438
+Version: AFV439
 Updated: 2026-11-04
 
-Current release: AFV438
-Mobile accordion headers use a compact fixed 64px height with a consistent 5px section gap. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
-Mobile accordion headers now use a compact fixed 68px height, 18px titles, and 12px descriptions (up to two lines) in both collapsed and expanded states.
-Package version: 438.0.0
+Current release: AFV439
+Mobile accordion headers use a compact fixed 64px height. A high-specificity parent selector now overrides legacy 18px and 8px section margins, setting a consistent 4px mobile margin for all three accordion cards. Opening a section smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
+Package version: 439.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV438 refines mobile accordion spacing to a fixed 64px header with consistent section gaps and adds smooth auto-scroll to the opened panel only. Reduced-motion preferences are respected.
-- AFV438 fixes the accordion state-size mismatch: collapsed and expanded headers now share the same height, padding, title size, subtitle size, and alignment on mobile and desktop. Only panel visibility and chevron direction change. Panel-content compaction, single-open behavior, all-closed initial state, and existing footer/layout fixes are preserved. Accordion cache tokens and regression assertions are synchronized.
+- AFV439 fixes the mobile spacing root cause: legacy `body.home-page .site-section` and `#why-choose-arisu` margin rules overrode the earlier low-specificity accordion spacing. A parent-qualified selector now enforces a consistent 4px margin for all three cards. The 64px fixed headers, open-only smooth auto-scroll, and reduced-motion support remain.
+- AFV439 fixes the accordion state-size mismatch: collapsed and expanded headers now share the same height, padding, title size, subtitle size, and alignment on mobile and desktop. Only panel visibility and chevron direction change. Panel-content compaction, single-open behavior, all-closed initial state, and existing footer/layout fixes are preserved. Accordion cache tokens and regression assertions are synchronized.
 - AFV435 further reduces collapsed homepage accordion headers after mobile visual review: 46px mobile minimum, 15px title, 10.5px subtitle, slightly roomier compact padding and spacing, and a smaller chevron. Expanded headers, expanded content, all-closed initial state, and single-open interaction are preserved. CI release-metadata assertions are synchronized.
 - AFV432 makes collapsed homepage accordion headers compact: title and subtitle stay on one line, with ellipsis for long text. Expanded headers and all expanded panel content remain available; single-open behavior is unchanged. Accordion CSS/JS cache tokens updated to AFV432.
 - AFV431 fixes the clipped first card in the How Account Assistance Works accordion. The legacy mobile -6px grid lift is reset only inside that accordion, preventing the first card from being clipped by its overflow-hidden wrapper without changing the Why Choose Arisu spacing.
