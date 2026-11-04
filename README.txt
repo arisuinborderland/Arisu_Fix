@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV459
+Version: AFV461
 Updated: 2026-11-04
 
-Current release: AFV459
-Package version: 459.0.0
+Current release: AFV461
+Package version: 461.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV461 starts the homepage visual redesign on a dedicated branch: a two-column hero using the existing Recovery Stories mascot asset, four two-column feature cards, dedicated action links, and an isolated homepage stylesheet. Existing accordion, shared header/footer, contact/status panels, and review lightbox behavior are retained. Preview and responsive validation are pending.
 - AFV459 isolates the homepage accordion feature and its required build, markup, accessibility, and mobile footer dependencies. It preserves the existing AFV434 main baseline and removes the retired homepage safety reminder block as requested.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
 
