@@ -60,7 +60,7 @@ test("collapsed and expanded accordion headers share identical geometry and typo
 });
 
 test("mobile accordion reserves two subtitle lines so all trigger text blocks share the same vertical rhythm", () => {
-  assert.match(styles, /@media \\(max-width:\\s*640px\\)\\s*\\{[\\s\\S]*?\\.home-accordion-trigger-subtitle\\s*\\{[^}]*min-height:\\s*2\\.36em/);
+  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger-subtitle\s*\{[^}]*min-height:\s*2\.36em/);
 });
 
 test("mobile accordion spacing overrides the legacy high-specificity section margins", () => {
