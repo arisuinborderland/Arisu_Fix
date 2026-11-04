@@ -5473,9 +5473,7 @@ body.home-page .why-arisu-section .why-arisu-note {
   html body.home-page #desktopSocialDestination > #services {
     margin-bottom: 0 !important;
   }
-  html body.home-page #desktopSocialDestination > #why-choose-arisu {
-    margin-bottom: 0 !important;
-  }
+
 }
 
 /* enforce the requested mobile text-size increases after legacy overrides.
