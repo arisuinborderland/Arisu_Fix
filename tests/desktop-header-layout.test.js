@@ -73,7 +73,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\\.css\\?v=AFV442&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -89,7 +89,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\\.css\\?v=AFV442&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -105,7 +105,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\\.css\\?v=AFV442&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
@@ -121,7 +121,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\\.css\\?v=AFV442&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV442&desktoplayout=1/);
 });
 
 
