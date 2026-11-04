@@ -123,16 +123,16 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV452 package metadata and release notes are synchronized', () => {
+test('AFV453 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '452.0.0');
-  assert.equal(lock.version, '452.0.0');
-  assert.equal(lock.packages[''].version, '452.0.0');
-  assert.ok(readme.includes('Current release: AFV452'));
-  assert.ok(history.startsWith('AFV452 — Preserve accordion heading IDs and make initialization atomic'));
+  assert.equal(pkg.version, '453.0.0');
+  assert.equal(lock.version, '453.0.0');
+  assert.equal(lock.packages[''].version, '453.0.0');
+  assert.ok(readme.includes('Current release: AFV453'));
+  assert.ok(history.startsWith('AFV453 — Preserve accordion heading IDs and make initialization atomic'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
