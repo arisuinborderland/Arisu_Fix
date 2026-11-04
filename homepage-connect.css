@@ -1,4 +1,4 @@
-/* AFV460 — Approved Connect with Arisu layout */
+/* AFV461 — Corrected approved Connect layout and mobile Scam Awareness */
 .homepage-connect-layout {
   width: min(100%, 1080px);
   margin: 14px auto 0;
@@ -48,9 +48,9 @@
   height: 40px;
   flex: 0 0 40px;
   color: #fff;
-  border-radius: 50%;
+  clip-path: polygon(50% 0,94% 17%,90% 61%,75% 83%,50% 100%,25% 83%,10% 61%,6% 17%);
   background: linear-gradient(145deg,#12c9ff,#0876ef);
-  box-shadow: 0 5px 13px rgba(8,118,239,.28);
+  filter: drop-shadow(0 5px 7px rgba(8,118,239,.25));
 }
 .connect-verified-badge svg { width: 26px; height: 26px; }
 .connect-header-mascot {
@@ -291,12 +291,8 @@
   .connect-scam-slashes { width: 25px; height: 43px; flex-basis: 25px; }
   .connect-scam-subtitle { margin: 8px 0 12px 55px; font-size: clamp(12px,1.7vw,16px); }
   .connect-scam-watermark { right: 10px; width: 72px; height: 86px; }
-  .connect-scam-grid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 0; }
+  .connect-scam-grid { grid-template-columns: repeat(4,minmax(0,1fr)); row-gap: 0; }
   .connect-scam-item { min-height: 86px; gap: 5px; padding: 8px 9px; }
-  .connect-scam-item:nth-child(2n) { border-left: 1px solid rgba(215,80,146,.35); }
-  .connect-scam-item:nth-child(3) { border-left: 0; }
-  .connect-scam-item:nth-child(3),
-  .connect-scam-item:nth-child(4) { border-top: 1px solid rgba(215,80,146,.35); padding-top: 10px; }
   .connect-scam-item svg { width: 30px; height: 30px; }
   .connect-scam-item p { max-width: 220px; font-size: clamp(11px,1.55vw,14px); }
 }
@@ -342,3 +338,11 @@
 }
 @media (hover: none) { .connect-card:hover { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .connect-card { transition: none; } }
+
+@media (max-width: 380px) {
+  .connect-scam-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .connect-scam-item:nth-child(2n) { border-left: 1px solid rgba(215,80,146,.35); }
+  .connect-scam-item:nth-child(3) { border-left: 0; }
+  .connect-scam-item:nth-child(3),
+  .connect-scam-item:nth-child(4) { border-top: 1px solid rgba(215,80,146,.35); padding-top: 10px; }
+}
