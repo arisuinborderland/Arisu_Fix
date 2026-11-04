@@ -39,7 +39,7 @@ test('AFV459 release metadata is synchronized', () => {
   assert.equal(lock.version, '459.0.0');
   assert.equal(lock.packages[''].version, '459.0.0');
   assert.ok(readme.includes('Current release: AFV459'));
-  assert.ok(history.startsWith('AFV459 — About Page Main Sync and Legacy CSS Cleanup'));
+  assert.ok(history.startsWith('AFV459 — Homepage Accordion Feature Isolation'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
