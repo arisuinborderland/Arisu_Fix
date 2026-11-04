@@ -25,8 +25,17 @@ test("homepage accordion defaults to all sections closed and uses the approved o
 });
 
 test("generated accordion headings preserve source IDs used by aria-labelledby and scroll targets", () => {
-  assert.match(accordion, /if \(title\.id\) heading\.id = title\.id/);
+  assert.match(accordion, /semanticHeading\.id = title\.id/);
   assert.match(accordion, /button\.setAttribute\("aria-controls", panelId\)/);
+  assert.match(accordion, /panel\.setAttribute\("aria-labelledby", button\.id\)/);
+});
+
+test("generated accordion sections retain native h2 semantics and label each trigger", () => {
+  assert.match(accordion, /createElement\("h2", "home-accordion-semantic-heading"\)/);
+  assert.match(accordion, /semanticHeading\.textContent = title\.textContent\.trim\(\)/);
+  assert.match(accordion, /button\.setAttribute\("aria-labelledby", semanticHeading\.id\)/);
+  assert.match(accordion, /copy\.setAttribute\("aria-hidden", "true"\)/);
+  assert.match(styles, /\.home-accordion-semantic-heading\s*\{[^}]*clip:\s*rect\(0, 0, 0, 0\)/);
   assert.match(accordion, /panel\.setAttribute\("aria-labelledby", button\.id\)/);
 });
 
