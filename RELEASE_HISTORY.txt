@@ -1,3 +1,12 @@
+AFV453 — Preserve approved accordion layout and remove superseded offsets
+
+## AFV453 — Approved layout baseline and targeted cascade cleanup
+- Save the approved mobile accordion screenshot as the visual baseline: three spacious cards, naturally wrapping headings, and compact horizontal blue-violet Expand/Collapse pills.
+- Remove the obsolete mobile transform offsets (-6px grid, -10px Clear Guidance note, -14px safety panel) that were superseded by the accordion layout and explicit scoped resets.
+- Keep responsive declarations that still contribute to the approved rendering; do not delete unrelated legacy page styles or historical release entries.
+- Preserve accordion order, all-closed initial state, single-open behavior, expanded content, accessibility state, and reduced-motion behavior.
+- Synchronize package metadata, lockfile, accordion cache tokens, README, and regression assertions to AFV453 / 453.0.0.
+
 AFV452 — Preserve accordion heading IDs and make initialization atomic
 
 ## AFV452 — Preserve IDs and validate before mutation
