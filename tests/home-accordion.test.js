@@ -49,7 +49,7 @@ test("collapsed and expanded accordion headers share identical geometry and typo
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*clamp\(20px, 3vw, 27px\)/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*clamp\(13px, 1\.8vw, 16px\)/);
   assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*min-height:\s*68px[^}]*padding:\s*13px 15px/);
-  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*height:\\s*64px[^}]*min-height:\\s*64px[^}]*max-height:\\s*64px[^}]*padding:\\s*5px 13px/);
+  assert.match(styles, /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.home-accordion-trigger\s*\{[^}]*height:\s*64px[^}]*min-height:\s*64px[^}]*max-height:\s*64px[^}]*padding:\s*5px 13px/);
   assert.match(styles, /\.home-accordion-item\s*\{[^}]*margin-block:\s*5px !important/);
   assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*white-space:\s*nowrap/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*-webkit-line-clamp:\s*2/);
