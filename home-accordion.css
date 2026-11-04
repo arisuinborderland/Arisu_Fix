@@ -318,3 +318,14 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     scroll-margin-bottom: 104px;
   }
 }
+
+
+/* AFV440 — Normalize the vertical text block across one- and two-line subtitles.
+   The trigger is fixed-height and its copy is vertically centered. Without a
+   reserved second subtitle line, one-line descriptions create a shorter copy
+   block and visibly larger top/bottom whitespace than the two-line Why card. */
+@media (max-width: 640px) {
+  .home-accordion-trigger-subtitle {
+    min-height: 2.36em;
+  }
+}
