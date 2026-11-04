@@ -1,4 +1,12 @@
-AFV435 — Balanced Compact Collapsed Accordion Headers
+AFV436 — Equal Accordion Header Dimensions
+
+## AFV436 — Keep collapsed and expanded headers identical
+- Root cause: AFV435 applied separate collapsed-only overrides to trigger height, padding, title/subtitle typography, and chevron size, making the header visibly change dimensions when toggled.
+- Remove the collapsed-only trigger overrides. Both states now use the same desktop and mobile trigger geometry, title size, subtitle size, line-height, and alignment; only the panel visibility and chevron direction change.
+- Preserve compact inner panel content, the all-closed initial state, single-open interaction, How-section clipping correction, and footer/layout fixes.
+- Refresh homepage accordion CSS/JS cache tokens and synchronize package metadata and regression assertions.
+
+## AFV435 — Balanced Compact Collapsed Accordion Headers
 
 ## AFV435 — Slightly increase collapsed header sizing after preview
 - Root cause: AFV433 used a 48px mobile minimum with two stacked text lines, 4px copy gap, and 12px total vertical padding; intrinsic content height kept the rendered header close to 49px CSS despite the nominal minimum.
