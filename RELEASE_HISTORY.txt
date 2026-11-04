@@ -1,3 +1,14 @@
+AFV460 — Approved Connect with Arisu Homepage Layout
+
+## AFV460 — Replace the old social + Scam Awareness arrangement
+- Replace the previous standalone Scam Awareness reminder and four-tile social collage with one responsive Connect with Arisu section.
+- Add four destination cards for TikTok, Pinoy Cyber Tech Facebook Page, Recovery Proofs, and Customer Reviews while preserving their existing destinations and review lightbox behavior.
+- Add the Explore More from Arisu Fix banner linked to the Services section.
+- Relocate Scam Awareness below the Explore More banner and present four distinct anti-impersonation and link-verification reminders.
+- Move the combined section as one DOM unit on all viewport sizes; preserve the Bible Verse, intro, WhatsApp, Service Status, accordion, About section, footer, and existing navigation/menu behavior.
+- Use the existing Recovery Stories mascot asset for the decorative Connect heading; add a dedicated stylesheet and production allowlist entry.
+- Keep the change isolated in a preview PR; do not merge before mobile and desktop visual review.
+
 AFV459 — Homepage Accordion Feature Isolation
 
 ## AFV459 — Add the homepage accordion as a focused feature
