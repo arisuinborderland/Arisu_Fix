@@ -27,7 +27,9 @@ test("services subtitle is moved into the trigger instead of being duplicated in
 });
 
 test("opening a section closes the previous section and updates accessibility state", () => {
-  assert.match(accordion, /setOpen\(isOpen \? null : item\)/);
+  assert.match(accordion, /const isOpen = item\.button\.getAttribute\("aria-expanded"\) === "true"/);
+  assert.match(accordion, /const nextItem = isOpen \? null : item/);
+  assert.match(accordion, /setOpen\(nextItem\)/);
   assert.match(accordion, /item\.panel\.inert = !open/);
   assert.match(accordion, /items\.forEach\(\(item\) => \{/);
   assert.match(accordion, /setAttribute\("aria-expanded", String\(open\)\)/);
