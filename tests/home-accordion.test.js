@@ -79,7 +79,7 @@ test("mobile accordion CSS has one authoritative rule per repeated layout select
 });
 
 test("mobile accordion preserves the approved 4px inter-card spacing", () => {
-  assert.match(styles, /\.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
+  assert.match(styles, /html body\.home-page #desktopSocialDestination > \.home-accordion-item\s*\{\s*margin:\s*4px 0 !important;/);
   assert.doesNotMatch(styles, /margin-block:\s*6px|margin-block:\s*4px !important/);
 });
 
