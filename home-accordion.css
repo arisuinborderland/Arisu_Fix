@@ -348,11 +348,3 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     margin-block: 4px !important;
   }
 }
-
-/* Let one-line subtitles use one line of space; two-line subtitles grow naturally.
-   The fixed 64px trigger remains vertically centered, removing the artificial blank
-   lower subtitle line from Services and How without changing card height. */
-@media (max-width: 640px) {
-  .home-accordion-trigger-copy { gap: 1px; }
-  .home-accordion-trigger-subtitle { min-height: 1.18em; }
-}
