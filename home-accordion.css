@@ -312,10 +312,10 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   }
 
   .home-accordion-trigger-hint {
-    min-width: 112px;
-    min-height: 44px;
-    gap: 8px;
-    padding: 8px 12px;
+    min-width: 86px;
+    min-height: 36px;
+    gap: 6px;
+    padding: 7px 9px;
     font-size: 9px;
   }
 
