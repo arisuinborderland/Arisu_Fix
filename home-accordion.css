@@ -313,6 +313,13 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     padding-bottom: 0 !important;
   }
 
+  /* Restore the How panel's top inset: the legacy Why card rule sets padding-top: 0.
+     Scope this to the relocated accordion card so the first item's rounded top edge
+     stays clear of the panel clip without changing card-to-card or bottom spacing. */
+  html body.home-page .how-assistance-section .home-accordion-panel .why-arisu-card {
+    padding-top: 12px !important;
+  }
+
   /* Legacy mobile CSS lifts this grid; reset it only in the How accordion. */
   html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid {
     transform: none !important;
