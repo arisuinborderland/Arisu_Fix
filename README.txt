@@ -1,11 +1,11 @@
 ARISU FIX — PROJECT README
-Version: AFV450
+Version: AFV451
 Updated: 2026-11-04
 
-Current release: AFV450
-AFV450 removes the fixed 64px mobile accordion header constraint that left excess top/bottom whitespace in the one-line What Services and How account assistance headers. Mobile headers now use natural content height with the same 5px top and bottom padding. The Why Choose header naturally becomes taller for its two-line subtitle while retaining the same inset. The 2px title/subtitle gap and 4px inter-card spacing remain unchanged.
-Desktop layout, expanded accordion content, social-card spacing, and the approved footer remain unchanged. Opening an accordion still smoothly scrolls its newly revealed panel into view; closing does not auto-scroll.
-Package version: 450.0.0
+Current release: AFV451
+AFV451 consolidates the homepage accordion stylesheet into one authoritative desktop rule set and one mobile override set. It removes superseded duplicate declarations while preserving the approved AFV450 visual values, including natural mobile header height, 5px vertical inset, 2px title/subtitle gap, 4px inter-card spacing, expanded panel sizing, and desktop geometry.
+The mobile spacing override retains its required selector specificity so legacy .site-section margins cannot override the approved accordion rhythm. Footer styling, expanded content, social-card placement, and accordion behavior remain unchanged.
+Package version: 451.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
