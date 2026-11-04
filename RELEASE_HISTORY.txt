@@ -1,3 +1,10 @@
+AFV445 — Reduce One-Line Mobile Accordion Subtitle Height
+
+## AFV445 — Remove unused subtitle line from one-line mobile accordion headers
+- Root cause: AFV444 centered the subtitle text inside a reserved two-line slot, but that still retained unused vertical space for one-line descriptions. The latest mobile adjustment removes the reserved second line for the one-line Services and How subtitles while allowing the Why subtitle to wrap naturally to two lines.
+- Keep the fixed 64px mobile trigger, 4px accordion card rhythm, AFV442 social-card flow correction, panel content, desktop layout, and approved footer unchanged.
+- Synchronize package/release metadata and regression assertions to AFV445 / 445.0.0.
+
 AFV444 — Center Mobile Accordion Subtitle Text Within Reserved Slot
 
 ## AFV444 — Remove the visual bottom-heavy subtitle alignment
