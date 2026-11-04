@@ -102,7 +102,21 @@
     items.forEach((item) => {
       item.button.addEventListener("click", () => {
         const isOpen = item.button.getAttribute("aria-expanded") === "true";
-        setOpen(isOpen ? null : item);
+        const nextItem = isOpen ? null : item;
+        setOpen(nextItem);
+
+        // When opening, reveal the newly expanded panel without scrolling on close.
+        // Wait for the panel's grid-row expansion so the browser can calculate
+        // its real height, and respect the user's reduced-motion preference.
+        if (nextItem) {
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          window.setTimeout(() => {
+            nextItem.panel.scrollIntoView({
+              behavior: reduceMotion ? "auto" : "smooth",
+              block: "nearest"
+            });
+          }, 360);
+        }
       });
     });
 
