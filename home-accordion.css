@@ -63,31 +63,33 @@
 
 .home-accordion-trigger-hint {
   display: inline-flex;
-  flex: 0 0 auto;
-  min-width: 78px;
+  flex: 0 0 50px;
+  width: 50px;
+  min-height: 50px;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 9px 13px;
+  gap: 5px;
+  padding: 6px 3px;
   border: 1px solid rgba(39, 116, 232, .38);
-  border-radius: 999px;
-  background: linear-gradient(135deg, #287ce8, #4965e8 62%, #7650df);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #287ce8, #4965e8 62%, #7650df);
   box-shadow: 0 3px 9px rgba(48, 103, 190, .2), inset 0 1px 0 rgba(255,255,255,.28);
   color: #fff;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 850;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   line-height: 1;
   white-space: nowrap;
 }
 
 .home-accordion-trigger-hint::after {
   content: "";
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
+  transform: rotate(45deg) translate(-1px, -1px);
   transition: transform .22s ease;
 }
 
@@ -260,31 +262,33 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   .home-accordion-trigger {
     box-sizing: border-box;
     height: auto;
-    min-height: 0;
+    min-height: 78px;
     max-height: none;
-    gap: 9px;
-    padding: 5px 13px;
+    gap: 12px;
+    padding: 10px 13px;
     border-radius: 17px;
   }
 
   .home-accordion-trigger-copy {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     align-self: center;
     justify-content: center;
     min-width: 0;
-    gap: 2px;
-    overflow: hidden;
+    gap: 3px;
+    overflow: visible;
   }
 
   .home-accordion-trigger-title {
     align-self: auto;
     min-width: 0;
-    overflow: hidden;
+    overflow: visible;
     font-size: 18px;
-    line-height: 1.12;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    line-height: 1.16;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
   }
 
   .home-accordion-trigger-subtitle {
@@ -308,10 +312,13 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   }
 
   .home-accordion-trigger-hint {
-    min-width: 66px;
-    gap: 6px;
-    padding: 8px 10px;
-    font-size: 9px;
+    flex-basis: 48px;
+    width: 48px;
+    min-height: 48px;
+    gap: 5px;
+    padding: 6px 2px;
+    border-radius: 15px;
+    font-size: 8px;
   }
 
   .home-accordion-panel {
