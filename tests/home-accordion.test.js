@@ -108,8 +108,8 @@ test("AFV449 removes artificial subtitle height and keeps a fixed 2px title/subt
   assert.match(css, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto/);
   assert.match(css, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
   assert.match(css, /#desktopSocialDestination > \.social-collage\s*\{\s*margin-bottom:\s*-26px !important;/);
-  assert.match(html, /home-accordion\.css\?v=AFV449/);
-  assert.match(html, /home-accordion\.js\?v=AFV449/);
+  assert.match(html, /home-accordion\.css\?v=AFV450/);
+  assert.match(html, /home-accordion\.js\?v=AFV450/);
 });
 
 
