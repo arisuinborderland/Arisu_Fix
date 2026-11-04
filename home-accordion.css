@@ -225,7 +225,8 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 }
 
 @media (max-width: 640px) {
-  .home-accordion-item {
+  /* Override the legacy high-specificity .site-section margin without changing other sections. */
+  html body.home-page #desktopSocialDestination > .home-accordion-item {
     margin: 4px 0 !important;
   }
 
