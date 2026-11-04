@@ -139,7 +139,8 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
   margin-bottom: 0 !important;
 }
 
-/* Keep panel content compact; trigger sizing is state-independent. */.home-accordion-panel-inner {
+/* Keep panel content compact; trigger sizing is state-independent. */
+.home-accordion-panel-inner {
   padding-inline: 8px;
 }
 .home-accordion-item.is-open > .home-accordion-panel .home-accordion-panel-inner {
@@ -221,7 +222,8 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 @media (max-width: 640px) {
   .home-accordion-item {
     margin-block: 6px;
-  }  .home-accordion-panel {
+  }
+  .home-accordion-panel {
     border-radius: 0 0 15px 15px;
   }
   .home-accordion-panel-inner {
