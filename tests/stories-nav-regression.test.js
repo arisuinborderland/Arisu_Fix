@@ -123,7 +123,7 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV428 package metadata and release notes are synchronized', () => {
+test('AFV429 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
@@ -131,8 +131,8 @@ test('AFV428 package metadata and release notes are synchronized', () => {
   assert.equal(pkg.version, '428.0.0');
   assert.equal(lock.version, '428.0.0');
   assert.equal(lock.packages[''].version, '428.0.0');
-  assert.ok(readme.includes('Current release: AFV428'));
-  assert.ok(history.startsWith('AFV428 — About Service Badge Removal & Mobile Spacing'));
+  assert.ok(readme.includes('Current release: AFV429'));
+  assert.ok(history.startsWith('AFV429 — About Service Badge Removal & Mobile Spacing'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
@@ -148,10 +148,10 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
 });
 
 
-test('AFV428 About page uses the approved six-step Process Flow and preserves key content', () => {
+test('AFV429 About page uses the approved six-step Process Flow and preserves key content', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'about.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '..', 'about-page.css'), 'utf8');
-  assert.match(html, /about-page\.css\?v=AFV428/);
+  assert.match(html, /about-page\.css\?v=AFV429/);
   assert.match(html, /class="about-process-flow"/);
   const labels = [
     'About Arisu Recovery Service',
@@ -177,7 +177,7 @@ test('AFV428 About page uses the approved six-step Process Flow and preserves ke
   assert.doesNotMatch(html, /Established September 08, 2018/, 'the established-date line is no longer part of the About page');
   assert.match(html, /id="mobileNavStories"/, 'the existing mobile bottom navigation remains');
   assert.match(css, /AFV427 — unified About content in the approved five-step Process Flow/);
-  assert.match(css, /AFV428 — remove the About service badge footprint and tighten its details/);
+  assert.match(css, /AFV429 — remove the About service badge footprint and tighten its details/);
   const serviceStart = html.indexOf('class="about-process-service"');
   const serviceEnd = html.indexOf('class="about-process-step"', serviceStart);
   assert.doesNotMatch(html.slice(serviceStart, serviceEnd), /arisu-verified-badge|about-verified-badge/, 'About service heading has no blue badge or animation');
