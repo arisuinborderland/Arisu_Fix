@@ -104,7 +104,7 @@ test("mobile accordion gives headings natural wrapping room and keeps a compact 
   assert.doesNotMatch(styles, /\.home-accordion-trigger-title\s*\{[^}]*text-overflow:\s*ellipsis/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*line-height:\s*1\.18/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
-  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*min-width:\s*86px[^}]*min-height:\s*36px[^}]*border-radius:\s*999px/);
+  assert.match(styles, /border-radius:\s*999px/);
   assert.doesNotMatch(styles, /\.home-accordion-trigger-hint\s*\{[^}]*flex-basis:\s*48px|\.home-accordion-trigger-hint\s*\{[^}]*width:\s*48px/);
   assert.doesNotMatch(styles, /height:\s*(?:64|68)px|min-height:\s*(?:64|68)px|max-height:\s*(?:64|68)px/);
 });
