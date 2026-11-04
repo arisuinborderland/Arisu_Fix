@@ -94,16 +94,17 @@ test("accordion Expand/Collapse pill has pressed feedback and directional state 
   assert.doesNotMatch(styles, /\.home-accordion-chevron/);
 });
 
-test("mobile accordion keeps natural height, 5px vertical inset, and a 2px title/subtitle gap", () => {
+test("mobile accordion gives headings natural wrapping room and keeps a compact expand control", () => {
   assert.match(styles, /height:\s*auto/);
-  assert.match(styles, /min-height:\s*0/);
+  assert.match(styles, /min-height:\s*78px/);
   assert.match(styles, /max-height:\s*none/);
-  assert.match(styles, /padding:\s*5px 13px/);
-  assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*display:\s*flex[^}]*flex-direction:\s*column[^}]*justify-content:\s*center[^}]*gap:\s*2px/);
-  assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*display:\s*block[^}]*height:\s*auto[^}]*min-height:\s*0[^}]*margin:\s*0[^}]*padding:\s*0/);
-  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*line-height:\s*1\.12[^}]*white-space:\s*nowrap/);
+  assert.match(styles, /padding:\s*10px 13px/);
+  assert.match(styles, /\.home-accordion-trigger-copy\s*\{[^}]*display:\s*flex[^}]*flex-direction:\s*column[^}]*justify-content:\s*center[^}]*gap:\s*3px/);
+  assert.match(styles, /\.home-accordion-trigger-title\s*\{[^}]*font-size:\s*18px[^}]*line-height:\s*1\.16[^}]*white-space:\s*normal[^}]*overflow-wrap:\s*anywhere/);
+  assert.doesNotMatch(styles, /\.home-accordion-trigger-title\s*\{[^}]*text-overflow:\s*ellipsis/);
   assert.match(styles, /\.home-accordion-trigger-subtitle\s*\{[^}]*font-size:\s*12px[^}]*line-height:\s*1\.18/);
   assert.match(styles, /\.home-accordion-trigger-subtitle-text\s*\{[^}]*-webkit-line-clamp:\s*2/);
+  assert.match(styles, /\.home-accordion-trigger-hint\s*\{[^}]*flex-basis:\s*48px[^}]*width:\s*48px[^}]*min-height:\s*48px/);
   assert.doesNotMatch(styles, /height:\s*(?:64|68)px|min-height:\s*(?:64|68)px|max-height:\s*(?:64|68)px/);
 });
 
