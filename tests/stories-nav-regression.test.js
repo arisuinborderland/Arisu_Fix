@@ -132,7 +132,7 @@ test('AFV455 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '455.0.0');
   assert.equal(lock.packages[''].version, '455.0.0');
   assert.ok(readme.includes('Current release: AFV455'));
-  assert.ok(history.startsWith('AFV455 — Remove obsolete desktop Why Choose flow compensation'));
+  assert.ok(history.startsWith('AFV455 — Remove empty legacy media-query blocks'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
