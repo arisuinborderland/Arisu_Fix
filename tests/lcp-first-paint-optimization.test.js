@@ -39,7 +39,7 @@ test('AFV452 release metadata is synchronized', () => {
   assert.equal(lock.version, '452.0.0');
   assert.equal(lock.packages[''].version, '452.0.0');
   assert.ok(readme.includes('Current release: AFV452'));
-  assert.ok(history.startsWith('AFV452 — Consolidate Homepage Accordion CSS Without Layout Changes'));
+  assert.ok(history.startsWith('AFV452 — Preserve accordion heading IDs and make initialization atomic'));
 });
 
 test('AFV357 restores the three branded animations at mobile widths', () => {
