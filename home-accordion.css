@@ -1,4 +1,4 @@
-/* AFV453 — Approved accordion baseline; consolidated styles.
+/* AFV458 — Restore shared heading scroll offsets and repair selector integrity.
    Keep one authoritative desktop rule set and one mobile override set.
    Values preserve the approved AFV450 layout while removing superseded cascade layers. */
 
@@ -144,6 +144,11 @@
 }
 
 .home-accordion-item #servicesTitle,
+.home-accordion-item #whyArisuTitle,
+.home-accordion-item #howTitle {
+  scroll-margin-top: 100px;
+}
+
 /* The accordion wrapper changes the legacy card's positioning context.
    Cancel the old visual lift only inside the wrapped accordion cards. */
 html body.home-page .home-accordion-item .why-arisu-card {
