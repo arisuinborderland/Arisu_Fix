@@ -132,7 +132,7 @@ test('AFV430 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '430.0.0');
   assert.equal(lock.packages[''].version, '430.0.0');
   assert.ok(readme.includes('Current release: AFV430'));
-  assert.ok(history.startsWith('AFV430 — About Service Badge Removal & Mobile Spacing'));
+  assert.ok(history.startsWith('AFV430 — Remove nested Legitimate Account Recovery notice'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
