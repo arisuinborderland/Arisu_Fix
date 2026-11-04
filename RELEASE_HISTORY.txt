@@ -1,3 +1,11 @@
+AFV430 — Remove nested Legitimate Account Recovery notice
+
+## AFV430 — Compact Terms & limitations step
+- Removed the nested “Legitimate Account Recovery Only” notice card from step 06 to shorten the About page on mobile.
+- Preserved the Terms & limitations heading, existing recovery-outcome disclaimer, numbered Process Flow, `#terms` anchor, and footer navigation.
+- Updated the About stylesheet cache token and synchronized package metadata and README to AFV430 / 430.0.0.
+- Preview only; validate CI and mobile/desktop rendering before merge.
+
 AFV429 — Compact Six-Step About Flow for Mobile
 
 ## AFV429 — Compact mobile About Process Flow
