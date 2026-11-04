@@ -63,12 +63,11 @@
     const processIntro = processHeading.querySelector("p");
     const processGrid = whyCard?.querySelector(".why-arisu-grid");
     const processNote = whyCard?.querySelector(".why-arisu-note");
-    const safety = whyCard?.querySelector("#account-safety");
 
     if (
       !serviceHeading || !serviceIntro ||
       !whyCard || !whyHeading || !whyTitle || !whyIntro ||
-      !processTitle || !processIntro || !processGrid || !processNote || !safety
+      !processTitle || !processIntro || !processGrid || !processNote
     ) return;
 
     const items = [];
@@ -93,7 +92,7 @@
     const howCard = createElement("div", "why-arisu-card");
     const howButton = makeTrigger(how, processTitle, processIntro.textContent.trim(), "homeAccordionHowPanel", 3);
     processHeading.remove();
-    howCard.append(processGrid, processNote, safety);
+    howCard.append(processGrid, processNote);
     how.append(howCard);
     const howPanel = makePanel(how, "homeAccordionHowPanel", howButton);
     destination.append(how);
