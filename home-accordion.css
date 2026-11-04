@@ -244,3 +244,46 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     transform: none !important;
   }
 }
+
+
+/* AFV437 — Compact, equal-height mobile accordion headers.
+   Keep the fixed header geometry in both states while allowing descriptions
+   to use up to two readable lines without increasing the card height. */
+@media (max-width: 640px) {
+  .home-accordion-trigger {
+    box-sizing: border-box;
+    height: 68px;
+    min-height: 68px;
+    max-height: 68px;
+    padding: 7px 13px;
+    gap: 9px;
+  }
+  .home-accordion-trigger-copy {
+    min-width: 0;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .home-accordion-trigger-title {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 1.15;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .home-accordion-trigger-subtitle {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.2;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  .home-accordion-chevron {
+    flex-basis: 11px;
+    width: 11px;
+    height: 11px;
+    margin-inline: 2px 4px;
+  }
+}
