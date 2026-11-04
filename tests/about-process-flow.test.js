@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV429 About Process Flow keeps a single parent card and the approved six-step order', () => {
+test('AFV430 About Process Flow keeps a single parent card and the approved six-step order', () => {
   const html = read('about.html');
   const flow = html.slice(html.indexOf('class="about-process-flow"'), html.indexOf('</main>'));
   assert.ok(flow.length > 0, 'unified process card should precede Terms & limitations');
@@ -22,13 +22,14 @@ test('AFV429 About Process Flow keeps a single parent card and the approved six-
   assert.ok(!flow.includes('arisu-verified-badge'), 'About service heading has no blue badge markup');
   assert.ok(flow.includes('Less searching. More transparency. Better-informed decisions.'));
   assert.ok(flow.includes('Arisu Ryohei'));
-  assert.ok(html.includes('about-page.css?v=AFV429'));
+  assert.ok(html.includes('about-page.css?v=AFV430'));
   assert.ok(html.includes('id="termsTitle"'), 'terms and limitations stay available as step 06');
   assert.ok(flow.includes('aria-hidden="true">06</span>'), 'Terms & limitations is numbered 06');
+  assert.ok(!flow.includes('terms-security'), 'nested Legitimate Account Recovery Only notice is removed for a compact Terms step');
   assert.ok(!html.includes('Established September 08, 2018'), 'the established-date line is removed from the About page');
   const css = read('about-page.css');
   assert.ok(css.includes('.about-process-flow'));
   assert.ok(css.includes('.about-process-step:not(:last-child)::before'));
   assert.ok(css.includes('@media (max-width: 380px)'));
-  assert.ok(css.includes('AFV429 — remove the About service badge footprint and tighten its details'));
+  assert.ok(css.includes('AFV430 — remove the nested Legitimate Account Recovery notice card'));
 });
