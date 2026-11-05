@@ -146,7 +146,7 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
   justify-content:flex-start!important;justify-self:start!important;
  }
  html body header.topbar.site-header>a.brand>.logo {
-  flex:0 0 44px!important;width:44px!important;height:44px!important;border-radius:14px!important;
+  flex:0 0 44px!important;width:44px!important;height:44px!important;border-radius:50%!important;aspect-ratio:1/1!important;
  }
   html body header.topbar.site-header .brand-copy {flex:0 1 auto!important;gap:2px!important}
   html body header.topbar.site-header .brand-name-row {gap:4px!important}
@@ -193,3 +193,6 @@ html body header.topbar.site-header .brand-name-row > .arisu-verified-badge {
 html body header.topbar.site-header {
   overflow: visible !important;
 }
+
+
+/* AFV474 — Keep the logo wrapper and image on the same circular clipping geometry at every zoom level. */
