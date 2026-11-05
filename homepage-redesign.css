@@ -26,7 +26,7 @@
 .home-page .social-collage > .social-card-link:hover,
 .home-page .social-collage > .recovery-proofs-showcase:hover,
 .home-page .social-collage > .social-feedback-card:hover {
-  border-color: #c9d6f4;
+  border-color: #d8ccff;
   box-shadow: 0 6px 14px rgba(37,99,235,.10);
 }
 .home-page .social-collage .social-profile-preview,
@@ -45,7 +45,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition: transform 250ms ease;
 }
@@ -55,7 +55,7 @@
 }
 .home-page .social-collage > a .social-profile-preview,
 .home-page .social-collage > a .recovery-proofs-preview {
-  border-radius: 0;
+  border-radius: 16px 16px 0 0;
 }
 .home-page .social-collage .tiktok-profile-button,
 .home-page .social-collage .facebook-profile-button,
@@ -158,7 +158,7 @@
   transition: border-color 250ms ease, box-shadow 250ms ease;
 }
 .home-page .social-collage .explore-more-card:hover {
-  border-color: #c9d6f4;
+  border-color: #d8ccff;
   box-shadow: 0 6px 14px rgba(37,99,235,.10);
 }
 .home-page .social-collage .explore-more-icon {
@@ -204,7 +204,10 @@
   }
 }
 @media (hover: none) {
-  .home-page .social-collage > a:active {
+  .home-page .social-collage .tiktok-profile-button:active,
+  .home-page .social-collage .facebook-profile-button:active,
+  .home-page .social-collage .recovery-proofs-button:active,
+  .home-page .social-collage .social-feedback-view-all:active {
     transform: scale(.95);
     transition: transform 150ms ease-out;
   }
@@ -225,9 +228,4 @@
   .home-page .social-collage .explore-more-icon { width: 38px; height: 38px; flex-basis: 38px; }
   .home-page .social-collage .explore-more-copy strong { font-size: 13px; }
   .home-page .social-collage .explore-more-copy > span { font-size: 11px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .home-page .social-collage *,
-  .home-page .social-collage *::before,
-  .home-page .social-collage *::after { transition-duration: .01ms !important; }
 }
