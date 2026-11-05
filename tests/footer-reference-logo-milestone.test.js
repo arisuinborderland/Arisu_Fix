@@ -14,7 +14,7 @@ test('About footer uses the same official logo asset as the shared site header',
   assert.ok(headerLogo);
   assert.ok(aboutLogo);
   assert.equal(aboutLogo.split('?')[0], headerLogo.split('?')[0]);
-  assert.match(aboutLogo, /AFV476/);
+  assert.match(aboutLogo, /AFV477/);
 });
 
 test('About footer logo aligns with the title and uses a circular frame on mobile', () => {
@@ -27,6 +27,9 @@ test('Created milestone card retains its date, description, CTA, and compact Opt
   assert.match(html, /class="reference-about-created"/);
   assert.match(html, /Created on October 14, 2026/);
   assert.match(html, /class="reference-about-action"/);
+  assert.match(html, /class="reference-about-calendar"/);
+  assert.match(html, /class="reference-about-action-row"/);
   assert.match(html, /class="reference-about-created-check"/);
-  assert.match(css, /padding: 4px 6px !important/);
+  assert.match(css, /grid-template-areas: "copy check" "action action"/);
+  assert.match(css, /justify-content: center !important/);
 });
