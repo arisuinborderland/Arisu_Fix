@@ -44,7 +44,7 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
  assert.match(partial, /RECOVERY CONTACT &amp; ASSISTANCE/);
  assert.doesNotMatch(partial, /arisu-verified-badge|brand-subtitle-pill|subtitle-sparkle/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
- assert.match(css, /brand-subtitle[\\s\\S]*?letter-spacing/);
+ assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
