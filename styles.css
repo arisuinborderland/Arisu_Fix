@@ -9796,3 +9796,59 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
+
+
+/* AFV464 — cohesive visual treatment for the Account Recovery Assistance hero.
+   Scoped to this section; existing copy, badge behavior, and adjacent contact cards remain unchanged. */
+body.home-page main > .account-recovery-hero-intro {
+  width: min(100%, 900px);
+  margin: 2px auto 14px !important;
+  padding: clamp(16px, 2.5vw, 24px) clamp(14px, 3vw, 28px) clamp(13px, 2vw, 20px) !important;
+  border: 1px solid rgba(255, 255, 255, .92);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(91, 153, 255, .11), transparent 42%),
+    linear-gradient(145deg, rgba(255, 255, 255, .82), rgba(245, 248, 255, .68));
+  box-shadow:
+    0 10px 28px rgba(48, 74, 132, .09),
+    inset 0 1px 0 rgba(255, 255, 255, .9);
+  text-align: center;
+}
+body.home-page main > .account-recovery-hero-intro .eyebrow.premium-status {
+  margin: 0 auto 12px;
+}
+body.home-page main > .account-recovery-hero-intro h1 {
+  margin: 0 !important;
+  color: #17243b !important;
+  font-size: clamp(27px, 5vw, 40px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -1.15px !important;
+  font-weight: 850;
+  text-wrap: balance;
+}
+body.home-page main > .account-recovery-hero-intro h1 em {
+  color: #285fc5 !important;
+  -webkit-text-fill-color: #285fc5 !important;
+  font-style: normal;
+}
+@media (max-width: 600px) {
+  body.home-page main > .account-recovery-hero-intro {
+    margin: 1px auto 8px !important;
+    padding: 14px 10px 13px !important;
+    border-radius: 20px;
+  }
+  body.home-page main > .account-recovery-hero-intro .eyebrow.premium-status {
+    margin-bottom: 10px;
+  }
+  body.home-page main > .account-recovery-hero-intro h1 {
+    font-size: clamp(25px, 6.7vw, 32px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.9px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.home-page main > .account-recovery-hero-intro,
+  body.home-page main > .account-recovery-hero-intro * {
+    scroll-behavior: auto;
+  }
+}
