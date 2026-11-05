@@ -20,7 +20,7 @@ test('About footer uses the same official logo asset as the shared site header',
 test('About footer logo aligns with the title and uses a circular frame on mobile', () => {
   assert.match(css, /\.reference-about-profile \{[\s\S]*?align-self: flex-start !important/);
   assert.match(css, /border-radius: 50% !important/);
-  assert.match(css, /margin-top: 16px !important/);
+  assert.match(css, /margin-top: 0 !important/);
 });
 
 test('Created milestone card retains its date, description, CTA, and compact Option A sizing', () => {
