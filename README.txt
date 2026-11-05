@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV472
+Version: AFV473
 Updated: 2026-11-05
 
-Current release: AFV472
-Package version: 472.0.0
+Current release: AFV473
+Package version: 473.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV473: moves the shared verified badge one additional pixel right (2px total spacing) across all five public headers; preserves vertical alignment and animation.
 - AFV472: adds a consistent 1px horizontal gap between the Fix wordmark and verified badge across all five shared headers; preserves vertical alignment and badge animation.
 - AFV471: makes Reviews and Proofs mobile headers match the homepage's 58px geometry, 44px logo, visible brand row, and centered verified badge; overrides legacy page-specific compression rules and refreshes CSS cache keys.
 - AFV470: synchronizes release metadata with the AFV470 header-scroll.js cache token used by Reviews and Proofs; includes the Reviews/Proofs scroll-state restoration fix.
