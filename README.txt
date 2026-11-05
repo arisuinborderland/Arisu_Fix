@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV463
+Version: AFV464
 Updated: 2026-11-05
 
-Current release: AFV463
-Package version: 463.0.0
+Current release: AFV464
+Package version: 464.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV464 corrects the optical vertical alignment of the verified badge on the Privacy and About headers by 1px, preserves its existing animation, and synchronizes the shared header stylesheet cache token across all five public pages.
 - AFV463 uses the reference's left-side light blue uniformly across the full shared header and restores a clearly visible blue bottom divider. Existing dark navy/slate brand text and all header layout remain unchanged.
 - AFV463 removes the bright multicolor line beneath the shared pastel header and changes the brand name and Recovery Contact subtitle to high-contrast dark blue-gray. No header layout or dimensions changed.
 - AFV463 changes only the shared header background to the reference-matched pastel blue-periwinkle-lavender gradient. Header layout, typography, logo, verified badge, and action controls remain unchanged.

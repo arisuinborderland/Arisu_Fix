@@ -41,15 +41,15 @@ test('AFV411 records the session only after loading completes and releases scrol
   assert.ok(!/^\s*transition:\s*opacity \.24s ease, visibility \.24s ease;/m.test(css), 'default overlay state must not transition into view');
 });
 
-test('AFV463 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('AFV464 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '463.0.0');
-  assert.equal(lock.version, '463.0.0');
-  assert.equal(lock.packages[''].version, '463.0.0');
-  assert.ok(readme.includes('Current release: AFV463'));
+  assert.equal(pkg.version, '464.0.0');
+  assert.equal(lock.version, '464.0.0');
+  assert.equal(lock.packages[''].version, '464.0.0');
+  assert.ok(readme.includes('Current release: AFV464'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
