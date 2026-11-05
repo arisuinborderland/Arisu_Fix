@@ -9796,3 +9796,57 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
+
+
+/* AFV459 — Homepage social-card image polish (original S7–S14 scope).
+   Keep every card's existing dimensions and layout; only image loading/hover and a soft border cue change. */
+html body.home-page .social-collage .social-profile-preview,
+html body.home-page .social-collage .recovery-proofs-preview,
+html body.home-page .social-collage .review-proof-image {
+  overflow: hidden;
+}
+
+html body.home-page .social-collage > .tiktok-showcase .preview-original,
+html body.home-page .social-collage > .facebook-showcase .preview-original,
+html body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-preview img,
+html body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img {
+  transform-origin: center center;
+  filter: blur(10px);
+  opacity: .82;
+  transition: filter 250ms ease, opacity 250ms ease, transform 250ms ease;
+  will-change: filter, transform;
+}
+
+html body.home-page .social-collage .preview-original.is-loaded,
+html body.home-page .social-collage .recovery-proofs-preview img.is-loaded,
+html body.home-page .social-collage .reviews-grid-featured .review-proof-image img.is-loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html body.home-page .social-collage > .tiktok-showcase:hover,
+  html body.home-page .social-collage > .facebook-showcase:hover,
+  html body.home-page .social-collage > .recovery-proofs-showcase:hover,
+  html body.home-page .social-collage > .social-feedback-card:hover {
+    transform: none !important;
+    border-color: #cbbcf0 !important;
+    box-shadow: 0 0 0 1px rgba(176, 151, 229, .18),
+                0 8px 24px rgba(104, 83, 151, .075) !important;
+  }
+
+  html body.home-page .social-collage > .tiktok-showcase:hover .preview-original.is-loaded,
+  html body.home-page .social-collage > .facebook-showcase:hover .preview-original.is-loaded,
+  html body.home-page .social-collage > .recovery-proofs-showcase:hover .recovery-proofs-preview img.is-loaded,
+  html body.home-page .social-collage > .social-feedback-card:hover .reviews-grid-featured .review-proof-image img.is-loaded {
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.home-page .social-collage .preview-original,
+  html body.home-page .social-collage .recovery-proofs-preview img,
+  html body.home-page .social-collage .reviews-grid-featured .review-proof-image img {
+    transition: none !important;
+  }
+}
