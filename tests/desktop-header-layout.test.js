@@ -43,7 +43,7 @@ test('AFV465 shared header uses the exact loading-screen logo without cropping',
  assert.match(partial, /alt="Official Arisu Fix logo"/);
  assert.match(partial, /class="brand-subtitle-pill"/);
  assert.match(partial, /<span>Recovery Contact<\/span>/);
- assert.match(css, /linear-gradient\(110deg,rgba\(100,190,255/);
+ assert.match(css, /linear-gradient\(110deg,rgba\(116,194,255/);
  assert.match(css, /brand-subtitle-pill svg/);
  assert.doesNotMatch(partial, /arisu-profile-thumb\.webp/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
