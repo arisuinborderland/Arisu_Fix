@@ -36,7 +36,12 @@ test('Combined contact intro has responsive glass styling scoped to the homepage
   assert.ok(css.includes('@keyframes contact-intro-pulse'));
   assert.ok(css.includes('@keyframes contact-intro-ripple'));
   assert.ok(css.includes('top:-2px'));
-  assert.ok(css.includes('padding:10px 13px !important'));
+  assert.ok(css.includes('padding:8px 13px !important'));
+  assert.ok(css.includes('padding-top:8px !important'));
+  assert.ok(css.includes('padding-bottom:8px !important'));
+  assert.ok(css.includes('padding:10px 16px !important'));
+  assert.ok(css.includes('padding-top:10px !important'));
+  assert.ok(css.includes('padding-bottom:10px !important'));
   assert.ok(css.includes('contact-intro-est'));
   assert.ok(css.includes('contact-intro-icon'));
   assert.ok(css.includes('@media (max-width:600px)'));
