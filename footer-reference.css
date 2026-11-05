@@ -1063,3 +1063,142 @@ body.home-page .reference-footer {
     flex-basis: 12px !important;
   }
 }
+
+
+/* AFV477 — Desktop counterpart for the approved About/milestone layout.
+   The mobile-only grid must not leave the nested calendar SVG un-sized or
+   the centered CTA row inheriting the legacy inline-button positioning. */
+@media screen and (min-width: 601px) {
+  html body.home-page .reference-footer,
+  html body.reviews-document .reference-footer,
+  html body.proofs-document .reference-footer,
+  html body.about-page .reference-footer .reference-about-cta {
+    align-items: flex-start !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-profile,
+  html body.reviews-document .reference-footer .reference-about-profile,
+  html body.proofs-document .reference-footer .reference-about-profile,
+  html body.about-page .reference-footer .reference-about-profile {
+    flex: 0 0 72px !important;
+    width: 72px !important;
+    height: 72px !important;
+    align-self: flex-start !important;
+    margin-top: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created,
+  html body.reviews-document .reference-footer .reference-about-created,
+  html body.proofs-document .reference-footer .reference-about-created,
+  html body.about-page .reference-footer .reference-about-created {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 20px !important;
+    grid-template-areas: "copy check" "action action" !important;
+    align-items: start !important;
+    column-gap: 10px !important;
+    row-gap: 8px !important;
+    margin-top: 10px !important;
+    padding: 10px 12px !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy,
+  html body.reviews-document .reference-footer .reference-about-created-copy,
+  html body.proofs-document .reference-footer .reference-about-created-copy,
+  html body.about-page .reference-footer .reference-about-created-copy {
+    grid-area: copy !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-heading,
+  html body.reviews-document .reference-footer .reference-about-created-heading,
+  html body.proofs-document .reference-footer .reference-about-created-heading,
+  html body.about-page .reference-footer .reference-about-created-heading {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+    min-width: 0 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-calendar,
+  html body.reviews-document .reference-footer .reference-about-calendar,
+  html body.proofs-document .reference-footer .reference-about-calendar,
+  html body.about-page .reference-footer .reference-about-calendar {
+    display: block !important;
+    flex: 0 0 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    padding: 7px !important;
+    color: #244c91 !important;
+    border-radius: 9px !important;
+    background: #e8f2ff !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy strong,
+  html body.reviews-document .reference-footer .reference-about-created-copy strong,
+  html body.proofs-document .reference-footer .reference-about-created-copy strong,
+  html body.about-page .reference-footer .reference-about-created-copy strong {
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy > span:not(.reference-about-created-heading),
+  html body.reviews-document .reference-footer .reference-about-created-copy > span:not(.reference-about-created-heading),
+  html body.proofs-document .reference-footer .reference-about-created-copy > span:not(.reference-about-created-heading),
+  html body.about-page .reference-footer .reference-about-created-copy > span:not(.reference-about-created-heading) {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-check,
+  html body.reviews-document .reference-footer .reference-about-created-check,
+  html body.proofs-document .reference-footer .reference-about-created-check,
+  html body.about-page .reference-footer .reference-about-created-check {
+    grid-area: check !important;
+    align-self: center !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-action-row,
+  html body.reviews-document .reference-footer .reference-about-action-row,
+  html body.proofs-document .reference-footer .reference-about-action-row,
+  html body.about-page .reference-footer .reference-about-action-row {
+    grid-area: action !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-action-row .reference-about-action,
+  html body.reviews-document .reference-footer .reference-about-action-row .reference-about-action,
+  html body.proofs-document .reference-footer .reference-about-action-row .reference-about-action,
+  html body.about-page .reference-footer .reference-about-action-row .reference-about-action {
+    display: inline-flex !important;
+    align-self: center !important;
+    justify-content: center !important;
+    min-height: 34px !important;
+    margin: 0 !important;
+    padding: 8px 16px !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-action-row .reference-about-action svg,
+  html body.reviews-document .reference-footer .reference-about-action-row .reference-about-action svg,
+  html body.proofs-document .reference-footer .reference-about-action-row .reference-about-action svg,
+  html body.about-page .reference-footer .reference-about-action-row .reference-about-action svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex: 0 0 14px !important;
+  }
+}
