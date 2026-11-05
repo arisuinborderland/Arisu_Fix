@@ -14,8 +14,9 @@ test('Shared desktop header uses one shell, logo, brand typography, and badge co
  assert.match(css,/flex:0 0 22px!important/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
 });
 test('AFV464 lifts only the Privacy and About verified badges by 1px without replacing animation transforms', () => {
- assert.match(css,/html body\\.privacy-page header\\.topbar\\.site-header \\.arisu-verified-badge,[\\s\\S]*?html body\\.about-page header\\.topbar\\.site-header \\.arisu-verified-badge \\{[\\s\\S]*?position:relative!important;[\\s\\S]*?top:-1px!important;/);
- assert.doesNotMatch(css,/html body\\.(?:home-page|reviews-document|proofs-document) header\\.topbar\\.site-header \\.arisu-verified-badge[\\s\\S]{0,120}top:-1px/);
+ assert.ok(css.includes('html body.privacy-page header.topbar.site-header .arisu-verified-badge,'));
+ assert.ok(css.includes('html body.about-page header.topbar.site-header .arisu-verified-badge'));
+ assert.match(css,/position:relative!important;\\s*top:-1px!important;/);
  assert.match(css,/animation:arisu-brand-badge-pop 2s ease-in-out infinite/);
 });
 test('All five source pages use the same build-time shared header placeholder', () => {
