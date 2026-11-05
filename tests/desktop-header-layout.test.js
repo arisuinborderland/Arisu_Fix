@@ -47,8 +47,8 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
   const homeStyles = read('styles.css');
   assert.match(homeStyles, /\.arisu-verified-badge\{[^}]*animation:arisu-brand-badge-pop 2s ease-in-out infinite/);
   assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
-  const checkDrawBlock = homeStyles.split("AFV466 — Keep the homepage header's verified check-draw animation active.")[1];
-  assert.ok(checkDrawBlock, 'AFV466 homepage check-draw override must exist');
+  const checkDrawBlock = homeStyles.split("AFV467 — Keep the homepage header's verified check-draw animation active.")[1];
+  assert.ok(checkDrawBlock, 'AFV467 homepage check-draw override must exist');
   assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\\s*24\\s*!important/);
   assert.match(checkDrawBlock, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
@@ -58,7 +58,7 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
 test('Homepage verified check animation is not blocked by an important dash offset', () => {
  const homeStyles = read('styles.css');
  assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
- assert.doesNotMatch(homeStyles, /stroke-dashoffset:\\s*24\\s*!important/);
+ assert.doesNotMatch(homeStyles, /stroke-dashoffset:\s*24\s*!important/);
  assert.match(homeStyles, /html body\.home-page \.topbar > \.brand \.brand-name-row > \.arisu-verified-badge svg path \{[\\s\\S]*?animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
