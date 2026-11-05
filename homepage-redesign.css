@@ -23,12 +23,6 @@
   text-decoration: none;
   transition: border-color 250ms ease, box-shadow 250ms ease;
 }
-.home-page .social-collage > .social-card-link:hover,
-.home-page .social-collage > .recovery-proofs-showcase:hover,
-.home-page .social-collage > .social-feedback-card:hover {
-  border-color: #d8ccff;
-  box-shadow: 0 6px 14px rgba(37,99,235,.10);
-}
 .home-page .social-collage .social-profile-preview,
 .home-page .social-collage .recovery-proofs-preview,
 .home-page .social-collage .reviews-grid {
@@ -228,4 +222,114 @@
   .home-page .social-collage .explore-more-icon { width: 38px; height: 38px; flex-basis: 38px; }
   .home-page .social-collage .explore-more-copy strong { font-size: 13px; }
   .home-page .social-collage .explore-more-copy > span { font-size: 11px; }
+}
+
+
+/* AFV462 follow-up: normalize legacy preview wrappers without editing shared styles.css. */
+.home-page .social-collage > .social-card-link,
+.home-page .social-collage > .recovery-proofs-showcase,
+.home-page .social-collage > .social-feedback-card {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.home-page .social-collage .social-profile-preview {
+  display: block;
+  height: auto;
+  max-height: none;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 8px 8px 0 0;
+}
+.home-page .social-collage .social-profile-preview img {
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+.home-page .social-collage .recovery-proofs-preview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 6px;
+}
+.home-page .social-collage .recovery-proof-preview-item {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  aspect-ratio: auto;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #e2e7f0;
+  border-radius: 6px;
+  background: #f5f5f5;
+}
+.home-page .social-collage .recovery-proof-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.home-page .social-collage .windows-feedback-content {
+  padding: 0 !important;
+}
+.home-page .social-collage .reviews-grid-featured {
+  display: block !important;
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  overflow: hidden !important;
+  margin: 0;
+  background: #f5f5f5;
+}
+.home-page .social-collage .reviews-grid-featured .review-proof-card {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+.home-page .social-collage .reviews-grid-featured .review-proof-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #f5f5f5 !important;
+}
+.home-page .social-collage .reviews-grid-featured .review-proof-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+.home-page .social-collage a:focus-visible,
+.home-page .social-collage .recovery-proofs-showcase:focus-visible,
+.home-page .social-collage .social-feedback-view-all:focus-visible {
+  outline: 3px solid #9fb6ff;
+  outline-offset: 3px;
+}
+.home-page .social-collage [aria-disabled="true"] {
+  border-color: #cbd5e1;
+  background: #94a3b8;
+  color: #fff;
+  box-shadow: none;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-page .social-collage > .social-card-link:hover,
+  .home-page .social-collage > .recovery-proofs-showcase:hover,
+  .home-page .social-collage > .social-feedback-card:hover,
+  .home-page .social-collage .explore-more-card:hover {
+    border-color: #d8ccff;
+    box-shadow: 0 6px 14px rgba(37,99,235,.10);
+  }
 }
