@@ -1,3 +1,12 @@
+AFV465 — Header Branding Refresh (Loading-Screen Logo + Glass Subtitle)
+
+## AFV465 — Combined shared header branding update
+- Reuse the exact transparent official logo asset already used by the homepage loading screen.
+- Remove the white logo tile; preserve the full logo artwork in a transparent circular frame without cropping.
+- Style “Recovery Contact” as a compact soft blue-violet glass pill with a subtle sparkle icon, thin translucent border, and restrained shadow.
+- Preserve Arisu title typography, verified badge, header dimensions, spacing, uniform light-blue background, visible blue bottom divider, and all other page content.
+- Refresh logo and shared stylesheet cache tokens; synchronize release metadata.
+
 AFV464 — Replace Shared Header Logo with Loading-Screen Logo
 
 ## AFV464 — Reuse the exact official loading-screen logo
