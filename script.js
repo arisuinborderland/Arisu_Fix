@@ -181,7 +181,7 @@ document.documentElement.classList.add("js-ready");
 
 
 // AFV459 — Blur-up completion state for the four homepage social preview cards.
-// Dimensions remain governed by the existing image frames; this only reveals loaded pixels.
+// Handles cached, lazy-loaded, and dynamically inserted review/proof images.
 (() => {
   const previewSelector = [
     "body.home-page .social-collage > .tiktok-showcase .preview-original",
@@ -190,11 +190,39 @@ document.documentElement.classList.add("js-ready");
     "body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img"
   ].join(", ");
 
-  document.querySelectorAll(previewSelector).forEach((image) => {
-    const markLoaded = () => {
-      if (image.naturalWidth > 0) image.classList.add("is-loaded");
-    };
-    image.addEventListener("load", markLoaded, { once: true });
-    markLoaded();
-  });
+  const markLoaded = (image) => {
+    if (image instanceof HTMLImageElement && image.naturalWidth > 0) {
+      image.classList.add("is-loaded");
+    }
+  };
+
+  const scan = (root) => {
+    if (!root) return;
+    if (root instanceof HTMLImageElement && root.matches(previewSelector)) {
+      markLoaded(root);
+    }
+    if (typeof root.querySelectorAll === "function") {
+      root.querySelectorAll(previewSelector).forEach(markLoaded);
+    }
+  };
+
+  // Capture load because image load events do not bubble. This also covers late-loaded images.
+  document.addEventListener("load", (event) => {
+    if (event.target instanceof HTMLImageElement && event.target.matches(previewSelector)) {
+      markLoaded(event.target);
+    }
+  }, true);
+
+  // Cached images may already be complete before this script runs.
+  scan(document);
+
+  // Reviews/proofs may be populated after initial page load.
+  if ("MutationObserver" in window) {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach(scan);
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
 })();
