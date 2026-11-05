@@ -1,15 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV464
+Version: AFV465
 Updated: 2026-11-05
 
-Current release: AFV464
-Package version: 464.0.0
+Current release: AFV465
+Package version: 465.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV464 replaces the shared header profile thumbnail with the exact transparent official logo asset already used by the homepage loading screen. Preserves the header shell dimensions, text, verified badge, background, divider, spacing, and other page content.
+- AFV465: combines the exact loading-screen logo replacement with the approved Soft Blue-Violet Glass Pill subtitle treatment in one shared-header update.
+- AFV465 refreshes shared header branding: reuses the exact transparent loading-screen logo and styles Recovery Contact as a soft blue-violet glass pill with a subtle sparkle icon. Preserves header dimensions, Arisu title, verified badge, background, divider, spacing, and other page content.
 - AFV463 uses the reference's left-side light blue uniformly across the full shared header and restores a clearly visible blue bottom divider. Existing dark navy/slate brand text and all header layout remain unchanged.
 - AFV463 removes the bright multicolor line beneath the shared pastel header and changes the brand name and Recovery Contact subtitle to high-contrast dark blue-gray. No header layout or dimensions changed.
 - AFV463 changes only the shared header background to the reference-matched pastel blue-periwinkle-lavender gradient. Header layout, typography, logo, verified badge, and action controls remain unchanged.
