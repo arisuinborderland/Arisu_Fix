@@ -803,3 +803,66 @@ body.home-page .reference-footer {
     margin-top: 8px !important;
   }
 }
+
+
+/* AFV476 — Use the exact shared-header logo beside the About title and compact the milestone card.
+   Homepage footer only; preserve the shared footer's content and navigation layout. */
+@media screen and (max-width: 600px) {
+  html body.home-page .reference-footer .reference-about-cta {
+    align-items: flex-start !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-profile {
+    flex: 0 0 52px !important;
+    width: 52px !important;
+    height: 52px !important;
+    align-self: flex-start !important;
+    margin-top: 16px !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    box-shadow: 0 2px 8px rgba(36, 89, 170, .16) !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created {
+    gap: 6px !important;
+    margin-top: 2px !important;
+    padding: 4px 6px !important;
+    border-radius: 11px !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created > svg:first-child {
+    flex-basis: 27px !important;
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy {
+    gap: 1px !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy strong {
+    font-size: 11px !important;
+    line-height: 1.18 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy > span:not(.reference-about-action) {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created-copy .reference-about-action {
+    min-height: 24px !important;
+    margin-top: 1px !important;
+    padding: 4px 9px !important;
+  }
+
+  html body.home-page .reference-footer .reference-about-created .reference-about-created-check {
+    flex-basis: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
