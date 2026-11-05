@@ -9796,3 +9796,23 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
+
+
+/* AFV463 — separate the Account Recovery Assistance identity banner
+   from the Need My Help heading without changing existing visual tokens. */
+body.home-page main > .account-recovery-hero {
+  margin-bottom: 4px;
+}
+body.home-page main > .need-my-help-section {
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  html body.home-page main > .account-recovery-hero {
+    order: 1 !important;
+    margin: 8px 0 2px !important;
+  }
+  html body.home-page main > .need-my-help-section {
+    order: 2 !important;
+    margin: 0 0 8px !important;
+  }
+}
