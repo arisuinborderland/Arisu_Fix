@@ -13,6 +13,7 @@ test('Homepage combines recovery identity and contact invitation in one accessib
   assert.ok(start >= 0 && end > start, 'combined contact intro card exists');
   const card = html.slice(start, end);
   assert.ok(card.includes('ACCOUNT RECOVERY ASSISTANCE'));
+  assert.ok(card.includes('contact-intro-pulse'), 'animated blue pulse sits beside the assistance label');
   assert.ok(card.includes('EST. 2018'));
   assert.ok(card.includes('Let’s Connect.'));
   assert.ok(card.includes('Get personal assistance directly from Arisu.'));
@@ -32,6 +33,10 @@ test('Existing WhatsApp and Service Status content remains in place', () => {
 test('Combined contact intro has responsive glass styling scoped to the homepage', () => {
   assert.ok(css.includes('body.home-page main > .compact-intro.contact-intro-card'));
   assert.ok(css.includes('contact-intro-label'));
+  assert.ok(css.includes('@keyframes contact-intro-pulse'));
+  assert.ok(css.includes('@keyframes contact-intro-ripple'));
+  assert.ok(css.includes('top:-2px'));
+  assert.ok(css.includes('padding:10px 13px !important'));
   assert.ok(css.includes('contact-intro-est'));
   assert.ok(css.includes('contact-intro-icon'));
   assert.ok(css.includes('@media (max-width:600px)'));
