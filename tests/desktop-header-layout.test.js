@@ -35,11 +35,11 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV462&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV463&shared=1',page+' must load shared header stylesheet last');}
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
- assert.match(css,/AFV461 — Reference-matched pastel blue-periwinkle-lavender header background/);
+ assert.match(css,/AFV463 — Use the left-side reference blue uniformly across the full header/);
   assert.match(css,/color: #24365b !important/);
   assert.match(css,/color: #586783 !important/);
   assert.match(css,/background: none !important;\s*box-shadow: none !important;/);
