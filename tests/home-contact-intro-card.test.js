@@ -49,14 +49,15 @@ test('Combined contact intro has responsive glass styling scoped to the homepage
   assert.ok(html.includes('styles.css?v=AFV478'));
 });
 
-\ntest('Homepage mobile micro-adjustments remain scoped and preserve the approved desktop layout', () => {
+
+test('Homepage mobile micro-adjustments remain scoped and preserve the approved desktop layout', () => {
   const mobileBlock = css.slice(css.lastIndexOf('/* AFV478 mobile micro-adjustments'));
   assert.ok(mobileBlock.includes('@media (max-width:600px)'));
   assert.ok(mobileBlock.includes('main > #daily-bible-verse.daily-verse-card'));
   assert.match(mobileBlock, /margin:2px auto 6px !important/);
-  assert.match(mobileBlock, /contact-intro-copy h1\\s*\\{\\s*font-size:clamp\\(20px,5\\.5vw,25px\\) !important/);
-  assert.match(mobileBlock, /contact-intro-copy p\\s*\\{\\s*position:relative;\\s*top:-2px/);
-  assert.match(mobileBlock, /contact-intro-card\\s*\\{\\s*padding-bottom:6px !important/);
+  assert.match(mobileBlock, /contact-intro-copy h1\s*\{\s*font-size:clamp\(20px,5\\.5vw,25px\) !important/);
+  assert.match(mobileBlock, /contact-intro-copy p\s*\{\s*position:relative;\s*top:-2px/);
+  assert.match(mobileBlock, /contact-intro-card\s*\{\s*padding-bottom:6px !important/);
   assert.ok(mobileBlock.includes('@media (max-width:360px)'));
   assert.ok(html.includes('styles.css?v=AFV478&desktoplayout=1&contactintro=2&mobilepolish=1'));
 });
