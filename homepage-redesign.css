@@ -1,0 +1,233 @@
+/* AFV462 — isolated homepage social-card redesign.
+   Keep the shared site styles and existing page-specific styles untouched. */
+.home-page .social-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 14px;
+  margin-inline: auto;
+}
+.home-page .social-collage > .social-card-link,
+.home-page .social-collage > .recovery-proofs-showcase,
+.home-page .social-collage > .social-feedback-card {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e2e7f0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,.08);
+  color: #172033;
+  text-decoration: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+.home-page .social-collage > .social-card-link:hover,
+.home-page .social-collage > .recovery-proofs-showcase:hover,
+.home-page .social-collage > .social-feedback-card:hover {
+  border-color: #c9d6f4;
+  box-shadow: 0 6px 14px rgba(37,99,235,.10);
+}
+.home-page .social-collage .social-profile-preview,
+.home-page .social-collage .recovery-proofs-preview,
+.home-page .social-collage .reviews-grid {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+.home-page .social-collage .social-profile-preview img,
+.home-page .social-collage .recovery-proofs-preview img,
+.home-page .social-collage .reviews-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 250ms ease;
+}
+.home-page .social-collage > a:hover .social-profile-preview img,
+.home-page .social-collage > a:hover .recovery-proofs-preview img {
+  transform: scale(1.05);
+}
+.home-page .social-collage > a .social-profile-preview,
+.home-page .social-collage > a .recovery-proofs-preview {
+  border-radius: 0;
+}
+.home-page .social-collage .tiktok-profile-button,
+.home-page .social-collage .facebook-profile-button,
+.home-page .social-collage .recovery-proofs-button,
+.home-page .social-collage .social-feedback-view-all {
+  display: inline-flex;
+  width: fit-content;
+  max-width: calc(100% - 20px);
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  align-self: center;
+  margin: 10px;
+  padding: 9px 12px;
+  border: 1px solid #1d4ed8;
+  border-radius: 7px;
+  background: #2563eb;
+  box-shadow: 0 4px 8px rgba(0,0,0,.08);
+  color: #fff;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: background-color 250ms ease, box-shadow 250ms ease, transform 150ms ease-out;
+}
+.home-page .social-collage .tiktok-profile-button:hover,
+.home-page .social-collage .facebook-profile-button:hover,
+.home-page .social-collage .recovery-proofs-button:hover,
+.home-page .social-collage .social-feedback-view-all:hover {
+  background: #1d4ed8;
+}
+.home-page .social-collage .tiktok-button-icon,
+.home-page .social-collage .facebook-button-icon,
+.home-page .social-collage .recovery-proofs-button-icon,
+.home-page .social-collage .feedback-button-icon {
+  display: inline-flex;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.home-page .social-collage .tiktok-button-icon svg,
+.home-page .social-collage .facebook-button-icon svg,
+.home-page .social-collage .recovery-proofs-button-icon svg,
+.home-page .social-collage .feedback-button-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.home-page .social-collage .social-feedback-card {
+  justify-content: space-between;
+}
+.home-page .social-collage .windows-feedback-content {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home-page .social-collage .reviews-grid {
+  display: block;
+  flex: 0 0 auto;
+}
+.home-page .social-collage .review-card,
+.home-page .social-collage .review-proof-image {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #f5f5f5;
+}
+.home-page .social-collage .review-proof-image img {
+  object-fit: contain;
+}
+.home-page .social-collage .social-feedback-view-all {
+  margin: 10px auto;
+}
+.home-page .social-collage .explore-more-card {
+  grid-column: 1 / -1;
+  display: flex;
+  min-width: 0;
+  min-height: 76px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid #e2e7f0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,.08);
+  color: #172033;
+  text-decoration: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+.home-page .social-collage .explore-more-card:hover {
+  border-color: #c9d6f4;
+  box-shadow: 0 6px 14px rgba(37,99,235,.10);
+}
+.home-page .social-collage .explore-more-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #2563eb;
+}
+.home-page .social-collage .explore-more-icon svg,
+.home-page .social-collage .explore-more-arrow {
+  width: 21px;
+  height: 21px;
+}
+.home-page .social-collage .explore-more-copy {
+  display: grid;
+  min-width: 0;
+  flex: 1 1 auto;
+  gap: 4px;
+}
+.home-page .social-collage .explore-more-copy strong {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.home-page .social-collage .explore-more-copy > span {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.home-page .social-collage .explore-more-arrow {
+  flex: 0 0 21px;
+  color: #2563eb;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-page .social-collage > a:hover .social-profile-preview img,
+  .home-page .social-collage > a:hover .recovery-proofs-preview img {
+    transform: scale(1.05);
+  }
+}
+@media (hover: none) {
+  .home-page .social-collage > a:active {
+    transform: scale(.95);
+    transition: transform 150ms ease-out;
+  }
+}
+@media (max-width: 600px) {
+  .home-page .social-collage { gap: 10px; }
+  .home-page .social-collage .tiktok-profile-button,
+  .home-page .social-collage .facebook-profile-button,
+  .home-page .social-collage .recovery-proofs-button,
+  .home-page .social-collage .social-feedback-view-all {
+    max-width: calc(100% - 12px);
+    min-height: 40px;
+    margin: 7px 6px;
+    padding: 8px 7px;
+    font-size: 12px;
+  }
+  .home-page .social-collage .explore-more-card { min-height: 70px; gap: 10px; padding: 11px; }
+  .home-page .social-collage .explore-more-icon { width: 38px; height: 38px; flex-basis: 38px; }
+  .home-page .social-collage .explore-more-copy strong { font-size: 13px; }
+  .home-page .social-collage .explore-more-copy > span { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .social-collage *,
+  .home-page .social-collage *::before,
+  .home-page .social-collage *::after { transition-duration: .01ms !important; }
+}
