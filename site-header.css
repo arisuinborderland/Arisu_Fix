@@ -170,6 +170,9 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
 }
 
 
+/* AFV472 — Add a consistent 1px gap after the Fix wordmark across all five shared headers.
+   Apply the spacing on the badge itself without transforms, preserving its position
+   vertically and keeping the blue badge/check animations intact. */
 /* AFV468 — Normalize verified-badge alignment across all five shared headers.
    Legacy styles.css adds 3px block padding to .brand-name-row; explicitly clear it
    and center the badge against the wordmark so page-level cascade differences cannot
@@ -177,6 +180,7 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
 html body header.topbar.site-header .brand-name-row > .arisu-verified-badge {
   align-self: center !important;
   margin-block: 0 !important;
+  margin-left: 1px !important;
   vertical-align: middle !important;
 }
 
