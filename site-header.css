@@ -168,5 +168,3 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header .brand-name-row>b {font-size:18px!important}
   html body header.topbar.site-header .brand-copy>small.brand-subtitle {font-size:6.8px!important;letter-spacing:.55px!important}
 }
-@media(prefers-reduced-motion:reduce) {
-}
