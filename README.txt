@@ -9,7 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV460 isolates the homepage accordion feature and its required build, markup, accessibility, and mobile footer dependencies. It preserves the existing AFV434 main baseline and removes the retired homepage safety reminder block as requested.
+- AFV460 updates the shared header color to match the existing mobile bottom navigation's dark navy-to-deep-purple palette. It preserves the shared header dimensions, logo, verified badge, typography, spacing, responsive behavior, and all page content.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
 
 - AFV425 removes superseded Reviews and Recovery Proofs header layout layers overridden by the later compact Flex and shared-header contracts. The active header, final action-button geometry, brand ellipsis, hover behavior, and reduced-motion handling are preserved. Reviews and Proofs stylesheet cache tokens and package release metadata are synchronized to AFV425.
