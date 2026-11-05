@@ -25,6 +25,12 @@ test('AFV459 homepage social previews use blur-up loading without changing image
   assert.match(css, /filter:\s*blur\(0\)/);
   assert.match(css, /transition:[^;]*250ms ease/);
   assert.match(script, /image\.naturalWidth > 0/);
+  assert.match(script, /document\.addEventListener\("load"[\s\S]*?true\)/,
+    "capture-phase load handling must cover lazy-loaded images");
+  assert.match(script, /MutationObserver/,
+    "dynamically inserted review/proof images must be observed");
+  assert.match(script, /scan\(document\)/,
+    "already-cached images must be checked after listener setup");
   assert.match(index, /social-collage/);
 });
 
