@@ -1,3 +1,12 @@
+AFV460 — Header color matched to mobile bottom navigation
+
+## AFV460 — Match the shared header to the navigation palette
+- Replaces the shared header's previous teal/blue/purple wave treatment with the mobile bottom navigation's dark navy-to-deep-purple gradient.
+- Uses the same layered navy gradient colors: #0B1220, #111827, and #1B1634, with the navigation's subtle cyan/violet atmosphere and cyan separator.
+- Preserves header height, dimensions, logo, verified badge, brand typography, spacing, responsive behavior, and all page content.
+- Updates the shared header stylesheet cache token to AFV460 on all five public pages.
+- No bottom navigation, homepage section, or unrelated feature changes.
+
 AFV459 — Homepage Accordion Feature Isolation
 
 ## AFV459 — Add the homepage accordion as a focused feature
