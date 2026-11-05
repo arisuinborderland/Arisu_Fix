@@ -55,6 +55,12 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
  assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
 });
+test('Homepage verified check animation is not blocked by an important dash offset', () => {
+ const homeStyles = read('styles.css');
+ assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
+ assert.doesNotMatch(homeStyles, /stroke-dashoffset:\\s*24\\s*!important/);
+ assert.match(homeStyles, /html body\.home-page \.topbar > \.brand \.brand-name-row > \.arisu-verified-badge svg path \{[\\s\\S]*?animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
+});
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
  assert.match(css,/AFV463 — Use the left-side reference blue uniformly across the full header/);
