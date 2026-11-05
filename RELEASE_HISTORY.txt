@@ -1,3 +1,11 @@
+AFV478 — Combine Homepage Account Recovery and Contact Intro Card
+
+## AFV478
+- Combine the Account Recovery Assistance label, EST. 2018 badge, and “Let’s Connect” heading into one compact premium glassmorphism card on the homepage.
+- Use a shield icon for the service identity, a calendar-style EST. 2018 pill, and a blue-violet headset icon tile.
+- Preserve the existing WhatsApp contact card, Service Status panel, Daily Bible Verse, social links, and all unrelated sections.
+- Add responsive mobile/desktop styling, homepage stylesheet cache busting, and focused regression tests.
+
 AFV477 — Apply the Approved About and Milestone Layout Across Shared-Footer Pages
 
 ## AFV477
