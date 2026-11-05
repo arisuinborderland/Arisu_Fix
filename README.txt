@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV480
+Version: AFV481
 Updated: 2026-11-05
 
-Current release: AFV480
-Package version: 480.0.0
+Current release: AFV481
+Package version: 481.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV481: reduce the mobile “Let’s Connect.” heading by 3px, enforce the 2px subtitle lift, and reduce the combined card’s bottom padding by another 2px (6px to 4px). Desktop styling and unrelated cards remain unchanged; refreshes the homepage stylesheet cache token.
 - AFV480: fixes the mobile heading-size override by targeting the introTitle ID directly, ensuring the intended smaller heading wins over legacy ID-based CSS. Preserves the 2px subtitle lift and 2px bottom-padding reduction. Preserves desktop styling and unrelated cards, and refreshes the homepage stylesheet cache token.
 - AFV478: combines the homepage Account Recovery Assistance label, EST. 2018 marker, and “Let’s Connect” invitation into one compact blue-violet glass card. Preserves the existing WhatsApp contact card, Service Status panel, Daily Bible Verse, and other page sections; adds responsive styling and regression coverage.
 - AFV477: applies the approved About/milestone mobile layout consistently across Homepage, Customer Reviews, Recovery Proofs, and About. Uses the official shared-header logo, places the calendar beside the creation date, keeps the description below, centers Explore My Story, and preserves the verified badge, footer cards, copyright, bottom navigation, and desktop layout, with a dedicated desktop milestone grid to prevent oversized calendar SVGs and off-center CTAs.
