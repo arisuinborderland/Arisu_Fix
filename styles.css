@@ -9857,3 +9857,34 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
  body.home-page .contact-intro-label{font-size:8px;letter-spacing:.2px}
  body.home-page .contact-intro-est{padding:4px 6px;font-size:7px}
 }
+
+
+/* AFV478 mobile micro-adjustments — keep all four changes isolated to the homepage mobile layout. */
+@media (max-width:600px) {
+  /* Lower the Daily Bible Verse card by exactly 2px without changing its other margins. */
+  html body.home-page main > #daily-bible-verse.daily-verse-card {
+    margin:2px auto 6px !important;
+  }
+
+  /* Slightly reduce the mobile heading size; leave desktop typography unchanged. */
+  body.home-page .contact-intro-copy h1 {
+    font-size:clamp(20px,5.5vw,25px) !important;
+  }
+
+  /* Raise only the supporting subtitle by 2px. */
+  body.home-page .contact-intro-copy p {
+    position:relative;
+    top:-2px;
+  }
+
+  /* Reduce the combined Account Recovery Assistance card's bottom padding by 2px. */
+  body.home-page main > .compact-intro.contact-intro-card {
+    padding-bottom:6px !important;
+  }
+}
+@media (max-width:360px) {
+  /* Retain the same 2px bottom reduction where the narrow-phone padding rule applies. */
+  body.home-page main > .compact-intro.contact-intro-card {
+    padding-bottom:6px !important;
+  }
+}
