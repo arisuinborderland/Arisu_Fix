@@ -9840,7 +9840,7 @@ body.home-page .contact-intro-copy{min-width:0}
 body.home-page .contact-intro-copy h1{margin:0 0 3px !important;color:#172b55 !important;font:800 clamp(22px,4.2vw,30px)/1.08 Manrope,sans-serif !important;letter-spacing:-1px !important}
 body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !important;color:#526581 !important;font-size:clamp(11px,1.8vw,14px) !important;line-height:1.4 !important}
 @media (max-width:600px){
- body.home-page main > .compact-intro.contact-intro-card{gap:10px;margin:0 auto 8px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:6px !important;border-radius:18px}
+ body.home-page main > .compact-intro.contact-intro-card{gap:10px;margin:0 auto 8px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:4px !important;border-radius:18px}
  body.home-page .contact-intro-top{gap:7px}
  body.home-page .contact-intro-label{gap:5px;font-size:9px;letter-spacing:.45px}
  body.home-page .contact-intro-label svg{flex-basis:20px;width:20px;height:20px}
@@ -9850,11 +9850,11 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
  body.home-page .contact-intro-icon{flex-basis:46px;width:46px;height:46px;border-radius:13px}
  body.home-page .contact-intro-icon svg{width:29px;height:29px}
  body.home-page .contact-intro-copy h1{font-size:clamp(20px,5.5vw,25px) !important;letter-spacing:-.8px !important}
- html body.home-page main > .compact-intro.contact-intro-card #introTitle{font-size:clamp(20px,5.5vw,25px) !important}
- body.home-page .contact-intro-copy p{position:relative;top:-2px;font-size:clamp(10px,2.9vw,12px) !important;line-height:1.3 !important}
+ html body.home-page main > .compact-intro.contact-intro-card #introTitle{font-size:calc(clamp(20px,5.5vw,25px) - 3px) !important}
+ html body.home-page main > .compact-intro.contact-intro-card .contact-intro-copy p{position:relative;top:-2px !important;font-size:clamp(10px,2.9vw,12px) !important;line-height:1.3 !important}
 }
 @media (max-width:360px){
- body.home-page .compact-intro.contact-intro-card{padding:8px !important;padding-bottom:6px !important}
+ body.home-page .compact-intro.contact-intro-card{padding:8px !important;padding-bottom:4px !important}
  body.home-page .contact-intro-label{font-size:8px;letter-spacing:.2px}
  body.home-page .contact-intro-est{padding:4px 6px;font-size:7px}
 }
