@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV465
+Version: AFV466
 Updated: 2026-11-05
 
-Current release: AFV465
-Package version: 465.0.0
+Current release: AFV466
+Package version: 466.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV466: restores the homepage verified blue check-draw by removing the !important SVG dash-offset that blocked the keyframe animation; aligns header regression tests with the approved wordmark typography and refreshes homepage/shared-header cache tokens.
 - AFV465: combines the exact loading-screen logo replacement with the approved Soft Blue-Violet Glass Pill subtitle treatment in one shared-header update.
 - AFV465 refreshes shared header branding: reuses the exact transparent loading-screen logo and styles Recovery Contact as a soft blue-violet glass pill with a subtle sparkle icon. Preserves header dimensions, Arisu title, verified badge, background, divider, spacing, and other page content.
 - AFV463 uses the reference's left-side light blue uniformly across the full shared header and restores a clearly visible blue bottom divider. Existing dark navy/slate brand text and all header layout remain unchanged.
