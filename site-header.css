@@ -194,3 +194,99 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header .arisu-verified-badge svg path {animation:none!important}
  html body header.topbar.site-header .arisu-verified-badge svg path {stroke-dashoffset:0!important}
 }
+
+
+/* AFV460 — Soft pastel glass header redesign.
+   Keep the shared header shell and action placement; update only its visual identity. */
+html body header.topbar.site-header {
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(255, 226, 194, .66) 0%, rgba(255, 226, 194, 0) 42%),
+    radial-gradient(ellipse at 12% 78%, rgba(190, 218, 250, .58) 0%, rgba(190, 218, 250, 0) 48%),
+    linear-gradient(115deg, rgba(211, 222, 239, .92) 0%, rgba(235, 226, 230, .91) 48%, rgba(247, 238, 230, .94) 100%) !important;
+  border-bottom: 1px solid rgba(255,255,255,.78) !important;
+  box-shadow: 0 8px 26px rgba(80, 91, 124, .12), inset 0 1px 0 rgba(255,255,255,.86) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.16) !important;
+  backdrop-filter: blur(22px) saturate(1.16) !important;
+}
+html body header.topbar.site-header::before {
+  background:
+    radial-gradient(ellipse at 80% 18%, rgba(255, 230, 185, .38), transparent 48%),
+    radial-gradient(ellipse at 18% 84%, rgba(176, 211, 255, .30), transparent 52%) !important;
+  filter: blur(16px);
+}
+html body header.topbar.site-header::after {
+  background: linear-gradient(90deg, rgba(135, 170, 221, .22), rgba(255,255,255,.8), rgba(193, 158, 218, .25)) !important;
+  box-shadow: none !important;
+}
+html body header.topbar.site-header>a.brand>.logo {
+  border: 1px solid rgba(255,255,255,.88) !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.48) !important;
+  box-shadow: 0 3px 12px rgba(67, 82, 120, .14) !important;
+}
+html body header.topbar.site-header>a.brand>.logo img {
+  object-fit: contain !important;
+}
+html body header.topbar.site-header .brand-divider {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  align-self: stretch !important;
+  color: rgba(64, 76, 104, .48) !important;
+  font: 400 34px/1 Manrope, sans-serif !important;
+  margin: 0 3px !important;
+}
+html body header.topbar.site-header .brand-name-row>b {
+  color: #26334f !important;
+  font-size: 20px !important;
+  font-weight: 850 !important;
+  letter-spacing: -.65px !important;
+  text-shadow: none !important;
+}
+html body header.topbar.site-header .brand-name-row .brand-fix {
+  background: linear-gradient(105deg, #397be8 0%, #6756dc 56%, #9654c7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+html body header.topbar.site-header .brand-name-row .brand-arisu { color: #26334f; }
+html body header.topbar.site-header .brand-copy>small {
+  color: #68748a !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.15px !important;
+  text-shadow: none !important;
+}
+html body header.topbar.site-header .header-meta a {
+  color: #34415d !important;
+  border-color: rgba(91, 108, 143, .20) !important;
+  background: rgba(255,255,255,.34) !important;
+  box-shadow: 0 2px 8px rgba(67,82,120,.06) !important;
+}
+html body header.topbar.site-header .header-meta a:hover,
+html body header.topbar.site-header .header-meta a:focus-visible {
+  background: rgba(255,255,255,.66) !important;
+  border-color: rgba(91,108,143,.34) !important;
+}
+@media(max-width:700px) {
+  html body header.topbar.site-header>a.brand>.logo {
+    flex-basis: 42px !important; width:42px !important; height:42px !important;
+    border-radius:12px !important;
+  }
+  html body header.topbar.site-header .brand-divider {
+    font-size:28px !important; margin:0 1px !important;
+  }
+  html body header.topbar.site-header .brand-name-row>b {font-size:17px !important;}
+  html body header.topbar.site-header .brand-copy>small {
+    font-size:8px !important; letter-spacing:.72px !important;
+  }
+}
+@media(max-width:380px) {
+  html body header.topbar.site-header>a.brand>.logo {
+    flex-basis:38px !important; width:38px !important; height:38px !important;
+  }
+  html body header.topbar.site-header .brand-name-row>b {font-size:15px !important;}
+  html body header.topbar.site-header .brand-copy>small {
+    font-size:7px !important; letter-spacing:.48px !important;
+  }
+}
