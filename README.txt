@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV473
+Version: AFV474
 Updated: 2026-11-05
 
-Current release: AFV473
-Package version: 473.0.0
+Current release: AFV474
+Package version: 474.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV474: aligns the mobile logo wrapper's rounded clipping with the official circular logo image, preventing mismatched edges at browser zoom levels; preserves the 44px logo size, wordmark, subtitle, verified badge, and header layout.
 - AFV473: moves the shared verified badge one additional pixel right (2px total spacing) across all five public headers; preserves vertical alignment and animation.
 - AFV472: adds a consistent 1px horizontal gap between the Fix wordmark and verified badge across all five shared headers; preserves vertical alignment and badge animation.
 - AFV471: makes Reviews and Proofs mobile headers match the homepage's 58px geometry, 44px logo, visible brand row, and centered verified badge; overrides legacy page-specific compression rules and refreshes CSS cache keys.
