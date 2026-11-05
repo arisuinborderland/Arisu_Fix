@@ -1,3 +1,13 @@
+AFV477 — Apply the Approved About and Milestone Layout Across Shared-Footer Pages
+
+## AFV477
+- Apply the approved mobile About footer layout to Homepage, Customer Reviews, Recovery Proofs, and About.
+- Use the exact official circular logo asset from the shared site header and align it with the Learn More title.
+- Place the calendar icon beside “Created on October 14, 2026,” keep the milestone description beneath the date, and center the Explore My Story button inside the compact milestone box.
+- Preserve the verified mark, footer navigation cards, copyright section, bottom navigation, page-specific content, and desktop layout.
+- Refresh the shared footer stylesheet and logo cache tokens across all four pages.
+- Add regression coverage ensuring all shared-footer pages retain the same approved structure and asset references.
+
 AFV476 — Compact About Milestone and Align Shared Logo
 
 ## AFV476
