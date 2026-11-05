@@ -5,7 +5,7 @@ AFV479 — Consolidate Homepage Contact Intro Mobile Rules
 - Keep the mobile adjustments scoped to the combined Account Recovery Assistance card; preserve desktop styling and unrelated cards.
 - Retain the existing Daily Bible Verse mobile margin adjustment as a separate targeted rule.
 - Refresh the homepage stylesheet cache token to AFV479 / mobilepolish=2 and update package/release metadata.
-- Add regression assertions for the authoritative responsive rules.
+- Update regression assertions for the authoritative responsive rules, active homepage cache key, and AFV479 package/release metadata.
 
 AFV478 — Combine Homepage Account Recovery and Contact Intro Card
 
