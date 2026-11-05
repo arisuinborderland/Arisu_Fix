@@ -28,6 +28,7 @@ html body.about-page .topbar::before {
   z-index: 0;
   pointer-events: none;
   background: none !important;
+  box-shadow: none !important;
 }
 
 html body.home-page .topbar > .brand,
