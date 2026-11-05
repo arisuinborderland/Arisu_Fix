@@ -46,7 +46,7 @@ test('Combined contact intro has responsive glass styling scoped to the homepage
   assert.ok(css.includes('contact-intro-icon'));
   assert.ok(css.includes('@media (max-width:600px)'));
   assert.ok(css.includes('@media (max-width:360px)'));
-  assert.ok(html.includes('styles.css?v=AFV479'));
+  assert.ok(html.includes('styles.css?v=AFV480'));
 });
 
 
@@ -55,9 +55,9 @@ test('Homepage mobile micro-adjustments stay in existing responsive rules and pr
   assert.ok(mobileBlock.includes('@media (max-width:600px)'));
   assert.ok(mobileBlock.includes('main > #daily-bible-verse.daily-verse-card'));
   assert.match(mobileBlock, /margin:2px auto 6px !important/);
-  assert.match(css, /body\.home-page \.contact-intro-copy h1\{font-size:clamp\(20px,5\.5vw,25px\) !important/);
+  assert.match(css, /html body\.home-page main > \.compact-intro\.contact-intro-card #introTitle\{font-size:clamp\(20px,5\.5vw,25px\) !important/);
   assert.match(css, /body\.home-page \.contact-intro-copy p\{position:relative;top:-2px;/);
   assert.match(css, /body\.home-page main > \.compact-intro\.contact-intro-card\{gap:10px;margin:0 auto 8px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:6px !important/);
   assert.match(css, /body\.home-page \.compact-intro\.contact-intro-card\{padding:8px !important;padding-bottom:6px !important/);
-  assert.ok(html.includes('styles.css?v=AFV479&desktoplayout=1&contactintro=2&mobilepolish=2'));
+  assert.ok(html.includes('styles.css?v=AFV480&desktoplayout=1&contactintro=2&mobilepolish=3'));
 });
