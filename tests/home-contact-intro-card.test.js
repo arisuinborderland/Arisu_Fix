@@ -38,7 +38,7 @@ test('Combined contact intro has responsive glass styling scoped to the homepage
   assert.ok(css.includes('top:-2px'));
   assert.ok(css.includes('padding:8px 13px !important'));
   assert.ok(css.includes('padding-top:8px !important'));
-  assert.ok(css.includes('padding-bottom:8px !important'));
+  assert.ok(css.includes('padding-bottom:6px !important'));
   assert.ok(css.includes('padding:10px 16px !important'));
   assert.ok(css.includes('padding-top:10px !important'));
   assert.ok(css.includes('padding-bottom:10px !important'));
@@ -46,18 +46,18 @@ test('Combined contact intro has responsive glass styling scoped to the homepage
   assert.ok(css.includes('contact-intro-icon'));
   assert.ok(css.includes('@media (max-width:600px)'));
   assert.ok(css.includes('@media (max-width:360px)'));
-  assert.ok(html.includes('styles.css?v=AFV478'));
+  assert.ok(html.includes('styles.css?v=AFV479'));
 });
 
 
-test('Homepage mobile micro-adjustments remain scoped and preserve the approved desktop layout', () => {
-  const mobileBlock = css.slice(css.lastIndexOf('/* AFV478 mobile micro-adjustments'));
+test('Homepage mobile micro-adjustments stay in existing responsive rules and preserve desktop layout', () => {
+  const mobileBlock = css.slice(css.lastIndexOf('/* AFV479 mobile micro-adjustment'));
   assert.ok(mobileBlock.includes('@media (max-width:600px)'));
   assert.ok(mobileBlock.includes('main > #daily-bible-verse.daily-verse-card'));
   assert.match(mobileBlock, /margin:2px auto 6px !important/);
-  assert.match(mobileBlock, /contact-intro-copy h1\s*\{\s*font-size:clamp\(20px,5\.5vw,25px\) !important/);
-  assert.match(mobileBlock, /contact-intro-copy p\s*\{\s*position:relative;\s*top:-2px/);
-  assert.match(mobileBlock, /contact-intro-card\s*\{\s*padding-bottom:6px !important/);
-  assert.ok(mobileBlock.includes('@media (max-width:360px)'));
-  assert.ok(html.includes('styles.css?v=AFV478&desktoplayout=1&contactintro=2&mobilepolish=1'));
+  assert.match(css, /body\.home-page \.contact-intro-copy h1\{font-size:clamp\(20px,5\.5vw,25px\) !important/);
+  assert.match(css, /body\.home-page \.contact-intro-copy p\{position:relative;top:-2px;/);
+  assert.match(css, /body\.home-page main > \.compact-intro\.contact-intro-card\{gap:10px;margin:0 auto 8px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:6px !important/);
+  assert.match(css, /body\.home-page \.compact-intro\.contact-intro-card\{padding:8px !important;padding-bottom:6px !important/);
+  assert.ok(html.includes('styles.css?v=AFV479&desktoplayout=1&contactintro=2&mobilepolish=2'));
 });
