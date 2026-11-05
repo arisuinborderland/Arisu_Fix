@@ -37,19 +37,15 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
 test('All public pages load the shared header stylesheet last', () => {
  for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV465&shared=1',page+' must load shared header stylesheet last');}
 });
-test('AFV465 shared header uses the exact loading-screen logo without cropping', () => {
+test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
  const partial = read('partials/site-header.html');
- assert.match(partial, /assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV465/);
- assert.match(partial, /alt="Official Arisu Fix logo"/);
- assert.match(partial, /class="brand-subtitle-pill"/);
- assert.match(partial, /<span>Recovery Contact<\/span>/);
- assert.match(css, /linear-gradient\(110deg,rgba\(116,194,255/);
- assert.match(partial, /<svg class="subtitle-sparkle" viewBox="0 0 16 16" aria-hidden="true"/);
- assert.match(css, /brand-subtitle-pill svg\.subtitle-sparkle/);
- assert.doesNotMatch(partial, /arisu-profile-thumb\.webp/);
- assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
- assert.match(css, /border-radius:50%!important;overflow:hidden!important;background:transparent!important/);
- assert.match(css, /outline:0!important;box-shadow:none!important/);
+ const css = read('site-header.css');
+ assert.match(partial, /<b class="brand-title-arisu">Arisu<\\/b><b class="brand-title-fix">Fix<\\/b>/);
+ assert.match(partial, /RECOVERY CONTACT &amp; ASSISTANCE/);
+ assert.doesNotMatch(partial, /arisu-verified-badge|brand-subtitle-pill|subtitle-sparkle/);
+ assert.match(css, /brand-title-fix[\\s\\S]*?linear-gradient\\(110deg,#3678f5 0%,#6550e8 100%\\)/);
+ assert.match(css, /brand-subtitle[\\s\\S]*?letter-spacing/);
+ assert.match(css, /\\.logo img \\{[^}]*object-fit:contain!important/);
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
