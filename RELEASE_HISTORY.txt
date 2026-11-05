@@ -1,3 +1,10 @@
+AFV474 — Fix Shared Header Logo Clipping at Browser Zoom Levels
+
+## AFV474
+- Match the mobile logo wrapper's border radius to the official circular logo image at all viewport widths.
+- Preserve the existing 44px mobile logo dimensions, image asset, wordmark, subtitle, verified badge, header geometry, and animations.
+- Add a regression test for consistent circular clipping and refresh shared-header stylesheet cache tokens across all five public pages.
+
 AFV467 — Fix Homepage Verified Check Animation
 
 ## AFV467
