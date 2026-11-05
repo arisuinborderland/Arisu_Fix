@@ -213,3 +213,38 @@ test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => 
  assert.match(proofs, /Preserve the Reviews\/Proofs brand-row and verified-badge alignment/);
  assert.match(reviews, /match homepage mobile header geometry exactly/);
 });
+
+
+test('Shared header theme preserves the approved background, page coverage, and visible divider', () => {
+ const pageClasses = ['home-page', 'reviews-document', 'proofs-document', 'privacy-page', 'about-page'];
+ for (const pageClass of pageClasses) {
+  assert.ok(css.includes(`html body.${pageClass} .topbar`), pageClass + ' must retain shared header theme coverage');
+ }
+ assert.match(css, /background:\s*#eaf4fe !important/);
+ assert.match(css, /\.topbar::before/);
+ assert.match(css, /\.topbar::after/);
+ assert.match(css, /height:\s*2px/);
+ assert.match(css, /background:\s*#7daee6 !important/);
+});
+
+test('Shared verified badge keeps its pop, glow, check-draw, and reduced-motion behavior', () => {
+ const styles = read('styles.css');
+ assert.match(styles, /\.arisu-verified-badge[^}]*animation:\s*arisu-brand-badge-pop 2s ease-in-out infinite/);
+ assert.match(styles, /\.arisu-verified-badge:after[^}]*animation:\s*arisu-brand-badge-glow 2s ease-out infinite/);
+ assert.match(styles, /\.arisu-verified-badge svg path[^}]*animation:\s*arisu-brand-check-draw 2s ease-in-out infinite/);
+ assert.match(styles, /@keyframes\s+arisu-brand-badge-pop/);
+ assert.match(styles, /@keyframes\s+arisu-brand-badge-glow/);
+ assert.match(styles, /@keyframes\s+arisu-brand-check-draw/);
+ assert.match(styles, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+});
+
+test('Reviews and Proofs keep their page-specific header action styling outside the shared layout file', () => {
+ const reviews = read('reviews.css');
+ const proofs = read('proofs.css');
+ assert.match(reviews, /reviews-document[^}]*header-meta/);
+ assert.match(reviews, /\.privacy-link/);
+ assert.match(reviews, /\.about-header-link/);
+ assert.match(proofs, /proofs-document[^}]*header-meta/);
+ assert.match(proofs, /\.privacy-link/);
+ assert.match(proofs, /\.about-header-link/);
+});
