@@ -112,7 +112,7 @@ html body header.topbar.site-header {
  position:sticky!important;top:0!important;z-index:30!important;display:flex!important;flex-flow:row nowrap!important;
  align-items:center!important;justify-content:space-between!important;box-sizing:border-box!important;width:100%!important;
  min-height:96px!important;height:auto!important;padding:8px clamp(20px,2vw,36px)!important;gap:16px!important;
- isolation:isolate!important;overflow:hidden!important;
+ isolation:isolate!important;overflow:visible!important;
 }
 html body header.topbar.site-header>a.brand {
  position:relative!important;z-index:1!important;display:flex!important;flex:0 1 auto!important;align-items:center!important;
@@ -178,4 +178,13 @@ html body header.topbar.site-header .brand-name-row > .arisu-verified-badge {
   align-self: center !important;
   margin-block: 0 !important;
   vertical-align: middle !important;
+}
+
+
+/* AFV469 — Prevent the shared header from clipping the top edge of brand effects.
+   The page-wide .topbar rule uses overflow:hidden; the shared header's higher-specificity
+   rule must explicitly allow overflow so the logo/badge glow is not cropped. Keep the
+   logo's own circular overflow clipping unchanged. */
+html body header.topbar.site-header {
+  overflow: visible !important;
 }
