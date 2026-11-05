@@ -246,3 +246,24 @@ html body.about-page .topbar .header-meta a {
   color: #34415d !important;
   border-color: rgba(91,108,143,.22) !important;
 }
+
+ 
+/* AFV460 — Restore readable dark brand contrast on the approved light header. */
+html body header.topbar.site-header .brand-name-row>b,
+html body header.topbar.site-header .brand-copy .brand-name-row>b,
+html body header.topbar.site-header .brand-copy>small {
+  color: #26334f !important;
+  -webkit-text-fill-color: #26334f !important;
+  text-shadow: none !important;
+}
+html body header.topbar.site-header .brand-name-row .brand-fix {
+  background: linear-gradient(105deg, #397be8 0%, #6756dc 56%, #9654c7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+}
+html body header.topbar.site-header .brand-name-row .brand-arisu {
+  color: #26334f !important;
+  -webkit-text-fill-color: #26334f !important;
+}
