@@ -24,7 +24,7 @@ test('Build injects the shared header into all five static pages before deployme
  const build=read('build.js');assert.match(build,/function injectSharedSiteHeader\(\)/);assert.match(build,/injectSharedSiteHeader\(\);/);assert.match(build,/shared header was not rendered exactly once/);assert.match(build,/"site-header\.css"/);assert.doesNotMatch(build,/"desktop-header\.css", "homepage-header-theme\.css"/);
 });
 test('Shared mobile header dimensions and text/badge sizes are identical across pages', () => {
- assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 44px!important/);assert.match(css,/font-size:16px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:42px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:14px!important/);
+ assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 44px!important/);assert.match(css,/font-size:20px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:42px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:18px!important/);
 });
 test('Homepage mobile header stays one row and matches the 58px shared page height', () => {
  const homeMobile = css.slice(css.indexOf('html body.home-page header.topbar.site-header {', css.indexOf('@media(max-width:700px)')));
@@ -47,6 +47,10 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
   const homeStyles = read('styles.css');
   assert.match(homeStyles, /\.arisu-verified-badge\{[^}]*animation:arisu-brand-badge-pop 2s ease-in-out infinite/);
   assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
+  const checkDrawBlock = homeStyles.split("AFV466 — Keep the homepage header's verified check-draw animation active.")[1];
+  assert.ok(checkDrawBlock, 'AFV466 homepage check-draw override must exist');
+  assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\\s*24\\s*!important/);
+  assert.match(checkDrawBlock, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
  assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
