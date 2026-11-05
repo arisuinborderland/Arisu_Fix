@@ -48,3 +48,15 @@ test('All shared-footer pages use the approved calendar, date, description, cent
     assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-action-row`), pageClass);
   }
 });
+
+
+test('Desktop shared-footer pages constrain the calendar icon and center the milestone CTA', () => {
+  assert.match(css, /@media screen and \\(min-width: 601px\\)/);
+  assert.match(css, /grid-template-areas: "copy check" "action action"/);
+  assert.match(css, /\.reference-about-calendar[\\s\\S]*?width: 34px !important/);
+  assert.match(css, /\.reference-about-action-row[\\s\\S]*?justify-content: center !important/);
+  for (const pageClass of pageClasses) {
+    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-calendar`), pageClass);
+    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-action-row`), pageClass);
+  }
+});
