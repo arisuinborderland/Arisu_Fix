@@ -188,3 +188,12 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header .arisu-verified-badge svg path {animation:none!important}
  html body header.topbar.site-header .arisu-verified-badge svg path {stroke-dashoffset:0!important}
 }
+
+
+/* AFV464 — Optical 1px correction for the Privacy Policy and About page headers only.
+   Keep the badge's scale/glow animation intact; relative positioning avoids overriding its transform. */
+html body.privacy-page header.topbar.site-header .arisu-verified-badge,
+html body.about-page header.topbar.site-header .arisu-verified-badge {
+  position:relative!important;
+  top:-1px!important;
+}
