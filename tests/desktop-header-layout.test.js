@@ -10,7 +10,7 @@ const pages = ['index.html', 'reviews.html', 'proofs.html', 'privacy.html', 'abo
 
 test('Shared desktop header uses one shell, logo, brand typography, and badge contract', () => {
  assert.match(css,/min-height:96px!important/); assert.match(css,/flex:0 0 66px!important/);
- assert.match(css,/gap:12px!important/); assert.match(css,/font:800 16px\/1\.15 Manrope,sans-serif!important/);
+ assert.match(css,/gap:12px!important/); assert.match(css,/font:800 22px\/1 Manrope,sans-serif!important/);
  assert.match(css,/flex:0 0 22px!important/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
 });
 test('All five source pages use the same build-time shared header placeholder', () => {
@@ -35,7 +35,7 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV465&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV466&shared=1',page+' must load shared header stylesheet last');}
 });
 test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
  const partial = read('partials/site-header.html');
