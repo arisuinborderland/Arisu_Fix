@@ -246,6 +246,6 @@ test('AFV472 shared verified badge alignment clears legacy row padding and cente
   assert.doesNotMatch(css, /brand-name-row \{[^}]*align-items:baseline!important/);
   for (const page of pages) {
     const html = read(page);
-    assert.match(html, /site-header\.css\?v=AFV469&shared=1/);
+    assert.match(html, /site-header\.css\?v=AFV472&shared=1/);
   }
 });
