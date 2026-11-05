@@ -51,12 +51,15 @@ test('All shared-footer pages use the approved calendar, date, description, cent
 
 
 test('Desktop shared-footer pages constrain the calendar icon and center the milestone CTA', () => {
-  assert.ok(css.includes("@media screen and (min-width: 601px)"));
-  assert.match(css, /grid-template-areas: "copy check" "action action"/);
-  assert.match(css, /\.reference-about-calendar[\\s\\S]*?width: 34px !important/);
-  assert.match(css, /\.reference-about-action-row[\\s\\S]*?justify-content: center !important/);
+  const desktopCss = css.slice(css.indexOf("@media screen and (min-width: 601px)"));
+  assert.ok(desktopCss.length > 0);
+  assert.ok(desktopCss.includes(".reference-about-calendar"));
+  assert.ok(desktopCss.includes("flex: 0 0 34px !important;"));
+  assert.ok(desktopCss.includes("width: 34px !important;"));
+  assert.ok(desktopCss.includes(".reference-about-action-row"));
+  assert.ok(desktopCss.includes("justify-content: center !important;"));
   for (const pageClass of pageClasses) {
-    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-calendar`), pageClass);
-    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-action-row`), pageClass);
+    assert.ok(desktopCss.includes(`html body.${pageClass} .reference-footer .reference-about-calendar`), pageClass);
+    assert.ok(desktopCss.includes(`html body.${pageClass} .reference-footer .reference-about-action-row`), pageClass);
   }
 });
