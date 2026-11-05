@@ -1,3 +1,9 @@
+AFV482 — Mobile Contact Card Separation
+
+## AFV482
+- Increase the combined Let’s Connect card's mobile bottom margin from 8px to 10px to create a clearer gap before the WhatsApp contact card.
+- Preserve desktop spacing and all WhatsApp card internal spacing; update the homepage stylesheet cache token and synchronized package metadata.
+
 AFV481 — Mobile Contact Intro Micro-adjustment
 
 ## AFV481
