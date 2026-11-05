@@ -11,7 +11,7 @@ const pages = ['index.html', 'reviews.html', 'proofs.html', 'privacy.html', 'abo
 test('Shared desktop header uses one shell, logo, brand typography, and badge contract', () => {
  assert.match(css,/min-height:96px!important/); assert.match(css,/flex:0 0 66px!important/);
  assert.match(css,/gap:12px!important/); assert.match(css,/font:800 22px\/1 Manrope,sans-serif!important/);
- assert.match(css,/flex:0 0 22px!important/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
+ assert.match(read('styles.css'),/\.arisu-verified-badge\{[^}]*flex:0 0 22px/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
 });
 test('All five source pages use the same build-time shared header placeholder', () => {
  for(const page of pages){const html=read(page);assert.equal((html.match(/<!-- SHARED_SITE_HEADER -->/g)||[]).length,1,page+' must contain one marker');assert.doesNotMatch(html,/<header\b/i,page+' must not duplicate header markup');}
@@ -24,7 +24,7 @@ test('Build injects the shared header into all five static pages before deployme
  const build=read('build.js');assert.match(build,/function injectSharedSiteHeader\(\)/);assert.match(build,/injectSharedSiteHeader\(\);/);assert.match(build,/shared header was not rendered exactly once/);assert.match(build,/"site-header\.css"/);assert.doesNotMatch(build,/"desktop-header\.css", "homepage-header-theme\.css"/);
 });
 test('Shared mobile header dimensions and text/badge sizes are identical across pages', () => {
- assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 44px!important/);assert.match(css,/font-size:20px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:42px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:18px!important/);
+ assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 44px!important/);assert.match(css,/font-size:20px!important/);assert.match(read('styles.css'),/@media \(max-width:600px\)[\s\S]*?\.arisu-verified-badge\{[^}]*flex-basis:18px/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:42px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:18px!important/);
 });
 test('Homepage mobile header stays one row and matches the 58px shared page height', () => {
  const homeMobile = css.slice(css.indexOf('html body.home-page header.topbar.site-header {', css.indexOf('@media(max-width:700px)')));
