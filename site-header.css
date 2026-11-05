@@ -152,7 +152,7 @@ html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {
 }
 html body header.topbar.site-header .brand-subtitle-pill svg.subtitle-sparkle {
  display:block!important;flex:0 0 9px!important;width:9px!important;height:9px!important;
- margin:0 1px 0 0!important;overflow:visible!important;fill:currentColor!important;
+ margin:0 0 0 -9px!important;overflow:visible!important;fill:currentColor!important;
 }
 html body header.topbar.site-header .arisu-verified-badge {
  box-sizing:border-box!important;display:inline-grid!important;flex:0 0 22px!important;width:22px!important;height:22px!important;
@@ -178,6 +178,7 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header .brand-name-row {gap:5px!important}
  html body header.topbar.site-header .brand-name-row>b {font-size:16px!important;line-height:1.15!important}
  html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {margin:0!important;padding:3px 8px!important;font-size:9.5px!important;line-height:1.15!important}
+ html body header.topbar.site-header .brand-subtitle-pill svg.subtitle-sparkle {margin-left:-8px!important}
  html body header.topbar.site-header .arisu-verified-badge {flex-basis:18px!important;width:18px!important;height:18px!important}
  html body header.topbar.site-header .arisu-verified-badge svg {width:12px!important;height:12px!important}
  html body header.topbar.site-header>.header-meta:empty {display:none!important}
@@ -195,6 +196,7 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header>a.brand>.logo {flex-basis:37px!important;width:37px!important;height:37px!important}
  html body header.topbar.site-header .brand-name-row>b {font-size:14px!important}
  html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {font-size:8.5px!important;padding:2px 7px!important}
+ html body header.topbar.site-header .brand-subtitle-pill svg.subtitle-sparkle {margin-left:-7px!important}
  html body header.topbar.site-header .arisu-verified-badge {flex-basis:16px!important;width:16px!important;height:16px!important}
  html body header.topbar.site-header .arisu-verified-badge svg {width:10px!important;height:10px!important}
 }
