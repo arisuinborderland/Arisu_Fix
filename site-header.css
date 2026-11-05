@@ -205,7 +205,7 @@ html body.reviews-document .topbar,
 html body.proofs-document .topbar,
 html body.privacy-page .topbar,
 html body.about-page .topbar {
-  background: #fcfcfe !important;
+  background: #f8f7fc !important;
   border-bottom-color: #e7eaf1 !important;
   box-shadow: none !important;
 }
