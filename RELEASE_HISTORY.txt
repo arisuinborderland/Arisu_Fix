@@ -1,3 +1,10 @@
+AFV481 — Mobile Contact Intro Micro-adjustment
+
+## AFV481
+- Reduce the mobile “Let’s Connect.” heading by 3px from its current responsive size using the direct heading ID selector.
+- Enforce the 2px upward subtitle offset and reduce the card bottom padding from 6px to 4px at mobile widths, including the narrowest breakpoint.
+- Preserve desktop styling, icon sizing, card top padding, and all unrelated cards; refresh the homepage stylesheet cache token and synchronized metadata/tests.
+
 AFV480 — Fix Mobile Contact Intro Heading Specificity
 
 ## AFV480
