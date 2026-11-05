@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV467
+Version: AFV468
 Updated: 2026-11-05
 
-Current release: AFV467
-Package version: 467.0.0
+Current release: AFV468
+Package version: 468.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV468: fixes cross-page verified-badge vertical alignment by clearing inherited brand-row block padding and centering the badge against the AFV465 wordmark. Preserves badge scale, glow, and check-draw animations; refreshes shared-header cache keys across all five public pages.
 - AFV467: fixes the homepage verified badge check animation by removing the mobile !important dash-offset override; adds a regression test and refreshes the homepage stylesheet cache token.
 - AFV467: restores the homepage verified blue check-draw by removing the !important SVG dash-offset that blocked the keyframe animation; aligns header regression tests with the approved wordmark typography and refreshes homepage/shared-header cache tokens.
 - AFV465: combines the exact loading-screen logo replacement with the approved Soft Blue-Violet Glass Pill subtitle treatment in one shared-header update.
