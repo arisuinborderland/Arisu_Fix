@@ -9808,6 +9808,5 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
    so other pages and their header behavior remain unchanged. */
 html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg path {
   stroke-dasharray: 24 !important;
-  stroke-dashoffset: 24 !important;
   animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
 }
