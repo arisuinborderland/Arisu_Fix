@@ -35,7 +35,14 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV463&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV464&shared=1',page+' must load shared header stylesheet last');}
+});
+test('AFV464 shared header uses the exact loading-screen logo without cropping', () => {
+ const partial = read('partials/site-header.html');
+ assert.match(partial, /assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV464/);
+ assert.match(partial, /alt="Official Arisu Fix logo"/);
+ assert.doesNotMatch(partial, /arisu-profile-thumb\.webp/);
+ assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
