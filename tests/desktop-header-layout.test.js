@@ -35,7 +35,7 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV422&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV460&shared=1',page+' must load shared header stylesheet last');}
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
