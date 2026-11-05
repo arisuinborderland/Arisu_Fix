@@ -122,7 +122,7 @@ html body header.topbar.site-header>a.brand>.logo {
  box-sizing:border-box!important;display:grid!important;flex:0 0 66px!important;width:66px!important;height:66px!important;
  border-radius:18px!important;overflow:hidden!important;
 }
-html body header.topbar.site-header>a.brand>.logo img {display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+html body header.topbar.site-header>a.brand>.logo img {display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;border-radius:0!important}
 html body header.topbar.site-header .brand-copy {
  display:inline-flex!important;flex:0 1 auto!important;flex-direction:column!important;align-items:flex-start!important;
  justify-content:center!important;min-width:0!important;gap:3px!important;line-height:1.15!important;
