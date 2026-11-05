@@ -55,7 +55,7 @@ test('Homepage mobile micro-adjustments remain scoped and preserve the approved 
   assert.ok(mobileBlock.includes('@media (max-width:600px)'));
   assert.ok(mobileBlock.includes('main > #daily-bible-verse.daily-verse-card'));
   assert.match(mobileBlock, /margin:2px auto 6px !important/);
-  assert.match(mobileBlock, /contact-intro-copy h1\s*\{\s*font-size:clamp\(20px,5\\.5vw,25px\) !important/);
+  assert.match(mobileBlock, /contact-intro-copy h1\s*\{\s*font-size:clamp\(20px,5\.5vw,25px\) !important/);
   assert.match(mobileBlock, /contact-intro-copy p\s*\{\s*position:relative;\s*top:-2px/);
   assert.match(mobileBlock, /contact-intro-card\s*\{\s*padding-bottom:6px !important/);
   assert.ok(mobileBlock.includes('@media (max-width:360px)'));
