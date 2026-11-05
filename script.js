@@ -178,3 +178,23 @@ document.documentElement.classList.add("js-ready");
 
 
 
+
+
+// AFV459 — Blur-up completion state for the four homepage social preview cards.
+// Dimensions remain governed by the existing image frames; this only reveals loaded pixels.
+(() => {
+  const previewSelector = [
+    "body.home-page .social-collage > .tiktok-showcase .preview-original",
+    "body.home-page .social-collage > .facebook-showcase .preview-original",
+    "body.home-page .social-collage > .recovery-proofs-showcase .recovery-proofs-preview img",
+    "body.home-page .social-collage > .social-feedback-card .reviews-grid-featured .review-proof-image img"
+  ].join(", ");
+
+  document.querySelectorAll(previewSelector).forEach((image) => {
+    const markLoaded = () => {
+      if (image.naturalWidth > 0) image.classList.add("is-loaded");
+    };
+    image.addEventListener("load", markLoaded, { once: true });
+    markLoaded();
+  });
+})();
