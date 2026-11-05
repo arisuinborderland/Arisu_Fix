@@ -35,7 +35,7 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV472&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV473&shared=1',page+' must load shared header stylesheet last');}
 });
 test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
  const partial = read('partials/site-header.html');
@@ -240,12 +240,12 @@ test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => 
 });
 
 
-test('AFV472 shared verified badge alignment clears legacy row padding and centers on every page', () => {
+test('AFV473 shared verified badge alignment clears legacy row padding and centers on every page', () => {
   assert.match(css, /brand-name-row \{[^}]*align-items:center!important[^}]*padding-block:0!important/);
   assert.match(css, /brand-name-row > \.arisu-verified-badge \{[\s\S]*?align-self:\s*center\s*!important;[\s\S]*?margin-block:\s*0\s*!important;/);
   assert.doesNotMatch(css, /brand-name-row \{[^}]*align-items:baseline!important/);
   for (const page of pages) {
     const html = read(page);
-    assert.match(html, /site-header\.css\?v=AFV472&shared=1/);
+    assert.match(html, /site-header\.css\?v=AFV473&shared=1/);
   }
 });
