@@ -1,3 +1,9 @@
+## AFV475 — Remove expanded accordion outer wrappers
+- Remove the visual outer wrapper around expanded Why Choose Arisu? and How account assistance works content.
+- Keep all three collapsible accordion header cards, expand/collapse controls, individual information cards, icons, and content intact.
+- Make the expanded panel structural and transparent; preserve the existing content spacing and How-section alignment safeguards.
+- Refresh the homepage accordion CSS/JS cache tokens and synchronize package/release metadata.
+
 AFV474 — Fix Shared Header Logo Clipping at Browser Zoom Levels
 
 ## AFV474
