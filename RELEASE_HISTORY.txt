@@ -1,3 +1,21 @@
+AFV477 — Apply the Approved About and Milestone Layout Across Shared-Footer Pages
+
+## AFV477
+- Apply the approved mobile About footer layout to Homepage, Customer Reviews, Recovery Proofs, and About.
+- Use the exact official circular logo asset from the shared site header and align it with the Learn More title.
+- Place the calendar icon beside “Created on October 14, 2026,” keep the milestone description beneath the date, and center the Explore My Story button inside the compact milestone box.
+- Preserve the verified mark, footer navigation cards, copyright section, bottom navigation, page-specific content, and desktop layout.
+- Refresh the shared footer stylesheet and logo cache tokens across all four pages.
+- Add regression coverage ensuring all shared-footer pages retain the same approved structure and asset references.
+
+AFV476 — Compact About Milestone and Align Shared Logo
+
+## AFV476
+- Replace the homepage About footer thumbnail with the exact official circular logo asset used by the shared site header.
+- Align the logo with the “Learn More About Arisu Fix” title rather than vertically centering it beside the full content block.
+- Apply the approved Option A compact horizontal milestone treatment while preserving the date, description, Explore My Story action, arrow, and verification mark.
+- Refresh the homepage footer stylesheet cache token and synchronize release metadata.
+
 AFV474 — Fix Shared Header Logo Clipping at Browser Zoom Levels
 
 ## AFV474
