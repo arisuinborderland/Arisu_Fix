@@ -132,7 +132,7 @@ test('AFV460 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '460.0.0');
   assert.equal(lock.packages[''].version, '460.0.0');
   assert.ok(readme.includes('Current release: AFV460'));
-  assert.ok(history.startsWith('AFV460 — Homepage Accordion Feature Isolation'));
+  assert.ok(history.startsWith('AFV460 — Header color matched to mobile bottom navigation'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
