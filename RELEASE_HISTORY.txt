@@ -1,3 +1,12 @@
+AFV479 — Consolidate Homepage Contact Intro Mobile Rules
+
+## AFV479
+- Move the mobile “Let’s Connect.” heading size, 2px subtitle lift, and 2px bottom-padding reduction into the existing responsive rules instead of a duplicate end-of-file override.
+- Keep the mobile adjustments scoped to the combined Account Recovery Assistance card; preserve desktop styling and unrelated cards.
+- Retain the existing Daily Bible Verse mobile margin adjustment as a separate targeted rule.
+- Refresh the homepage stylesheet cache token to AFV479 / mobilepolish=2 and update package/release metadata.
+- Add regression assertions for the authoritative responsive rules.
+
 AFV478 — Combine Homepage Account Recovery and Contact Intro Card
 
 ## AFV478
