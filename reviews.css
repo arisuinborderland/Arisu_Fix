@@ -723,3 +723,79 @@ html body.reviews-document header.topbar > .brand .arisu-verified-badge {
   margin-block: 0 !important;
   vertical-align: middle !important;
 }
+
+
+/* AFV471 — Use the homepage as the canonical mobile header reference.
+   Remove legacy page-specific height/logo overrides that compressed the shared
+   header and clipped the brand row on Reviews and Proofs. */
+@media (max-width:700px) {
+  html body.reviews-document header.topbar.site-header,
+  html body.proofs-document header.topbar.site-header {
+    box-sizing:border-box!important;
+    display:flex!important;
+    flex-flow:row nowrap!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    width:100%!important;
+    min-height:58px!important;
+    height:58px!important;
+    padding:0 12px!important;
+    gap:7px!important;
+    overflow:visible!important;
+  }
+  html body.reviews-document header.topbar.site-header > .brand,
+  html body.proofs-document header.topbar.site-header > .brand {
+    display:flex!important;
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:100%!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:7px!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+  html body.reviews-document header.topbar.site-header > .brand > .logo,
+  html body.proofs-document header.topbar.site-header > .brand > .logo {
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    overflow:hidden!important;
+  }
+  html body.reviews-document header.topbar.site-header > .brand .brand-copy,
+  html body.proofs-document header.topbar.site-header > .brand .brand-copy {
+    flex:0 1 auto!important;
+    min-width:0!important;
+    overflow:visible!important;
+  }
+  html body.reviews-document header.topbar.site-header > .brand .brand-name-row,
+  html body.proofs-document header.topbar.site-header > .brand .brand-name-row {
+    display:inline-flex!important;
+    align-items:center!important;
+    gap:4px!important;
+    line-height:1!important;
+    padding-block:0!important;
+    overflow:visible!important;
+  }
+  html body.reviews-document header.topbar.site-header > .brand .arisu-verified-badge,
+  html body.proofs-document header.topbar.site-header > .brand .arisu-verified-badge {
+    align-self:center!important;
+    margin-block:0!important;
+    vertical-align:middle!important;
+  }
+  html body.reviews-document header.topbar.site-header > .brand .brand-copy > small.brand-subtitle,
+  html body.proofs-document header.topbar.site-header > .brand .brand-copy > small.brand-subtitle {
+    white-space:nowrap!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+  }
+}
+@media (max-width:380px) {
+  html body.reviews-document header.topbar.site-header > .brand > .logo,
+  html body.proofs-document header.topbar.site-header > .brand > .logo {
+    flex-basis:42px!important;
+    width:42px!important;
+    height:42px!important;
+  }
+}
