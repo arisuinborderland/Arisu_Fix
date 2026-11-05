@@ -1069,9 +1069,9 @@ body.home-page .reference-footer {
    The mobile-only grid must not leave the nested calendar SVG un-sized or
    the centered CTA row inheriting the legacy inline-button positioning. */
 @media screen and (min-width: 601px) {
-  html body.home-page .reference-footer,
-  html body.reviews-document .reference-footer,
-  html body.proofs-document .reference-footer,
+  html body.home-page .reference-footer .reference-about-cta,
+  html body.reviews-document .reference-footer .reference-about-cta,
+  html body.proofs-document .reference-footer .reference-about-cta,
   html body.about-page .reference-footer .reference-about-cta {
     align-items: flex-start !important;
   }
