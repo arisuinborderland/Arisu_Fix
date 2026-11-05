@@ -9803,7 +9803,7 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
 
-/* AFV466 — Keep the homepage header's verified check-draw animation active.
+/* AFV467 — Keep the homepage header's verified check-draw animation active.
    The highly specific rule is intentionally scoped to the homepage brand badge
    so other pages and their header behavior remain unchanged. */
 html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg path {
