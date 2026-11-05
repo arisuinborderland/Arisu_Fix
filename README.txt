@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV470
+Version: AFV471
 Updated: 2026-11-05
 
-Current release: AFV470
-Package version: 470.0.0
+Current release: AFV471
+Package version: 471.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV471: makes Reviews and Proofs mobile headers match the homepage's 58px geometry, 44px logo, visible brand row, and centered verified badge; overrides legacy page-specific compression rules and refreshes CSS cache keys.
 - AFV470: synchronizes release metadata with the AFV470 header-scroll.js cache token used by Reviews and Proofs; includes the Reviews/Proofs scroll-state restoration fix.
 - AFV469: fixes top-edge clipping on Reviews and Proofs by allowing overflow on the shared header container, overriding the inherited page-wide .topbar overflow:hidden rule. Preserves the logo's circular crop, header geometry, and badge animation; refreshes shared-header cache keys.
 - AFV468: fixes cross-page verified-badge vertical alignment by clearing inherited brand-row block padding and centering the badge against the AFV465 wordmark. Preserves badge scale, glow, and check-draw animations; refreshes shared-header cache keys across all five public pages.
