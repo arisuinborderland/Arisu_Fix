@@ -1,3 +1,11 @@
+AFV476 — Compact About Milestone and Align Shared Logo
+
+## AFV476
+- Replace the homepage About footer thumbnail with the exact official circular logo asset used by the shared site header.
+- Align the logo with the “Learn More About Arisu Fix” title rather than vertically centering it beside the full content block.
+- Apply the approved Option A compact horizontal milestone treatment while preserving the date, description, Explore My Story action, arrow, and verification mark.
+- Refresh the homepage footer stylesheet cache token and synchronize release metadata.
+
 AFV474 — Fix Shared Header Logo Clipping at Browser Zoom Levels
 
 ## AFV474
