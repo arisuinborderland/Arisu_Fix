@@ -88,17 +88,19 @@
     why.classList.add("home-accordion-item");
     const whyButton = makeTrigger(why, whyTitle, whyIntro.textContent.trim(), "homeAccordionWhyPanel", 2);
     whyHeading.remove();
+    // Remove only the legacy visual card wrapper; keep its content nodes intact.
+    while (whyCard.firstChild) why.insertBefore(whyCard.firstChild, whyCard);
+    whyCard.remove();
     const whyPanel = makePanel(why, "homeAccordionWhyPanel", whyButton);
     items.push({ section: why, button: whyButton, panel: whyPanel });
 
     const how = createElement("section", "site-section why-arisu-section how-assistance-section home-accordion-item");
     how.id = "how-assistance-works";
     how.setAttribute("aria-label", "How account assistance works");
-    const howCard = createElement("div", "why-arisu-card");
     const howButton = makeTrigger(how, processTitle, processIntro.textContent.trim(), "homeAccordionHowPanel", 3);
     processHeading.remove();
-    howCard.append(processGrid, processNote);
-    how.append(howCard);
+    // Place the existing content cards directly in the panel, without another card shell.
+    how.append(processGrid, processNote);
     const howPanel = makePanel(how, "homeAccordionHowPanel", howButton);
     destination.append(how);
     items.push({ section: how, button: howButton, panel: howPanel });
