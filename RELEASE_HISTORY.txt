@@ -1,3 +1,10 @@
+AFV466 — Restore Homepage Verified Check Animation and Header Validation
+
+## AFV466
+- Restore the homepage verified badge check-draw animation by allowing keyframes to control SVG stroke-dashoffset.
+- Align shared-header regression tests with the approved Arisu Fix wordmark typography: 22px desktop, 20px mobile, and 18px compact mobile.
+- Refresh homepage and shared-header stylesheet cache tokens and synchronize release metadata.
+
 AFV465 — Header Branding Refresh (Loading-Screen Logo + Glass Subtitle)
 
 ## AFV465 — Combined shared header branding update
