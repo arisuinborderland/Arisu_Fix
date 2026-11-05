@@ -24,7 +24,7 @@ test('Build injects the shared header into all five static pages before deployme
  const build=read('build.js');assert.match(build,/function injectSharedSiteHeader\(\)/);assert.match(build,/injectSharedSiteHeader\(\);/);assert.match(build,/shared header was not rendered exactly once/);assert.match(build,/"site-header\.css"/);assert.doesNotMatch(build,/"desktop-header\.css", "homepage-header-theme\.css"/);
 });
 test('Shared mobile header dimensions and text/badge sizes are identical across pages', () => {
- assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 39px!important/);assert.match(css,/font-size:16px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:37px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:14px!important/);
+ assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 44px!important/);assert.match(css,/font-size:16px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:42px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:14px!important/);
 });
 test('Homepage mobile header stays one row and matches the 58px shared page height', () => {
  const homeMobile = css.slice(css.indexOf('html body.home-page header.topbar.site-header {', css.indexOf('@media(max-width:700px)')));
