@@ -1,3 +1,12 @@
+AFV464 — Privacy and About Verified Badge Alignment
+
+## AFV464 — Lift the shared verified badge by 1px on Privacy Policy and About only
+- Correct the badge's 1px optical vertical offset using relative positioning scoped to the Privacy and About page headers.
+- Preserve the existing badge scale, glow, and check-draw animations; do not override the animated transform.
+- Leave Homepage, Reviews, and Recovery Proofs header alignment unchanged.
+- Refresh only the Privacy and About shared-header cache tokens and synchronize release metadata.
+- Add regression coverage for page scope and animation preservation.
+
 AFV463 — Uniform Header Blue and Visible Bottom Divider
 
 ## AFV463 — Apply the left-side reference blue across the full header
