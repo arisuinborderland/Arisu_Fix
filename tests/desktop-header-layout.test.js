@@ -43,6 +43,8 @@ test('AFV464 shared header uses the exact loading-screen logo without cropping',
  assert.match(partial, /alt="Official Arisu Fix logo"/);
  assert.doesNotMatch(partial, /arisu-profile-thumb\.webp/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
+ assert.match(css, /border-radius:50%!important;overflow:hidden!important;background:transparent!important/);
+ assert.match(css, /outline:0!important;box-shadow:none!important/);
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
