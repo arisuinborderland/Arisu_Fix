@@ -143,6 +143,16 @@ html body header.topbar.site-header .arisu-verified-badge {
  place-items:center!important;margin:0!important;vertical-align:middle!important;
 }
 html body header.topbar.site-header .arisu-verified-badge svg {display:block!important;width:14px!important;height:14px!important}
+
+/* AFV464 — Optical alignment correction for the Privacy and About headers.
+   Flexbox centers the badge against the text line box; the visible glyph sits
+   slightly higher within that box. Offset only the badge by 1px without
+   changing row geometry or interfering with its scale animation. */
+html body.privacy-page header.topbar.site-header .brand-name-row > .arisu-verified-badge,
+html body.about-page header.topbar.site-header .brand-name-row > .arisu-verified-badge {
+ position:relative!important;
+ top:-1px!important;
+}
 html body header.topbar.site-header>.header-meta {
  position:relative!important;z-index:1!important;display:flex!important;flex:0 0 auto!important;align-items:center!important;
  justify-content:flex-end!important;min-width:0!important;min-height:1px!important;margin-left:auto!important;
