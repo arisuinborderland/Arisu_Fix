@@ -16,7 +16,7 @@ test('Shared header CSS keeps one base, one mobile, and one compact logo rule', 
 });
 
 test('Shared header CSS keeps the 700px mobile brand subtitle typography', () => {
-  assert.match(sharedHeaderCss, /\.brand-copy>small\.brand-subtitle-pill\s*\{[\s\S]*?background:linear-gradient\(110deg,rgba\(116,194,255/);
+  assert.match(sharedHeaderCss, /brand-copy>small\\.brand-subtitle\\s*\\{[\\s\\S]*?RECOVERY/);
 });
 
 test('Shared header CSS keeps the compact 380px brand subtitle typography', () => {
