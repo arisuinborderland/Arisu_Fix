@@ -1,3 +1,11 @@
+AFV464 — Replace Shared Header Logo with Loading-Screen Logo
+
+## AFV464 — Reuse the exact official loading-screen logo
+- Replace only the shared header profile thumbnail with `assets/images/arisu-fix-alice-borderland-logo-transparent.png`, the same official transparent logo asset used by the homepage loading screen.
+- Keep the existing header shell dimensions, logo slot dimensions, Arisu text, verified badge, Recovery Contact subtitle, background color, bottom divider, spacing, and all other page content unchanged.
+- Use `object-fit: contain` so the complete transparent logo remains visible without cropping.
+- Refresh the shared header stylesheet and logo asset cache tokens; synchronize release metadata.
+
 AFV463 — Uniform Header Blue and Visible Bottom Divider
 
 ## AFV463 — Apply the left-side reference blue across the full header
