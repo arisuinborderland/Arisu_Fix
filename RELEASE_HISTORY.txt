@@ -1,10 +1,3 @@
-AFV463 — Uniform Header Blue and Visible Bottom Divider
-
-## AFV463 — Apply the left-side reference blue across the full header
-- Use the same light blue (#eaf4fe) across the entire shared header, with no lavender or alternate right-side shade.
-- Restore a clearly visible 2px blue bottom divider (#7daee6).
-- Preserve dark navy Arisu text, slate Recovery Contact text, dimensions, spacing, logo, verified badge, controls, and animations.
-
 AFV461 — Reference-Matched Header Background Color
 
 ## AFV461 — Change shared header background color only

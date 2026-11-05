@@ -30,15 +30,15 @@ test('AFV357 keeps the first-viewport Bible Verse visible and preserves scroll r
   assert.ok(reveal.includes('target.classList.add("arc-scroll-reveal-visible")'), 'the observer can still reveal it when scrolling back');
 });
 
-test('AFV460 release metadata is synchronized', () => {
+test('AFV463 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '460.0.0');
-  assert.equal(lock.version, '460.0.0');
-  assert.equal(lock.packages[''].version, '460.0.0');
-  assert.ok(readme.includes('Current release: AFV460'));
+  assert.equal(pkg.version, '463.0.0');
+  assert.equal(lock.version, '463.0.0');
+  assert.equal(lock.packages[''].version, '463.0.0');
+  assert.ok(readme.includes('Current release: AFV463'));
   assert.ok(history.startsWith('AFV459 — Homepage Accordion Feature Isolation'));
 });
 
