@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV460
+Version: AFV461
 Updated: 2026-11-05
 
-Current release: AFV460
-Package version: 460.0.0
+Current release: AFV461
+Package version: 461.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV461 applies the Blue Iris (#AEB8D0) header theme consistently across Home, Reviews, Recovery Proofs, About, and Privacy Policy. Header text and action controls use coordinated dark contrast; approved header layout and responsive dimensions are preserved.
 - AFV460 replaces only the homepage loading-screen logo with the official Arisu Fix logo and synchronizes release metadata and the loading-screen logo cache token. Existing loading-screen dimensions, layout, animation, and all other UI are preserved.
 - AFV459 isolates the homepage accordion feature and its required build, markup, accessibility, and mobile footer dependencies. It preserves the existing AFV434 main baseline and removes the retired homepage safety reminder block as requested.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
