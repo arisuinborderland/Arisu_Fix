@@ -240,13 +240,13 @@ test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => 
 });
 
 
-test('AFV473 shared verified badge alignment clears legacy row padding and centers on every page', () => {
+test('AFV474 shared verified badge alignment clears legacy row padding and centers on every page', () => {
   assert.match(css, /brand-name-row \{[^}]*align-items:center!important[^}]*padding-block:0!important/);
   assert.match(css, /brand-name-row > \.arisu-verified-badge \{[\s\S]*?align-self:\s*center\s*!important;[\s\S]*?margin-block:\s*0\s*!important;/);
   assert.doesNotMatch(css, /brand-name-row \{[^}]*align-items:baseline!important/);
   for (const page of pages) {
     const html = read(page);
-    assert.match(html, /site-header\.css\?v=AFV473&shared=1/);
+    assert.match(html, /site-header\.css\?v=AFV474&shared=1/);
   }
 });
 
