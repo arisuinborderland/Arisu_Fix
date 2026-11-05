@@ -41,6 +41,10 @@ test('AFV464 shared header uses the exact loading-screen logo without cropping',
  const partial = read('partials/site-header.html');
  assert.match(partial, /assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV464/);
  assert.match(partial, /alt="Official Arisu Fix logo"/);
+ assert.match(partial, /class="brand-subtitle-pill"/);
+ assert.match(partial, /<span>Recovery Contact<\/span>/);
+ assert.match(css, /linear-gradient\(110deg,rgba\(100,190,255/);
+ assert.match(css, /brand-subtitle-pill svg/);
  assert.doesNotMatch(partial, /arisu-profile-thumb\.webp/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
  assert.match(css, /border-radius:50%!important;overflow:hidden!important;background:transparent!important/);
