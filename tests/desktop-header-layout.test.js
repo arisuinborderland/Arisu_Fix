@@ -44,7 +44,8 @@ test('AFV465 shared header uses the exact loading-screen logo without cropping',
  assert.match(partial, /class="brand-subtitle-pill"/);
  assert.match(partial, /<span>Recovery Contact<\/span>/);
  assert.match(css, /linear-gradient\(110deg,rgba\(116,194,255/);
- assert.match(css, /brand-subtitle-pill svg/);
+ assert.match(partial, /<svg class="subtitle-sparkle" viewBox="0 0 16 16" aria-hidden="true"/);
+ assert.match(css, /brand-subtitle-pill svg\.subtitle-sparkle/);
  assert.doesNotMatch(partial, /arisu-profile-thumb\.webp/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
  assert.match(css, /border-radius:50%!important;overflow:hidden!important;background:transparent!important/);
