@@ -128,37 +128,11 @@ html body header.topbar.site-header .brand-copy {
  display:inline-flex!important;flex:0 1 auto!important;flex-direction:column!important;align-items:flex-start!important;
  justify-content:center!important;min-width:0!important;gap:3px!important;line-height:1.15!important;
 }
-html body header.topbar.site-header .brand-name-row {
- display:inline-flex!important;align-items:center!important;gap:6px!important;min-width:0!important;line-height:1.15!important;
-}
-html body header.topbar.site-header .brand-name-row>b {
- display:inline-block!important;margin:0!important;color:#24365b!important;font:800 16px/1.15 Manrope,sans-serif!important;
- letter-spacing:-.35px!important;text-shadow:none!important;
-}
-html body header.topbar.site-header .brand-copy>small {
- display:block!important;margin:0!important;color:#586783!important;
- font:500 11px/1.2 "DM Sans",sans-serif!important;text-shadow:none!important;
-}
-html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {
- display:inline-flex!important;align-items:center!important;align-self:flex-start!important;
- width:max-content!important;max-width:100%!important;box-sizing:border-box!important;
- margin:0 0 0 -9px!important;padding:3px 9px!important;overflow:visible!important;
- border:1px solid rgba(99,145,232,.38)!important;border-radius:999px!important;
- background:linear-gradient(110deg,rgba(116,194,255,.23) 0%,rgba(174,166,255,.24) 100%)!important;
- color:#3d5f9b!important;font:600 10px/1.15 "DM Sans",sans-serif!important;
- letter-spacing:.12px!important;text-shadow:none!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.88),0 2px 6px rgba(78,116,190,.12)!important;
- white-space:nowrap!important;
-}
-html body header.topbar.site-header .brand-subtitle-pill svg.subtitle-sparkle {
- display:block!important;flex:0 0 9px!important;width:9px!important;height:9px!important;
- margin:0 0 0 4px!important;overflow:visible!important;fill:currentColor!important;
-}
-html body header.topbar.site-header .arisu-verified-badge {
- box-sizing:border-box!important;display:inline-grid!important;flex:0 0 22px!important;width:22px!important;height:22px!important;
- place-items:center!important;margin:0!important;vertical-align:middle!important;
-}
-html body header.topbar.site-header .arisu-verified-badge svg {display:block!important;width:14px!important;height:14px!important}
+html body header.topbar.site-header .brand-name-row {display:inline-flex!important;align-items:baseline!important;gap:5px!important;min-width:0!important;line-height:1!important}
+html body header.topbar.site-header .brand-name-row>b {display:inline-block!important;margin:0!important;font:800 22px/1 Manrope,sans-serif!important;letter-spacing:-.65px!important;text-shadow:none!important}
+html body header.topbar.site-header .brand-name-row>.brand-title-arisu {color:#24365b!important}
+html body header.topbar.site-header .brand-name-row>.brand-title-fix {background:linear-gradient(110deg,#3678f5 0%,#6550e8 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+html body header.topbar.site-header .brand-copy>small.brand-subtitle {display:block!important;margin:3px 0 0!important;padding:0!important;color:#586783!important;font:700 8px/1.2 "DM Sans",sans-serif!important;letter-spacing:.85px!important;text-shadow:none!important;white-space:nowrap!important}
 html body header.topbar.site-header>.header-meta {
  position:relative!important;z-index:1!important;display:flex!important;flex:0 0 auto!important;align-items:center!important;
  justify-content:flex-end!important;min-width:0!important;min-height:1px!important;margin-left:auto!important;
@@ -174,13 +148,10 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header>a.brand>.logo {
   flex:0 0 39px!important;width:39px!important;height:39px!important;border-radius:12px!important;
  }
- html body header.topbar.site-header .brand-copy {flex:0 1 auto!important;gap:3px!important}
- html body header.topbar.site-header .brand-name-row {gap:5px!important}
- html body header.topbar.site-header .brand-name-row>b {font-size:16px!important;line-height:1.15!important}
- html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {margin:0 0 0 -8px!important;padding:3px 8px!important;font-size:9.5px!important;line-height:1.15!important}
- html body header.topbar.site-header .brand-subtitle-pill svg.subtitle-sparkle {margin-left:4px!important}
- html body header.topbar.site-header .arisu-verified-badge {flex-basis:18px!important;width:18px!important;height:18px!important}
- html body header.topbar.site-header .arisu-verified-badge svg {width:12px!important;height:12px!important}
+  html body header.topbar.site-header .brand-copy {flex:0 1 auto!important;gap:2px!important}
+  html body header.topbar.site-header .brand-name-row {gap:4px!important}
+  html body header.topbar.site-header .brand-name-row>b {font-size:20px!important;line-height:1!important}
+  html body header.topbar.site-header .brand-copy>small.brand-subtitle {margin-top:3px!important;font-size:7.5px!important;letter-spacing:.7px!important}
  html body header.topbar.site-header>.header-meta:empty {display:none!important}
  html body.home-page header.topbar.site-header {
   /* Home uses the same single-row mobile header as every other public page. */
@@ -194,15 +165,8 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header {padding-left:10px!important;padding-right:10px!important}
  html body header.topbar.site-header>a.brand {gap:7px!important}
  html body header.topbar.site-header>a.brand>.logo {flex-basis:37px!important;width:37px!important;height:37px!important}
- html body header.topbar.site-header .brand-name-row>b {font-size:14px!important}
- html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {font-size:8.5px!important;margin-left:-7px!important;padding:2px 7px!important}
- html body header.topbar.site-header .brand-subtitle-pill svg.subtitle-sparkle {margin-left:4px!important}
- html body header.topbar.site-header .arisu-verified-badge {flex-basis:16px!important;width:16px!important;height:16px!important}
- html body header.topbar.site-header .arisu-verified-badge svg {width:10px!important;height:10px!important}
+ html body header.topbar.site-header .brand-name-row>b {font-size:18px!important}
+  html body header.topbar.site-header .brand-copy>small.brand-subtitle {font-size:6.8px!important;letter-spacing:.55px!important}
 }
 @media(prefers-reduced-motion:reduce) {
- html body header.topbar.site-header .arisu-verified-badge,
- html body header.topbar.site-header .arisu-verified-badge::after,
- html body header.topbar.site-header .arisu-verified-badge svg path {animation:none!important}
- html body header.topbar.site-header .arisu-verified-badge svg path {stroke-dashoffset:0!important}
 }
