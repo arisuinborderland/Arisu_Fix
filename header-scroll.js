@@ -14,7 +14,8 @@
   let framePending = false;
 
   header.classList.add('topbar-scroll-aware');
-  if (lastY <= topThreshold) header.classList.remove('topbar-scroll-hidden');
+  // Always start with the shared header visible; stale hidden state must not survive navigation.
+  header.classList.remove('topbar-scroll-hidden');
 
   const updateHeader = () => {
     const currentY = Math.max(0, window.scrollY || window.pageYOffset || 0);
@@ -51,10 +52,16 @@
     window.requestAnimationFrame(updateHeader);
   }, { passive: true });
 
-  window.addEventListener('pageshow', () => {
+  window.addEventListener('pageshow', (event) => {
     lastY = Math.max(0, window.scrollY || window.pageYOffset || 0);
     direction = 0;
     distanceInDirection = 0;
-    if (lastY <= topThreshold) header.classList.remove('topbar-scroll-hidden');
+    header.classList.remove('topbar-scroll-hidden');
+    // BFCache can restore the page while retaining the previous scroll/header state.
+    if (event.persisted && (document.body.classList.contains('reviews-document') || document.body.classList.contains('proofs-document'))) {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      lastY = 0;
+    }
   });
 })();

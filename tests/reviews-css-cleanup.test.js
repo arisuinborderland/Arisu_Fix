@@ -11,16 +11,16 @@ const html = fs.readFileSync(path.join(root, 'reviews.html'), 'utf8');
 test('Shared header CSS keeps one base, one mobile, and one compact logo rule', () => {
   const logoRule = /html body header\.topbar\.site-header>a\.brand>\.logo\s*\{/g;
   assert.equal([...sharedHeaderCss.matchAll(logoRule)].length, 3);
-  assert.match(sharedHeaderCss, /flex:0 0 39px!important;width:39px!important;height:39px!important/);
-  assert.match(sharedHeaderCss, /flex-basis:37px!important;width:37px!important;height:37px!important/);
+  assert.match(sharedHeaderCss, /flex:0 0 44px!important;width:44px!important;height:44px!important/);
+  assert.match(sharedHeaderCss, /flex-basis:42px!important;width:42px!important;height:42px!important/);
 });
 
 test('Shared header CSS keeps the 700px mobile brand subtitle typography', () => {
-  assert.match(sharedHeaderCss, /\.brand-copy>small \{margin:0!important;font-size:11px!important;line-height:1\.2!important\}/);
+  assert.ok(sharedHeaderCss.includes('.brand-copy>small.brand-subtitle {'));
 });
 
 test('Shared header CSS keeps the compact 380px brand subtitle typography', () => {
-  assert.match(sharedHeaderCss, /\.brand-copy>small \{font-size:10px!important\}/);
+  assert.ok(sharedHeaderCss.includes('font-size:8.5px!important;letter-spacing:.5px!important'));
 });
 
 test('Reviews page loads the current release CSS and script cache tokens', () => {

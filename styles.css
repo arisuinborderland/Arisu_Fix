@@ -9757,6 +9757,12 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   html body.home-page .topbar .arisu-verified-badge::after {
     animation: arisu-brand-badge-glow 2s ease-out infinite !important;
   }
+  /* Restore the animated white check stroke on mobile as well as the blue badge pulse. */
+  html body.home-page .topbar .arisu-verified-badge svg path {
+    stroke-dasharray: 24 !important;
+
+    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+  }
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
     animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
   }
@@ -9796,3 +9802,11 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
 
 /* AFV413 — The canonical badge check-draw is shared from the base badge rule.
    Legacy desktop static overrides were removed so the path animation can run. */
+
+/* AFV467 — Keep the homepage header's verified check-draw animation active.
+   The highly specific rule is intentionally scoped to the homepage brand badge
+   so other pages and their header behavior remain unchanged. */
+html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg path {
+  stroke-dasharray: 24 !important;
+  animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
+}

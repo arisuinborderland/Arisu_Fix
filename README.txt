@@ -1,14 +1,25 @@
 ARISU FIX — PROJECT README
-Version: AFV463
+Version: AFV474
 Updated: 2026-11-05
 
-Current release: AFV463
-Package version: 463.0.0
+Current release: AFV474
+Package version: 474.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV474: aligns the mobile logo wrapper's rounded clipping with the official circular logo image, preventing mismatched edges at browser zoom levels; preserves the 44px logo size, wordmark, subtitle, verified badge, and header layout.
+- AFV473: moves the shared verified badge one additional pixel right (2px total spacing) across all five public headers; preserves vertical alignment and animation.
+- AFV472: adds a consistent 1px horizontal gap between the Fix wordmark and verified badge across all five shared headers; preserves vertical alignment and badge animation.
+- AFV471: makes Reviews and Proofs mobile headers match the homepage's 58px geometry, 44px logo, visible brand row, and centered verified badge; overrides legacy page-specific compression rules and refreshes CSS cache keys.
+- AFV470: synchronizes release metadata with the AFV470 header-scroll.js cache token used by Reviews and Proofs; includes the Reviews/Proofs scroll-state restoration fix.
+- AFV469: fixes top-edge clipping on Reviews and Proofs by allowing overflow on the shared header container, overriding the inherited page-wide .topbar overflow:hidden rule. Preserves the logo's circular crop, header geometry, and badge animation; refreshes shared-header cache keys.
+- AFV468: fixes cross-page verified-badge vertical alignment by clearing inherited brand-row block padding and centering the badge against the AFV465 wordmark. Preserves badge scale, glow, and check-draw animations; refreshes shared-header cache keys across all five public pages.
+- AFV467: fixes the homepage verified badge check animation by removing the mobile !important dash-offset override; adds a regression test and refreshes the homepage stylesheet cache token.
+- AFV467: restores the homepage verified blue check-draw by removing the !important SVG dash-offset that blocked the keyframe animation; aligns header regression tests with the approved wordmark typography and refreshes homepage/shared-header cache tokens.
+- AFV465: combines the exact loading-screen logo replacement with the approved Soft Blue-Violet Glass Pill subtitle treatment in one shared-header update.
+- AFV465 refreshes shared header branding: reuses the exact transparent loading-screen logo and styles Recovery Contact as a soft blue-violet glass pill with a subtle sparkle icon. Preserves header dimensions, Arisu title, verified badge, background, divider, spacing, and other page content.
 - AFV463 uses the reference's left-side light blue uniformly across the full shared header and restores a clearly visible blue bottom divider. Existing dark navy/slate brand text and all header layout remain unchanged.
 - AFV463 removes the bright multicolor line beneath the shared pastel header and changes the brand name and Recovery Contact subtitle to high-contrast dark blue-gray. No header layout or dimensions changed.
 - AFV463 changes only the shared header background to the reference-matched pastel blue-periwinkle-lavender gradient. Header layout, typography, logo, verified badge, and action controls remain unchanged.

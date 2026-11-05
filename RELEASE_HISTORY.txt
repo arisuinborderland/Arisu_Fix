@@ -1,3 +1,33 @@
+AFV474 — Fix Shared Header Logo Clipping at Browser Zoom Levels
+
+## AFV474
+- Match the mobile logo wrapper's border radius to the official circular logo image at all viewport widths.
+- Preserve the existing 44px mobile logo dimensions, image asset, wordmark, subtitle, verified badge, header geometry, and animations.
+- Add a regression test for consistent circular clipping and refresh shared-header stylesheet cache tokens across all five public pages.
+
+AFV467 — Fix Homepage Verified Check Animation
+
+## AFV467
+- Remove the mobile !important stroke-dashoffset override that prevented the homepage verified badge check-draw keyframes from rendering.
+- Add a regression assertion for the homepage badge animation and refresh the homepage stylesheet cache token; synchronize release metadata.
+
+AFV465 — Header Branding Refresh (Loading-Screen Logo + Glass Subtitle)
+
+## AFV465 — Combined shared header branding update
+- Reuse the exact transparent official logo asset already used by the homepage loading screen.
+- Remove the white logo tile; preserve the full logo artwork in a transparent circular frame without cropping.
+- Style “Recovery Contact” as a compact soft blue-violet glass pill with a subtle sparkle icon, thin translucent border, and restrained shadow.
+- Preserve Arisu title typography, verified badge, header dimensions, spacing, uniform light-blue background, visible blue bottom divider, and all other page content.
+- Refresh logo and shared stylesheet cache tokens; synchronize release metadata.
+
+AFV464 — Replace Shared Header Logo with Loading-Screen Logo
+
+## AFV464 — Reuse the exact official loading-screen logo
+- Replace only the shared header profile thumbnail with `assets/images/arisu-fix-alice-borderland-logo-transparent.png`, the same official transparent logo asset used by the homepage loading screen.
+- Keep the existing header shell dimensions, logo slot dimensions, Arisu text, verified badge, Recovery Contact subtitle, background color, bottom divider, spacing, and all other page content unchanged.
+- Use `object-fit: contain` so the complete transparent logo remains visible without cropping.
+- Refresh the shared header stylesheet and logo asset cache tokens; synchronize release metadata.
+
 AFV463 — Uniform Header Blue and Visible Bottom Divider
 
 ## AFV463 — Apply the left-side reference blue across the full header

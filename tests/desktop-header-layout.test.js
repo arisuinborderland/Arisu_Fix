@@ -10,8 +10,8 @@ const pages = ['index.html', 'reviews.html', 'proofs.html', 'privacy.html', 'abo
 
 test('Shared desktop header uses one shell, logo, brand typography, and badge contract', () => {
  assert.match(css,/min-height:96px!important/); assert.match(css,/flex:0 0 66px!important/);
- assert.match(css,/gap:12px!important/); assert.match(css,/font:800 16px\/1\.15 Manrope,sans-serif!important/);
- assert.match(css,/flex:0 0 22px!important/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
+ assert.match(css,/gap:12px!important/); assert.match(css,/font:800 22px\/1 Manrope,sans-serif!important/);
+ assert.match(read('styles.css'),/\.arisu-verified-badge\{[^}]*flex:0 0 22px/); assert.match(css,/padding:8px clamp\(20px,2vw,36px\)!important/);
 });
 test('All five source pages use the same build-time shared header placeholder', () => {
  for(const page of pages){const html=read(page);assert.equal((html.match(/<!-- SHARED_SITE_HEADER -->/g)||[]).length,1,page+' must contain one marker');assert.doesNotMatch(html,/<header\b/i,page+' must not duplicate header markup');}
@@ -24,7 +24,7 @@ test('Build injects the shared header into all five static pages before deployme
  const build=read('build.js');assert.match(build,/function injectSharedSiteHeader\(\)/);assert.match(build,/injectSharedSiteHeader\(\);/);assert.match(build,/shared header was not rendered exactly once/);assert.match(build,/"site-header\.css"/);assert.doesNotMatch(build,/"desktop-header\.css", "homepage-header-theme\.css"/);
 });
 test('Shared mobile header dimensions and text/badge sizes are identical across pages', () => {
- assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 39px!important/);assert.match(css,/font-size:16px!important/);assert.match(css,/flex-basis:18px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:37px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:14px!important/);
+ assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/min-height:58px!important/);assert.match(css,/flex:0 0 44px!important/);assert.match(css,/font-size:20px!important/);assert.match(read('styles.css'),/@media \(max-width:600px\)[\s\S]*?\.arisu-verified-badge\{[^}]*flex-basis:18px/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?flex-basis:42px!important/);assert.match(css,/@media\(max-width:380px\)[\s\S]*?font-size:18px!important/);
 });
 test('Homepage mobile header stays one row and matches the 58px shared page height', () => {
  const homeMobile = css.slice(css.indexOf('html body.home-page header.topbar.site-header {', css.indexOf('@media(max-width:700px)')));
@@ -35,7 +35,32 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV463&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV474&shared=1',page+' must load shared header stylesheet last');}
+});
+test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
+ const partial = read('partials/site-header.html');
+ const css = read('site-header.css');
+ assert.ok(partial.includes('<b class="brand-title-arisu">Arisu</b><b class="brand-title-fix">Fix</b>'));
+ assert.match(partial, /RECOVERY CONTACT &amp; ASSISTANCE/);
+ assert.match(partial, /<span class="arisu-verified-badge"[\s\S]*?<svg viewBox="0 0 24 24"[\s\S]*?<path d="M5 12\.5 9\.5 17 19 7\.5"/);
+  assert.doesNotMatch(partial, /brand-subtitle-pill|subtitle-sparkle/);
+  const homeStyles = read('styles.css');
+  assert.match(homeStyles, /\.arisu-verified-badge\{[^}]*animation:arisu-brand-badge-pop 2s ease-in-out infinite/);
+  assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
+  const checkDrawBlock = homeStyles.split("AFV467 — Keep the homepage header's verified check-draw animation active.")[1];
+  assert.ok(checkDrawBlock, 'AFV467 homepage check-draw override must exist');
+  assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\\s*24\\s*!important/);
+  assert.match(checkDrawBlock, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
+ assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
+ assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
+ assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
+});
+test('Homepage verified check animation is not blocked by an important dash offset', () => {
+ const homeStyles = read('styles.css');
+ assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
+ assert.doesNotMatch(homeStyles, /stroke-dashoffset:\s*24\s*!important/);
+ assert.ok(homeStyles.includes('html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg path {'));
+ assert.ok(homeStyles.includes('animation: arisu-brand-check-draw 2s ease-in-out infinite !important;'));
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
@@ -76,7 +101,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV467&desktoplayout=1/);
 });
 
 
@@ -92,7 +117,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV467&desktoplayout=1/);
 });
 
 
@@ -108,7 +133,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV467&desktoplayout=1/);
 });
 
 
@@ -124,7 +149,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV424&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV467&desktoplayout=1/);
 });
 
 
@@ -212,4 +237,25 @@ test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => 
  assert.match(proofs, /AFV279 — final canonical header sizing/);
  assert.match(proofs, /Preserve the Reviews\/Proofs brand-row and verified-badge alignment/);
  assert.match(reviews, /match homepage mobile header geometry exactly/);
+});
+
+
+test('AFV474 shared verified badge alignment clears legacy row padding and centers on every page', () => {
+  assert.match(css, /brand-name-row \{[^}]*align-items:center!important[^}]*padding-block:0!important/);
+  assert.match(css, /brand-name-row > \.arisu-verified-badge \{[\s\S]*?align-self:\s*center\s*!important;[\s\S]*?margin-block:\s*0\s*!important;/);
+  assert.doesNotMatch(css, /brand-name-row \{[^}]*align-items:baseline!important/);
+  for (const page of pages) {
+    const html = read(page);
+    assert.match(html, /site-header\.css\?v=AFV474&shared=1/);
+  }
+});
+
+test('Shared logo wrapper and image keep matching circular clipping at desktop and mobile sizes', () => {
+  assert.match(css, /\.logo \{[^}]*border-radius:50%!important;overflow:hidden!important/);
+  assert.match(css, /\.logo img \{[^}]*border-radius:50%!important/);
+  const mobileLogo = css.match(/@media\(max-width:700px\)[\s\S]*?\.logo \{([^}]*)\}/);
+  assert.ok(mobileLogo, 'mobile logo rule must exist');
+  assert.match(mobileLogo[1], /border-radius:50%!important/);
+  assert.match(mobileLogo[1], /aspect-ratio:1\/1!important/);
+  assert.doesNotMatch(mobileLogo[1], /border-radius:14px/);
 });
