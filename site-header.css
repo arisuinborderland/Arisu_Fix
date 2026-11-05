@@ -162,7 +162,8 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header .brand-copy {flex:0 1 auto!important;gap:3px!important}
  html body header.topbar.site-header .brand-name-row {gap:5px!important}
  html body header.topbar.site-header .brand-name-row>b {font-size:16px!important;line-height:1.15!important}
- html body header.topbar.site-header .brand-copy>small {margin:0!important;font-size:11px!important;line-height:1.2!important}
+ html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {margin:0!important;padding:3px 8px!important;font-size:10px!important;line-height:1.15!important;gap:4px!important}
+  html body header.topbar.site-header .brand-subtitle-pill svg {width:10px!important;height:10px!important;flex-basis:10px!important}
  html body header.topbar.site-header .arisu-verified-badge {flex-basis:18px!important;width:18px!important;height:18px!important}
  html body header.topbar.site-header .arisu-verified-badge svg {width:12px!important;height:12px!important}
  html body header.topbar.site-header>.header-meta:empty {display:none!important}
@@ -179,7 +180,7 @@ html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
  html body header.topbar.site-header>a.brand {gap:7px!important}
  html body header.topbar.site-header>a.brand>.logo {flex-basis:37px!important;width:37px!important;height:37px!important}
  html body header.topbar.site-header .brand-name-row>b {font-size:14px!important}
- html body header.topbar.site-header .brand-copy>small {font-size:10px!important}
+ html body header.topbar.site-header .brand-copy>small.brand-subtitle-pill {font-size:9px!important;padding:2px 7px!important}
  html body header.topbar.site-header .arisu-verified-badge {flex-basis:16px!important;width:16px!important;height:16px!important}
  html body header.topbar.site-header .arisu-verified-badge svg {width:10px!important;height:10px!important}
 }
