@@ -42,7 +42,11 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
  const css = read('site-header.css');
  assert.ok(partial.includes('<b class="brand-title-arisu">Arisu</b><b class="brand-title-fix">Fix</b>'));
  assert.match(partial, /RECOVERY CONTACT &amp; ASSISTANCE/);
- assert.match(partial, /<span class="arisu-verified-badge"[\s\S]*?<svg viewBox="0 0 24 24"[\s\S]*?<path d="M5 12\.5 9\.5 17 19 7\.5"/);\n assert.doesNotMatch(partial, /brand-subtitle-pill|subtitle-sparkle/);\n const homeStyles = read('styles.css');\n assert.match(homeStyles, /\.arisu-verified-badge\{[^}]*animation:arisu-brand-badge-pop 2s ease-in-out infinite/);\n assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
+ assert.match(partial, /<span class="arisu-verified-badge"[\s\S]*?<svg viewBox="0 0 24 24"[\s\S]*?<path d="M5 12\.5 9\.5 17 19 7\.5"/);
+  assert.doesNotMatch(partial, /brand-subtitle-pill|subtitle-sparkle/);
+  const homeStyles = read('styles.css');
+  assert.match(homeStyles, /\.arisu-verified-badge\{[^}]*animation:arisu-brand-badge-pop 2s ease-in-out infinite/);
+  assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
  assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
  assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
