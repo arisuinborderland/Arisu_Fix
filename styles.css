@@ -9816,7 +9816,7 @@ html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg
    Keep the existing WhatsApp and Service Status panels unchanged. */
 body.home-page main > .compact-intro.contact-intro-card {
   position:relative; isolation:isolate; display:flex; flex-direction:column; gap:12px;
-  width:100%; max-width:760px; margin:0 auto 12px !important; padding:12px 16px !important;
+  width:100%; max-width:760px; margin:0 auto 12px !important; padding:10px 16px !important; padding-top:10px !important; padding-bottom:10px !important;
   overflow:hidden; text-align:left !important; border:1.5px solid rgba(159,184,239,.9); border-radius:21px;
   background:radial-gradient(ellipse at 100% 100%,rgba(174,139,255,.24),transparent 43%),radial-gradient(ellipse at 0% 0%,rgba(103,190,255,.2),transparent 48%),linear-gradient(118deg,rgba(255,255,255,.98),rgba(242,246,255,.96) 58%,rgba(248,244,255,.97));
   box-shadow:0 8px 24px rgba(65,100,180,.10),inset 0 1px 0 rgba(255,255,255,.96);
@@ -9840,7 +9840,7 @@ body.home-page .contact-intro-copy{min-width:0}
 body.home-page .contact-intro-copy h1{margin:0 0 3px !important;color:#172b55 !important;font:800 clamp(22px,4.2vw,30px)/1.08 Manrope,sans-serif !important;letter-spacing:-1px !important}
 body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !important;color:#526581 !important;font-size:clamp(11px,1.8vw,14px) !important;line-height:1.4 !important}
 @media (max-width:600px){
- body.home-page main > .compact-intro.contact-intro-card{gap:10px;margin:0 auto 8px !important;padding:10px 13px !important;border-radius:18px}
+ body.home-page main > .compact-intro.contact-intro-card{gap:10px;margin:0 auto 8px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:8px !important;border-radius:18px}
  body.home-page .contact-intro-top{gap:7px}
  body.home-page .contact-intro-label{gap:5px;font-size:9px;letter-spacing:.45px}
  body.home-page .contact-intro-label svg{flex-basis:20px;width:20px;height:20px}
