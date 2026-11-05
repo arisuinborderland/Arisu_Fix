@@ -94,8 +94,6 @@
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { background: #c8f5d7; color: #176b36; }
 #arisu-loading-screen .boot-log li[data-state="running"] .boot-status { background: #e8ddff; color: #6334d9; }
 #arisu-loading-screen .boot-progress-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; color: #78849b; font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-#arisu-loading-screen .boot-progress-track { height: 5px; margin-top: 9px; overflow: hidden; border-radius: 99px; }
-#arisu-loading-screen .boot-progress-fill { width: 0; height: 100%; background: linear-gradient(90deg, #4285ed, #8b6de1); transition: width .18s ease; }
 #arisu-loading-screen .boot-footnote { margin: 14px 0 0; color: #9aa4b5; font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 @media (max-width: 380px) {
   #arisu-loading-screen { padding: 14px; }
@@ -211,11 +209,6 @@
   box-shadow: 0 0 10px rgba(224, 68, 245, .58), 0 0 20px rgba(184, 107, 255, .38), 0 0 28px rgba(24, 198, 232, .28);
   transition: width .18s linear;
   animation: boot-soft-neon-glow 1.8s ease-in-out infinite;
-}
-#arisu-loading-screen .boot-progress-fill::before,
-#arisu-loading-screen .boot-progress-fill::after {
-  content: none;
-  animation: none;
 }
 @keyframes boot-soft-neon-glow {
   0%, 100% {
