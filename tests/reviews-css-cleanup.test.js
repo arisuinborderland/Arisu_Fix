@@ -20,7 +20,7 @@ test('Shared header CSS keeps the 700px mobile brand subtitle typography', () =>
 });
 
 test('Shared header CSS keeps the compact 380px brand subtitle typography', () => {
-  assert.match(sharedHeaderCss, /\.brand-copy>small\.brand-subtitle-pill\s*\{[^}]*font-size:8\.5px!important;padding:2px 7px!important/);
+  assert.match(sharedHeaderCss, /\.brand-copy>small\.brand-subtitle-pill\s*\{[^}]*font-size:8\.5px!important;margin-left:-7px!important;padding:2px 7px!important/);
 });
 
 test('Reviews page loads the current release CSS and script cache tokens', () => {
