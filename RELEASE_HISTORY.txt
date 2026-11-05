@@ -1,3 +1,18 @@
+AFV463 — Uniform Header Blue and Visible Bottom Divider
+
+## AFV463 — Apply the left-side reference blue across the full header
+- Use the same light blue (#eaf4fe) across the entire shared header, with no lavender or alternate right-side shade.
+- Restore a clearly visible 2px blue bottom divider (#7daee6).
+- Preserve dark navy Arisu text, slate Recovery Contact text, dimensions, spacing, logo, verified badge, controls, and animations.
+
+AFV461 — Reference-Matched Header Background Color
+
+## AFV461 — Change shared header background color only
+- Replace the dark navy-indigo header background with the reference-matched soft blue-to-periwinkle-to-lavender gradient.
+- Remove the previous decorative background wash so the new gradient remains clear.
+- Preserve header dimensions, spacing, typography, logo, verified badge, action controls, and all other page sections.
+- Refresh the shared header stylesheet cache token and synchronize release metadata.
+
 AFV459 — Homepage Accordion Feature Isolation
 
 ## AFV459 — Add the homepage accordion as a focused feature
