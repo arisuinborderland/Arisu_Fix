@@ -209,9 +209,9 @@ html body.privacy-page .topbar,
 html body.about-page .topbar {
   isolation: isolate;
   overflow: hidden;
-  background: #AEB8D0 !important;
-  border-bottom: 1px solid #8796B8 !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.34) !important;
+  background: linear-gradient(108deg, #334B8C 0%, #6A5ACD 100%) !important;
+  border-bottom: 1px solid rgba(170, 195, 255, .48) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16) !important;
 }
 html body.home-page .topbar::before,
 html body.reviews-document .topbar::before,
@@ -262,8 +262,8 @@ html body.reviews-document .topbar .header-meta a,
 html body.proofs-document .topbar .header-meta a,
 html body.privacy-page .topbar .header-meta a,
 html body.about-page .topbar .header-meta a {
-  color: #263451 !important;
-  border-color: rgba(38,52,81,.24) !important;
+  color: rgba(250,252,255,.96) !important;
+  border-color: rgba(220,230,255,.30) !important;
 }
 html body.home-page .topbar .header-meta a:hover,
 html body.reviews-document .topbar .header-meta a:hover,
@@ -275,8 +275,8 @@ html body.reviews-document .topbar .header-meta a:focus-visible,
 html body.proofs-document .topbar .header-meta a:focus-visible,
 html body.privacy-page .topbar .header-meta a:focus-visible,
 html body.about-page .topbar .header-meta a:focus-visible {
-  background: rgba(255,255,255,.28) !important;
-  border-color: rgba(38,52,81,.38) !important;
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(230,238,255,.52) !important;
 }
 
 html body.home-page .topbar::after,
@@ -288,8 +288,8 @@ html body.about-page .topbar::after {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 2px; z-index: 2; pointer-events: none;
-  background: #8796B8;
-  box-shadow: none;
+  background: linear-gradient(90deg, #4DCBD7 0%, #5B91EE 45%, #A58AE8 100%);
+  box-shadow: 0 0 6px rgba(117,160,255,.32);
 }
 
 /* AFV420 — One authoritative header contract for all five public pages. */
