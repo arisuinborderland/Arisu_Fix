@@ -35,7 +35,7 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV473&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV474&shared=1',page+' must load shared header stylesheet last');}
 });
 test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
  const partial = read('partials/site-header.html');
@@ -248,4 +248,14 @@ test('AFV473 shared verified badge alignment clears legacy row padding and cente
     const html = read(page);
     assert.match(html, /site-header\.css\?v=AFV473&shared=1/);
   }
+});
+
+test('Shared logo wrapper and image keep matching circular clipping at desktop and mobile sizes', () => {
+  assert.match(css, /\.logo \{[^}]*border-radius:50%!important;overflow:hidden!important/);
+  assert.match(css, /\.logo img \{[^}]*border-radius:50%!important/);
+  const mobileLogo = css.match(/@media\(max-width:700px\)[\s\S]*?\.logo \{([^}]*)\}/);
+  assert.ok(mobileLogo, 'mobile logo rule must exist');
+  assert.match(mobileLogo[1], /border-radius:50%!important/);
+  assert.match(mobileLogo[1], /aspect-ratio:1\/1!important/);
+  assert.doesNotMatch(mobileLogo[1], /border-radius:14px/);
 });
