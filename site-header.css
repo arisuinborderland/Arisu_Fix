@@ -1,4 +1,204 @@
-/* AFV422 — Approved shared header baseline. Preserve the existing shared header geometry and responsive behavior. */
+/* AFV422 — Approved shared header baseline.
+   One 58px mobile row, 96px desktop shell, one profile mark, brand copy, and verified badge.
+   Legacy per-page sizing/button overrides were removed; shared theme and decorative accents are retained. */
+
+/* AFV408 — Shared navy-to-indigo header theme for every public page.
+   Visual-only overrides: retain each page's existing header dimensions and layout. */
+html body.home-page .topbar,
+html body.reviews-document .topbar,
+html body.proofs-document .topbar,
+html body.privacy-page .topbar,
+html body.about-page .topbar {
+  isolation: isolate;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 8% 110%, rgba(35, 196, 208, .42) 0%, transparent 48%),
+    radial-gradient(ellipse at 54% -45%, rgba(83, 126, 210, .40) 0%, transparent 58%),
+    radial-gradient(ellipse at 98% 110%, rgba(180, 111, 215, .38) 0%, transparent 48%),
+    linear-gradient(108deg, #173b58 0%, #263b67 48%, #44345e 100%) !important;
+  border-bottom: 1px solid rgba(170, 210, 239, .32) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+
+/* Decorative wave accents are attached independently to each page's header. */
+html body.home-page .topbar::before,
+html body.reviews-document .topbar::before,
+html body.proofs-document .topbar::before,
+html body.privacy-page .topbar::before,
+html body.about-page .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 12% 125%, rgba(69, 219, 220, .22), transparent 45%),
+    radial-gradient(ellipse at 88% -20%, rgba(190, 145, 235, .24), transparent 48%),
+    linear-gradient(166deg, transparent 0 64%, rgba(106, 197, 226, .26) 64.3%, transparent 65.1%),
+    linear-gradient(173deg, transparent 0 74%, rgba(148, 169, 240, .22) 74.3%, transparent 75%),
+    linear-gradient(178deg, transparent 0 84%, rgba(222, 171, 239, .18) 84.3%, transparent 85%);
+}
+
+html body.home-page .topbar > .brand,
+html body.home-page .topbar > .header-meta,
+html body.home-page .topbar .header-meta > a,
+html body.reviews-document .topbar > .brand,
+html body.reviews-document .topbar > .header-meta,
+html body.reviews-document .topbar .header-meta > a,
+html body.proofs-document .topbar > .brand,
+html body.proofs-document .topbar > .header-meta,
+html body.proofs-document .topbar .header-meta > a,
+html body.privacy-page .topbar > .brand,
+html body.privacy-page .topbar > .header-meta,
+html body.privacy-page .topbar .header-meta > a,
+html body.about-page .topbar > .brand,
+html body.about-page .topbar > .header-meta,
+html body.about-page .topbar .header-meta > a {
+  position: relative;
+  z-index: 1;
+}
+
+html body.home-page .topbar .brand b,
+html body.reviews-document .topbar .brand b,
+html body.proofs-document .topbar .brand b,
+html body.privacy-page .topbar .brand b,
+html body.about-page .topbar .brand b {
+  color: #f7f9ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .24) !important;
+}
+html body.home-page .topbar .brand small,
+html body.reviews-document .topbar .brand small,
+html body.proofs-document .topbar .brand small,
+html body.privacy-page .topbar .brand small,
+html body.about-page .topbar .brand small {
+  color: rgba(239, 245, 255, .86) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .20) !important;
+}
+html body.home-page .topbar .header-meta a,
+html body.reviews-document .topbar .header-meta a,
+html body.proofs-document .topbar .header-meta a,
+html body.privacy-page .topbar .header-meta a,
+html body.about-page .topbar .header-meta a {
+  color: rgba(246, 249, 255, .94);
+  border-color: rgba(198, 218, 241, .24);
+}
+html body.home-page .topbar .header-meta a:hover,
+html body.reviews-document .topbar .header-meta a:hover,
+html body.proofs-document .topbar .header-meta a:hover,
+html body.privacy-page .topbar .header-meta a:hover,
+html body.about-page .topbar .header-meta a:hover,
+html body.home-page .topbar .header-meta a:focus-visible,
+html body.reviews-document .topbar .header-meta a:focus-visible,
+html body.proofs-document .topbar .header-meta a:focus-visible,
+html body.privacy-page .topbar .header-meta a:focus-visible,
+html body.about-page .topbar .header-meta a:focus-visible {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(198, 218, 241, .38);
+}
+
+/* Soft cyan-to-violet separator, consistently scoped to each header. */
+html body.home-page .topbar::after,
+html body.reviews-document .topbar::after,
+html body.proofs-document .topbar::after,
+html body.privacy-page .topbar::after,
+html body.about-page .topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(77, 203, 215, .70) 0%,
+    rgba(91, 145, 238, .72) 34%,
+    rgba(147, 125, 224, .68) 68%,
+    rgba(218, 157, 211, .56) 100%);
+  box-shadow: 0 0 5px rgba(100, 151, 239, .22),
+    0 -1px 4px rgba(174, 133, 222, .12);
+}
+
+
+/* AFV420 — One authoritative header contract for all five public pages. */
+html body header.topbar.site-header {
+ position:sticky!important;top:0!important;z-index:30!important;display:flex!important;flex-flow:row nowrap!important;
+ align-items:center!important;justify-content:space-between!important;box-sizing:border-box!important;width:100%!important;
+ min-height:96px!important;height:auto!important;padding:8px clamp(20px,2vw,36px)!important;gap:16px!important;
+ isolation:isolate!important;overflow:hidden!important;
+}
+html body header.topbar.site-header>a.brand {
+ position:relative!important;z-index:1!important;display:flex!important;flex:0 1 auto!important;align-items:center!important;
+ justify-content:flex-start!important;min-width:0!important;gap:12px!important;margin:0!important;text-decoration:none!important;
+}
+html body header.topbar.site-header>a.brand>.logo {
+ box-sizing:border-box!important;display:grid!important;flex:0 0 66px!important;width:66px!important;height:66px!important;
+ border-radius:18px!important;overflow:hidden!important;
+}
+html body header.topbar.site-header>a.brand>.logo img {display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+html body header.topbar.site-header .brand-copy {
+ display:inline-flex!important;flex:0 1 auto!important;flex-direction:column!important;align-items:flex-start!important;
+ justify-content:center!important;min-width:0!important;gap:3px!important;line-height:1.15!important;
+}
+html body header.topbar.site-header .brand-name-row {
+ display:inline-flex!important;align-items:center!important;gap:6px!important;min-width:0!important;line-height:1.15!important;
+}
+html body header.topbar.site-header .brand-name-row>b {
+ display:inline-block!important;margin:0!important;color:#f7f9ff!important;font:800 16px/1.15 Manrope,sans-serif!important;
+ letter-spacing:-.35px!important;text-shadow:0 1px 2px rgba(0,0,0,.24)!important;
+}
+html body header.topbar.site-header .brand-copy>small {
+ display:block!important;margin:0!important;color:rgba(239,245,255,.86)!important;
+ font:500 11px/1.2 "DM Sans",sans-serif!important;text-shadow:0 1px 2px rgba(0,0,0,.20)!important;
+}
+html body header.topbar.site-header .arisu-verified-badge {
+ box-sizing:border-box!important;display:inline-grid!important;flex:0 0 22px!important;width:22px!important;height:22px!important;
+ place-items:center!important;margin:0!important;vertical-align:middle!important;
+}
+html body header.topbar.site-header .arisu-verified-badge svg {display:block!important;width:14px!important;height:14px!important}
+html body header.topbar.site-header>.header-meta {
+ position:relative!important;z-index:1!important;display:flex!important;flex:0 0 auto!important;align-items:center!important;
+ justify-content:flex-end!important;min-width:0!important;min-height:1px!important;margin-left:auto!important;
+ padding:0!important;gap:12px!important;border:0!important;background:transparent!important;box-shadow:none!important;
+}
+html body header.topbar.site-header>.header-meta:empty {flex:1 1 auto!important}
+@media(max-width:700px) {
+ html body header.topbar.site-header {display:flex!important;min-height:58px!important;height:58px!important;padding:0 12px!important;gap:7px!important}
+ html body header.topbar.site-header>a.brand {
+  flex:1 1 auto!important;width:auto!important;max-width:100%!important;min-width:0!important;gap:7px!important;
+  justify-content:flex-start!important;justify-self:start!important;
+ }
+ html body header.topbar.site-header>a.brand>.logo {
+  flex:0 0 39px!important;width:39px!important;height:39px!important;border-radius:12px!important;
+ }
+ html body header.topbar.site-header .brand-copy {flex:0 1 auto!important;gap:3px!important}
+ html body header.topbar.site-header .brand-name-row {gap:5px!important}
+ html body header.topbar.site-header .brand-name-row>b {font-size:16px!important;line-height:1.15!important}
+ html body header.topbar.site-header .brand-copy>small {margin:0!important;font-size:11px!important;line-height:1.2!important}
+ html body header.topbar.site-header .arisu-verified-badge {flex-basis:18px!important;width:18px!important;height:18px!important}
+ html body header.topbar.site-header .arisu-verified-badge svg {width:12px!important;height:12px!important}
+ html body header.topbar.site-header>.header-meta:empty {display:none!important}
+ html body.home-page header.topbar.site-header {
+  /* Home uses the same single-row mobile header as every other public page. */
+  display:flex!important;flex-flow:row nowrap!important;align-items:center!important;justify-content:space-between!important;
+  min-height:58px!important;height:58px!important;padding:0 12px!important;gap:7px!important;
+ }
+ html body.home-page header.topbar.site-header>.header-meta {display:none!important}
+
+}
+@media(max-width:380px) {
+ html body header.topbar.site-header {padding-left:10px!important;padding-right:10px!important}
+ html body header.topbar.site-header>a.brand {gap:7px!important}
+ html body header.topbar.site-header>a.brand>.logo {flex-basis:37px!important;width:37px!important;height:37px!important}
+ html body header.topbar.site-header .brand-name-row>b {font-size:14px!important}
+ html body header.topbar.site-header .brand-copy>small {font-size:10px!important}
+ html body header.topbar.site-header .arisu-verified-badge {flex-basis:16px!important;width:16px!important;height:16px!important}
+ html body header.topbar.site-header .arisu-verified-badge svg {width:10px!important;height:10px!important}
+}
+@media(prefers-reduced-motion:reduce) {
+ html body header.topbar.site-header .arisu-verified-badge,
+ html body header.topbar.site-header .arisu-verified-badge::after,
+ html body header.topbar.site-header .arisu-verified-badge svg path {animation:none!important}
+ html body header.topbar.site-header .arisu-verified-badge svg path {stroke-dashoffset:0!important}
+}
 
 /* AFV461 — Unified Blue Iris theme across all five public-page headers.
    Color-only update: preserve the approved shared header geometry and responsive behavior. */
