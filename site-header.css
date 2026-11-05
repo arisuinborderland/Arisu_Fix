@@ -39,6 +39,16 @@ html body.proofs-document .topbar .brand b,
 html body.privacy-page .topbar .brand b,
 html body.about-page .topbar .brand b { color: #17233F !important; text-shadow: none !important; }
 
+/* Override the shared contract's high-specificity light text for the lighter Blue Iris surface. */
+html body header.topbar.site-header .brand-name-row>b {
+  color: #17233F !important;
+  text-shadow: none !important;
+}
+html body header.topbar.site-header .brand-copy>small {
+  color: #35415D !important;
+  text-shadow: none !important;
+}
+
 html body.home-page .topbar .brand small,
 html body.reviews-document .topbar .brand small,
 html body.proofs-document .topbar .brand small,
