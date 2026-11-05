@@ -119,16 +119,16 @@
   grid-template-rows: 0fr;
   min-width: 0;
   overflow: hidden;
-  border: 0 solid rgba(100, 151, 230, .3);
-  border-radius: 0 0 19px 19px;
-  background: rgba(255,255,255,.28);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   opacity: 0;
   transition: grid-template-rows .34s ease, opacity .24s ease, border-width .2s ease;
 }
 
 .home-accordion-item.is-open > .home-accordion-panel {
   grid-template-rows: 1fr;
-  border-width: 0 1px 1px;
+  border-width: 0;
   opacity: 1;
 }
 
@@ -147,14 +147,6 @@
 .home-accordion-item #whyArisuTitle,
 .home-accordion-item #howTitle {
   scroll-margin-top: 100px;
-}
-
-/* The accordion wrapper changes the legacy card's positioning context.
-   Cancel the old visual lift only inside the wrapped accordion cards. */
-html body.home-page .home-accordion-item .why-arisu-card {
-  position: relative !important;
-  top: auto !important;
-  translate: none !important;
 }
 
 html body.home-page #desktopSocialDestination > #why-choose-arisu {
@@ -225,10 +217,6 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
 .home-accordion-panel .deletion-option p {
   font-size: 12px !important;
   line-height: 1.35 !important;
-}
-
-.home-accordion-panel .why-arisu-card {
-  padding: 12px !important;
 }
 
 .home-accordion-panel .why-history-card {
@@ -346,15 +334,8 @@ html body.home-page #desktopSocialDestination > #why-choose-arisu {
     padding-bottom: 0 !important;
   }
 
-  /* Restore the How panel's top inset: the legacy Why card rule sets padding-top: 0.
-     Scope this to the relocated accordion card so the first item's rounded top edge
-     stays clear of the panel clip without changing card-to-card or bottom spacing. */
-  html body.home-page .how-assistance-section .home-accordion-panel .why-arisu-card {
-    padding-top: 12px !important;
-  }
-
   /* Legacy mobile CSS lifts this grid; reset it only in the How accordion. */
-  html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid {
+  html body.home-page .how-assistance-section .home-accordion-panel .why-arisu-grid {
     transform: none !important;
   }
 

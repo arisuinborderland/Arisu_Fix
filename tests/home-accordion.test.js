@@ -62,9 +62,15 @@ test("mobile accordion preserves natural heading wrapping and approved compact c
   assert.ok(styles.includes("margin: 4px 0 !important"));
 });
 
-test("expanded accordion panel retains compact content spacing and How card safeguards", () => {
-  assert.ok(styles.includes("font-size: 11.5px"));
-  assert.ok(styles.includes("html body.home-page .how-assistance-section .why-arisu-card > .why-arisu-grid"));
+test("expanded accordion content has no extra outer card shell while individual cards remain", () => {
+  assert.ok(accordion.includes("while (whyCard.firstChild) why.insertBefore(whyCard.firstChild, whyCard)"));
+  assert.ok(accordion.includes("how.append(processGrid, processNote)"));
+  assert.ok(!accordion.includes("const howCard = createElement"));
+  assert.ok(styles.includes("background: transparent;"));
+  assert.ok(styles.includes("border-width: 0;"));
+  assert.ok(styles.includes(".home-accordion-panel .why-history-card"));
+  assert.ok(styles.includes(".home-accordion-panel .why-arisu-item"));
+  assert.ok(styles.includes("html body.home-page .how-assistance-section .home-accordion-panel .why-arisu-grid"));
   assert.ok(styles.includes("margin-top: 2px !important"));
 });
 
@@ -74,8 +80,8 @@ test("mobile homepage footer clears the accordion section without changing share
 });
 
 test("homepage references the isolated accordion assets and production build allowlists them", () => {
-  assert.ok(html.includes("home-accordion.css?v=AFV459"));
-  assert.ok(html.includes("home-accordion.js?v=AFV453"));
+  assert.ok(html.includes("home-accordion.css?v=AFV475"));
+  assert.ok(html.includes("home-accordion.js?v=AFV475"));
   assert.ok(build.includes('"home-accordion.css"'));
   assert.ok(build.includes('"home-accordion.js"'));
 });
