@@ -1,4 +1,10 @@
-AFV479 — Consolidate Homepage Contact Intro Mobile Rules
+AFV480 — Fix Mobile Contact Intro Heading Specificity
+
+## AFV480
+- Fix the mobile “Let’s Connect.” heading size override by targeting the `#introTitle` ID directly, outranking the legacy ID-based font-size rule that previously prevented the smaller size from taking effect.
+- Preserve the existing 2px subtitle lift and 2px bottom-padding reduction; keep desktop styling and unrelated cards unchanged.
+- Refresh the homepage stylesheet cache token to AFV480 / mobilepolish=3 and update package/release metadata.
+- Update regression coverage to assert the higher-specificity mobile heading rule and active cache key.
 
 ## AFV479
 - Move the mobile “Let’s Connect.” heading size, 2px subtitle lift, and 2px bottom-padding reduction into the existing responsive rules instead of a duplicate end-of-file override.
