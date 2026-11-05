@@ -1,15 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV461
+Version: AFV462
 Updated: 2026-11-05
 
-Current release: AFV461
-Package version: 461.0.0
+Current release: AFV462
+Package version: 462.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV461 changes only the shared header background to the reference-matched pastel blue-periwinkle-lavender gradient. Header layout, typography, logo, verified badge, and action controls remain unchanged.
+- AFV462 removes the bright multicolor line beneath the shared pastel header and changes the brand name and Recovery Contact subtitle to high-contrast dark blue-gray. No header layout or dimensions changed.
+- AFV462 changes only the shared header background to the reference-matched pastel blue-periwinkle-lavender gradient. Header layout, typography, logo, verified badge, and action controls remain unchanged.
 - AFV460 replaces only the homepage loading-screen logo with the official Arisu Fix logo and synchronizes release metadata and the loading-screen logo cache token. Existing loading-screen dimensions, layout, animation, and all other UI are preserved.
 - AFV459 isolates the homepage accordion feature and its required build, markup, accessibility, and mobile footer dependencies. It preserves the existing AFV434 main baseline and removes the retired homepage safety reminder block as requested.
 - AFV434 carries the approved six-step About Process Flow onto the latest main baseline, consolidates About page styling, and removes 27 lines of retired About-specific footer selectors while preserving the shared footer and current homepage, Reviews, Proofs, and Story Viewer work.
