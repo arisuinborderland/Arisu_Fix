@@ -844,3 +844,79 @@ body.home-page .reference-footer {
     height: 16px !important;
   }
 }
+
+
+/* AFV477 — Place the calendar beside the creation date and center the story action.
+   Homepage mobile only; keep the milestone content compact and preserve the verified mark. */
+@media screen and (max-width: 600px) {
+  html body.home-page .reference-footer .reference-about-created {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 16px !important;
+    grid-template-areas: "copy check" "action action" !important;
+    align-items: start !important;
+    column-gap: 6px !important;
+    row-gap: 5px !important;
+    padding: 5px 7px !important;
+  }
+  html body.home-page .reference-footer .reference-about-created-copy {
+    grid-area: copy !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+  }
+  html body.home-page .reference-footer .reference-about-created-heading {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+  }
+  html body.home-page .reference-footer .reference-about-calendar {
+    display: block !important;
+    flex: 0 0 25px !important;
+    width: 25px !important;
+    height: 25px !important;
+    padding: 4px !important;
+    color: #244c91 !important;
+    border-radius: 7px !important;
+    background: #e8f2ff !important;
+  }
+  html body.home-page .reference-footer .reference-about-created-copy strong {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+  html body.home-page .reference-footer .reference-about-created-copy > span:not(.reference-about-created-heading) {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+  html body.home-page .reference-footer .reference-about-created-check {
+    grid-area: check !important;
+    align-self: center !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+  html body.home-page .reference-footer .reference-about-action-row {
+    grid-area: action !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  html body.home-page .reference-footer .reference-about-action-row .reference-about-action {
+    display: inline-flex !important;
+    align-self: center !important;
+    justify-content: center !important;
+    min-height: 25px !important;
+    margin: 0 !important;
+    padding: 5px 11px !important;
+    gap: 5px !important;
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+  }
+  html body.home-page .reference-footer .reference-about-action-row .reference-about-action svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-basis: 12px !important;
+  }
+}
