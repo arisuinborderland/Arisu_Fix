@@ -306,7 +306,6 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 @media (max-width:460px) {.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
 
 /* Compact Daily Bible Verse strip placed directly under the header */
-.daily-verse-card:before{content:"";position:absolute;top:-45px;right:-20px;width:100px;height:100px;border-radius:50%;pointer-events:none}
 .daily-verse-topline{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
 .daily-verse-cross{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;font-weight:800}
 .daily-verse-label{font-weight:800}
@@ -334,17 +333,14 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .step-card p{color:#56657c}
 .safety-panel{background:linear-gradient(135deg,#eaf0ff,#fff 85%);border-color:#cad8f5}
 /* Dark navy cards are intentional accents; all text meets a stronger contrast target. */
-.daily-verse-card:before{background:rgba(126,151,255,.08)}
 .daily-verse-text{color:#f4f7ff}
 .daily-verse-reference{color:#aebeff}
 .daily-verse-translation{color:#d0d9e9}
 
 footer>a:not(.brand),footer>span{color:#596980}
-@media (max-width:600px) {.daily-verse-card{box-shadow:0 8px 20px rgba(14,25,45,.16)}}
 
-/* Final spacing adjustment: place the Daily Bible Verse immediately below the header links. */
+/* Keep main content aligned directly below the header links. */
 main{padding-top:0}
-.daily-verse-card{margin-top:0}
 @media (max-width:600px) {main{padding-top:0}}
 
 /* Compact vertical rhythm: lift the WhatsApp contact panel and following content. */
@@ -360,41 +356,6 @@ main{padding-top:0}
   .wizard-card.contact-only{padding-top:15px;padding-bottom:16px}
 
   .site-section{margin-top:28px}
-}
-
-/* Adaptive Daily Bible Verse card: match the user's system/browser theme. */
-@media  (prefers-color-scheme: light)  {
-  .daily-verse-card {
-    background: linear-gradient(145deg, #ffffff 0%, #f1f6ff 100%);
-    border-color: #d8e2f3;
-    box-shadow: 0 10px 26px rgba(35, 63, 115, .10);
-    color: #18243a;
-  }
-  .daily-verse-card:before { background: rgba(67, 108, 232, .07); }
-  .daily-verse-cross { background: #e7edff; color: #315eea; }
-  .daily-verse-label { color: #3156c9; }
-  .daily-verse-date { background: #e9effa; color: #455675; }
-  .daily-verse-card h2 { color: #18243a; }
-  .daily-verse-text { color: #202f4a; }
-  .daily-verse-reference { color: #315eea; }
-  .daily-verse-translation { color: #52627b; }
-
-}
-@media  (prefers-color-scheme: dark)  {
-  .daily-verse-card {
-    background: radial-gradient(circle at 100% 0%, rgba(91,123,225,.18), transparent 34%), linear-gradient(145deg,#17243b 0%,#101a2c 100%);
-    border-color: #34435e;
-    box-shadow: 0 12px 28px rgba(0,0,0,.28);
-    color: #f7f9ff;
-  }
-  .daily-verse-cross { background: #2c3c5e; color: #c5d0ff; }
-  .daily-verse-label { color: #c0ccff; }
-  .daily-verse-date { background: #29364d; color: #edf1ff; }
-  .daily-verse-card h2 { color: #fff; }
-  .daily-verse-text { color: #f4f7ff; }
-  .daily-verse-reference { color: #c0ccff; }
-  .daily-verse-translation { color: #e0e7f3; }
-
 }
 
 /* Stronger contrast for the main headline accent, distinct from the Bible verse card. */
@@ -2468,14 +2429,6 @@ body.home-page .whatsapp-feature-content h2 {
     box-shadow: 0 12px 26px rgba(18, 48, 98, .14) !important;
   }
 
-  body.home-page main > .daily-verse-card::before {
-    top: -46px !important;
-    right: -14px !important;
-    width: 118px !important;
-    height: 118px !important;
-    background: rgba(45, 109, 214, .18) !important;
-  }
-
   body.home-page .daily-verse-topline {
     gap: 7px !important;
     margin: 0 0 2px !important;
@@ -2947,10 +2900,6 @@ body.home-page main > .daily-verse-card {
   aspect-ratio: auto !important;
   overflow: hidden !important;
 }
-body.home-page main > .daily-verse-card::before {
-  content: none !important;
-  display: none !important;
-}
 @media  (max-width: 899px)  {
   body.home-page main > .daily-verse-card {
     padding: 18px 12px 15px !important;
@@ -3356,25 +3305,6 @@ body.home-page .terms-card {
  .deletion-option p,.service-disclaimer p { font-size:11.5px; }
  .service-disclaimer { grid-template-columns:24px minmax(0,1fr); gap:8px; padding:10px; }
  .service-disclaimer > span { width:23px; height:23px; }
-}
-
-/* authoritative scenic Bible Verse background.
- Desktop rule is kept visually unchanged. An older mobile SVG declaration was removed
- because its more-specific selector was overriding every later mobile image update. */
-html body #daily-bible-verse.daily-verse-card {
-  background-image: linear-gradient(90deg, rgba(4,44,98,.18), rgba(4,40,88,.08) 52%, rgba(4,35,80,.10)), url("./verse-lake-photo.webp?v=AFV358") !important;
-  background-size: 100% 100% !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-origin: border-box !important;
-  background-clip: border-box !important;
-}
-@media  (max-width: 600px)  {
-  /* Intentionally outranks the legacy compact-intro/main/id selector. */
-  html body.home-page main > #daily-bible-verse.daily-verse-card {
-    background-repeat: no-repeat !important;
-    background-color: #155a9a !important;
-  }
 }
 
 /* compact Recovery Proofs card on desktop and mobile; prevent tall blank preview area. */
