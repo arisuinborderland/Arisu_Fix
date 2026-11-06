@@ -45,7 +45,7 @@ test('AFV491 loading script removes the same-document overlay after first sessio
 test('AFV491 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '494.0.0');
-  assert.equal(lock.version, '494.0.0');
-  assert.equal(lock.packages[''].version, '494.0.0');
+  assert.equal(pkg.version, '495.0.0');
+  assert.equal(lock.version, '495.0.0');
+  assert.equal(lock.packages[''].version, '495.0.0');
 });
