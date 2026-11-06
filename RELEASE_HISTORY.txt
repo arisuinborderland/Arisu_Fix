@@ -1,3 +1,11 @@
+AFV504 — Rebuild Footer Profile Artwork Without Cropping
+
+- Replace the old footer profile image element with a dedicated artwork wrapper and transparent image layer.
+- Keep the footer layout slot fixed (52px mobile / 72px desktop) while rendering larger centered artwork (78px mobile / 88px desktop) beyond the circular frame.
+- Remove only the superseded AFV476/AFV477 footer profile image override rules; preserve all other footer layout and navigation styles.
+- Refresh the shared footer stylesheet and image cache tokens on Home, Reviews, Proofs, and About; leave the separate Privacy footer and Stories navigation untouched.
+- Add regression tests for artwork visibility, fixed layout geometry, page coverage, and preservation boundaries.
+
 AFV502 — Show Full Header Logo Artwork Without Changing Its Size
 
 - Render the transparent logo PNG directly as the shared header brand image, removing the clipping wrapper that hid the playing-card artwork.

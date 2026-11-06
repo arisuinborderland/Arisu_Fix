@@ -43,18 +43,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-.reference-footer .reference-about-profile {
-  display: block;
-  flex: 0 0 72px;
-  width: 72px;
-  height: 72px;
-  margin: 0;
-  object-fit: cover;
-  object-position: center;
-  border: 3px solid #fff;
-  border-radius: 17px;
-  box-shadow: 0 3px 10px rgba(35, 70, 130, .18);
-}
 .reference-footer .reference-about-copy {
   display: flex;
   flex: 1 1 auto;
@@ -256,8 +244,7 @@
 @media (min-width: 601px) {
   .reference-footer .reference-about-section { padding: 22px max(24px, calc((100% - 1056px) / 2)) 18px; }
   .reference-footer .reference-about-cta { gap: 20px; padding: 4px 0; }
-  .reference-footer .reference-about-profile { flex-basis: 88px; width: 88px; height: 88px; border-radius: 20px; }
-  .reference-footer .reference-about-eyebrow { font-size: 13px; letter-spacing: 1.6px; }
+.reference-footer .reference-about-eyebrow { font-size: 13px; letter-spacing: 1.6px; }
   .reference-footer .reference-about-title { font-size: clamp(21px, 2.3vw, 28px); letter-spacing: -.55px; }
   .reference-footer .reference-about-description { font-size: 16px; }
   .reference-footer .reference-about-action { min-height: 38px; padding: 8px 18px; font-size: 15px; }
@@ -275,8 +262,7 @@
 @media (max-width: 380px) {
   .reference-footer .reference-about-section { padding-left: 12px; padding-right: 12px; }
   .reference-footer .reference-about-cta { gap: 10px; }
-  .reference-footer .reference-about-profile { flex-basis: 60px; width: 60px; height: 60px; border-radius: 14px; }
-  .reference-footer .reference-about-title { font-size: 16px; }
+.reference-footer .reference-about-title { font-size: 16px; }
   .reference-footer .reference-about-description { font-size: 12px; }
   .reference-footer .reference-footer-grid { gap: 7px; padding-left: 10px; padding-right: 10px; }
   .reference-footer .reference-footer-card { grid-template-columns: 34px minmax(0, 1fr) 7px; gap: 6px; padding: 7px 6px; }
@@ -315,17 +301,7 @@
     gap: 10px;
     padding: 3px 0;
   }
-
-  body.home-page .reference-footer .reference-about-profile,
-  body.reviews-document .reference-footer .reference-about-profile,
-  body.proofs-document .reference-footer .reference-about-profile {
-    flex-basis: 60px;
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-  }
-
-  body.home-page .reference-footer .reference-about-copy,
+body.home-page .reference-footer .reference-about-copy,
   body.reviews-document .reference-footer .reference-about-copy,
   body.proofs-document .reference-footer .reference-about-copy {
     gap: 3px;
@@ -480,15 +456,7 @@
     gap: 10px;
     padding: 3px 0;
   }
-
-  html body.about-page .reference-footer .reference-about-profile {
-    flex-basis: 60px;
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-  }
-
-  html body.about-page .reference-footer .reference-about-copy { gap: 3px; }
+html body.about-page .reference-footer .reference-about-copy { gap: 3px; }
   html body.about-page .reference-footer .reference-about-eyebrow { display: none; }
   html body.about-page .reference-footer .reference-about-title { font-size: 16px; line-height: 1.22; }
   html body.about-page .reference-footer .reference-about-description { font-size: 12px; line-height: 1.35; }
@@ -625,14 +593,7 @@ body.home-page .reference-footer {
     gap: 8px !important;
     padding: 2px 0 !important;
   }
-  .reference-footer .reference-about-profile {
-    flex: 0 0 48px !important;
-    width: 48px !important;
-    height: 48px !important;
-    border-width: 2px !important;
-    border-radius: 12px !important;
-  }
-  .reference-footer .reference-about-copy {
+.reference-footer .reference-about-copy {
     gap: 2px !important;
   }
   .reference-footer .reference-about-title {
@@ -789,23 +750,7 @@ body.home-page .reference-footer {
   html body.home-page .reference-footer .reference-about-cta {
     align-items: flex-start !important;
   }
-
-  html body.home-page .reference-footer .reference-about-profile {
-    flex: 0 0 52px !important;
-    width: 52px !important;
-    height: 52px !important;
-    align-self: flex-start !important;
-    margin-top: 0 !important;
-    padding: 0 !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    border: 0 !important;
-    border-radius: 50% !important;
-    background: transparent !important;
-    box-shadow: 0 2px 8px rgba(36, 89, 170, .16) !important;
-  }
-
-  html body.home-page .reference-footer .reference-about-created {
+html body.home-page .reference-footer .reference-about-created {
     gap: 6px !important;
     margin-top: 2px !important;
     padding: 4px 6px !important;
@@ -931,26 +876,7 @@ body.home-page .reference-footer {
   html body.about-page .reference-footer .reference-about-cta {
     align-items: flex-start !important;
   }
-
-  html body.home-page .reference-footer .reference-about-profile,
-  html body.reviews-document .reference-footer .reference-about-profile,
-  html body.proofs-document .reference-footer .reference-about-profile,
-  html body.about-page .reference-footer .reference-about-profile {
-    flex: 0 0 52px !important;
-    width: 52px !important;
-    height: 52px !important;
-    align-self: flex-start !important;
-    margin-top: 0 !important;
-    padding: 0 !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    border: 0 !important;
-    border-radius: 50% !important;
-    background: transparent !important;
-    box-shadow: 0 2px 8px rgba(36, 89, 170, .16) !important;
-  }
-
-  html body.home-page .reference-footer .reference-about-created,
+html body.home-page .reference-footer .reference-about-created,
   html body.reviews-document .reference-footer .reference-about-created,
   html body.proofs-document .reference-footer .reference-about-created,
   html body.about-page .reference-footer .reference-about-created {
@@ -1075,23 +1001,7 @@ body.home-page .reference-footer {
   html body.about-page .reference-footer .reference-about-cta {
     align-items: flex-start !important;
   }
-
-  html body.home-page .reference-footer .reference-about-profile,
-  html body.reviews-document .reference-footer .reference-about-profile,
-  html body.proofs-document .reference-footer .reference-about-profile,
-  html body.about-page .reference-footer .reference-about-profile {
-    flex: 0 0 72px !important;
-    width: 72px !important;
-    height: 72px !important;
-    align-self: flex-start !important;
-    margin-top: 0 !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    border: 0 !important;
-    border-radius: 50% !important;
-  }
-
-  html body.home-page .reference-footer .reference-about-created,
+html body.home-page .reference-footer .reference-about-created,
   html body.reviews-document .reference-footer .reference-about-created,
   html body.proofs-document .reference-footer .reference-about-created,
   html body.about-page .reference-footer .reference-about-created {
@@ -1200,5 +1110,67 @@ body.home-page .reference-footer {
     width: 14px !important;
     height: 14px !important;
     flex: 0 0 14px !important;
+  }
+}
+
+
+/* AFV504 — Dedicated footer profile artwork component.
+   The layout slot stays fixed; only the transparent artwork is larger.
+   Artwork is centered and allowed to extend beyond its circular frame. */
+.reference-footer .reference-about-artwork {
+  position: relative;
+  display: block;
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  align-self: flex-start;
+  margin: 0;
+  overflow: visible;
+  isolation: isolate;
+}
+.reference-footer .reference-about-artwork::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 1px solid rgba(104, 166, 255, .42);
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(224, 244, 255, .72), rgba(237, 229, 255, .58));
+  box-shadow: 0 2px 8px rgba(36, 89, 170, .12);
+}
+.reference-footer .reference-about-artwork-image {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 88px;
+  height: 88px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  object-position: center;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+  -webkit-clip-path: none;
+  pointer-events: none;
+}
+@media screen and (max-width: 600px) {
+  .reference-footer .reference-about-artwork {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+  }
+  .reference-footer .reference-about-artwork-image {
+    width: 58px;
+    height: 58px;
   }
 }
