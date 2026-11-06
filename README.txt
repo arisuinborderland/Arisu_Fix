@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV501
+Version: AFV502
 Updated: 2026-11-06
 
-Current release: AFV501
-Package version: 501.0.0
+Current release: AFV502
+Package version: 502.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV502: fixes header profile artwork clipping by rendering the transparent logo PNG directly as the header brand image, preserving responsive dimensions; consolidates redundant clipping overrides and refreshes shared header asset/stylesheet cache tokens.
 - AFV501: removes the rounded frame, border, and shadow from the About page service profile logo while preserving its 62px footprint and position; uses contain fitting and refreshes the About stylesheet cache token.
 - AFV500: uses the exact shared-header profile image for the Stories avatar across all five public pages while preserving the existing avatar dimensions, circular crop, glow/ring animation, notification badge, and bottom-navigation layout. Updates the Stories avatar regression expectations and synchronizes release metadata/cache-busting tokens.
 - AFV499: keeps the first-paint homepage visibility guard active throughout the loading exit fade; reveals homepage only after the 420ms overlay transition completes, preventing homepage content from appearing behind the fading card.
