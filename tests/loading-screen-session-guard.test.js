@@ -23,7 +23,7 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
   assert.ok(home.includes('const tabKey = "arisuFixTabId"'));
   assert.ok(home.includes('window.name.startsWith(prefix)'));
   assert.ok(home.includes('sessionStorage.removeItem(key)'));
-  assert.ok(home.includes('sessionStorage.setItem("arisuFixStartupSeen", "1")'));
+  assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
   assert.ok(home.includes('loading-screen.css?v=AFV492'));
   assert.ok(home.includes('loading-screen.js?v=AFV492'));
   assert.ok(css.includes('html.arisu-show-startup #arisu-loading-screen:not(.is-ready)'));
