@@ -1,3 +1,11 @@
+AFV499 — Delay Homepage Reveal Until Loading Fade Completes
+
+- Keep `arisu-loading-first-run` active while the loading overlay performs its 420ms exit transition.
+- Reveal homepage content only after the transition and immediately before removing the overlay.
+- Prevent the homepage from appearing behind the still-visible loading card during the final frames.
+- Preserve the existing startup sequence, 500ms completion hold, and 440ms DOM-removal timing.
+- Refresh the loading-screen JavaScript and CSS cache tokens; add lifecycle regression coverage.
+
 AFV498 — Loading Screen Surface Crossfade
 
 - Fade the full-screen background, card surface, and card contents as independent synchronized layers.
