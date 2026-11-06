@@ -24,15 +24,15 @@ test('Recovery Proofs retains active gallery, category filter, pagination, and f
   assert.match(css, /\.proof-page-button:focus-visible/);
 });
 
-test('AFV487 stylesheet cache key remains while AFV492 release metadata stays synchronized', () => {
+test('AFV487 stylesheet cache key remains while AFV493 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
   assert.match(html, /proofs\.css\?v=AFV487&prooffull=2/);
-  assert.equal(pkg.version, '492.0.0');
-  assert.equal(lock.version, '492.0.0');
-  assert.equal(lock.packages[''].version, '492.0.0');
-  assert.ok(readme.includes('Current release: AFV492'));
+  assert.equal(pkg.version, '493.0.0');
+  assert.equal(lock.version, '493.0.0');
+  assert.equal(lock.packages[''].version, '493.0.0');
+  assert.ok(readme.includes('Current release: AFV493'));
   assert.ok(history.includes('AFV487 — Remove Retired Recovery Proof Search CSS'));
 });
