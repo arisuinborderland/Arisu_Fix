@@ -46,7 +46,7 @@
   let finished = false;
   let progressValue = 0;
 
-  const MIN_STARTUP_DURATION = 3500;
+  const MIN_STARTUP_DURATION = 3000;
   const EXIT_FADE_DURATION = 440;
   const STATUS_CHECK_DELAY = 650;
   const STATUS_ROW_GAP = 180;
