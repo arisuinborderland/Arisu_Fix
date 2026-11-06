@@ -14,22 +14,22 @@ test('AFV486 removes WhatsApp selectors that no longer match the live markup', (
   const content = html.slice(contentStart, actionStart);
   assert.match(content, /class="whatsapp-feature-top"/);
   assert.match(content, /id="whatsappFeatureTitle"/);
-  assert.doesNotMatch(content, /<p\\b/);
-  assert.doesNotMatch(css, /\\.whatsapp-feature-content\\s+p\\b/);
-  const recommendation = html.match(/<span class="whatsapp-recommended">([\\s\\S]*?)<\\/span>/);
+  assert.doesNotMatch(content, /<p\b/);
+  assert.doesNotMatch(css, /\.whatsapp-feature-content\s+p\b/);
+  const recommendation = html.match(/<span class="whatsapp-recommended">([\s\S]*?)<\/span>/);
   assert.ok(recommendation);
   assert.match(recommendation[1], /class="recommended-bolt"/);
-  assert.doesNotMatch(recommendation[1], /<span\\b/);
-  assert.doesNotMatch(css, /\\.whatsapp-recommended\\s+span\\b/);
+  assert.doesNotMatch(recommendation[1], /<span\b/);
+  assert.doesNotMatch(css, /\.whatsapp-recommended\s+span\b/);
 });
 
 test('AFV486 preserves the active WhatsApp icon, CTA, motion, and Service Status styles', () => {
-  assert.match(css, /\\.whatsapp-feature-icon::before/);
-  assert.match(css, /\\.whatsapp-feature-content\\s+h2/);
-  assert.match(css, /\\.whatsapp-recommended\\s*\\{/);
-  assert.match(css, /\\.whatsapp-feature-card\\s+\\.whatsapp-button\\s*\\{/);
-  assert.match(css, /\\.whatsapp-feature-card\\s+\\.whatsapp-button::before/);
-  assert.match(css, /\\.whatsapp-feature-card\\s+\\.whatsapp-button::after/);
+  assert.match(css, /\.whatsapp-feature-icon::before/);
+  assert.match(css, /\.whatsapp-feature-content\s+h2/);
+  assert.match(css, /\.whatsapp-recommended\s*\{/);
+  assert.match(css, /\.whatsapp-feature-card\s+\.whatsapp-button\s*\{/);
+  assert.match(css, /\.whatsapp-feature-card\s+\.whatsapp-button::before/);
+  assert.match(css, /\.whatsapp-feature-card\s+\.whatsapp-button::after/);
   assert.match(html, /id="whatsappLink"/);
   assert.match(html, /id="serviceStatus"/);
 });
