@@ -12,7 +12,7 @@ test('AFV485 keeps one authoritative scenic Daily Bible Verse background rule', 
   assert.match(css, /html body\.home-page main > #daily-bible-verse\.daily-verse-card\s*\{[\s\S]*?background-image:[\s\S]*?verse-lake-photo\.webp\?v=AFV358/);
   assert.doesNotMatch(css, /html body #daily-bible-verse\.daily-verse-card\s*\{/);
   assert.doesNotMatch(css, /authoritative scenic Bible Verse background/);
-  assert.match(html, /styles\.css\?v=AFV493&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col/);
+  assert.match(html, /styles\.css\?v=AFV502&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col/);
 });
 
 test('AFV485 removes superseded system-theme overrides and duplicate verse pseudo-element styling', () => {
