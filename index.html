@@ -34,6 +34,8 @@
  <link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
    <link rel="stylesheet" href="styles.css?v=AFV486&desktoplayout=1&contactintro=5&dailyversecleanup=1&whatsappcsscleanup=1">
+ <link rel="stylesheet" href="loading-screen.css?v=AFV492">
+ <script>try { if (!sessionStorage.getItem("arisuFixStartupSeen")) { sessionStorage.setItem("arisuFixStartupSeen", "1"); document.documentElement.classList.add("arisu-show-startup"); } } catch (_) { document.documentElement.classList.add("arisu-show-startup"); }</script>
  <link rel="stylesheet" href="home-accordion.css?v=AFV459">
  <link rel="stylesheet" href="about-link.css?v=AFV424&homebtnpadding=1">
  <link rel="stylesheet" href="story-viewer.css?v=AFV490&card=5">
@@ -49,6 +51,29 @@
   <link rel="stylesheet" href="site-header.css?v=AFV479&shared=1">
 </head>
 <body class="home-page" id="top">
+<div id="arisu-loading-screen" class="is-visible" role="status" aria-label="Loading Arisu Fix homepage">
+  <section class="boot-window" aria-labelledby="arisuBootTitle">
+    <div class="boot-titlebar" aria-hidden="true"><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-label">ARISU FIX / SYSTEM STARTUP</span></div>
+    <div class="boot-content">
+      <div class="boot-brand-row">
+        <img class="boot-logo" src="/assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV460" alt="Official Arisu Fix loading-screen logo" width="150" height="150">
+        <div class="boot-brand-copy"><h1 class="boot-brand" id="arisuBootTitle">Arisu <span>Fix</span></h1>
+        <p class="boot-subtitle">RECOVERY CONTACT &amp; ASSISTANCE</p></div>
+      </div>
+      <div class="boot-brand-divider" aria-hidden="true"></div>
+      <p class="boot-section">INITIALIZATION SEQUENCE</p>
+      <ul class="boot-log" aria-live="polite">
+        <li data-check="dom"><span class="boot-mark">○</span><span class="boot-message">Preparing homepage document</span><span class="boot-status">WAIT</span></li>
+        <li data-check="styles"><span class="boot-mark">○</span><span class="boot-message">Checking page stylesheets</span><span class="boot-status">WAIT</span></li>
+
+        <li data-check="final"><span class="boot-mark">○</span><span class="boot-message">Finalizing interface...</span><span class="boot-status">WAIT</span></li>
+      </ul>
+      <div class="boot-progress-row"><span>STARTUP PROGRESS</span><span class="boot-progress-value">0%</span></div>
+      <div class="boot-progress-track" role="progressbar" aria-label="Homepage initialization progress" aria-valuemin="0" aria-valuemax="100"><div class="boot-progress-fill"></div></div>
+      <p class="boot-footnote">Waiting for actual page readiness…</p>
+    </div>
+  </section>
+</div>
 <!-- SHARED_SITE_HEADER -->
 <div class="story-viewer" id="recoveryStoryViewer" role="dialog" aria-modal="true" aria-label="Recovery Stories" hidden><div class="story-viewer-card"><div class="story-viewer-progress-track" aria-label="Story progress" role="group"></div><div class="story-viewer-meta"><img class="story-viewer-avatar" src="assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV477" alt="" width="32" height="32"><span class="story-viewer-name">Arisu</span><span class="story-viewer-time"></span><span class="story-viewer-counter" aria-live="polite" hidden></span></div><button class="story-viewer-close" type="button" aria-label="Back to Site"><span aria-hidden="true">←</span><span>Back to Site</span></button><div class="story-viewer-empty" hidden aria-live="polite">
   <div class="story-viewer-empty-header">
@@ -313,6 +338,7 @@
   </div>
 </footer>
 <script src="script.js?v=AFV267"></script>
+<script src="loading-screen.js?v=AFV492" defer></script>
 <script src="story-viewer.js?v=AFV367" defer></script>
 <script src="review-lightbox.js?v=AFV355"></script>
 <script src="image-protection.js?v=AFV267"></script>
