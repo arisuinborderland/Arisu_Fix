@@ -1,3 +1,12 @@
+AFV488 — Standalone Loading Page and Root Startup Route
+
+## AFV488
+- Extract the existing loading-screen markup into a dedicated loading.html page while reusing loading-screen.css and the official logo asset.
+- Route only `/` to `/loading.html`; keep `/index.html` directly accessible and avoid a catch-all redirect.
+- Redirect to `/index.html` after the standalone page's own DOM and stylesheet checks. These checks cover the splash page, not the homepage resources loaded afterward.
+- Remove the embedded loading overlay, first-paint guard, and session guard from index.html.
+- Add the standalone page and Cloudflare Pages redirect file to the explicit production build allowlist; synchronize release metadata and regression tests.
+
 AFV487 — Remove Retired Recovery Proof Search CSS
 
 ## AFV487
