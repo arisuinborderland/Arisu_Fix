@@ -768,6 +768,4 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close:before{color
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{font-size:14px!important;line-height:1.32!important;margin-bottom:11px!important}
   html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{min-height:44px!important}
 }
-@media(prefers-reduced-motion:reduce){
-  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}
-}
+
