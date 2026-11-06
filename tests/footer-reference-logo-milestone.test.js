@@ -41,8 +41,8 @@ test('About footer artwork aligns with the title and uses a circular frame on mo
   assert.match(css, /\.reference-about-artwork::before[\s\S]*?border-radius: 50%/);
   assert.match(css, /\.reference-about-artwork[\s\S]*?align-self: flex-start/);
   assert.match(css, /\.reference-about-artwork[\s\S]*?margin: 0/);
-  for (const pageClass of pageClasses) {
-    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-artwork`), pageClass);
+  for (const [file, source] of Object.entries(pageHtml)) {
+    assert.match(source, /class="reference-about-artwork"/, file);
   }
 });
 
