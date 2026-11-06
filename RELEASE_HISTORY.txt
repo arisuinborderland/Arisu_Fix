@@ -1,3 +1,9 @@
+AFV502 — Show Full Header Logo Artwork Without Changing Its Size
+
+- Render the transparent logo PNG directly as the shared header brand image, removing the clipping wrapper that hid the playing-card artwork.
+- Preserve existing responsive logo dimensions, brand text, verified badge, spacing, and page layout.
+- Consolidate redundant AFV502 clipping overrides and refresh the shared header image and stylesheet cache tokens.
+
 AFV501 — Remove Rounded Frame from About Service Profile Logo
 
 - Remove the rounded border, outline, and shadow from the About page service profile image.
