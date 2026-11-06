@@ -1,3 +1,10 @@
+AFV483 — Desktop Contact Card Alignment
+
+## AFV483
+- At desktop widths (900px and above), align the combined Let's Connect card with the WhatsApp contact card using the same full content width and 24px horizontal inset.
+- Match both contact icon tiles at 54×54px with a 13px text-column gap; size the official white WhatsApp glyph for visual balance with the headset mark.
+- Keep all changes inside a desktop-only media query. Preserve the approved mobile dimensions, spacing, typography, icon alignment, and WhatsApp styling.
+
 AFV482 — Mobile Contact Card Separation
 
 ## AFV482

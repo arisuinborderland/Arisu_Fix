@@ -47,7 +47,7 @@ test('Combined contact intro has responsive glass styling scoped to the homepage
   assert.ok(css.includes('contact-intro-icon'));
   assert.ok(css.includes('@media (max-width:600px)'));
   assert.ok(css.includes('@media (max-width:360px)'));
-  assert.ok(html.includes('styles.css?v=AFV482'));
+  assert.ok(html.includes('styles.css?v=AFV483'));
 });
 
 
@@ -64,7 +64,7 @@ test('Homepage mobile micro-adjustments stay in existing responsive rules and pr
   assert.match(alignmentBlock, /\.contact-intro-icon\s*\{[^}]*width:\s*41px\s*!important;/);
   assert.match(alignmentBlock, /\.contact-intro-icon svg\s*\{[^}]*width:\s*24px\s*!important;/);
   assert.match(alignmentBlock, /@media \(max-width:360px\)[\s\S]*?\.contact-intro-icon\s*\{[^}]*width:\s*39px\s*!important;/);
-  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=9'));
+  assert.ok(html.includes('styles.css?v=AFV483&desktoplayout=1&contactintro=4&mobilepolish=9'));
 });
 
 test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile', () => {
@@ -75,7 +75,7 @@ test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile'
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*39px\s*!important;[^}]*height:\s*39px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*>\s*svg\s*\{[^}]*width:\s*23px\s*!important;[^}]*height:\s*23px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*margin-left:\s*-1\.5px\s*!important;/);
-  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=9'));
+  assert.ok(html.includes('styles.css?v=AFV483&desktoplayout=1&contactintro=4&mobilepolish=9'));
 });
 
 
@@ -86,4 +86,17 @@ test('WhatsApp uses the clean official filled glyph in both contact locations', 
   assert.ok(!html.includes('stroke-width="2.4"'), 'old thin outlined WhatsApp mark is removed');
   assert.match(css, /AFV483 WhatsApp official glyph/);
   assert.match(css, /whatsapp-feature-icon::before[\s\S]*?display:\s*none\s*!important/);
+});
+
+
+test('AFV483 desktop contact cards share width, left inset, and matching icon geometry without changing mobile rules', () => {
+  const desktopBlock = css.slice(css.lastIndexOf('/* AFV483 desktop contact cards share full-width alignment and matching icon geometry. */'));
+  assert.match(desktopBlock, /@media\s*\(min-width:\s*900px\)/);
+  assert.match(desktopBlock, /contact-intro-card\s*\{[^}]*width:\s*100% !important;[^}]*max-width:\s*100% !important;[^}]*padding:\s*14px 24px !important;/);
+  assert.match(desktopBlock, /contact-intro-icon\s*\{[^}]*width:\s*54px !important;[^}]*height:\s*54px !important;/);
+  assert.match(desktopBlock, /whatsapp-feature-card\s*\{[^}]*grid-template-columns:\s*54px minmax\(0, 1fr\) !important;[^}]*column-gap:\s*13px !important;[^}]*padding:\s*14px 24px !important;/);
+  assert.match(desktopBlock, /whatsapp-feature-icon\s*\{[^}]*width:\s*54px !important;[^}]*height:\s*54px !important;[^}]*min-width:\s*54px !important;[^}]*min-height:\s*54px !important;/);
+  assert.match(desktopBlock, /whatsapp-feature-icon > svg\s*\{[^}]*width:\s*28px !important;[^}]*height:\s*28px !important;/);
+  assert.doesNotMatch(desktopBlock, /@media\s*\(max-width:/);
+  assert.ok(html.includes('styles.css?v=AFV483&desktoplayout=1&contactintro=4&mobilepolish=9&desktopcontact=1'));
 });

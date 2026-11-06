@@ -9938,3 +9938,44 @@ html body.home-page #contact .whatsapp-button .wa-icon > svg {
   height: 24px !important;
   filter: none !important;
 }
+
+
+/* AFV483 desktop contact cards share full-width alignment and matching icon geometry. */
+@media (min-width: 900px) {
+  html body.home-page main > .compact-intro.contact-intro-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto clamp(14px, 1.2vw, 20px) !important;
+    padding: 14px 24px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-main {
+    gap: 13px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
+    flex: 0 0 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
+    width: 33px !important;
+    height: 33px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-card {
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    column-gap: 13px !important;
+    padding: 14px 24px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-icon {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    margin: 0 !important;
+    border-radius: 16px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-icon > svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}

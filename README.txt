@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV482
-Updated: 2026-11-05
+Version: AFV483
+Updated: 2026-11-06
 
-Current release: AFV482
-Package version: 482.0.0
+Current release: AFV483
+Package version: 483.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV483: align the desktop Let's Connect and WhatsApp cards to the same content width, left inset, and 54px icon tile; size the white WhatsApp glyph to match the headset's visual weight. Changes are isolated to min-width 900px; the approved mobile layout remains unchanged.
 - AFV482: add 2px to the mobile bottom margin of the combined Let’s Connect card (8px to 10px), creating more separation before the WhatsApp contact card. No desktop or WhatsApp-card internal spacing changes.
 - AFV482: reduce the mobile “Let’s Connect.” heading by 3px, enforce the 2px subtitle lift, and reduce the combined card’s bottom padding by another 2px (6px to 4px). Desktop styling and unrelated cards remain unchanged; refreshes the homepage stylesheet cache token.
 - AFV480: fixes the mobile heading-size override by targeting the introTitle ID directly, ensuring the intended smaller heading wins over legacy ID-based CSS. Preserves the 2px subtitle lift and 2px bottom-padding reduction. Preserves desktop styling and unrelated cards, and refreshes the homepage stylesheet cache token.
