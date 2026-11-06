@@ -40,11 +40,13 @@ test('AFV504 removes superseded footer profile image override blocks', () => {
   assert.doesNotMatch(css, /\.reference-footer \.reference-about-profile\s*\{\s*flex:\s*0 0 52px/);
 });
 
-test('Stories navigation and privacy footer remain untouched by the footer artwork rebuild', () => {
+test('The fifth public page keeps its independent footer; shared Stories navigation remains untouched', () => {
   const privacy = fs.readFileSync(path.join(root, 'privacy.html'), 'utf8');
   assert.doesNotMatch(privacy, /reference-about-artwork/);
+  assert.match(privacy, /<footer><a class=\"brand\"[\\s\\S]*?arisu-profile\\.jpg/, 'Privacy footer keeps its existing profile implementation');
   const nav = fs.readFileSync(path.join(root, 'bottom-nav.css'), 'utf8');
   assert.doesNotMatch(nav, /AFV504|reference-about-artwork/);
+  assert.equal((css.match(/\\.reference-about-profile/g) || []).length, 0, 'obsolete footer profile image selectors are removed');
   for (const file of sharedFooterPages) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
     assert.match(html, /<nav class="mobile-bottom-nav"/, file);
