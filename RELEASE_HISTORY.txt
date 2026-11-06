@@ -1,5 +1,7 @@
 AFV503 — Prevent mobile Stories avatar and badge clipping
 
+- Match the Stories profile artwork to the shared header's unclipped image treatment using centered contain fitting; preserve the circular frame and existing dimensions.
+- Add the header-style animated outer halo and keep the notification count badge above the avatar ring.
 - Keep the Stories profile image, animated halo/ring, and notification count badge fully visible above the shared fixed mobile bottom navigation.
 - Scope overflow visibility to the mobile navigation and Stories control/avatar layers across Home, Reviews, Proofs, About, and Privacy.
 - Preserve the existing avatar size, position, circular crop, glow animation, badge placement, nav dimensions, page layout, and desktop navigation.
