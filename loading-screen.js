@@ -41,6 +41,7 @@
 
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
+  const progressComplete = overlay.querySelector(".boot-progress-complete");
   const track = overlay.querySelector(".boot-progress-track");
   let finished = false;
   let progressValue = 0;
@@ -106,6 +107,7 @@
     const remainingBeforeFade = Math.max(0, MIN_STARTUP_DURATION - EXIT_FADE_DURATION - (Date.now() - startupStartedAt));
     if (remainingBeforeFade > 0) await wait(remainingBeforeFade);
     setProgress(100);
+    if (progressComplete) progressComplete.hidden = false;
     finished = true;
     // Persist completion only after all loading checks have finished.
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue if storage becomes unavailable. */ }

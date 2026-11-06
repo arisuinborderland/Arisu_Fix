@@ -48,3 +48,18 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /window\.setTimeout\(\(\) => \{[\s\S]*?\}, EXIT_FADE_DURATION\)/);
 });
+
+
+test('AFV505 renders refined circular completion icons and an overall COMPLETE badge', () => {
+  const html = read('index.html');
+  const js = read('loading-screen.js');
+  const css = read('loading-screen.css');
+  assert.match(html, /boot-progress-complete" hidden>COMPLETE/);
+  assert.match(js, /const progressComplete = overlay\.querySelector\("\.boot-progress-complete"\)/);
+  assert.match(js, /if \(progressComplete\) progressComplete\.hidden = false/);
+  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
+  assert.match(css, /\.boot-progress-complete::before/);
+  assert.match(css, /border-radius:\s*50%/);
+  assert.match(css, /linear-gradient\(145deg, #35d979 0%, #0d9e4b 100%\)/);
+  assert.match(css, /\.boot-progress-complete\[hidden\]\s*\{\s*display:\s*none/);
+});
