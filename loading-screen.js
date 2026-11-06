@@ -5,13 +5,18 @@
   if (!overlay) return;
   const sessionKey = "arisuFixHomepageLoadingShown";
   try {
-    if (window.sessionStorage.getItem(sessionKey) === "1") {
+    const cookieSeen = document.cookie.split(";").some(part => part.trim() === sessionKey + "=1");
+    const sessionSeen = window.sessionStorage.getItem(sessionKey) === "1";
+    if (cookieSeen || sessionSeen) {
       window.location.replace("/home");
       return;
     }
   } catch (error) {
-    window.location.replace("/home");
-    return;
+    const cookieSeen = document.cookie.split(";").some(part => part.trim() === sessionKey + "=1");
+    if (cookieSeen) {
+      window.location.replace("/home");
+      return;
+    }
   }
   const rows = [
     { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
@@ -95,6 +100,7 @@
     setProgress(100);
     finished = true;
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) {}
+    document.cookie = sessionKey + "=1; Max-Age=86400; Path=/; SameSite=Lax; Secure";
     footnote.textContent = rows.every(row => {
       const item = overlay.querySelector('[data-check="' + row.key + '"]');
       return item && item.dataset.state === "ok";
