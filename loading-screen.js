@@ -107,6 +107,7 @@
     const token = runId;
     isRunning = true;
     resetOverlay();
+    root.classList.remove("arisu-suppress-startup");
     root.classList.add("arisu-show-startup");
     (async () => {
       while (token === runId && progressValue < 99) {
