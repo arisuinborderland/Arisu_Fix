@@ -1,11 +1,11 @@
-AFV491 — Restore Loading Session Guard and Prevent Repeat Splash
+AFV491 — Correct Loading Lifecycle Detection
 
 ## AFV491
-- Root cause: AFV488 removed the original `arisuFixHomepageLoadingShown` session guard when extracting the splash into `loading.html`; AFV489 fixed the `/index.html` canonicalization loop but did not restore the guard. Because `/` always redirects to `/loading.html`, refreshing or re-entering the root route replayed the splash.
-- Restore the once-per-tab-session guard in the standalone loading script and set it before animation starts, so an interrupted splash, refresh, or viewport-mode reload cannot replay the sequence.
-- If session storage is unavailable, bypass the optional splash and continue to `/home` rather than risk a repeat loop.
+- Root cause: the AFV491 once-per-tab `sessionStorage` flag remained set after the user left the website. Returning to `/` in the same tab therefore bypassed the splash even though this was a new website visit.
+- Remove the sticky tab-session guard. Classify the current document navigation instead: show the splash for a fresh navigation, bypass it for a reload (including browser viewport-mode reloads), and bypass history restoration to avoid replaying a page restored from browser history/BFCache.
+- Retain a legacy Navigation Timing fallback for browsers that do not expose `PerformanceNavigationTiming`.
 - Preserve the AFV489 `/home` to generated `homepage.html` rewrite, existing loading visuals, startup checks, and exit transition.
-- Add regression coverage for session guard ordering, repeat-splash bypass, storage failure behavior, root routing, and synchronized release metadata.
+- Add regression coverage proving that a later fresh visit is not suppressed by stale session state, while reload and back/forward restoration remain bypassed.
 
 AFV490 — Remove Duplicate Story Viewer Empty-State Rules
 
