@@ -14,6 +14,9 @@ test('AFV489 uses a dedicated loading page and leaves the homepage free of the o
   assert.ok(html.includes('loading-screen-session-guard'));
   assert.ok(html.includes('sessionStorage.getItem("arisuFixHomepageLoadingShown")'));
   assert.ok(html.includes('window.location.replace("/home")'));
+  assert.ok(html.includes('loading-screen-session-guard'));
+  assert.ok(html.includes('sessionStorage.getItem("arisuFixHomepageLoadingShown")'));
+  assert.ok(html.includes('window.location.replace("/home")'));
   assert.ok(html.includes('/loading-screen.css?v=AFV489'));
   assert.ok(html.includes('/loading-screen.js?v=AFV488'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
