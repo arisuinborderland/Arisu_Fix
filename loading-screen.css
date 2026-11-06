@@ -1,4 +1,4 @@
-/* AFV495 — Visually isolated full-screen startup layer with a single-layer exit fade. */
+/* AFV496 — Keep visibility until the single-layer opacity fade has completed. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -13,11 +13,13 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity .42s ease-in, visibility 0s linear .42s;
 }
 #arisu-loading-screen.is-visible:not(.is-ready) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: none;
 }
 
 #arisu-loading-screen .boot-window {
@@ -139,13 +141,11 @@
 /* AFV426 — Instant loading-screen entrance; retain the existing exit fade. */
 #arisu-loading-screen.is-ready {
   animation: none;
-  transition: opacity .42s ease-in, visibility .42s ease-in;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
-/* AFV495 — Keep the card fully opaque within the single overlay fade.
-   A nested card fade caused the homepage beneath to show through twice, creating ghosting. */
+/* AFV496 — The base overlay delays visibility:hidden until after its opacity fade. */
 
 /* AFV379 follow-up — reveal initialization rows one at a time at a moderate pace. */
 #arisu-loading-screen .boot-log li[data-state="pending"] { display: none; }
