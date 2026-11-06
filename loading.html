@@ -6,9 +6,13 @@
   <meta name="theme-color" content="#EEF2FF">
   <meta name="robots" content="noindex, nofollow">
   <script id="loading-screen-session-guard">
-    try {
-      if (window.sessionStorage.getItem("arisuFixHomepageLoadingShown") === "1") window.location.replace("/home");
-    } catch (error) { window.location.replace("/home"); }
+    (() => {
+      const sessionKey = "arisuFixHomepageLoadingShown";
+      const cookieSeen = document.cookie.split(";").some(part => part.trim() === sessionKey + "=1");
+      let sessionSeen = false;
+      try { sessionSeen = window.sessionStorage.getItem(sessionKey) === "1"; } catch (error) {}
+      if (cookieSeen || sessionSeen) window.location.replace("/home");
+    })();
   </script>
   <title>Arisu Fix | Starting Up</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
