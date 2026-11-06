@@ -16,7 +16,8 @@ test('AFV489 uses a dedicated loading page and leaves the homepage free of the o
   assert.ok(html.includes('document.cookie.split(";")'));
   assert.ok(html.includes('window.location.replace("/home")'));
   assert.ok(html.includes('loading-screen-session-guard'));
-  assert.ok(html.includes('sessionStorage.getItem("arisuFixHomepageLoadingShown")'));
+  assert.ok(html.includes('sessionStorage.getItem(sessionKey)'));
+  assert.ok(html.includes('document.cookie.split(";")'), 'first-paint guard must recognize the persistent cookie fallback');
   assert.ok(html.includes('window.location.replace("/home")'));
   assert.ok(html.includes('/loading-screen.css?v=AFV489'));
   assert.ok(html.includes('/loading-screen.js?v=AFV488'));
