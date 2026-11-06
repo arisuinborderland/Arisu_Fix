@@ -6,8 +6,9 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV497 uses one uniform overlay fade without a nested card fade', () => {
+test('AFV497 keeps the card opaque while the background layer fades', () => {
   const css = read('loading-screen.css');
+  const html = read('index.html');
   const baseCss = css.split('/* Consolidated reduced-motion support for the standalone loading page. */')[0];
   const baseRule = baseCss.match(/#arisu-loading-screen\s*\{[^}]*\}/)?.[0] || '';
   const visibleRule = baseCss.match(/#arisu-loading-screen\.is-visible:not\(\.is-ready\)\s*\{[^}]*\}/)?.[0] || '';
@@ -30,7 +31,7 @@ test('AFV497 uses one uniform overlay fade without a nested card fade', () => {
 test('AFV497 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
-  assert.match(html, /loading-screen\.css\?v=AFV497&sessionguard=1&firstpaint=7/);
+  assert.match(html, /loading-screen\.css\?v=AFV497&sessionguard=1&firstpaint=8/);
   assert.match(html, /loading-screen\.js\?v=AFV491&sessionguard=3/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
   assert.match(js, /overlay\.remove\(\)/);
