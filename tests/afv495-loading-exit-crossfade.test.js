@@ -31,8 +31,8 @@ test('AFV499 keeps the card opaque while the background layer fades', () => {
 test('AFV499 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
-  assert.match(html, /loading-screen\.css\?v=AFV501&sessionguard=1&firstpaint=10/);
-  assert.match(html, /loading-screen\.js\?v=AFV501&sessionguard=4/);
+  assert.match(html, /loading-screen\.css\?v=AFV499&sessionguard=1&firstpaint=10/);
+  assert.match(html, /loading-screen\.js\?v=AFV499&sessionguard=4/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
   assert.match(js, /overlay\.remove\(\)/);
   assert.match(js, /await wait\(500\)/);
