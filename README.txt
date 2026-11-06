@@ -9,7 +9,7 @@ Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV491: restores the standalone loading page's once-per-tab-session guard. The session is marked before the animation starts, so refreshes or viewport-mode reloads bypass the splash and go directly to /home; storage failures also bypass the optional splash to prevent repeat loops. Preserves the AFV489 homepage rewrite and loading design.
+- AFV491: fixes the loading lifecycle root cause by removing the sticky tab-session flag that suppressed the splash after leaving and reopening the site. Fresh website navigations show the splash; reloads and browser history restorations bypass it. Includes a legacy Navigation Timing fallback and preserves the AFV489 homepage rewrite and loading design.
 - AFV490: removes the duplicate Story Viewer empty-state hidden-controls and Done-button active-state CSS rules, preserving one authoritative copy of each. Refreshes the Story Viewer stylesheet cache key across all five public pages and adds focused regression coverage.
 - AFV489: fixes the standalone loading loop by routing /home to a generated homepage.html copy instead of /index.html, avoiding Cloudflare Pages' automatic /index.html-to-/ canonicalization from re-triggering the root loading redirect. The build generates the copy from the final header-injected homepage so both stay synchronized; adds regression coverage.
 - AFV486: removes obsolete WhatsApp card CSS selectors for a removed supporting paragraph and a removed nested recommendation-label span. The current markup uses only the kicker, heading, SVG recommendation bolt, and CTA; preserves all active icon, card, button, animation, and responsive rules.
