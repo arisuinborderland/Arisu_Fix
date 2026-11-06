@@ -859,3 +859,78 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
     animation: arcStoriesHaloPulse 2.1s ease-in-out infinite !important;
   }
 }
+
+
+/* AFV503 refinement 3: let the full transparent logo artwork extend beyond
+   the fixed circular avatar frame without changing any navigation geometry.
+   The 36px wrapper remains the layout box; only its image is enlarged. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories {
+    position: relative !important;
+    z-index: 4 !important;
+    overflow: visible !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    position: relative !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 54px !important;
+    min-width: 54px !important;
+    max-width: none !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: none !important;
+    transform: translate(-50%, -50%) !important;
+    transform-origin: center !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    box-sizing: border-box !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar::after {
+    z-index: 2 !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-count {
+    position: absolute !important;
+    z-index: 4 !important;
+  }
+}
