@@ -18,8 +18,11 @@ test('bottom navigation suppresses context menus and drag actions without removi
 });
 
 
-test('bottom Contact navigation uses a dedicated solid WhatsApp brand icon', () => {
-  assert.match(html, /class="whatsapp-nav-icon" viewBox="0 0 24 24"/);
-  assert.match(html, /aria-label="Contact Arisu"><svg class="whatsapp-nav-icon"[\s\S]*?<span>Contact<\/span><\/a>/);
-  assert.match(css, /mobile-nav-item svg\.whatsapp-nav-icon[\s\S]*?fill: currentColor;[\s\S]*?stroke: none;/);
+test('bottom navigation uses the permanent More control', () => {
+  const nav = html.match(/<nav class="mobile-bottom-nav"[\\s\\S]*?<\\/nav>/)?.[0] || '';
+  assert.match(nav, /<button class="mobile-nav-item mobile-nav-more" type="button" aria-label="More options"/);
+  assert.doesNotMatch(nav, /aria-label="Contact Arisu"|<span>Contact<\\/span>/);
+  const moreMenu = fs.readFileSync(path.join(root, 'more-menu.js'), 'utf8');
+  assert.match(moreMenu, /nav\\.querySelector\\('button\\.mobile-nav-more/);
+  assert.doesNotMatch(moreMenu, /contactLink|replaceWith\\(moreButton\\)|createElement\\('button'\\)/);
 });
