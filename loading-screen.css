@@ -131,6 +131,12 @@
   #arisu-loading-screen .boot-log { font-size: 10px; }
 }
 
+/* AFV500 — Prevent touch pull-to-refresh while the first-load overlay is active. */
+html.arisu-loading-first-run,
+html.arisu-loading-active {
+  overscroll-behavior-y: none;
+}
+
 /* AFV378 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
 #arisu-loading-screen {
   will-change: opacity, backdrop-filter;
