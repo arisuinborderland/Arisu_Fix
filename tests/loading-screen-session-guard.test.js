@@ -64,7 +64,7 @@ test('AFV491 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '491.0.0');
   assert.equal(lock.packages[''].version, '491.0.0');
   assert.ok(readme.includes('Current release: AFV491'));
-  assert.ok(history.includes('AFV491 — Correct loading lifecycle detection'));
+  assert.ok(history.includes('AFV491 — Correct Loading Lifecycle Detection'));
   assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
   assert.ok(history.includes('AFV488 — Standalone Loading Page and Root Startup Route'));
 });
