@@ -1369,3 +1369,5 @@ AFV261 — 2026-10-23
 AFV300 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.
 
 - AFV503 follow-up: remove the image-level circular border/radius from the Stories PNG and render the transparent artwork with centered `object-fit: contain`, matching the AFV502 header logo treatment; keep the circular frame and halo on the wrapper, and refresh all five page cache keys.
+
+- AFV503 artwork sizing follow-up: render the transparent Stories logo at 54×54px, centered with absolute positioning over the unchanged 36×36px avatar wrapper; preserve the circular frame, halo, badge stacking, and five-page navigation geometry.
