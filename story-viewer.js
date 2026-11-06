@@ -357,7 +357,9 @@
       mobileStoriesCount.setAttribute('aria-label', `${cachedCount} available stories`);
       mobileStoriesCount.dataset.countCache = 'browser-storage';
       setCountLoading(false);
-    } else {
+    } else if (!countHasUsableValue) {
+      // Do not replace a count already supplied by the Stories-list fallback
+      // with a loading state when browser storage is unavailable or empty.
       setCountLoading(true);
     }
     return cachedCount;
@@ -410,6 +412,7 @@
       if (mobileStoriesCount && !countLoaded && !countHasUsableValue) {
         mobileStoriesCount.textContent = String(stories.length);
         countHasUsableValue = true;
+        saveCachedCount(stories.length);
         mobileStoriesCount.setAttribute('aria-label', `${stories.length} available stories`);
         setCountLoading(false);
       }
