@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV491 standalone loading page keeps the one-time session guard before startup work', () => {
+test('AFV491 shows startup on fresh navigation but bypasses reload and history restoration', () => {
   const html = read('loading.html');
   const js = read('loading-screen.js');
   const home = read('index.html');
@@ -20,15 +20,14 @@ test('AFV491 standalone loading page keeps the one-time session guard before sta
   assert.ok(!home.includes('loading-screen.css'));
   assert.ok(!home.includes('loading-screen.js'));
 
-  const storageRead = js.indexOf('window.sessionStorage.getItem(sessionKey)');
-  const storageWrite = js.indexOf('window.sessionStorage.setItem(sessionKey, "1")');
-  const startupWork = js.indexOf('const rows = [');
-  assert.ok(storageRead >= 0 && storageWrite > storageRead);
-  assert.ok(startupWork > storageWrite, 'session must be marked before startup animation begins');
-  assert.ok(js.includes('const sessionKey = "arisuFixHomepageLoadingShown"'));
-  assert.ok(js.includes('if (alreadyShown)'));
-  assert.ok(js.includes('window.location.replace("/home")'));
-  assert.ok(js.includes('catch (error)'), 'blocked storage must bypass the splash instead of repeating it');
+  assert.ok(js.includes('getEntriesByType("navigation")'));
+  assert.ok(js.includes('navigationType === "reload"'));
+  assert.ok(js.includes('navigationType === "back_forward"'));
+  assert.ok(js.includes('navigationType = navigationEntry'));
+  assert.doesNotMatch(js, /sessionStorage|arisuFixHomepageLoadingShown/,
+    'a sticky tab-session flag must not suppress a later fresh website visit');
+  assert.ok(js.indexOf('navigationType === "reload"') < js.indexOf('const rows = ['),
+    'navigation classification must happen before startup animation begins');
 });
 
 test('AFV491 root route and homepage rewrite avoid the previous canonical redirect loop', () => {
@@ -41,14 +40,14 @@ test('AFV491 root route and homepage rewrite avoid the previous canonical redire
   assert.ok(build.includes('expected.push("homepage.html")'));
 });
 
-test('AFV491 startup script preserves the existing checks and exits without polling reloads', () => {
+test('AFV491 startup script preserves existing checks and exits without forced reload loops', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('document.readyState !== "loading"'));
   assert.ok(js.includes('row.key === "styles" && document.readyState !== "complete"'));
   assert.ok(js.includes('link[rel="stylesheet"]'));
   assert.ok(js.includes('window.location.replace("/home")'));
-  assert.doesNotMatch(js, /location\.(reload|assign)\s*\(/, 'startup must not force a page reload or assign loop');
-  assert.doesNotMatch(js, /setInterval\s*\(/, 'startup must not poll by repeatedly navigating');
+  assert.doesNotMatch(js, /location\.(reload|assign)\s*\(/);
+  assert.doesNotMatch(js, /setInterval\s*\(/);
   const css = read('loading-screen.css');
   assert.ok(css.includes('arisu-loading-card-fade-out'));
   assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'));
@@ -65,7 +64,7 @@ test('AFV491 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '491.0.0');
   assert.equal(lock.packages[''].version, '491.0.0');
   assert.ok(readme.includes('Current release: AFV491'));
-  assert.ok(history.includes('AFV491 — Restore Loading Session Guard and Prevent Repeat Splash'));
+  assert.ok(history.includes('AFV491 — Correct loading lifecycle detection'));
   assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
   assert.ok(history.includes('AFV488 — Standalone Loading Page and Root Startup Route'));
 });
