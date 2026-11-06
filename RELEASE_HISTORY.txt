@@ -1,3 +1,11 @@
+AFV502 — Joker Card Loading Screen Background
+
+- Add the optimized 864 × 1536 Joker card WebP as the full-screen loading-screen background at `assets/loading-screen/joker-background.webp`.
+- Keep the existing loading card, labels, progress indicator, startup checks, first-paint guard, 3.5-second minimum startup timing, and 440ms exit fade unchanged.
+- Use a subtle dark wash over the image for contrast while preserving the artwork's red laser details.
+- Refresh only the loading-screen stylesheet cache token; retain the existing loading JavaScript token.
+- Preserve the responsive layout and all unrelated homepage behavior.
+
 AFV499 — Delay Homepage Reveal Until Loading Fade Completes
 
 - Keep `arisu-loading-first-run` active while the loading overlay performs its 420ms exit transition.
