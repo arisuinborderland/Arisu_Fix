@@ -1,3 +1,12 @@
+AFV492 — Restore Approved Mobile Homepage UI Details
+
+## AFV492
+- Restore the AFV479 mobile Daily Bible Verse top offset to 2px.
+- Restore the AFV482 compact mobile Let's Connect headset tile (41×41px / 24×24px glyph; narrow screens 39×39px / 23×23px).
+- Restore the AFV483 filled official WhatsApp glyph in both homepage locations and the approved mobile icon sizing.
+- Keep AFV491 loading-screen/CSP changes and desktop icon geometry unchanged.
+- Add focused regression coverage and refresh the homepage stylesheet cache token.
+
 AFV489 — Fix Standalone Loading Redirect Loop
 
 ## AFV489

@@ -35,10 +35,10 @@ test('AFV490 release metadata is synchronized', () => {
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '491.0.0');
-  assert.equal(lock.version, '491.0.0');
-  assert.equal(lock.packages[''].version, '491.0.0');
-  assert.ok(readme.includes('Current release: AFV490'));
+  assert.equal(pkg.version, '492.0.0');
+  assert.equal(lock.version, '492.0.0');
+  assert.equal(lock.packages[''].version, '492.0.0');
+  assert.ok(readme.includes('Current release: AFV492'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
 });
 
