@@ -24,6 +24,9 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
   assert.ok(home.includes('const tabKey = "arisuFixTabId"'));
   assert.ok(home.includes('window.name.startsWith(prefix)'));
   assert.ok(home.includes('sessionStorage.removeItem(key)'));
+  assert.ok(home.includes('const navigation = performance.getEntriesByType("navigation")[0]'));
+  assert.ok(home.includes('const isNewDocumentVisit = navigationType === "navigate" || navigationType === "back_forward"'));
+  assert.ok(home.includes('if (!sessionStorage.getItem(key) || isNewDocumentVisit)'));
   assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
   assert.ok(home.includes('loading-screen.css?v=AFV492'));
   assert.ok(home.includes('loading-screen.js?v=AFV492'));
@@ -36,8 +39,9 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
 
 test('AFV492 suppresses replay on refresh and browser-initiated viewport-mode reloads', () => {
   const home = read('index.html');
-  assert.ok(home.includes('if (!sessionStorage.getItem(key))'));
-  assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
+  assert.ok(home.includes('navigationType === "navigate" || navigationType === "back_forward"'));
+  assert.ok(home.includes('if (!sessionStorage.getItem(key) || isNewDocumentVisit)'));
+  assert.ok(home.includes('const isNewDocumentVisit = navigationType === "navigate" || navigationType === "back_forward"'));
 });
 
 test('AFV492 replays the in-place overlay when the existing tab returns from background or BFCache', () => {
