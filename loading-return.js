@@ -19,6 +19,7 @@
         : "navigate";
 
   let redirectingToStartup = false;
+  let hasBeenVisible = document.visibilityState === "visible";
 
   function clearMarker() {
     try {
@@ -29,7 +30,7 @@
   }
 
   function markPageHidden() {
-    if (redirectingToStartup) return;
+    if (redirectingToStartup || !hasBeenVisible) return;
     try {
       window.sessionStorage.setItem(markerKey, "1");
     } catch (error) {
@@ -61,7 +62,10 @@
   window.addEventListener("pagehide", markPageHidden);
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") markPageHidden();
-    else returnToStartupIfNeeded();
+    else {
+      hasBeenVisible = true;
+      returnToStartupIfNeeded();
+    }
   });
   window.addEventListener("pageshow", event => {
     if (event.persisted) returnToStartupIfNeeded();
