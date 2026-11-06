@@ -24,7 +24,7 @@
   const track = screen.querySelector(".boot-progress-track");
   const footnote = screen.querySelector(".boot-footnote");
   if (!progress || !progressText || !track || !footnote) {
-    window.location.replace("/index.html");
+    window.location.replace("/home");
     return;
   }
 
@@ -88,7 +88,7 @@
     }) ? "Startup checks complete · opening homepage" : "Startup page ready · opening homepage";
     screen.classList.add("is-ready");
     await wait(440);
-    window.location.replace("/index.html");
+    window.location.replace("/home");
   }
 
   const progressTask = (async () => {
@@ -97,6 +97,6 @@
       await wait(28);
     }
   })();
-  runSequence().catch(() => window.location.replace("/index.html"));
+  runSequence().catch(() => window.location.replace("/home"));
   progressTask.catch(() => {});
 })();
