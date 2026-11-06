@@ -570,11 +570,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-card{
   margin:0 auto!important;padding:0!important;overflow:visible!important;
   border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
 }
-html body .story-viewer.story-viewer-empty-open .story-viewer-progress-track,
-html body .story-viewer.story-viewer-empty-open .story-viewer-meta,
-html body .story-viewer.story-viewer-empty-open .story-viewer-caption,
-html body .story-viewer.story-viewer-empty-open .story-viewer-image,
-html body .story-viewer.story-viewer-empty-open .story-viewer-nav{display:none!important}
+
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty{
   position:relative!important;inset:auto!important;transform:none!important;
   display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
@@ -643,7 +639,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:before{
   font:700 17px Arial,sans-serif!important;line-height:1!important;
 }
 html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:hover{filter:brightness(1.05)!important}
-html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done:active{transform:scale(.985)!important}
+
 html body .story-viewer.story-viewer-empty-open .story-viewer-close{
   position:absolute!important;top:20px!important;right:20px!important;left:auto!important;bottom:auto!important;z-index:8!important;
   display:grid!important;place-items:center!important;width:48px!important;min-width:48px!important;height:48px!important;min-height:48px!important;
@@ -681,9 +677,7 @@ html body .story-viewer.story-viewer-empty-open .story-viewer-close span{display
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty p{font-size:15px!important;line-height:1.4!important;margin-bottom:15px!important}
  html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{min-height:46px!important}
 }
-@media(prefers-reduced-motion:reduce){
- html body .story-viewer.story-viewer-empty-open .story-viewer-empty-done{transition:none!important}
-}
+
 
 /* AFV389: consolidated Recovery Stories empty-state reference styling.
    Keep the approved compact mobile layout and Image 2 glass-card treatment in one place. */
