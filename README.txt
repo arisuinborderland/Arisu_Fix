@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV491
+Version: AFV492
 Updated: 2026-11-06
 
-Current release: AFV491
-Package version: 491.0.0
+Current release: AFV492
+Package version: 492.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV492: detects homepage return after the tab/app is hidden or the page is restored from browser history, then routes through the startup screen again. Ordinary refresh and viewport-mode reloads clear stale return markers and bypass the splash. Adds focused lifecycle regression coverage.
 - AFV491: fixes the loading lifecycle root cause by removing the sticky tab-session flag that suppressed the splash after leaving and reopening the site. Fresh website navigations show the splash; reloads and browser history restorations bypass it. Includes a legacy Navigation Timing fallback and preserves the AFV489 homepage rewrite and loading design.
 - AFV490: removes the duplicate Story Viewer empty-state hidden-controls and Done-button active-state CSS rules, preserving one authoritative copy of each. Refreshes the Story Viewer stylesheet cache key across all five public pages and adds focused regression coverage.
 - AFV489: fixes the standalone loading loop by routing /home to a generated homepage.html copy instead of /index.html, avoiding Cloudflare Pages' automatic /index.html-to-/ canonicalization from re-triggering the root loading redirect. The build generates the copy from the final header-injected homepage so both stay synchronized; adds regression coverage.
