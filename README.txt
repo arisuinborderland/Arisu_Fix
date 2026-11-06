@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV499
+Version: AFV500
 Updated: 2026-11-06
 
-Current release: AFV499
-Package version: 499.0.0
+Current release: AFV500
+Package version: 500.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV500: uses the exact shared-header profile image for the Stories avatar across all five public pages while preserving the existing avatar dimensions, circular crop, glow/ring animation, notification badge, and bottom-navigation layout. Updates the Stories avatar regression expectations and synchronizes release metadata/cache-busting tokens.
 - AFV499: keeps the first-paint homepage visibility guard active throughout the loading exit fade; reveals homepage only after the 420ms overlay transition completes, preventing homepage content from appearing behind the fading card.
 - AFV499: fixes the final loading-screen flash by fading the card surface, card contents, and full-screen wash as separate synchronized layers. Prevents the white card from remaining visible until abrupt DOM removal; preserves startup checks, progress, the 500ms completion hold, and 440ms removal timing.
 - AFV497: isolated the full-screen background fade and removed translucent card/first-paint compositing that exposed the homepage underneath. This was an intermediate correction; AFV499 additionally fades the card surface itself to prevent the final white-card pop.
