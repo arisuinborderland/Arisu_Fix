@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV489
+Version: AFV490
 Updated: 2026-11-06
 
-Current release: AFV489
-Package version: 489.0.0
+Current release: AFV490
+Package version: 490.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV490: restores the AFV487 same-document loading overlay while keeping loading CSS and JavaScript separate; removes the standalone loading-page redirect that could replay during browser mode switches.
 - AFV489: fixes the standalone loading loop by routing /home to a generated homepage.html copy instead of /index.html, avoiding Cloudflare Pages' automatic /index.html-to-/ canonicalization from re-triggering the root loading redirect. The build generates the copy from the final header-injected homepage so both stay synchronized; adds regression coverage.
 - AFV486: removes obsolete WhatsApp card CSS selectors for a removed supporting paragraph and a removed nested recommendation-label span. The current markup uses only the kicker, heading, SVG recommendation bolt, and CTA; preserves all active icon, card, button, animation, and responsive rules.
 - AFV485: removes obsolete Daily Bible Verse system-theme styling, duplicate scenic-background declarations, and disabled pseudo-element rules. Preserves the approved scenic WebP card, desktop/mobile dimensions, image crop, typography, and spacing; adds focused regression coverage.

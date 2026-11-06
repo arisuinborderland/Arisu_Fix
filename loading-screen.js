@@ -1,101 +1,132 @@
 "use strict";
-/* AFV488 — Standalone startup page; redirect to the homepage after splash checks. */
+/* AFV411 — Session-guarded loading screen with first-paint visibility and scroll lock. */
 (() => {
-  const screen = document.getElementById("arisu-loading-screen");
-  if (!screen) return;
+  const overlay = document.getElementById("arisu-loading-screen");
+  if (!overlay) return;
 
-  const rows = [
-    { key: "dom", message: "Preparing startup page", check: () => document.readyState !== "loading" },
-    { key: "styles", message: "Checking startup stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
-    { key: "final", message: "Opening Arisu Fix homepage", check: () => document.readyState === "complete" }
-  ];
-  rows.forEach(row => {
-    const element = screen.querySelector('[data-check="' + row.key + '"]');
-    if (!element) return;
-    element.dataset.state = "pending";
-    const mark = element.querySelector(".boot-mark");
-    const status = element.querySelector(".boot-status");
-    if (mark) mark.textContent = "○";
-    if (status) status.textContent = "WAIT";
-  });
-
-  const progress = screen.querySelector(".boot-progress-fill");
-  const progressText = screen.querySelector(".boot-progress-value");
-  const track = screen.querySelector(".boot-progress-track");
-  const footnote = screen.querySelector(".boot-footnote");
-  if (!progress || !progressText || !track || !footnote) {
-    window.location.replace("/home");
+  // Show once per tab session. Mark completion only after the loading sequence finishes.
+  const sessionKey = "arisuFixHomepageLoadingShown";
+  try {
+    if (window.sessionStorage.getItem(sessionKey) === "1") {
+      overlay.remove();
+      return;
+    }
+  } catch (error) {
+    // Fail closed: if session storage is unavailable, keep the homepage usable without the optional overlay.
+    overlay.remove();
     return;
   }
 
-  let progressValue = 0;
+  // Lock background scrolling while the fixed loading overlay is active.
+  document.documentElement.classList.add("arisu-loading-active");
+
+  // The first-paint guard decides visibility before the stylesheet is painted.
+  overlay.classList.add("is-visible");
+
+  const rows = [
+    { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
+    { key: "styles", message: "Verifying page styles", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
+    { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
+  ];
+  // Keep upcoming checks hidden so each line appears only when its turn begins.
+  rows.forEach(row => {
+    const element = overlay.querySelector('[data-check="' + row.key + '"]');
+    if (element) {
+      element.dataset.state = "pending";
+      element.querySelector(".boot-mark").textContent = "○";
+      element.querySelector(".boot-status").textContent = "WAIT";
+    }
+  });
+
+  const progress = overlay.querySelector(".boot-progress-fill");
+  const progressText = overlay.querySelector(".boot-progress-value");
+  const track = overlay.querySelector(".boot-progress-track");
+  const footnote = overlay.querySelector(".boot-footnote");
   let finished = false;
-  const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
+  let progressValue = 0;
+
+  const wait = (ms) => new Promise(resolve => window.setTimeout(resolve, ms));
+  const waitForLoad = () => document.readyState === "complete"
+    ? Promise.resolve()
+    : new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
+
+  function mark(row, ok, detail) {
+    const element = overlay.querySelector('[data-check="' + row.key + '"]');
+    if (!element) return;
+    element.dataset.state = ok ? "ok" : "error";
+    element.querySelector(".boot-mark").textContent = ok ? ">" : "!";
+    element.querySelector(".boot-status").textContent = ok ? "200 OK" : "CHECK";
+    if (detail) element.querySelector(".boot-message").textContent = detail;
+  }
 
   function setProgress(value) {
     progressValue = value;
     progress.style.width = value + "%";
     progressText.textContent = value + "%";
-    track.setAttribute("aria-valuenow", String(value));
+    if (track) track.setAttribute("aria-valuenow", String(value));
+  }
+
+  async function countProgress() {
+    // Count every integer in order. Hold at 99% until the real checks finish.
+    while (progressValue < 99 && !finished) {
+      setProgress(progressValue + 1);
+      await wait(30);
+    }
   }
 
   async function typeMessage(element, message) {
     const target = element.querySelector(".boot-message");
-    const mark = element.querySelector(".boot-mark");
-    const status = element.querySelector(".boot-status");
-    if (!target || !mark || !status) return;
     target.textContent = "";
-    mark.textContent = "›";
-    status.textContent = "RUN";
+    element.querySelector(".boot-mark").textContent = "›";
     element.dataset.state = "running";
-    for (const character of message) {
-      target.textContent += character;
-      await wait(16);
+    element.querySelector(".boot-status").textContent = "RUN";
+    for (let i = 0; i < message.length; i += 1) {
+      target.textContent += message[i];
+      await wait(20);
     }
   }
 
   async function runSequence() {
+    const progressTask = countProgress();
     for (const row of rows) {
-      const element = screen.querySelector('[data-check="' + row.key + '"]');
+      const element = overlay.querySelector('[data-check="' + row.key + '"]');
       if (!element) continue;
       await typeMessage(element, row.message);
-      await wait(120);
-      if (row.key === "styles" && document.readyState !== "complete") {
-        await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
-      }
+      await wait(180);
+      // Do not report success until the browser has completed loading the page resources.
+      await waitForLoad();
       const ok = row.check();
-      element.dataset.state = ok ? "ok" : "error";
-      const mark = element.querySelector(".boot-mark");
-      const status = element.querySelector(".boot-status");
-      if (mark) mark.textContent = ok ? ">" : "!";
-      if (status) status.textContent = ok ? "200 OK" : "CHECK";
-      const message = element.querySelector(".boot-message");
-      if (message) message.textContent = row.message;
+      mark(row, ok, row.message);
+      // Show 100% with the final 200 OK, then hold briefly before fading out.
       if (row.key === "final") {
         setProgress(100);
-        await wait(350);
+        await wait(500);
       } else {
-        await wait(120);
+        await wait(180);
       }
     }
-    if (finished) return;
-    finished = true;
+
+    await progressTask;
     setProgress(100);
+    finished = true;
+    // Persist completion only after all loading checks have finished.
+    try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue if storage becomes unavailable. */ }
+
     footnote.textContent = rows.every(row => {
-      const element = screen.querySelector('[data-check="' + row.key + '"]');
+      const element = overlay.querySelector('[data-check="' + row.key + '"]');
       return element && element.dataset.state === "ok";
-    }) ? "Startup checks complete · opening homepage" : "Startup page ready · opening homepage";
-    screen.classList.add("is-ready");
-    await wait(440);
-    window.location.replace("/home");
+    }) ? "Initialization complete · opening homepage" : "Homepage ready with a resource warning";
+
+    window.requestAnimationFrame(() => {
+      overlay.classList.add("is-ready");
+      document.documentElement.classList.remove("arisu-loading-first-run");
+      overlay.setAttribute("aria-hidden", "true");
+      window.setTimeout(() => {
+        document.documentElement.classList.remove("arisu-loading-active");
+        overlay.remove();
+      }, 440);
+    });
   }
 
-  const progressTask = (async () => {
-    while (progressValue < 99 && !finished) {
-      setProgress(progressValue + 1);
-      await wait(28);
-    }
-  })();
-  runSequence().catch(() => window.location.replace("/home"));
-  progressTask.catch(() => {});
+  runSequence();
 })();
