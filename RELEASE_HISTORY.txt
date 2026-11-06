@@ -1,3 +1,11 @@
+AFV495 — Remove Loading Screen Exit Ghosting
+
+## AFV495
+- Remove the nested boot-window opacity/translate animation during exit; retain the single 420ms overlay fade.
+- Prevent the homepage underneath from bleeding through the loading card at a faster rate, which caused the apparent flash/rapid expansion in the final frames.
+- Preserve loading-screen layout, dimensions, startup checks, progress behavior, exit duration, first-paint guard, and mobile/desktop rules.
+- Add focused regression coverage and refresh the loading stylesheet cache token.
+
 AFV494 — Permanent More Bottom Navigation
 
 ## AFV494
