@@ -11,7 +11,7 @@ test('AFV494 uses a dedicated loading page and leaves the homepage free of the o
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
-  assert.ok(html.includes('/loading-screen.css?v=AFV494'));
+  assert.ok(html.includes('/loading-screen.css?v=AFV489'), 'unchanged loading CSS keeps its existing cache version');
   assert.ok(html.includes('/loading-screen.js?v=AFV494'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
@@ -51,7 +51,7 @@ test('AFV494 standalone script performs splash-page checks then opens the homepa
   assert.ok(css.includes('#arisu-loading-screen .boot-status { padding: 2px 5px; }'), 'status pill padding remains unchanged after removing the superseded breakpoint block');
 });
 
-test('AFV494 release metadata stays synchronized and historical milestones remain', () => {
+test('AFV489 release metadata stays synchronized and historical milestones remain', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
@@ -59,9 +59,9 @@ test('AFV494 release metadata stays synchronized and historical milestones remai
   assert.equal(pkg.version, '489.0.0');
   assert.equal(lock.version, '489.0.0');
   assert.equal(lock.packages[''].version, '489.0.0');
-  assert.ok(readme.includes('Current release: AFV494'));
+  assert.ok(readme.includes('Current release: AFV489'), 'targeted loading bootstrap fix does not change the package release metadata');
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.includes('AFV494 — Fix Standalone Loading Redirect Loop'));
+  assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
