@@ -31,13 +31,16 @@ test('AFV489 root redirect is exact and does not intercept direct homepage acces
   assert.ok(build.includes('expected.push("homepage.html")'));
 });
 
-test('AFV489 standalone script performs splash-page checks then opens the homepage through /home', () => {
+test('AFV490 allows only one automatic navigation after startup', () => {
   const js = read('loading-screen.js');
-  assert.ok(js.includes('document.readyState !== "loading"'));
-  assert.ok(!js.includes('waitForLoad'), 'load readiness should be awaited only once');
-  assert.ok(js.includes('row.key === "styles" && document.readyState !== "complete"'));
-  assert.ok(js.includes("link[rel=\"stylesheet\"]"));
-  assert.ok(js.includes('window.location.replace("/home")'));
+  assert.ok(js.includes('let navigationStarted = false;'));
+  assert.ok(js.includes('function openHomepageOnce()'));
+  assert.ok(js.includes('if (navigationStarted) return;'));
+  assert.equal((js.match(/window\.location\.replace\("\/home"\)/g) || []).length, 1,
+    'all automatic exit paths must use the same one-shot navigation guard');
+  assert.ok(js.includes('runSequence().catch(openHomepageOnce);'));
+  assert.doesNotMatch(js, /location\.reload\s*\(|history\.go\s*\(/,
+    'the loading flow must not trigger a browser reload');
   assert.ok(!js.includes('window.location.replace("/index.html")'));
   assert.ok(!js.includes('sessionStorage'));
   assert.ok(!js.includes('arisuFixHomepageLoadingShown'));
