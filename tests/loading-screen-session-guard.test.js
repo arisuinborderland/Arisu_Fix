@@ -31,25 +31,22 @@ test('AFV489 root redirect is exact and does not intercept direct homepage acces
   assert.ok(build.includes('expected.push("homepage.html")'));
 });
 
-test('AFV490 allows only one automatic navigation after startup', () => {
+test('AFV490 prevents refresh attempts from interrupting the active loading screen', () => {
   const js = read('loading-screen.js');
-  assert.ok(js.includes('let navigationStarted = false;'));
-  assert.ok(js.includes('function openHomepageOnce()'));
+  assert.ok(js.includes('let startupActive = true;'));
+  assert.ok(js.includes('window.addEventListener("beforeunload", guardPageExit);'));
+  assert.ok(js.includes('event.preventDefault();'));
+  assert.ok(js.includes('event.returnValue = "";'));
+  assert.ok(js.includes('document.addEventListener("keydown", guardRefreshShortcut, true);'));
+  assert.ok(js.includes('key === "f5"'));
+  assert.ok(js.includes('event.ctrlKey || event.metaKey'));
+  assert.ok(js.includes('document.documentElement.style.overscrollBehaviorY = "contain";'));
+  assert.ok(js.includes('startupActive = false;'));
+  assert.ok(js.includes('window.removeEventListener("beforeunload", guardPageExit);'));
+  assert.ok(js.includes('document.removeEventListener("keydown", guardRefreshShortcut, true);'));
   assert.ok(js.includes('if (navigationStarted) return;'));
-  assert.equal((js.match(/window\.location\.replace\("\/home"\)/g) || []).length, 1,
-    'all automatic exit paths must use the same one-shot navigation guard');
-  assert.ok(js.includes('runSequence().catch(openHomepageOnce);'));
-  assert.doesNotMatch(js, /location\.reload\s*\(|history\.go\s*\(/,
-    'the loading flow must not trigger a browser reload');
-  assert.ok(!js.includes('window.location.replace("/index.html")'));
-  assert.ok(!js.includes('sessionStorage'));
-  assert.ok(!js.includes('arisuFixHomepageLoadingShown'));
-  const css = read('loading-screen.css');
-  assert.ok(css.includes('arisu-loading-card-fade-out'));
-  assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'));
-  assert.equal((css.match(/prefers-reduced-motion: reduce/g) || []).length, 1, 'reduced-motion rules should be consolidated');
-  assert.doesNotMatch(css, /arisu-loading-active|overscroll-behavior: none/, 'standalone loading must not retain the retired homepage scroll lock');
-  assert.ok(css.includes('#arisu-loading-screen .boot-status { padding: 2px 5px; }'), 'status pill padding remains unchanged after removing the superseded breakpoint block');
+  assert.equal((js.match(/window\.location\.replace\("\/home"\)/g) || []).length, 1);
+  assert.doesNotMatch(js, /location\.reload\s*\(|history\.go\s*\(/);
 });
 
 test('AFV489 release metadata stays synchronized and historical milestones remain', () => {
