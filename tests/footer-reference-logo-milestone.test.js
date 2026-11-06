@@ -27,8 +27,8 @@ test('All shared-footer pages use the official shared-header logo asset', () => 
 test('AFV503 removes obsolete nested-image logo selectors', () => {
   const baseCss = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
   const sharedHeaderCss = fs.readFileSync(path.join(root, 'site-header.css'), 'utf8');
-  assert.doesNotMatch(baseCss, /\\.profile-logo\\s+img\\s*\\{/);
-  assert.doesNotMatch(sharedHeaderCss, /a\\.brand>\\.logo\\s+img\\s*\\{/);
+  assert.equal(baseCss.includes('.profile-logo img{'), false);
+  assert.equal(sharedHeaderCss.includes('>.logo img {'), false);
 });
 
 test('AFV502 shared header logo renders the full transparent artwork without clipping', () => {
