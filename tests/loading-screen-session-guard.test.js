@@ -23,17 +23,18 @@ test('AFV488 uses a dedicated loading page and leaves the homepage free of the o
 
 test('AFV488 root redirect is exact and does not intercept direct homepage access', () => {
   const redirects = read('_redirects').trim().split(/\r?\n/);
-  assert.deepEqual(redirects, ['/ /loading.html 302']);
+  assert.deepEqual(redirects, ['/home /index.html 200', '/ /loading.html 302']);
   const build = read('build.js');
   assert.ok(build.includes('"loading.html"'));
   assert.ok(build.includes('"_redirects"'));
 });
 
-test('AFV488 standalone script performs splash-page checks then replaces location with index.html', () => {
+test('AFV488 standalone script performs splash-page checks then opens the homepage through /home', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('document.readyState !== "loading"'));
   assert.ok(js.includes("link[rel=\"stylesheet\"]"));
-  assert.ok(js.includes('window.location.replace("/index.html")'));
+  assert.ok(js.includes('window.location.replace("/home")'));
+  assert.ok(!js.includes('window.location.replace("/index.html")'));
   assert.ok(!js.includes('sessionStorage'));
   assert.ok(!js.includes('arisuFixHomepageLoadingShown'));
   const css = read('loading-screen.css');
