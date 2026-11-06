@@ -35,7 +35,7 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV474&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV479&shared=1',page+' must load shared header stylesheet last');}
 });
 test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
  const partial = read('partials/site-header.html');
@@ -258,4 +258,12 @@ test('Shared logo wrapper and image keep matching circular clipping at desktop a
   assert.match(mobileLogo[1], /border-radius:50%!important/);
   assert.match(mobileLogo[1], /aspect-ratio:1\/1!important/);
   assert.doesNotMatch(mobileLogo[1], /border-radius:14px/);
+});
+
+
+test('AFV479 shared header keeps overflow visible in its single authoritative shell rule', () => {
+  const shell = css.match(/html body header\\.topbar\\.site-header \\{([^}]*)\\}/);
+  assert.ok(shell, 'shared header shell rule must exist');
+  assert.match(shell[1], /overflow:visible!important/);
+  assert.doesNotMatch(css, /AFV469 — Prevent the shared header from clipping the top edge/);
 });
