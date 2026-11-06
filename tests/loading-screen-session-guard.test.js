@@ -34,6 +34,8 @@ test('AFV489 root redirect is exact and does not intercept direct homepage acces
 test('AFV489 standalone script performs splash-page checks then opens the homepage through /home', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('document.readyState !== "loading"'));
+  assert.ok(!js.includes('waitForLoad'), 'load readiness should be awaited only once');
+  assert.ok(js.includes('row.key === "styles" && document.readyState !== "complete"'));
   assert.ok(js.includes("link[rel=\"stylesheet\"]"));
   assert.ok(js.includes('window.location.replace("/home")'));
   assert.ok(!js.includes('window.location.replace("/index.html")'));

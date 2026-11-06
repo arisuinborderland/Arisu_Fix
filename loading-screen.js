@@ -31,9 +31,6 @@
   let progressValue = 0;
   let finished = false;
   const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
-  const waitForLoad = () => document.readyState === "complete"
-    ? Promise.resolve()
-    : new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
 
   function setProgress(value) {
     progressValue = value;
@@ -63,7 +60,9 @@
       if (!element) continue;
       await typeMessage(element, row.message);
       await wait(120);
-      await waitForLoad();
+      if (row.key === "styles" && document.readyState !== "complete") {
+        await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
+      }
       const ok = row.check();
       element.dataset.state = ok ? "ok" : "error";
       const mark = element.querySelector(".boot-mark");
