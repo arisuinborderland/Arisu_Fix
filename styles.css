@@ -9856,3 +9856,27 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
   body.home-page .contact-intro-label{font-size:8px;letter-spacing:.2px}
   body.home-page .contact-intro-est{padding:4px 6px;font-size:7px}
 }
+
+
+/* AFV484 desktop width restoration — match the WhatsApp contact card edges. */
+@media (min-width: 900px) {
+  html body.home-page main > .compact-intro.contact-intro-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto clamp(14px, 1.2vw, 20px) !important;
+    padding: 14px 24px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-main {
+    gap: 13px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
+    flex: 0 0 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
+    width: 33px !important;
+    height: 33px !important;
+  }
+}
