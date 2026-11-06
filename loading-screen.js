@@ -48,10 +48,13 @@
   document.documentElement.style.overscrollBehaviorY = "contain";
   if (document.body) document.body.style.overscrollBehaviorY = "contain";
 
-  function openHomepageOnce() {
+  function openHomepageOnce(completed = false) {
     if (navigationStarted) return;
     navigationStarted = true;
     startupActive = false;
+    if (completed) {
+      try { sessionStorage.setItem("arisuFixLoadingCompleted", "1"); } catch {}
+    }
     window.removeEventListener("beforeunload", guardPageExit);
     document.removeEventListener("keydown", guardRefreshShortcut, true);
     window.location.replace("/home");
@@ -121,7 +124,7 @@
     }) ? "Startup checks complete · opening homepage" : "Startup page ready · opening homepage";
     screen.classList.add("is-ready");
     await wait(440);
-    openHomepageOnce();
+    openHomepageOnce(true);
   }
 
   const progressTask = (async () => {
