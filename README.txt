@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV492
+Version: AFV493
 Updated: 2026-11-06
 
-Current release: AFV492
-Package version: 492.0.0
+Current release: AFV493
+Package version: 493.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV493: cache-busts the loading screen CSS and JavaScript after the startup guard changes; hides the destination homepage completely until startup completes and uses an opaque startup background instead of showing a blurred live homepage behind the loader.
 - AFV492: removes the unconditional root-to-standalone-loader redirect and runs the approved loading screen as an in-place homepage overlay. A per-tab session guard suppresses replay after refresh and browser-initiated viewport-mode reloads; returning to the same tab from background or BFCache replays the overlay in place. The loading script never navigates or reloads the document.
 - AFV490: removes the duplicate Story Viewer empty-state hidden-controls and Done-button active-state CSS rules, preserving one authoritative copy of each. Refreshes the Story Viewer stylesheet cache key across all five public pages and adds focused regression coverage.
 - AFV489: fixes the standalone loading loop by routing /home to a generated homepage.html copy instead of /index.html, avoiding Cloudflare Pages' automatic /index.html-to-/ canonicalization from re-triggering the root loading redirect. The build generates the copy from the final header-injected homepage so both stay synchronized; adds regression coverage.
