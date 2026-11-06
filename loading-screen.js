@@ -46,9 +46,9 @@
   let finished = false;
   let progressValue = 0;
 
-  const MIN_STARTUP_DURATION = 3000;
+  const MIN_STARTUP_DURATION = 2500;
   const EXIT_FADE_DURATION = 440;
-  const STATUS_CHECK_DELAY = 650;
+  const STATUS_CHECK_DELAY = 550;
   const STATUS_ROW_GAP = 180;
   const wait = (ms) => new Promise(resolve => window.setTimeout(resolve, ms));
   const waitForLoad = () => document.readyState === "complete"
@@ -75,7 +75,7 @@
     // Count every integer in order. Hold at 99% until the real checks finish.
     while (progressValue < 99 && !finished) {
       setProgress(progressValue + 1);
-      await wait(30);
+      await wait(20);
     }
   }
 
@@ -102,7 +102,7 @@
     }
 
     await progressTask;
-    // Target 3.5 seconds from first paint through the end of the exit fade.
+    // Target 2.5 seconds from first paint through the end of the exit fade.
     // If real page readiness takes longer, never shorten or bypass that wait.
     const remainingBeforeFade = Math.max(0, MIN_STARTUP_DURATION - EXIT_FADE_DURATION - (Date.now() - startupStartedAt));
     if (remainingBeforeFade > 0) await wait(remainingBeforeFade);
