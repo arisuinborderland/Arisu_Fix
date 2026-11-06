@@ -1,3 +1,20 @@
+AFV489 — Fix Standalone Loading Redirect Loop
+
+## AFV489
+- Root cause: the splash page navigated to `/home`, which proxied to `/index.html`; Cloudflare Pages canonicalizes `/index.html` to `/`, and the root redirect sent the browser back to `/loading.html`, repeating the splash indefinitely.
+- Route `/home` to a generated `homepage.html` copy rather than `index.html`, avoiding the conflicting canonical root route.
+- Generate the copy after shared-header injection so homepage content remains synchronized; include it in the strict public-output allowlist validation and add regression coverage.
+- Keep the PR open for preview validation; no merge performed.
+
+AFV488 — Standalone Loading Page and Root Startup Route
+
+## AFV488
+- Extract the existing loading-screen markup into a dedicated loading.html page while reusing loading-screen.css and the official logo asset.
+- Route only `/` to `/loading.html`; keep `/index.html` directly accessible and avoid a catch-all redirect.
+- Redirect to `/index.html` after the standalone page's own DOM and stylesheet checks. These checks cover the splash page, not the homepage resources loaded afterward.
+- Remove the embedded loading overlay, first-paint guard, and session guard from index.html.
+- Add the standalone page and Cloudflare Pages redirect file to the explicit production build allowlist; synchronize release metadata and regression tests.
+
 AFV487 — Remove Retired Recovery Proof Search CSS
 
 ## AFV487

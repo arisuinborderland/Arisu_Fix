@@ -34,14 +34,14 @@ test('AFV486 preserves the active WhatsApp icon, CTA, motion, and Service Status
   assert.match(html, /id="serviceStatus"/);
 });
 
-test('AFV487 release metadata is synchronized', () => {
+test('AFV489 release metadata is synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(root, 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(root, 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '487.0.0');
-  assert.equal(lock.version, '487.0.0');
-  assert.equal(lock.packages[''].version, '487.0.0');
-  assert.ok(readme.includes('Current release: AFV487'));
+  assert.equal(pkg.version, '489.0.0');
+  assert.equal(lock.version, '489.0.0');
+  assert.equal(lock.packages[''].version, '489.0.0');
+  assert.ok(readme.includes('Current release: AFV489'));
   assert.ok(history.includes('AFV486 — Remove Obsolete WhatsApp Card Selectors'));
 });
