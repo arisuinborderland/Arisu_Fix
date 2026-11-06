@@ -22,13 +22,14 @@
 
   // The first-paint guard decides visibility before the stylesheet is painted.
   overlay.classList.add("is-visible");
+  const startupStartedAt = Date.now();
 
   const rows = [
     { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
     { key: "styles", message: "Verifying page styles", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
-  // Keep upcoming checks hidden so each line appears only when its turn begins.
+  // Keep all three labels visible from the first paint; only their statuses advance sequentially.
   rows.forEach(row => {
     const element = overlay.querySelector('[data-check="' + row.key + '"]');
     if (element) {
@@ -45,6 +46,10 @@
   let finished = false;
   let progressValue = 0;
 
+  const MIN_STARTUP_DURATION = 3500;
+  const EXIT_FADE_DURATION = 440;
+  const STATUS_CHECK_DELAY = 650;
+  const STATUS_ROW_GAP = 180;
   const wait = (ms) => new Promise(resolve => window.setTimeout(resolve, ms));
   const waitForLoad = () => document.readyState === "complete"
     ? Promise.resolve()
@@ -87,21 +92,20 @@
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
       if (!element) continue;
       await typeMessage(element);
-      await wait(180);
+      await wait(STATUS_CHECK_DELAY);
       // Do not report success until the browser has completed loading the page resources.
       await waitForLoad();
       const ok = row.check();
       mark(row, ok, row.message);
-      // Show 100% with the final 200 OK, then hold briefly before fading out.
-      if (row.key === "final") {
-        setProgress(100);
-        await wait(500);
-      } else {
-        await wait(180);
-      }
+      // Keep a short, consistent pause between completed rows.
+      if (row.key !== "final") await wait(STATUS_ROW_GAP);
     }
 
     await progressTask;
+    // Target 3.5 seconds from first paint through the end of the exit fade.
+    // If real page readiness takes longer, never shorten or bypass that wait.
+    const remainingBeforeFade = Math.max(0, MIN_STARTUP_DURATION - EXIT_FADE_DURATION - (Date.now() - startupStartedAt));
+    if (remainingBeforeFade > 0) await wait(remainingBeforeFade);
     setProgress(100);
     finished = true;
     // Persist completion only after all loading checks have finished.
@@ -119,7 +123,7 @@
         document.documentElement.classList.remove("arisu-loading-first-run");
         document.documentElement.classList.remove("arisu-loading-active");
         overlay.remove();
-      }, 440);
+      }, EXIT_FADE_DURATION);
     });
   }
 
