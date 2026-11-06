@@ -6,51 +6,52 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV411 first-paint guard shows the loading overlay only for a new tab session', () => {
-  const html = read('index.html');
-  assert.ok(html.includes('id="loading-screen-first-paint-guard"'));
-  assert.ok(html.includes('arisu-loading-first-run #arisu-loading-screen'));
-  assert.ok(html.includes('animation:none!important'), 'first-paint overlay must not be hidden by the CSS fade-in animation');
-  assert.ok(html.includes('body>:not(#arisu-loading-screen){display:none!important}'), 'homepage content must stay hidden until the loading overlay is ready');
-  assert.ok(html.includes('display:grid;place-items:center'), 'critical guard must render the loading overlay before external CSS');
-  assert.ok(html.includes('html.arisu-loading-first-run #arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center'), 'critical first-paint rule must render the overlay immediately');
-  assert.ok(html.includes('opacity:1;visibility:visible;pointer-events:auto;animation:none!important'), 'critical first-paint rule must show the overlay without an entrance animation');
-  assert.ok(html.includes('loading-screen.css?v=AFV411&sessionguard=1&firstpaint=5'));
-  assert.ok(html.includes('loading-screen.js?v=AFV411&sessionguard=2'));
-  const guardPosition = html.indexOf('id="loading-screen-first-paint-guard"');
-  const firstStylesheetPosition = html.indexOf('<link rel="stylesheet"');
-  assert.ok(guardPosition >= 0 && guardPosition < firstStylesheetPosition, 'session guard must run before the first stylesheet');
-  const criticalGuardPosition = html.indexOf('id="loading-screen-critical-guard"');
-  assert.ok(criticalGuardPosition > guardPosition && criticalGuardPosition < firstStylesheetPosition, 'critical visibility CSS must precede render-blocking stylesheets');
+test('AFV488 uses a dedicated loading page and leaves the homepage free of the old overlay', () => {
+  const html = read('loading.html');
+  const home = read('index.html');
+  assert.ok(html.includes('id="arisu-loading-screen"'));
+  assert.ok(html.includes('/loading-screen.css?v=AFV488'));
+  assert.ok(html.includes('/loading-screen.js?v=AFV488'));
+  assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
+  assert.ok(!home.includes('id="arisu-loading-screen"'));
+  assert.ok(!home.includes('loading-screen-first-paint-guard'));
+  assert.ok(!home.includes('loading-screen-critical-guard'));
+  assert.ok(!home.includes('loading-screen.css'));
+  assert.ok(!home.includes('loading-screen.js'));
 });
 
-test('AFV411 records the session only after loading completes and releases scroll lock', () => {
+test('AFV488 root redirect is exact and does not intercept direct homepage access', () => {
+  const redirects = read('_redirects').trim().split(/\r?\n/);
+  assert.deepEqual(redirects, ['/ /loading.html 302']);
+  const build = read('build.js');
+  assert.ok(build.includes('"loading.html"'));
+  assert.ok(build.includes('"_redirects"'));
+});
+
+test('AFV488 standalone script performs splash-page checks then replaces location with index.html', () => {
   const js = read('loading-screen.js');
-  assert.ok(js.includes('document.documentElement.classList.add("arisu-loading-active")'));
-  assert.ok(js.includes('window.sessionStorage.setItem(sessionKey, "1")'));
-  assert.ok(js.includes('document.documentElement.classList.remove("arisu-loading-active")'));
-  assert.ok(js.includes('document.documentElement.classList.remove("arisu-loading-first-run")'), "homepage is revealed as the exit fade begins");
-  assert.ok(js.indexOf('setItem(sessionKey, "1")') > js.indexOf('async function runSequence()'));
+  assert.ok(js.includes('document.readyState !== "loading"'));
+  assert.ok(js.includes("link[rel=\"stylesheet\"]"));
+  assert.ok(js.includes('window.location.replace("/index.html")'));
+  assert.ok(!js.includes('sessionStorage'));
+  assert.ok(!js.includes('arisuFixHomepageLoadingShown'));
   const css = read('loading-screen.css');
-  assert.ok(css.includes('html.arisu-loading-active body'));
-  assert.ok(css.includes('overscroll-behavior: none'));
-  assert.ok(!css.includes('arisu-loading-fade-in'), 'loading overlay must not use an entrance fade');
-  assert.ok(!css.includes('arisu-loading-card-fade-in'), 'loading card must not use an entrance fade');
-  assert.ok(css.includes('arisu-loading-card-fade-out'), 'existing loading card exit fade must remain');
-  assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'), 'existing overlay exit fade must remain');
-  assert.ok(!/^\s*transition:\s*opacity \.24s ease, visibility \.24s ease;/m.test(css), 'default overlay state must not transition into view');
+  assert.ok(css.includes('arisu-loading-card-fade-out'));
+  assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'));
+  assert.ok(css.includes('prefers-reduced-motion: reduce'));
 });
 
-test('AFV487 release metadata stays synchronized while preserving AFV412, AFV411, and AFV410', () => {
+test('AFV488 release metadata stays synchronized and historical milestones remain', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '487.0.0');
-  assert.equal(lock.version, '487.0.0');
-  assert.equal(lock.packages[''].version, '487.0.0');
-  assert.ok(readme.includes('Current release: AFV487'));
+  assert.equal(pkg.version, '488.0.0');
+  assert.equal(lock.version, '488.0.0');
+  assert.equal(lock.packages[''].version, '488.0.0');
+  assert.ok(readme.includes('Current release: AFV488'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
+  assert.ok(history.includes('AFV488 — Standalone Loading Page and Root Startup Route'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
