@@ -20,7 +20,7 @@ test('AFV434 About Process Flow keeps the approved six-step order and shared foo
   }
   assert.ok(flow.includes('It is not affiliated with or endorsed by Meta, Facebook, or Instagram.'));
   assert.ok(!flow.includes('arisu-verified-badge'));
-  assert.ok(html.includes('about-page.css?v=AFV434'));
+  assert.ok(html.includes('about-page.css?v=AFV501'));
   assert.ok(!html.includes('about-page-footer'));
   assert.ok(html.includes('id="termsTitle"'));
   assert.ok(flow.includes('aria-hidden="true">06</span>'));
