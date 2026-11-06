@@ -1,3 +1,12 @@
+AFV493 — Keep Loading Screen Separate Until Homepage Is Ready
+
+## AFV493
+- Root cause: AFV492 source changes reused the same `?v=AFV492` asset URLs, allowing the preview browser/CDN to continue serving a stale loading-screen script. The screenshot's 0% and WAIT rows indicate the active startup sequence was not advancing.
+- Bump loading-screen CSS and JavaScript cache keys to AFV493 so the preview fetches the latest files.
+- Hide all homepage body siblings while the startup overlay is active; reveal the homepage only after startup checks complete.
+- Replace the translucent blurred live-page backdrop with an opaque, soft gradient startup background. Preserve the existing boot-window design and initialization sequence.
+- Synchronize package and release metadata and add regression assertions for cache keys and destination-page visibility.
+
 AFV492 — Fix Homepage Loading Replay and Return-to-Tab Lifecycle
 
 ## AFV492
