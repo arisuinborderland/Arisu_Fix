@@ -9810,3 +9810,73 @@ html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg
   stroke-dasharray: 24 !important;
   animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
 }
+
+
+/* AFV484 — Restore the approved homepage Let's Connect contact-intro card only. */
+body.home-page main > .compact-intro.contact-intro-card {
+  position:relative; isolation:isolate; display:flex; flex-direction:column; gap:12px;
+  box-sizing:border-box; width:100%; max-width:100%; margin:0 auto 12px !important; padding:14px 24px !important;
+  overflow:hidden; text-align:left !important; border:1.5px solid rgba(159,184,239,.9); border-radius:21px;
+  background:radial-gradient(ellipse at 100% 100%,rgba(174,139,255,.24),transparent 43%),radial-gradient(ellipse at 0% 0%,rgba(103,190,255,.2),transparent 48%),linear-gradient(118deg,rgba(255,255,255,.98),rgba(242,246,255,.96) 58%,rgba(248,244,255,.97));
+  box-shadow:0 8px 24px rgba(65,100,180,.10),inset 0 1px 0 rgba(255,255,255,.96);
+}
+body.home-page .contact-intro-top{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+body.home-page .contact-intro-label,body.home-page .contact-intro-est{display:inline-flex;align-items:center;min-width:0;gap:7px;color:#234579;font-weight:800}
+body.home-page .contact-intro-label{font-size:11px;letter-spacing:.75px;line-height:1.25}
+body.home-page .contact-intro-pulse{position:relative;display:inline-block;flex:0 0 9px;width:9px;height:9px;margin-left:3px;border-radius:50%;background:#1685f8;box-shadow:0 0 0 3px rgba(22,133,248,.12),0 0 10px rgba(22,133,248,.5);animation:contact-intro-pulse 1.8s ease-in-out infinite}
+body.home-page .contact-intro-pulse::after{content:"";position:absolute;inset:-4px;border:1.5px solid rgba(22,133,248,.55);border-radius:50%;animation:contact-intro-ripple 1.8s ease-out infinite}
+@keyframes contact-intro-pulse{0%,100%{transform:scale(.92);box-shadow:0 0 0 3px rgba(22,133,248,.12),0 0 9px rgba(22,133,248,.42)}50%{transform:scale(1.08);box-shadow:0 0 0 4px rgba(22,133,248,.16),0 0 14px rgba(22,133,248,.68)}}
+@keyframes contact-intro-ripple{0%{transform:scale(.7);opacity:.85}100%{transform:scale(1.8);opacity:0}}
+body.home-page .contact-intro-label svg{display:block;flex:0 0 23px;width:23px;height:23px;fill:none;stroke:#287ce0;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body.home-page .contact-intro-est{position:relative;top:-2px;flex:0 0 auto;padding:6px 9px;border:1px solid rgba(105,151,231,.48);border-radius:999px;background:rgba(231,241,255,.78);color:#285b9c;font-size:10px;letter-spacing:.45px;white-space:nowrap}
+body.home-page .contact-intro-est svg{display:block;width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body.home-page .contact-intro-divider{height:1px;width:100%;background:linear-gradient(90deg,rgba(115,157,235,.62),rgba(176,190,238,.36))}
+body.home-page .contact-intro-main{display:flex;align-items:center;gap:13px;min-width:0}
+body.home-page .contact-intro-icon{display:grid;place-items:center;flex:0 0 54px;width:54px;height:54px;border:1px solid rgba(255,255,255,.9);border-radius:16px;background:linear-gradient(145deg,#31c5f4 0%,#3988f2 48%,#8062ee 100%);box-shadow:0 5px 14px rgba(71,119,222,.22),inset 0 1px 0 rgba(255,255,255,.35)}
+body.home-page .contact-intro-icon svg{display:block;width:33px;height:33px;fill:none;stroke:#fff;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+body.home-page .contact-intro-copy{min-width:0}
+body.home-page .contact-intro-copy h1{margin:0 0 3px !important;color:#172b55 !important;font:800 clamp(22px,4.2vw,30px)/1.08 Manrope,sans-serif !important;letter-spacing:-1px !important}
+body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !important;color:#526581 !important;font-size:clamp(11px,1.8vw,14px) !important;line-height:1.4 !important}
+@media (max-width:899px){
+  body.home-page main > .compact-intro.contact-intro-card{gap:10px;margin:0 auto 10px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:4px !important;border-radius:18px}
+  body.home-page .contact-intro-top{gap:7px}
+  body.home-page .contact-intro-label{gap:5px;font-size:9px;letter-spacing:.45px}
+  body.home-page .contact-intro-label svg{flex-basis:20px;width:20px;height:20px}
+  body.home-page .contact-intro-est{gap:4px;padding:5px 7px;font-size:8px;letter-spacing:.2px}
+  body.home-page .contact-intro-est svg{width:13px;height:13px}
+  body.home-page .contact-intro-main{gap:10px}
+  body.home-page .contact-intro-icon{flex-basis:46px;width:46px;height:46px;border-radius:13px}
+  body.home-page .contact-intro-icon svg{width:29px;height:29px}
+  body.home-page .contact-intro-copy h1{font-size:clamp(20px,5.5vw,25px) !important;letter-spacing:-.8px !important}
+  body.home-page main > .compact-intro.contact-intro-card #introTitle{font-size:calc(clamp(20px,5.5vw,25px) - 3px) !important}
+  body.home-page main > .compact-intro.contact-intro-card .contact-intro-copy p{position:relative;top:-2px !important;font-size:clamp(10px,2.9vw,12px) !important;line-height:1.3 !important}
+}
+@media (max-width:360px){
+  body.home-page .compact-intro.contact-intro-card{padding:8px !important;padding-bottom:4px !important}
+  body.home-page .contact-intro-label{font-size:8px;letter-spacing:.2px}
+  body.home-page .contact-intro-est{padding:4px 6px;font-size:7px}
+}
+
+
+/* AFV484 desktop width restoration — match the WhatsApp contact card edges. */
+@media (min-width: 900px) {
+  html body.home-page main > .compact-intro.contact-intro-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto clamp(14px, 1.2vw, 20px) !important;
+    padding: 14px 24px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-main {
+    gap: 13px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
+    flex: 0 0 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
+    width: 33px !important;
+    height: 33px !important;
+  }
+}

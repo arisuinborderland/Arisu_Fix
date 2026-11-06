@@ -123,15 +123,15 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV479 package metadata and release notes are synchronized', () => {
+test('AFV484 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(__dirname, '..', 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '479.0.0');
-  assert.equal(lock.version, '479.0.0');
-  assert.equal(lock.packages[''].version, '479.0.0');
-  assert.ok(readme.includes('Current release: AFV479'));
+  assert.equal(pkg.version, '484.0.0');
+  assert.equal(lock.version, '484.0.0');
+  assert.equal(lock.packages[''].version, '484.0.0');
+  assert.ok(readme.includes('Current release: AFV484'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
 });
 

@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV479
-Updated: 2026-11-05
+Version: AFV484
+Updated: 2026-11-06
 
-Current release: AFV479
-Package version: 479.0.0
+Current release: AFV484
+Package version: 484.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV484: restores the approved homepage Account Recovery Assistance / “Let’s Connect.” card in a narrowly scoped update. Preserves the Daily Bible Verse, WhatsApp contact card, Service Status, shared Header, and all unrelated homepage sections; updates the homepage stylesheet cache key and regression test expectations.
 - AFV479: applies the approved About/milestone mobile layout consistently across Homepage, Customer Reviews, Recovery Proofs, and About. Uses the official shared-header logo, places the calendar beside the creation date, keeps the description below, centers Explore My Story, and preserves the verified badge, footer cards, copyright, bottom navigation, and desktop layout, with a dedicated desktop milestone grid to prevent oversized calendar SVGs and off-center CTAs.
 - AFV474: aligns the mobile logo wrapper's rounded clipping with the official circular logo image, preventing mismatched edges at browser zoom levels; preserves the 44px logo size, wordmark, subtitle, verified badge, and header layout.
 - AFV473: moves the shared verified badge one additional pixel right (2px total spacing) across all five public headers; preserves vertical alignment and animation.
