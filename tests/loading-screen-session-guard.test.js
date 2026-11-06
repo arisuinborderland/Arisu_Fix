@@ -64,3 +64,16 @@ test('AFV489 release metadata stays synchronized and historical milestones remai
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
 });
+
+
+test('AFV491 remembers completion only after the startup sequence finishes', () => {
+  const html = read('loading.html');
+  const js = read('loading-screen.js');
+  assert.ok(html.includes('sessionStorage.getItem("arisuFixLoadingCompleted") === "1"'));
+  assert.ok(html.includes('skip-completed-startup body{display:none!important}'));
+  assert.ok(js.includes('function openHomepageOnce(completed = false)'));
+  assert.ok(js.includes('if (completed)'));
+  assert.ok(js.includes('sessionStorage.setItem("arisuFixLoadingCompleted", "1")'));
+  assert.ok(js.includes('await wait(440);\n    openHomepageOnce(true);'));
+  assert.ok(!js.includes('openHomepageOnce(true);\n    return;'));
+});
