@@ -12,7 +12,7 @@ test('AFV494 uses a dedicated loading page and persistent completed-startup guar
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
   assert.ok(html.includes('/loading-screen.css?v=AFV489'), 'unchanged loading CSS keeps its existing cache version');
-  assert.ok(html.includes('/loading-screen.js?v=AFV489&startupguard=2'), 'standalone startup guard must bypass the cached pre-guard script');
+  assert.ok(html.includes('/loading-screen.js?v=AFV489&startupguard=3'), 'standalone startup guard must bypass the cached pre-guard script');
   assert.ok(html.includes('localStorage.getItem("arisuFixStandaloneStartupComplete")'));
   assert.ok(html.includes('sessionStorage.getItem("arisuFixStandaloneStartupComplete")'));
   assert.ok(html.includes('arisu-startup-already-complete'));
