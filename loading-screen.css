@@ -1,4 +1,4 @@
-/* AFV490 — Visually isolated full-screen startup layer with compact AF/spade emblem. */
+/* AFV495 — Visually isolated full-screen startup layer with a single-layer exit fade. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -144,13 +144,8 @@
   visibility: hidden;
   pointer-events: none;
 }
-#arisu-loading-screen.is-ready .boot-window {
-  animation: arisu-loading-card-fade-out .42s ease-in both;
-}
-@keyframes arisu-loading-card-fade-out {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-3px); }
-}
+/* AFV495 — Keep the card fully opaque within the single overlay fade.
+   A nested card fade caused the homepage beneath to show through twice, creating ghosting. */
 
 /* AFV379 follow-up — reveal initialization rows one at a time at a moderate pace. */
 #arisu-loading-screen .boot-log li[data-state="pending"] { display: none; }
