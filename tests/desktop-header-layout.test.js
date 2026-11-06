@@ -262,7 +262,7 @@ test('Shared logo wrapper and image keep matching circular clipping at desktop a
 
 
 test('AFV479 shared header keeps overflow visible in its single authoritative shell rule', () => {
-  const shell = css.match(/html body header\\.topbar\\.site-header \\{([^}]*)\\}/);
+  const shell = css.match(/html body header\.topbar\.site-header \{([^}]*)\}/);
   assert.ok(shell, 'shared header shell rule must exist');
   assert.match(shell[1], /overflow:visible!important/);
   assert.doesNotMatch(css, /AFV469 — Prevent the shared header from clipping the top edge/);
