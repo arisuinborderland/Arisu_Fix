@@ -31,8 +31,8 @@ test('Footer artwork is independently enlarged, centered, transparent, and uncli
   assert.match(component, /border-radius:\s*0/);
   assert.match(component, /background:\s*transparent/);
   assert.match(component, /clip-path:\s*none/);
-  assert.match(component, /width:\s*60px/);
-  assert.match(component, /height:\s*60px/);
+  assert.match(component, /width:\s*58px/);
+  assert.match(component, /height:\s*58px/);
 });
 
 test('AFV504 removes superseded footer profile image override blocks', () => {
