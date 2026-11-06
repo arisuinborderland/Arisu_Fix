@@ -147,9 +147,17 @@
 }
 /* AFV496 — The base overlay delays visibility:hidden until after its opacity fade. */
 
-/* AFV379 follow-up — reveal initialization rows one at a time at a moderate pace. */
-#arisu-loading-screen .boot-log li[data-state="pending"] { display: none; }
-#arisu-loading-screen .boot-log li[data-state="running"] { animation: boot-row-appear .22s ease-out both; }
+/* AFV501 — Keep all initialization labels visible; animate only row indicators and statuses. */
+#arisu-loading-screen .boot-log li[data-state="pending"] { display: grid; }
+#arisu-loading-screen .boot-log li[data-state="running"] { animation: none; }
+#arisu-loading-screen .boot-log .boot-mark,
+#arisu-loading-screen .boot-log .boot-status {
+  transition: color .18s ease, background-color .18s ease, opacity .18s ease, transform .18s ease;
+}
+#arisu-loading-screen .boot-log li[data-state="running"] .boot-mark,
+#arisu-loading-screen .boot-log li[data-state="running"] .boot-status {
+  transform: translateY(-1px);
+}
 @keyframes boot-row-appear {
   from { opacity: 0; transform: translateY(3px); }
   to { opacity: 1; transform: translateY(0); }

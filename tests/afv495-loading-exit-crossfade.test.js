@@ -35,8 +35,10 @@ test('AFV499 refreshes the loading stylesheet cache token and preserves startup 
   assert.match(html, /loading-screen\.js\?v=AFV499&sessionguard=4/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
   assert.match(js, /overlay\.remove\(\)/);
-  assert.match(js, /await wait\(500\)/);
-  assert.match(js, /\}, 440\)/);
+  assert.match(js, /const MIN_STARTUP_DURATION = 3500/);
+  assert.match(js, /remainingBeforeFade/);
+  assert.match(js, /const EXIT_FADE_DURATION = 440/);
+  assert.match(js, /\}, EXIT_FADE_DURATION\)/);
 });
 
 test('AFV499 release metadata is synchronized', () => {
