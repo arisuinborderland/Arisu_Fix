@@ -23,8 +23,16 @@
   const progressText = screen.querySelector(".boot-progress-value");
   const track = screen.querySelector(".boot-progress-track");
   const footnote = screen.querySelector(".boot-footnote");
-  if (!progress || !progressText || !track || !footnote) {
+  let navigationStarted = false;
+
+  function openHomepageOnce() {
+    if (navigationStarted) return;
+    navigationStarted = true;
     window.location.replace("/home");
+  }
+
+  if (!progress || !progressText || !track || !footnote) {
+    openHomepageOnce();
     return;
   }
 
@@ -87,7 +95,7 @@
     }) ? "Startup checks complete · opening homepage" : "Startup page ready · opening homepage";
     screen.classList.add("is-ready");
     await wait(440);
-    window.location.replace("/home");
+    openHomepageOnce();
   }
 
   const progressTask = (async () => {
@@ -96,6 +104,6 @@
       await wait(28);
     }
   })();
-  runSequence().catch(() => window.location.replace("/home"));
+  runSequence().catch(openHomepageOnce);
   progressTask.catch(() => {});
 })();
