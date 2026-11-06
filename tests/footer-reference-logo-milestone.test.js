@@ -37,12 +37,12 @@ test('AFV502 shared header logo renders the full transparent artwork without cli
   assert.match(headerCss, /clip-path: none !important/);
 });
 
-test('About footer logo aligns with the title and uses a circular frame on mobile', () => {
+test('About footer artwork aligns with the title and uses a circular frame on mobile', () => {
   assert.match(css, /\.reference-about-artwork::before[\s\S]*?border-radius: 50%/);
   assert.match(css, /\.reference-about-artwork[\s\S]*?align-self: flex-start/);
   assert.match(css, /\.reference-about-artwork[\s\S]*?margin: 0/);
   for (const pageClass of pageClasses) {
-    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-profile`), pageClass);
+    assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-artwork`), pageClass);
   }
 });
 
