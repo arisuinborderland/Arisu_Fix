@@ -1,21 +1,25 @@
 "use strict";
-/* AFV491 — Run the startup screen once per tab session; bypass it on refresh/re-entry. */
+/* AFV491 — Show startup on fresh visits; bypass reloads and history restoration. */
 (() => {
-  const sessionKey = "arisuFixHomepageLoadingShown";
-  let alreadyShown = false;
+  // Decide from this document navigation, not a sticky tab-session flag.
+  // A new navigation shows the splash; reloads and history restorations bypass it.
+  const navigationEntry = window.performance &&
+    typeof window.performance.getEntriesByType === "function"
+    ? window.performance.getEntriesByType("navigation")[0]
+    : null;
+  const legacyNavigationType = window.performance &&
+    window.performance.navigation
+    ? window.performance.navigation.type
+    : null;
+  const navigationType = navigationEntry
+    ? navigationEntry.type
+    : legacyNavigationType === 1
+      ? "reload"
+      : legacyNavigationType === 2
+        ? "back_forward"
+        : "navigate";
 
-  // The root route always serves this standalone page. Remember the first entry
-  // before starting animation so a refresh or viewport-mode reload cannot replay it.
-  try {
-    alreadyShown = window.sessionStorage.getItem(sessionKey) === "1";
-    if (!alreadyShown) window.sessionStorage.setItem(sessionKey, "1");
-  } catch (error) {
-    // If storage is blocked, skip the optional splash rather than risk a repeat loop.
-    window.location.replace("/home");
-    return;
-  }
-
-  if (alreadyShown) {
+  if (navigationType === "reload" || navigationType === "back_forward") {
     window.location.replace("/home");
     return;
   }
