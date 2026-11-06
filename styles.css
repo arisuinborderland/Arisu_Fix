@@ -9868,7 +9868,7 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
   }
 }
 
-/* AFV482 mobile contact icon balance — slightly reduce the Let's Connect tile to match WhatsApp's visual weight. */
+/* AFV482 mobile contact icon balance — match both contact tiles in size and horizontal position. */
 @media (max-width:600px) {
   html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
     flex-basis: 43px !important;
@@ -9880,7 +9880,14 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
     height: 26px !important;
   }
   html body.home-page #contact .whatsapp-feature-icon {
+    width: 43px !important;
+    height: 43px !important;
+    flex-basis: 43px !important;
     margin-left: 2px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-icon > svg {
+    width: 26px !important;
+    height: 26px !important;
   }
 }
 @media (max-width:360px) {
@@ -9894,6 +9901,13 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
     height: 25px !important;
   }
   html body.home-page #contact .whatsapp-feature-icon {
+    width: 41px !important;
+    height: 41px !important;
+    flex-basis: 41px !important;
     margin-left: -1.5px !important;
+  }
+  html body.home-page #contact .whatsapp-feature-icon > svg {
+    width: 25px !important;
+    height: 25px !important;
   }
 }
