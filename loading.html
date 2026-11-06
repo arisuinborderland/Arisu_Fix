@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#EEF2FF">
   <meta name="robots" content="noindex, nofollow">
+  <script id="loading-screen-session-guard">
+    try {
+      if (window.sessionStorage.getItem("arisuFixHomepageLoadingShown") === "1") window.location.replace("/home");
+    } catch (error) { window.location.replace("/home"); }
+  </script>
   <title>Arisu Fix | Starting Up</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/loading-screen.css?v=AFV489">
