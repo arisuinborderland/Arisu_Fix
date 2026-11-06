@@ -1,3 +1,12 @@
+AFV490 — Remove Duplicate Story Viewer Empty-State Rules
+
+## AFV490
+- Remove one duplicate copy of the Story Viewer empty-state hidden-controls rule while retaining one authoritative copy.
+- Remove one duplicate copy of the Story Viewer empty-state Done-button active transform while retaining one authoritative copy.
+- Refresh the Story Viewer CSS cache key across index, Reviews, Proofs, About, and Privacy.
+- Add focused regression coverage for duplicate-rule counts and release metadata.
+- Preserve the latest AFV489 loading redirect fix and all unrelated regression coverage.
+
 AFV489 — Fix Standalone Loading Redirect Loop
 
 ## AFV489
