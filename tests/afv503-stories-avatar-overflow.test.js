@@ -36,3 +36,16 @@ test('AFV503 release metadata and changed navigation cache tokens stay synchroni
     assert.match(html, /bottom-nav\.css\?v=AFV503\b/, `${page} must load the AFV503 navigation stylesheet`);
   }
 });
+
+test('AFV503 renders the Stories artwork like the unclipped shared header logo', () => {
+  const refinement = css.slice(css.indexOf('/* AFV503 refinement:'));
+  assert.ok(refinement.includes('/* AFV503 refinement:'), 'header-reference refinement exists');
+  assert.ok(refinement.includes('object-fit: contain !important;'));
+  assert.ok(refinement.includes('object-position: center !important;'));
+  assert.ok(refinement.includes('clip-path: none !important;'));
+  assert.ok(refinement.includes('animation: arisu-brand-badge-glow 2s ease-out infinite !important;'));
+  assert.ok(refinement.includes('z-index: 4 !important;'));
+  for (const page of ['home-page', 'reviews-document', 'proofs-document', 'about-page', 'privacy-page']) {
+    assert.ok(refinement.includes(`body.${page}`), `header-reference treatment covers ${page}`);
+  }
+});
