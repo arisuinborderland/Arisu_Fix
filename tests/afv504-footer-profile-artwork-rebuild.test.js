@@ -5,7 +5,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.join(__dirname, '..');
 const sharedFooterPages = ['index.html', 'reviews.html', 'proofs.html', 'about.html'];
-const pageClasses = ['home-page', 'reviews-document', 'proofs-document', 'about-page'];
 const css = fs.readFileSync(path.join(root, 'footer-reference.css'), 'utf8');
 
 test('AFV504 uses the dedicated footer artwork component on all shared-footer pages', () => {
