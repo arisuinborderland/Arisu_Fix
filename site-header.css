@@ -186,13 +186,6 @@ html body header.topbar.site-header .brand-name-row > .arisu-verified-badge {
 
 
 /* AFV473 — Increase shared verified badge horizontal spacing by one additional pixel (2px total). Badge-only adjustment; vertical alignment and animations remain unchanged. */
-/* AFV469 — Prevent the shared header from clipping the top edge of brand effects.
-   The page-wide .topbar rule uses overflow:hidden; the shared header's higher-specificity
-   rule must explicitly allow overflow so the logo/badge glow is not cropped. Keep the
-   logo's own circular overflow clipping unchanged. */
-html body header.topbar.site-header {
-  overflow: visible !important;
-}
 
 
 /* AFV474 — Keep the logo wrapper and image on the same circular clipping geometry at every zoom level. */
