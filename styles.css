@@ -9772,29 +9772,6 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
 }
 
 
-/* AFV484 desktop width restoration — match the WhatsApp contact card edges. */
-@media (min-width: 900px) {
-  html body.home-page main > .compact-intro.contact-intro-card {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto clamp(14px, 1.2vw, 20px) !important;
-    padding: 14px 24px !important;
-  }
-  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-main {
-    gap: 13px !important;
-  }
-  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
-    flex: 0 0 54px !important;
-    width: 54px !important;
-    height: 54px !important;
-  }
-  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
-    width: 33px !important;
-    height: 33px !important;
-  }
-}
-
 /* AFV493: show the two Service Status information tiles side by side on mobile.
    Keep the status heading, benefit row, desktop layout, and all other homepage sections unchanged. */
 @media (max-width: 600px) {
@@ -9847,3 +9824,28 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
     line-height: 1.4 !important;
   }
 }
+
+
+/* AFV484 desktop width restoration — match the WhatsApp contact card edges. */
+@media (min-width: 900px) {
+  html body.home-page main > .compact-intro.contact-intro-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto clamp(14px, 1.2vw, 20px) !important;
+    padding: 14px 24px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-main {
+    gap: 13px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
+    flex: 0 0 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+  html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
+    width: 33px !important;
+    height: 33px !important;
+  }
+}
+

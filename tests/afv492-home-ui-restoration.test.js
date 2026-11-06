@@ -9,7 +9,7 @@ const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
 
 test('AFV492 restores the approved Daily Bible Verse mobile offset without changing desktop rules', () => {
   assert.match(css, /@media\s*\(max-width:\s*600px\)[\s\S]*?html body\.home-page main > #daily-bible-verse\.daily-verse-card\s*\{[^}]*margin-top:\s*2px !important/);
-  assert.match(html, /styles\.css\?v=AFV492&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV493&desktoplayout=1/);
 });
 
 test('AFV492 restores the compact mobile Let’s Connect icon dimensions', () => {
