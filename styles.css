@@ -9810,26 +9810,27 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
     min-width: 0 !important;
     min-height: 100% !important;
     box-sizing: border-box !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
+    flex-direction: row !important;
+    align-items: center !important;
     justify-content: flex-start !important;
     gap: 8px !important;
-    padding: 10px !important;
+    padding: 10px 8px !important;
     border: 1px solid #dce7ff !important;
     border-radius: 14px !important;
     background: rgba(255, 255, 255, .78) !important;
   }
   html body.home-page #contact #serviceStatus .service-status-detail + .service-status-detail {
     border-left: 1px solid #dce7ff !important;
-    border-top: 1px solid #dce7ff !important;
+    border-top: 0 !important;
   }
   html body.home-page #contact #serviceStatus .service-status-detail-icon {
-    width: 34px !important;
-    height: 34px !important;
-    flex-basis: 34px !important;
+    width: 32px !important;
+    height: 32px !important;
+    flex-basis: 32px !important;
   }
   html body.home-page #contact #serviceStatus .service-status-detail > div {
-    width: 100% !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
     gap: 3px !important;
   }
   html body.home-page #contact #serviceStatus .service-status-detail-label {

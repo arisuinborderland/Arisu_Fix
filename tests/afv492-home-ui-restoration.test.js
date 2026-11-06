@@ -36,11 +36,12 @@ test('AFV492 keeps the desktop contact icon dimensions and loading-screen assets
 });
 
 
+
 test('AFV493 presents Service Status schedule and Philippine time as two mobile cards', () => {
-  assert.match(html, /styles\\.css\\?v=AFV493&desktoplayout=1[^"']*&servicestatus=2col/);
-  assert.match(css, /@media \\(max-width: 600px\\)[\\s\\S]*?html body\\.home-page #contact #serviceStatus \\.service-status-details \\{[\\s\\S]*?grid-template-columns: repeat\\(2, minmax\\(0, 1fr\\)\\) !important/);
-  assert.match(css, /#contact #serviceStatus \\.service-status-detail \\{[\\s\\S]*?flex-direction: column !important/);
-  assert.match(css, /#contact #serviceStatus \\.service-status-detail \\+ \\.service-status-detail \\{[\\s\\S]*?border-top: 1px solid #dce7ff !important/);
+  assert.match(html, /styles\.css\?v=AFV493&desktoplayout=1[^"']*&servicestatus=2col/);
+  assert.match(css, /@media \(max-width: 600px\)[\s\S]*?html body\.home-page #contact #serviceStatus \.service-status-details \{[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\) !important/);
+  assert.match(css, /#contact #serviceStatus \.service-status-detail \{[\s\S]*?flex-direction: row !important/);
+  assert.match(css, /#contact #serviceStatus \.service-status-detail \+ \.service-status-detail \{[\s\S]*?border-top: 0 !important/);
   assert.match(html, /id="serviceStatusClock"/);
   assert.match(html, /id="serviceStatusPillText"/);
 });
