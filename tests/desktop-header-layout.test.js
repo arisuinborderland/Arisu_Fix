@@ -250,14 +250,15 @@ test('AFV479 shared verified badge alignment clears legacy row padding and cente
   }
 });
 
-test('Shared logo wrapper and image keep matching circular clipping at desktop and mobile sizes', () => {
-  assert.match(css, /\.logo \{[^}]*border-radius:50%!important;overflow:hidden!important/);
-  assert.match(css, /\.logo img \{[^}]*border-radius:50%!important/);
-  const mobileLogo = css.match(/@media\(max-width:700px\)[\s\S]*?\.logo \{([^}]*)\}/);
-  assert.ok(mobileLogo, 'mobile logo rule must exist');
-  assert.match(mobileLogo[1], /border-radius:50%!important/);
-  assert.match(mobileLogo[1], /aspect-ratio:1\/1!important/);
-  assert.doesNotMatch(mobileLogo[1], /border-radius:14px/);
+test('AFV502 direct header logo preserves transparent artwork and responsive dimensions', () => {
+  const baseStyles = read('styles.css');
+  assert.match(baseStyles, /html body \.topbar\.site-header > a\.brand > img\.logo\.profile-logo \{[\s\S]*?object-fit: contain !important/);
+  assert.match(baseStyles, /object-position: center !important/);
+  assert.match(baseStyles, /border-radius: 0 !important/);
+  assert.match(baseStyles, /overflow: visible !important/);
+  assert.match(css, /flex:0 0 66px!important;width:66px!important;height:66px!important/);
+  assert.match(css, /flex:0 0 44px!important;width:44px!important;height:44px!important/);
+  assert.match(css, /flex-basis:42px!important;width:42px!important;height:42px!important/);
 });
 
 
