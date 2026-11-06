@@ -1,8 +1,30 @@
 "use strict";
-/* AFV488 — Standalone startup page; redirect to the homepage after splash checks. */
+/* AFV491 — Run the startup screen once per tab session; bypass it on refresh/re-entry. */
 (() => {
+  const sessionKey = "arisuFixHomepageLoadingShown";
+  let alreadyShown = false;
+
+  // The root route always serves this standalone page. Remember the first entry
+  // before starting animation so a refresh or viewport-mode reload cannot replay it.
+  try {
+    alreadyShown = window.sessionStorage.getItem(sessionKey) === "1";
+    if (!alreadyShown) window.sessionStorage.setItem(sessionKey, "1");
+  } catch (error) {
+    // If storage is blocked, skip the optional splash rather than risk a repeat loop.
+    window.location.replace("/home");
+    return;
+  }
+
+  if (alreadyShown) {
+    window.location.replace("/home");
+    return;
+  }
+
   const screen = document.getElementById("arisu-loading-screen");
-  if (!screen) return;
+  if (!screen) {
+    window.location.replace("/home");
+    return;
+  }
 
   const rows = [
     { key: "dom", message: "Preparing startup page", check: () => document.readyState !== "loading" },
