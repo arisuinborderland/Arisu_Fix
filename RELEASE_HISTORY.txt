@@ -1,3 +1,11 @@
+AFV496 — Delay overlay visibility until fade completes
+
+## AFV496
+- Declare the 420ms opacity transition on the base loading overlay so it is active when the ready state is applied.
+- Delay the discrete visibility:hidden change until the opacity fade has completed; the previous immediate visibility change could hide the overlay before the fade was painted.
+- Keep instant loading-screen entrance, opaque card, reduced-motion handling, startup sequence, and the existing 440ms DOM-removal timing.
+- Add regression coverage for the base transition and delayed visibility; refresh the loading stylesheet cache token.
+
 AFV495 — Remove Loading Screen Exit Ghosting
 
 ## AFV495
