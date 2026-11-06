@@ -1,3 +1,10 @@
+AFV503 — Prevent mobile Stories avatar and badge clipping
+
+- Keep the Stories profile image, animated halo/ring, and notification count badge fully visible above the shared fixed mobile bottom navigation.
+- Scope overflow visibility to the mobile navigation and Stories control/avatar layers across Home, Reviews, Proofs, About, and Privacy.
+- Preserve the existing avatar size, position, circular crop, glow animation, badge placement, nav dimensions, page layout, and desktop navigation.
+- Refresh the shared bottom-navigation CSS cache token on all five public pages.
+
 AFV502 — Show Full Header Logo Artwork Without Changing Its Size
 
 - Render the transparent logo PNG directly as the shared header brand image, removing the clipping wrapper that hid the playing-card artwork.
