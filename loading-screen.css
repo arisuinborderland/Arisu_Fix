@@ -272,3 +272,12 @@ html.arisu-loading-first-run,
 html.arisu-loading-active {
   overscroll-behavior-y: none;
 }
+
+
+/* AFV502 — Use the optimized Joker card artwork as the full-screen loading backdrop. */
+#arisu-loading-screen::before {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, .32)),
+    url("/assets/loading-screen/joker-background.webp") center center / cover no-repeat;
+  background-color: #08080a;
+}
