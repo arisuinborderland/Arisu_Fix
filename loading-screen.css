@@ -203,3 +203,62 @@
     animation: none;
   }
 }
+
+
+/* AFV497 — Fade the full-screen wash separately; keep the loading card opaque. */
+#arisu-loading-screen {
+  opacity: 1 !important;
+  visibility: hidden;
+  pointer-events: none;
+  background: transparent;
+  transition: visibility 0s linear .42s;
+}
+#arisu-loading-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 12% 10%, #dce8ff 0%, transparent 46%),
+              radial-gradient(ellipse at 90% 88%, #e8ddff 0%, transparent 44%),
+              #f3f5f9;
+  opacity: 1;
+  transition: opacity .42s ease-in;
+  pointer-events: none;
+}
+#arisu-loading-screen.is-visible:not(.is-ready) {
+  visibility: visible;
+  pointer-events: auto;
+  transition: none;
+}
+#arisu-loading-screen.is-visible:not(.is-ready)::before {
+  opacity: 1;
+  transition: none;
+}
+#arisu-loading-screen.is-ready {
+  opacity: 1 !important;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear .42s;
+}
+#arisu-loading-screen.is-ready::before {
+  opacity: 0;
+}
+#arisu-loading-screen .boot-window {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+#arisu-loading-screen .boot-window > * {
+  transition: opacity .12s linear .30s;
+}
+#arisu-loading-screen.is-ready .boot-window > * {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen::before,
+  #arisu-loading-screen .boot-window > * {
+    transition: none !important;
+  }
+}
