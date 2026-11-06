@@ -38,9 +38,9 @@ test('AFV502 shared header logo renders the full transparent artwork without cli
 });
 
 test('About footer logo aligns with the title and uses a circular frame on mobile', () => {
-  assert.match(css, /border-radius: 50% !important/);
-  assert.match(css, /align-self: flex-start !important/);
-  assert.match(css, /margin-top: 0 !important/);
+  assert.match(css, /\.reference-about-artwork::before[\s\S]*?border-radius: 50%/);
+  assert.match(css, /\.reference-about-artwork[\s\S]*?align-self: flex-start/);
+  assert.match(css, /\.reference-about-artwork[\s\S]*?margin: 0/);
   for (const pageClass of pageClasses) {
     assert.ok(css.includes(`html body.${pageClass} .reference-footer .reference-about-profile`), pageClass);
   }
@@ -55,7 +55,7 @@ test('All shared-footer pages use the approved calendar, date, description, cent
     assert.match(source, /class="reference-about-action-row"[\s\S]*?class="reference-about-action"/, file);
     assert.match(source, /class="reference-about-created-check"/, file);
     assert.doesNotMatch(source, /class="reference-about-arrow"/, file);
-    assert.match(source, /footer-reference\.css\?v=AFV477/, file);
+    assert.match(source, /footer-reference\.css\?v=AFV504&footerart=1/, file);
   }
   assert.match(css, /grid-template-areas: "copy check" "action action"/);
   assert.match(css, /justify-content: center !important/);
