@@ -91,6 +91,7 @@
     }) ? "Startup checks complete · opening homepage" : "Startup page ready · opening homepage";
     screen.classList.add("is-ready");
     await wait(440);
+    try { sessionStorage.setItem("arisuFixStandaloneStartupComplete", "1"); } catch {}
     window.location.replace("/home");
   }
 
