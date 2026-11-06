@@ -30,9 +30,9 @@ test('AFV487 refreshes the Proofs stylesheet and release metadata', () => {
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
   assert.match(html, /proofs\.css\?v=AFV487&prooffull=2/);
-  assert.equal(pkg.version, '501.0.0');
-  assert.equal(lock.version, '501.0.0');
-  assert.equal(lock.packages[''].version, '501.0.0');
-  assert.ok(readme.includes('Current release: AFV501'));
+  assert.equal(pkg.version, '502.0.0');
+  assert.equal(lock.version, '502.0.0');
+  assert.equal(lock.packages[''].version, '502.0.0');
+  assert.ok(readme.includes('Current release: AFV502'));
   assert.ok(history.includes('AFV487 — Remove Retired Recovery Proof Search CSS'));
 });
