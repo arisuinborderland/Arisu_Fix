@@ -1,11 +1,12 @@
-AFV492 — Fix Homepage Loading Replay and Redirect Reload
+AFV492 — Fix Homepage Loading Replay and Return-to-Tab Lifecycle
 
 ## AFV492
-- Root cause: the root route unconditionally redirected to a standalone loading document, and the splash script then navigated again to `/home`. A browser reload caused by switching Mobile/Desktop site modes could therefore replay the splash and its second navigation.
+- Root cause: the root route redirected to a standalone loading document, then the loader navigated again to `/home`; the session guard also suppressed the overlay when a user returned to an already-open tab.
 - Serve the generated homepage directly at `/`; retain `/home` as a same-document rewrite for compatibility.
-- Move the existing loading screen into the homepage as an in-place overlay. Show it once per tab session and suppress it on subsequent browser-initiated reloads, including viewport-mode switches.
-- Remove all location redirects from the homepage loading sequence; preserve the existing approved visual design and initialization checks.
-- Add regression coverage for root routing, session-scoped display, and no script-driven navigation.
+- Run the existing loading screen as an in-place overlay. Show on a fresh tab session; suppress on refresh and browser-initiated Mobile/Desktop viewport-mode reloads.
+- Replay the overlay when the existing tab becomes visible again or is restored from BFCache, resetting progress and initialization rows without navigating or reloading the document.
+- Remove all location redirects from the homepage loading sequence; preserve the approved visual design and initialization checks.
+- Add regression coverage for fresh-session display, refresh suppression, return-to-tab replay, BFCache restoration, and no script-driven navigation.
 
 AFV490 — Remove Duplicate Story Viewer Empty-State Rules
 
