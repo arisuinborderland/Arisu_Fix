@@ -9858,8 +9858,6 @@ html body .topbar.site-header > a.brand > img.logo.profile-logo {
   position: relative !important;
   flex-shrink: 0 !important;
   overflow: visible !important;
-  width: inherit;
-  height: inherit;
   object-fit: contain !important;
   object-position: center !important;
   border: 0 !important;
