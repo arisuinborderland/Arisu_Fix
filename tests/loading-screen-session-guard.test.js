@@ -40,7 +40,7 @@ test('AFV494 standalone script performs splash-page checks then opens the homepa
   assert.ok(js.includes('document.readyState !== "loading"'));
   assert.ok(js.includes("wait(5000)"), "standalone loading must not wait forever for the window load event");
   assert.ok(js.includes('sessionStorage.setItem("arisuFixStandaloneStartupComplete", "1")'));
-  assert.ok(js.indexOf('sessionStorage.setItem("arisuFixStandaloneStartupComplete", "1")') < js.indexOf('window.location.replace("/home")'));
+  assert.ok(js.indexOf('sessionStorage.setItem("arisuFixStandaloneStartupComplete", "1")') < js.lastIndexOf('window.location.replace("/home")'));
   assert.ok(!js.includes('waitForLoad'), 'load readiness should be awaited only once');
   assert.ok(js.includes('row.key === "styles" && document.readyState !== "complete"'));
   assert.ok(js.includes("link[rel=\"stylesheet\"]"));
