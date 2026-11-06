@@ -3,7 +3,7 @@ Version: AFV491
 Updated: 2026-11-06
 
 Current release: AFV491
-Package version: 490.0.0
+Package version: 491.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
