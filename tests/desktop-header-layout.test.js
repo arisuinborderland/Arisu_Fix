@@ -35,7 +35,7 @@ test('Homepage mobile header stays one row and matches the 58px shared page heig
  assert.doesNotMatch(homeMobile,/display:grid|grid-template-rows:58px auto|padding:0 12px 6px|row-gap:2px/);
 });
 test('All public pages load the shared header stylesheet last', () => {
- for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV474&shared=1',page+' must load shared header stylesheet last');}
+ for(const page of pages){const html=read(page);const links=[...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)];assert.equal(links.at(-1)?.[1],'site-header.css?v=AFV479&shared=1',page+' must load shared header stylesheet last');}
 });
 test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor', () => {
  const partial = read('partials/site-header.html');
@@ -47,9 +47,9 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
   const homeStyles = read('styles.css');
   assert.match(homeStyles, /\.arisu-verified-badge\{[^}]*animation:arisu-brand-badge-pop 2s ease-in-out infinite/);
   assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
-  const checkDrawBlock = homeStyles.split("AFV467 — Keep the homepage header's verified check-draw animation active.")[1];
-  assert.ok(checkDrawBlock, 'AFV467 homepage check-draw override must exist');
-  assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\\s*24\\s*!important/);
+  const checkDrawBlock = css.split("Homepage check-draw remains active independently of the global badge fallback.")[1];
+  assert.ok(checkDrawBlock, 'AFV479 homepage check-draw override must exist');
+  assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\s*24\s*!important/);
   assert.match(checkDrawBlock, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
  assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
@@ -57,10 +57,11 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
 });
 test('Homepage verified check animation is not blocked by an important dash offset', () => {
  const homeStyles = read('styles.css');
+ const sharedHeader = read('site-header.css');
  assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
  assert.doesNotMatch(homeStyles, /stroke-dashoffset:\s*24\s*!important/);
- assert.ok(homeStyles.includes('html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg path {'));
- assert.ok(homeStyles.includes('animation: arisu-brand-check-draw 2s ease-in-out infinite !important;'));
+ assert.ok(sharedHeader.includes('html body.home-page header.topbar.site-header > .brand .brand-name-row > .arisu-verified-badge svg path {'));
+ assert.ok(sharedHeader.includes('animation: arisu-brand-check-draw 2s ease-in-out infinite !important;'));
 });
 test('AFV422 cleanup leaves one authoritative header layout layer', () => {
  assert.match(css,/AFV422 — Approved shared header baseline/);
@@ -101,7 +102,7 @@ test('Desktop homepage proof previews align at the top with no extra inset', () 
 });
 test('Homepage cache key refreshes desktop proof thumbnail alignment', () => {
   const html = read('index.html');
-  assert.match(html, /styles\.css\?v=AFV467&desktoplayout=1/);
+  assert.match(html, /styles\.css\?v=AFV479&desktoplayout=1/);
 });
 
 
@@ -117,7 +118,7 @@ test('AFV324 desktop proof preview cards stretch to 2px above the action button'
   assert.match(desktopFix, /object-fit:\s*cover !important/);
 });
 test('Homepage cache key refreshes the 2px desktop proof-preview spacing', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV467&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV479&desktoplayout=1/);
 });
 
 
@@ -133,7 +134,7 @@ test('AFV325 desktop homepage previews do not mask source pixels and show comple
   assert.match(desktopFix, /height:\s*48px !important/);
 });
 test('Homepage cache key refreshes AFV325 desktop proof-image rules', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV467&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV479&desktoplayout=1/);
 });
 
 
@@ -149,7 +150,7 @@ test('AFV326 desktop homepage uses matched fixed-height cards and constrains the
   assert.match(desktopFix, /object-fit:\s*contain !important/);
 });
 test('Homepage cache key refreshes AFV326 desktop layout correction', () => {
-  assert.match(read('index.html'), /styles\.css\?v=AFV467&desktoplayout=1/);
+  assert.match(read('index.html'), /styles\.css\?v=AFV479&desktoplayout=1/);
 });
 
 
@@ -225,28 +226,21 @@ test('AFV423 desktop homepage verified check is not pinned to its hidden SVG das
 });
 
 
-test('AFV425 removes superseded Reviews and Proofs mobile header layers', () => {
- const reviews = read('reviews.css');
- const proofs = read('proofs.css');
- assert.doesNotMatch(reviews, /Final mobile header alignment: keep both actions side-by-side beside the brand/);
- assert.doesNotMatch(reviews, /Match the homepage profile header sizing and alignment on Customer Reviews/);
- assert.doesNotMatch(proofs, /refined compact profile header; preserve the existing header links and gradient/);
- assert.doesNotMatch(proofs, /Match the homepage profile header sizing and alignment on Recovery Proofs/);
- assert.doesNotMatch(proofs, /AFV273 — final scoped reset/);
- assert.doesNotMatch(proofs, /AFV276 — match homepage header action sizing exactly/);
- assert.match(proofs, /AFV279 — final canonical header sizing/);
- assert.match(proofs, /Preserve the Reviews\/Proofs brand-row and verified-badge alignment/);
- assert.match(reviews, /match homepage mobile header geometry exactly/);
+test('AFV479 removes page-specific header cascades after the shared header contract became authoritative', () => {
+ const reviews = read('reviews.css').replace(/\/\*[\s\S]*?\*\//g, '');
+ const proofs = read('proofs.css').replace(/\/\*[\s\S]*?\*\//g, '');
+ for (const source of [reviews, proofs]) {
+   assert.doesNotMatch(source, /\.topbar\b|\.header-meta\b|\.brand-name-row\b|\.arisu-verified-badge\b/);
+ }
+ assert.match(css, /html body header\.topbar\.site-header/);
 });
-
-
-test('AFV474 shared verified badge alignment clears legacy row padding and centers on every page', () => {
+test('AFV479 shared verified badge alignment clears legacy row padding and centers on every page', () => {
   assert.match(css, /brand-name-row \{[^}]*align-items:center!important[^}]*padding-block:0!important/);
   assert.match(css, /brand-name-row > \.arisu-verified-badge \{[\s\S]*?align-self:\s*center\s*!important;[\s\S]*?margin-block:\s*0\s*!important;/);
   assert.doesNotMatch(css, /brand-name-row \{[^}]*align-items:baseline!important/);
   for (const page of pages) {
     const html = read(page);
-    assert.match(html, /site-header\.css\?v=AFV474&shared=1/);
+    assert.match(html, /site-header\.css\?v=AFV479&shared=1/);
   }
 });
 
@@ -258,4 +252,19 @@ test('Shared logo wrapper and image keep matching circular clipping at desktop a
   assert.match(mobileLogo[1], /border-radius:50%!important/);
   assert.match(mobileLogo[1], /aspect-ratio:1\/1!important/);
   assert.doesNotMatch(mobileLogo[1], /border-radius:14px/);
+});
+
+
+test('AFV479 keeps shared header CSS as the only active header cascade', () => {
+  const sources = ['styles.css', 'reviews.css', 'proofs.css'].map(name => read(name).replace(/\/\*[\s\S]*?\*\//g, ''));
+  for (const source of sources) assert.doesNotMatch(source, /\.topbar\b|\.header-meta\b/);
+  for (const page of pages) {
+    const html = read(page);
+    assert.match(html, /styles\.css\?v=AFV479/);
+    assert.match(html, /site-header\.css\?v=AFV479&shared=1/);
+  }
+  assert.match(css, /proofs-header-link/);
+  assert.match(css, /webtools-header-link/);
+  assert.match(css, /topbar-scroll-aware/);
+  assert.doesNotMatch(read('build.js'), /"about-link\.css"/);
 });

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 :root{--green:#119c6e}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif}.topbar{border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.logo{height:38px;width:38px;display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:11px;font:800 19px Manrope,sans-serif;overflow:hidden;flex-shrink:0}.logo span{color:#8aa8ff}.profile-logo{background:#fff;padding:0}.profile-logo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}.brand b,.brand small{display:block;line-height:1.2}.brand b{font:800 15px Manrope,sans-serif}.brand small{font-size:10px;color:var(--muted);margin-top:4px}.eyebrow span{width:7px;height:7px;background:#17b67d;border-radius:50%}main{margin:auto}.eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:var(--blue);display:inline-flex;align-items:center;gap:8px}.wizard-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 15px 45px rgba(30,52,95,.06)}.button{font:700 12px "DM Sans",sans-serif;border:1px solid transparent;border-radius:9px;padding:13px 16px;display:inline-flex;align-items:center;justify-content:center;gap:15px;cursor:pointer;text-decoration:none;transition:.15s}.primary{background:#25D366;color:#fff}.primary:hover:not(:disabled){background:#1fb85a}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{color:#344057}.secondary:hover{border-color:#b8c8ef}.full{width:100%}footer{border-top:1px solid var(--line);background:#fff;padding:22px max(22px,calc((100% - 1080px)/2));display:flex;align-items:center;gap:22px}footer>a:nth-child(2){margin-left:auto}footer>a:not(.brand),footer>span{font-size:10px;text-decoration:none}footer>a:not(.brand):hover{color:var(--blue)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.logo{height:38px;width:38px;display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:11px;font:800 19px Manrope,sans-serif;overflow:hidden;flex-shrink:0}.logo span{color:#8aa8ff}.profile-logo{background:#fff;padding:0}.profile-logo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}.brand b,.brand small{display:block;line-height:1.2}.brand b{font:800 15px Manrope,sans-serif}.brand small{font-size:10px;color:var(--muted);margin-top:4px}.eyebrow span{width:7px;height:7px;background:#17b67d;border-radius:50%}main{margin:auto}.eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:var(--blue);display:inline-flex;align-items:center;gap:8px}.wizard-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 15px 45px rgba(30,52,95,.06)}.button{font:700 12px "DM Sans",sans-serif;border:1px solid transparent;border-radius:9px;padding:13px 16px;display:inline-flex;align-items:center;justify-content:center;gap:15px;cursor:pointer;text-decoration:none;transition:.15s}.primary{background:#25D366;color:#fff}.primary:hover:not(:disabled){background:#1fb85a}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{color:#344057}.secondary:hover{border-color:#b8c8ef}.full{width:100%}footer{border-top:1px solid var(--line);background:#fff;padding:22px max(22px,calc((100% - 1080px)/2));display:flex;align-items:center;gap:22px}footer>a:nth-child(2){margin-left:auto}footer>a:not(.brand),footer>span{font-size:10px;text-decoration:none}footer>a:not(.brand):hover{color:var(--blue)}
 @media (max-width:600px) {.wizard-card{border-radius:16px}.button{padding:12px}footer{padding:20px 16px;gap:12px;flex-wrap:wrap}footer .brand{margin-right:auto}footer>a:nth-child(2){margin-left:0}}
 
 /* Single-screen contact layout */
@@ -21,7 +21,6 @@
 
 /* Mobile-first first-screen layout */
 @media  (max-width: 600px) {
-  .topbar{height:58px;padding:0 16px;position:sticky;top:0;z-index:20}
 
   main{max-width:100%;padding:18px 14px 22px}
 
@@ -76,16 +75,6 @@
 /* Privacy Policy link: improve visibility and tap target on mobile */
 footer .privacy-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;color:var(--blue);font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;position:relative;z-index:2;cursor:pointer;pointer-events:auto}footer .privacy-link:hover,footer .privacy-link:focus-visible{background:var(--pale);color:var(--blue-dark);outline:2px solid #b9caff;outline-offset:2px}
 
-/* Header layout update: Privacy Policy and copyright beside the brand; no bottom footer */
-.topbar{min-height:96px;height:auto;padding:18px max(22px,calc((100% - 1080px)/2));gap:24px}
-.topbar .logo{width:66px;height:66px;border-radius:18px}
-.topbar .brand{gap:16px}
-.topbar .brand small{margin-top:5px}
-.header-meta .privacy-link{border-radius:16px;text-decoration:none;transition:background .15s,border-color .15s}
-
-@media (max-width:600px) {.topbar .logo{border-radius:12px}.topbar .brand{min-width:0}.topbar .brand small{margin-top:3px}.header-meta .privacy-link{border-radius:10px;white-space:nowrap}}
-@media (max-width:380px) {.topbar{padding-left:9px;padding-right:9px}.topbar .brand{gap:6px}.topbar .logo{width:37px;height:37px}}
-
 /* Enhanced TikTok showcase: clear profile destination, no fabricated video previews */
 .tiktok-showcase{margin-top:13px;padding:16px;border:1px solid #dce2ec;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f8faff 100%);box-shadow:0 5px 18px rgba(25,36,55,.045)}
 
@@ -105,9 +94,6 @@ footer .privacy-link{display:inline-flex;align-items:center;justify-content:cent
 
 /* Premium complete-site refresh — layered on top of the original visual identity */
 html{scroll-padding-top:96px}
-.topbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(155%) blur(14px);background:rgba(255,255,255,.94);border-bottom-color:rgba(223,230,241,.9)}
-.topbar .brand b{letter-spacing:-.55px}
-.topbar .logo{box-shadow:0 4px 12px rgba(29,47,86,.12);outline:1px solid rgba(255,255,255,.9);outline-offset:-2px}
 main{max-width:1040px;padding:30px 22px 72px}
 .compact-intro{max-width:780px}
 .compact-intro .eyebrow{border-radius:999px;padding:8px 13px}
@@ -153,7 +139,7 @@ main{max-width:1040px;padding:30px 22px 72px}
 @media (max-width:760px) {
  html{scroll-padding-top:85px}.steps-grid{grid-template-columns:1fr;gap:11px}.step-card{min-height:0;display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start}.step-card h3{grid-column:2;grid-row:1;margin:2px 25px 6px 0}.step-card p{grid-column:2;grid-row:2}.safety-panel{grid-template-columns:43px minmax(0,1fr);gap:13px;border-radius:19px}.safety-panel-icon{width:42px;height:42px;border-radius:13px;font-size:22px}.about-card{grid-template-columns:60px minmax(0,1fr);border-radius:20px}.about-card>img{width:60px;height:60px;border-radius:17px}.site-section{scroll-margin-top:94px}
 }
-@media (max-width:420px) {.topbar{padding-left:10px;padding-right:10px}.topbar .brand{gap:7px}.header-meta{gap:6px}.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}}
+@media (max-width:420px) {.compact-intro .eyebrow{padding:7px 9px}.compact-intro h1{letter-spacing:-1.1px}.compact-intro p{font-size:11px}.site-section{margin-top:31px}.about-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 12px}.about-card>img{width:48px;height:48px;border-radius:13px}.about-card h2{font-size:19px}.floating-whatsapp{font-size:11px}}
 @media (prefers-reduced-motion:reduce) {html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 /* Premium Mobile Polish readability, touch targets and calmer spacing */
@@ -178,10 +164,6 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 .step-card h3{font-size:17px}
 
 .floating-whatsapp{min-height:50px;padding:0 18px;font-size:14px;bottom:18px}
-
-.topbar .brand b{font-size:16px}
-.topbar .brand small{font-size:11px}
-.header-meta .privacy-link{display:inline-flex;align-items:center;justify-content:center}
 @media (max-width:760px) {
  main{padding:26px 15px 66px}
  .compact-intro{padding:9px 3px 14px;margin-bottom:20px}
@@ -209,7 +191,6 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
  
 }
 @media (max-width:420px) {
- .header-meta .privacy-link{font-size:11px;min-height:40px;padding:0 10px}
 
  .compact-intro .eyebrow{font-size:9px;letter-spacing:.6px}
  .compact-intro h1{font-size:clamp(30px,8vw,36px)}
@@ -248,36 +229,6 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 @media (max-width:760px) {.proof-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proof-card{border-radius:16px}.proof-card h3{font-size:14px}.proof-card p{font-size:12px}}
 @media (max-width:460px) {.proof-gallery{grid-template-columns:1fr}.proof-image-link{aspect-ratio:16/10}.proof-empty{padding:24px 16px}}
 @media (hover:none) {.proof-card:hover{transform:none;box-shadow:0 8px 24px rgba(26,48,86,.055)}}
-
-/* Header shortcut to the Recovery Proofs gallery */
-.header-meta{display:flex;align-items:center;flex-shrink:0}
-.header-meta .proofs-header-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;text-decoration:none;white-space:nowrap;transition:background .18s,border-color .18s,transform .18s}
-.header-meta .proofs-header-link:hover{transform:translateY(-1px)}
-.header-meta .proofs-header-link:focus-visible,.header-meta .privacy-link:focus-visible{outline:3px solid #9bb5ff;outline-offset:2px}
-@media (max-width:600px) {.header-meta .proofs-header-link{min-height:38px;padding:0 9px;font-size:10px;border-radius:10px}.header-meta .privacy-link{min-height:38px;padding:0 9px;font-size:10px}}
-@media (max-width:380px) {.header-meta{gap:4px}.header-meta .proofs-header-link{padding:0 6px;font-size:9px;gap:3px}.header-meta .privacy-link{padding:0 6px;font-size:9px}}
-
-/* Header refinement: distinct, visible action buttons; copyright removed from header */
-.header-meta{gap:12px}
-.header-meta .proofs-header-link{min-height:48px;padding:0 17px;border:1px solid #2f5fe7;background:linear-gradient(135deg,#315fe8 0%,#547af3 100%);color:#fff;font-size:13px;font-weight:800;box-shadow:0 5px 14px rgba(49,94,232,.22)}
-.header-meta .proofs-header-link:hover{background:linear-gradient(135deg,#264fcf 0%,#4269e8 100%);border-color:#264fcf;box-shadow:0 7px 18px rgba(49,94,232,.28)}
-.header-meta .proofs-header-link span[aria-hidden="true"]{font-size:16px}
-.header-meta .privacy-link{min-height:48px;padding:0 17px;border:1px solid #cbd5e5;background:#fff;color:#34415a;font-size:13px;font-weight:800;box-shadow:0 3px 10px rgba(31,49,83,.07)}
-.header-meta .privacy-link:hover{background:#f6f8ff;border-color:#9fb4ec;color:#244fc7}
-@media (max-width:600px) {
- .topbar{min-height:unset;height:auto;padding:12px 12px 13px;gap:10px;flex-wrap:wrap;justify-content:center}
- .topbar .brand{flex:1 1 100%;justify-content:center;gap:9px}
- .topbar .logo{width:39px;height:39px}
- .header-meta{justify-content:center}
- .header-meta .proofs-header-link,.header-meta .privacy-link{min-height:43px;padding:0 15px;font-size:12px;border-radius:12px}
-}
-/* Order compact brand font sizes from wider to narrower breakpoints. */
-@media (max-width:420px) {.topbar .brand b{font-size:14px}.topbar .brand small{font-size:10px}}
-@media (max-width:380px) {.topbar .brand small{font-size:9px}}
-@media (max-width:360px) {
- .header-meta{gap:7px}
- .header-meta .proofs-header-link,.header-meta .privacy-link{padding:0 10px;font-size:11px;min-height:41px}
-}
 
 /* Proof image display: show the entire uploaded screenshot without cropping. */
 .proof-image-protected{position:relative;aspect-ratio:auto;overflow:hidden;background:#edf2fa;user-select:none;-webkit-user-select:none}
@@ -320,9 +271,7 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 @media (max-width:600px) {.daily-verse-card{margin:10px 0 5px;padding:11px 10px 10px;border-radius:13px}.daily-verse-topline{gap:5px}.daily-verse-label{font-size:8px;letter-spacing:.8px}.daily-verse-card h2{font-size:15px}.daily-verse-text{font-size:13px;line-height:1.45}.daily-verse-translation{font-size:10px}}
 
 /* Hybrid redesign: airy light page sections + readable deep-navy cards */
-:root{--soft-shadow:0 14px 36px rgba(19,35,66,.09)}
-.topbar,footer{background:rgba(255,255,255,.97);border-color:#dce4f0}
-.topbar{box-shadow:0 6px 22px rgba(19,35,66,.06)}
+:root{--soft-shadow:0 14px 36px rgba(19,35,66,.09)}footer{background:rgba(255,255,255,.97);border-color:#dce4f0}
 .compact-intro h1{color:#17243b}.compact-intro p{color:#58677f}
 .wizard-card.contact-only,
 .wizard-card,
@@ -526,14 +475,6 @@ main{padding-top:0}
   .site-section.safety-section { margin-top: 9px !important; }
 }
 
-/* improve readability of the three process descriptions */
-
-/* make the three process descriptions below their headings easier to read. */
-@media  (max-width: 600px)  {
-}
-@media  (max-width: 420px)  {
-}
-
 /* improve readability of About This Website and account-safety text */
 .about-card .section-kicker { font-size: 12px; line-height: 1.4; letter-spacing: 1.5px; }
 .about-card h2 { font-size: clamp(25px, 3.8vw, 32px); line-height: 1.25; }
@@ -561,92 +502,6 @@ main{padding-top:0}
  .terms-card p{font-size:16px !important;line-height:1.75 !important}
 
  
-}
-
-/* add a distinct Free Web Tools link to the top navigation */
-.header-meta .webtools-header-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:54px;padding:0 20px;border:1px solid #0f766e;border-radius:16px;background:linear-gradient(135deg,#0f766e 0%,#159b8c 100%);color:#fff;text-decoration:none;font-size:15px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px rgba(15,118,110,.18);transition:transform .16s,filter .16s,box-shadow .16s}
-.header-meta .webtools-header-link:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 7px 17px rgba(15,118,110,.22)}
-.header-meta .webtools-header-link:focus-visible{outline:3px solid #72d9cd;outline-offset:3px}
-@media (max-width:600px) {
- .header-meta{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;width:100%;}
- .header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{min-height:42px;padding:0 8px;font-size:11px;border-radius:11px;gap:5px;}
- .header-meta .webtools-header-link{grid-column:1 / -1;min-height:40px;}
-}
-@media (max-width:380px) {.header-meta .proofs-header-link,.header-meta .privacy-link,.header-meta .webtools-header-link{font-size:10px;padding:0 6px;gap:4px}}
-
-/* Consistent icons in all three header buttons */
-.header-meta .header-icon{width:18px;height:18px;flex:0 0 18px;display:inline-block;}
-@media (max-width:600px) {.header-meta .header-icon{width:15px;height:15px;flex-basis:15px;}}
-
-/* consolidated mobile header layout rule; desktop remains untouched. */
-@media  (max-width: 600px)  {
-  body .topbar {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    grid-template-rows: auto auto !important;
-    align-items: center !important;
-    justify-content: stretch !important;
-    column-gap: 4px !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-  body .topbar > .brand {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    width: auto !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    flex: initial !important;
-  }
-  body .topbar > .header-meta { display: contents !important; }
-  body .topbar > .header-meta > .privacy-link {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    justify-self: end !important;
-    align-self: center !important;
-    width: auto !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    padding: 0 8px !important;
-    font-size: 10.5px !important;
-    white-space: nowrap !important;
-    flex: initial !important;
-  }
-  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
-  body .topbar > .header-meta > .webtools-header-link { grid-column: 1 !important; grid-row: 2 !important; }
-  body .topbar > .header-meta > .proofs-header-link { grid-column: 2 !important; grid-row: 2 !important; }
-  body .topbar > .header-meta > .webtools-header-link,
-  body .topbar > .header-meta > .proofs-header-link {
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 6px !important;
-    gap: 4px !important;
-    justify-content: center !important;
-    font-size: 10px !important;
-    white-space: nowrap !important;
-    flex: initial !important;
-  }
-  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
-}
-@media  (max-width: 380px)  {
-  body .topbar > .brand { gap: 5px !important; }
-  body .topbar > .brand .logo { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
-  body .topbar > .brand b { font-size: 13px !important; }
-  body .topbar > .brand small { font-size: 9px !important; }
-  body .topbar > .header-meta > .privacy-link { font-size: 9.5px !important; padding: 0 6px !important; }
-  body .topbar > .header-meta > .about-header-link { font-size: 9.5px !important; padding: 0 6px !important; }
-  body .topbar .header-icon { width: 12px !important; height: 12px !important; flex: 0 0 12px !important; }
-  body .topbar > .header-meta > .webtools-header-link,
-  body .topbar > .header-meta > .proofs-header-link { font-size: 10px !important; padding: 0 4px !important; gap: 3px !important; }
-}
-
-/* Match homepage header text/icon sizing to Reviews and Proofs at 601–700px. */
-@media (min-width: 601px) and (max-width: 700px) {
-  body .topbar > .header-meta > .privacy-link,
-  body .topbar > .header-meta > .about-header-link { font-size: 10.5px !important; }
-  body .topbar .header-icon { width: 14px !important; height: 14px !important; flex: 0 0 14px !important; }
 }
 
 /* make the About section brand title more noticeable */
@@ -1274,9 +1129,7 @@ html {
 body {
   background: linear-gradient(135deg, #dff7ff 0%, #e9e8ff 38%, #fce2fb 72%, #dff4ff 100%) fixed !important;
   color: var(--ink);
-}
-.topbar,
-footer {
+}footer{
   background: rgba(255, 255, 255, .78) !important;
   border-color: rgba(126, 149, 218, .22) !important;
   backdrop-filter: blur(16px);
@@ -1321,9 +1174,7 @@ a, button {
 @media  (max-width: 600px)  {
   body {
     background: linear-gradient(160deg, #ddf7ff 0%, #e8eaff 45%, #fbe5fa 76%, #e0f4ff 100%) fixed !important;
-  }
-  .topbar,
-  footer {
+  }footer{
     background: rgba(255,255,255,.86) !important;
   }
 }
@@ -2436,16 +2287,6 @@ body.home-page .whatsapp-feature-content h2 {
  headline, WhatsApp panel and availability panel lead the page. Social cards
  remain in normal document flow below the availability panel, never removed. */
 @media  (min-width: 761px)  {
-  body.home-page .topbar {
-    min-height: 76px !important;
-    
-    padding: 8px clamp(18px, 2.2vw, 36px) !important;
-    gap: 16px !important;
-  }
-
-  body.home-page .topbar > .brand {
-    gap: 12px !important;
-  }
 
   body.home-page main {
     width: 100% !important;
@@ -2894,8 +2735,6 @@ body.home-page .desktop-social-destination { order: 5 !important; }
     flex-basis: 24px !important;
   }
 
-}
-@media  (max-width: 760px)  {
 }
 
 /* closer scenic Bible verse banner styling for desktop and mobile. */
@@ -4365,16 +4204,6 @@ html body #daily-bible-verse.daily-verse-card {
   html.arc-is-scrolling #floatingWhatsApp {
     animation-play-state: paused !important;
   }
-
-  .topbar {
-    backdrop-filter: saturate(135%) blur(10px);
-    -webkit-backdrop-filter: saturate(135%) blur(10px);
-  }
-
-  html.arc-is-scrolling .topbar {
-    backdrop-filter: saturate(115%) blur(3px);
-    -webkit-backdrop-filter: saturate(115%) blur(3px);
-  }
 }
 
 /* Scam Awareness card styling. Its vertical offset is controlled by the single
@@ -4581,23 +4410,6 @@ body.home-page .about-card .independent-note {
 
 /* tighten mobile header alignment and the space above the intro heading. */
 @media  (max-width: 600px)  {
-  body .topbar {
-    padding: 8px 12px 6px !important;
-    row-gap: 2px !important;
-    border-bottom: 1px solid rgba(205, 216, 233, .9) !important;
-  }
-  body .topbar > .brand {
-    justify-self: start !important;
-    justify-content: flex-start !important;
-    gap: 8px !important;
-  }
-  body .topbar > .header-meta > .privacy-link {
-    min-height: 35px !important;
-  }
-  body .topbar > .header-meta > .webtools-header-link,
-  body .topbar > .header-meta > .proofs-header-link {
-    min-height: 38px !important;
-  }
   body main {
     padding-top: 0 !important;
   }
@@ -5020,63 +4832,6 @@ body.home-page .terms-card .terms-security-copy p {
   body.home-page .terms-card .terms-security-copy p { font-size: 11.5px !important; }
 }
 
-/* tighter mobile spacing for the account-assistance process cards.
- Keep desktop layout unchanged; remove excess grid-row height caused by the icon spanning three rows. */
-@media  (max-width: 760px)  {
-}
-@media  (max-width: 380px)  {
-}
-
-/* lift process-card titles and descriptions on mobile only.
- Keep outer card layout, icons, badges, and desktop presentation unchanged. */
-@media  (max-width: 380px)  {
-}
-
-/* approved tighter mobile spacing inside the five process cards.
- Reduce the inner top/bottom padding and the title-to-description row gap.
- Desktop styling and the outer section layout remain unchanged. */
-@media  (max-width: 760px)  {
-}
-@media  (max-width: 380px)  {
-}
-
-/* authoritative mobile compact spacing for account-assistance steps.
- Higher specificity intentionally overrides legacy home-page rules. */
-
-/* compact, aligned mobile process cards.
- Tightens inner vertical rhythm and lets long headings wrap cleanly.
- Desktop layout and outer section/container dimensions are untouched. */
-@media  (max-width: 760px)  {
-}
-@media  (max-width: 380px)  {
-}
-
-/* align process descriptions directly beneath their headings on mobile. */
-
-/* remove excess gap between process-card titles and descriptions on mobile.
- Override legacy grid placement explicitly so descriptions follow titles immediately. */
-@media  (max-width: 760px)  {
-}
-
-@media  (max-width: 380px)  {
-}
-
-/* refined mobile title-to-description spacing across all five process cards. */
-@media  (max-width: 760px)  {
-}
-
-/* reliable mobile spacing using a real text wrapper.
- Earlier grid rows were held apart by the icon/number row height, so changing margins alone did not visually close the gap.
- Desktop keeps the existing grid placement via display: contents. */
-
-/* restore the desktop process-card text wrapper layout.
- Keep icon + number columns unchanged; let the copy occupy the full third column. */
-
-/* desktop-only refinement for the five account-assistance cards.
- Adjust interior content only; deliberately preserve the existing outer card border and radius. */
-@media  (min-width: 761px)  {
-}
-
 /* lift the ENTIRE contents of the Why Choose Arisu outer card.
  The outer border, radius, background, and horizontal padding are preserved.
  Reducing only the top padding moves the kicker, title, description, history card,
@@ -5464,11 +5219,6 @@ body.home-page .why-arisu-section .why-arisu-note {
   html body.home-page main > .why-arisu-section {
     margin-top: 8px !important;
   }
-}
-
-/* restore a little breathing room above the mobile process section.
- Only the section's outside spacing changes; card internals and desktop layout stay untouched. */
-@media  (max-width: 640px)  {
 }
 
 /* apply the compact mobile gap to the actual moved sections.
@@ -6485,11 +6235,6 @@ html body.home-page #serviceStatus .service-status-dot.is-offline::after {
   html body.home-page #serviceStatus .service-status-dot::after { animation: none !important; }
 }
 
-/* raise only the header Privacy Policy button by 2px. */
-html body .topbar > .header-meta > .privacy-link {
-  transform: translateY(-2px) !important;
-}
-
 /* improve visibility of the social-media divider lines and label. */
 html body.home-page .contact-divider {
   color: #34445d !important;
@@ -6517,75 +6262,6 @@ html body.home-page .contact-divider::after {
     font-size: 10px !important;
     letter-spacing: .4px !important;
   }
-}
-
-/* Aurora Glass header treatment — color-only; preserve layout and button colors. */
-html body.home-page .topbar,
-html body:not(.home-page) .topbar {
-  background: linear-gradient(112deg,
-    rgba(234, 244, 255, .96) 0%,
-    rgba(237, 233, 254, .95) 52%,
-    rgba(252, 231, 243, .94) 100%) !important;
-  border-bottom: 1px solid rgba(151, 164, 220, .34) !important;
-  box-shadow: 0 5px 22px rgba(91, 111, 176, .075),
-              inset 0 1px 0 rgba(255, 255, 255, .88) !important;
-  -webkit-backdrop-filter: saturate(155%) blur(16px);
-  
-}
-html body.home-page .topbar .brand,
-html body:not(.home-page) .topbar .brand {
-  color: var(--ink);
-}
-@media  (prefers-reduced-transparency: reduce)  {
-  html body.home-page .topbar,
-  html body:not(.home-page) .topbar {
-    background: linear-gradient(112deg, #EAF4FF 0%, #EDE9FE 52%, #FCE7F3 100%) !important;
-  }
-}
-
-/* smart hide-on-scroll header; keeps layout flow stable. */
-.topbar.topbar-scroll-aware {
-  transition: transform 240ms cubic-bezier(.2, .7, .2, 1);
-  will-change: transform;
-}
-.topbar.topbar-scroll-aware.topbar-scroll-hidden {
-  transform: translateY(calc(-100% - 12px));
-  pointer-events: none;
-}
-@media  (prefers-reduced-motion: reduce)  {
-  .topbar.topbar-scroll-aware { transition: none !important; }
-}
-
-/* royal-blue primary header buttons with pearl-glass secondary action. */
-html body .topbar > .header-meta > .proofs-header-link,
-html body .topbar > .header-meta > .webtools-header-link {
-  background: linear-gradient(115deg, #2563EB 0%, #4F46E5 100%) !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(37, 67, 190, .32) !important;
-  box-shadow: 0 3px 10px rgba(67, 82, 201, .18), inset 0 1px 0 rgba(255,255,255,.20) !important;
-  font-weight: 750 !important;
-  text-decoration: none !important;
-  transition: box-shadow .18s ease, filter .18s ease, transform .18s ease !important;
-}
-html body .topbar > .header-meta > .proofs-header-link:hover,
-html body .topbar > .header-meta > .webtools-header-link:hover {
-  filter: brightness(1.06) saturate(1.04);
-  box-shadow: 0 5px 14px rgba(67, 82, 201, .24), inset 0 1px 0 rgba(255,255,255,.24) !important;
-}
-html body .topbar > .header-meta > .privacy-link {
-  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(238,242,255,.94)) !important;
-  color: #334155 !important;
-  border: 1px solid #C7D2FE !important;
-  box-shadow: 0 2px 8px rgba(71,85,150,.08), inset 0 1px 0 rgba(255,255,255,.95) !important;
-}
-html body .topbar > .header-meta > .privacy-link:hover {
-  background: linear-gradient(135deg, #FFFFFF, #E0E7FF) !important;
-  border-color: #A5B4FC !important;
-  color: #1E3A8A !important;
-}
-html body .topbar > .header-meta > .proofs-header-link:focus-visible,
-html body .topbar > .header-meta > .webtools-header-link:focus-visible {
-  outline: 3px solid #A5B4FC !important; outline-offset: 3px !important;
 }
 /* reduce Clear guidance note vertical padding by another 2px on mobile only. */
 @media  (max-width: 640px)  {
@@ -7471,51 +7147,6 @@ html body.home-page .floating-menu-item:active {
   html body.home-page .floating-menu-item { transition: none !important; }
 }
 
-/* Restrained pearl-glass treatment for existing header actions. */
-html body .topbar > .header-meta > .proofs-header-link,
-html body .topbar > .header-meta > .webtools-header-link {
-  background: linear-gradient(135deg, rgba(255,255,255,.78) 0%, rgba(232,241,255,.66) 100%) !important;
-  color: #183766 !important;
-  border: 1px solid rgba(119, 157, 224, .48) !important;
-  -webkit-backdrop-filter: saturate(145%) blur(12px);
-  
-  box-shadow: 0 4px 14px rgba(53, 88, 157, .10),
-              inset 0 1px 0 rgba(255,255,255,.92) !important;
-}
-html body .topbar > .header-meta > .proofs-header-link .header-icon,
-html body .topbar > .header-meta > .webtools-header-link .header-icon {
-  color: #2865d7;
-}
-html body .topbar > .header-meta > .proofs-header-link:hover,
-html body .topbar > .header-meta > .webtools-header-link:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,.94) 0%, rgba(224,237,255,.86) 100%) !important;
-  border-color: rgba(74, 123, 215, .62) !important;
-  box-shadow: 0 6px 17px rgba(53, 88, 157, .15),
-              inset 0 1px 0 rgba(255,255,255,.98) !important;
-}
-html body .topbar > .header-meta > .proofs-header-link:active,
-html body .topbar > .header-meta > .webtools-header-link:active {
-  transform: translateY(0) scale(.985);
-}
-html body .topbar > .header-meta > .proofs-header-link:focus-visible,
-html body .topbar > .header-meta > .webtools-header-link:focus-visible {
-  outline: 3px solid rgba(96, 150, 255, .72) !important;
-}
-@media (prefers-reduced-transparency: reduce) {
-  html body .topbar > .header-meta > .proofs-header-link,
-  html body .topbar > .header-meta > .webtools-header-link {
-    background: linear-gradient(135deg, #FFFFFF 0%, #EAF1FF 100%) !important;
-    -webkit-backdrop-filter: none;
-    
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html body .topbar > .header-meta > .proofs-header-link,
-  html body .topbar > .header-meta > .webtools-header-link {
-    transition: none !important;
-  }
-}
-
 html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
   position: relative !important;
   top: -8px !important;
@@ -7875,83 +7506,6 @@ html body.home-page .purpose-card .purpose-signoff {
   html body.home-page .mobile-nav-story-avatar { transition:none !important; }
 }
 
-/* refined compact profile header; preserve the existing header links and gradient. */
-@media (max-width: 700px) {
-  html body.home-page .topbar {
-    padding: 10px 12px 11px;
-    column-gap: 10px;
-    row-gap: 8px;
-  }
-  html body.home-page .topbar > .brand {
-    flex: 1 1 auto;
-    justify-content: flex-start;
-    min-width: 0;
-    gap: 9px;
-  }
-  html body.home-page .topbar > .brand .logo {
-    width: 43px;
-    height: 43px;
-    flex: 0 0 43px;
-    border-radius: 13px;
-  }
-  html body.home-page .topbar > .brand .brand-copy { min-width: 0; }
-  html body.home-page .topbar > .brand b {
-    font-size: 15px;
-    line-height: 1.15;
-    letter-spacing: -.35px;
-  }
-  html body.home-page .topbar > .brand small {
-    margin-top: 3px;
-    font-size: 11px;
-    line-height: 1.2;
-  }
-  html body.home-page .topbar .arisu-verified-badge {
-    flex: 0 0 auto;
-  }
-  html body.home-page .topbar .header-meta {
-    flex: 0 0 auto;
-    gap: 6px;
-  }
-  html body.home-page .topbar .header-meta .privacy-link {
-    min-height: 40px;
-    padding: 0 11px;
-    border-radius: 12px;
-    font-size: 11px;
-    white-space: nowrap;
-  }
-}
-@media (max-width: 380px) {
-  html body.home-page .topbar { padding-left: 9px; padding-right: 9px; }
-  html body.home-page .topbar > .brand { gap: 7px; }
-  html body.home-page .topbar > .brand .logo {
-    width: 39px; height: 39px; flex-basis: 39px;
-  }
-  html body.home-page .topbar .header-meta .privacy-link {
-    min-height: 37px; padding: 0 8px; font-size: 10px;
-  }
-}
-
-/* keep the mobile header focused on the Arisu profile and Privacy Policy. */
-@media (max-width: 700px) {
-  html body.home-page .topbar > .header-meta {
-    display: flex !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-    grid-template-columns: none !important;
-    justify-content: flex-end;
-    gap: 0 !important;
-  }
-  html body.home-page .topbar > .header-meta > .proofs-header-link,
-  html body.home-page .topbar > .header-meta > .webtools-header-link {
-    display: none !important;
-  }
-  html body.home-page .topbar > .header-meta > .privacy-link {
-    display: inline-flex !important;
-    width: auto;
-    flex: 0 0 auto;
-  }
-}
-
 /* Option 3: Deep Black-Navy footer with a Violet Stories accent. */
 @media (max-width: 700px) {
   html body.home-page .mobile-bottom-nav {
@@ -8248,59 +7802,6 @@ html body.home-page .purpose-card .purpose-signoff {
 
 /* Desktop polish: simpler header, clearer status details, tighter CTA spacing, and a compact floating nav. */
 @media (min-width: 701px) {
-  /* Proofs and Reviews remain in the bottom navigation, not duplicated in the header. */
-  html body.home-page .topbar > .header-meta > .proofs-header-link,
-  html body.home-page .topbar > .header-meta > .webtools-header-link {
-    display: none !important;
-  }
-  html body.home-page .topbar > .header-meta {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 12px !important;
-  }
-  html body.home-page .topbar > .header-meta > .privacy-link,
-  html body.home-page .topbar > .header-meta > .about-header-link {
-    box-sizing: border-box !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 9px !important;
-    height: 46px !important;
-    min-height: 46px !important;
-    padding: 0 18px !important;
-    border: 1px solid #c7d2fe !important;
-    border-radius: 14px !important;
-    background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(239,243,255,.96)) !important;
-    color: #263a61 !important;
-    box-shadow: 0 4px 12px rgba(58, 76, 140, .09), inset 0 1px 0 rgba(255,255,255,.95) !important;
-    font: 750 13px/1.2 "DM Sans", sans-serif !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    flex: 0 0 auto !important;
-    transform: translateY(0) !important;
-    transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
-  }
-  html body.home-page .topbar > .header-meta > .privacy-link { min-width: 164px !important; }
-  html body.home-page .topbar > .header-meta > .about-header-link { min-width: 124px !important; }
-  html body.home-page .topbar > .header-meta > .privacy-link .header-icon,
-  html body.home-page .topbar > .header-meta > .about-header-link .header-icon {
-    width: 18px !important;
-    height: 18px !important;
-    flex: 0 0 18px !important;
-  }
-  html body.home-page .topbar > .header-meta > .privacy-link:hover,
-  html body.home-page .topbar > .header-meta > .about-header-link:hover {
-    background: linear-gradient(135deg, #fff, #e8edff) !important;
-    border-color: #9daff0 !important;
-    box-shadow: 0 7px 17px rgba(58, 76, 140, .15), inset 0 1px 0 #fff !important;
-    transform: translateY(-1px) !important;
-  }
-  html body.home-page .topbar > .header-meta > .privacy-link:focus-visible,
-  html body.home-page .topbar > .header-meta > .about-header-link:focus-visible {
-    outline: 3px solid rgba(96, 132, 242, .35) !important;
-    outline-offset: 3px !important;
-  }
 
   /* Remove the surplus space below the CTA while retaining a clear card-to-card gap. */
   html body.home-page #contact .whatsapp-feature-card {
@@ -8505,19 +8006,6 @@ html body.home-page .purpose-card .purpose-signoff {
   }
   html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse::after {
     animation: status-ripple 1.5s ease-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  /* AFV414: re-enable the check-draw as well as the pulse on mobile.
-     The global reduced-motion rule disables the path; the mobile override
-     must explicitly restore it to match the site's intended branded motion. */
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
   }
 
   /* Restore the WhatsApp CTA's animated pink/purple edge trails and glow on desktop. */
@@ -9012,198 +8500,6 @@ html body.home-page .social-collage > .social-feedback-card .social-feedback-vie
     height: 24px;
     font-size: 24px;
   }
-}
-
-/* AFV272 — restore a single, non-overlapping mobile header layout across all pages.
-   Keep desktop rules untouched; mobile uses the homepage's compact Privacy + About actions. */
-@media (max-width: 700px) {
-  html body header.topbar,
-  html body .topbar {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-flow: row nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 8px 12px !important;
-    gap: 8px !important;
-    overflow: visible !important;
-  }
-  html body .topbar > .brand {
-    display: flex !important;
-    flex: 1 1 auto !important;
-    width: auto !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    justify-content: flex-start !important;
-    gap: 7px !important;
-    margin: 0 !important;
-  }
-  html body .topbar > .brand .logo {
-    flex: 0 0 39px !important;
-    width: 39px !important;
-    height: 39px !important;
-  }
-  html body .topbar > .brand .brand-copy {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-  }
-  html body .topbar > .brand .brand-name-row,
-  html body .topbar > .brand b,
-  html body .topbar > .brand small {
-    max-width: 100% !important;
-    white-space: nowrap !important;
-  }
-  html body .topbar > .brand small {
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-  html body .topbar > .header-meta {
-    display: flex !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 6px !important;
-    margin: 0 !important;
-  }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    box-sizing: border-box !important;
-    display: inline-flex !important;
-    position: relative !important;
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    height: 36px !important;
-    min-height: 36px !important;
-    margin: 0 !important;
-    padding: 0 9px !important;
-    gap: 5px !important;
-    border-radius: 12px !important;
-    font-size: 10.5px !important;
-    line-height: 1 !important;
-    white-space: nowrap !important;
-    transform: none !important;
-  }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    display: block !important;
-    flex: 0 0 14px !important;
-    width: 14px !important;
-    height: 14px !important;
-  }
-}
-@media (max-width: 380px) {
-  html body .topbar { padding-left: 8px !important; padding-right: 8px !important; gap: 5px !important; }
-  html body .topbar > .brand { gap: 5px !important; }
-  html body .topbar > .brand .logo { flex-basis: 35px !important; width: 35px !important; height: 35px !important; }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height: 34px !important; min-height: 34px !important; padding-left: 6px !important; padding-right: 6px !important; gap: 3px !important; font-size: 9.5px !important;
-  }
-  html body .topbar > .header-meta .header-icon { flex-basis: 12px !important; width: 12px !important; height: 12px !important; }
-}
-
-/* AFV300 — consolidated homepage-canonical header styling.
-   Replaces obsolete AFV269/271/273-277 overrides; keeps AFV272 mobile layout and AFV288 badge clipping fix.
-   Dimensions match the AFV297 homepage layout. */
-html body .topbar > .header-meta { align-items: center !important; gap: 12px !important; }
-html body .topbar > .header-meta > .privacy-link,
-html body .topbar > .header-meta > .about-header-link {
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  flex: 0 0 auto !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 44px !important;
-  min-height: 44px !important;
-  margin: 0 !important;
-  padding: 0 15px !important;
-  gap: 7px !important;
-  border-radius: 15px !important;
-  font-size: 13px !important;
-  line-height: 1 !important;
-  font-weight: 800 !important;
-  white-space: nowrap !important;
-  transform: none !important;
-  align-self: center !important;
-  vertical-align: middle !important;
-}
-html body .topbar > .header-meta > .privacy-link {
-  width: 164px !important; min-width: 164px !important;
-  background: #173d79 !important; border: 1px solid #173d79 !important;
-  color: #fff !important; box-shadow: 0 4px 12px rgba(23,61,121,.2) !important;
-}
-html body .topbar > .header-meta > .privacy-link .header-icon {
-  width: 18px !important; height: 18px !important; flex: 0 0 18px !important; color: #fff !important;
-}
-html body .topbar > .header-meta > .about-header-link {
-  width: 124px !important; min-width: 124px !important;
-  background: #fff !important; border: 1px solid #6d8fe8 !important;
-  color: #2458b8 !important; box-shadow: 0 4px 12px rgba(58,76,140,.09) !important;
-}
-html body .topbar > .header-meta > .about-header-link .header-icon {
-  width: 18px !important; height: 18px !important; flex: 0 0 18px !important; color: #2458b8 !important;
-}
-html body .topbar > .header-meta > .privacy-link:hover { background: #102f61 !important; border-color: #102f61 !important; color: #fff !important; }
-html body .topbar > .header-meta > .about-header-link:hover { background: #f3f6ff !important; border-color: #416ed0 !important; color: #173d79 !important; }
-html body .topbar > .header-meta > .privacy-link:focus-visible,
-html body .topbar > .header-meta > .about-header-link:focus-visible { outline: 3px solid #9bb5ff !important; outline-offset: 2px !important; }
-@media (max-width: 760px) {
-  html body .topbar > .header-meta { gap: 6px !important; }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height: 38px !important; min-height: 38px !important; padding: 0 9px !important;
-    gap: 5px !important; border-radius: 12px !important; font-size: 10.5px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { width: 128px !important; min-width: 128px !important; }
-  html body .topbar > .header-meta > .about-header-link { width: 82px !important; min-width: 82px !important; }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    width: 14px !important; height: 14px !important; flex-basis: 14px !important;
-  }
-}
-@media (max-width: 390px) {
-  html body .topbar > .header-meta > .privacy-link { width: 126px !important; min-width: 126px !important; }
-  html body .topbar > .header-meta > .about-header-link { width: 98px !important; min-width: 98px !important; }
-}
-@media (max-width: 380px) {
-  html body .topbar > .header-meta { gap: 4px !important; }
-  html body .topbar > .header-meta > .privacy-link,
-  html body .topbar > .header-meta > .about-header-link {
-    height: 35px !important; min-height: 35px !important; padding: 0 6px !important;
-    gap: 3px !important; border-radius: 12px !important; font-size: 9.5px !important;
-  }
-  html body .topbar > .header-meta > .privacy-link { width: 116px !important; min-width: 116px !important; }
-  html body .topbar > .header-meta > .about-header-link { width: 76px !important; min-width: 76px !important; }
-  html body .topbar > .header-meta > .privacy-link .header-icon,
-  html body .topbar > .header-meta > .about-header-link .header-icon {
-    width: 12px !important; height: 12px !important; flex-basis: 12px !important;
-  }
-}
-html body .topbar > .brand .brand-name-row {
-  display: inline-flex !important; align-items: center !important; vertical-align: middle !important;
-  padding-block: 3px !important;
-}
-html body .topbar > .brand .brand-name-row > .arisu-verified-badge {
-  transform-origin: center center !important; overflow: visible !important; clip-path: none !important;
-}
-html body .topbar,
-html body .topbar > .brand,
-html body .topbar > .brand .brand-copy,
-html body .topbar > .brand .brand-name-row,
-html body .topbar > .brand .brand-name-row > .arisu-verified-badge,
-html body .topbar > .brand .brand-name-row > .arisu-verified-badge::after {
-  overflow: visible !important; clip-path: none !important;
 }
 
 /* AFV319 desktop recovery-proof previews: show the complete source screenshots without cropping. */
@@ -9750,19 +9046,6 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
   html body.home-page main > .compact-intro .eyebrow.premium-status > .status-pulse::after {
     animation: status-ripple 1.5s ease-out infinite !important;
   }
-
-  html body.home-page .topbar .arisu-verified-badge {
-    animation: arisu-brand-badge-pop 2s ease-in-out infinite !important;
-  }
-  html body.home-page .topbar .arisu-verified-badge::after {
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-  }
-  /* Restore the animated white check stroke on mobile as well as the blue badge pulse. */
-  html body.home-page .topbar .arisu-verified-badge svg path {
-    stroke-dasharray: 24 !important;
-
-    animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
-  }
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
     animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
   }
@@ -9798,15 +9081,4 @@ html body.home-page .social-collage > .recovery-proofs-showcase > .recovery-proo
     animation: wa-border-trace-reverse 3.2s linear infinite !important;
     opacity: 1 !important;
   }
-}
-
-/* AFV413 — The canonical badge check-draw is shared from the base badge rule.
-   Legacy desktop static overrides were removed so the path animation can run. */
-
-/* AFV467 — Keep the homepage header's verified check-draw animation active.
-   The highly specific rule is intentionally scoped to the homepage brand badge
-   so other pages and their header behavior remain unchanged. */
-html body.home-page .topbar > .brand .brand-name-row > .arisu-verified-badge svg path {
-  stroke-dasharray: 24 !important;
-  animation: arisu-brand-check-draw 2s ease-in-out infinite !important;
 }

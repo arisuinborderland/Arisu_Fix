@@ -1,3 +1,12 @@
+AFV479 — Consolidate Shared Header CSS and Remove Legacy Overrides
+
+## AFV479
+- Consolidate the shared header layout, brand, verified badge alignment, desktop action buttons, and scroll effects in site-header.css, loaded last on all five public pages.
+- Remove superseded topbar/header-action rules from styles.css and obsolete shared-header overrides from Reviews and Recovery Proofs stylesheets.
+- Remove the unused about-link.css stylesheet; its former Privacy/About header actions are no longer part of the shared header markup.
+- Preserve the approved 96px desktop and 58px mobile header shell, 66px desktop and 44px mobile logo (42px at narrow widths), verified badge spacing/animations, homepage desktop actions, light-blue header, divider, and scroll behavior.
+- Refresh affected stylesheet cache tokens, synchronize AFV479 package/release metadata, and update header regression coverage.
+
 AFV477 — Apply the Approved About and Milestone Layout Across Shared-Footer Pages
 
 ## AFV477
