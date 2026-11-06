@@ -34,7 +34,7 @@ test('Customer Reviews includes the five-item bottom navigation and Stories view
   assert.match(nav, /class="mobile-nav-item is-active" href="reviews\.html" aria-label="Customer Reviews"/);
   assert.match(nav, /id="mobileNavStories"/);
   assert.match(nav, /href="proofs\.html" aria-label="Recovery Proofs"/);
-  assert.match(nav, /href="index\.html#contact" aria-label="Contact Arisu"/);
+  assert.match(nav, /<button class="mobile-nav-item mobile-nav-more" type="button" aria-label="More options"/);
   assert.match(html, /id="recoveryStoryViewer"/);
   assert.match(html, /story-viewer\.js\?v=AFV\d+/);
   assert.match(css, /body\.reviews-document \.mobile-bottom-nav/);

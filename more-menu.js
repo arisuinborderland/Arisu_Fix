@@ -1,4 +1,4 @@
-/* AFV405 — shared compact More menu for all public pages */
+/* AFV494 — shared compact More menu for all public pages */
 (() => {
   'use strict';
 
@@ -11,21 +11,14 @@
       'header.topbar .privacy-link, header.topbar .about-header-link, header.topbar .privacy-about-link, header.topbar .proofs-header-link, header.topbar .webtools-header-link'
     ).forEach((link) => link.remove());
 
-    const contactLink = nav.querySelector('a[aria-label="Contact Arisu"], a[aria-label="Contact"]');
-    if (!contactLink) return;
-
-    const moreButton = document.createElement('button');
-    moreButton.type = 'button';
-    moreButton.className = 'mobile-nav-item mobile-nav-more';
-    moreButton.setAttribute('aria-label', 'More options');
+    // More is present in the HTML from first paint; JavaScript only wires its menu.
+    const moreButton = nav.querySelector('button.mobile-nav-more[aria-controls="arisuMoreMenu"]');
+    if (!moreButton) return;
     moreButton.setAttribute('aria-expanded', 'false');
-    moreButton.setAttribute('aria-controls', 'arisuMoreMenu');
-    moreButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle></svg><span>More</span>';
-    contactLink.replaceWith(moreButton);
 
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/more-menu.css?v=AFV405&width=186-194';
+    styleLink.href = '/more-menu.css?v=AFV494&width=186-194';
     styleLink.addEventListener('load', () => {
       backdrop.style.removeProperty('opacity');
       backdrop.style.removeProperty('pointer-events');

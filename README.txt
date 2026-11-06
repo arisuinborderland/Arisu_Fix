@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV493
+Version: AFV494
 Updated: 2026-11-06
 
-Current release: AFV493
-Package version: 493.0.0
+Current release: AFV494
+Package version: 494.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV494: makes More a static bottom-navigation control in the HTML on all five public pages; updates the shared menu script to initialize that existing button instead of replacing a Contact placeholder after load. Adds regression coverage for first paint, refresh, and page navigation; refreshes the More script cache token. Preserves navigation styling, page layouts, and menu destinations.
 - AFV493: changes the mobile Service Status schedule and Philippine time details into two separate side-by-side cards; keeps the status heading, three benefit cards, desktop layout, live clock/status logic, scam reminder, and all unrelated sections unchanged. Adds focused responsive regression coverage and refreshes the homepage stylesheet cache token.
 - AFV490: restores the AFV487 same-document loading overlay while keeping loading CSS and JavaScript separate; removes the standalone loading-page redirect that could replay during browser mode switches.
 - AFV489: fixes the standalone loading loop by routing /home to a generated homepage.html copy instead of /index.html, avoiding Cloudflare Pages' automatic /index.html-to-/ canonicalization from re-triggering the root loading redirect. The build generates the copy from the final header-injected homepage so both stay synchronized; adds regression coverage.
