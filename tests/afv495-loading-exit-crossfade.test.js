@@ -21,7 +21,7 @@ test('AFV496 uses one uniform overlay fade without a nested card fade', () => {
   assert.doesNotMatch(css, /arisu-loading-card-fade-out|@keyframes arisu-loading-card-fade-out/);
 });
 
-test('AFV495 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
+test('AFV496 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   assert.match(html, /loading-screen\.css\?v=AFV496&sessionguard=1&firstpaint=7/);
@@ -32,14 +32,14 @@ test('AFV495 refreshes the loading stylesheet cache token and preserves startup 
   assert.match(js, /\}, 440\)/);
 });
 
-test('AFV495 release metadata is synchronized', () => {
+test('AFV496 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
   assert.equal(pkg.version, '496.0.0');
-  assert.equal(lock.version, '495.0.0');
-  assert.equal(lock.packages[''].version, '495.0.0');
-  assert.ok(readme.includes('Current release: AFV495'));
+  assert.equal(lock.version, '496.0.0');
+  assert.equal(lock.packages[''].version, '496.0.0');
+  assert.ok(readme.includes('Current release: AFV496'));
   assert.ok(history.includes('AFV496 — Delay overlay visibility until fade completes'));
 });
