@@ -146,3 +146,20 @@ test('Story progress bar uses a compositor-friendly transform animation and stay
   assert.match(css, /\.story-viewer-progress-fill\{[^}]*transform:scaleX\(0\)[^}]*transform-origin:left center[^}]*will-change:transform/);
   assert.match(css, /\.story-viewer-progress-segment\.is-complete \.story-viewer-progress-fill\{transform:scaleX\(1\)\}/);
 });
+
+
+test('AFV501 persists the Stories-list fallback count for immediate navigation renders', () => {
+  assert.match(source, /if \(mobileStoriesCount && !countLoaded && !countHasUsableValue\) \{[\s\S]*?mobileStoriesCount\.textContent = String\(stories\.length\);[\s\S]*?countHasUsableValue = true;[\s\S]*?saveCachedCount\(stories\.length\);[\s\S]*?setCountLoading\(false\);/);
+  assert.match(source, /function renderCachedCount\(\) \{[\s\S]*?\} else if \(!countHasUsableValue\) \{[\s\S]*?setCountLoading\(true\);/);
+  assert.match(source, /const STORY_COUNT_CACHE_TTL_MS = 10 \* 60 \* 1000;/);
+});
+
+test('AFV501 does not replace an already available Stories count with a loading placeholder', () => {
+  const renderStart = source.indexOf('function renderCachedCount()');
+  const renderEnd = source.indexOf('async function loadCount()', renderStart);
+  const renderFunction = source.slice(renderStart, renderEnd);
+  assert.ok(renderStart >= 0 && renderEnd > renderStart, 'count renderer must be present');
+  assert.match(renderFunction, /if \(cachedCount !== null\) \{[\s\S]*?countHasUsableValue = true;[\s\S]*?setCountLoading\(false\);/);
+  assert.match(renderFunction, /else if \(!countHasUsableValue\) \{[\s\S]*?setCountLoading\(true\);/);
+  assert.doesNotMatch(renderFunction, /else \{\s*setCountLoading\(true\);/);
+});
