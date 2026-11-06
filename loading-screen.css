@@ -95,20 +95,6 @@
 #arisu-loading-screen .boot-log li[data-state="running"] .boot-status { background: #e8ddff; color: #6334d9; }
 #arisu-loading-screen .boot-progress-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; color: #78849b; font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 #arisu-loading-screen .boot-footnote { margin: 14px 0 0; color: #9aa4b5; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-@media (max-width: 380px) {
-  #arisu-loading-screen { padding: 14px; }
-  #arisu-loading-screen .boot-content { padding: 21px 16px 17px; }
-  #arisu-loading-screen .boot-brand-row { gap: 10px; }
-  #arisu-loading-screen .boot-logo { width: 72px; height: 72px; flex-basis: 72px; }
-  #arisu-loading-screen .boot-subtitle { letter-spacing: .08em; }
-  #arisu-loading-screen .boot-log { font-size: 12px; }
-  #arisu-loading-screen .boot-brand { font-size: 28px; }
-  #arisu-loading-screen .boot-status { padding: 2px 5px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen, #arisu-loading-screen .boot-progress-fill { transition: none; }
-}
-
 /* AFV374 — Wider, vertically compact loading card matching the approved mobile reference. */
 #arisu-loading-screen { padding: 12px; }
 #arisu-loading-screen .boot-window { width: min(100%, 760px); border-radius: 24px; }
@@ -137,6 +123,7 @@
   #arisu-loading-screen .boot-section { margin: 12px 0 8px; }
   #arisu-loading-screen .boot-log { gap: 7px; font-size: 12px; }
   #arisu-loading-screen .boot-progress-row { margin-top: 15px; }
+  #arisu-loading-screen .boot-status { padding: 2px 5px; }
 }
 @media (max-width: 360px) {
   #arisu-loading-screen .boot-content { padding: 14px 12px 12px; }
@@ -149,12 +136,6 @@
 /* AFV378 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
 #arisu-loading-screen {
   will-change: opacity, backdrop-filter;
-}
-@media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen, #arisu-loading-screen .boot-window,
-  #arisu-loading-screen.is-ready .boot-window {
-    transform: none !important;
-  }
 }
 
 /* AFV426 — Instant loading-screen entrance; retain the existing exit fade. */
@@ -172,13 +153,6 @@
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(-3px); }
 }
-@media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen, #arisu-loading-screen .boot-window,
-  #arisu-loading-screen.is-ready .boot-window {
-    animation: none !important;
-    transition: none !important;
-  }
-}
 
 /* AFV379 follow-up — reveal initialization rows one at a time at a moderate pace. */
 #arisu-loading-screen .boot-log li[data-state="pending"] { display: none; }
@@ -186,9 +160,6 @@
 @keyframes boot-row-appear {
   from { opacity: 0; transform: translateY(3px); }
   to { opacity: 1; transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen .boot-log li[data-state="running"] { animation: none; }
 }
 
 /* AFV393 — Match the Stories progress bar's purple-magenta-cyan gradient. */
@@ -221,14 +192,21 @@
     box-shadow: 0 0 14px rgba(224, 68, 245, .68), 0 0 24px rgba(184, 107, 255, .52), 0 0 32px rgba(24, 198, 232, .30);
   }
 }
+
+/* Consolidated reduced-motion support for the standalone loading page. */
 @media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen .boot-progress-fill { animation: none; }
-}
-
-
-/* AFV411 — Prevent background scrolling while the homepage loading overlay is active. */
-html.arisu-loading-active,
-html.arisu-loading-active body {
-  overflow: hidden !important;
-  overscroll-behavior: none;
+  #arisu-loading-screen,
+  #arisu-loading-screen .boot-window,
+  #arisu-loading-screen.is-ready .boot-window {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  #arisu-loading-screen .boot-progress-fill {
+    transition: none;
+    animation: none;
+  }
+  #arisu-loading-screen .boot-log li[data-state="running"] {
+    animation: none;
+  }
 }
