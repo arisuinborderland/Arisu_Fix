@@ -1,3 +1,11 @@
+AFV486 — Remove Obsolete WhatsApp Card Selectors
+
+## AFV486
+- Remove CSS selectors targeting a WhatsApp supporting paragraph that is not present in the current card markup.
+- Remove CSS selectors targeting a nested span inside the recommendation pill; the current recommendation icon is an SVG.
+- Preserve the active kicker, heading, SVG recommendation icon, green icon tile, button styling, animated edge trails, desktop/mobile layout, and contact/status sections.
+- Add regression coverage for current WhatsApp markup and retained styles; synchronize AFV486 release metadata.
+
 AFV485 — Daily Bible Verse CSS Dead-Rule Cleanup
 
 ## AFV485

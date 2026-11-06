@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV485
+Version: AFV486
 Updated: 2026-11-06
 
-Current release: AFV485
-Package version: 485.0.0
+Current release: AFV486
+Package version: 486.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV486: removes obsolete WhatsApp card CSS selectors for a removed supporting paragraph and a removed nested recommendation-label span. The current markup uses only the kicker, heading, SVG recommendation bolt, and CTA; preserves all active icon, card, button, animation, and responsive rules.
 - AFV485: removes obsolete Daily Bible Verse system-theme styling, duplicate scenic-background declarations, and disabled pseudo-element rules. Preserves the approved scenic WebP card, desktop/mobile dimensions, image crop, typography, and spacing; adds focused regression coverage.
 - AFV484: restores the approved homepage Account Recovery Assistance / “Let’s Connect.” card in a narrowly scoped update. Preserves the Daily Bible Verse, WhatsApp contact card, Service Status, shared Header, and all unrelated homepage sections; updates the homepage stylesheet cache key and regression test expectations.
 - AFV479: applies the approved About/milestone mobile layout consistently across Homepage, Customer Reviews, Recovery Proofs, and About. Uses the official shared-header logo, places the calendar beside the creation date, keeps the description below, centers Explore My Story, and preserves the verified badge, footer cards, copyright, bottom navigation, and desktop layout, with a dedicated desktop milestone grid to prevent oversized calendar SVGs and off-center CTAs.
