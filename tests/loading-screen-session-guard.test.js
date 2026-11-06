@@ -11,7 +11,7 @@ test('AFV489 uses a dedicated loading page and leaves the homepage free of the o
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
-  assert.ok(html.includes('/loading-screen.css?v=AFV488'));
+  assert.ok(html.includes('/loading-screen.css?v=AFV489'));
   assert.ok(html.includes('/loading-screen.js?v=AFV488'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
@@ -44,7 +44,9 @@ test('AFV489 standalone script performs splash-page checks then opens the homepa
   const css = read('loading-screen.css');
   assert.ok(css.includes('arisu-loading-card-fade-out'));
   assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'));
-  assert.ok(css.includes('prefers-reduced-motion: reduce'));
+  assert.equal((css.match(/prefers-reduced-motion: reduce/g) || []).length, 1, 'reduced-motion rules should be consolidated');
+  assert.doesNotMatch(css, /arisu-loading-active|overscroll-behavior: none/, 'standalone loading must not retain the retired homepage scroll lock');
+  assert.ok(css.includes('#arisu-loading-screen .boot-status { padding: 2px 5px; }'), 'status pill padding remains unchanged after removing the superseded breakpoint block');
 });
 
 test('AFV489 release metadata stays synchronized and historical milestones remain', () => {
