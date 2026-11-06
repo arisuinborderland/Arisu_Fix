@@ -817,36 +817,38 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
 }
 
 
-/* AFV503 refinement: mirror the shared header's unclipped profile artwork
-   and animated badge halo in the fixed Stories navigation control. */
+/* AFV503 refinement 2: match the header's direct transparent-logo rendering.
+   The avatar wrapper supplies the circular frame; the PNG itself must not be
+   rounded or bordered, otherwise its transparent artwork is cropped a second time. */
 @media screen and (max-width: 700px) {
-  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories,
-  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories,
-  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories,
-  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories,
-  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories {
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar img {
+    display: block !important;
     position: relative !important;
-    z-index: 4 !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    box-sizing: border-box !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
     overflow: visible !important;
     clip-path: none !important;
     -webkit-clip-path: none !important;
     mask: none !important;
     -webkit-mask: none !important;
-  }
-
-  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
-  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
-  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
-  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
-  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
-    position: relative !important;
-    z-index: 2 !important;
-    overflow: visible !important;
-    clip-path: none !important;
-    -webkit-clip-path: none !important;
-    mask: none !important;
-    -webkit-mask: none !important;
-    isolation: isolate !important;
   }
 
   html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
@@ -854,35 +856,6 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
   html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
   html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar::after,
   html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: -3px !important;
-    border: 1px solid rgba(125, 211, 252, .42) !important;
-    border-radius: 50% !important;
-    animation: arisu-brand-badge-glow 2s ease-out infinite !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-  }
-
-  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
-  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
-  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar img,
-  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar img,
-  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar img {
-    display: block !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    clip-path: none !important;
-    -webkit-clip-path: none !important;
-    mask: none !important;
-    -webkit-mask: none !important;
-  }
-
-  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count,
-  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-count,
-  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-count,
-  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-count,
-  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-count {
-    z-index: 4 !important;
+    animation: arcStoriesHaloPulse 2.1s ease-in-out infinite !important;
   }
 }
