@@ -30,14 +30,14 @@ test('AFV485 preserves approved desktop and mobile verse card geometry and crop'
   assert.match(css, /@media\s*\(max-width:\s*600px\)\s*\{\s*html body\.home-page main > #daily-bible-verse\.daily-verse-card\s*\{\s*padding-top:\s*6px\s*!important;\s*padding-bottom:\s*6px\s*!important;/);
 });
 
-test('AFV490 release metadata is synchronized', () => {
+test('AFV491 release metadata is synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(root, 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(root, 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '490.0.0');
-  assert.equal(lock.version, '490.0.0');
-  assert.equal(lock.packages[''].version, '490.0.0');
-  assert.ok(readme.includes('Current release: AFV490'));
+  assert.equal(pkg.version, '491.0.0');
+  assert.equal(lock.version, '491.0.0');
+  assert.equal(lock.packages[''].version, '491.0.0');
+  assert.ok(readme.includes('Current release: AFV491'));
   assert.ok(history.includes('AFV485 — Daily Bible Verse CSS Dead-Rule Cleanup'));
 });
