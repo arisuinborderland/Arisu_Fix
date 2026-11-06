@@ -1,3 +1,12 @@
+AFV492 — Correct Homepage Return and Startup Lifecycle
+
+## AFV492
+- Root cause: the standalone loading page cannot run when the browser restores the already-loaded homepage from its suspended tab/BFCache state. Navigation-type checks inside `loading-screen.js` alone cannot detect that return because the loading document is never requested.
+- Add a homepage-only lifecycle controller that marks the page when it becomes hidden or is being suspended, then returns through `/` when the same page becomes visible or is restored from browser history.
+- Clear stale lifecycle markers on ordinary reloads and fresh navigations so mobile/desktop viewport reloads do not replay the startup screen.
+- Keep the loading design, progress animation, root redirect, homepage layout, and unrelated functionality unchanged.
+- Add regression coverage for pagehide, visibilitychange, BFCache pageshow, and reload-marker cleanup.
+
 AFV491 — Correct Loading Lifecycle Detection
 
 ## AFV491
