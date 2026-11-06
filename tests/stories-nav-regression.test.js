@@ -123,7 +123,7 @@ test('AFV360 background Story refresh does not rebuild progress segments when co
   assert.match(source, /if \(progressFills.length !== stories.length\) renderProgressSegments\(\)/);
 });
 
-test('AFV489 package metadata and release notes are synchronized', () => {
+test('AFV492 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(__dirname, '..', 'README.txt'), 'utf8');
@@ -132,7 +132,7 @@ test('AFV489 package metadata and release notes are synchronized', () => {
   assert.equal(lock.version, '492.0.0');
   assert.equal(lock.packages[''].version, '492.0.0');
   assert.ok(readme.includes('Current release: AFV492'));
-  assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
+  assert.ok(history.includes('AFV492 — Restore Approved Mobile Homepage UI Details'));
 });
 
 test('Story progress bar uses a compositor-friendly transform animation and stays aligned to the 7-second Story timer', () => {
