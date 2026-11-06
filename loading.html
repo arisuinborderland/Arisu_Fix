@@ -9,11 +9,19 @@
   <style>.arisu-startup-already-complete body{display:none!important}</style>
   <script>
     try {
-      if (sessionStorage.getItem("arisuFixStandaloneStartupComplete") === "1") {
+      if (localStorage.getItem("arisuFixStandaloneStartupComplete") === "1" ||
+          sessionStorage.getItem("arisuFixStandaloneStartupComplete") === "1") {
         document.documentElement.classList.add("arisu-startup-already-complete");
         window.location.replace("/home");
       }
-    } catch {}
+    } catch {
+      try {
+        if (sessionStorage.getItem("arisuFixStandaloneStartupComplete") === "1") {
+          document.documentElement.classList.add("arisu-startup-already-complete");
+          window.location.replace("/home");
+        }
+      } catch {}
+    }
   </script>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/loading-screen.css?v=AFV489">
