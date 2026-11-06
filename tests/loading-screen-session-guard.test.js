@@ -6,26 +6,31 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV490 keeps the loading overlay in the homepage document with external assets', () => {
+test('AFV491 keeps the loading overlay in the homepage document with external assets', () => {
   const html = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen"'));
   assert.ok(html.includes('loading-screen-first-paint-guard'));
   assert.ok(html.includes('loading-screen-critical-guard'));
-  assert.ok(html.includes('loading-screen.css?v=AFV490'));
-  assert.ok(html.includes('loading-screen.js?v=AFV490'));
-  assert.ok(html.includes('sessionStorage.getItem(sessionKey)'));
+  assert.ok(html.includes('loading-screen.css?v=AFV491'));
+  assert.ok(html.includes('loading-screen.js?v=AFV491'));
+  assert.ok(!html.includes('sessionStorage.getItem(sessionKey)'));
+  const guard = read('loading-first-paint-guard.js');
+  assert.ok(guard.includes('sessionStorage.getItem(sessionKey)'));
+  assert.ok(guard.includes('arisu-loading-first-run'));
+  assert.ok(read('_headers').includes("script-src 'self'"));
+  assert.ok(!read('_headers').includes("script-src 'self' 'unsafe-inline'"));
   assert.ok(!html.includes('window.location.replace("/home")'));
   assert.ok(!fs.existsSync(path.join(root, 'loading.html')));
 });
 
-test('AFV490 root is served directly and no standalone splash redirect remains', () => {
+test('AFV491 root is served directly and no standalone splash redirect remains', () => {
   assert.equal(read('_redirects').trim(), '');
   const build = read('build.js');
   assert.ok(!build.includes('"loading.html"'));
   assert.ok(!build.includes('homepage.html'));
 });
 
-test('AFV490 loading script removes the same-document overlay after first session run', () => {
+test('AFV491 loading script removes the same-document overlay after first session run', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('overlay.remove()'));
   assert.ok(js.includes('sessionStorage.getItem(sessionKey)'));
@@ -34,7 +39,7 @@ test('AFV490 loading script removes the same-document overlay after first sessio
   assert.ok(read('loading-screen.css').includes('#arisu-loading-screen.is-ready'));
 });
 
-test('AFV490 release metadata stays synchronized', () => {
+test('AFV491 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   assert.equal(pkg.version, '490.0.0');
