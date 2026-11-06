@@ -19,6 +19,8 @@ test('AFV492 homepage return lifecycle routes resumed visits through the startup
   assert.ok(lifecycle.includes('window.sessionStorage.setItem(markerKey, "1")'));
   assert.ok(lifecycle.includes('window.sessionStorage.removeItem(markerKey)'));
   assert.ok(lifecycle.includes('navigationType === "reload"'));
+  assert.ok(lifecycle.includes('let hasBeenVisible = document.visibilityState === "visible"'));
+  assert.ok(lifecycle.includes('redirectingToStartup || !hasBeenVisible'));
   assert.ok(lifecycle.includes('navigationType === "navigate"'));
   assert.ok(loading.includes('navigationType === "reload"'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
