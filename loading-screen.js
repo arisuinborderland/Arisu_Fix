@@ -42,7 +42,6 @@
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
   const track = overlay.querySelector(".boot-progress-track");
-  const footnote = overlay.querySelector(".boot-footnote");
   let finished = false;
   let progressValue = 0;
 
@@ -60,7 +59,7 @@
     if (!element) return;
     element.dataset.state = ok ? "ok" : "error";
     element.querySelector(".boot-mark").textContent = ok ? ">" : "!";
-    element.querySelector(".boot-status").textContent = ok ? "200 OK" : "CHECK";
+    element.querySelector(".boot-status").textContent = ok ? "✓ DONE" : "CHECK";
     if (detail) element.querySelector(".boot-message").textContent = detail;
   }
 
@@ -110,11 +109,6 @@
     finished = true;
     // Persist completion only after all loading checks have finished.
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue if storage becomes unavailable. */ }
-
-    footnote.textContent = rows.every(row => {
-      const element = overlay.querySelector('[data-check="' + row.key + '"]');
-      return element && element.dataset.state === "ok";
-    }) ? "Initialization complete · opening homepage" : "Homepage ready with a resource warning";
 
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
