@@ -10,7 +10,6 @@ Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
 - AFV503: prevents the shared Stories avatar, animated halo, and notification count badge from being clipped by the mobile bottom navigation across all five public pages; updates the shared navigation cache token and synchronizes release metadata.
-- AFV503: prevents the shared Stories avatar, animated halo, and notification count badge from being clipped by the mobile bottom navigation across all five public pages; updates the shared navigation cache token and synchronizes release metadata.
 - AFV502: fixes header profile artwork clipping by rendering the transparent logo PNG directly as the header brand image, preserving responsive dimensions; consolidates redundant clipping overrides and refreshes shared header asset/stylesheet cache tokens.
 - AFV501: removes the rounded frame, border, and shadow from the About page service profile logo while preserving its 62px footprint and position; uses contain fitting and refreshes the About stylesheet cache token.
 - AFV500: uses the exact shared-header profile image for the Stories avatar across all five public pages while preserving the existing avatar dimensions, circular crop, glow/ring animation, notification badge, and bottom-navigation layout. Updates the Stories avatar regression expectations and synchronizes release metadata/cache-busting tokens.
