@@ -1,3 +1,12 @@
+AFV485 — Daily Bible Verse CSS Dead-Rule Cleanup
+
+## AFV485
+- Remove the obsolete system-color-scheme overrides for the Daily Bible Verse after the approved scenic-card styling superseded them.
+- Remove duplicate lower-specificity scenic background declarations and pseudo-element styling that is disabled by the retained authoritative rule.
+- Remove confirmed superseded mobile shadow and verse margin-reset declarations while preserving the main content top-spacing reset.
+- Preserve the active desktop/mobile card geometry, background image/crop, type hierarchy, and approved spacing.
+- Add targeted regression tests and synchronize AFV485 release metadata.
+
 AFV477 — Apply the Approved About and Milestone Layout Across Shared-Footer Pages
 
 ## AFV477
