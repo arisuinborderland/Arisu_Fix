@@ -33,7 +33,7 @@
     const element = overlay.querySelector('[data-check="' + row.key + '"]');
     if (element) {
       element.dataset.state = "pending";
-      element.querySelector(".boot-mark").textContent = "○";
+      element.querySelector(".boot-mark").textContent = "›";
       element.querySelector(".boot-status").textContent = "WAIT";
     }
   });
@@ -74,16 +74,11 @@
     }
   }
 
-  async function typeMessage(element, message) {
-    const target = element.querySelector(".boot-message");
-    target.textContent = "";
+  async function typeMessage(element) {
+    // Keep the full step label visible; animate only its marker and status.
     element.querySelector(".boot-mark").textContent = "›";
     element.dataset.state = "running";
     element.querySelector(".boot-status").textContent = "RUN";
-    for (let i = 0; i < message.length; i += 1) {
-      target.textContent += message[i];
-      await wait(20);
-    }
   }
 
   async function runSequence() {
@@ -91,7 +86,7 @@
     for (const row of rows) {
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
       if (!element) continue;
-      await typeMessage(element, row.message);
+      await typeMessage(element);
       await wait(180);
       // Do not report success until the browser has completed loading the page resources.
       await waitForLoad();
