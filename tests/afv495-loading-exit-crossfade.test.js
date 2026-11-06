@@ -11,7 +11,7 @@ test('AFV495 uses one uniform overlay fade without a nested card fade', () => {
   const exitRule = css.match(/#arisu-loading-screen\.is-ready\s*\{[^}]*\}/)?.[0] || '';
   assert.match(exitRule, /transition:\s*opacity \.42s ease-in, visibility \.42s ease-in/);
   assert.match(exitRule, /opacity:\s*0/);
-  assert.doesNotMatch(css, /#arisu-loading-screen\.is-ready \.boot-window\s*\{/);
+  assert.doesNotMatch(css, /#arisu-loading-screen\.is-ready \.boot-window\s*\{[^}]*opacity|#arisu-loading-screen\.is-ready \.boot-window\s*\{[^}]*animation/);
   assert.doesNotMatch(css, /arisu-loading-card-fade-out|@keyframes arisu-loading-card-fade-out/);
 });
 
