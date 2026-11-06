@@ -1,0 +1,39 @@
+'use strict';
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+
+test('AFV501 keeps all startup labels visible and animates only row indicators/statuses', () => {
+  const html = read('index.html');
+  const js = read('loading-screen.js');
+  const css = read('loading-screen.css');
+  assert.match(html, /data-check="dom"><span class="boot-mark">○<\/span><span class="boot-message">Initializing homepage<\/span>/);
+  assert.match(html, /data-check="styles"><span class="boot-mark">○<\/span><span class="boot-message">Verifying page styles<\/span>/);
+  assert.match(html, /data-check="final"><span class="boot-mark">○<\/span><span class="boot-message">Finalizing interface\.\.\.<\/span>/);
+  assert.match(css, /\.boot-log li\[data-state="pending"\]\s*\{\s*display:\s*grid/);
+  assert.match(css, /\.boot-log li\[data-state="running"\]\s*\{\s*animation:\s*none/);
+  assert.match(css, /\.boot-log \.boot-mark,[\s\S]*?\.boot-log \.boot-status\s*\{[\s\S]*?transition:/);
+  assert.match(js, /async function typeMessage\(element\)/);
+  assert.doesNotMatch(js, /target\.textContent\s*=\s*""|target\.textContent\s*\+=/);
+  assert.match(js, /\.boot-status"\)\.textContent = "RUN"/);
+  assert.match(js, /\.boot-status"\)\.textContent = ok \? "200 OK" : "CHECK"/);
+});
+
+test('AFV501 preserves loading dimensions, refresh guard, readiness, and exit lifecycle', () => {
+  const html = read('index.html');
+  const js = read('loading-screen.js');
+  const css = read('loading-screen.css');
+  assert.match(css, /\.boot-window\s*\{[^}]*width:\s*min\(100%,\s*760px\)/);
+  assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?\.boot-window\s*\{\s*width:\s*100%/);
+  assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
+  assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
+  assert.match(html, /loading-screen\.css\?v=AFV501&sessionguard=1&firstpaint=10&pullrefresh=1/);
+  assert.match(html, /loading-screen\.js\?v=AFV501&sessionguard=4/);
+  assert.match(js, /await waitForLoad\(\)/);
+  assert.match(js, /async function countProgress\(\)/);
+  assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
+  assert.match(js, /\}, 440\)/);
+});
