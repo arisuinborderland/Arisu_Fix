@@ -9868,46 +9868,46 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
   }
 }
 
-/* AFV482 mobile contact icon balance — match both contact tiles in size and horizontal position. */
+/* AFV482 mobile contact icon balance — keep both tiles matched with a 2px reduction. */
 @media (max-width:600px) {
   html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
-    flex-basis: 43px !important;
-    width: 43px !important;
-    height: 43px !important;
+    flex-basis: 41px !important;
+    width: 41px !important;
+    height: 41px !important;
   }
   html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
-    width: 26px !important;
-    height: 26px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
   html body.home-page #contact .whatsapp-feature-icon {
-    width: 43px !important;
-    height: 43px !important;
-    flex-basis: 43px !important;
+    width: 41px !important;
+    height: 41px !important;
+    flex-basis: 41px !important;
     margin-left: 2px !important;
   }
   html body.home-page #contact .whatsapp-feature-icon > svg {
-    width: 26px !important;
-    height: 26px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
 }
 @media (max-width:360px) {
   html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon {
-    flex-basis: 41px !important;
-    width: 41px !important;
-    height: 41px !important;
+    flex-basis: 39px !important;
+    width: 39px !important;
+    height: 39px !important;
   }
   html body.home-page main > .compact-intro.contact-intro-card .contact-intro-icon svg {
-    width: 25px !important;
-    height: 25px !important;
+    width: 23px !important;
+    height: 23px !important;
   }
   html body.home-page #contact .whatsapp-feature-icon {
-    width: 41px !important;
-    height: 41px !important;
-    flex-basis: 41px !important;
+    width: 39px !important;
+    height: 39px !important;
+    flex-basis: 39px !important;
     margin-left: -1.5px !important;
   }
   html body.home-page #contact .whatsapp-feature-icon > svg {
-    width: 25px !important;
-    height: 25px !important;
+    width: 23px !important;
+    height: 23px !important;
   }
 }
