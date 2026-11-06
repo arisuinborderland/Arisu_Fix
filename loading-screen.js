@@ -24,10 +24,36 @@
   const track = screen.querySelector(".boot-progress-track");
   const footnote = screen.querySelector(".boot-footnote");
   let navigationStarted = false;
+  let startupActive = true;
+
+  // Warn before a user-initiated reload/navigation can interrupt the startup screen.
+  function guardPageExit(event) {
+    if (!startupActive || navigationStarted) return;
+    event.preventDefault();
+    event.returnValue = "";
+  }
+
+  // Stop common keyboard refresh shortcuts while startup is active.
+  function guardRefreshShortcut(event) {
+    if (!startupActive || navigationStarted) return;
+    const key = String(event.key || "").toLowerCase();
+    const refreshKey = key === "f5" || (key === "r" && (event.ctrlKey || event.metaKey));
+    if (!refreshKey) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+
+  window.addEventListener("beforeunload", guardPageExit);
+  document.addEventListener("keydown", guardRefreshShortcut, true);
+  document.documentElement.style.overscrollBehaviorY = "contain";
+  if (document.body) document.body.style.overscrollBehaviorY = "contain";
 
   function openHomepageOnce() {
     if (navigationStarted) return;
     navigationStarted = true;
+    startupActive = false;
+    window.removeEventListener("beforeunload", guardPageExit);
+    document.removeEventListener("keydown", guardRefreshShortcut, true);
     window.location.replace("/home");
   }
 
