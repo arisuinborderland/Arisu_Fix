@@ -1,9 +1,9 @@
 ARISU FIX — PROJECT README
-Version: AFV486
+Version: AFV487
 Updated: 2026-11-06
 
-Current release: AFV486
-Package version: 486.0.0
+Current release: AFV487
+Package version: 487.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
