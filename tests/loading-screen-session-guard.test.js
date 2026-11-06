@@ -19,7 +19,8 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
   assert.ok(home.includes('id="arisu-loading-screen"'));
-  assert.ok(home.includes('sessionStorage.getItem("arisuFixStartupSeen")'));
+  assert.ok(home.includes('const key = "arisuFixStartupSeen"'));
+  assert.ok(home.includes('sessionStorage.getItem(key)'));
   assert.ok(home.includes('const tabKey = "arisuFixTabId"'));
   assert.ok(home.includes('window.name.startsWith(prefix)'));
   assert.ok(home.includes('sessionStorage.removeItem(key)'));
@@ -35,8 +36,8 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
 
 test('AFV492 suppresses replay on refresh and browser-initiated viewport-mode reloads', () => {
   const home = read('index.html');
-  assert.match(home, /if\s*\(!sessionStorage\.getItem\("arisuFixStartupSeen"\)\)/);
-  assert.ok(home.includes('sessionStorage.setItem("arisuFixStartupSeen", "1")'));
+  assert.ok(home.includes('if (!sessionStorage.getItem(key))'));
+  assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
 });
 
 test('AFV492 replays the in-place overlay when the existing tab returns from background or BFCache', () => {
