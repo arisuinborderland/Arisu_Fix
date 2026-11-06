@@ -49,3 +49,20 @@ test('AFV491 release metadata stays synchronized', () => {
   assert.equal(lock.version, '502.0.0');
   assert.equal(lock.packages[''].version, '502.0.0');
 });
+
+
+test('AFV502 uses the optimized Joker WebP as the loading-screen backdrop without replacing the boot card', () => {
+  const css = read('loading-screen.css');
+  const html = read('index.html');
+  const build = read('build.js');
+  const imagePath = path.join(root, 'assets', 'loading-screen', 'joker-background.webp');
+  assert.ok(fs.existsSync(imagePath), 'Joker WebP must be present in the public assets tree');
+  const image = fs.readFileSync(imagePath);
+  assert.equal(image.toString('ascii', 0, 4), 'RIFF');
+  assert.equal(image.toString('ascii', 8, 12), 'WEBP');
+  assert.ok(css.includes('url("/assets/loading-screen/joker-background.webp")'));
+  assert.ok(css.includes('center center / cover no-repeat'));
+  assert.ok(css.includes('#arisu-loading-screen .boot-window'));
+  assert.ok(html.includes('loading-screen.css?v=AFV502'));
+  assert.ok(build.includes('new Set(["reviews", "proofs", "assets"])'));
+});
