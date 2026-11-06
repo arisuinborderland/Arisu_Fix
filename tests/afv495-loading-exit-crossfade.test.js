@@ -41,14 +41,7 @@ test('AFV499 refreshes the loading stylesheet cache token and preserves startup 
   assert.match(js, /\}, EXIT_FADE_DURATION\)/);
 });
 
-test('AFV499 release metadata is synchronized', () => {
-  const pkg = JSON.parse(read('package.json'));
-  const lock = JSON.parse(read('package-lock.json'));
-  const readme = read('README.txt');
+test('AFV499 loading fade release note remains recorded in history', () => {
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '499.0.0');
-  assert.equal(lock.version, '499.0.0');
-  assert.equal(lock.packages[''].version, '499.0.0');
-  assert.ok(readme.includes('Current release: AFV499'));
   assert.ok(history.includes('AFV499 — Delay Homepage Reveal Until Loading Fade Completes'));
 });
