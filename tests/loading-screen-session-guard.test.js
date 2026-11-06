@@ -6,22 +6,32 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV489 uses a dedicated loading page and leaves the homepage free of the old overlay', () => {
+test('AFV491 standalone loading page keeps the one-time session guard before startup work', () => {
   const html = read('loading.html');
+  const js = read('loading-screen.js');
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
-  assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
   assert.ok(html.includes('/loading-screen.css?v=AFV489'));
-  assert.ok(html.includes('/loading-screen.js?v=AFV488'));
+  assert.ok(html.includes('/loading-screen.js?v=AFV491'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
   assert.ok(!home.includes('loading-screen-first-paint-guard'));
   assert.ok(!home.includes('loading-screen-critical-guard'));
   assert.ok(!home.includes('loading-screen.css'));
   assert.ok(!home.includes('loading-screen.js'));
+
+  const storageRead = js.indexOf('window.sessionStorage.getItem(sessionKey)');
+  const storageWrite = js.indexOf('window.sessionStorage.setItem(sessionKey, "1")');
+  const startupWork = js.indexOf('const rows = [');
+  assert.ok(storageRead >= 0 && storageWrite > storageRead);
+  assert.ok(startupWork > storageWrite, 'session must be marked before startup animation begins');
+  assert.ok(js.includes('const sessionKey = "arisuFixHomepageLoadingShown"'));
+  assert.ok(js.includes('if (alreadyShown)'));
+  assert.ok(js.includes('window.location.replace("/home")'));
+  assert.ok(js.includes('catch (error)'), 'blocked storage must bypass the splash instead of repeating it');
 });
 
-test('AFV489 root redirect is exact and does not intercept direct homepage access', () => {
+test('AFV491 root route and homepage rewrite avoid the previous canonical redirect loop', () => {
   const redirects = read('_redirects').trim().split(/\r?\n/);
   assert.deepEqual(redirects, ['/home /homepage.html 200', '/ /loading.html 302']);
   const build = read('build.js');
@@ -31,36 +41,31 @@ test('AFV489 root redirect is exact and does not intercept direct homepage acces
   assert.ok(build.includes('expected.push("homepage.html")'));
 });
 
-test('AFV489 standalone script performs splash-page checks then opens the homepage through /home', () => {
+test('AFV491 startup script preserves the existing checks and exits without polling reloads', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('document.readyState !== "loading"'));
-  assert.ok(!js.includes('waitForLoad'), 'load readiness should be awaited only once');
   assert.ok(js.includes('row.key === "styles" && document.readyState !== "complete"'));
-  assert.ok(js.includes("link[rel=\"stylesheet\"]"));
+  assert.ok(js.includes('link[rel="stylesheet"]'));
   assert.ok(js.includes('window.location.replace("/home")'));
-  assert.ok(!js.includes('window.location.replace("/index.html")'));
-  assert.ok(!js.includes('sessionStorage'));
-  assert.ok(!js.includes('arisuFixHomepageLoadingShown'));
+  assert.doesNotMatch(js, /location\.(reload|assign)\s*\(/, 'startup must not force a page reload or assign loop');
+  assert.doesNotMatch(js, /setInterval\s*\(/, 'startup must not poll by repeatedly navigating');
   const css = read('loading-screen.css');
   assert.ok(css.includes('arisu-loading-card-fade-out'));
   assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'));
-  assert.equal((css.match(/prefers-reduced-motion: reduce/g) || []).length, 1, 'reduced-motion rules should be consolidated');
-  assert.doesNotMatch(css, /arisu-loading-active|overscroll-behavior: none/, 'standalone loading must not retain the retired homepage scroll lock');
-  assert.ok(css.includes('#arisu-loading-screen .boot-status { padding: 2px 5px; }'), 'status pill padding remains unchanged after removing the superseded breakpoint block');
+  assert.equal((css.match(/prefers-reduced-motion: reduce/g) || []).length, 1);
+  assert.doesNotMatch(css, /arisu-loading-active|overscroll-behavior: none/);
 });
 
-test('AFV490 package metadata stays synchronized and historical milestones remain', () => {
+test('AFV491 package metadata and release notes are synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '490.0.0');
-  assert.equal(lock.version, '490.0.0');
-  assert.equal(lock.packages[''].version, '490.0.0');
-  assert.ok(readme.includes('Current release: AFV490'));
-  assert.ok(readme.includes('AFV410 applies the Soft Curve'));
+  assert.equal(pkg.version, '491.0.0');
+  assert.equal(lock.version, '491.0.0');
+  assert.equal(lock.packages[''].version, '491.0.0');
+  assert.ok(readme.includes('Current release: AFV491'));
+  assert.ok(history.includes('AFV491 — Restore Loading Session Guard and Prevent Repeat Splash'));
   assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
-  assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
-  assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
-  assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
+  assert.ok(history.includes('AFV488 — Standalone Loading Page and Root Startup Route'));
 });
