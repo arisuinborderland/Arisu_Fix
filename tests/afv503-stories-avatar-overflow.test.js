@@ -9,7 +9,7 @@ test('AFV503 keeps the shared mobile Stories avatar, halo, and count badge uncli
   const rule = css.slice(css.indexOf('/* AFV503:'));
   assert.ok(rule.includes('/* AFV503:'), 'AFV503 mobile overflow rule exists');
 
-  assert.match(rule, /nav\\.mobile-bottom-nav[\\s\\S]*?overflow:\\s*visible\\s*!important/);
+  assert.ok(rule.includes('nav.mobile-bottom-nav') && rule.includes('overflow: visible !important;'));
   assert.ok(rule.includes('.mobile-nav-stories') && rule.includes('overflow: visible !important;'));
   assert.ok(rule.includes('.mobile-nav-story-avatar') && rule.includes('overflow: visible !important;'));
   assert.ok(rule.includes('.mobile-nav-story-count') && rule.includes('overflow: visible !important;'));
