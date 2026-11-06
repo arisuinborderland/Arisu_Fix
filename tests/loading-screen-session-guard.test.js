@@ -24,9 +24,9 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
   assert.ok(home.includes('const tabKey = "arisuFixTabId"'));
   assert.ok(home.includes('window.name.startsWith(prefix)'));
   assert.ok(home.includes('sessionStorage.removeItem(key)'));
-  assert.ok(home.includes('const navigation = performance.getEntriesByType("navigation")[0]'));
-  assert.ok(home.includes('const isNewDocumentVisit = navigationType === "navigate" || navigationType === "back_forward"'));
-  assert.ok(home.includes('if (!sessionStorage.getItem(key) || isNewDocumentVisit)'));
+  assert.ok(home.includes('if (!sessionStorage.getItem(key))'));
+  assert.ok(!home.includes('performance.getEntriesByType("navigation")'));
+  assert.ok(!home.includes('isNewDocumentVisit'));
   assert.ok(home.includes('document.documentElement.classList.add("arisu-suppress-startup")'));
   assert.ok(home.includes('document.documentElement.classList.remove("arisu-suppress-startup")'));
   assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
@@ -45,23 +45,20 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
   assert.ok(!js.includes('location.reload'));
 });
 
-test('AFV492 suppresses replay on refresh and browser-initiated viewport-mode reloads', () => {
+test('AFV493 suppresses startup replay for every same-tab document reload, including viewport-mode changes', () => {
   const home = read('index.html');
-  assert.ok(home.includes('navigationType === "navigate" || navigationType === "back_forward"'));
-  assert.ok(home.includes('if (!sessionStorage.getItem(key) || isNewDocumentVisit)'));
-  assert.ok(home.includes('const isNewDocumentVisit = navigationType === "navigate" || navigationType === "back_forward"'));
+  assert.ok(home.includes('if (!sessionStorage.getItem(key))'));
+  assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
+  assert.ok(!home.includes('isNewDocumentVisit'));
+  assert.ok(!home.includes('performance.getEntriesByType("navigation")'));
 });
 
-test('AFV492 replays the in-place overlay when the existing tab returns from background or BFCache', () => {
+test('AFV493 does not replay startup when the browser hides/shows the tab or restores BFCache', () => {
   const js = read('loading-screen.js');
-  assert.ok(js.includes('document.addEventListener("visibilitychange"'));
-  assert.ok(js.includes('document.visibilityState === "hidden"'));
-  assert.ok(js.includes('document.visibilityState === "visible"'));
-  assert.ok(js.includes('window.addEventListener("pageshow"'));
-  assert.ok(js.includes('if (event.persisted) startOverlay(true)'));
+  assert.ok(!js.includes('document.addEventListener("visibilitychange"'));
+  assert.ok(!js.includes('window.addEventListener("pageshow"'));
+  assert.ok(!js.includes('startOverlay(true)'));
   assert.ok(js.includes('function resetOverlay()'));
-  assert.ok(js.includes('screen.classList.remove("is-ready")'));
-  assert.ok(js.includes('element.dataset.state = "pending"'));
   assert.ok(js.includes('setProgress(0)'));
 });
 
