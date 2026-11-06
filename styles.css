@@ -9911,3 +9911,30 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
     height: 23px !important;
   }
 }
+
+
+/* AFV483 WhatsApp official glyph — clean solid brand tile, no nested frame. */
+html body.home-page #contact .whatsapp-feature-icon {
+  background: #16a765 !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 10px rgba(0, 143, 83, .2) !important;
+  overflow: hidden !important;
+}
+html body.home-page #contact .whatsapp-feature-icon::before,
+html body.home-page #contact .whatsapp-feature-icon::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+html body.home-page #contact .whatsapp-feature-icon > svg {
+  display: block !important;
+  width: 25px !important;
+  height: 25px !important;
+  filter: none !important;
+}
+html body.home-page #contact .whatsapp-button .wa-icon > svg {
+  width: 24px !important;
+  height: 24px !important;
+  filter: none !important;
+}
