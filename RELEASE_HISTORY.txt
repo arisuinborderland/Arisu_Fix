@@ -1,3 +1,10 @@
+AFV498 — Loading Screen Surface Crossfade
+
+- Fade the full-screen background, card surface, and card contents as independent synchronized layers.
+- Prevent the white card from remaining visible until abrupt DOM removal at the end of the transition.
+- Preserve startup sequence, progress behavior, 500ms completion hold, and 440ms DOM-removal timing.
+- Add focused regression coverage and refresh the loading stylesheet cache token.
+
 AFV497 — Isolate loading background fade from opaque card
 
 ## AFV497
