@@ -24,16 +24,18 @@ test('AFV355 and AFV358 production build generate all eight optimized WebP deliv
   assert.match(build, /expected\.push\(\.\.\.generatedImageAssets\.map/);
 });
 
-test('AFV355 homepage and Reviews page use optimized WebP image URLs', () => {
+test('AFV355 homepage and Reviews page use optimized WebP image URLs and shared Stories avatar', () => {
   const index = read('index.html');
   const reviews = read('reviews.html');
   for (const asset of [
-    'assets/performance/arisu-profile-thumb.webp?v=AFV355',
     'assets/performance/tiktok-profile-preview.webp?v=AFV355',
     'assets/performance/facebook-page-preview.webp?v=AFV355',
     'proofs/arisu-suspended-account-180-days-preview.webp?v=AFV355',
     'proofs/file_0000000089048211995f9a93297d1146-preview.webp?v=AFV355'
   ]) assert.ok(index.includes(asset), `homepage must reference ${asset}`);
+  const sharedStoriesAvatar = 'assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV500';
+  assert.ok(index.includes(sharedStoriesAvatar), 'homepage Stories avatar must use the header profile image');
+  assert.ok(reviews.includes(sharedStoriesAvatar), 'Reviews Stories avatar must use the header profile image');
   assert.match(index, /reviews\/review-slot-1-thumb\.webp\?v=AFV355/);
   assert.match(reviews, /reviews\/review-slot-1-thumb\.webp\?v=AFV355/);
   assert.match(reviews, /data-full-src="reviews\/review-slot-1\.webp\?v=AFV355"/);
