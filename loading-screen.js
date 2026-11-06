@@ -1,5 +1,5 @@
 "use strict";
-/* AFV492 — In-place startup overlay with tab-session and return-to-tab lifecycle handling. */
+/* AFV493 — In-place startup overlay with tab-session and return-to-tab lifecycle handling. */
 (() => {
   const root = document.documentElement;
   const screen = document.getElementById("arisu-loading-screen");
