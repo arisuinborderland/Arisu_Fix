@@ -49,7 +49,7 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
   assert.match(homeStyles, /\.arisu-verified-badge svg path\{[^}]*animation:arisu-brand-check-draw 2s ease-in-out infinite/);
   const checkDrawBlock = css.split("Homepage check-draw remains active independently of the global badge fallback.")[1];
   assert.ok(checkDrawBlock, 'AFV479 homepage check-draw override must exist');
-  assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\\s*24\\s*!important/);
+  assert.doesNotMatch(checkDrawBlock.split('\n}')[0], /stroke-dashoffset:\s*24\s*!important/);
   assert.match(checkDrawBlock, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
  assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
