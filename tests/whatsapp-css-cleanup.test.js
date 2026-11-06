@@ -14,34 +14,34 @@ test('AFV486 removes WhatsApp selectors that no longer match the live markup', (
   const content = html.slice(contentStart, actionStart);
   assert.match(content, /class="whatsapp-feature-top"/);
   assert.match(content, /id="whatsappFeatureTitle"/);
-  assert.doesNotMatch(content, /<p\b/);
-  assert.doesNotMatch(css, /\.whatsapp-feature-content\s+p\b/);
-  const recommendation = html.match(/<span class="whatsapp-recommended">([\s\S]*?)<\/span>/);
+  assert.doesNotMatch(content, /<p\\b/);
+  assert.doesNotMatch(css, /\\.whatsapp-feature-content\\s+p\\b/);
+  const recommendation = html.match(/<span class="whatsapp-recommended">([\\s\\S]*?)<\\/span>/);
   assert.ok(recommendation);
   assert.match(recommendation[1], /class="recommended-bolt"/);
-  assert.doesNotMatch(recommendation[1], /<span\b/);
-  assert.doesNotMatch(css, /\.whatsapp-recommended\s+span\b/);
+  assert.doesNotMatch(recommendation[1], /<span\\b/);
+  assert.doesNotMatch(css, /\\.whatsapp-recommended\\s+span\\b/);
 });
 
 test('AFV486 preserves the active WhatsApp icon, CTA, motion, and Service Status styles', () => {
-  assert.match(css, /\.whatsapp-feature-icon::before/);
-  assert.match(css, /\.whatsapp-feature-content\s+h2/);
-  assert.match(css, /\.whatsapp-recommended\s*\{/);
-  assert.match(css, /\.whatsapp-feature-card\s+\.whatsapp-button\s*\{/);
-  assert.match(css, /\.whatsapp-feature-card\s+\.whatsapp-button::before/);
-  assert.match(css, /\.whatsapp-feature-card\s+\.whatsapp-button::after/);
+  assert.match(css, /\\.whatsapp-feature-icon::before/);
+  assert.match(css, /\\.whatsapp-feature-content\\s+h2/);
+  assert.match(css, /\\.whatsapp-recommended\\s*\\{/);
+  assert.match(css, /\\.whatsapp-feature-card\\s+\\.whatsapp-button\\s*\\{/);
+  assert.match(css, /\\.whatsapp-feature-card\\s+\\.whatsapp-button::before/);
+  assert.match(css, /\\.whatsapp-feature-card\\s+\\.whatsapp-button::after/);
   assert.match(html, /id="whatsappLink"/);
   assert.match(html, /id="serviceStatus"/);
 });
 
-test('AFV490 release metadata is synchronized', () => {
+test('AFV491 release metadata is synchronized', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(root, 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(root, 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '490.0.0');
-  assert.equal(lock.version, '490.0.0');
-  assert.equal(lock.packages[''].version, '490.0.0');
-  assert.ok(readme.includes('Current release: AFV490'));
+  assert.equal(pkg.version, '491.0.0');
+  assert.equal(lock.version, '491.0.0');
+  assert.equal(lock.packages[''].version, '491.0.0');
+  assert.ok(readme.includes('Current release: AFV491'));
   assert.ok(history.includes('AFV486 — Remove Obsolete WhatsApp Card Selectors'));
 });
