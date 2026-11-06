@@ -12,7 +12,7 @@ test('AFV489 uses a dedicated loading page and leaves the homepage free of the o
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
   assert.ok(html.includes('/loading-screen.css?v=AFV489'));
-  assert.ok(html.includes('/loading-screen.js?v=AFV488'));
+  assert.ok(html.includes('/loading-screen.js?v=AFV489'), 'updated completion logic must bypass the stale AFV488 cached script');
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
   assert.ok(!home.includes('loading-screen-first-paint-guard'));
