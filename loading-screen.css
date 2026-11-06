@@ -1,4 +1,4 @@
-/* AFV490 — Visually isolated full-screen startup layer with compact AF/spade emblem. */
+/* AFV496 — Keep visibility until the single-layer opacity fade has completed. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -13,11 +13,13 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity .42s ease-in, visibility 0s linear .42s;
 }
 #arisu-loading-screen.is-visible:not(.is-ready) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: none;
 }
 
 #arisu-loading-screen .boot-window {
@@ -139,18 +141,11 @@
 /* AFV426 — Instant loading-screen entrance; retain the existing exit fade. */
 #arisu-loading-screen.is-ready {
   animation: none;
-  transition: opacity .42s ease-in, visibility .42s ease-in;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
-#arisu-loading-screen.is-ready .boot-window {
-  animation: arisu-loading-card-fade-out .42s ease-in both;
-}
-@keyframes arisu-loading-card-fade-out {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-3px); }
-}
+/* AFV496 — The base overlay delays visibility:hidden until after its opacity fade. */
 
 /* AFV379 follow-up — reveal initialization rows one at a time at a moderate pace. */
 #arisu-loading-screen .boot-log li[data-state="pending"] { display: none; }
@@ -207,4 +202,59 @@
   #arisu-loading-screen .boot-log li[data-state="running"] {
     animation: none;
   }
+}
+
+
+/* AFV498 — Crossfade the screen wash and card surface as independent layers. */
+#arisu-loading-screen {
+  opacity: 1 !important;
+  visibility: hidden;
+  pointer-events: none;
+  background: transparent;
+  transition: visibility 0s linear .42s;
+}
+#arisu-loading-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 12% 10%, #dce8ff 0%, transparent 46%), radial-gradient(ellipse at 90% 88%, #e8ddff 0%, transparent 44%), #f3f5f9;
+  opacity: 1;
+  transition: opacity .42s ease-in;
+  pointer-events: none;
+}
+#arisu-loading-screen.is-visible:not(.is-ready) { visibility: visible; pointer-events: auto; transition: none; }
+#arisu-loading-screen.is-visible:not(.is-ready)::before { opacity: 1; transition: none; }
+#arisu-loading-screen.is-ready { opacity: 1 !important; visibility: hidden; pointer-events: none; transition: visibility 0s linear .42s; }
+#arisu-loading-screen.is-ready::before { opacity: 0; }
+#arisu-loading-screen .boot-window {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+#arisu-loading-screen .boot-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 1px solid rgba(116, 139, 190, .27);
+  border-radius: inherit;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(56, 74, 117, .14), 0 3px 12px rgba(56, 74, 117, .06);
+  opacity: 1;
+  transition: opacity .42s ease-in;
+  pointer-events: none;
+}
+#arisu-loading-screen .boot-window > * { position: relative; z-index: 1; transition: opacity .42s ease-in; }
+#arisu-loading-screen.is-ready .boot-window::before,
+#arisu-loading-screen.is-ready .boot-window > * { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen::before,
+  #arisu-loading-screen .boot-window::before,
+  #arisu-loading-screen .boot-window > * { transition: none !important; }
 }

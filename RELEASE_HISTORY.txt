@@ -1,3 +1,42 @@
+AFV499 — Delay Homepage Reveal Until Loading Fade Completes
+
+- Keep `arisu-loading-first-run` active while the loading overlay performs its 420ms exit transition.
+- Reveal homepage content only after the transition and immediately before removing the overlay.
+- Prevent the homepage from appearing behind the still-visible loading card during the final frames.
+- Preserve the existing startup sequence, 500ms completion hold, and 440ms DOM-removal timing.
+- Refresh the loading-screen JavaScript and CSS cache tokens; add lifecycle regression coverage.
+
+AFV498 — Loading Screen Surface Crossfade
+
+- Fade the full-screen background, card surface, and card contents as independent synchronized layers.
+- Prevent the white card from remaining visible until abrupt DOM removal at the end of the transition.
+- Preserve startup sequence, progress behavior, 500ms completion hold, and 440ms DOM-removal timing.
+- Add focused regression coverage and refresh the loading stylesheet cache token.
+
+AFV497 — Isolate loading background fade from opaque card
+
+## AFV497
+- Fade only the full-screen background wash with a 420ms opacity transition.
+- Keep the loading card's white surface opaque while its text and contents fade at the end; remove backdrop blur that exposed the homepage underneath.
+- Make the critical first-paint guard fully opaque to prevent the initial overlay from compositing with homepage content.
+- Preserve the existing loading sequence and 440ms DOM-removal timing; add focused regression coverage and refresh the stylesheet cache token.
+
+AFV496 — Delay overlay visibility until fade completes
+
+## AFV496
+- Declare the 420ms opacity transition on the base loading overlay so it is active when the ready state is applied.
+- Delay the discrete visibility:hidden change until the opacity fade has completed; the previous immediate visibility change could hide the overlay before the fade was painted.
+- Keep instant loading-screen entrance, opaque card, reduced-motion handling, startup sequence, and the existing 440ms DOM-removal timing.
+- Add regression coverage for the base transition and delayed visibility; refresh the loading stylesheet cache token.
+
+AFV495 — Remove Loading Screen Exit Ghosting
+
+## AFV495
+- Remove the nested boot-window opacity/translate animation during exit; retain the single 420ms overlay fade.
+- Prevent the homepage underneath from bleeding through the loading card at a faster rate, which caused the apparent flash/rapid expansion in the final frames.
+- Preserve loading-screen layout, dimensions, startup checks, progress behavior, exit duration, first-paint guard, and mobile/desktop rules.
+- Add focused regression coverage and refresh the loading stylesheet cache token.
+
 AFV494 — Permanent More Bottom Navigation
 
 ## AFV494
