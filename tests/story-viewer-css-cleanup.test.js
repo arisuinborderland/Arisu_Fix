@@ -27,9 +27,9 @@ test('AFV490 refreshes Story Viewer CSS cache keys on all five public pages', ()
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '492.0.0');
-  assert.equal(lock.version, '492.0.0');
-  assert.equal(lock.packages[''].version, '492.0.0');
-  assert.ok(readme.includes('Current release: AFV492'));
+  assert.equal(pkg.version, '493.0.0');
+  assert.equal(lock.version, '493.0.0');
+  assert.equal(lock.packages[''].version, '493.0.0');
+  assert.ok(readme.includes('Current release: AFV493'));
   assert.ok(history.includes('AFV490 — Remove Duplicate Story Viewer Empty-State Rules'));
 });
