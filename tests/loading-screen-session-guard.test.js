@@ -14,7 +14,7 @@ test('AFV491 keeps the loading overlay in the homepage document with external as
   assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV491') < html.indexOf('loading-screen-critical-guard'));
   assert.ok(!html.includes('loading-first-paint-guard.js?v=AFV491" defer'));
   assert.ok(html.includes('loading-screen-critical-guard'));
-  assert.ok(html.includes('loading-screen.css?v=AFV491'));
+  assert.ok(html.includes('loading-screen.css?v=AFV500'));
   assert.ok(html.includes('loading-screen.js?v=AFV491'));
   assert.ok(!html.includes('sessionStorage.getItem(sessionKey)'));
   const guard = read('loading-first-paint-guard.js');
@@ -48,4 +48,11 @@ test('AFV491 release metadata stays synchronized', () => {
   assert.equal(pkg.version, '494.0.0');
   assert.equal(lock.version, '494.0.0');
   assert.equal(lock.packages[''].version, '494.0.0');
+});
+
+
+test('AFV500 prevents touch pull-to-refresh while the loading overlay is active', () => {
+  const css = read('loading-screen.css');
+  assert.match(css, /html\\.arisu-loading-first-run\\s*,\\s*html\\.arisu-loading-active\\s*\\{\\s*overscroll-behavior-y:\\s*none;\\s*\\}/);
+  assert.match(css, /overscroll-behavior-y:\\s*none/);
 });
