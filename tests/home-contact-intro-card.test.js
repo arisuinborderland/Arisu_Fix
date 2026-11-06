@@ -75,7 +75,7 @@ test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile'
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*39px\s*!important;[^}]*height:\s*39px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*>\s*svg\s*\{[^}]*width:\s*23px\s*!important;[^}]*height:\s*23px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*margin-left:\s*-1\.5px\s*!important;/);
-  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=8'));
+  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=9'));
 });
 
 
