@@ -30,7 +30,7 @@ test('AFV492 restores the official filled WhatsApp glyph in both homepage locati
 
 test('AFV492 keeps the desktop contact icon dimensions and loading-screen assets intact', () => {
   assert.match(css, /@media \(min-width: 900px\)[\s\S]*?contact-intro-icon \{\s*flex: 0 0 54px !important/);
-  assert.match(html, /loading-screen\.css\?v=AFV498&sessionguard=1&firstpaint=8/);
+  assert.match(html, /loading-screen\.css\?v=AFV498&sessionguard=1&firstpaint=9/);
   assert.match(html, /loading-screen\.js\?v=AFV491/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
 });
