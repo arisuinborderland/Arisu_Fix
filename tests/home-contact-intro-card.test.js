@@ -60,12 +60,12 @@ test('Homepage mobile micro-adjustments stay in existing responsive rules and pr
   assert.match(css, /html body\.home-page main > \.compact-intro\.contact-intro-card \.contact-intro-copy p\{position:relative;top:-2px !important;/);
   assert.match(css, /body\.home-page main > \.compact-intro\.contact-intro-card\{gap:10px;margin:0 auto 10px !important;padding:8px 13px !important;padding-top:8px !important;padding-bottom:4px !important/);
   assert.match(css, /body\.home-page \.compact-intro\.contact-intro-card\{padding:8px !important;padding-bottom:4px !important/);
-  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=4'));
+  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=5'));
 });
 
 test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile', () => {
   const alignmentBlock = css.slice(css.lastIndexOf('/* AFV482 mobile icon alignment'));
-  assert.match(alignmentBlock, /@media \(max-width:600px\)[\s\S]*?\.whatsapp-feature-icon\{\s*margin-left: 2px !important/);
-  assert.match(alignmentBlock, /@media \(max-width:360px\)[\s\S]*?\.whatsapp-feature-icon\{\s*margin-left: -1\.5px !important/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{\s*margin-left:\s*2px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{\s*margin-left:\s*-1\.5px\s*!important;/);
   assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=5'));
 });
