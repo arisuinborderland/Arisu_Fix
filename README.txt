@@ -1,15 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV488
+Version: AFV489
 Updated: 2026-11-06
 
-Current release: AFV488
-Package version: 488.0.0
+Current release: AFV489
+Package version: 489.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV488: separates the startup screen into loading.html, routes only the site root through Cloudflare Pages _redirects, and redirects to /index.html after the standalone page completes its own DOM and stylesheet checks. Removes the embedded overlay and its session guard from the homepage; preserves the existing loading-screen design and assets.
+- AFV489: fixes the standalone loading loop by routing /home to a generated homepage.html copy instead of /index.html, avoiding Cloudflare Pages' automatic /index.html-to-/ canonicalization from re-triggering the root loading redirect. The build generates the copy from the final header-injected homepage so both stay synchronized; adds regression coverage.
 - AFV486: removes obsolete WhatsApp card CSS selectors for a removed supporting paragraph and a removed nested recommendation-label span. The current markup uses only the kicker, heading, SVG recommendation bolt, and CTA; preserves all active icon, card, button, animation, and responsive rules.
 - AFV485: removes obsolete Daily Bible Verse system-theme styling, duplicate scenic-background declarations, and disabled pseudo-element rules. Preserves the approved scenic WebP card, desktop/mobile dimensions, image crop, typography, and spacing; adds focused regression coverage.
 - AFV484: restores the approved homepage Account Recovery Assistance / “Let’s Connect.” card in a narrowly scoped update. Preserves the Daily Bible Verse, WhatsApp contact card, Service Status, shared Header, and all unrelated homepage sections; updates the homepage stylesheet cache key and regression test expectations.

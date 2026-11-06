@@ -139,6 +139,7 @@ function verifyExactPublicOutput() {
       if (publicAssetExtensions.has(path.extname(file).toLowerCase())) expected.push(relative(file));
     }
   }
+  expected.push("homepage.html");
   expected.push(...generatedImageAssets.map(asset => asset.output));
   expected.sort();
   const unexpected = actual.filter(file => !expected.includes(file));
@@ -204,6 +205,9 @@ function verifyLocalReferences() {
 async function runBuild() {
   copyAllowedPublicFiles();
   injectSharedSiteHeader();
+  // Use a distinct homepage asset so Pages' automatic /index.html -> / canonicalization
+  // cannot send the startup redirect back to the root loading route.
+  fs.copyFileSync(path.join(output, "index.html"), path.join(output, "homepage.html"));
   await generateOptimizedImages();
   verifyBackendLayout();
   verifyExactPublicOutput();

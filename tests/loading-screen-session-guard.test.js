@@ -6,13 +6,13 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV488 uses a dedicated loading page and leaves the homepage free of the old overlay', () => {
+test('AFV489 uses a dedicated loading page and leaves the homepage free of the old overlay', () => {
   const html = read('loading.html');
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
-  assert.ok(html.includes('/loading-screen.css?v=AFV488'));
-  assert.ok(html.includes('/loading-screen.js?v=AFV488'));
+  assert.ok(html.includes('/loading-screen.css?v=AFV489'));
+  assert.ok(html.includes('/loading-screen.js?v=AFV489'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
   assert.ok(!home.includes('loading-screen-first-paint-guard'));
@@ -21,15 +21,17 @@ test('AFV488 uses a dedicated loading page and leaves the homepage free of the o
   assert.ok(!home.includes('loading-screen.js'));
 });
 
-test('AFV488 root redirect is exact and does not intercept direct homepage access', () => {
+test('AFV489 root redirect is exact and does not intercept direct homepage access', () => {
   const redirects = read('_redirects').trim().split(/\r?\n/);
-  assert.deepEqual(redirects, ['/home /index.html 200', '/ /loading.html 302']);
+  assert.deepEqual(redirects, ['/home /homepage.html 200', '/ /loading.html 302']);
   const build = read('build.js');
   assert.ok(build.includes('"loading.html"'));
   assert.ok(build.includes('"_redirects"'));
+  assert.ok(build.includes('fs.copyFileSync(path.join(output, "index.html"), path.join(output, "homepage.html"))'));
+  assert.ok(build.includes('expected.push("homepage.html")'));
 });
 
-test('AFV488 standalone script performs splash-page checks then opens the homepage through /home', () => {
+test('AFV489 standalone script performs splash-page checks then opens the homepage through /home', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('document.readyState !== "loading"'));
   assert.ok(js.includes("link[rel=\"stylesheet\"]"));
@@ -43,7 +45,7 @@ test('AFV488 standalone script performs splash-page checks then opens the homepa
   assert.ok(css.includes('prefers-reduced-motion: reduce'));
 });
 
-test('AFV488 release metadata stays synchronized and historical milestones remain', () => {
+test('AFV489 release metadata stays synchronized and historical milestones remain', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
@@ -51,9 +53,9 @@ test('AFV488 release metadata stays synchronized and historical milestones remai
   assert.equal(pkg.version, '488.0.0');
   assert.equal(lock.version, '488.0.0');
   assert.equal(lock.packages[''].version, '488.0.0');
-  assert.ok(readme.includes('Current release: AFV488'));
+  assert.ok(readme.includes('Current release: AFV489'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.includes('AFV488 — Standalone Loading Page and Root Startup Route'));
+  assert.ok(history.includes('AFV489 — Standalone Loading Page and Root Startup Route'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
