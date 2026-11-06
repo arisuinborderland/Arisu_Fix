@@ -11,7 +11,7 @@ const css = fs.readFileSync(path.join(root, 'footer-reference.css'), 'utf8');
 const pageClasses = ['home-page', 'reviews-document', 'proofs-document', 'about-page'];
 
 test('All shared-footer pages use the official shared-header logo asset', () => {
-  const headerLogo = partial.match(/<img src="([^"]+)" alt="Official Arisu Fix logo"/)?.[1];
+  const headerLogo = partial.match(/<img\b(?=[^>]*\bclass="[^"]*\blogo\b[^"]*\bprofile-logo\b")[^>]*\bsrc="([^"]+)"[^>]*\balt="Official Arisu Fix logo"/)?.[1];
   assert.ok(headerLogo);
   for (const [file, source] of Object.entries(pageHtml)) {
     const aboutLogo = source.match(/<img class="reference-about-profile" src="([^"]+)"/)?.[1];
