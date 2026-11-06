@@ -9849,3 +9849,13 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
   }
 }
 
+/* AFV502 — Show the complete transparent header logo artwork without changing its footprint. */
+html body .topbar > .brand .profile-logo {
+  overflow: visible !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+html body .topbar > .brand .profile-logo img {
+  object-fit: contain !important;
+  border-radius: 0 !important;
+}
