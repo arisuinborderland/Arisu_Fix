@@ -46,6 +46,6 @@ test('AFV491 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   assert.equal(pkg.version, '496.0.0');
-  assert.equal(lock.version, '495.0.0');
-  assert.equal(lock.packages[''].version, '495.0.0');
+  assert.equal(lock.version, '496.0.0');
+  assert.equal(lock.packages[''].version, '496.0.0');
 });
