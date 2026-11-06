@@ -1,6 +1,7 @@
 "use strict";
-/* AFV488 — Standalone startup page; redirect to the homepage after splash checks. */
+/* AFV494 — Standalone startup bootstrap with bounded readiness waits and synchronized cache version. */
 (() => {
+  window.__ARISU_LOADING_STARTED = true;
   const screen = document.getElementById("arisu-loading-screen");
   if (!screen) return;
 
@@ -61,7 +62,10 @@
       await typeMessage(element, row.message);
       await wait(120);
       if (row.key === "styles" && document.readyState !== "complete") {
-        await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
+        await Promise.race([
+          new Promise(resolve => window.addEventListener("load", resolve, { once: true })),
+          wait(5000)
+        ]);
       }
       const ok = row.check();
       element.dataset.state = ok ? "ok" : "error";
