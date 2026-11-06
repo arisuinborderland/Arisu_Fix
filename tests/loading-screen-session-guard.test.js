@@ -27,11 +27,16 @@ test('AFV492 shows the approved startup overlay only for a fresh tab session', (
   assert.ok(home.includes('const navigation = performance.getEntriesByType("navigation")[0]'));
   assert.ok(home.includes('const isNewDocumentVisit = navigationType === "navigate" || navigationType === "back_forward"'));
   assert.ok(home.includes('if (!sessionStorage.getItem(key) || isNewDocumentVisit)'));
+  assert.ok(home.includes('document.documentElement.classList.add("arisu-suppress-startup")'));
+  assert.ok(home.includes('document.documentElement.classList.remove("arisu-suppress-startup")'));
   assert.ok(home.includes('sessionStorage.setItem(key, "1")'));
   assert.ok(home.includes('loading-screen.css?v=AFV492'));
   assert.ok(home.includes('loading-screen.js?v=AFV492'));
   assert.ok(css.includes('html.arisu-show-startup #arisu-loading-screen:not(.is-ready)'));
+  assert.ok(css.includes('html.arisu-suppress-startup #arisu-loading-screen:not(.is-ready)'));
+  assert.match(css, /#arisu-loading-screen\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?visibility:\s*visible;/);
   assert.ok(js.includes('root.classList.contains("arisu-show-startup")'));
+  assert.ok(js.includes('root.classList.remove("arisu-suppress-startup")'));
   assert.ok(!js.includes('window.location'));
   assert.ok(!js.includes('location.replace'));
   assert.ok(!js.includes('location.reload'));
