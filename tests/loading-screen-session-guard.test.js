@@ -10,7 +10,9 @@ test('AFV492 homepage return lifecycle routes resumed visits through the startup
   const home = read('index.html');
   const lifecycle = read('loading-return.js');
   const loading = read('loading-screen.js');
+  const build = read('build.js');
   assert.ok(home.includes('loading-return.js?v=AFV492'));
+  assert.ok(build.includes('"loading-return.js"'), 'the lifecycle controller must be shipped in production output');
   assert.ok(read("build.js").includes('"loading-return.js"'), "build allowlist must publish the homepage lifecycle controller");
   assert.ok(lifecycle.includes('window.addEventListener("pagehide", markPageHidden)'));
   assert.ok(lifecycle.includes('document.addEventListener("visibilitychange"'));
