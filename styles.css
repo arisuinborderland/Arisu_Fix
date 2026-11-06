@@ -1589,7 +1589,6 @@ summary:focus-visible {
 .whatsapp-feature-kicker{display:block;max-width:calc(100% - 128px);min-height:20px}
 .whatsapp-feature-content h2{margin-top:14px}
 @media (max-width:600px) {
- .whatsapp-feature-top{display:block;padding-right:0}
  .whatsapp-recommended{position:absolute;top:0;right:0;font-size:8px;padding:6px 8px;gap:4px}
  .whatsapp-feature-kicker{max-width:calc(100% - 112px);font-size:9px;letter-spacing:1px;line-height:1.35;padding-top:4px}
  .whatsapp-feature-content h2{margin-top:10px}
