@@ -33,6 +33,6 @@ test('AFV503 release metadata and changed navigation cache tokens stay synchroni
 
   for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html', 'privacy.html']) {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
-    assert.match(html, /bottom-nav\\.css\\?v=AFV503\\b/, `${page} must load the AFV503 navigation stylesheet`);
+    assert.match(html, /bottom-nav\.css\?v=AFV503\b/, `${page} must load the AFV503 navigation stylesheet`);
   }
 });
