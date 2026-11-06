@@ -1,3 +1,11 @@
+AFV493 — Mobile Service Status Two-Column Details
+
+## AFV493
+- Present Contact Available and Philippine Standard Time as separate side-by-side cards on mobile.
+- Stack each card's icon above its text for readable content at narrow phone widths.
+- Preserve the status heading/pill, three benefit cards, live clock and availability logic, desktop layout, WhatsApp card, scam reminder, and bottom navigation.
+- Add focused mobile regression coverage and refresh only the homepage styles.css cache token.
+
 AFV492 — Restore Approved Mobile Homepage UI Details
 
 ## AFV492
