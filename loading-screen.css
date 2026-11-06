@@ -12,9 +12,9 @@
   -webkit-backdrop-filter: blur(9px) saturate(.82);
   backdrop-filter: blur(9px) saturate(.82);
   color: #25314a;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 #arisu-loading-screen.is-visible:not(.is-ready) {
   opacity: 1;
@@ -214,3 +214,4 @@
 
 /* AFV492 — Homepage startup overlay is session-scoped; no redirect or second document load. */
 html.arisu-show-startup #arisu-loading-screen:not(.is-ready) { opacity: 1; visibility: visible; pointer-events: auto; }
+html.arisu-suppress-startup #arisu-loading-screen:not(.is-ready) { opacity: 0; visibility: hidden; pointer-events: none; }
