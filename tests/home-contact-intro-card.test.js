@@ -64,12 +64,16 @@ test('Homepage mobile micro-adjustments stay in existing responsive rules and pr
   assert.match(alignmentBlock, /\.contact-intro-icon\s*\{[^}]*width:\s*43px\s*!important;/);
   assert.match(alignmentBlock, /\.contact-intro-icon svg\s*\{[^}]*width:\s*26px\s*!important;/);
   assert.match(alignmentBlock, /@media \(max-width:360px\)[\s\S]*?\.contact-intro-icon\s*\{[^}]*width:\s*41px\s*!important;/);
-  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=6'));
+  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=7'));
 });
 
 test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile', () => {
   const alignmentBlock = css.slice(css.lastIndexOf('/* AFV482 mobile contact icon balance'));
-  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{\s*margin-left:\s*2px\s*!important;/);
-  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{\s*margin-left:\s*-1\.5px\s*!important;/);
-  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=6'));
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*43px\s*!important;[^}]*height:\s*43px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*>\s*svg\s*\{[^}]*width:\s*26px\s*!important;[^}]*height:\s*26px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*margin-left:\s*2px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*41px\s*!important;[^}]*height:\s*41px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*>\s*svg\s*\{[^}]*width:\s*25px\s*!important;[^}]*height:\s*25px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*margin-left:\s*-1\.5px\s*!important;/);
+  assert.ok(html.includes('styles.css?v=AFV482&desktoplayout=1&contactintro=4&mobilepolish=7'));
 });
