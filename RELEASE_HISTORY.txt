@@ -1,3 +1,12 @@
+AFV487 — Remove Retired Recovery Proof Search CSS
+
+## AFV487
+- Remove the obsolete Recovery Proofs search-field selectors after confirming the current page markup and runtime JavaScript no longer contain the search component.
+- Remove only the search-input focus selector from the shared Proofs focus rule; retain pagination and category-filter focus styles.
+- Preserve the Recovery Proofs gallery, album cards, category filters, pagination, status labels, and responsive layout.
+- Refresh the Proofs stylesheet cache token and add focused regression coverage.
+- Synchronize package metadata and README to AFV487.
+
 AFV486 — Remove Obsolete WhatsApp Card Selectors
 
 ## AFV486
