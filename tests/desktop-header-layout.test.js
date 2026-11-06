@@ -53,7 +53,7 @@ test('Shared header uses the Arisu Fix wordmark and uppercase service descriptor
   assert.match(checkDrawBlock, /animation: arisu-brand-check-draw 2s ease-in-out infinite !important/);
  assert.match(css, /brand-title-fix[\s\S]*?linear-gradient\(110deg,#3678f5 0%,#6550e8 100%\)/);
  assert.match(css, /brand-subtitle[\s\S]*?letter-spacing/);
- assert.match(css, /\.logo img \{[^}]*object-fit:contain!important/);
+ assert.match(read('styles.css'), /html body \.topbar\.site-header > a\.brand > img\.logo\.profile-logo/);
 });
 test('Homepage verified check animation is not blocked by an important dash offset', () => {
  const homeStyles = read('styles.css');
