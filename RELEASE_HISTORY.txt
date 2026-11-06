@@ -1,3 +1,11 @@
+AFV497 — Isolate loading background fade from opaque card
+
+## AFV497
+- Fade only the full-screen background wash with a 420ms opacity transition.
+- Keep the loading card's white surface opaque while its text and contents fade at the end; remove backdrop blur that exposed the homepage underneath.
+- Make the critical first-paint guard fully opaque to prevent the initial overlay from compositing with homepage content.
+- Preserve the existing loading sequence and 440ms DOM-removal timing; add focused regression coverage and refresh the stylesheet cache token.
+
 AFV496 — Delay overlay visibility until fade completes
 
 ## AFV496
