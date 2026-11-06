@@ -6,6 +6,15 @@
   <meta name="theme-color" content="#EEF2FF">
   <meta name="robots" content="noindex, nofollow">
   <title>Arisu Fix | Starting Up</title>
+  <style>.arisu-startup-already-complete body{display:none!important}</style>
+  <script>
+    try {
+      if (sessionStorage.getItem("arisuFixStandaloneStartupComplete") === "1") {
+        document.documentElement.classList.add("arisu-startup-already-complete");
+        window.location.replace("/home");
+      }
+    } catch {}
+  </script>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/loading-screen.css?v=AFV489">
   <script src="/loading-screen.js?v=AFV489" defer></script>
