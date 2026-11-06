@@ -9867,3 +9867,16 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
     margin:2px auto 6px !important;
   }
 }
+
+/* AFV482 mobile icon alignment — align the WhatsApp tile with the Let's Connect icon.
+   This is limited to mobile so the desktop contact layout remains unchanged. */
+@media (max-width:600px) {
+  html body.home-page #contact .whatsapp-feature-icon {
+    margin-left: 2px !important;
+  }
+}
+@media (max-width:360px) {
+  html body.home-page #contact .whatsapp-feature-icon {
+    margin-left: -1.5px !important;
+  }
+}
