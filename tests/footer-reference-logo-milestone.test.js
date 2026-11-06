@@ -17,10 +17,10 @@ test('All shared-footer pages use the official shared-header logo asset', () => 
   assert.match(headerLogo, /\?v=AFV502$/, 'shared header logo cache token is current');
   assert.doesNotMatch(partial, /<span class="logo profile-logo">[\s\S]*?<img/, 'header logo must not use the clipping wrapper');
   for (const [file, source] of Object.entries(pageHtml)) {
-    const aboutLogo = source.match(/<img class="reference-about-profile" src="([^"]+)"/)?.[1];
+    const aboutLogo = source.match(/<img class="reference-about-artwork-image" src="([^"]+)"/)?.[1];
     assert.ok(aboutLogo, file);
     assert.equal(aboutLogo.split('?')[0], headerLogo.split('?')[0], file);
-    assert.match(aboutLogo, /AFV477/, file);
+    assert.match(aboutLogo, /AFV504/, file);
   }
 });
 
