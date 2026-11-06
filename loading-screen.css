@@ -258,3 +258,9 @@
   #arisu-loading-screen .boot-window::before,
   #arisu-loading-screen .boot-window > * { transition: none !important; }
 }
+
+/* AFV500 — Prevent touch pull-to-refresh while the first-load overlay is active. */
+html.arisu-loading-first-run,
+html.arisu-loading-active {
+  overscroll-behavior-y: none;
+}
