@@ -20,7 +20,7 @@ test('AFV502 keeps all startup labels visible and animates only row indicators/s
   assert.doesNotMatch(js, /target\.textContent\s*=\s*""|target\.textContent\s*\+=/);
   assert.match(js, /\.boot-status"\)\.textContent = "RUN"/);
   assert.match(js, /\.boot-status"\)\.textContent = ok \? "200 OK" : "CHECK"/);
-  assert.match(js, /const STATUS_CHECK_DELAY = 650/);
+  assert.match(js, /const STATUS_CHECK_DELAY = 550/);
   assert.match(js, /const STATUS_ROW_GAP = 180/);
 });
 
@@ -33,11 +33,11 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
   assert.match(html, /loading-screen\.css\?v=AFV499&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1/);
-  assert.match(html, /loading-screen\.js\?v=AFV499&sessionguard=4&statusrows=visible1&duration=3000/);
+  assert.match(html, /loading-screen\.js\?v=AFV499&sessionguard=4&statusrows=visible1&duration=2500/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
   assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
-  assert.match(js, /const MIN_STARTUP_DURATION = 3000/);
+  assert.match(js, /const MIN_STARTUP_DURATION = 2500/);
   assert.match(js, /const EXIT_FADE_DURATION = 440/);
   assert.match(js, /MIN_STARTUP_DURATION - EXIT_FADE_DURATION - \(Date\.now\(\) - startupStartedAt\)/);
   assert.match(js, /await waitForLoad\(\)/);
