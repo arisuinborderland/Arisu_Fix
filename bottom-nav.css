@@ -781,3 +781,37 @@ html body nav.mobile-bottom-nav > .mobile-nav-item > span {
     backdrop-filter: blur(18px) saturate(1.25) !important;
   }
 }
+
+
+/* AFV503: prevent the shared Stories avatar, animated halo, and count badge
+   from being clipped by mobile navigation overflow on any public page. */
+@media screen and (max-width: 700px) {
+  html body.home-page nav.mobile-bottom-nav,
+  html body.reviews-document nav.mobile-bottom-nav,
+  html body.proofs-document nav.mobile-bottom-nav,
+  html body.about-page nav.mobile-bottom-nav,
+  html body.privacy-page nav.mobile-bottom-nav {
+    overflow: visible !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.reviews-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.proofs-document nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.about-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.privacy-page nav.mobile-bottom-nav > .mobile-nav-stories,
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-avatar,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-avatar {
+    overflow: visible !important;
+  }
+
+  html body.home-page nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.reviews-document nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.proofs-document nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.about-page nav.mobile-bottom-nav .mobile-nav-story-count,
+  html body.privacy-page nav.mobile-bottom-nav .mobile-nav-story-count {
+    overflow: visible !important;
+  }
+}
