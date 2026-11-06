@@ -55,7 +55,7 @@ test('AFV489 release metadata stays synchronized and historical milestones remai
   assert.equal(lock.packages[''].version, '488.0.0');
   assert.ok(readme.includes('Current release: AFV489'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
-  assert.ok(history.includes('AFV489 — Standalone Loading Page and Root Startup Route'));
+  assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
   assert.ok(history.includes('AFV412 — Restore footer milestone and unify public-page header'));
   assert.ok(history.includes('AFV410 — Compact Mobile Footer and Soft Curve Navigation'));
