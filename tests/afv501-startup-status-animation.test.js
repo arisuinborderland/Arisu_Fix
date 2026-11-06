@@ -20,6 +20,8 @@ test('AFV501 keeps all startup labels visible and animates only row indicators/s
   assert.doesNotMatch(js, /target\.textContent\s*=\s*""|target\.textContent\s*\+=/);
   assert.match(js, /\.boot-status"\)\.textContent = "RUN"/);
   assert.match(js, /\.boot-status"\)\.textContent = ok \? "200 OK" : "CHECK"/);
+  assert.match(js, /const STATUS_CHECK_DELAY = 650/);
+  assert.match(js, /const STATUS_ROW_GAP = 180/);
 });
 
 test('AFV501 preserves loading dimensions, refresh guard, readiness, and exit lifecycle', () => {
@@ -35,5 +37,9 @@ test('AFV501 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
   assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
-  assert.match(js, /\}, 440\)/);
+  assert.match(js, /const MIN_STARTUP_DURATION = 3500/);
+  assert.match(js, /const EXIT_FADE_DURATION = 440/);
+  assert.match(js, /MIN_STARTUP_DURATION - EXIT_FADE_DURATION - \(Date\.now\(\) - startupStartedAt\)/);
+  assert.match(js, /await waitForLoad\(\)/);
+  assert.match(js, /window\.setTimeout\(\(\) => \{[\s\S]*?\}, EXIT_FADE_DURATION\)/);
 });
