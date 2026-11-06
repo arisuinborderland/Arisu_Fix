@@ -20,8 +20,6 @@
   let progressValue = 0;
   let runId = 0;
   let isRunning = false;
-  let wasHidden = false;
-  let replayOnReturn = false;
   const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
   const setProgress = value => {
     progressValue = value;
@@ -119,23 +117,7 @@
   }
   // Initial visit is controlled synchronously in index.html before first paint.
   if (root.classList.contains("arisu-show-startup")) startOverlay(false);
-  // A browser reload (refresh or Mobile/Desktop mode switch) creates a new document
-  // and is suppressed by the session guard in index.html. Returning to the same
-  // backgrounded tab does not reload, so replay the overlay in place here.
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") {
-      wasHidden = true;
-      replayOnReturn = true;
-      return;
-    }
-    if (document.visibilityState === "visible" && wasHidden && replayOnReturn) {
-      wasHidden = false;
-      replayOnReturn = false;
-      startOverlay(true);
-    }
-  });
-  // BFCache restores the same document without running the synchronous head guard.
-  window.addEventListener("pageshow", event => {
-    if (event.persisted) startOverlay(true);
-  });
+  // Startup is once per tab session. Browser menu visibility changes and
+  // BFCache restoration must not restart the completed overlay.
+
 })();
