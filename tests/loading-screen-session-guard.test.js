@@ -42,12 +42,16 @@ test('AFV491 loading script removes the same-document overlay after first sessio
   assert.ok(read('loading-screen.css').includes('#arisu-loading-screen.is-ready'));
 });
 
-test('AFV491 release metadata stays synchronized', () => {
+test('current release metadata stays synchronized with the README release marker', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '502.0.0');
-  assert.equal(lock.version, '502.0.0');
-  assert.equal(lock.packages[''].version, '502.0.0');
+  const readme = read('README.txt');
+  const release = readme.match(/^Current release: AFV(\\d+)$/m);
+  assert.ok(release, 'README must declare the current AFV release');
+  const expectedVersion = `${release[1]}.0.0`;
+  assert.equal(pkg.version, expectedVersion);
+  assert.equal(lock.version, expectedVersion);
+  assert.equal(lock.packages[''].version, expectedVersion);
 });
 
 
