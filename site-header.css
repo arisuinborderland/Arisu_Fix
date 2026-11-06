@@ -123,7 +123,7 @@ html body header.topbar.site-header>a.brand>.logo {
  border-radius:50%!important;overflow:hidden!important;background:transparent!important;padding:0!important;
  outline:0!important;box-shadow:none!important;
 }
-html body header.topbar.site-header>a.brand>.logo img {display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;border-radius:50%!important;background:transparent!important}
+
 html body header.topbar.site-header .brand-copy {
  display:inline-flex!important;flex:0 1 auto!important;flex-direction:column!important;align-items:flex-start!important;
  justify-content:center!important;min-width:0!important;gap:3px!important;line-height:1.15!important;
@@ -186,6 +186,3 @@ html body header.topbar.site-header .brand-name-row > .arisu-verified-badge {
 
 
 /* AFV473 — Increase shared verified badge horizontal spacing by one additional pixel (2px total). Badge-only adjustment; vertical alignment and animations remain unchanged. */
-
-
-/* AFV474 — Keep the logo wrapper and image on the same circular clipping geometry at every zoom level. */
