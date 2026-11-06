@@ -49,15 +49,15 @@ test('AFV489 standalone script performs splash-page checks then opens the homepa
   assert.ok(css.includes('#arisu-loading-screen .boot-status { padding: 2px 5px; }'), 'status pill padding remains unchanged after removing the superseded breakpoint block');
 });
 
-test('AFV489 release metadata stays synchronized and historical milestones remain', () => {
+test('AFV490 package metadata stays synchronized and historical milestones remain', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '489.0.0');
-  assert.equal(lock.version, '489.0.0');
-  assert.equal(lock.packages[''].version, '489.0.0');
-  assert.ok(readme.includes('Current release: AFV489'));
+  assert.equal(pkg.version, '490.0.0');
+  assert.equal(lock.version, '490.0.0');
+  assert.equal(lock.packages[''].version, '490.0.0');
+  assert.ok(readme.includes('Current release: AFV490'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
   assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
