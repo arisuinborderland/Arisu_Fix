@@ -41,3 +41,8 @@ test('Retired How It Works section selectors are absent from the homepage styles
   assert.doesNotMatch(styles, /\.how-section(?!\))/);
   assert.doesNotMatch(read('index.html'), /class=["'][^"']*\bhow-section\b/);
 });
+
+test('The retired About header-link stylesheet is no longer shipped', () => {
+  assert.doesNotMatch(read('index.html'), /about-link\.css/);
+  assert.doesNotMatch(read('build.js'), /about-link\.css/);
+});
