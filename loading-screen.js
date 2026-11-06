@@ -1,44 +1,33 @@
 "use strict";
-/* AFV488 — Standalone startup page; redirect to the homepage after splash checks. */
+/* AFV492 — Run the startup overlay in-place; never navigate or reload the homepage. */
 (() => {
+  const root = document.documentElement;
   const screen = document.getElementById("arisu-loading-screen");
-  if (!screen) return;
+  if (!screen || !root.classList.contains("arisu-show-startup")) return;
 
   const rows = [
-    { key: "dom", message: "Preparing startup page", check: () => document.readyState !== "loading" },
-    { key: "styles", message: "Checking startup stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
-    { key: "final", message: "Opening Arisu Fix homepage", check: () => document.readyState === "complete" }
+    { key: "dom", message: "Preparing homepage document", check: () => document.readyState !== "loading" },
+    { key: "styles", message: "Checking page stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
+    { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
-  rows.forEach(row => {
-    const element = screen.querySelector('[data-check="' + row.key + '"]');
-    if (!element) return;
-    element.dataset.state = "pending";
-    const mark = element.querySelector(".boot-mark");
-    const status = element.querySelector(".boot-status");
-    if (mark) mark.textContent = "○";
-    if (status) status.textContent = "WAIT";
-  });
-
   const progress = screen.querySelector(".boot-progress-fill");
   const progressText = screen.querySelector(".boot-progress-value");
   const track = screen.querySelector(".boot-progress-track");
   const footnote = screen.querySelector(".boot-footnote");
   if (!progress || !progressText || !track || !footnote) {
-    window.location.replace("/home");
+    root.classList.remove("arisu-show-startup");
     return;
   }
 
   let progressValue = 0;
   let finished = false;
   const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
-
-  function setProgress(value) {
+  const setProgress = value => {
     progressValue = value;
     progress.style.width = value + "%";
     progressText.textContent = value + "%";
     track.setAttribute("aria-valuenow", String(value));
-  }
-
+  };
   async function typeMessage(element, message) {
     const target = element.querySelector(".boot-message");
     const mark = element.querySelector(".boot-mark");
@@ -53,7 +42,6 @@
       await wait(16);
     }
   }
-
   async function runSequence() {
     for (const row of rows) {
       const element = screen.querySelector('[data-check="' + row.key + '"]');
@@ -71,12 +59,7 @@
       if (status) status.textContent = ok ? "200 OK" : "CHECK";
       const message = element.querySelector(".boot-message");
       if (message) message.textContent = row.message;
-      if (row.key === "final") {
-        setProgress(100);
-        await wait(350);
-      } else {
-        await wait(120);
-      }
+      await wait(row.key === "final" ? 350 : 120);
     }
     if (finished) return;
     finished = true;
@@ -84,18 +67,21 @@
     footnote.textContent = rows.every(row => {
       const element = screen.querySelector('[data-check="' + row.key + '"]');
       return element && element.dataset.state === "ok";
-    }) ? "Startup checks complete · opening homepage" : "Startup page ready · opening homepage";
+    }) ? "Startup checks complete · ready to explore" : "Homepage ready";
     screen.classList.add("is-ready");
     await wait(440);
-    window.location.replace("/home");
+    root.classList.remove("arisu-show-startup");
   }
-
   const progressTask = (async () => {
     while (progressValue < 99 && !finished) {
       setProgress(progressValue + 1);
       await wait(28);
     }
   })();
-  runSequence().catch(() => window.location.replace("/home"));
+  runSequence().catch(() => {
+    finished = true;
+    screen.classList.add("is-ready");
+    root.classList.remove("arisu-show-startup");
+  });
   progressTask.catch(() => {});
 })();
