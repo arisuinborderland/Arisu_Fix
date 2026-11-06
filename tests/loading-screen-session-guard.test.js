@@ -11,8 +11,8 @@ test('AFV489 uses a dedicated loading page and leaves the homepage free of the o
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
-  assert.ok(html.includes('/loading-screen.css?v=AFV489'));
-  assert.ok(html.includes('/loading-screen.js?v=AFV489'));
+  assert.ok(html.includes('/loading-screen.css?v=AFV488'));
+  assert.ok(html.includes('/loading-screen.js?v=AFV488'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
   assert.ok(!home.includes('id="arisu-loading-screen"'));
   assert.ok(!home.includes('loading-screen-first-paint-guard'));
@@ -50,9 +50,9 @@ test('AFV489 release metadata stays synchronized and historical milestones remai
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '488.0.0');
-  assert.equal(lock.version, '488.0.0');
-  assert.equal(lock.packages[''].version, '488.0.0');
+  assert.equal(pkg.version, '489.0.0');
+  assert.equal(lock.version, '489.0.0');
+  assert.equal(lock.packages[''].version, '489.0.0');
   assert.ok(readme.includes('Current release: AFV489'));
   assert.ok(readme.includes('AFV410 applies the Soft Curve'));
   assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
