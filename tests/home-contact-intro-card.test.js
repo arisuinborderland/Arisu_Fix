@@ -80,7 +80,7 @@ test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile'
 
 
 test('WhatsApp uses the clean official filled glyph in both contact locations', () => {
-  const icons = [...html.matchAll(/<span class="(?:whatsapp-feature-icon|wa-icon)"[\s\S]*?<svg viewBox="0 0 24 24"[\s\S]*?<path d="([^"]+)" fill="#fff"\/><\/svg>/g)];
+  const icons = [...html.matchAll(/<(?:div class="whatsapp-feature-icon"|span class="wa-icon")[\s\S]*?<svg viewBox="0 0 24 24"[\s\S]*?<path d="([^"]+)" fill="#fff"\/><\/svg>/g)];
   assert.equal(icons.length, 2, 'feature tile and WhatsApp button both use the filled white logo');
   assert.equal(icons[0][1], icons[1][1], 'both WhatsApp marks use the same official glyph');
   assert.ok(!html.includes('stroke-width="2.4"'), 'old thin outlined WhatsApp mark is removed');
