@@ -1,3 +1,12 @@
+AFV494 — Permanent More Bottom Navigation
+
+## AFV494
+- Replace the former Contact navigation anchor with a static More button in the HTML for Home, Reviews, Proofs, About, and Privacy Policy.
+- Initialize the existing More button in more-menu.js; do not dynamically create or replace navigation controls.
+- Keep About Arisu Fix and Privacy Policy as the only More menu destinations.
+- Add regression coverage for static navigation markup, refresh-safe initialization, and all five public pages.
+- Refresh the shared More menu JavaScript cache token to AFV494.
+
 AFV493 — Mobile Service Status Two-Column Details
 
 ## AFV493
