@@ -19,7 +19,7 @@ test('AFV502 keeps all startup labels visible and animates only row indicators/s
   assert.match(js, /async function typeMessage\(element\)/);
   assert.doesNotMatch(js, /target\.textContent\s*=\s*""|target\.textContent\s*\+=/);
   assert.match(js, /\.boot-status"\)\.textContent = "RUN"/);
-  assert.match(js, /\.boot-status"\)\.textContent = ok \? "✓ DONE" : "CHECK"/);
+  assert.match(js, /\.boot-status"\)\.textContent = ok \? "DONE" : "CHECK"/);
   assert.doesNotMatch(js, /200 OK|boot-footnote/);
   assert.doesNotMatch(html, /boot-footnote/);
   assert.match(css, /\.boot-subtitle\s*\{[\s\S]*?white-space:\s*nowrap/);

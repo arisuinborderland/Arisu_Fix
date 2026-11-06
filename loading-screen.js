@@ -60,7 +60,7 @@
     if (!element) return;
     element.dataset.state = ok ? "ok" : "error";
     element.querySelector(".boot-mark").textContent = ok ? ">" : "!";
-    element.querySelector(".boot-status").textContent = ok ? "✓ DONE" : "CHECK";
+    element.querySelector(".boot-status").textContent = ok ? "DONE" : "CHECK";
     if (detail) element.querySelector(".boot-message").textContent = detail;
   }
 
