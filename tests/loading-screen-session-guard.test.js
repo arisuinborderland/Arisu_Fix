@@ -53,6 +53,6 @@ test('AFV491 release metadata stays synchronized', () => {
 
 test('AFV500 prevents touch pull-to-refresh while the loading overlay is active', () => {
   const css = read('loading-screen.css');
-  assert.match(css, /html\\.arisu-loading-first-run\\s*,\\s*html\\.arisu-loading-active\\s*\\{\\s*overscroll-behavior-y:\\s*none;\\s*\\}/);
-  assert.match(css, /overscroll-behavior-y:\\s*none/);
+  assert.match(css, /html\.arisu-loading-first-run\s*,\s*html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none;\s*\}/);
+  assert.match(css, /overscroll-behavior-y:\s*none/);
 });
