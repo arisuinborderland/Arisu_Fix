@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV494
+Version: AFV495
 Updated: 2026-11-06
 
-Current release: AFV494
-Package version: 494.0.0
+Current release: AFV495
+Package version: 495.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV495: removes the nested loading-card exit fade so the loading overlay performs one uniform fade instead of fading the card and its parent simultaneously. Prevents homepage content from ghosting through the card during the final transition; preserves the loading design, progress sequence, timing, and responsive layout.
 - AFV494: makes More a static bottom-navigation control in the HTML on all five public pages; updates the shared menu script to initialize that existing button instead of replacing a Contact placeholder after load. Adds regression coverage for first paint, refresh, and page navigation; refreshes the More script cache token. Preserves navigation styling, page layouts, and menu destinations.
 - AFV493: changes the mobile Service Status schedule and Philippine time details into two separate side-by-side cards; keeps the status heading, three benefit cards, desktop layout, live clock/status logic, scam reminder, and all unrelated sections unchanged. Adds focused responsive regression coverage and refreshes the homepage stylesheet cache token.
 - AFV490: restores the AFV487 same-document loading overlay while keeping loading CSS and JavaScript separate; removes the standalone loading-page redirect that could replay during browser mode switches.
