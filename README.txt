@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV496
+Version: AFV497
 Updated: 2026-11-06
 
-Current release: AFV496
-Package version: 496.0.0
+Current release: AFV497
+Package version: 497.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV497: fixes the loading exit by fading only the full-screen background layer while keeping the white loading card opaque until removal. Removes the translucent first-paint guard and card backdrop blur that allowed homepage content to bleed through; preserves the existing 420ms visual exit and 440ms removal timing, startup checks, progress, and layout.
 - AFV496: fixes the actual exit transition by declaring the opacity transition on the base overlay and delaying visibility:hidden until the 420ms fade finishes. Keeps the loading card opaque, preserves the 440ms removal timing and startup sequence, and retains instant entrance behavior.
 - AFV495: removes the nested loading-card exit fade so the loading overlay performs one uniform fade instead of fading the card and its parent simultaneously. Prevents homepage content from ghosting through the card during the final transition; preserves the loading design, progress sequence, timing, and responsive layout.
 - AFV494: makes More a static bottom-navigation control in the HTML on all five public pages; updates the shared menu script to initialize that existing button instead of replacing a Contact placeholder after load. Adds regression coverage for first paint, refresh, and page navigation; refreshes the More script cache token. Preserves navigation styling, page layouts, and menu destinations.
