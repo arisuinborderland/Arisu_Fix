@@ -1,10 +1,9 @@
 "use strict";
-/* AFV492 — Run the startup overlay in-place; never navigate or reload the homepage. */
+/* AFV492 — In-place startup overlay with tab-session and return-to-tab lifecycle handling. */
 (() => {
   const root = document.documentElement;
   const screen = document.getElementById("arisu-loading-screen");
-  if (!screen || !root.classList.contains("arisu-show-startup")) return;
-
+  if (!screen) return;
   const rows = [
     { key: "dom", message: "Preparing homepage document", check: () => document.readyState !== "loading" },
     { key: "styles", message: "Checking page stylesheets", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
@@ -18,9 +17,11 @@
     root.classList.remove("arisu-show-startup");
     return;
   }
-
   let progressValue = 0;
-  let finished = false;
+  let runId = 0;
+  let isRunning = false;
+  let wasHidden = false;
+  let replayOnReturn = false;
   const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
   const setProgress = value => {
     progressValue = value;
@@ -28,7 +29,23 @@
     progressText.textContent = value + "%";
     track.setAttribute("aria-valuenow", String(value));
   };
-  async function typeMessage(element, message) {
+  function resetOverlay() {
+    screen.classList.remove("is-ready");
+    rows.forEach(row => {
+      const element = screen.querySelector('[data-check="' + row.key + '"]');
+      if (!element) return;
+      element.dataset.state = "pending";
+      const mark = element.querySelector(".boot-mark");
+      const message = element.querySelector(".boot-message");
+      const status = element.querySelector(".boot-status");
+      if (mark) mark.textContent = "○";
+      if (message) message.textContent = row.message;
+      if (status) status.textContent = "WAIT";
+    });
+    footnote.textContent = "Waiting for actual page readiness…";
+    setProgress(0);
+  }
+  async function typeMessage(element, message, token) {
     const target = element.querySelector(".boot-message");
     const mark = element.querySelector(".boot-mark");
     const status = element.querySelector(".boot-status");
@@ -38,50 +55,86 @@
     status.textContent = "RUN";
     element.dataset.state = "running";
     for (const character of message) {
+      if (token !== runId) return;
       target.textContent += character;
       await wait(16);
     }
   }
-  async function runSequence() {
-    for (const row of rows) {
-      const element = screen.querySelector('[data-check="' + row.key + '"]');
-      if (!element) continue;
-      await typeMessage(element, row.message);
-      await wait(120);
-      if (row.key === "styles" && document.readyState !== "complete") {
-        await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
+  async function runSequence(token) {
+    try {
+      for (const row of rows) {
+        if (token !== runId) return;
+        const element = screen.querySelector('[data-check="' + row.key + '"]');
+        if (!element) continue;
+        await typeMessage(element, row.message, token);
+        if (token !== runId) return;
+        await wait(120);
+        if (row.key === "styles" && document.readyState !== "complete") {
+          await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
+        }
+        if (token !== runId) return;
+        const ok = row.check();
+        element.dataset.state = ok ? "ok" : "error";
+        const mark = element.querySelector(".boot-mark");
+        const status = element.querySelector(".boot-status");
+        const message = element.querySelector(".boot-message");
+        if (mark) mark.textContent = ok ? ">" : "!";
+        if (status) status.textContent = ok ? "200 OK" : "CHECK";
+        if (message) message.textContent = row.message;
+        await wait(row.key === "final" ? 350 : 120);
       }
-      const ok = row.check();
-      element.dataset.state = ok ? "ok" : "error";
-      const mark = element.querySelector(".boot-mark");
-      const status = element.querySelector(".boot-status");
-      if (mark) mark.textContent = ok ? ">" : "!";
-      if (status) status.textContent = ok ? "200 OK" : "CHECK";
-      const message = element.querySelector(".boot-message");
-      if (message) message.textContent = row.message;
-      await wait(row.key === "final" ? 350 : 120);
+      if (token !== runId) return;
+      setProgress(100);
+      footnote.textContent = rows.every(row => {
+        const element = screen.querySelector('[data-check="' + row.key + '"]');
+        return element && element.dataset.state === "ok";
+      }) ? "Startup checks complete · ready to explore" : "Homepage ready";
+      screen.classList.add("is-ready");
+      await wait(440);
+      if (token !== runId) return;
+      root.classList.remove("arisu-show-startup");
+    } catch (_) {
+      if (token !== runId) return;
+      screen.classList.add("is-ready");
+      root.classList.remove("arisu-show-startup");
+    } finally {
+      if (token === runId) isRunning = false;
     }
-    if (finished) return;
-    finished = true;
-    setProgress(100);
-    footnote.textContent = rows.every(row => {
-      const element = screen.querySelector('[data-check="' + row.key + '"]');
-      return element && element.dataset.state === "ok";
-    }) ? "Startup checks complete · ready to explore" : "Homepage ready";
-    screen.classList.add("is-ready");
-    await wait(440);
-    root.classList.remove("arisu-show-startup");
   }
-  const progressTask = (async () => {
-    while (progressValue < 99 && !finished) {
-      setProgress(progressValue + 1);
-      await wait(28);
+  function startOverlay(forceRestart) {
+    if (isRunning && !forceRestart) return;
+    runId += 1;
+    const token = runId;
+    isRunning = true;
+    resetOverlay();
+    root.classList.add("arisu-show-startup");
+    (async () => {
+      while (token === runId && progressValue < 99) {
+        setProgress(progressValue + 1);
+        await wait(28);
+      }
+    })().catch(() => {});
+    runSequence(token);
+  }
+  // Initial visit is controlled synchronously in index.html before first paint.
+  if (root.classList.contains("arisu-show-startup")) startOverlay(false);
+  // A browser reload (refresh or Mobile/Desktop mode switch) creates a new document
+  // and is suppressed by the session guard in index.html. Returning to the same
+  // backgrounded tab does not reload, so replay the overlay in place here.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      wasHidden = true;
+      replayOnReturn = true;
+      return;
     }
-  })();
-  runSequence().catch(() => {
-    finished = true;
-    screen.classList.add("is-ready");
-    root.classList.remove("arisu-show-startup");
+    if (document.visibilityState === "visible" && wasHidden && replayOnReturn) {
+      wasHidden = false;
+      replayOnReturn = false;
+      startOverlay(true);
+    }
   });
-  progressTask.catch(() => {});
+  // BFCache restores the same document without running the synchronous head guard.
+  window.addEventListener("pageshow", event => {
+    if (event.persisted) startOverlay(true);
+  });
 })();
