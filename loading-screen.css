@@ -210,3 +210,7 @@
     animation: none;
   }
 }
+
+
+/* AFV492 — Homepage startup overlay is session-scoped; no redirect or second document load. */
+html.arisu-show-startup #arisu-loading-screen:not(.is-ready) { opacity: 1; visibility: visible; pointer-events: auto; }
