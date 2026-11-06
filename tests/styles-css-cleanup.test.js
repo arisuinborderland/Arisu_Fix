@@ -8,13 +8,13 @@ const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 const stripComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, '');
 const styles = stripComments(read('styles.css'));
 const proofsStyles = stripComments(read('proofs.css'));
-const aboutLinkStyles = stripComments(read('about-link.css'));
 const reveal = read('scroll-reveal.js');
 
 test('Retired site-footer selectors are removed from active stylesheets and reveal targets', () => {
   assert.doesNotMatch(styles, /\.site-footer|\.footer-(?:brand|note|links|copyright|location)/);
   assert.doesNotMatch(proofsStyles, /\.site-footer|\.proofs-footer/);
-  assert.doesNotMatch(aboutLinkStyles, /\.site-footer|\.about-link-section|\.about-page-cta|\.about-cta-/);
+  assert.doesNotMatch(read('index.html'), /about-link\.css/);
+  assert.doesNotMatch(read('build.js'), /about-link\.css/);
   assert.doesNotMatch(reveal, /\.site-footer/);
 });
 
