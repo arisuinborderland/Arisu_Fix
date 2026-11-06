@@ -69,7 +69,7 @@ test('Homepage mobile micro-adjustments stay in existing responsive rules and pr
 
 test('WhatsApp icon aligns horizontally with the Let’s Connect icon on mobile', () => {
   const alignmentBlock = css.slice(css.lastIndexOf('/* AFV482 mobile contact icon balance'));
-  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*41px\s*!important;[^}]*height:\s*39px\s*!important;/);
+  assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*41px\s*!important;[^}]*height:\s*41px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*>\s*svg\s*\{[^}]*width:\s*24px\s*!important;[^}]*height:\s*24px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*margin-left:\s*2px\s*!important;/);
   assert.match(alignmentBlock, /\.whatsapp-feature-icon\s*\{[^}]*width:\s*39px\s*!important;[^}]*height:\s*39px\s*!important;/);
