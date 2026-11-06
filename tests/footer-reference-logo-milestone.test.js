@@ -8,17 +8,26 @@ const pages = ['index.html', 'reviews.html', 'proofs.html', 'about.html'];
 const pageHtml = Object.fromEntries(pages.map(file => [file, fs.readFileSync(path.join(root, file), 'utf8')]));
 const partial = fs.readFileSync(path.join(root, 'partials', 'site-header.html'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'footer-reference.css'), 'utf8');
+const headerCss = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
 const pageClasses = ['home-page', 'reviews-document', 'proofs-document', 'about-page'];
 
 test('All shared-footer pages use the official shared-header logo asset', () => {
   const headerLogo = partial.match(/<img\b(?=[^>]*\bclass="[^"]*\blogo\b[^"]*\bprofile-logo\b")[^>]*\bsrc="([^"]+)"[^>]*\balt="Official Arisu Fix logo"/)?.[1];
   assert.ok(headerLogo);
+  assert.match(headerLogo, /\\?v=AFV502$/, 'shared header logo cache token is current');
+  assert.doesNotMatch(partial, /<span class="logo profile-logo">[\\s\\S]*?<img/, 'header logo must not use the clipping wrapper');
   for (const [file, source] of Object.entries(pageHtml)) {
     const aboutLogo = source.match(/<img class="reference-about-profile" src="([^"]+)"/)?.[1];
     assert.ok(aboutLogo, file);
     assert.equal(aboutLogo.split('?')[0], headerLogo.split('?')[0], file);
     assert.match(aboutLogo, /AFV477/, file);
   }
+});
+
+test('AFV502 shared header logo renders the full transparent artwork without clipping', () => {
+  assert.match(headerCss, /html body \\.topbar > \\.brand \\{[\\s\\S]*?overflow: visible !important/);
+  assert.match(headerCss, /html body \\.topbar\\.site-header > a\\.brand > img\\.logo\\.profile-logo \\{[\\s\\S]*?object-fit: contain !important/);
+  assert.match(headerCss, /clip-path: none !important/);
 });
 
 test('About footer logo aligns with the title and uses a circular frame on mobile', () => {
