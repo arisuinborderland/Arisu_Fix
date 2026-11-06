@@ -11,6 +11,9 @@ test('AFV489 uses a dedicated loading page and leaves the homepage free of the o
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
+  assert.ok(html.includes('loading-screen-session-guard'));
+  assert.ok(html.includes('sessionStorage.getItem("arisuFixHomepageLoadingShown")'));
+  assert.ok(html.includes('window.location.replace("/home")'));
   assert.ok(html.includes('/loading-screen.css?v=AFV489'));
   assert.ok(html.includes('/loading-screen.js?v=AFV488'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
@@ -39,8 +42,9 @@ test('AFV489 standalone script performs splash-page checks then opens the homepa
   assert.ok(js.includes("link[rel=\"stylesheet\"]"));
   assert.ok(js.includes('window.location.replace("/home")'));
   assert.ok(!js.includes('window.location.replace("/index.html")'));
-  assert.ok(!js.includes('sessionStorage'));
-  assert.ok(!js.includes('arisuFixHomepageLoadingShown'));
+  assert.ok(js.includes('sessionStorage.getItem(sessionKey)'));
+  assert.ok(js.includes('sessionStorage.setItem(sessionKey, "1")'));
+  assert.ok(js.includes('arisuFixHomepageLoadingShown'));
   const css = read('loading-screen.css');
   assert.ok(css.includes('arisu-loading-card-fade-out'));
   assert.ok(css.includes('transition: opacity .42s ease-in, visibility .42s ease-in'));
