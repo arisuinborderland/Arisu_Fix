@@ -33,7 +33,7 @@ test('AFV503 release metadata and changed navigation cache tokens stay synchroni
 
   for (const page of ['index.html', 'reviews.html', 'proofs.html', 'about.html', 'privacy.html']) {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
-    assert.match(html, /bottom-nav\.css\?v=AFV503[^\"']*storyavatar=headerref2/, `${page} must load the latest AFV503 Stories avatar stylesheet`);
+    assert.match(html, /bottom-nav\.css\?v=AFV503[^\"']*storyavatar=headerref3/, `${page} must load the latest AFV503 Stories avatar stylesheet`);
   }
 });
 
@@ -50,4 +50,27 @@ test('AFV503 renders transparent Stories logo artwork like the shared header log
   for (const page of ['home-page', 'reviews-document', 'proofs-document', 'about-page', 'privacy-page']) {
     assert.ok(refinement.includes(`body.${page}`), `header-matched artwork treatment covers ${page}`);
   }
+});
+
+
+test('AFV503 keeps the avatar layout fixed while enlarging transparent artwork beyond its frame', () => {
+  const refinement = css.slice(css.indexOf('/* AFV503 refinement 3:'));
+  assert.ok(refinement.includes('/* AFV503 refinement 3:'), 'independent artwork sizing refinement exists');
+  assert.ok(refinement.includes('position: absolute !important;'));
+  assert.ok(refinement.includes('width: 54px !important;'));
+  assert.ok(refinement.includes('height: 54px !important;'));
+  assert.ok(refinement.includes('top: 50% !important;'));
+  assert.ok(refinement.includes('left: 50% !important;'));
+  assert.ok(refinement.includes('transform: translate(-50%, -50%) !important;'));
+  assert.ok(refinement.includes('object-fit: contain !important;'));
+  assert.ok(refinement.includes('border: 0 !important;'));
+  assert.ok(refinement.includes('border-radius: 0 !important;'));
+  assert.ok(refinement.includes('overflow: visible !important;'));
+  assert.ok(refinement.includes('z-index: 2 !important;'));
+  assert.ok(refinement.includes('z-index: 4 !important;'));
+  for (const page of ['home-page', 'reviews-document', 'proofs-document', 'about-page', 'privacy-page']) {
+    assert.ok(refinement.includes(`body.${page}`), `independent artwork sizing covers ${page}`);
+  }
+  assert.doesNotMatch(refinement, /\.mobile-nav-story-avatar\s*\{[^}]*\b(?:width|height)\s*:/s,
+    'the outer avatar layout dimensions are not changed by the artwork sizing rule');
 });
