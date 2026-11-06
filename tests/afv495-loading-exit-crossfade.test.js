@@ -46,9 +46,9 @@ test('AFV499 release metadata is synchronized', () => {
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '504.0.0');
-  assert.equal(lock.version, '504.0.0');
-  assert.equal(lock.packages[''].version, '504.0.0');
-  assert.ok(readme.includes('Current release: AFV504'));
+  assert.equal(pkg.version, '505.0.0');
+  assert.equal(lock.version, '505.0.0');
+  assert.equal(lock.packages[''].version, '505.0.0');
+  assert.ok(readme.includes('Current release: AFV505'));
   assert.ok(history.includes('AFV499 — Delay Homepage Reveal Until Loading Fade Completes'));
 });
