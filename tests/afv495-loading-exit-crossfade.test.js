@@ -31,7 +31,7 @@ test('AFV498 keeps the card opaque while the background layer fades', () => {
 test('AFV498 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
-  assert.match(html, /loading-screen\.css\?v=AFV498&sessionguard=1&firstpaint=8/);
+  assert.match(html, /loading-screen\.css\?v=AFV498&sessionguard=1&firstpaint=9/);
   assert.match(html, /loading-screen\.js\?v=AFV491&sessionguard=3/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
   assert.match(js, /overlay\.remove\(\)/);
@@ -48,5 +48,5 @@ test('AFV498 release metadata is synchronized', () => {
   assert.equal(lock.version, '498.0.0');
   assert.equal(lock.packages[''].version, '498.0.0');
   assert.ok(readme.includes('Current release: AFV498'));
-  assert.ok(history.includes('AFV498 — Isolate loading background fade from opaque card'));
+  assert.ok(history.includes('AFV498 — Loading Screen Surface Crossfade'));
 });
