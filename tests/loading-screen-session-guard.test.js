@@ -6,14 +6,15 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV494 uses a dedicated loading page and leaves the homepage free of the old overlay', () => {
+test('AFV494 uses a dedicated loading page and persistent completed-startup guard', () => {
   const html = read('loading.html');
   const home = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
   assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
   assert.ok(html.includes('/loading-screen.css?v=AFV489'), 'unchanged loading CSS keeps its existing cache version');
   assert.ok(html.includes('/loading-screen.js?v=AFV489&startupguard=2'), 'standalone startup guard must bypass the cached pre-guard script');
-  assert.ok(html.includes('arisuFixStandaloneStartupComplete'));
+  assert.ok(html.includes('localStorage.getItem("arisuFixStandaloneStartupComplete")'));
+  assert.ok(html.includes('sessionStorage.getItem("arisuFixStandaloneStartupComplete")'));
   assert.ok(html.includes('arisu-startup-already-complete'));
   assert.ok(html.includes('window.location.replace("/home")'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
@@ -39,8 +40,8 @@ test('AFV494 standalone script performs splash-page checks then opens the homepa
   assert.ok(js.includes("window.__ARISU_LOADING_STARTED = true;"));
   assert.ok(js.includes('document.readyState !== "loading"'));
   assert.ok(js.includes("wait(5000)"), "standalone loading must not wait forever for the window load event");
-  assert.ok(js.includes('sessionStorage.setItem("arisuFixStandaloneStartupComplete", "1")'));
-  assert.ok(js.indexOf('sessionStorage.setItem("arisuFixStandaloneStartupComplete", "1")') < js.lastIndexOf('window.location.replace("/home")'));
+  assert.ok(js.includes('localStorage.setItem("arisuFixStandaloneStartupComplete", "1")'));
+  assert.ok(js.indexOf('localStorage.setItem("arisuFixStandaloneStartupComplete", "1")') < js.lastIndexOf('window.location.replace("/home")'));
   assert.ok(!js.includes('waitForLoad'), 'load readiness should be awaited only once');
   assert.ok(js.includes('row.key === "styles" && document.readyState !== "complete"'));
   assert.ok(js.includes("link[rel=\"stylesheet\"]"));
