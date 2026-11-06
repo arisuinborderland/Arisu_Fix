@@ -43,18 +43,6 @@
   border-radius: 0;
   box-shadow: none;
 }
-.reference-footer .reference-about-profile {
-  display: block;
-  flex: 0 0 72px;
-  width: 72px;
-  height: 72px;
-  margin: 0;
-  object-fit: cover;
-  object-position: center;
-  border: 3px solid #fff;
-  border-radius: 17px;
-  box-shadow: 0 3px 10px rgba(35, 70, 130, .18);
-}
 .reference-footer .reference-about-copy {
   display: flex;
   flex: 1 1 auto;
@@ -256,8 +244,7 @@
 @media (min-width: 601px) {
   .reference-footer .reference-about-section { padding: 22px max(24px, calc((100% - 1056px) / 2)) 18px; }
   .reference-footer .reference-about-cta { gap: 20px; padding: 4px 0; }
-  .reference-footer .reference-about-profile { flex-basis: 88px; width: 88px; height: 88px; border-radius: 20px; }
-  .reference-footer .reference-about-eyebrow { font-size: 13px; letter-spacing: 1.6px; }
+.reference-footer .reference-about-eyebrow { font-size: 13px; letter-spacing: 1.6px; }
   .reference-footer .reference-about-title { font-size: clamp(21px, 2.3vw, 28px); letter-spacing: -.55px; }
   .reference-footer .reference-about-description { font-size: 16px; }
   .reference-footer .reference-about-action { min-height: 38px; padding: 8px 18px; font-size: 15px; }
@@ -275,8 +262,7 @@
 @media (max-width: 380px) {
   .reference-footer .reference-about-section { padding-left: 12px; padding-right: 12px; }
   .reference-footer .reference-about-cta { gap: 10px; }
-  .reference-footer .reference-about-profile { flex-basis: 60px; width: 60px; height: 60px; border-radius: 14px; }
-  .reference-footer .reference-about-title { font-size: 16px; }
+.reference-footer .reference-about-title { font-size: 16px; }
   .reference-footer .reference-about-description { font-size: 12px; }
   .reference-footer .reference-footer-grid { gap: 7px; padding-left: 10px; padding-right: 10px; }
   .reference-footer .reference-footer-card { grid-template-columns: 34px minmax(0, 1fr) 7px; gap: 6px; padding: 7px 6px; }
@@ -315,17 +301,7 @@
     gap: 10px;
     padding: 3px 0;
   }
-
-  body.home-page .reference-footer .reference-about-profile,
-  body.reviews-document .reference-footer .reference-about-profile,
-  body.proofs-document .reference-footer .reference-about-profile {
-    flex-basis: 60px;
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-  }
-
-  body.home-page .reference-footer .reference-about-copy,
+body.home-page .reference-footer .reference-about-copy,
   body.reviews-document .reference-footer .reference-about-copy,
   body.proofs-document .reference-footer .reference-about-copy {
     gap: 3px;
@@ -480,15 +456,7 @@
     gap: 10px;
     padding: 3px 0;
   }
-
-  html body.about-page .reference-footer .reference-about-profile {
-    flex-basis: 60px;
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-  }
-
-  html body.about-page .reference-footer .reference-about-copy { gap: 3px; }
+html body.about-page .reference-footer .reference-about-copy { gap: 3px; }
   html body.about-page .reference-footer .reference-about-eyebrow { display: none; }
   html body.about-page .reference-footer .reference-about-title { font-size: 16px; line-height: 1.22; }
   html body.about-page .reference-footer .reference-about-description { font-size: 12px; line-height: 1.35; }
@@ -625,14 +593,7 @@ body.home-page .reference-footer {
     gap: 8px !important;
     padding: 2px 0 !important;
   }
-  .reference-footer .reference-about-profile {
-    flex: 0 0 48px !important;
-    width: 48px !important;
-    height: 48px !important;
-    border-width: 2px !important;
-    border-radius: 12px !important;
-  }
-  .reference-footer .reference-about-copy {
+.reference-footer .reference-about-copy {
     gap: 2px !important;
   }
   .reference-footer .reference-about-title {
