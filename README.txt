@@ -1,16 +1,17 @@
 ARISU FIX — PROJECT README
-Version: AFV498
+Version: AFV499
 Updated: 2026-11-06
 
-Current release: AFV498
-Package version: 498.0.0
+Current release: AFV499
+Package version: 499.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV498: fixes the final loading-screen flash by fading the card surface, card contents, and full-screen wash as separate synchronized layers. Prevents the white card from remaining visible until abrupt DOM removal; preserves startup checks, progress, the 500ms completion hold, and 440ms removal timing.
-- AFV497: isolated the full-screen background fade and removed translucent card/first-paint compositing that exposed the homepage underneath. This was an intermediate correction; AFV498 additionally fades the card surface itself to prevent the final white-card pop.
+- AFV499: keeps the first-paint homepage visibility guard active throughout the loading exit fade; reveals homepage only after the 420ms overlay transition completes, preventing homepage content from appearing behind the fading card.
+- AFV499: fixes the final loading-screen flash by fading the card surface, card contents, and full-screen wash as separate synchronized layers. Prevents the white card from remaining visible until abrupt DOM removal; preserves startup checks, progress, the 500ms completion hold, and 440ms removal timing.
+- AFV497: isolated the full-screen background fade and removed translucent card/first-paint compositing that exposed the homepage underneath. This was an intermediate correction; AFV499 additionally fades the card surface itself to prevent the final white-card pop.
 - AFV496: fixes the actual exit transition by declaring the opacity transition on the base overlay and delaying visibility:hidden until the 420ms fade finishes. Keeps the loading card opaque, preserves the 440ms removal timing and startup sequence, and retains instant entrance behavior.
 - AFV495: removes the nested loading-card exit fade so the loading overlay performs one uniform fade instead of fading the card and its parent simultaneously. Prevents homepage content from ghosting through the card during the final transition; preserves the loading design, progress sequence, timing, and responsive layout.
 - AFV494: makes More a static bottom-navigation control in the HTML on all five public pages; updates the shared menu script to initialize that existing button instead of replacing a Contact placeholder after load. Adds regression coverage for first paint, refresh, and page navigation; refreshes the More script cache token. Preserves navigation styling, page layouts, and menu destinations.
