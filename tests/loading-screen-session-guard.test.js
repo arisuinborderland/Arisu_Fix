@@ -46,7 +46,7 @@ test('current release metadata stays synchronized with the README release marker
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
-  const release = readme.match(/^Current release: AFV(\\d+)$/m);
+  const release = readme.match(/^Current release: AFV(\d+)$/m);
   assert.ok(release, 'README must declare the current AFV release');
   const expectedVersion = `${release[1]}.0.0`;
   assert.equal(pkg.version, expectedVersion);
