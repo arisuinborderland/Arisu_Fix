@@ -1,3 +1,12 @@
+AFV488 — Remove Exact Duplicate Story Viewer Empty-State Rules
+
+## AFV488
+- Remove one redundant copy of the empty-state Story Viewer rule that hides normal playback controls while the empty-state modal is open.
+- Remove one redundant copy of the identical empty-state Done-button active transform rule.
+- Retain one authoritative copy of each rule and preserve the approved AFV389 empty-state appearance, mascot artwork, modal geometry, and normal Story playback behavior.
+- Refresh the Story Viewer stylesheet cache token on all five pages that load it.
+- Add focused regression coverage and synchronize release metadata to AFV488.
+
 AFV487 — Remove Retired Recovery Proof Search CSS
 
 ## AFV487
