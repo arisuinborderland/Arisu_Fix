@@ -1,3 +1,13 @@
+AFV503 — Prevent mobile Stories avatar and badge clipping
+
+- Match the Stories profile artwork to the shared header's unclipped image treatment using centered contain fitting; preserve the circular frame and existing dimensions.
+- Add the header-style animated outer halo and keep the notification count badge above the avatar ring.
+- Keep the Stories profile image, animated halo/ring, and notification count badge fully visible above the shared fixed mobile bottom navigation.
+- Scope overflow visibility to the mobile navigation and Stories control/avatar layers across Home, Reviews, Proofs, About, and Privacy.
+- Preserve the existing avatar size, position, circular crop, glow animation, badge placement, nav dimensions, page layout, and desktop navigation.
+- Refresh the shared bottom-navigation CSS cache token to AFV503 on all five public pages.
+- Synchronize package.json, package-lock.json, README release metadata, and release-version regression expectations to 503.0.0 / AFV503.
+
 AFV502 — Show Full Header Logo Artwork Without Changing Its Size
 
 - Render the transparent logo PNG directly as the shared header brand image, removing the clipping wrapper that hid the playing-card artwork.
@@ -1357,3 +1367,7 @@ AFV261 — 2026-10-23
 - Synchronized active cache-busting references, package metadata, and regression-test expectations to AFV261 / 261.0.0.
 
 AFV300 — Corrected page-specific header button sizing and verified-badge alignment; homepage remains the canonical reference.
+
+- AFV503 follow-up: remove the image-level circular border/radius from the Stories PNG and render the transparent artwork with centered `object-fit: contain`, matching the AFV502 header logo treatment; keep the circular frame and halo on the wrapper, and refresh all five page cache keys.
+
+- AFV503 artwork sizing follow-up: render the transparent Stories logo at 54×54px, centered with absolute positioning over the unchanged 36×36px avatar wrapper; preserve the circular frame, halo, badge stacking, and five-page navigation geometry.
