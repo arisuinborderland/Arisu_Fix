@@ -36,8 +36,8 @@
 <!-- Decide session visibility before any render-blocking stylesheet can delay first paint. -->
   <script src="loading-first-paint-guard.js?v=AFV491"></script>
   <style id="loading-screen-critical-guard">html.arisu-loading-first-run body>:not(#arisu-loading-screen){display:none!important}html.arisu-loading-first-run #arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:22px;background:#f3f5f9;color:#25314a;opacity:1;visibility:visible;pointer-events:auto;animation:none!important}</style>
-  <link rel="stylesheet" href="loading-screen.css?v=AFV499&sessionguard=1&firstpaint=10&pullrefresh=1">
-  <script src="loading-screen.js?v=AFV499&sessionguard=4" defer></script>
+  <link rel="stylesheet" href="loading-screen.css?v=AFV501&sessionguard=1&firstpaint=10&pullrefresh=1">
+  <script src="loading-screen.js?v=AFV501&sessionguard=4" defer></script>
    <link rel="stylesheet" href="styles.css?v=AFV493&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col">
  <link rel="stylesheet" href="home-accordion.css?v=AFV459">
  <link rel="stylesheet" href="about-link.css?v=AFV424&homebtnpadding=1">
@@ -66,8 +66,8 @@
       <div class="boot-brand-divider" aria-hidden="true"></div>
       <p class="boot-section">INITIALIZATION SEQUENCE</p>
       <ul class="boot-log" aria-live="polite">
-        <li data-check="dom"><span class="boot-mark">○</span><span class="boot-message">Preparing homepage document</span><span class="boot-status">WAIT</span></li>
-        <li data-check="styles"><span class="boot-mark">○</span><span class="boot-message">Checking page stylesheets</span><span class="boot-status">WAIT</span></li>
+        <li data-check="dom"><span class="boot-mark">○</span><span class="boot-message">Initializing homepage</span><span class="boot-status">WAIT</span></li>
+        <li data-check="styles"><span class="boot-mark">○</span><span class="boot-message">Verifying page styles</span><span class="boot-status">WAIT</span></li>
 
         <li data-check="final"><span class="boot-mark">○</span><span class="boot-message">Finalizing interface...</span><span class="boot-status">WAIT</span></li>
       </ul>
