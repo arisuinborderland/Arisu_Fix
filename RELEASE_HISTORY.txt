@@ -1,3 +1,46 @@
+AFV483 — Desktop Contact Card Alignment
+
+## AFV483
+- At desktop widths (900px and above), align the combined Let's Connect card with the WhatsApp contact card using the same full content width and 24px horizontal inset.
+- Match both contact icon tiles at 54×54px with a 13px text-column gap; size the official white WhatsApp glyph for visual balance with the headset mark.
+- Keep all changes inside a desktop-only media query. Preserve the approved mobile dimensions, spacing, typography, icon alignment, and WhatsApp styling.
+
+AFV482 — Mobile Contact Card Separation
+
+## AFV482
+- Increase the combined Let’s Connect card's mobile bottom margin from 8px to 10px to create a clearer gap before the WhatsApp contact card.
+- Preserve desktop spacing and all WhatsApp card internal spacing; update the homepage stylesheet cache token and synchronized package metadata.
+
+AFV481 — Mobile Contact Intro Micro-adjustment
+
+## AFV481
+- Reduce the mobile “Let’s Connect.” heading by 3px from its current responsive size using the direct heading ID selector.
+- Enforce the 2px upward subtitle offset and reduce the card bottom padding from 6px to 4px at mobile widths, including the narrowest breakpoint.
+- Preserve desktop styling, icon sizing, card top padding, and all unrelated cards; refresh the homepage stylesheet cache token and synchronized metadata/tests.
+
+AFV480 — Fix Mobile Contact Intro Heading Specificity
+
+## AFV480
+- Fix the mobile “Let’s Connect.” heading size override by targeting the `#introTitle` ID directly, outranking the legacy ID-based font-size rule that previously prevented the smaller size from taking effect.
+- Preserve the existing 2px subtitle lift and 2px bottom-padding reduction; keep desktop styling and unrelated cards unchanged.
+- Refresh the homepage stylesheet cache token to AFV480 / mobilepolish=3 and update package/release metadata.
+- Update regression coverage to assert the higher-specificity mobile heading rule and active cache key.
+
+## AFV479
+- Move the mobile “Let’s Connect.” heading size, 2px subtitle lift, and 2px bottom-padding reduction into the existing responsive rules instead of a duplicate end-of-file override.
+- Keep the mobile adjustments scoped to the combined Account Recovery Assistance card; preserve desktop styling and unrelated cards.
+- Retain the existing Daily Bible Verse mobile margin adjustment as a separate targeted rule.
+- Refresh the homepage stylesheet cache token to AFV479 / mobilepolish=2 and update package/release metadata.
+- Update regression assertions for the authoritative responsive rules, active homepage cache key, and AFV479 package/release metadata.
+
+AFV478 — Combine Homepage Account Recovery and Contact Intro Card
+
+## AFV478
+- Combine the Account Recovery Assistance label, EST. 2018 badge, and “Let’s Connect” heading into one compact premium glassmorphism card on the homepage.
+- Use a shield icon for the service identity, a calendar-style EST. 2018 pill, and a blue-violet headset icon tile.
+- Preserve the existing WhatsApp contact card, Service Status panel, Daily Bible Verse, social links, and all unrelated sections.
+- Add responsive mobile/desktop styling, homepage stylesheet cache busting, and focused regression tests.
+
 AFV477 — Apply the Approved About and Milestone Layout Across Shared-Footer Pages
 
 ## AFV477
