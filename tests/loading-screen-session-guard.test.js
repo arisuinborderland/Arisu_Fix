@@ -9,7 +9,8 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 test('AFV488 uses a dedicated loading page and leaves the homepage free of the old overlay', () => {
   const html = read('loading.html');
   const home = read('index.html');
-  assert.ok(html.includes('id="arisu-loading-screen"'));
+  assert.ok(html.includes('id="arisu-loading-screen" class="is-visible"'));
+  assert.ok(html.includes('class="is-visible"'), 'standalone page must reveal the overlay immediately; its default CSS state is hidden');
   assert.ok(html.includes('/loading-screen.css?v=AFV488'));
   assert.ok(html.includes('/loading-screen.js?v=AFV488'));
   assert.ok(html.includes('arisu-fix-alice-borderland-logo-transparent.png'));
