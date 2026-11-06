@@ -14,7 +14,7 @@ test('AFV492 serves the homepage directly and does not route the root through a 
   assert.ok(build.includes('fs.copyFileSync(path.join(output, "index.html"), path.join(output, "homepage.html"))'));
 });
 
-test('AFV492 shows the approved startup overlay only for the first page load in a tab session', () => {
+test('AFV492 shows the approved startup overlay only for a fresh tab session', () => {
   const home = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
@@ -28,6 +28,25 @@ test('AFV492 shows the approved startup overlay only for the first page load in 
   assert.ok(!js.includes('window.location'));
   assert.ok(!js.includes('location.replace'));
   assert.ok(!js.includes('location.reload'));
+});
+
+test('AFV492 suppresses replay on refresh and browser-initiated viewport-mode reloads', () => {
+  const home = read('index.html');
+  assert.match(home, /if\s*\(!sessionStorage\.getItem\("arisuFixStartupSeen"\)\)/);
+  assert.ok(home.includes('sessionStorage.setItem("arisuFixStartupSeen", "1")'));
+});
+
+test('AFV492 replays the in-place overlay when the existing tab returns from background or BFCache', () => {
+  const js = read('loading-screen.js');
+  assert.ok(js.includes('document.addEventListener("visibilitychange"'));
+  assert.ok(js.includes('document.visibilityState === "hidden"'));
+  assert.ok(js.includes('document.visibilityState === "visible"'));
+  assert.ok(js.includes('window.addEventListener("pageshow"'));
+  assert.ok(js.includes('if (event.persisted) startOverlay(true)'));
+  assert.ok(js.includes('function resetOverlay()'));
+  assert.ok(js.includes('screen.classList.remove("is-ready")'));
+  assert.ok(js.includes('element.dataset.state = "pending"'));
+  assert.ok(js.includes('setProgress(0)'));
 });
 
 test('AFV492 startup sequence completes in place without causing a second document navigation', () => {
@@ -47,7 +66,7 @@ test('AFV490 historical metadata remains intact while AFV492 release metadata is
   assert.equal(lock.version, '492.0.0');
   assert.equal(lock.packages[''].version, '492.0.0');
   assert.ok(readme.includes('Current release: AFV492'));
-  assert.ok(history.includes('AFV492 — Fix Homepage Loading Replay and Redirect Reload'));
+  assert.ok(history.includes('AFV492 — Fix Homepage Loading Replay and Return-to-Tab Lifecycle'));
   assert.ok(history.includes('AFV490 — Remove Duplicate Story Viewer Empty-State Rules'));
   assert.ok(history.includes('AFV489 — Fix Standalone Loading Redirect Loop'));
 });
