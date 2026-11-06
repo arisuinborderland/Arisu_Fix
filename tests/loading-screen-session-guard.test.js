@@ -14,7 +14,7 @@ test('AFV491 keeps the loading overlay in the homepage document with external as
   assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV491') < html.indexOf('loading-screen-critical-guard'));
   assert.ok(!html.includes('loading-first-paint-guard.js?v=AFV491" defer'));
   assert.ok(html.includes('loading-screen-critical-guard'));
-  assert.ok(html.includes('loading-screen.css?v=AFV500'));
+  assert.ok(html.includes('loading-screen.css?v=AFV494'));
   assert.ok(html.includes('loading-screen.js?v=AFV491'));
   assert.ok(!html.includes('sessionStorage.getItem(sessionKey)'));
   const guard = read('loading-first-paint-guard.js');
