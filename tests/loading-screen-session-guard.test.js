@@ -9,7 +9,10 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 test('AFV491 keeps the loading overlay in the homepage document with external assets', () => {
   const html = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen"'));
-  assert.ok(html.includes('loading-screen-first-paint-guard'));
+  assert.ok(html.includes('loading-first-paint-guard.js?v=AFV491'));
+  assert.ok(!html.includes('id="loading-screen-first-paint-guard"'));
+  assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV491') < html.indexOf('loading-screen-critical-guard'));
+  assert.ok(!html.includes('loading-first-paint-guard.js?v=AFV491" defer'));
   assert.ok(html.includes('loading-screen-critical-guard'));
   assert.ok(html.includes('loading-screen.css?v=AFV491'));
   assert.ok(html.includes('loading-screen.js?v=AFV491'));
@@ -42,7 +45,7 @@ test('AFV491 loading script removes the same-document overlay after first sessio
 test('AFV491 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '490.0.0');
-  assert.equal(lock.version, '490.0.0');
-  assert.equal(lock.packages[''].version, '490.0.0');
+  assert.equal(pkg.version, '491.0.0');
+  assert.equal(lock.version, '491.0.0');
+  assert.equal(lock.packages[''].version, '491.0.0');
 });
