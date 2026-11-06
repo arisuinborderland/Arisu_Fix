@@ -37,15 +37,17 @@ test('AFV503 release metadata and changed navigation cache tokens stay synchroni
   }
 });
 
-test('AFV503 renders the Stories artwork like the unclipped shared header logo', () => {
-  const refinement = css.slice(css.indexOf('/* AFV503 refinement:'));
-  assert.ok(refinement.includes('/* AFV503 refinement:'), 'header-reference refinement exists');
+test('AFV503 renders transparent Stories logo artwork like the shared header logo', () => {
+  const refinement = css.slice(css.indexOf('/* AFV503 refinement 2:'));
+  assert.ok(refinement.includes('/* AFV503 refinement 2:'), 'direct transparent-logo refinement exists');
   assert.ok(refinement.includes('object-fit: contain !important;'));
   assert.ok(refinement.includes('object-position: center !important;'));
+  assert.ok(refinement.includes('border: 0 !important;'));
+  assert.ok(refinement.includes('border-radius: 0 !important;'));
+  assert.ok(refinement.includes('background: transparent !important;'));
   assert.ok(refinement.includes('clip-path: none !important;'));
-  assert.ok(refinement.includes('animation: arisu-brand-badge-glow 2s ease-out infinite !important;'));
-  assert.ok(refinement.includes('z-index: 4 !important;'));
+  assert.ok(refinement.includes('animation: arcStoriesHaloPulse 2.1s ease-in-out infinite !important;'));
   for (const page of ['home-page', 'reviews-document', 'proofs-document', 'about-page', 'privacy-page']) {
-    assert.ok(refinement.includes(`body.${page}`), `header-reference treatment covers ${page}`);
+    assert.ok(refinement.includes(`body.${page}`), `header-matched artwork treatment covers ${page}`);
   }
 });
