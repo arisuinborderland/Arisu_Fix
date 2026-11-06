@@ -1,3 +1,9 @@
+AFV501 — Remove Rounded Frame from About Service Profile Logo
+
+- Remove the rounded border, outline, and shadow from the About page service profile image.
+- Preserve its 62px footprint and existing position; use contain fitting to show the complete logo.
+- Refresh the About stylesheet cache token and synchronize release metadata.
+
 AFV500 — Match Stories Avatar to Header Profile Image
 
 - Use the exact shared-header profile image for the Stories avatar across Home, Reviews, Proofs, About, and Privacy.
