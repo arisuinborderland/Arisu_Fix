@@ -131,7 +131,7 @@ test('AFV492 package metadata and release notes are synchronized', () => {
   assert.equal(pkg.version, '510.0.0');
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
-  assert.ok(readme.includes('Current release: AFV508'));
+  assert.ok(readme.includes('Current release: AFV510'));
   assert.ok(history.includes('AFV492 — Restore Approved Mobile Homepage UI Details'));
 });
 
