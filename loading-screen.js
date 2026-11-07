@@ -42,7 +42,6 @@
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
   const progressPercent = overlay.querySelector(".boot-progress-percent");
-  const progressCheck = overlay.querySelector(".boot-progress-check");
   const progressComplete = overlay.querySelector(".boot-progress-complete");
   const track = overlay.querySelector(".boot-progress-track");
   let finished = false;
@@ -71,8 +70,6 @@
     progress.style.width = value + "%";
     progressPercent.textContent = value + "%";
     progressText.classList.toggle("is-filled", value >= 50);
-    progressText.classList.toggle("is-complete", value === 100);
-    if (progressCheck) progressCheck.hidden = value !== 100;
     if (track) {
       track.setAttribute("aria-valuenow", String(value));
       track.setAttribute("aria-valuetext", value === 100 ? "100% complete" : value + "%");
