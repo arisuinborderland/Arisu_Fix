@@ -63,3 +63,24 @@ test('AFV505 renders refined circular completion icons and an overall COMPLETE b
   assert.match(css, /linear-gradient\(145deg, #35d979 0%, #0d9e4b 100%\)/);
   assert.match(css, /\.boot-progress-complete\[hidden\]\s*\{\s*display:\s*none/);
 });
+
+
+test('AFV505 applies SYSTEM CHECK branding and places the live percentage inside the progress bar', () => {
+  const html = read('index.html');
+  const js = read('loading-screen.js');
+  const css = read('loading-screen.css');
+  assert.match(html, /boot-section-icon[\s\S]*?SYSTEM CHECK/);
+  assert.doesNotMatch(html, /INITIALIZATION SEQUENCE/);
+  assert.match(html, /boot-subtitle/);
+  assert.match(html, /boot-progress-track[\s\S]*?boot-progress-fill[\s\S]*?boot-progress-value[\s\S]*?boot-progress-percent/);
+  assert.doesNotMatch(html, /boot-progress-row[^<]*[\s\S]*?boot-progress-value/);
+  assert.match(js, /progressPercent\.textContent = value \+ "%"/);
+  assert.match(js, /progressText\.classList\.toggle\("is-filled", value >= 50\)/);
+  assert.match(js, /progressText\.classList\.toggle\("is-complete", value === 100\)/);
+  assert.match(js, /track\.setAttribute\("aria-valuetext"/);
+  assert.match(css, /\.boot-section\s*\{[\s\S]*?linear-gradient\(105deg, #176cf0 0%, #4936e8 56%, #8b16dc 100%\)/);
+  assert.match(css, /\.boot-subtitle\s*\{[\s\S]*?linear-gradient\(100deg, #1769ed 0%, #5630e8 58%, #8a22df 100%\)/);
+  assert.match(css, /\.boot-progress-track\s*\{[\s\S]*?height:\s*34px/);
+  assert.match(css, /\.boot-progress-fill\s*\{[\s\S]*?width:\s*0/);
+  assert.match(css, /\.boot-progress-value\.is-complete \.boot-progress-check\s*\{\s*display:\s*inline-grid/);
+});
