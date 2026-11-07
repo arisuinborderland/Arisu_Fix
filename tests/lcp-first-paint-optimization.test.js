@@ -38,7 +38,7 @@ test('AFV490 release metadata is synchronized', () => {
   assert.equal(pkg.version, '511.0.0');
   assert.equal(lock.version, '511.0.0');
   assert.equal(lock.packages[''].version, '511.0.0');
-  assert.ok(readme.includes('Current release: AFV510'));
+  assert.ok(readme.includes('Current release: AFV511'));
   assert.ok(history.includes('AFV459 — Homepage Accordion Feature Isolation'));
 });
 
