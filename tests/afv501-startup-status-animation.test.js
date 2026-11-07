@@ -110,3 +110,11 @@ test('AFV505 COMPLETE badge is text-only with no check pseudo-element or icon sp
   assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0 !important[\s\S]*?padding-left:\s*10px !important/);
   assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?display:\s*none !important/);
 });
+
+
+test('AFV505 preloads the original Startup Screen logo at high priority without altering its source asset', () => {
+  const html = read('index.html');
+  assert.match(html, /<link rel="preload" as="image" href="\/assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460" fetchpriority="high">/);
+  assert.match(html, /class="boot-logo" src="assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460"[^>]*loading="eager" fetchpriority="high" decoding="sync"/);
+  assert.match(html, /class="boot-logo"[^>]*width="150" height="150"/);
+});
