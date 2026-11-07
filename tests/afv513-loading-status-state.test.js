@@ -21,7 +21,7 @@ test('AFV514 displays WAITING during progress and hides COMPLETE until success',
 test('AFV514 sets COMPLETE and 100% only after every required check passes', () => {
   const js = read('loading-screen.js');
   const loop = js.indexOf('for (const row of rows)');
-  const check = js.indexOf('const passed = row.check()', loop);
+  const check = js.indexOf('passed = Boolean(row.check())', loop);
   const failure = js.indexOf('if (!passed)', check);
   const completion = js.indexOf('setProgress(100)', loop);
   const waitingOff = js.indexOf('progressWaiting.hidden = true', completion);
@@ -49,5 +49,5 @@ test('AFV514 release metadata is synchronized', () => {
   assert.equal(lock.version, '514.0.0');
   assert.equal(lock.packages[''].version, '514.0.0');
   assert.ok(readme.includes('Current release: AFV514'));
-  assert.ok(history.includes('AFV514 — Loading Screen WAITING and Success-Gated Completion'));
+  assert.ok(history.includes('AFV514 — Full Loading Screen Audit and Lifecycle Cleanup'));
 });
