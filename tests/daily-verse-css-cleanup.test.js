@@ -38,6 +38,6 @@ test('AFV490 release metadata is synchronized', () => {
   assert.equal(pkg.version, '510.0.0');
   assert.equal(lock.version, '510.0.0');
   assert.equal(lock.packages[''].version, '510.0.0');
-  assert.ok(readme.includes('Current release: AFV508'));
+  assert.ok(readme.includes('Current release: AFV510'));
   assert.ok(history.includes('AFV485 — Daily Bible Verse CSS Dead-Rule Cleanup'));
 });
