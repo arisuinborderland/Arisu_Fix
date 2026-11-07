@@ -57,7 +57,7 @@ test('AFV505 renders a plain text-only COMPLETE badge', () => {
   assert.match(html, /boot-progress-complete" hidden>COMPLETE/);
   assert.match(js, /const progressComplete = overlay\.querySelector\("\.boot-progress-complete"\)/);
   assert.match(js, /if \(progressComplete\) progressComplete\.hidden = false/);
-  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
+  assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
   assert.match(css, /\.boot-progress-complete\[hidden\]\s*\{\s*display:\s*none/);
 });
 
@@ -97,18 +97,16 @@ test('AFV505 refinement removes the progress-bar check and tones down oversized 
 });
 
 
-test('AFV505 DONE badges are plain green labels without a check icon', () => {
+test('AFV505 DONE badges are plain green labels without generated icons', () => {
   const css = read('loading-screen.css');
-  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before\s*\{[\s\S]*?display:\s*none !important/);
   assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status\s*\{[\s\S]*?background:\s*#d5f3df/);
+  assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
 });
 
-
-test('AFV505 COMPLETE badge is text-only with no check pseudo-element or icon spacing', () => {
+test('AFV505 COMPLETE badge is text-only without pseudo-element icon styling', () => {
   const css = read('loading-screen.css');
-  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?content:\s*"" !important[\s\S]*?display:\s*none !important/);
-  assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0 !important[\s\S]*?padding-left:\s*10px !important/);
-  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?display:\s*none !important/);
+  assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0;[\s\S]*?padding:\s*4px 10px/);
+  assert.doesNotMatch(css, /\.boot-progress-complete::before/);
 });
 
 
@@ -140,8 +138,8 @@ test('AFV505 approved Startup Screen visual baseline is preserved', () => {
   // Approved compact progress bar with percentage inside and no check icons.
   assert.match(html, /boot-progress-track[\s\S]*?boot-progress-fill[\s\S]*?boot-progress-value[\s\S]*?boot-progress-percent/);
   assert.match(css, /\.boot-progress-track\s*\{[\s\S]*?width:\s*94%[\s\S]*?height:\s*21px/);
-  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?display:\s*none !important/);
-  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before\s*\{[\s\S]*?display:\s*none !important/);
+  assert.doesNotMatch(css, /\.boot-progress-complete::before/);
+  assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
 
   // Preserve logo quality and the accepted startup lifecycle.
   assert.match(html, /arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460/);
