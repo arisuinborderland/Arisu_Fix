@@ -118,3 +118,34 @@ test('AFV505 preloads the original Startup Screen logo at high priority without 
   assert.match(html, /class="boot-logo" src="assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460"[^>]*loading="eager" fetchpriority="high" decoding="sync"/);
   assert.match(html, /class="boot-logo"[^>]*width="150" height="150"/);
 });
+
+
+test('AFV505 approved Startup Screen visual baseline is preserved', () => {
+  const html = read('index.html');
+  const css = read('loading-screen.css');
+  const js = read('loading-screen.js');
+
+  // Approved copy and hierarchy.
+  assert.match(html, /ARISU FIX \/ SYSTEM STARTUP/);
+  assert.match(html, /RECOVERY CONTACT &amp; ASSISTANCE/);
+  assert.match(html, /<span>SYSTEM CHECK<\/span>/);
+  assert.match(html, /Initializing homepage/);
+  assert.match(html, /Verifying page styles/);
+  assert.match(html, /Finalizing interface\.\.\./);
+
+  // Approved brand treatment and compact section heading.
+  assert.match(css, /\.boot-subtitle\s*\{[\s\S]*?background:\s*linear-gradient\(105deg,\s*#365fae 0%,\s*#4b58ad 58%,\s*#6653aa 100%\)/);
+  assert.match(css, /\.boot-section\s*\{[\s\S]*?background:\s*linear-gradient\(105deg,\s*#365fae 0%,\s*#4b58ad 58%,\s*#6653aa 100%\)/);
+
+  // Approved compact progress bar with percentage inside and no check icons.
+  assert.match(html, /boot-progress-track[\s\S]*?boot-progress-fill[\s\S]*?boot-progress-value[\s\S]*?boot-progress-percent/);
+  assert.match(css, /\.boot-progress-track\s*\{[\s\S]*?width:\s*94%[\s\S]*?height:\s*21px/);
+  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?display:\s*none !important/);
+  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before\s*\{[\s\S]*?display:\s*none !important/);
+
+  // Preserve logo quality and the accepted startup lifecycle.
+  assert.match(html, /arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460/);
+  assert.match(html, /width="150" height="150"/);
+  assert.match(js, /const MIN_STARTUP_DURATION = 2500/);
+  assert.match(js, /const EXIT_FADE_DURATION = 440/);
+});
