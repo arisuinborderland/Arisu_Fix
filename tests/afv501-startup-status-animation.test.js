@@ -73,7 +73,7 @@ test('AFV505 applies SYSTEM CHECK branding and places the live percentage inside
   assert.doesNotMatch(html, /INITIALIZATION SEQUENCE/);
   assert.match(html, /boot-subtitle/);
   assert.match(html, /boot-progress-track[\s\S]*?boot-progress-fill[\s\S]*?boot-progress-value[\s\S]*?boot-progress-percent/);
-  assert.doesNotMatch(html, /boot-progress-row[^<]*[\s\S]*?boot-progress-value/);
+  const progressRow = html.match(/<div class="boot-progress-row">[\s\S]*?<\/div>/)?.[0] || "";\n  assert.doesNotMatch(progressRow, /boot-progress-value/);
   assert.match(js, /progressPercent\.textContent = value \+ "%"/);
   assert.match(js, /progressText\.classList\.toggle\("is-filled", value >= 50\)/);
   assert.match(js, /progressText\.classList\.toggle\("is-complete", value === 100\)/);
