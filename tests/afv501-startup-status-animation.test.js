@@ -37,7 +37,7 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?\.boot-window\s*\{\s*width:\s*100%/);
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
-  assert.match(html, /loading-screen\.css\?v=AFV505&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1/);
+  assert.match(html, /loading-screen\.css\?v=AFV505&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
   assert.match(html, /loading-screen\.js\?v=AFV505&sessionguard=4&statusrows=visible1&duration=2500&statusdone=1&minimalstatus=1&completionbadge=1/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
@@ -50,7 +50,7 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
 });
 
 
-test('AFV505 renders refined circular completion icons and an overall COMPLETE badge', () => {
+test('AFV505 renders a plain text-only COMPLETE badge', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
@@ -58,9 +58,6 @@ test('AFV505 renders refined circular completion icons and an overall COMPLETE b
   assert.match(js, /const progressComplete = overlay\.querySelector\("\.boot-progress-complete"\)/);
   assert.match(js, /if \(progressComplete\) progressComplete\.hidden = false/);
   assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
-  assert.match(css, /\.boot-progress-complete::before/);
-  assert.match(css, /border-radius:\s*50%/);
-  assert.match(css, /linear-gradient\(145deg, #35d979 0%, #0d9e4b 100%\)/);
   assert.match(css, /\.boot-progress-complete\[hidden\]\s*\{\s*display:\s*none/);
 });
 
@@ -111,5 +108,5 @@ test('AFV505 COMPLETE badge is text-only with no check pseudo-element or icon sp
   const css = read('loading-screen.css');
   assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?content:\s*"" !important[\s\S]*?display:\s*none !important/);
   assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0 !important[\s\S]*?padding-left:\s*10px !important/);
-  assert.doesNotMatch(css, /\.boot-progress-complete::before\s*\{[^}]*content:\s*"✓"/);
+  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?display:\s*none !important/);
 });
