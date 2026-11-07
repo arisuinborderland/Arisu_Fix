@@ -414,3 +414,21 @@ html.arisu-loading-active {
 @media (prefers-reduced-motion: reduce) {
   #arisu-loading-screen .boot-progress-fill { transition: none; animation: none; }
 }
+
+
+/* AFV505 refinement — DONE badges use a clean green pill with no leading check icon. */
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 3px 11px;
+  border-color: rgba(34, 156, 82, .14);
+  border-radius: 999px;
+  background: #d5f3df;
+  color: #176b36;
+}
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status::before {
+  content: none;
+  display: none;
+}
