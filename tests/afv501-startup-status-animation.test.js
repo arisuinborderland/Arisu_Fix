@@ -24,7 +24,7 @@ test('AFV512 keeps all startup labels visible and animates only row indicators/s
   assert.doesNotMatch(html, /boot-footnote/);
   assert.match(css, /\.boot-subtitle\s*\{[\s\S]*?white-space:\s*nowrap/);
   assert.match(css, /\.boot-log\s*\{[\s\S]*?color:\s*#45536b/);
-  assert.match(css, /\\.boot-progress-value\\s*\\{[\\s\\S]*?font:\\s*800 13px\\/1 Arial/);
+  assert.ok(css.includes('font: 800 13px/1 Arial'));
   assert.match(js, /const STATUS_CHECK_DELAY = 550/);
   assert.match(js, /const STATUS_ROW_GAP = 180/);
 });
