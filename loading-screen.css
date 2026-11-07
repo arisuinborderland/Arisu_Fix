@@ -1,4 +1,4 @@
-/* AFV513 — Consolidated Startup Screen cascade. Visual values and timing are preserved. */
+/* AFV514 — Audited Startup Screen cascade. Approved visual values are preserved. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -178,8 +178,6 @@
   align-items: start;
   gap: 7px;
 }
-#arisu-loading-screen .boot-log li[data-state="pending"] { display: grid; }
-#arisu-loading-screen .boot-log li[data-state="running"] { animation: none; }
 #arisu-loading-screen .boot-log .boot-mark { color: #9ba8bc; }
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark {
   color: #22b8cf;
