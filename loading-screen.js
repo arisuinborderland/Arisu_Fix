@@ -1,5 +1,5 @@
 "use strict";
-/* AFV518 — Desktop completion badge gets a paint frame before the existing exit fade. */
+/* AFV518 — Snapshot initial page styles to avoid races with deferred optional CSS. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -9,16 +9,24 @@
   const failOpenTimer = window.__arisuLoadingFailOpenTimer;
   const controller = new AbortController();
   const { signal } = controller;
+  const initialPageStylesheets = (() => {
+    try {
+      return Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+    } catch (error) {
+      return null;
+    }
+  })();
   const rows = [
     { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
     {
       key: "styles",
       message: "Verifying page styles",
-      check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
-        .filter(link => !link.disabled)
-        .every(link => {
-          try { return !!link.sheet; } catch { return false; }
-        })
+      check: () => Array.isArray(initialPageStylesheets)
+        && initialPageStylesheets
+          .filter(link => !link.disabled)
+          .every(link => {
+            try { return !!link.sheet; } catch { return false; }
+          })
     },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
