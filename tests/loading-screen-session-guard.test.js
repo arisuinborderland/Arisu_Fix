@@ -25,7 +25,8 @@ test('AFV512 keeps the first-paint guard external and installs a bounded fail-op
 
 test('AFV512 loading script fails open for storage errors, missing required markup, and rejected startup sequence', () => {
   const js = read('loading-screen.js');
-  assert.ok(js.includes('const failOpen = () =>'));
+  assert.ok(js.includes('function failOpen()'));
+  assert.ok(js.includes('controller.abort()'));
   assert.ok(js.includes('catch (error)'));
   assert.ok(js.includes('requiredRowsReady'));
   assert.ok(js.includes('runSequence().catch(error =>'));
