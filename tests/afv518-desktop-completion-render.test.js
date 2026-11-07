@@ -11,9 +11,17 @@ const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 test('AFV518 gives desktop COMPLETE one paint frame before the existing exit fade, with no fixed delay', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
+  const moreMenu = read('more-menu.js');
 
   assert.match(js, /const isDesktopViewport = typeof window\.matchMedia === "function"/);
   assert.match(js, /window\.matchMedia\("\(min-width: 481px\)"\)\.matches/);
+  assert.match(js, /const initialPageStylesheets = \\(\\(\\) => \\{/);
+  assert.match(js, /Array\\.isArray\\(initialPageStylesheets\\)/);
+  assert.match(moreMenu, /styleLink\\.rel = 'stylesheet'/);
+  assert.ok(
+    html.indexOf('loading-screen.js?v=AFV518') < html.indexOf('more-menu.js?v=AFV494'),
+    'the loader must snapshot parser-declared styles before the deferred More-menu CSS injector runs'
+  );
   assert.doesNotMatch(js, /DESKTOP_COMPLETE_HOLD_DURATION|showDesktopCompletion|completehold=1500/);
   assert.doesNotMatch(js, /await wait\(\s*1500\s*\)/);
 
