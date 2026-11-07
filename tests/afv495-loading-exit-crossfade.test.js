@@ -31,7 +31,7 @@ test('AFV499 keeps the card opaque while the background layer fades', () => {
 test('AFV499 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
-  assert.match(html, /loading-screen\.css\?v=AFV510&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1/);
+  assert.match(html, /loading-screen\.css\?v=AFV511&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
   assert.match(html, /loading-screen\.js\?v=AFV510&failsafe=15s&duration=2500&exitfade=440/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV510/);
   assert.match(js, /overlay\.remove\(\)/);
@@ -46,9 +46,9 @@ test('AFV499 release metadata is synchronized', () => {
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '510.0.0');
-  assert.equal(lock.version, '510.0.0');
-  assert.equal(lock.packages[''].version, '510.0.0');
-  assert.ok(readme.includes('Current release: AFV510'));
+  assert.equal(pkg.version, '511.0.0');
+  assert.equal(lock.version, '511.0.0');
+  assert.equal(lock.packages[''].version, '511.0.0');
+  assert.ok(readme.includes('Current release: AFV511'));
   assert.ok(history.includes('AFV499 — Delay Homepage Reveal Until Loading Fade Completes'));
 });
