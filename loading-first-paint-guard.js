@@ -14,6 +14,8 @@
   // If the deferred loader never executes (network error, syntax error, or runtime failure),
   // restore the homepage instead of leaving the first-paint visibility lock in place.
   const failOpen = () => {
+    const cancelLoader = window.__arisuLoadingFailOpen;
+    if (typeof cancelLoader === "function") cancelLoader();
     document.documentElement.classList.remove("arisu-loading-first-run", "arisu-loading-active");
     document.getElementById("arisu-loading-screen")?.remove();
     window.__arisuLoadingFailOpenTimer = null;
