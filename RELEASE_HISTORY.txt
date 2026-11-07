@@ -1,3 +1,10 @@
+AFV512 — Full Loading Screen CSS, JavaScript, and Markup Cleanup
+
+- Consolidate the loading-screen stylesheet into one authoritative responsive cascade while preserving approved visual values, crossfade layers, and reduced-motion behavior.
+- Make fail-open cancellation terminate pending progress and load waits, preventing detached startup work from writing the completed-session flag after failure.
+- Keep the independent first-paint watchdog and its 15-second bound; align the critical inline guard with the final 12px overlay padding.
+- Synchronize loading asset cache tokens, package metadata, README, and regression tests to AFV512.
+
 AFV511 — Remove Obsolete Loading Overlay Compositor Hint
 
 - Remove the obsolete overlay will-change hint after confirming the overlay no longer animates opacity or backdrop-filter.
