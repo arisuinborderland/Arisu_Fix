@@ -98,3 +98,10 @@ test('AFV505 refinement removes the progress-bar check and tones down oversized 
   assert.match(css, /\.boot-progress-track\s*\{[\s\S]*?width:\s*94%[\s\S]*?height:\s*21px/);
   assert.match(css, /\.boot-progress-fill\s*\{[\s\S]*?box-shadow:\s*none[\s\S]*?animation:\s*none/);
 });
+
+
+test('AFV505 DONE badges are plain green labels without a check icon', () => {
+  const css = read('loading-screen.css');
+  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before\s*\{[\s\S]*?content:\s*none/);
+  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status\s*\{[\s\S]*?background:\s*#d5f3df/);
+});
