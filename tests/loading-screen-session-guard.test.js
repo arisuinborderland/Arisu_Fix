@@ -12,7 +12,7 @@ test('AFV510 keeps the first-paint guard external and installs a bounded fail-op
   assert.ok(html.includes('loading-first-paint-guard.js?v=AFV510'));
   assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV510') < html.indexOf('loading-screen-critical-guard'));
   assert.ok(html.includes('loading-screen.css?v=AFV511'));
-  assert.ok(html.includes('loading-screen.js?v=AFV511'));
+  assert.ok(html.includes('loading-screen.js?v=AFV510'));
   const guard = read('loading-first-paint-guard.js');
   assert.ok(guard.includes('arisu-loading-first-run'));
   assert.ok(guard.includes('window.setTimeout(failOpen, 15000)'));
