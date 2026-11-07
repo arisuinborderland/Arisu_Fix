@@ -1,163 +1,12 @@
-/* AFV496 — Keep visibility until the single-layer opacity fade has completed. */
+/* AFV512 — Consolidated Startup Screen cascade. Visual values and timing are preserved. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
   z-index: 2147483000;
   display: grid;
   place-items: center;
-  padding: 22px;
-  background: radial-gradient(ellipse at 12% 10%, #dce8ff 0%, transparent 46%),
-              radial-gradient(ellipse at 90% 88%, #e8ddff 0%, transparent 44%),
-              #f3f5f9;
+  padding: 12px;
   color: #25314a;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity .42s ease-in, visibility 0s linear .42s;
-}
-#arisu-loading-screen.is-visible:not(.is-ready) {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: none;
-}
-
-#arisu-loading-screen .boot-window {
-  width: min(100%, 470px);
-  overflow: hidden;
-  border: 1px solid rgba(116, 139, 190, .27);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, .88);
-  box-shadow: 0 24px 70px rgba(56, 74, 117, .14), 0 3px 12px rgba(56, 74, 117, .06);
-  backdrop-filter: blur(12px);
-}
-#arisu-loading-screen .boot-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 13px 16px;
-  border-bottom: 1px solid #e8ecf4;
-  background: linear-gradient(100deg, #f8faff, #f6f3ff);
-}
-#arisu-loading-screen .boot-dot { width: 8px; height: 8px; border-radius: 50%; background: #b8c3d8; }
-#arisu-loading-screen .boot-label {
-  margin-left: 5px;
-  color: #43516d;
-  font: 800 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: .13em;
-}
-#arisu-loading-screen .boot-content { padding: 24px 21px 22px; }
-#arisu-loading-screen .boot-brand-row { display: flex; align-items: center; gap: 13px; min-width: 0; }
-#arisu-loading-screen .boot-logo { display: block; width: 94px; height: 94px; flex: 0 0 94px; filter: drop-shadow(0 4px 7px rgba(74, 94, 195, .22)); }
-#arisu-loading-screen .boot-brand-copy { min-width: 0; }
-#arisu-loading-screen .boot-brand {
-  margin: 0;
-  color: #24365b;
-  font: 800 clamp(29px, 7vw, 39px)/1.1 Arial, sans-serif;
-  letter-spacing: -.045em;
-}
-#arisu-loading-screen .boot-brand span {
-  background: linear-gradient(100deg, #287cf1, #7a35e8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-#arisu-loading-screen .boot-subtitle {
-  margin: 8px 0 0;
-  color: #465675;
-  font: 800 12px/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: .04em;
-  white-space: nowrap;
-}
-#arisu-loading-screen .boot-brand-divider { height: 1px; margin: 16px 0 0; background: linear-gradient(90deg, rgba(113, 124, 174, .18), rgba(137, 103, 225, .22)); }
-#arisu-loading-screen .boot-section {
-  margin: 19px 0 12px;
-  color: #4e5888;
-  font: 800 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: .1em;
-}
-#arisu-loading-screen .boot-log {
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: #45536b;
-  font: 600 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-#arisu-loading-screen .boot-log li { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: start; gap: 7px; }
-#arisu-loading-screen .boot-log .boot-mark { color: #9ba8bc; }
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark { color: #22b8cf; font-weight: 800; }
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { color: #28886b; }
-#arisu-loading-screen .boot-log li[data-state="error"] .boot-mark,
-#arisu-loading-screen .boot-log li[data-state="error"] .boot-status { color: #b45353; }
-#arisu-loading-screen .boot-status { color: #68758e; font-weight: 800; white-space: nowrap; padding: 2px 8px; border-radius: 7px; background: #eef0f8; }
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status { background: #c8f5d7; color: #176b36; }
-#arisu-loading-screen .boot-log li[data-state="running"] .boot-status { background: #e8ddff; color: #6334d9; }
-#arisu-loading-screen .boot-progress-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; color: #4d5a73; font: 800 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-#arisu-loading-screen .boot-progress-value { color: #4056a3; font-size: 14px; font-weight: 900; }
-/* AFV374 — Wider, vertically compact loading card matching the approved mobile reference. */
-#arisu-loading-screen { padding: 12px; }
-#arisu-loading-screen .boot-window { width: min(100%, 760px); border-radius: 24px; }
-#arisu-loading-screen .boot-titlebar { padding: 11px 18px; }
-#arisu-loading-screen .boot-label { font-size: 13px; }
-#arisu-loading-screen .boot-content { padding: 18px 24px 16px; }
-#arisu-loading-screen .boot-brand-row { gap: 18px; }
-#arisu-loading-screen .boot-logo { width: 118px; height: 118px; flex-basis: 118px; }
-#arisu-loading-screen .boot-brand { font-size: clamp(34px, 6vw, 48px); }
-#arisu-loading-screen .boot-subtitle { font-size: 12px; font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
-#arisu-loading-screen .boot-brand-divider { margin-top: 12px; }
-#arisu-loading-screen .boot-section { margin: 13px 0 9px; }
-#arisu-loading-screen .boot-log { gap: 7px; font-size: 13px; }
-#arisu-loading-screen .boot-progress-row { margin-top: 16px; }
-#arisu-loading-screen .boot-progress-track { margin-top: 7px; }
-
-
-
-
-/* AFV426 — Instant loading-screen entrance; retain the existing exit fade. */
-#arisu-loading-screen.is-ready {
-  animation: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-/* AFV496 — The base overlay delays visibility:hidden until after its opacity fade. */
-
-/* AFV501 — Keep all initialization labels visible; animate only row indicators and statuses. */
-#arisu-loading-screen .boot-log li[data-state="pending"] { display: grid; }
-#arisu-loading-screen .boot-log li[data-state="running"] { animation: none; }
-#arisu-loading-screen .boot-log .boot-mark,
-#arisu-loading-screen .boot-log .boot-status {
-  transition: color .18s ease, background-color .18s ease, opacity .18s ease, transform .18s ease;
-}
-#arisu-loading-screen .boot-log li[data-state="running"] .boot-mark,
-#arisu-loading-screen .boot-log li[data-state="running"] .boot-status {
-  transform: translateY(-1px);
-}
-
-/* AFV505 — Final compact progress treatment supersedes the earlier neon progress styling. */
-/* Consolidated reduced-motion support for the standalone loading page. */
-@media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen,
-  #arisu-loading-screen .boot-window,
-  #arisu-loading-screen.is-ready .boot-window {
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
-  #arisu-loading-screen .boot-progress-fill {
-    transition: none;
-    animation: none;
-  }
-  #arisu-loading-screen .boot-log li[data-state="running"] {
-    animation: none;
-  }
-}
-
-
-/* AFV498 — Crossfade the screen wash and card surface as independent layers. */
-#arisu-loading-screen {
   opacity: 1 !important;
   visibility: hidden;
   pointer-events: none;
@@ -174,15 +23,30 @@
   transition: opacity .42s ease-in;
   pointer-events: none;
 }
-#arisu-loading-screen.is-visible:not(.is-ready) { visibility: visible; pointer-events: auto; transition: none; }
-#arisu-loading-screen.is-visible:not(.is-ready)::before { opacity: 1; transition: none; }
-#arisu-loading-screen.is-ready { opacity: 1 !important; visibility: hidden; pointer-events: none; transition: visibility 0s linear .42s; }
+#arisu-loading-screen.is-visible:not(.is-ready) {
+  visibility: visible;
+  pointer-events: auto;
+  transition: none;
+}
+#arisu-loading-screen.is-visible:not(.is-ready)::before {
+  opacity: 1;
+  transition: none;
+}
+#arisu-loading-screen.is-ready {
+  opacity: 1 !important;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear .42s;
+}
 #arisu-loading-screen.is-ready::before { opacity: 0; }
+
 #arisu-loading-screen .boot-window {
   position: relative;
   z-index: 1;
+  width: min(100%, 760px);
   overflow: hidden;
-  border-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 24px;
   background: transparent;
   box-shadow: none;
   -webkit-backdrop-filter: none;
@@ -201,40 +65,65 @@
   transition: opacity .42s ease-in;
   pointer-events: none;
 }
-#arisu-loading-screen .boot-window > * { position: relative; z-index: 1; transition: opacity .42s ease-in; }
+#arisu-loading-screen .boot-window > * {
+  position: relative;
+  z-index: 1;
+  transition: opacity .42s ease-in;
+}
 #arisu-loading-screen.is-ready .boot-window::before,
 #arisu-loading-screen.is-ready .boot-window > * { opacity: 0; }
-@media (prefers-reduced-motion: reduce) {
-  #arisu-loading-screen::before,
-  #arisu-loading-screen .boot-window::before,
-  #arisu-loading-screen .boot-window > * { transition: none !important; }
+
+#arisu-loading-screen .boot-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 18px;
+  border-bottom: 1px solid #e8ecf4;
+  background: linear-gradient(100deg, #f8faff, #f6f3ff);
 }
-
-/* AFV500 — Prevent touch pull-to-refresh while the first-load overlay is active. */
-html.arisu-loading-first-run,
-html.arisu-loading-active {
-  overscroll-behavior-y: none;
+#arisu-loading-screen .boot-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b8c3d8;
 }
-
-
-#arisu-loading-screen .boot-progress-row { align-items: center; flex-wrap: wrap; column-gap: 9px; row-gap: 6px; }
-#arisu-loading-screen .boot-progress-label { margin-right: auto; }
-#arisu-loading-screen .boot-progress-complete {
-  display: inline-flex; align-items: center; gap: 0; padding: 4px 10px;
-  border: 1px solid rgba(34, 156, 82, .14); border-radius: 999px;
-  background: linear-gradient(180deg, #e0fbe9 0%, #c8f3d7 100%);
-  color: #176b36; font: 800 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  white-space: nowrap;
+#arisu-loading-screen .boot-label {
+  margin-left: 5px;
+  color: #43516d;
+  font: 800 13px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .13em;
 }
-#arisu-loading-screen .boot-progress-complete[hidden] { display: none; }
-#arisu-loading-screen .boot-progress-value { font-size: 16px; font-weight: 900; }
-
-
-
-/* AFV505 refinement — compact, restrained brand colors and progress sizing. */
+#arisu-loading-screen .boot-content { padding: 18px 24px 16px; }
+#arisu-loading-screen .boot-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+#arisu-loading-screen .boot-logo {
+  display: block;
+  width: 118px;
+  height: 118px;
+  flex: 0 0 118px;
+  filter: drop-shadow(0 4px 7px rgba(74, 94, 195, .22));
+}
+#arisu-loading-screen .boot-brand-copy { min-width: 0; }
+#arisu-loading-screen .boot-brand {
+  margin: 0;
+  color: #24365b;
+  font: 800 clamp(34px, 6vw, 48px)/1.1 Arial, sans-serif;
+  letter-spacing: -.045em;
+}
+#arisu-loading-screen .boot-brand span {
+  background: linear-gradient(100deg, #287cf1, #7a35e8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 #arisu-loading-screen .boot-subtitle {
   display: inline-block;
   max-width: 100%;
+  margin: 8px 0 0;
   padding: 5px 9px;
   border-radius: 7px;
   background: linear-gradient(105deg, #365fae 0%, #4b58ad 58%, #6653aa 100%);
@@ -243,6 +132,11 @@ html.arisu-loading-active {
   letter-spacing: .01em;
   white-space: nowrap;
   box-shadow: none;
+}
+#arisu-loading-screen .boot-brand-divider {
+  height: 1px;
+  margin: 12px 0 0;
+  background: linear-gradient(90deg, rgba(113, 124, 174, .18), rgba(137, 103, 225, .22));
 }
 #arisu-loading-screen .boot-section {
   display: inline-flex;
@@ -269,6 +163,84 @@ html.arisu-loading-active {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+#arisu-loading-screen .boot-log {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #45536b;
+  font: 600 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+#arisu-loading-screen .boot-log li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 7px;
+}
+#arisu-loading-screen .boot-log li[data-state="pending"] { display: grid; }
+#arisu-loading-screen .boot-log li[data-state="running"] { animation: none; }
+#arisu-loading-screen .boot-log .boot-mark { color: #9ba8bc; }
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-mark {
+  color: #22b8cf;
+  font-weight: 800;
+}
+#arisu-loading-screen .boot-log li[data-state="error"] .boot-mark,
+#arisu-loading-screen .boot-log li[data-state="error"] .boot-status { color: #b45353; }
+#arisu-loading-screen .boot-status {
+  padding: 2px 8px;
+  border-radius: 7px;
+  background: #eef0f8;
+  color: #68758e;
+  font-weight: 800;
+  white-space: nowrap;
+}
+#arisu-loading-screen .boot-log .boot-mark,
+#arisu-loading-screen .boot-log .boot-status {
+  transition: color .18s ease, background-color .18s ease, opacity .18s ease, transform .18s ease;
+}
+#arisu-loading-screen .boot-log li[data-state="running"] .boot-mark,
+#arisu-loading-screen .boot-log li[data-state="running"] .boot-status { transform: translateY(-1px); }
+#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 3px 11px;
+  border: 1px solid rgba(34, 156, 82, .14);
+  border-radius: 999px;
+  background: #d5f3df;
+  color: #176b36;
+  font-weight: 800;
+}
+#arisu-loading-screen .boot-log li[data-state="running"] .boot-status {
+  background: #e8ddff;
+  color: #6334d9;
+}
+#arisu-loading-screen .boot-progress-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 9px;
+  margin-top: 16px;
+  color: #4d5a73;
+  font: 800 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+#arisu-loading-screen .boot-progress-label { margin-right: auto; }
+#arisu-loading-screen .boot-progress-complete {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 4px 10px;
+  border: 1px solid rgba(34, 156, 82, .14);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e0fbe9 0%, #c8f3d7 100%);
+  color: #176b36;
+  font: 800 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: nowrap;
+}
+#arisu-loading-screen .boot-progress-complete[hidden] { display: none; }
 #arisu-loading-screen .boot-progress-track {
   position: relative;
   width: 94%;
@@ -311,25 +283,9 @@ html.arisu-loading-active {
   color: #fff;
   text-shadow: 0 1px 1px rgba(25, 38, 79, .2);
 }
+html.arisu-loading-first-run,
+html.arisu-loading-active { overscroll-behavior-y: none; }
 
-
-
-
-/* AFV505 refinement — DONE badges use a clean green pill with no leading check icon. */
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 3px 11px;
-  border: 1px solid rgba(34, 156, 82, .14);
-  border-radius: 999px;
-  background: #d5f3df;
-  color: #176b36;
-  font-weight: 800;
-}
-
-/* AFV508 — Consolidated responsive overrides; final approved mobile dimensions retained. */
 @media (max-width: 480px) {
   #arisu-loading-screen { padding: 10px; }
   #arisu-loading-screen .boot-window { width: 100%; border-radius: 22px; }
@@ -358,4 +314,20 @@ html.arisu-loading-active {
   #arisu-loading-screen .boot-progress-complete { padding-right: 7px; font-size: 10px; }
   #arisu-loading-screen .boot-progress-track { width: 96%; height: 18px; }
   #arisu-loading-screen .boot-progress-value { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #arisu-loading-screen,
+  #arisu-loading-screen .boot-window,
+  #arisu-loading-screen.is-ready .boot-window {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  #arisu-loading-screen::before,
+  #arisu-loading-screen .boot-window::before,
+  #arisu-loading-screen .boot-window > *,
+  #arisu-loading-screen .boot-progress-fill {
+    transition: none !important;
+    animation: none !important;
+  }
 }
