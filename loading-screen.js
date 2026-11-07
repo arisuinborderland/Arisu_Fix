@@ -150,7 +150,7 @@
   }
 
   async function runSequence() {
-    const progressTask = countProgress();
+    const progressTask = countProgress().catch(() => {});
     for (const row of rows) {
       if (signal.aborted) return;
       const element = elements.get(row.key);
