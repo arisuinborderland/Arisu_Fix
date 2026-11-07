@@ -1,3 +1,11 @@
+AFV508 — Consolidate Startup Screen CSS and Optimize Status Updates
+
+- Consolidate responsive rules at 480px and 360px while preserving approved dimensions.
+- Remove superseded progress styling, unused animation rules, and redundant reduced-motion overrides.
+- Simplify the startup status update without changing readiness checks or lifecycle timing.
+- Synchronize Startup Screen cache tokens and package release metadata to AFV508.
+- Preserve the approved logo, visual treatment, 2500ms minimum duration, and 440ms exit fade.
+
 AFV505 — Improve Loading Screen Readability and Completion Badges
 
 - Improve contrast and hierarchy for loading-screen labels without changing the established background or gradient palette.

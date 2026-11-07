@@ -16,7 +16,7 @@ test('AFV502 keeps all startup labels visible and animates only row indicators/s
   assert.match(css, /\.boot-log li\[data-state="pending"\]\s*\{\s*display:\s*grid/);
   assert.match(css, /\.boot-log li\[data-state="running"\]\s*\{\s*animation:\s*none/);
   assert.match(css, /\.boot-log \.boot-mark,[\s\S]*?\.boot-log \.boot-status\s*\{[\s\S]*?transition:/);
-  assert.match(js, /async function typeMessage\(element\)/);
+  assert.match(js, /function typeMessage\(element\)/);
   assert.doesNotMatch(js, /target\.textContent\s*=\s*""|target\.textContent\s*\+=/);
   assert.match(js, /\.boot-status"\)\.textContent = "RUN"/);
   assert.match(js, /\.boot-status"\)\.textContent = ok \? "DONE" : "CHECK"/);
@@ -37,15 +37,14 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?\.boot-window\s*\{\s*width:\s*100%/);
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV491/);
-  assert.match(html, /loading-screen\.css\?v=AFV505&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
-  assert.match(html, /loading-screen\.js\?v=AFV505&sessionguard=4&statusrows=visible1&duration=2500&statusdone=1&minimalstatus=1&completionbadge=1/);
+  assert.match(html, /loading-screen\.css\?v=AFV508&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
+  assert.match(html, /loading-screen\.js\?v=AFV508&sessionguard=4&statusrows=visible1&duration=2500&statusdone=1&minimalstatus=1&completionbadge=1/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
   assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
   assert.match(js, /const MIN_STARTUP_DURATION = 2500/);
   assert.match(js, /const EXIT_FADE_DURATION = 440/);
   assert.match(js, /MIN_STARTUP_DURATION - EXIT_FADE_DURATION - \(Date\.now\(\) - startupStartedAt\)/);
-  assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /window\.setTimeout\(\(\) => \{[\s\S]*?\}, EXIT_FADE_DURATION\)/);
 });
 
@@ -138,12 +137,32 @@ test('AFV505 approved Startup Screen visual baseline is preserved', () => {
   // Approved compact progress bar with percentage inside and no check icons.
   assert.match(html, /boot-progress-track[\s\S]*?boot-progress-fill[\s\S]*?boot-progress-value[\s\S]*?boot-progress-percent/);
   assert.match(css, /\.boot-progress-track\s*\{[\s\S]*?width:\s*94%[\s\S]*?height:\s*21px/);
-  assert.doesNotMatch(css, /\.boot-progress-complete::before/);
-  assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
+  assert.doesNotMatch(css, /\.boot-progress-complete::before|\.boot-log li\[data-state="ok"\] \.boot-status::before/);
 
   // Preserve logo quality and the accepted startup lifecycle.
   assert.match(html, /arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460/);
   assert.match(html, /width="150" height="150"/);
   assert.match(js, /const MIN_STARTUP_DURATION = 2500/);
   assert.match(js, /const EXIT_FADE_DURATION = 440/);
+});
+
+
+test('AFV508 keeps release metadata aligned with startup cache-busting tokens', () => {
+  const html = read('index.html');
+  const pkg = JSON.parse(read('package.json'));
+  const lock = JSON.parse(read('package-lock.json'));
+  assert.equal(pkg.version, '508.0.0');
+  assert.equal(lock.version, pkg.version);
+  assert.equal(lock.packages[''].version, pkg.version);
+  assert.match(html, /loading-screen\.css\?v=AFV508/);
+  assert.match(html, /loading-screen\.js\?v=AFV508/);
+});
+
+test('AFV508 preserves desktop and consolidated mobile Startup Screen dimensions', () => {
+  const css = read('loading-screen.css');
+  assert.match(css, /\.boot-window \{[\s\S]*?width: min\(100%, 760px\)/);
+  assert.match(css, /@media \(max-width: 480px\) \{[\s\S]*?\.boot-window \{ width: 100%; border-radius: 22px; \}/);
+  assert.match(css, /@media \(max-width: 360px\) \{[\s\S]*?\.boot-logo \{ width: 78px; height: 78px; flex-basis: 78px; \}/);
+  assert.equal((css.match(/@media \(max-width: 480px\)/g) || []).length, 1);
+  assert.equal((css.match(/@media \(max-width: 360px\)/g) || []).length, 1);
 });
