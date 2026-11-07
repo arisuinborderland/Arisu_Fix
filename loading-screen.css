@@ -331,7 +331,6 @@ html.arisu-loading-active {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status::before,
 #arisu-loading-screen .boot-progress-track {
   position: relative;
   width: 94%;
