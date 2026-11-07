@@ -6,13 +6,13 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV512 keeps the first-paint guard external and installs a bounded fail-open timer', () => {
+test('AFV513 keeps the first-paint guard external and installs a bounded fail-open timer', () => {
   const html = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen"'));
-  assert.ok(html.includes('loading-first-paint-guard.js?v=AFV512'));
-  assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV512') < html.indexOf('loading-screen-critical-guard'));
-  assert.ok(html.includes('loading-screen.css?v=AFV512&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3'));
-  assert.ok(html.includes('loading-screen.js?v=AFV512&failsafe=15s&cancel=1&duration=2500&exitfade=440'));
+  assert.ok(html.includes('loading-first-paint-guard.js?v=AFV513'));
+  assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV513') < html.indexOf('loading-screen-critical-guard'));
+  assert.ok(html.includes('loading-screen.css?v=AFV513&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3'));
+  assert.ok(html.includes('loading-screen.js?v=AFV513&failsafe=15s&cancel=1&duration=2500&exitfade=440'));
   const guard = read('loading-first-paint-guard.js');
   assert.ok(guard.includes('arisu-loading-first-run'));
   assert.ok(guard.includes('window.setTimeout(failOpen, 15000)'));
@@ -25,7 +25,7 @@ test('AFV512 keeps the first-paint guard external and installs a bounded fail-op
   assert.ok(!fs.existsSync(path.join(root, 'loading.html')));
 });
 
-test('AFV512 loading script fails open for storage errors, missing required markup, and rejected startup sequence', () => {
+test('AFV513 loading script fails open for storage errors, missing required markup, and rejected startup sequence', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('function failOpen()'));
   assert.ok(js.includes('controller.abort()'));
@@ -45,23 +45,23 @@ test('AFV512 loading script fails open for storage errors, missing required mark
   assert.ok(read('loading-screen.css').includes('#arisu-loading-screen.is-ready'));
 });
 
-test('AFV512 preserves the approved startup duration and exit fade', () => {
+test('AFV513 preserves the approved startup duration and exit fade', () => {
   const js = read('loading-screen.js');
   assert.ok(js.includes('const MIN_STARTUP_DURATION = 2500'));
   assert.ok(js.includes('const EXIT_FADE_DURATION = 440'));
 });
 
-test('AFV512 root is served directly and no standalone splash redirect remains', () => {
+test('AFV513 root is served directly and no standalone splash redirect remains', () => {
   assert.equal(read('_redirects').trim(), '');
   const build = read('build.js');
   assert.ok(!build.includes('"loading.html"'));
   assert.ok(!build.includes('homepage.html'));
 });
 
-test('AFV512 release metadata stays synchronized', () => {
+test('AFV513 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '512.0.0');
-  assert.equal(lock.version, '512.0.0');
-  assert.equal(lock.packages[''].version, '512.0.0');
+  assert.equal(pkg.version, '513.0.0');
+  assert.equal(lock.version, '513.0.0');
+  assert.equal(lock.packages[''].version, '513.0.0');
 });

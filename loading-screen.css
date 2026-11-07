@@ -1,4 +1,4 @@
-/* AFV512 — Consolidated Startup Screen cascade. Visual values and timing are preserved. */
+/* AFV513 — Consolidated Startup Screen cascade. Visual values and timing are preserved. */
 #arisu-loading-screen {
   position: fixed;
   inset: 0;
@@ -228,6 +228,18 @@
   font: 800 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 #arisu-loading-screen .boot-progress-label { margin-right: auto; }
+#arisu-loading-screen .boot-progress-waiting {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid rgba(82, 112, 160, .16);
+  border-radius: 999px;
+  background: #edf2fb;
+  color: #526783;
+  font: 800 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: nowrap;
+}
+#arisu-loading-screen .boot-progress-waiting[hidden] { display: none; }
 #arisu-loading-screen .boot-progress-complete {
   display: inline-flex;
   align-items: center;
@@ -311,6 +323,7 @@ html.arisu-loading-active { overscroll-behavior-y: none; }
   #arisu-loading-screen .boot-section-icon { width: 14px; height: 14px; flex-basis: 14px; }
   #arisu-loading-screen .boot-log { font-size: 10px; }
   #arisu-loading-screen .boot-progress-row { column-gap: 6px; }
+  #arisu-loading-screen .boot-progress-waiting { padding: 4px 7px; font-size: 10px; }
   #arisu-loading-screen .boot-progress-complete { padding-right: 7px; font-size: 10px; }
   #arisu-loading-screen .boot-progress-track { width: 96%; height: 18px; }
   #arisu-loading-screen .boot-progress-value { font-size: 11px; }

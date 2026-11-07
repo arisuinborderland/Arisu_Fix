@@ -1,5 +1,5 @@
 "use strict";
-/* AFV512 — Session-guarded loader with cancellable fail-open lifecycle. */
+/* AFV513 — Session-guarded loader with cancellable fail-open lifecycle. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -26,6 +26,7 @@
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
   const progressPercent = overlay.querySelector(".boot-progress-percent");
+  const progressWaiting = overlay.querySelector(".boot-progress-waiting");
   const progressComplete = overlay.querySelector(".boot-progress-complete");
   const track = overlay.querySelector(".boot-progress-track");
   let finished = false;
@@ -73,13 +74,15 @@
       && element.querySelector(".boot-status")
       && element.querySelector(".boot-message");
   });
-  if (!requiredRowsReady || !progress || !progressText || !progressPercent || !track) {
+  if (!requiredRowsReady || !progress || !progressText || !progressPercent || !progressWaiting || !progressComplete || !track) {
     failOpen();
     return;
   }
 
   root.classList.add("arisu-loading-active");
   overlay.classList.add("is-visible");
+  progressWaiting.hidden = false;
+  progressComplete.hidden = true;
   const startupStartedAt = Date.now();
 
   rows.forEach(row => {
@@ -162,7 +165,12 @@
       await wait(STATUS_CHECK_DELAY);
       await waitForLoad();
       if (signal.aborted) return;
-      mark(row, row.check());
+      const passed = row.check();
+      mark(row, passed);
+      if (!passed) {
+        failOpen();
+        return;
+      }
       if (row.key !== "final") await wait(STATUS_ROW_GAP);
     }
 
@@ -173,7 +181,8 @@
     if (signal.aborted || finished) return;
 
     setProgress(100);
-    if (progressComplete) progressComplete.hidden = false;
+    progressWaiting.hidden = true;
+    progressComplete.hidden = false;
     clearFailOpenTimer();
     finished = true;
     if (window.__arisuLoadingFailOpen === failOpen) window.__arisuLoadingFailOpen = null;

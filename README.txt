@@ -1,15 +1,16 @@
 ARISU FIX — PROJECT README
-Version: AFV512
+Version: AFV513
 Updated: 2026-11-07
 
-Current release: AFV512
-Package version: 512.0.0
+Current release: AFV513
+Package version: 513.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
-- AFV512: consolidates the loading-screen CSS cascade, removes superseded declarations, and makes the 15-second fail-open path cancel pending startup work so a failed loader cannot later mark the session as completed.
+- AFV513: shows a neutral WAITING badge while startup progress is pending and reveals COMPLETE only after every required startup check succeeds; failed checks fail open without writing the completed-session flag.
+- AFV513: consolidates the loading-screen CSS cascade, removes superseded declarations, and makes the 15-second fail-open path cancel pending startup work so a failed loader cannot later mark the session as completed.
 - AFV510: adds a bounded 15-second fail-open watchdog for first-paint recovery if the deferred loading script fails, validates required loading-screen elements before startup, and preserves the 2.5-second minimum startup duration with a 440ms exit fade. Synchronizes legacy regression-test release assertions with AFV510.
 - AFV508: consolidates Startup Screen responsive CSS, removes superseded loading-screen rules, simplifies the synchronous status update, and synchronizes cache-busting and package release metadata while preserving the approved layout and startup lifecycle.
 - AFV505: improves loading-screen text visibility; keeps the complete service descriptor on one line, replaces HTTP-style success labels with clean DONE badges using circular green check icons, adds a matching COMPLETE badge when the real startup checks finish, and removes redundant text below the progress bar. Preserves the existing background, gradients, logo, progress-bar colors, 2.5-second minimum duration, readiness checks, session guard, and exit fade.

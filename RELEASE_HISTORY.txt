@@ -1,3 +1,11 @@
+AFV513 — Loading Screen WAITING and Success-Gated Completion
+
+- Show a neutral WAITING badge throughout startup progress while required checks are pending.
+- Reveal the green COMPLETE badge and set progress to 100% only after every required startup check passes.
+- Fail open immediately when a required startup check fails, preventing a false completion state and completed-session persistence.
+- Preserve the existing loading-screen layout, row statuses, timing, crossfade, watchdog, and responsive dimensions.
+- Synchronize loading cache tokens, package metadata, README, and regression coverage to AFV513.
+
 AFV512 — Full Loading Screen CSS, JavaScript, and Markup Cleanup
 
 - Consolidate the loading-screen stylesheet into one authoritative responsive cascade while preserving approved visual values, crossfade layers, and reduced-motion behavior.
