@@ -1,3 +1,11 @@
+AFV514 — Full Loading Screen Audit and Lifecycle Cleanup
+
+- Improve accessibility by keeping the complete overlay out of the live-status announcement stream while retaining focused startup-status announcements.
+- Harden abortable waits and add a bounded fallback when the exit animation frame callback is delayed or unavailable.
+- Remove redundant pending/running CSS state declarations without changing approved dimensions, colors, layout, or transitions.
+- Add runtime regression coverage for successful completion, failed stylesheet checks, storage/markup failures, and delayed animation-frame recovery.
+- Synchronize loading cache tokens, package metadata, README, and regression tests to AFV514.
+
 AFV513 — Loading Screen WAITING and Success-Gated Completion
 
 - Show a neutral WAITING badge throughout startup progress while required checks are pending.
