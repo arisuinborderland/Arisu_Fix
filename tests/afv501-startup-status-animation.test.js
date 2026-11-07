@@ -152,7 +152,7 @@ test('AFV514 keeps release metadata aligned with startup cache-busting tokens', 
   const html = read('index.html');
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '514.0.0');
+  assert.equal(pkg.version, '517.0.0');
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
   assert.match(html, /loading-screen\.css\?v=AFV514/);

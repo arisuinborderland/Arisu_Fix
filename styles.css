@@ -288,23 +288,9 @@ body{font-size:var(--body-size);line-height:var(--body-leading);-webkit-text-siz
 
 .proof-card .proof-image-link{border-top:1px solid #e8edf6}
 
-/* Premium case-status rows with inline SVG icons (HTML UI, not baked into proof image). */
-.proof-card-copy{padding:15px 15px 13px}
-.proof-status-list{display:grid;gap:9px;margin:0 0 14px}
-.proof-status-item{display:flex;align-items:center;gap:11px;min-width:0;padding:11px 12px;border:1px solid;border-radius:14px}
-.proof-status-icon{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border-radius:12px}
-.proof-status-icon svg{display:block;width:22px;height:22px}
-.proof-status-text{display:grid;gap:3px;min-width:0}
-.proof-status-label{font-size:9px;font-weight:850;letter-spacing:.11em;line-height:1.25}
-.proof-status-text strong{font-size:clamp(13px,1.35vw,16px);line-height:1.35;color:#19243a;overflow-wrap:anywhere}
-.proof-status-suspended{background:linear-gradient(110deg,#fff0f2,#fff9fa);border-color:#ffd2d8}
-.proof-status-suspended .proof-status-icon{background:#ffe0e5;color:#d92d43}
-.proof-status-suspended .proof-status-label{color:#c92b42}
-.proof-status-violation{background:linear-gradient(110deg,#fff7e9,#fffdf8);border-color:#ffe0ad}
-.proof-status-violation .proof-status-icon{background:#ffebc7;color:#c8790a}
-.proof-status-violation .proof-status-label{color:#ad690b}
-@media (max-width:460px) {.proof-card-copy{padding:12px}.proof-status-item{gap:9px;padding:9px}.proof-status-icon{flex-basis:34px;width:34px;height:34px;border-radius:10px}.proof-status-icon svg{width:20px;height:20px}.proof-status-text strong{font-size:13px}.proof-status-label{font-size:8px}}
 
+.proof-card-copy{padding:15px 15px 13px}
+@media (max-width:460px) {.proof-card-copy{padding:12px}}
 /* Compact Daily Bible Verse strip placed directly under the header */
 .daily-verse-topline{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
 .daily-verse-cross{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;font-weight:800}

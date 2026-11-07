@@ -12,7 +12,7 @@ test('AFV485 keeps one authoritative scenic Daily Bible Verse background rule', 
   assert.match(css, /html body\.home-page main > #daily-bible-verse\.daily-verse-card\s*\{[\s\S]*?background-image:[\s\S]*?verse-lake-photo\.webp\?v=AFV358/);
   assert.doesNotMatch(css, /html body #daily-bible-verse\.daily-verse-card\s*\{/);
   assert.doesNotMatch(css, /authoritative scenic Bible Verse background/);
-  assert.match(html, /styles\.css\?v=AFV502&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col/);
+  assert.match(html, /styles\.css\?v=AFV517&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col/);
 });
 
 test('AFV485 removes superseded system-theme overrides and duplicate verse pseudo-element styling', () => {
@@ -35,9 +35,9 @@ test('AFV490 release metadata is synchronized', () => {
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(root, 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(root, 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '514.0.0');
-  assert.equal(lock.version, '514.0.0');
-  assert.equal(lock.packages[''].version, '514.0.0');
-  assert.ok(readme.includes('Current release: AFV514'));
+  assert.equal(pkg.version, '517.0.0');
+  assert.equal(lock.version, '517.0.0');
+  assert.equal(lock.packages[''].version, '517.0.0');
+  assert.ok(readme.includes('Current release: AFV517'));
   assert.ok(history.includes('AFV485 — Daily Bible Verse CSS Dead-Rule Cleanup'));
 });

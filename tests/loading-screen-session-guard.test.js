@@ -61,7 +61,7 @@ test('AFV514 root is served directly and no standalone splash redirect remains',
 test('AFV514 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '514.0.0');
-  assert.equal(lock.version, '514.0.0');
-  assert.equal(lock.packages[''].version, '514.0.0');
+  assert.equal(pkg.version, '517.0.0');
+  assert.equal(lock.version, '517.0.0');
+  assert.equal(lock.packages[''].version, '517.0.0');
 });
