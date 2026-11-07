@@ -240,6 +240,7 @@
 #arisu-loading-screen .boot-progress-complete {
   display: inline-flex;
   align-items: center;
+  gap: 0;
   padding: 4px 10px;
   border: 1px solid rgba(34, 156, 82, .14);
   border-radius: 999px;
