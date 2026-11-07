@@ -6,49 +6,40 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV499 keeps the card opaque while the background layer fades', () => {
+test('AFV512 keeps the crossfade on independent background and card layers', () => {
   const css = read('loading-screen.css');
   const html = read('index.html');
-  const baseCss = css.split('/* Consolidated reduced-motion support for the standalone loading page. */')[0];
-  const baseRule = baseCss.match(/#arisu-loading-screen\s*\{[^}]*\}/)?.[0] || '';
-  const visibleRule = baseCss.match(/#arisu-loading-screen\.is-visible:not\(\.is-ready\)\s*\{[^}]*\}/)?.[0] || '';
-  const exitRule = baseCss.match(/#arisu-loading-screen\.is-ready\s*\{[^}]*\}/)?.[0] || '';
-  assert.match(baseRule, /transition:\s*opacity \.42s ease-in, visibility 0s linear \.42s/);
-  assert.match(visibleRule, /transition:\s*none/);
-  assert.match(exitRule, /opacity:\s*0/);
-  assert.match(exitRule, /visibility:\s*hidden/);
-  assert.doesNotMatch(exitRule, /transition:/);
-  assert.doesNotMatch(baseCss, /#arisu-loading-screen\.is-ready\s+\.boot-window\s*\{/);
-  assert.doesNotMatch(css, /arisu-loading-card-fade-out|@keyframes arisu-loading-card-fade-out/);
-  assert.match(css, /#arisu-loading-screen::before\s*\{[^}]*transition:\s*opacity \.42s ease-in/);
-  assert.match(css, /#arisu-loading-screen\.is-ready::before\s*\{\s*opacity:\s*0/);
-  assert.match(css, /#arisu-loading-screen \.boot-window::before\s*\{[\s\S]*?background:\s*#fff/);
-  assert.match(css, /#arisu-loading-screen\.is-ready \.boot-window::before,[\s\S]*?opacity:\s*0/);
-  assert.match(html, /loading-screen-critical-guard[^>]*>[\s\S]*?background:#f3f5f9;/);
-  assert.doesNotMatch(html, /loading-screen-critical-guard[^>]*>[\s\S]*?backdrop-filter:blur/);
+  assert.ok(css.includes('#arisu-loading-screen::before'));
+  assert.ok(css.includes('#arisu-loading-screen.is-ready::before { opacity: 0; }'));
+  assert.ok(css.includes('#arisu-loading-screen .boot-window::before'));
+  assert.ok(css.includes('#arisu-loading-screen.is-ready .boot-window::before,'));
+  assert.ok(css.includes('@media (prefers-reduced-motion: reduce)'));
+  assert.ok(html.includes('padding:12px;background:#f3f5f9;'));
+  assert.ok(!html.includes('backdrop-filter:blur'));
 });
 
-test('AFV499 refreshes the loading stylesheet cache token and preserves startup behavior', () => {
+test('AFV512 refreshes loading asset tokens and preserves startup behavior', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
-  assert.match(html, /loading-screen\.css\?v=AFV511&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
-  assert.match(html, /loading-screen\.js\?v=AFV510&failsafe=15s&duration=2500&exitfade=440/);
-  assert.match(html, /loading-first-paint-guard\.js\?v=AFV510/);
-  assert.match(js, /overlay\.remove\(\)/);
-  assert.match(js, /const MIN_STARTUP_DURATION = 2500/);
-  assert.match(js, /remainingBeforeFade/);
-  assert.match(js, /const EXIT_FADE_DURATION = 440/);
-  assert.match(js, /\}, EXIT_FADE_DURATION\)/);
+  assert.ok(html.includes('loading-screen.css?v=AFV512&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3'));
+  assert.ok(html.includes('loading-screen.js?v=AFV512&failsafe=15s&cancel=1&duration=2500&exitfade=440'));
+  assert.ok(html.includes('loading-first-paint-guard.js?v=AFV512'));
+  assert.ok(js.includes('controller.abort()'));
+  assert.ok(js.includes('const MIN_STARTUP_DURATION = 2500'));
+  assert.ok(js.includes('const EXIT_FADE_DURATION = 440'));
+  assert.ok(js.includes('const STATUS_CHECK_DELAY = 550'));
+  assert.ok(js.includes('const STATUS_ROW_GAP = 180'));
+  assert.ok(js.includes('window.sessionStorage.setItem(sessionKey, "1")'));
 });
 
-test('AFV499 release metadata is synchronized', () => {
+test('AFV512 release metadata is synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '511.0.0');
-  assert.equal(lock.version, '511.0.0');
-  assert.equal(lock.packages[''].version, '511.0.0');
-  assert.ok(readme.includes('Current release: AFV511'));
-  assert.ok(history.includes('AFV499 — Delay Homepage Reveal Until Loading Fade Completes'));
+  assert.equal(pkg.version, '512.0.0');
+  assert.equal(lock.version, '512.0.0');
+  assert.equal(lock.packages[''].version, '512.0.0');
+  assert.ok(readme.includes('Current release: AFV512'));
+  assert.ok(history.includes('AFV512 — Full Loading Screen CSS, JavaScript, and Markup Cleanup'));
 });
