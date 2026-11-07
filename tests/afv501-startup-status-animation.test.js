@@ -55,7 +55,8 @@ test('AFV513 renders a plain text-only COMPLETE badge', () => {
   const css = read('loading-screen.css');
   assert.match(html, /boot-progress-complete" hidden>COMPLETE/);
   assert.match(js, /const progressComplete = overlay\.querySelector\("\.boot-progress-complete"\)/);
-  assert.match(js, /if \(progressComplete\) progressComplete\.hidden = false/);
+  assert.match(js, /progressWaiting\.hidden = true/);
+  assert.match(js, /progressComplete\.hidden = false/);
   assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
   assert.match(css, /\.boot-progress-complete\[hidden\]\s*\{\s*display:\s*none/);
 });
