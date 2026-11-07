@@ -1,26 +1,35 @@
 "use strict";
-/* AFV411 — Session-guarded loading screen with first-paint visibility and scroll lock. */
+/* AFV510 — Session-guarded loading screen with bounded fail-open recovery. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
 
-  // Show once per tab session. Mark completion only after the loading sequence finishes.
   const sessionKey = "arisuFixHomepageLoadingShown";
+  const failOpenTimer = window.__arisuLoadingFailOpenTimer;
+  const clearFailOpenTimer = () => {
+    if (failOpenTimer) window.clearTimeout(failOpenTimer);
+    window.__arisuLoadingFailOpenTimer = null;
+  };
+  const failOpen = () => {
+    clearFailOpenTimer();
+    document.documentElement.classList.remove("arisu-loading-first-run", "arisu-loading-active");
+    overlay.remove();
+  };
+
   try {
     if (window.sessionStorage.getItem(sessionKey) === "1") {
+      clearFailOpenTimer();
+      document.documentElement.classList.remove("arisu-loading-first-run");
       overlay.remove();
       return;
     }
   } catch (error) {
-    // Fail closed: if session storage is unavailable, keep the homepage usable without the optional overlay.
-    overlay.remove();
+    // Storage is optional. Never leave the first-paint visibility lock behind.
+    failOpen();
     return;
   }
 
-  // Lock background scrolling while the fixed loading overlay is active.
   document.documentElement.classList.add("arisu-loading-active");
-
-  // The first-paint guard decides visibility before the stylesheet is painted.
   overlay.classList.add("is-visible");
   const startupStartedAt = Date.now();
 
@@ -29,14 +38,27 @@
     { key: "styles", message: "Verifying page styles", check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => !link.disabled).every(link => { try { return !!link.sheet; } catch { return false; } }) },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
-  // Keep all three labels visible from the first paint; only their statuses advance sequentially.
+
+  const required = [
+    ".boot-progress-fill",
+    ".boot-progress-value",
+    ".boot-progress-percent",
+    ".boot-progress-track"
+  ];
+  const requiredRowsReady = rows.every(row => {
+    const element = overlay.querySelector('[data-check="' + row.key + '"]');
+    return element && element.querySelector(".boot-mark") && element.querySelector(".boot-status") && element.querySelector(".boot-message");
+  });
+  if (!requiredRowsReady || required.some(selector => !overlay.querySelector(selector))) {
+    failOpen();
+    return;
+  }
+
   rows.forEach(row => {
     const element = overlay.querySelector('[data-check="' + row.key + '"]');
-    if (element) {
-      element.dataset.state = "pending";
-      element.querySelector(".boot-mark").textContent = "›";
-      element.querySelector(".boot-status").textContent = "WAIT";
-    }
+    element.dataset.state = "pending";
+    element.querySelector(".boot-mark").textContent = "›";
+    element.querySelector(".boot-status").textContent = "WAIT";
   });
 
   const progress = overlay.querySelector(".boot-progress-fill");
@@ -51,7 +73,7 @@
   const EXIT_FADE_DURATION = 440;
   const STATUS_CHECK_DELAY = 550;
   const STATUS_ROW_GAP = 180;
-  const wait = (ms) => new Promise(resolve => window.setTimeout(resolve, ms));
+  const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
   const waitForLoad = () => document.readyState === "complete"
     ? Promise.resolve()
     : new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
@@ -70,14 +92,11 @@
     progress.style.width = value + "%";
     progressPercent.textContent = value + "%";
     progressText.classList.toggle("is-filled", value >= 50);
-    if (track) {
-      track.setAttribute("aria-valuenow", String(value));
-      track.setAttribute("aria-valuetext", value === 100 ? "100% complete" : value + "%");
-    }
+    track.setAttribute("aria-valuenow", String(value));
+    track.setAttribute("aria-valuetext", value === 100 ? "100% complete" : value + "%");
   }
 
   async function countProgress() {
-    // Count every integer in order. Hold at 99% until the real checks finish.
     while (progressValue < 99 && !finished) {
       setProgress(progressValue + 1);
       await wait(20);
@@ -85,7 +104,6 @@
   }
 
   function typeMessage(element) {
-    // Keep the full step label visible; animate only its marker and status.
     element.querySelector(".boot-mark").textContent = "›";
     element.dataset.state = "running";
     element.querySelector(".boot-status").textContent = "RUN";
@@ -95,38 +113,31 @@
     const progressTask = countProgress();
     for (const row of rows) {
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
-      if (!element) continue;
       typeMessage(element);
       await wait(STATUS_CHECK_DELAY);
-      // Do not report success until the browser has completed loading the page resources.
       await waitForLoad();
-      const ok = row.check();
-      mark(row, ok, row.message);
-      // Keep a short, consistent pause between completed rows.
+      mark(row, row.check(), row.message);
       if (row.key !== "final") await wait(STATUS_ROW_GAP);
     }
 
     await progressTask;
-    // Target 2.5 seconds from first paint through the end of the exit fade.
-    // If real page readiness takes longer, never shorten or bypass that wait.
     const remainingBeforeFade = Math.max(0, MIN_STARTUP_DURATION - EXIT_FADE_DURATION - (Date.now() - startupStartedAt));
     if (remainingBeforeFade > 0) await wait(remainingBeforeFade);
     setProgress(100);
     if (progressComplete) progressComplete.hidden = false;
     finished = true;
-    // Persist completion only after all loading checks have finished.
-    try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue if storage becomes unavailable. */ }
+    try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue without persistence. */ }
 
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");
       overlay.setAttribute("aria-hidden", "true");
       window.setTimeout(() => {
-        document.documentElement.classList.remove("arisu-loading-first-run");
-        document.documentElement.classList.remove("arisu-loading-active");
+        clearFailOpenTimer();
+        document.documentElement.classList.remove("arisu-loading-first-run", "arisu-loading-active");
         overlay.remove();
       }, EXIT_FADE_DURATION);
     });
   }
 
-  runSequence();
+  runSequence().catch(failOpen);
 })();
