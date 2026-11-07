@@ -38,7 +38,7 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV510/);
   assert.match(html, /loading-screen\.css\?v=AFV510&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
-  assert.match(html, /loading-screen\.js\?v=AFV510&sessionguard=4&statusrows=visible1&duration=2500&statusdone=1&minimalstatus=1&completionbadge=1/);
+  assert.match(html, /loading-screen\.js\?v=AFV510&failsafe=15s&duration=2500&exitfade=440/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
   assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
