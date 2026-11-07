@@ -429,6 +429,9 @@ html.arisu-loading-active {
   color: #176b36;
 }
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-status::before {
-  content: none;
-  display: none;
+  content: "" !important;
+  display: none !important;
+  width: 0 !important;
+  flex: 0 0 0 !important;
+  margin: 0 !important;
 }
