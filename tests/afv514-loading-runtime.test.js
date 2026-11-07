@@ -26,7 +26,7 @@ function createElement() {
   };
 }
 
-function createHarness({ stylesLoaded = true, stylesThrows = false, storageThrows = false, missingWaiting = false, raf = 'run' } = {}) {
+function createHarness({ stylesLoaded = true, stylesThrows = false, storageThrows = false, missingWaiting = false, raf = 'run', desktop = false, dynamicStylesheetPending = false } = {}) {
   const rootClasses = new Set(['arisu-loading-first-run']);
   const rootElement = {
     classList: {
@@ -82,6 +82,7 @@ function createHarness({ stylesLoaded = true, stylesThrows = false, storageThrow
       stored.value = value;
     }
   };
+  const stylesheets = [{ disabled: false, sheet: stylesLoaded ? {} : null }];
   const timers = new Map();
   let timerId = 0;
   const window = {
@@ -103,19 +104,21 @@ function createHarness({ stylesLoaded = true, stylesThrows = false, storageThrow
   };
   if (raf === 'run') window.requestAnimationFrame = callback => callback();
   if (raf === 'hold') window.requestAnimationFrame = () => 1;
+  if (desktop) window.matchMedia = () => ({ matches: true });
 
   const document = {
     documentElement: rootElement,
     readyState: 'complete',
     querySelectorAll() {
       if (stylesThrows) throw new Error('stylesheet inspection failed');
-      return [{ disabled: false, sheet: stylesLoaded ? {} : null }];
+      return stylesheets;
     },
     getElementById(id) { return id === 'arisu-loading-screen' ? overlay : null; }
   };
 
   vm.runInNewContext(source, { document, window, AbortController, Promise, Array, Map, Error, String });
-  return { overlay, waiting, complete, progress, progressPercent, track, rows, stored, rootClasses, window };
+  if (dynamicStylesheetPending) stylesheets.push({ disabled: false, sheet: null });
+  return { overlay, waiting, complete, progress, progressPercent, track, rows, stored, rootClasses, window, stylesheets };
 }
 
 test('AFV514 completes only after all required checks pass and removes the overlay after the exit fade', async () => {
@@ -136,6 +139,19 @@ test('AFV514 completes only after all required checks pass and removes the overl
   assert.equal(h.overlay.isConnected, false);
   assert.equal(h.rootClasses.has('arisu-loading-first-run'), false);
   assert.equal(h.window.__arisuLoadingFailOpenTimer, null);
+});
+
+test('AFV518 desktop completion ignores optional stylesheets injected after the initial readiness snapshot', async () => {
+  const h = createHarness({ desktop: true, dynamicStylesheetPending: true });
+  await new Promise(resolve => setTimeout(resolve, 0));
+
+  assert.equal(h.stylesheets.length, 2, 'the optional stylesheet is present but still loading');
+  assert.equal(h.rows.get('styles').dataset.state, 'ok');
+  assert.equal(h.rows.get('final').dataset.state, 'ok');
+  assert.equal(h.progress.style.width, '100%');
+  assert.equal(h.complete.hidden, false);
+  assert.equal(h.stored.value, '1');
+  assert.equal(h.stored.writes, 1);
 });
 
 test('AFV514 fails open on a failed stylesheet check without showing COMPLETE or persisting success', async () => {
