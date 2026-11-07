@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV512 keeps all startup labels visible and animates only row indicators/statuses', () => {
+test('AFV513 keeps all startup labels visible and animates only row indicators/statuses', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
@@ -29,16 +29,16 @@ test('AFV512 keeps all startup labels visible and animates only row indicators/s
   assert.match(js, /const STATUS_ROW_GAP = 180/);
 });
 
-test('AFV512 preserves loading dimensions, refresh guard, readiness, and exit lifecycle', () => {
+test('AFV513 preserves loading dimensions, refresh guard, readiness, and exit lifecycle', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
   assert.match(css, /#arisu-loading-screen \.boot-window\s*\{[^}]*width:\s*min\(100%,\s*760px\)/);
   assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?#arisu-loading-screen \.boot-window\s*\{\s*width:\s*100%/);
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
-  assert.match(html, /loading-first-paint-guard\.js\?v=AFV512/);
-  assert.match(html, /loading-screen\.css\?v=AFV512&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
-  assert.match(html, /loading-screen\.js\?v=AFV512&failsafe=15s&cancel=1&duration=2500&exitfade=440/);
+  assert.match(html, /loading-first-paint-guard\.js\?v=AFV513/);
+  assert.match(html, /loading-screen\.css\?v=AFV513&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
+  assert.match(html, /loading-screen\.js\?v=AFV513&failsafe=15s&cancel=1&duration=2500&exitfade=440/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
   assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
@@ -49,7 +49,7 @@ test('AFV512 preserves loading dimensions, refresh guard, readiness, and exit li
 });
 
 
-test('AFV512 renders a plain text-only COMPLETE badge', () => {
+test('AFV513 renders a plain text-only COMPLETE badge', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
@@ -61,7 +61,7 @@ test('AFV512 renders a plain text-only COMPLETE badge', () => {
 });
 
 
-test('AFV512 applies SYSTEM CHECK branding and places the live percentage inside the progress bar', () => {
+test('AFV513 applies SYSTEM CHECK branding and places the live percentage inside the progress bar', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
@@ -83,7 +83,7 @@ test('AFV512 applies SYSTEM CHECK branding and places the live percentage inside
 });
 
 
-test('AFV512 refinement removes the progress-bar check and tones down oversized gradient treatments', () => {
+test('AFV513 refinement removes the progress-bar check and tones down oversized gradient treatments', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
@@ -96,20 +96,20 @@ test('AFV512 refinement removes the progress-bar check and tones down oversized 
 });
 
 
-test('AFV512 DONE badges are plain green labels without generated icons', () => {
+test('AFV513 DONE badges are plain green labels without generated icons', () => {
   const css = read('loading-screen.css');
   assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status\s*\{[\s\S]*?background:\s*#d5f3df/);
   assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
 });
 
-test('AFV512 COMPLETE badge is text-only without pseudo-element icon styling', () => {
+test('AFV513 COMPLETE badge is text-only without pseudo-element icon styling', () => {
   const css = read('loading-screen.css');
   assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0;[\s\S]*?padding:\s*4px 10px/);
   assert.doesNotMatch(css, /\.boot-progress-complete::before/);
 });
 
 
-test('AFV512 preloads the original Startup Screen logo at high priority without altering its source asset', () => {
+test('AFV513 preloads the original Startup Screen logo at high priority without altering its source asset', () => {
   const html = read('index.html');
   assert.match(html, /<link rel="preload" as="image" href="\/assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460" fetchpriority="high">/);
   assert.match(html, /class="boot-logo" src="assets\/images\/arisu-fix-alice-borderland-logo-transparent\.png\?v=AFV460"[^>]*loading="eager" fetchpriority="high" decoding="sync"/);
@@ -117,7 +117,7 @@ test('AFV512 preloads the original Startup Screen logo at high priority without 
 });
 
 
-test('AFV512 approved Startup Screen visual baseline is preserved', () => {
+test('AFV513 approved Startup Screen visual baseline is preserved', () => {
   const html = read('index.html');
   const css = read('loading-screen.css');
   const js = read('loading-screen.js');
@@ -147,18 +147,18 @@ test('AFV512 approved Startup Screen visual baseline is preserved', () => {
 });
 
 
-test('AFV512 keeps release metadata aligned with startup cache-busting tokens', () => {
+test('AFV513 keeps release metadata aligned with startup cache-busting tokens', () => {
   const html = read('index.html');
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '512.0.0');
+  assert.equal(pkg.version, '513.0.0');
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
-  assert.match(html, /loading-screen\.css\?v=AFV512/);
-  assert.match(html, /loading-screen\.js\?v=AFV512/);
+  assert.match(html, /loading-screen\.css\?v=AFV513/);
+  assert.match(html, /loading-screen\.js\?v=AFV513/);
 });
 
-test('AFV512 preserves desktop and consolidated mobile Startup Screen dimensions', () => {
+test('AFV513 preserves desktop and consolidated mobile Startup Screen dimensions', () => {
   const css = read('loading-screen.css');
   assert.match(css, /#arisu-loading-screen \.boot-window \{[\s\S]*?width: min\(100%, 760px\)/);
   assert.match(css, /@media \(max-width: 480px\) \{[\s\S]*?#arisu-loading-screen \.boot-window \{ width: 100%; border-radius: 22px; \}/);
