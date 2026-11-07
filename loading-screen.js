@@ -84,7 +84,7 @@
     }
   }
 
-  async function typeMessage(element) {
+  function typeMessage(element) {
     // Keep the full step label visible; animate only its marker and status.
     element.querySelector(".boot-mark").textContent = "›";
     element.dataset.state = "running";
@@ -96,7 +96,7 @@
     for (const row of rows) {
       const element = overlay.querySelector('[data-check="' + row.key + '"]');
       if (!element) continue;
-      await typeMessage(element);
+      typeMessage(element);
       await wait(STATUS_CHECK_DELAY);
       // Do not report success until the browser has completed loading the page resources.
       await waitForLoad();

@@ -111,28 +111,8 @@
 #arisu-loading-screen .boot-log { gap: 7px; font-size: 13px; }
 #arisu-loading-screen .boot-progress-row { margin-top: 16px; }
 #arisu-loading-screen .boot-progress-track { margin-top: 7px; }
-#arisu-loading-screen .boot-footnote { margin-top: 9px; }
-@media (max-width: 480px) {
-  #arisu-loading-screen { padding: 10px; }
-  #arisu-loading-screen .boot-window { width: 100%; border-radius: 22px; }
-  #arisu-loading-screen .boot-titlebar { padding: 10px 14px; }
-  #arisu-loading-screen .boot-content { padding: 16px 16px 14px; }
-  #arisu-loading-screen .boot-brand-row { gap: 12px; }
-  #arisu-loading-screen .boot-logo { width: 94px; height: 94px; flex-basis: 94px; }
-  #arisu-loading-screen .boot-brand { font-size: clamp(30px, 8vw, 40px); }
-  #arisu-loading-screen .boot-subtitle { font-size: 12px; font-weight: 800; letter-spacing: .02em; white-space: nowrap; }
-  #arisu-loading-screen .boot-section { margin: 12px 0 8px; }
-  #arisu-loading-screen .boot-log { gap: 7px; font-size: 12px; }
-  #arisu-loading-screen .boot-progress-row { margin-top: 15px; }
-  #arisu-loading-screen .boot-status { padding: 2px 5px; }
-}
-@media (max-width: 360px) {
-  #arisu-loading-screen .boot-content { padding: 14px 12px 12px; }
-  #arisu-loading-screen .boot-logo { width: 78px; height: 78px; flex-basis: 78px; }
-  #arisu-loading-screen .boot-brand { font-size: 28px; }
-  #arisu-loading-screen .boot-subtitle { font-size: 9px; font-weight: 800; letter-spacing: 0; white-space: nowrap; }
-  #arisu-loading-screen .boot-log { font-size: 10px; }
-}
+
+
 
 /* AFV378 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
 #arisu-loading-screen {
@@ -158,10 +138,6 @@
 #arisu-loading-screen .boot-log li[data-state="running"] .boot-mark,
 #arisu-loading-screen .boot-log li[data-state="running"] .boot-status {
   transform: translateY(-1px);
-}
-@keyframes boot-row-appear {
-  from { opacity: 0; transform: translateY(3px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* AFV505 — Final compact progress treatment supersedes the earlier neon progress styling. */
@@ -256,11 +232,7 @@ html.arisu-loading-active {
 }
 #arisu-loading-screen .boot-progress-complete[hidden] { display: none; }
 #arisu-loading-screen .boot-progress-value { font-size: 16px; font-weight: 900; }
-@media (max-width: 360px) {
-  #arisu-loading-screen .boot-progress-row { column-gap: 6px; }
-  #arisu-loading-screen .boot-progress-complete { padding-right: 7px; font-size: 10px; }
-  #arisu-loading-screen .boot-progress-value { font-size: 14px; }
-}
+
 
 
 /* AFV505 refinement — compact, restrained brand colors and progress sizing. */
@@ -343,19 +315,8 @@ html.arisu-loading-active {
   color: #fff;
   text-shadow: 0 1px 1px rgba(25, 38, 79, .2);
 }
-@media (max-width: 480px) {
-  #arisu-loading-screen .boot-subtitle { padding: 5px 8px; font-size: 10px; }
-  #arisu-loading-screen .boot-section { margin: 11px 0 8px; padding: 6px 9px; font-size: 10px; }
-  #arisu-loading-screen .boot-progress-track { width: 94%; height: 19px; }
-  #arisu-loading-screen .boot-progress-value { font-size: 12px; }
-}
-@media (max-width: 360px) {
-  #arisu-loading-screen .boot-subtitle { padding: 4px 6px; font-size: 9px; }
-  #arisu-loading-screen .boot-section { gap: 6px; padding: 5px 8px; font-size: 9px; }
-  #arisu-loading-screen .boot-section-icon { width: 14px; height: 14px; flex-basis: 14px; }
-  #arisu-loading-screen .boot-progress-track { width: 96%; height: 18px; }
-  #arisu-loading-screen .boot-progress-value { font-size: 11px; }
-}
+
+
 
 
 /* AFV505 refinement — DONE badges use a clean green pill with no leading check icon. */
@@ -372,4 +333,33 @@ html.arisu-loading-active {
   font-weight: 800;
 }
 
-
+/* AFV508 — Consolidated responsive overrides; final approved mobile dimensions retained. */
+@media (max-width: 480px) {
+  #arisu-loading-screen { padding: 10px; }
+  #arisu-loading-screen .boot-window { width: 100%; border-radius: 22px; }
+  #arisu-loading-screen .boot-titlebar { padding: 10px 14px; }
+  #arisu-loading-screen .boot-content { padding: 16px 16px 14px; }
+  #arisu-loading-screen .boot-brand-row { gap: 12px; }
+  #arisu-loading-screen .boot-logo { width: 94px; height: 94px; flex-basis: 94px; }
+  #arisu-loading-screen .boot-brand { font-size: clamp(30px, 8vw, 40px); }
+  #arisu-loading-screen .boot-subtitle { padding: 5px 8px; font-size: 10px; }
+  #arisu-loading-screen .boot-section { margin: 11px 0 8px; padding: 6px 9px; font-size: 10px; }
+  #arisu-loading-screen .boot-log { gap: 7px; font-size: 12px; }
+  #arisu-loading-screen .boot-progress-row { margin-top: 15px; }
+  #arisu-loading-screen .boot-status { padding: 2px 5px; }
+  #arisu-loading-screen .boot-progress-track { width: 94%; height: 19px; }
+  #arisu-loading-screen .boot-progress-value { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  #arisu-loading-screen .boot-content { padding: 14px 12px 12px; }
+  #arisu-loading-screen .boot-logo { width: 78px; height: 78px; flex-basis: 78px; }
+  #arisu-loading-screen .boot-brand { font-size: 28px; }
+  #arisu-loading-screen .boot-subtitle { padding: 4px 6px; font-size: 9px; letter-spacing: 0; }
+  #arisu-loading-screen .boot-section { gap: 6px; padding: 5px 8px; font-size: 9px; }
+  #arisu-loading-screen .boot-section-icon { width: 14px; height: 14px; flex-basis: 14px; }
+  #arisu-loading-screen .boot-log { font-size: 10px; }
+  #arisu-loading-screen .boot-progress-row { column-gap: 6px; }
+  #arisu-loading-screen .boot-progress-complete { padding-right: 7px; font-size: 10px; }
+  #arisu-loading-screen .boot-progress-track { width: 96%; height: 18px; }
+  #arisu-loading-screen .boot-progress-value { font-size: 11px; }
+}
