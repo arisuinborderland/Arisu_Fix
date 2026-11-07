@@ -8300,9 +8300,6 @@ html body.home-page .purpose-card .purpose-signoff {
 
 /* Desktop WhatsApp CTA: visible moving edge-trails and a restrained green glow. */
 @media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
-  html body.home-page #contact .whatsapp-feature-card .whatsapp-button {
-    animation: arisuDesktopWhatsAppGlow 2.8s ease-in-out infinite !important;
-  }
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button::before,
   html body.home-page #contact .whatsapp-feature-card .whatsapp-button::after {
     padding: 4px !important;
