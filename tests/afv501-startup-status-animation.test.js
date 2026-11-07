@@ -33,12 +33,12 @@ test('AFV512 preserves loading dimensions, refresh guard, readiness, and exit li
   const html = read('index.html');
   const js = read('loading-screen.js');
   const css = read('loading-screen.css');
-  assert.match(css, /\.boot-window\s*\{[^}]*width:\s*min\(100%,\s*760px\)/);
-  assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?\.boot-window\s*\{\s*width:\s*100%/);
+  assert.match(css, /#arisu-loading-screen \.boot-window\s*\{[^}]*width:\s*min\(100%,\s*760px\)/);
+  assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?#arisu-loading-screen \.boot-window\s*\{\s*width:\s*100%/);
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV512/);
   assert.match(html, /loading-screen\.css\?v=AFV512&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
-  assert.match(html, /loading-screen\.js\?v=AFV512&failsafe=15s&duration=2500&exitfade=440/);
+  assert.match(html, /loading-screen\.js\?v=AFV512&failsafe=15s&cancel=1&duration=2500&exitfade=440/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
   assert.match(js, /window\.sessionStorage\.setItem\(sessionKey, "1"\)/);
@@ -160,9 +160,9 @@ test('AFV512 keeps release metadata aligned with startup cache-busting tokens', 
 
 test('AFV512 preserves desktop and consolidated mobile Startup Screen dimensions', () => {
   const css = read('loading-screen.css');
-  assert.match(css, /\.boot-window \{[\s\S]*?width: min\(100%, 760px\)/);
-  assert.match(css, /@media \(max-width: 480px\) \{[\s\S]*?\.boot-window \{ width: 100%; border-radius: 22px; \}/);
-  assert.match(css, /@media \(max-width: 360px\) \{[\s\S]*?\.boot-logo \{ width: 78px; height: 78px; flex-basis: 78px; \}/);
+  assert.match(css, /#arisu-loading-screen \.boot-window \{[\s\S]*?width: min\(100%, 760px\)/);
+  assert.match(css, /@media \(max-width: 480px\) \{[\s\S]*?#arisu-loading-screen \.boot-window \{ width: 100%; border-radius: 22px; \}/);
+  assert.match(css, /@media \(max-width: 360px\) \{[\s\S]*?#arisu-loading-screen \.boot-logo \{ width: 78px; height: 78px; flex-basis: 78px; \}/);
   assert.equal((css.match(/@media \(max-width: 480px\)/g) || []).length, 1);
   assert.equal((css.match(/@media \(max-width: 360px\)/g) || []).length, 1);
 });
