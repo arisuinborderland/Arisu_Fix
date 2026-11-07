@@ -15,9 +15,9 @@ test('AFV518 gives desktop COMPLETE one paint frame before the existing exit fad
 
   assert.match(js, /const isDesktopViewport = typeof window\.matchMedia === "function"/);
   assert.match(js, /window\.matchMedia\("\(min-width: 481px\)"\)\.matches/);
-  assert.match(js, /const initialPageStylesheets = \\(\\(\\) => \\{/);
-  assert.match(js, /Array\\.isArray\\(initialPageStylesheets\\)/);
-  assert.match(moreMenu, /styleLink\\.rel = 'stylesheet'/);
+  assert.match(js, /const initialPageStylesheets = \(\(\) => \{/);
+  assert.match(js, /Array\.isArray\(initialPageStylesheets\)/);
+  assert.match(moreMenu, /styleLink\.rel = 'stylesheet'/);
   assert.ok(
     html.indexOf('loading-screen.js?v=AFV518') < html.indexOf('more-menu.js?v=AFV494'),
     'the loader must snapshot parser-declared styles before the deferred More-menu CSS injector runs'
