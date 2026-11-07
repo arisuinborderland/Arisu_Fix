@@ -46,9 +46,12 @@
     finished = true;
     controller.abort();
     clearFailOpenTimer();
+    if (window.__arisuLoadingFailOpen === failOpen) window.__arisuLoadingFailOpen = null;
     root.classList.remove("arisu-loading-first-run", "arisu-loading-active");
     overlay.remove();
   }
+
+  window.__arisuLoadingFailOpen = failOpen;
 
   try {
     if (window.sessionStorage.getItem(sessionKey) === "1") {
@@ -172,6 +175,7 @@
     if (progressComplete) progressComplete.hidden = false;
     clearFailOpenTimer();
     finished = true;
+    if (window.__arisuLoadingFailOpen === failOpen) window.__arisuLoadingFailOpen = null;
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue without persistence. */ }
 
     window.requestAnimationFrame(() => {
