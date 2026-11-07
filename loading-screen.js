@@ -1,5 +1,5 @@
 "use strict";
-/* AFV513 — Session-guarded loader with cancellable fail-open lifecycle. */
+/* AFV514 — Audited session-guarded loader with bounded exit recovery. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -30,10 +30,13 @@
   const progressComplete = overlay.querySelector(".boot-progress-complete");
   const track = overlay.querySelector(".boot-progress-track");
   let finished = false;
+  let exitStarted = false;
+  let exitFrameFallbackTimer = null;
   let progressValue = 0;
 
   const MIN_STARTUP_DURATION = 2500;
   const EXIT_FADE_DURATION = 440;
+  const EXIT_FRAME_FALLBACK_DELAY = 120;
   const STATUS_CHECK_DELAY = 550;
   const STATUS_ROW_GAP = 180;
 
@@ -98,31 +101,47 @@
         reject(new Error("Loading sequence cancelled"));
         return;
       }
-      const timer = window.setTimeout(() => {
-        signal.removeEventListener("abort", cancel);
-        resolve();
-      }, ms);
-      function cancel() {
-        window.clearTimeout(timer);
-        reject(new Error("Loading sequence cancelled"));
-      }
-      signal.addEventListener("abort", cancel, { once: true });
+
+      let settled = false;
+      let timer;
+      const cleanup = () => {
+        if (timer !== undefined) window.clearTimeout(timer);
+        signal.removeEventListener("abort", onAbort);
+      };
+      const finish = callback => {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        callback();
+      };
+      const onAbort = () => finish(() => reject(new Error("Loading sequence cancelled")));
+
+      timer = window.setTimeout(() => finish(resolve), ms);
+      signal.addEventListener("abort", onAbort, { once: true });
+      if (signal.aborted) onAbort();
     });
   }
 
   function waitForLoad() {
     if (document.readyState === "complete") return Promise.resolve();
     return new Promise((resolve, reject) => {
-      const onLoad = () => {
-        signal.removeEventListener("abort", onAbort);
-        resolve();
-      };
-      const onAbort = () => {
+      let settled = false;
+      const cleanup = () => {
         window.removeEventListener("load", onLoad);
-        reject(new Error("Loading sequence cancelled"));
+        signal.removeEventListener("abort", onAbort);
       };
+      const finish = callback => {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        callback();
+      };
+      const onLoad = () => finish(resolve);
+      const onAbort = () => finish(() => reject(new Error("Loading sequence cancelled")));
+
       window.addEventListener("load", onLoad, { once: true });
       signal.addEventListener("abort", onAbort, { once: true });
+      if (document.readyState === "complete") onLoad();
     });
   }
 
@@ -165,7 +184,12 @@
       await wait(STATUS_CHECK_DELAY);
       await waitForLoad();
       if (signal.aborted) return;
-      const passed = row.check();
+      let passed = false;
+      try {
+        passed = Boolean(row.check());
+      } catch (error) {
+        passed = false;
+      }
       mark(row, passed);
       if (!passed) {
         failOpen();
@@ -188,15 +212,35 @@
     if (window.__arisuLoadingFailOpen === failOpen) window.__arisuLoadingFailOpen = null;
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue without persistence. */ }
 
-    window.requestAnimationFrame(() => {
-      if (!overlay.isConnected) return;
+    function beginExit() {
+      if (exitStarted) return;
+      exitStarted = true;
+      if (exitFrameFallbackTimer !== null) {
+        window.clearTimeout(exitFrameFallbackTimer);
+        exitFrameFallbackTimer = null;
+      }
+      if (!overlay.isConnected) {
+        root.classList.remove("arisu-loading-first-run", "arisu-loading-active");
+        return;
+      }
       overlay.classList.add("is-ready");
       overlay.setAttribute("aria-hidden", "true");
       window.setTimeout(() => {
         root.classList.remove("arisu-loading-first-run", "arisu-loading-active");
-        overlay.remove();
+        if (overlay.isConnected) overlay.remove();
       }, EXIT_FADE_DURATION);
-    });
+    }
+
+    if (typeof window.requestAnimationFrame === "function") {
+      exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
+      try {
+        window.requestAnimationFrame(beginExit);
+      } catch (error) {
+        beginExit();
+      }
+    } else {
+      beginExit();
+    }
   }
 
   runSequence().catch(error => {
