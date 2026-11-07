@@ -56,6 +56,7 @@
   try {
     if (window.sessionStorage.getItem(sessionKey) === "1") {
       clearFailOpenTimer();
+      if (window.__arisuLoadingFailOpen === failOpen) window.__arisuLoadingFailOpen = null;
       root.classList.remove("arisu-loading-first-run", "arisu-loading-active");
       overlay.remove();
       return;
