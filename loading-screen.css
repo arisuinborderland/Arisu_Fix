@@ -435,3 +435,21 @@ html.arisu-loading-active {
   flex: 0 0 0 !important;
   margin: 0 !important;
 }
+
+
+/* AFV505 final badge cleanup — COMPLETE is text-only, matching the plain DONE labels. */
+#arisu-loading-screen .boot-progress-complete {
+  gap: 0 !important;
+  padding-left: 10px !important;
+}
+#arisu-loading-screen .boot-progress-complete::before {
+  content: "" !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  flex: 0 0 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
