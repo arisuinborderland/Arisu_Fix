@@ -1,5 +1,5 @@
 "use strict";
-/* AFV512 — First-paint guard with a bounded fail-open recovery. */
+/* AFV514 — First-paint guard with a bounded fail-open recovery. */
 (() => {
   const sessionKey = "arisuFixHomepageLoadingShown";
   try {
