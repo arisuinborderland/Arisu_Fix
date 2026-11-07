@@ -101,7 +101,7 @@ function createHarness({ stylesLoaded = true, storageThrows = false, missingWait
       return id;
     }
   };
-  if (raf === 'run') window.requestAnimationFrame = callback => queueMicrotask(callback);
+  if (raf === 'run') window.requestAnimationFrame = callback => callback();
   if (raf === 'hold') window.requestAnimationFrame = () => 1;
 
   const document = {
