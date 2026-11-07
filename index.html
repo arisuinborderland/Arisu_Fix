@@ -35,10 +35,10 @@
  <link rel="preload" as="image" href="/assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV460" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
 <!-- Decide session visibility before any render-blocking stylesheet can delay first paint. -->
-  <script src="loading-first-paint-guard.js?v=AFV513"></script>
+  <script src="loading-first-paint-guard.js?v=AFV514"></script>
   <style id="loading-screen-critical-guard">html.arisu-loading-first-run body>:not(#arisu-loading-screen){display:none!important}html.arisu-loading-first-run #arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:12px;background:#f3f5f9;color:#25314a;opacity:1;visibility:visible;pointer-events:auto;animation:none!important}</style>
-  <link rel="stylesheet" href="loading-screen.css?v=AFV513&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3&waiting=1&successgate=1">
-  <script src="loading-screen.js?v=AFV513&failsafe=15s&cancel=1&duration=2500&exitfade=440&waiting=1&successgate=1" defer></script>
+  <link rel="stylesheet" href="loading-screen.css?v=AFV514&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3&waiting=1&successgate=1&a11y=1&exitfallback=1">
+  <script src="loading-screen.js?v=AFV514&failsafe=15s&cancel=1&duration=2500&exitfade=440&waiting=1&successgate=1&exitfallback=1" defer></script>
    <link rel="stylesheet" href="styles.css?v=AFV502&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col&headerart=full2">
  <link rel="stylesheet" href="home-accordion.css?v=AFV459">
  <link rel="stylesheet" href="about-link.css?v=AFV424&homebtnpadding=1">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="site-header.css?v=AFV479&shared=1">
 </head>
 <body class="home-page" id="top">
-<div id="arisu-loading-screen" role="status" aria-label="Loading Arisu Fix homepage">
+<div id="arisu-loading-screen" role="region" aria-label="Loading Arisu Fix homepage">
   <section class="boot-window" aria-labelledby="arisuBootTitle">
     <div class="boot-titlebar" aria-hidden="true"><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-label">ARISU FIX / SYSTEM STARTUP</span></div>
     <div class="boot-content">
