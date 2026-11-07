@@ -1,3 +1,10 @@
+AFV518 — Desktop COMPLETE Badge Visibility Fix
+
+- Restore a dedicated 1.5-second hold after every required startup check succeeds so desktop users can read the COMPLETE badge before the existing exit fade.
+- Preserve the 2.5-second minimum startup duration, 440ms exit fade, mobile timing, and approved loading-screen layout and styles.
+- Refresh only the loading-screen.js cache token; loading-screen.css and the first-paint guard remain on AFV514.
+- Add focused regression coverage for desktop-only completion visibility and release metadata.
+
 AFV517 — Remove Retired Proof Status CSS
 
 - Remove the obsolete proof-status component rules from styles.css after verifying that the current proof-card renderer no longer creates those elements.

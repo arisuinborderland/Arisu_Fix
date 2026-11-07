@@ -39,9 +39,9 @@ test('AFV492 release metadata is synchronized', () => {
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   const readme = fs.readFileSync(path.join(root, 'README.txt'), 'utf8');
   const history = fs.readFileSync(path.join(root, 'RELEASE_HISTORY.txt'), 'utf8');
-  assert.equal(pkg.version, '517.0.0');
+  assert.equal(pkg.version, '518.0.0');
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
-  assert.ok(readme.includes('Current release: AFV517'));
+  assert.ok(readme.includes('Current release: AFV518'));
   assert.ok(history.includes('AFV492 — Restore Approved Mobile Homepage UI Details'));
 });

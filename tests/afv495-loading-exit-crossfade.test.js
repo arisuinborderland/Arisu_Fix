@@ -22,7 +22,7 @@ test('AFV514 refreshes loading asset tokens and preserves startup behavior', () 
   const html = read('index.html');
   const js = read('loading-screen.js');
   assert.ok(html.includes('loading-screen.css?v=AFV514&sessionguard=1&firstpaint=11&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3'));
-  assert.ok(html.includes('loading-screen.js?v=AFV514&failsafe=15s&cancel=1&duration=2500&exitfade=440'));
+  assert.ok(html.includes('loading-screen.js?v=AFV518&failsafe=15s&cancel=1&duration=2500&exitfade=440&completehold=1500&desktop=481'));
   assert.ok(html.includes('loading-first-paint-guard.js?v=AFV514'));
   assert.ok(js.includes('controller.abort()'));
   assert.ok(js.includes('const MIN_STARTUP_DURATION = 2500'));
@@ -37,9 +37,9 @@ test('AFV514 release metadata is synchronized', () => {
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
-  assert.equal(pkg.version, '517.0.0');
-  assert.equal(lock.version, '517.0.0');
-  assert.equal(lock.packages[''].version, '517.0.0');
-  assert.ok(readme.includes('Current release: AFV517'));
+  assert.equal(pkg.version, '518.0.0');
+  assert.equal(lock.version, '518.0.0');
+  assert.equal(lock.packages[''].version, '518.0.0');
+  assert.ok(readme.includes('Current release: AFV518'));
   assert.ok(history.includes('AFV514 — Full Loading Screen Audit and Lifecycle Cleanup'));
 });
