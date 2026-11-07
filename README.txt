@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV505
+Version: AFV508
 Updated: 2026-11-07
 
-Current release: AFV505
-Package version: 505.0.0
+Current release: AFV508
+Package version: 508.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV508: consolidates Startup Screen responsive CSS, removes superseded loading-screen rules, simplifies the synchronous status update, and synchronizes cache-busting and package release metadata while preserving the approved layout and startup lifecycle.
 - AFV505: improves loading-screen text visibility; keeps the complete service descriptor on one line, replaces HTTP-style success labels with clean DONE badges using circular green check icons, adds a matching COMPLETE badge when the real startup checks finish, and removes redundant text below the progress bar. Preserves the existing background, gradients, logo, progress-bar colors, 2.5-second minimum duration, readiness checks, session guard, and exit fade.
 - AFV504: rebuilds the shared footer profile artwork as a dedicated transparent-image component. Keeps the 52px mobile / 72px desktop layout slot fixed while independently centering larger artwork so decorative playing cards can extend beyond the circular frame; removes superseded footer profile clipping overrides, refreshes four shared-footer page cache keys, and preserves Stories navigation and the separate Privacy footer.
 - AFV502: fixes header profile artwork clipping by rendering the transparent logo PNG directly as the header brand image, preserving responsive dimensions; consolidates redundant clipping overrides and refreshes shared header asset/stylesheet cache tokens.

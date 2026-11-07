@@ -154,8 +154,8 @@ test('AFV508 keeps release metadata aligned with startup cache-busting tokens', 
   assert.equal(pkg.version, '508.0.0');
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
-  assert.match(html, /loading-screen\\.css\\?v=AFV508/);
-  assert.match(html, /loading-screen\\.js\\?v=AFV508/);
+  assert.match(html, /loading-screen\.css\?v=AFV508/);
+  assert.match(html, /loading-screen\.js\?v=AFV508/);
 });
 
 test('AFV508 preserves desktop and consolidated mobile Startup Screen dimensions', () => {
