@@ -37,7 +37,7 @@ test('AFV502 preserves loading dimensions, refresh guard, readiness, and exit li
   assert.match(css, /@media \(max-width:\s*480px\)[\s\S]*?\.boot-window\s*\{\s*width:\s*100%/);
   assert.match(css, /html\.arisu-loading-first-run,[\s\S]*?html\.arisu-loading-active\s*\{\s*overscroll-behavior-y:\s*none/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV510/);
-  assert.match(html, /loading-screen\.css\?v=AFV510&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
+  assert.match(html, /loading-screen\.css\?v=AFV511&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3/);
   assert.match(html, /loading-screen\.js\?v=AFV510&failsafe=15s&duration=2500&exitfade=440/);
   assert.match(js, /await waitForLoad\(\)/);
   assert.match(js, /async function countProgress\(\)/);
@@ -151,10 +151,10 @@ test('AFV510 keeps release metadata aligned with startup cache-busting tokens', 
   const html = read('index.html');
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '510.0.0');
+  assert.equal(pkg.version, '511.0.0');
   assert.equal(lock.version, pkg.version);
   assert.equal(lock.packages[''].version, pkg.version);
-  assert.match(html, /loading-screen\.css\?v=AFV510/);
+  assert.match(html, /loading-screen\.css\?v=AFV511/);
   assert.match(html, /loading-screen\.js\?v=AFV510/);
 });
 

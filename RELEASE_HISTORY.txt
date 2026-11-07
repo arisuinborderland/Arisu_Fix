@@ -1,3 +1,9 @@
+AFV511 — Remove Obsolete Loading Overlay Compositor Hint
+
+- Remove the obsolete overlay will-change hint after confirming the overlay no longer animates opacity or backdrop-filter.
+- Preserve the loading-screen appearance, startup lifecycle, fail-open recovery, and responsive behavior.
+- Synchronize package and README release metadata to AFV511.
+
 AFV510 — Add Startup First-Paint Fail-Open Recovery
 
 - Add a bounded 15-second watchdog that restores homepage visibility if the deferred loading script fails to execute.

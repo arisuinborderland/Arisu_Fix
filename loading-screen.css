@@ -114,10 +114,6 @@
 
 
 
-/* AFV378 — Smooth overlay entrance and gentle card settle; preserve quick fade-out. */
-#arisu-loading-screen {
-  will-change: opacity, backdrop-filter;
-}
 
 /* AFV426 — Instant loading-screen entrance; retain the existing exit fade. */
 #arisu-loading-screen.is-ready {
