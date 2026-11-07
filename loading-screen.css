@@ -275,33 +275,16 @@ html.arisu-loading-active {
 }
 
 
-/* AFV505 — Refined circular completion marks for row and overall startup status. */
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 3px 9px 3px 5px; border: 1px solid rgba(34, 156, 82, .12);
-  border-radius: 999px; background: linear-gradient(180deg, #e0fbe9 0%, #c8f3d7 100%);
-  color: #176b36; font-weight: 800;
-}
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status::before,
-#arisu-loading-screen .boot-progress-complete::before {
-  content: "✓"; display: inline-grid; place-items: center; flex: 0 0 16px;
-  width: 16px; height: 16px; border-radius: 50%;
-  background: linear-gradient(145deg, #35d979 0%, #0d9e4b 100%);
-  color: #fff; font: 900 11px/1 Arial, sans-serif;
-  text-shadow: 0 1px 1px rgba(0, 70, 28, .25);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .55), 0 1px 2px rgba(13, 115, 55, .2);
-}
 #arisu-loading-screen .boot-progress-row { align-items: center; flex-wrap: wrap; column-gap: 9px; row-gap: 6px; }
 #arisu-loading-screen .boot-progress-label { margin-right: auto; }
 #arisu-loading-screen .boot-progress-complete {
-  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 5px;
+  display: inline-flex; align-items: center; gap: 0; padding: 4px 10px;
   border: 1px solid rgba(34, 156, 82, .14); border-radius: 999px;
   background: linear-gradient(180deg, #e0fbe9 0%, #c8f3d7 100%);
   color: #176b36; font: 800 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   white-space: nowrap;
 }
 #arisu-loading-screen .boot-progress-complete[hidden] { display: none; }
-#arisu-loading-screen .boot-progress-complete::before { width: 17px; height: 17px; flex-basis: 17px; font-size: 12px; }
 #arisu-loading-screen .boot-progress-value { font-size: 16px; font-weight: 900; }
 @media (max-width: 360px) {
   #arisu-loading-screen .boot-progress-row { column-gap: 6px; }
@@ -349,13 +332,6 @@ html.arisu-loading-active {
   stroke-linejoin: round;
 }
 #arisu-loading-screen .boot-log li[data-state="ok"] .boot-status::before,
-#arisu-loading-screen .boot-progress-complete::before {
-  width: 17px;
-  height: 17px;
-  flex-basis: 17px;
-  font-size: 11px;
-  box-shadow: none;
-}
 #arisu-loading-screen .boot-progress-track {
   position: relative;
   width: 94%;
@@ -423,33 +399,11 @@ html.arisu-loading-active {
   justify-content: center;
   gap: 0;
   padding: 3px 11px;
-  border-color: rgba(34, 156, 82, .14);
+  border: 1px solid rgba(34, 156, 82, .14);
   border-radius: 999px;
   background: #d5f3df;
   color: #176b36;
-}
-#arisu-loading-screen .boot-log li[data-state="ok"] .boot-status::before {
-  content: "" !important;
-  display: none !important;
-  width: 0 !important;
-  flex: 0 0 0 !important;
-  margin: 0 !important;
+  font-weight: 800;
 }
 
 
-/* AFV505 final badge cleanup — COMPLETE is text-only, matching the plain DONE labels. */
-#arisu-loading-screen .boot-progress-complete {
-  gap: 0 !important;
-  padding-left: 10px !important;
-}
-#arisu-loading-screen .boot-progress-complete::before {
-  content: "" !important;
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  flex: 0 0 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: none !important;
-  box-shadow: none !important;
-}

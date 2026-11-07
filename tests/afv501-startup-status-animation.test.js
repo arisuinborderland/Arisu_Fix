@@ -97,18 +97,16 @@ test('AFV505 refinement removes the progress-bar check and tones down oversized 
 });
 
 
-test('AFV505 DONE badges are plain green labels without a check icon', () => {
+test('AFV505 DONE badges are plain green labels without generated icons', () => {
   const css = read('loading-screen.css');
-  assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before\s*\{[\s\S]*?display:\s*none !important/);
   assert.match(css, /\.boot-log li\[data-state="ok"\] \.boot-status\s*\{[\s\S]*?background:\s*#d5f3df/);
+  assert.doesNotMatch(css, /\.boot-log li\[data-state="ok"\] \.boot-status::before/);
 });
 
-
-test('AFV505 COMPLETE badge is text-only with no check pseudo-element or icon spacing', () => {
+test('AFV505 COMPLETE badge is text-only without pseudo-element icon styling', () => {
   const css = read('loading-screen.css');
-  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?content:\s*"" !important[\s\S]*?display:\s*none !important/);
-  assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0 !important[\s\S]*?padding-left:\s*10px !important/);
-  assert.match(css, /\.boot-progress-complete::before\s*\{[\s\S]*?display:\s*none !important/);
+  assert.match(css, /\.boot-progress-complete\s*\{[\s\S]*?gap:\s*0;[\s\S]*?padding:\s*4px 10px/);
+  assert.doesNotMatch(css, /\.boot-progress-complete::before/);
 });
 
 
