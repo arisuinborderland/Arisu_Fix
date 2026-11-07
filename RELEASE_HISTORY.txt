@@ -1,6 +1,6 @@
 AFV518 — Desktop COMPLETE Badge Visibility Fix
 
-- Give the desktop COMPLETE badge a browser paint frame before the existing exit fade; do not add a fixed time-based completion delay.
+- Give the desktop COMPLETE badge a guaranteed first paint opportunity before arming the bounded exit fallback and scheduling the existing exit fade; do not add a fixed completion hold.
 - Preserve the 2.5-second minimum startup duration, 440ms exit fade, mobile exit scheduling, and approved loading-screen layout and styles.
 - Refresh only the loading-screen.js cache token; loading-screen.css and the first-paint guard remain on AFV514.
 - Add focused regression coverage for the desktop paint-frame boundary and synchronized release metadata.

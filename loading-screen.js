@@ -234,11 +234,12 @@
     }
 
     if (typeof window.requestAnimationFrame === "function") {
-      exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
       try {
         if (isDesktopViewport) {
           window.requestAnimationFrame(() => {
             if (exitStarted || !overlay.isConnected) return;
+            // Arm recovery only after the first frame has had a chance to paint COMPLETE.
+            exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
             try {
               window.requestAnimationFrame(beginExit);
             } catch (error) {
@@ -246,6 +247,7 @@
             }
           });
         } else {
+          exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
           window.requestAnimationFrame(beginExit);
         }
       } catch (error) {

@@ -19,15 +19,21 @@ test('AFV518 gives desktop COMPLETE one paint frame before the existing exit fad
 
   const completeShown = js.indexOf('progressComplete.hidden = false;');
   const desktopPaintGate = js.indexOf('if (isDesktopViewport) {');
-  const nestedPaintFrame = js.indexOf('window.requestAnimationFrame(beginExit);', desktopPaintGate);
+  const firstPaintCallback = js.indexOf('window.requestAnimationFrame(() => {', desktopPaintGate);
+  const fallbackArmed = js.indexOf('exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);', firstPaintCallback);
+  const nestedPaintFrame = js.indexOf('window.requestAnimationFrame(beginExit);', fallbackArmed);
   const desktopBlockEnd = js.indexOf('} else {', desktopPaintGate);
-  const mobileFrame = js.indexOf('window.requestAnimationFrame(beginExit);', desktopBlockEnd);
+  const mobileFallback = js.indexOf('exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);', desktopBlockEnd);
+  const mobileFrame = js.indexOf('window.requestAnimationFrame(beginExit);', mobileFallback);
 
   assert.ok(completeShown >= 0, 'the success badge must be revealed after all startup checks');
   assert.ok(desktopPaintGate > completeShown, 'desktop paint scheduling must follow COMPLETE becoming visible');
-  assert.ok(nestedPaintFrame > desktopPaintGate && nestedPaintFrame < desktopBlockEnd,
+  assert.ok(firstPaintCallback > desktopPaintGate && firstPaintCallback < fallbackArmed,
+    'desktop must wait for the first completion-paint frame before arming exit recovery');
+  assert.ok(fallbackArmed > firstPaintCallback && fallbackArmed < nestedPaintFrame && nestedPaintFrame < desktopBlockEnd,
     'desktop exit must be scheduled from the next animation frame after the first paint opportunity');
-  assert.ok(mobileFrame > desktopBlockEnd, 'mobile must keep its original single-frame exit scheduling');
+  assert.ok(mobileFallback > desktopBlockEnd && mobileFrame > mobileFallback,
+    'mobile must keep its original bounded single-frame exit scheduling');
 
   assert.match(html, /loading-screen\.js\?v=AFV518[^"']*desktoppaint=1/);
   assert.match(html, /loading-screen\.css\?v=AFV514/);
