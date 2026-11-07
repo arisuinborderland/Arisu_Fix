@@ -9795,7 +9795,7 @@ body.home-page .contact-intro-copy p{margin:0 !important;max-width:none !importa
   }
   html body.home-page #contact #serviceStatus .service-status-detail + .service-status-detail {
     border-left: 1px solid #dce7ff !important;
-    border-top: 0 !important;
+    border-top: 1px solid #dce7ff !important;
   }
   html body.home-page #contact #serviceStatus .service-status-detail-icon {
     width: 32px !important;
