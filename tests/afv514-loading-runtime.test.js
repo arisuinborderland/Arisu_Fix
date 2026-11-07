@@ -26,7 +26,7 @@ function createElement() {
   };
 }
 
-function createHarness({ stylesLoaded = true, storageThrows = false, missingWaiting = false, raf = 'run' } = {}) {
+function createHarness({ stylesLoaded = true, stylesThrows = false, storageThrows = false, missingWaiting = false, raf = 'run' } = {}) {
   const rootClasses = new Set(['arisu-loading-first-run']);
   const rootElement = {
     classList: {
@@ -108,6 +108,7 @@ function createHarness({ stylesLoaded = true, storageThrows = false, missingWait
     documentElement: rootElement,
     readyState: 'complete',
     querySelectorAll() {
+      if (stylesThrows) throw new Error('stylesheet inspection failed');
       return [{ disabled: false, sheet: stylesLoaded ? {} : null }];
     },
     getElementById(id) { return id === 'arisu-loading-screen' ? overlay : null; }
@@ -119,6 +120,9 @@ function createHarness({ stylesLoaded = true, storageThrows = false, missingWait
 
 test('AFV514 completes only after all required checks pass and removes the overlay after the exit fade', async () => {
   const h = createHarness();
+  assert.equal(h.waiting.hidden, false);
+  assert.equal(h.complete.hidden, true);
+  assert.notEqual(h.progress.style.width, '100%');
   await new Promise(resolve => setTimeout(resolve, 0));
   assert.equal(h.rows.get('dom').dataset.state, 'ok');
   assert.equal(h.rows.get('styles').dataset.state, 'ok');
@@ -145,12 +149,16 @@ test('AFV514 fails open on a failed stylesheet check without showing COMPLETE or
   assert.equal(h.rootClasses.has('arisu-loading-first-run'), false);
 });
 
-test('AFV514 fails open when session storage is unavailable or required status markup is missing', async () => {
+test('AFV514 fails open when checks throw, storage is unavailable, or required status markup is missing', async () => {
+  const checkFailure = createHarness({ stylesThrows: true });
   const storageFailure = createHarness({ storageThrows: true });
   const markupFailure = createHarness({ missingWaiting: true });
   await new Promise(resolve => setTimeout(resolve, 0));
+  assert.equal(checkFailure.overlay.isConnected, false);
   assert.equal(storageFailure.overlay.isConnected, false);
   assert.equal(markupFailure.overlay.isConnected, false);
+  assert.equal(checkFailure.complete.hidden, true);
+  assert.equal(checkFailure.stored.writes, 0);
   assert.equal(storageFailure.stored.writes, 0);
   assert.equal(markupFailure.stored.writes, 0);
 });
@@ -162,4 +170,15 @@ test('AFV514 has a timer fallback if requestAnimationFrame does not deliver the 
   assert.equal(h.stored.value, '1');
   assert.equal(h.overlay.isConnected, false);
   assert.equal(h.rootClasses.has('arisu-loading-first-run'), false);
+});
+
+test('AFV514 limits live announcements to the changing startup statuses', () => {
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'loading-screen.css'), 'utf8');
+  assert.match(html, /id="arisu-loading-screen" role="region" aria-label="Loading Arisu Fix homepage"/);
+  assert.doesNotMatch(html, /id="arisu-loading-screen" role="status"/);
+  assert.match(html, /class="boot-log" aria-live="polite"/);
+  assert.match(html, /class="boot-progress-waiting" role="status" aria-live="polite"/);
+  assert.doesNotMatch(css, /\.boot-log li\[data-state="pending"\]\s*\{/);
+  assert.doesNotMatch(css, /\.boot-log li\[data-state="running"\]\s*\{\s*animation:/);
 });
