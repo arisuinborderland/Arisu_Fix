@@ -1,3 +1,10 @@
+AFV518 — Desktop COMPLETE Badge Visibility Fix
+
+- Snapshot parser-declared page stylesheets before deferred enhancements run, so the dynamically injected More-menu stylesheet cannot race the required startup styles check and trigger a false fail-open on desktop.
+- Preserve success-gated WAITING/COMPLETE behavior, the 2.5-second minimum startup duration, 440ms exit fade, mobile exit scheduling, and approved loading-screen visuals; add no fixed completion hold.
+- Refresh only the loading-screen.js cache token; loading-screen.css and the first-paint guard remain on AFV514.
+- Add runtime regression coverage for the delayed optional stylesheet race and static checks for desktop scheduling and synchronized release metadata.
+
 AFV517 — Remove Retired Proof Status CSS
 
 - Remove the obsolete proof-status component rules from styles.css after verifying that the current proof-card renderer no longer creates those elements.

@@ -68,23 +68,24 @@ test('AFV517 refreshes only the affected stylesheet cache keys', () => {
 
   // Loading-screen assets remain on their independently validated release.
   assert.match(read('index.html'), /loading-screen\.css\?v=AFV514/);
-  assert.match(read('index.html'), /loading-screen\.js\?v=AFV514/);
+  assert.match(read('index.html'), /loading-screen\.js\?v=AFV518/);
 });
 
-test('AFV517 package, README, and release history metadata are synchronized', () => {
+test('AFV517 historical cleanup remains documented under AFV518 release metadata', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
   const readme = read('README.txt');
   const history = read('RELEASE_HISTORY.txt');
 
-  assert.equal(pkg.version, '517.0.0');
-  assert.equal(lock.version, '517.0.0');
-  assert.equal(lock.packages[''].version, '517.0.0');
+  assert.equal(pkg.version, '518.0.0');
+  assert.equal(lock.version, '518.0.0');
+  assert.equal(lock.packages[''].version, '518.0.0');
 
-  assert.match(readme, /^Version: AFV517$/m);
-  assert.match(readme, /^Current release: AFV517$/m);
-  assert.match(readme, /^Package version: 517\.0\.0$/m);
+  assert.match(readme, /^Version: AFV518$/m);
+  assert.match(readme, /^Current release: AFV518$/m);
+  assert.match(readme, /^Package version: 518\.0\.0$/m);
   assert.match(readme, /AFV517: removes the retired proof-status CSS component/);
 
-  assert.ok(history.startsWith('AFV517 — Remove Retired Proof Status CSS'));
+  assert.ok(history.startsWith('AFV518 — Desktop COMPLETE Badge Visibility Fix'));
+  assert.ok(history.includes('AFV517 — Remove Retired Proof Status CSS'));
 });

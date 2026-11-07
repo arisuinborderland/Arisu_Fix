@@ -1,14 +1,15 @@
 ARISU FIX — PROJECT README
-Version: AFV517
+Version: AFV518
 Updated: 2026-11-07
 
-Current release: AFV517
-Package version: 517.0.0
+Current release: AFV518
+Package version: 518.0.0
 Production hosting: Cloudflare Pages
 Production site: https://arisufix.pages.dev
 Source repository: https://github.com/arisuinborderland/Arisu_Fix
 
 RELEASE NOTES
+- AFV518: fixes a desktop startup readiness race by snapshotting parser-declared page stylesheets before deferred enhancements inject optional CSS; prevents a late More-menu stylesheet from falsely failing the success gate. Preserves WAITING/COMPLETE gating, the 2.5-second minimum, 440ms fade, mobile scheduling, and approved visuals without a fixed completion hold.
 - AFV517: removes the retired proof-status CSS component and its orphaned Proofs stylesheet override; preserves active proof-card styling and responsive padding, with focused regression coverage.
 - AFV514: audits the loading lifecycle, improves screen-reader announcement boundaries, removes redundant loading-state CSS, hardens load-wait cancellation, and adds a bounded exit-frame fallback with runtime regression coverage while preserving approved visuals and timing.
 - AFV513: shows a neutral WAITING badge while startup progress is pending and reveals COMPLETE only after every required startup check succeeds; failed checks fail open without writing the completed-session flag.

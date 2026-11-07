@@ -1,5 +1,5 @@
 "use strict";
-/* AFV514 — Audited session-guarded loader with bounded exit recovery. */
+/* AFV518 — Snapshot initial page styles to avoid races with deferred optional CSS. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -9,16 +9,24 @@
   const failOpenTimer = window.__arisuLoadingFailOpenTimer;
   const controller = new AbortController();
   const { signal } = controller;
+  const initialPageStylesheets = (() => {
+    try {
+      return Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+    } catch (error) {
+      return null;
+    }
+  })();
   const rows = [
     { key: "dom", message: "Initializing homepage", check: () => document.readyState !== "loading" },
     {
       key: "styles",
       message: "Verifying page styles",
-      check: () => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
-        .filter(link => !link.disabled)
-        .every(link => {
-          try { return !!link.sheet; } catch { return false; }
-        })
+      check: () => Array.isArray(initialPageStylesheets)
+        && initialPageStylesheets
+          .filter(link => !link.disabled)
+          .every(link => {
+            try { return !!link.sheet; } catch { return false; }
+          })
     },
     { key: "final", message: "Finalizing interface...", check: () => document.readyState === "complete" }
   ];
@@ -36,6 +44,8 @@
 
   const MIN_STARTUP_DURATION = 2500;
   const EXIT_FADE_DURATION = 440;
+  const isDesktopViewport = typeof window.matchMedia === "function"
+    && window.matchMedia("(min-width: 481px)").matches;
   const EXIT_FRAME_FALLBACK_DELAY = 120;
   const STATUS_CHECK_DELAY = 550;
   const STATUS_ROW_GAP = 180;
@@ -232,9 +242,22 @@
     }
 
     if (typeof window.requestAnimationFrame === "function") {
-      exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
       try {
-        window.requestAnimationFrame(beginExit);
+        if (isDesktopViewport) {
+          window.requestAnimationFrame(() => {
+            if (exitStarted || !overlay.isConnected) return;
+            // Arm recovery only after the first frame has had a chance to paint COMPLETE.
+            exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
+            try {
+              window.requestAnimationFrame(beginExit);
+            } catch (error) {
+              beginExit();
+            }
+          });
+        } else {
+          exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
+          window.requestAnimationFrame(beginExit);
+        }
       } catch (error) {
         beginExit();
       }
