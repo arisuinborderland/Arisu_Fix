@@ -85,3 +85,16 @@ test('AFV505 applies SYSTEM CHECK branding and places the live percentage inside
   assert.match(css, /\.boot-progress-fill\s*\{[\s\S]*?width:\s*0/);
   assert.match(css, /\.boot-progress-value\.is-complete \.boot-progress-check\s*\{\s*display:\s*inline-grid/);
 });
+
+
+test('AFV505 refinement removes the progress-bar check and tones down oversized gradient treatments', () => {
+  const html = read('index.html');
+  const js = read('loading-screen.js');
+  const css = read('loading-screen.css');
+  assert.doesNotMatch(html, /boot-progress-check/);
+  assert.doesNotMatch(js, /progressCheck|is-complete/);
+  assert.match(css, /\.boot-subtitle\s*\{[\s\S]*?border-radius:\s*7px[\s\S]*?box-shadow:\s*none/);
+  assert.match(css, /\.boot-section\s*\{[\s\S]*?padding:\s*6px 10px[\s\S]*?box-shadow:\s*none/);
+  assert.match(css, /\.boot-progress-track\s*\{[\s\S]*?width:\s*94%[\s\S]*?height:\s*21px/);
+  assert.match(css, /\.boot-progress-fill\s*\{[\s\S]*?box-shadow:\s*none[\s\S]*?animation:\s*none/);
+});
