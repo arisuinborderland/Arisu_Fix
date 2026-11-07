@@ -6,46 +6,53 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('AFV491 keeps the loading overlay in the homepage document with external assets', () => {
+test('AFV510 keeps the first-paint guard external and installs a bounded fail-open timer', () => {
   const html = read('index.html');
   assert.ok(html.includes('id="arisu-loading-screen"'));
-  assert.ok(html.includes('loading-first-paint-guard.js?v=AFV491'));
-  assert.ok(!html.includes('id="loading-screen-first-paint-guard"'));
-  assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV491') < html.indexOf('loading-screen-critical-guard'));
-  assert.ok(!html.includes('loading-first-paint-guard.js?v=AFV491" defer'));
-  assert.ok(html.includes('loading-screen-critical-guard'));
-  assert.ok(html.includes('loading-screen.css?v=AFV508'));
-  assert.ok(html.includes('loading-screen.js?v=AFV508'));
-  assert.ok(!html.includes('sessionStorage.getItem(sessionKey)'));
+  assert.ok(html.includes('loading-first-paint-guard.js?v=AFV510'));
+  assert.ok(html.indexOf('loading-first-paint-guard.js?v=AFV510') < html.indexOf('loading-screen-critical-guard'));
+  assert.ok(html.includes('loading-screen.css?v=AFV510'));
+  assert.ok(html.includes('loading-screen.js?v=AFV510'));
   const guard = read('loading-first-paint-guard.js');
-  assert.ok(guard.includes('sessionStorage.getItem(sessionKey)'));
   assert.ok(guard.includes('arisu-loading-first-run'));
+  assert.ok(guard.includes('window.setTimeout(failOpen, 15000)'));
+  assert.ok(guard.includes('arisu-loading-active'));
   assert.ok(read('_headers').includes("script-src 'self'"));
   assert.ok(!read('_headers').includes("script-src 'self' 'unsafe-inline'"));
   assert.ok(!html.includes('window.location.replace("/home")'));
   assert.ok(!fs.existsSync(path.join(root, 'loading.html')));
 });
 
-test('AFV491 root is served directly and no standalone splash redirect remains', () => {
+test('AFV510 loading script fails open for storage errors, missing required markup, and rejected startup sequence', () => {
+  const js = read('loading-screen.js');
+  assert.ok(js.includes('const failOpen = () =>'));
+  assert.ok(js.includes('catch (error)'));
+  assert.ok(js.includes('requiredRowsReady'));
+  assert.ok(js.includes('runSequence().catch(failOpen)'));
+  assert.ok(js.includes('arisu-loading-first-run'));
+  assert.ok(js.includes('arisu-loading-active'));
+  assert.ok(js.includes('sessionStorage.setItem(sessionKey, "1")'));
+  assert.ok(!js.includes('window.location.replace'));
+  assert.ok(read('loading-screen.css').includes('#arisu-loading-screen.is-ready'));
+});
+
+test('AFV510 preserves the approved startup duration and exit fade', () => {
+  const js = read('loading-screen.js');
+  assert.ok(js.includes('const MIN_STARTUP_DURATION = 2500'));
+  assert.ok(js.includes('const EXIT_FADE_DURATION = 440'));
+});
+
+test('AFV510 root is served directly and no standalone splash redirect remains', () => {
   assert.equal(read('_redirects').trim(), '');
   const build = read('build.js');
   assert.ok(!build.includes('"loading.html"'));
   assert.ok(!build.includes('homepage.html'));
 });
 
-test('AFV491 loading script removes the same-document overlay after first session run', () => {
-  const js = read('loading-screen.js');
-  assert.ok(js.includes('overlay.remove()'));
-  assert.ok(js.includes('sessionStorage.getItem(sessionKey)'));
-  assert.ok(js.includes('sessionStorage.setItem(sessionKey, "1")'));
-  assert.ok(!js.includes('window.location.replace'));
-  assert.ok(read('loading-screen.css').includes('#arisu-loading-screen.is-ready'));
-});
-
-test('AFV491 release metadata stays synchronized', () => {
+test('AFV510 release metadata stays synchronized', () => {
   const pkg = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(pkg.version, '508.0.0');
-  assert.equal(lock.version, '508.0.0');
-  assert.equal(lock.packages[''].version, '508.0.0');
+  assert.equal(pkg.version, '510.0.0');
+  assert.equal(lock.version, '510.0.0');
+  assert.equal(lock.packages[''].version, '510.0.0');
 });
