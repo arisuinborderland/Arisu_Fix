@@ -8,23 +8,28 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 
-test('AFV518 keeps the COMPLETE badge visible on desktop before the exit fade', () => {
+test('AFV518 gives desktop COMPLETE one paint frame before the existing exit fade, with no fixed delay', () => {
   const html = read('index.html');
   const js = read('loading-screen.js');
 
-  assert.match(js, /const DESKTOP_COMPLETE_HOLD_DURATION = 1500/);
+  assert.match(js, /const isDesktopViewport = typeof window\.matchMedia === "function"/);
   assert.match(js, /window\.matchMedia\("\(min-width: 481px\)"\)\.matches/);
-  assert.match(js, /if \(showDesktopCompletion\) await wait\(DESKTOP_COMPLETE_HOLD_DURATION\)/);
+  assert.doesNotMatch(js, /DESKTOP_COMPLETE_HOLD_DURATION|showDesktopCompletion|completehold=1500/);
+  assert.doesNotMatch(js, /await wait\(\s*1500\s*\)/);
 
   const completeShown = js.indexOf('progressComplete.hidden = false;');
-  const holdApplied = js.indexOf('if (showDesktopCompletion) await wait(DESKTOP_COMPLETE_HOLD_DURATION);');
-  const exitStarted = js.indexOf('function beginExit()');
+  const desktopPaintGate = js.indexOf('if (isDesktopViewport) {');
+  const nestedPaintFrame = js.indexOf('window.requestAnimationFrame(beginExit);', desktopPaintGate);
+  const desktopBlockEnd = js.indexOf('} else {', desktopPaintGate);
+  const mobileFrame = js.indexOf('window.requestAnimationFrame(beginExit);', desktopBlockEnd);
 
   assert.ok(completeShown >= 0, 'the success badge must be revealed after all startup checks');
-  assert.ok(holdApplied > completeShown, 'the desktop hold must begin after COMPLETE is revealed');
-  assert.ok(exitStarted > holdApplied, 'the exit fade must not start until the desktop hold finishes');
+  assert.ok(desktopPaintGate > completeShown, 'desktop paint scheduling must follow COMPLETE becoming visible');
+  assert.ok(nestedPaintFrame > desktopPaintGate && nestedPaintFrame < desktopBlockEnd,
+    'desktop exit must be scheduled from the next animation frame after the first paint opportunity');
+  assert.ok(mobileFrame > desktopBlockEnd, 'mobile must keep its original single-frame exit scheduling');
 
-  assert.match(html, /loading-screen\.js\?v=AFV518[^"']*completehold=1500&desktop=481/);
+  assert.match(html, /loading-screen\.js\?v=AFV518[^"']*desktoppaint=1/);
   assert.match(html, /loading-screen\.css\?v=AFV514/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV514/);
 });

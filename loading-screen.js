@@ -1,5 +1,5 @@
 "use strict";
-/* AFV518 — Desktop completion-badge visibility hold with preserved startup safeguards. */
+/* AFV518 — Desktop completion badge gets a paint frame before the existing exit fade. */
 (() => {
   const overlay = document.getElementById("arisu-loading-screen");
   if (!overlay) return;
@@ -36,8 +36,7 @@
 
   const MIN_STARTUP_DURATION = 2500;
   const EXIT_FADE_DURATION = 440;
-  const DESKTOP_COMPLETE_HOLD_DURATION = 1500;
-  const showDesktopCompletion = typeof window.matchMedia === "function"
+  const isDesktopViewport = typeof window.matchMedia === "function"
     && window.matchMedia("(min-width: 481px)").matches;
   const EXIT_FRAME_FALLBACK_DELAY = 120;
   const STATUS_CHECK_DELAY = 550;
@@ -214,7 +213,6 @@
     finished = true;
     if (window.__arisuLoadingFailOpen === failOpen) window.__arisuLoadingFailOpen = null;
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue without persistence. */ }
-    if (showDesktopCompletion) await wait(DESKTOP_COMPLETE_HOLD_DURATION);
 
     function beginExit() {
       if (exitStarted) return;
@@ -238,7 +236,18 @@
     if (typeof window.requestAnimationFrame === "function") {
       exitFrameFallbackTimer = window.setTimeout(beginExit, EXIT_FRAME_FALLBACK_DELAY);
       try {
-        window.requestAnimationFrame(beginExit);
+        if (isDesktopViewport) {
+          window.requestAnimationFrame(() => {
+            if (exitStarted || !overlay.isConnected) return;
+            try {
+              window.requestAnimationFrame(beginExit);
+            } catch (error) {
+              beginExit();
+            }
+          });
+        } else {
+          window.requestAnimationFrame(beginExit);
+        }
       } catch (error) {
         beginExit();
       }

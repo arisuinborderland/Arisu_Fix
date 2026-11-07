@@ -1,9 +1,9 @@
 AFV518 — Desktop COMPLETE Badge Visibility Fix
 
-- Restore a dedicated 1.5-second hold after every required startup check succeeds so desktop users can read the COMPLETE badge before the existing exit fade.
-- Preserve the 2.5-second minimum startup duration, 440ms exit fade, mobile timing, and approved loading-screen layout and styles.
+- Give the desktop COMPLETE badge a browser paint frame before the existing exit fade; do not add a fixed time-based completion delay.
+- Preserve the 2.5-second minimum startup duration, 440ms exit fade, mobile exit scheduling, and approved loading-screen layout and styles.
 - Refresh only the loading-screen.js cache token; loading-screen.css and the first-paint guard remain on AFV514.
-- Add focused regression coverage for desktop-only completion visibility and release metadata.
+- Add focused regression coverage for the desktop paint-frame boundary and synchronized release metadata.
 
 AFV517 — Remove Retired Proof Status CSS
 
