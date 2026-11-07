@@ -41,5 +41,5 @@ test('AFV513 release metadata is synchronized', () => {
   assert.equal(lock.version, '513.0.0');
   assert.equal(lock.packages[''].version, '513.0.0');
   assert.ok(readme.includes('Current release: AFV513'));
-  assert.ok(history.includes('AFV513 — Full Loading Screen CSS, JavaScript, and Markup Cleanup'));
+  assert.ok(history.includes('AFV513 — Loading Screen WAITING and Success-Gated Completion'));
 });
