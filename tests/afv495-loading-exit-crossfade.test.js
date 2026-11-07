@@ -32,7 +32,7 @@ test('AFV499 refreshes the loading stylesheet cache token and preserves startup 
   const html = read('index.html');
   const js = read('loading-screen.js');
   assert.match(html, /loading-screen\.css\?v=AFV510&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1/);
-  assert.match(html, /loading-screen\.js\?v=AFV510&sessionguard=4&statusrows=visible1&duration=2500&statusdone=1&minimalstatus=1&completionbadge=1/);
+  assert.match(html, /loading-screen\.js\?v=AFV510&failsafe=15s&duration=2500&exitfade=440/);
   assert.match(html, /loading-first-paint-guard\.js\?v=AFV510/);
   assert.match(js, /overlay\.remove\(\)/);
   assert.match(js, /const MIN_STARTUP_DURATION = 2500/);
