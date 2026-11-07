@@ -1,3 +1,12 @@
+AFV505 — Improve Loading Screen Readability and Completion Badges
+
+- Improve contrast and hierarchy for loading-screen labels without changing the established background or gradient palette.
+- Keep RECOVERY CONTACT & ASSISTANCE on one complete line beside the Arisu Fix title.
+- Replace 200 OK with DONE badges featuring a refined circular green check icon and white checkmark.
+- Add a matching COMPLETE badge beside the overall progress percentage only after all real readiness checks finish.
+- Remove redundant completion text below the progress bar; preserve the 2.5-second minimum duration, session guard, readiness checks, and exit fade.
+- Refresh only the loading-screen CSS/JS cache tokens and update focused regression tests.
+
 AFV504 — Rebuild Footer Profile Artwork Without Cropping
 
 - Replace the old footer profile image element with a dedicated artwork wrapper and transparent image layer.

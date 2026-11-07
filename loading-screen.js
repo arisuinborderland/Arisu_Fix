@@ -41,8 +41,9 @@
 
   const progress = overlay.querySelector(".boot-progress-fill");
   const progressText = overlay.querySelector(".boot-progress-value");
+  const progressPercent = overlay.querySelector(".boot-progress-percent");
+  const progressComplete = overlay.querySelector(".boot-progress-complete");
   const track = overlay.querySelector(".boot-progress-track");
-  const footnote = overlay.querySelector(".boot-footnote");
   let finished = false;
   let progressValue = 0;
 
@@ -60,15 +61,19 @@
     if (!element) return;
     element.dataset.state = ok ? "ok" : "error";
     element.querySelector(".boot-mark").textContent = ok ? ">" : "!";
-    element.querySelector(".boot-status").textContent = ok ? "200 OK" : "CHECK";
+    element.querySelector(".boot-status").textContent = ok ? "DONE" : "CHECK";
     if (detail) element.querySelector(".boot-message").textContent = detail;
   }
 
   function setProgress(value) {
     progressValue = value;
     progress.style.width = value + "%";
-    progressText.textContent = value + "%";
-    if (track) track.setAttribute("aria-valuenow", String(value));
+    progressPercent.textContent = value + "%";
+    progressText.classList.toggle("is-filled", value >= 50);
+    if (track) {
+      track.setAttribute("aria-valuenow", String(value));
+      track.setAttribute("aria-valuetext", value === 100 ? "100% complete" : value + "%");
+    }
   }
 
   async function countProgress() {
@@ -107,14 +112,10 @@
     const remainingBeforeFade = Math.max(0, MIN_STARTUP_DURATION - EXIT_FADE_DURATION - (Date.now() - startupStartedAt));
     if (remainingBeforeFade > 0) await wait(remainingBeforeFade);
     setProgress(100);
+    if (progressComplete) progressComplete.hidden = false;
     finished = true;
     // Persist completion only after all loading checks have finished.
     try { window.sessionStorage.setItem(sessionKey, "1"); } catch (error) { /* Continue if storage becomes unavailable. */ }
-
-    footnote.textContent = rows.every(row => {
-      const element = overlay.querySelector('[data-check="' + row.key + '"]');
-      return element && element.dataset.state === "ok";
-    }) ? "Initialization complete · opening homepage" : "Homepage ready with a resource warning";
 
     window.requestAnimationFrame(() => {
       overlay.classList.add("is-ready");

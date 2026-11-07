@@ -32,12 +32,13 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" as="image" href="/verse-lake-photo.webp?v=AFV358" fetchpriority="high">
+ <link rel="preload" as="image" href="/assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV460" fetchpriority="high">
  <title>Arisu Fix | Recovery Contact &amp; Assistance</title>
 <!-- Decide session visibility before any render-blocking stylesheet can delay first paint. -->
   <script src="loading-first-paint-guard.js?v=AFV491"></script>
   <style id="loading-screen-critical-guard">html.arisu-loading-first-run body>:not(#arisu-loading-screen){display:none!important}html.arisu-loading-first-run #arisu-loading-screen{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:22px;background:#f3f5f9;color:#25314a;opacity:1;visibility:visible;pointer-events:auto;animation:none!important}</style>
-  <link rel="stylesheet" href="loading-screen.css?v=AFV499&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1">
-  <script src="loading-screen.js?v=AFV499&sessionguard=4&statusrows=visible1&duration=2500" defer></script>
+  <link rel="stylesheet" href="loading-screen.css?v=AFV505&sessionguard=1&firstpaint=10&pullrefresh=1&statusrows=visible1&readability=1&completionbadge=1&doneplain=3">
+  <script src="loading-screen.js?v=AFV505&sessionguard=4&statusrows=visible1&duration=2500&statusdone=1&minimalstatus=1&completionbadge=1" defer></script>
    <link rel="stylesheet" href="styles.css?v=AFV502&desktoplayout=1&contactintro=6&dailyversecleanup=2&whatsappicon=official&mobileicons=41&servicestatus=2col&headerart=full2">
  <link rel="stylesheet" href="home-accordion.css?v=AFV459">
  <link rel="stylesheet" href="about-link.css?v=AFV424&homebtnpadding=1">
@@ -59,21 +60,20 @@
     <div class="boot-titlebar" aria-hidden="true"><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-label">ARISU FIX / SYSTEM STARTUP</span></div>
     <div class="boot-content">
       <div class="boot-brand-row">
-        <img class="boot-logo" src="assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV460" alt="Official Arisu Fix loading-screen logo" width="150" height="150">
+        <img class="boot-logo" src="assets/images/arisu-fix-alice-borderland-logo-transparent.png?v=AFV460" alt="Official Arisu Fix loading-screen logo" width="150" height="150" loading="eager" fetchpriority="high" decoding="sync">
         <div class="boot-brand-copy"><h1 class="boot-brand" id="arisuBootTitle">Arisu <span>Fix</span></h1>
         <p class="boot-subtitle">RECOVERY CONTACT &amp; ASSISTANCE</p></div>
       </div>
       <div class="boot-brand-divider" aria-hidden="true"></div>
-      <p class="boot-section">INITIALIZATION SEQUENCE</p>
+      <p class="boot-section"><svg class="boot-section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z"/><path d="M19.4 13.5a7.7 7.7 0 0 0 0-3l1.5-1.2-1.5-2.6-1.9.6a7.7 7.7 0 0 0-2.6-1.5L14.6 4h-3.1l-.3 1.8a7.7 7.7 0 0 0-2.6 1.5l-1.9-.6-1.5 2.6 1.5 1.2a7.7 7.7 0 0 0 0 3l-1.5 1.2 1.5 2.6 1.9-.6a7.7 7.7 0 0 0 2.6 1.5l.3 1.8h3.1l.3-1.8a7.7 7.7 0 0 0 2.6-1.5l1.9.6 1.5-2.6-1.5-1.2Z"/></svg><span>SYSTEM CHECK</span></p>
       <ul class="boot-log" aria-live="polite">
         <li data-check="dom"><span class="boot-mark">○</span><span class="boot-message">Initializing homepage</span><span class="boot-status">WAIT</span></li>
         <li data-check="styles"><span class="boot-mark">○</span><span class="boot-message">Verifying page styles</span><span class="boot-status">WAIT</span></li>
 
         <li data-check="final"><span class="boot-mark">○</span><span class="boot-message">Finalizing interface...</span><span class="boot-status">WAIT</span></li>
       </ul>
-      <div class="boot-progress-row"><span>STARTUP PROGRESS</span><span class="boot-progress-value">0%</span></div>
-      <div class="boot-progress-track" role="progressbar" aria-label="Homepage initialization progress" aria-valuemin="0" aria-valuemax="100"><div class="boot-progress-fill"></div></div>
-      <p class="boot-footnote">Waiting for actual page readiness…</p>
+      <div class="boot-progress-row"><span class="boot-progress-label">STARTUP PROGRESS</span><span class="boot-progress-complete" hidden>COMPLETE</span></div>
+      <div class="boot-progress-track" role="progressbar" aria-label="Homepage initialization progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0%"><div class="boot-progress-fill"></div><span class="boot-progress-value" aria-hidden="true"><span class="boot-progress-percent">0%</span></span></div>
     </div>
   </section>
 </div>
