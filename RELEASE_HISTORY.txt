@@ -1,3 +1,10 @@
+AFV510 — Add Startup First-Paint Fail-Open Recovery
+
+- Add a bounded 15-second watchdog that restores homepage visibility if the deferred loading script fails to execute.
+- Validate required loading-screen elements before beginning the startup sequence; fail open if required markup is incomplete.
+- Preserve the 2500ms minimum startup duration and 440ms exit fade.
+- Synchronize homepage loading asset cache tokens, package metadata, and README release metadata to AFV510.
+
 AFV508 — Consolidate Startup Screen CSS and Optimize Status Updates
 
 - Consolidate responsive rules at 480px and 360px while preserving approved dimensions.
