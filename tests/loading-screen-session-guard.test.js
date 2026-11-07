@@ -16,6 +16,8 @@ test('AFV512 keeps the first-paint guard external and installs a bounded fail-op
   const guard = read('loading-first-paint-guard.js');
   assert.ok(guard.includes('arisu-loading-first-run'));
   assert.ok(guard.includes('window.setTimeout(failOpen, 15000)'));
+  assert.ok(guard.includes('window.__arisuLoadingFailOpen'));
+  assert.ok(guard.includes('cancelLoader()'));
   assert.ok(guard.includes('arisu-loading-active'));
   assert.ok(read('_headers').includes("script-src 'self'"));
   assert.ok(!read('_headers').includes("script-src 'self' 'unsafe-inline'"));
@@ -27,6 +29,7 @@ test('AFV512 loading script fails open for storage errors, missing required mark
   const js = read('loading-screen.js');
   assert.ok(js.includes('function failOpen()'));
   assert.ok(js.includes('controller.abort()'));
+  assert.ok(js.includes('window.__arisuLoadingFailOpen = failOpen'));
   assert.ok(js.includes('catch (error)'));
   assert.ok(js.includes('requiredRowsReady'));
   assert.ok(js.includes('runSequence().catch(error =>'));
